@@ -1,0 +1,32 @@
+# OS/editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Dependency/build folders, in case the static app evolves later
+node_modules/
+dist/
+build/
+coverage/
+
+# Python/cache leftovers from local tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+

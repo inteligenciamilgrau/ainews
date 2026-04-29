@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timeline de LLMs</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">LLM release tracker</p>
+        <h1>Timeline dos principais LLMs</h1>
+        <p id="lastUpdated" class="last-updated">Carregando ultima atualizacao...</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="summary-grid" aria-label="Resumo">
+        <div class="metric">
+          <span id="metricModels">0</span>
+          <small>modelos filtrados</small>
+        </div>
+        <div class="metric">
+          <span id="metricCompanies">0</span>
+          <small>empresas</small>
+        </div>
+        <div class="metric">
+          <span id="metricYears">-</span>
+          <small>periodo</small>
+        </div>
+        <div class="metric">
+          <span id="metricSources">0</span>
+          <small>fontes oficiais</small>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Filtros">
+        <label>
+          <span>Busca</span>
+          <input id="searchInput" type="search" placeholder="modelo, familia, descricao">
+        </label>
+        <label>
+          <span>Empresa</span>
+          <select id="companyFilter"></select>
+        </label>
+        <label>
+          <span>Tipo</span>
+          <select id="typeFilter"></select>
+        </label>
+        <label>
+          <span>Familia</span>
+          <select id="familyFilter"></select>
+        </label>
+        <label>
+          <span>Ano</span>
+          <select id="yearFilter"></select>
+        </label>
+        <label>
+          <span>Ano inicial</span>
+          <select id="yearStartFilter"></select>
+        </label>
+        <label>
+          <span>Ano final</span>
+          <select id="yearEndFilter"></select>
+        </label>
+      </section>
+
+      <section class="view-row" aria-label="Modo de visualizacao">
+        <div class="segmented" role="tablist" aria-label="Views">
+          <button class="active" type="button" data-view="timeline">Timeline</button>
+          <button type="button" data-view="years">Ano a ano</button>
+          <button type="button" data-view="table">Tabela</button>
+          <button type="button" data-view="sources">Fontes</button>
+        </div>
+        <div class="segmented compact" role="group" aria-label="Agrupamento">
+          <button class="active" type="button" data-lane-mode="company">Por empresa</button>
+          <button type="button" data-lane-mode="all">Tudo junto</button>
+        </div>
+      </section>
+
+      <section id="timelineView" class="view active-view">
+        <div id="timelineScale" class="timeline-scale"></div>
+        <div id="timeline" class="timeline"></div>
+        <aside id="modelDetails" class="details-panel" aria-live="polite"></aside>
+      </section>
+
+      <section id="yearsView" class="view">
+        <div id="yearChart" class="year-chart"></div>
+      </section>
+
+      <section id="tableView" class="view">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Empresa</th>
+                <th>Modelo</th>
+                <th>Familia</th>
+                <th>Tipo</th>
+                <th>Descricao</th>
+                <th>Fonte</th>
+              </tr>
+            </thead>
+            <tbody id="modelsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="sourcesView" class="view">
+        <div id="sourcesList" class="sources-list"></div>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

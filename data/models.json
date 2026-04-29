@@ -1,0 +1,1869 @@
+{
+  "metadata": {
+    "updated_at": "2026-04-29",
+    "last_correction": {
+      "date": "2026-04-29",
+      "description_pt": "Adicionado Grok 4.3 Beta como entrada provisoria de baixa confianca; a xAI ainda nao publicou release note/model card oficial publico para essa versao."
+    },
+    "title": "Timeline oficial de lancamentos de LLMs",
+    "scope": "Modelos e familias citados no pedido: OpenAI GPT/o-series, Claude, Gemini/Bard, Meta Llama/Muse, Grok, Kimi, GLM, MiMo e DeepSeek. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
+    "date_policy": "release_date e a data publicada em fonte oficial do fornecedor. Quando o fornecedor separa anuncio, preview, disponibilidade em API e disponibilidade geral, o release_stage explicita essa diferenca. Registros podem usar source unico ou sources com multiplos links oficiais quando um item agrega variantes."
+  },
+  "models": [
+    {
+      "id": "openai-gpt-1",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-1",
+      "release_date": "2018-06-11",
+      "release_stage": "pesquisa",
+      "model_type": ["texto", "fundacao"],
+      "description_pt": "Primeiro GPT publico da OpenAI, combinando pre-treinamento generativo em Transformer com ajuste supervisionado para tarefas de linguagem.",
+      "source": {
+        "title": "Improving language understanding with unsupervised learning",
+        "url": "https://openai.com/blog/language-unsupervised/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 11 de junho de 2018."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-2-announcement",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-2",
+      "release_date": "2019-02-14",
+      "release_stage": "anuncio com release parcial",
+      "model_type": ["texto", "fundacao"],
+      "description_pt": "Modelo de linguagem de 1,5B parametros anunciado com estrategia de divulgacao em etapas por preocupacoes de uso indevido.",
+      "source": {
+        "title": "Better language models and their implications",
+        "url": "https://openai.com/blog/better-language-models/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 14 de fevereiro de 2019."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-2-1-5b",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-2 1.5B",
+      "release_date": "2019-11-05",
+      "release_stage": "pesos abertos",
+      "model_type": ["texto", "open-weights"],
+      "description_pt": "Release final da estrategia em etapas do GPT-2, liberando o maior checkpoint de 1,5B parametros com codigo e pesos.",
+      "source": {
+        "title": "GPT-2: 1.5B release",
+        "url": "https://openai.com/index/gpt-2-1-5b-release/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 5 de novembro de 2019."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-3-api",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-3",
+      "release_date": "2020-06-11",
+      "release_stage": "API beta",
+      "model_type": ["texto", "fundacao", "API"],
+      "description_pt": "Modelo de 175B parametros oferecido inicialmente pela OpenAI API, marco da popularizacao de few-shot prompting.",
+      "source": {
+        "title": "OpenAI API",
+        "url": "https://openai.com/blog/openai-api",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 11 de junho de 2020."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-instructgpt",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "InstructGPT",
+      "release_date": "2022-01-27",
+      "release_stage": "pesquisa/produto",
+      "model_type": ["texto", "alinhamento", "instrucao"],
+      "description_pt": "Modelos ajustados com feedback humano para seguir instrucoes, base conceitual direta para o comportamento do ChatGPT.",
+      "source": {
+        "title": "Aligning language models to follow instructions",
+        "url": "https://openai.com/index/instruction-following/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 27 de janeiro de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-chatgpt",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "ChatGPT",
+      "release_date": "2022-11-30",
+      "release_stage": "research preview",
+      "model_type": ["texto", "chat", "produto"],
+      "description_pt": "Interface conversacional baseada em modelos irmaos do InstructGPT, marco de adocao massiva de LLMs pelo publico.",
+      "source": {
+        "title": "Introducing ChatGPT",
+        "url": "https://openai.com/blog/chatgpt/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 30 de novembro de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-3-5-turbo",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-3.5 Turbo",
+      "release_date": "2023-03-01",
+      "release_stage": "API",
+      "model_type": ["texto", "chat", "API"],
+      "description_pt": "Modelo de chat usado no ChatGPT disponibilizado via API, com custo menor e endpoint de mensagens estruturadas.",
+      "source": {
+        "title": "Introducing APIs for GPT-3.5 Turbo and Whisper",
+        "url": "https://openai.com/index/introducing-chatgpt-and-whisper-apis/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial de 1 de marco de 2023; pagina posteriormente atualizada."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-4",
+      "release_date": "2023-03-14",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "multimodal", "fundacao"],
+      "description_pt": "Modelo multimodal de alta capacidade, inicialmente com entrada de imagem e texto e saida em texto, com forte desempenho em exames e benchmarks.",
+      "source": {
+        "title": "GPT-4",
+        "url": "https://openai.com/index/gpt-4-research/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 14 de marco de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4-turbo",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-4 Turbo",
+      "release_date": "2023-11-06",
+      "release_stage": "preview/API",
+      "model_type": ["texto", "multimodal", "API", "longo-contexto"],
+      "description_pt": "Atualizacao do GPT-4 com janela de contexto de 128K, custo menor e conhecimento mais recente para desenvolvedores.",
+      "source": {
+        "title": "New models and developer products announced at DevDay",
+        "url": "https://openai.com/blog/new-models-and-developer-products-announced-at-devday",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 6 de novembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4o",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-4o",
+      "release_date": "2024-05-13",
+      "release_stage": "lancamento",
+      "model_type": ["multimodal", "audio", "visao", "tempo-real"],
+      "description_pt": "Modelo omni para texto, audio e visao em tempo real, com inteligencia de nivel GPT-4 e menor latencia.",
+      "source": {
+        "title": "Hello GPT-4o",
+        "url": "https://openai.com/index/hello-gpt-4o/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 13 de maio de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4o-mini",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-4o mini",
+      "release_date": "2024-07-18",
+      "release_stage": "lancamento",
+      "model_type": ["multimodal", "baixo-custo"],
+      "description_pt": "Modelo pequeno e economico da serie 4o, substituindo GPT-3.5 em varios fluxos de baixo custo e alta escala.",
+      "source": {
+        "title": "GPT-4o mini: advancing cost-efficient intelligence",
+        "url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 18 de julho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-o1-preview",
+      "company": "OpenAI",
+      "family": "o-series",
+      "model": "OpenAI o1-preview / o1-mini",
+      "release_date": "2024-09-12",
+      "release_stage": "preview",
+      "model_type": ["raciocinio", "codigo", "matematica"],
+      "description_pt": "Primeira serie publica de modelos OpenAI treinados para gastar mais tempo raciocinando antes de responder.",
+      "source": {
+        "title": "Introducing OpenAI o1-preview",
+        "url": "https://openai.com/index/introducing-openai-o1-preview/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 12 de setembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-o1",
+      "company": "OpenAI",
+      "family": "o-series",
+      "model": "OpenAI o1 / o1 pro mode",
+      "release_date": "2024-12-05",
+      "release_stage": "produto",
+      "model_type": ["raciocinio", "codigo", "matematica"],
+      "description_pt": "Versao completa do o1, com modo pro de maior computacao para problemas dificeis, lancada junto ao ChatGPT Pro.",
+      "source": {
+        "title": "Introducing ChatGPT Pro",
+        "url": "https://openai.com/index/introducing-chatgpt-pro/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 5 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-o3-mini",
+      "company": "OpenAI",
+      "family": "o-series",
+      "model": "OpenAI o3-mini",
+      "release_date": "2025-01-31",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "codigo", "matematica", "baixo-custo"],
+      "description_pt": "Modelo de raciocinio pequeno e eficiente, otimizado para STEM e com recursos de desenvolvedor como function calling.",
+      "source": {
+        "title": "OpenAI o3-mini",
+        "url": "https://openai.com/research/openai-o3-mini/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 31 de janeiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4-5",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-4.5",
+      "release_date": "2025-02-27",
+      "release_stage": "research preview",
+      "model_type": ["texto", "fundacao", "chat"],
+      "description_pt": "Preview de modelo GPT maior e mais geral, focado em conhecimento amplo, escrita e menor taxa de alucinacao sem ser um modelo de raciocinio puro.",
+      "source": {
+        "title": "Introducing GPT-4.5",
+        "url": "https://openai.com/index/introducing-gpt-4-5/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 27 de fevereiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4-1",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-4.1 / mini / nano",
+      "release_date": "2025-04-14",
+      "release_stage": "API",
+      "model_type": ["texto", "codigo", "longo-contexto", "API"],
+      "description_pt": "Serie GPT com melhorias de codigo, instrucao e contexto de ate 1 milhao de tokens; inclui a primeira variante nano da OpenAI.",
+      "source": {
+        "title": "Introducing GPT-4.1 in the API",
+        "url": "https://openai.com/index/gpt-4-1/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 14 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-o3-o4-mini",
+      "company": "OpenAI",
+      "family": "o-series",
+      "model": "OpenAI o3 / o4-mini",
+      "release_date": "2025-04-16",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "agente", "multimodal", "ferramentas"],
+      "description_pt": "Modelos de raciocinio com uso integrado de ferramentas no ChatGPT, incluindo analise visual, web, Python e arquivos.",
+      "source": {
+        "title": "Introducing OpenAI o3 and o4-mini",
+        "url": "https://openai.com/index/introducing-o3-and-o4-mini/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 16 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5",
+      "release_date": "2025-08-07",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "raciocinio", "agente", "codigo"],
+      "description_pt": "Sistema unificado que combina respostas rapidas, raciocinio profundo e roteamento de modo conforme a complexidade da tarefa.",
+      "source": {
+        "title": "GPT-5 and the new era of work",
+        "url": "https://openai.com/index/gpt-5-new-era-of-work/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 7 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-1",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.1",
+      "release_date": "2025-11-12",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "raciocinio", "chat"],
+      "description_pt": "Atualizacao da serie GPT-5 com variantes Instant e Thinking, melhorando conversa, instrucao e adaptacao de tempo de raciocinio.",
+      "source": {
+        "title": "GPT-5.1: A smarter, more conversational ChatGPT",
+        "url": "https://openai.com/index/gpt-5-1/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 12 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-2",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.2",
+      "release_date": "2025-12-11",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "agente", "codigo", "trabalho"],
+      "description_pt": "Serie GPT-5.2 voltada a trabalho profissional, agentes de longa duracao, codigo, planilhas, documentos e contexto longo.",
+      "source": {
+        "title": "Introducing GPT-5.2",
+        "url": "https://openai.com/index/introducing-gpt-5-2",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 11 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-3-codex",
+      "company": "OpenAI",
+      "family": "GPT/Codex",
+      "model": "GPT-5.3-Codex",
+      "release_date": "2026-02-05",
+      "release_stage": "lancamento",
+      "model_type": ["codigo", "agente", "computador"],
+      "description_pt": "Modelo Codex para trabalho agentico em software e tarefas profissionais no computador, combinando avanços do GPT-5.2-Codex e GPT-5.2.",
+      "source": {
+        "title": "Introducing GPT-5.3-Codex",
+        "url": "https://openai.com/index/introducing-gpt-5-3-codex",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 5 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-3-instant",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.3 Instant",
+      "release_date": "2026-03-03",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "chat", "produto"],
+      "description_pt": "Atualizacao do modelo mais usado no ChatGPT, focada em conversa cotidiana, respostas mais uteis e busca web mais contextualizada.",
+      "source": {
+        "title": "GPT-5.3 Instant: Smoother, more useful everyday conversations",
+        "url": "https://openai.com/index/gpt-5-3-instant/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 3 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-4",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.4",
+      "release_date": "2026-03-05",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "computador", "agente", "codigo"],
+      "description_pt": "Modelo frontier para trabalho profissional, com uso nativo de computador, codigo, ferramentas e tarefas de conhecimento.",
+      "source": {
+        "title": "Introducing GPT-5.4",
+        "url": "https://openai.com/index/introducing-gpt-5-4/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 5 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-4-mini-nano",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.4 mini / nano",
+      "release_date": "2026-03-17",
+      "release_stage": "lancamento",
+      "model_type": ["baixo-custo", "codigo", "subagente"],
+      "description_pt": "Variantes menores e rapidas do GPT-5.4 para alto volume, subagentes, classificacao, extracao e fluxos de codigo responsivos.",
+      "source": {
+        "title": "Introducing GPT-5.4 mini and nano",
+        "url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 17 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-5",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.5",
+      "release_date": "2026-04-23",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "agente", "codigo", "computador"],
+      "description_pt": "Modelo mais recente da OpenAI no recorte desta base, focado em trabalho real, tarefas longas, uso de ferramentas e desenvolvimento agentico.",
+      "source": {
+        "title": "Introducing GPT-5.5",
+        "url": "https://openai.com/index/introducing-gpt-5-5/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 23 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude / Claude Instant",
+      "release_date": "2023-03-14",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "chat", "API"],
+      "description_pt": "Primeira oferta publica ampla da Anthropic, com Claude e Claude Instant para chat e API, enfatizando utilidade, honestidade e seguranca.",
+      "source": {
+        "title": "Introducing Claude",
+        "url": "https://www.anthropic.com/news/introducing-claude",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 14 de marco de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-2",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude 2",
+      "release_date": "2023-07-11",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "chat", "longo-contexto"],
+      "description_pt": "Novo modelo Claude com melhorias em codificacao, matematica e contexto de 100K tokens, disponivel em API e claude.ai beta.",
+      "source": {
+        "title": "Claude 2",
+        "url": "https://www.anthropic.com/news/claude-2",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 11 de julho de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-2-1",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude 2.1",
+      "release_date": "2023-11-21",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "longo-contexto", "ferramentas"],
+      "description_pt": "Atualizacao empresarial com janela de 200K tokens, reducao de alucinacoes, system prompts e beta de tool use.",
+      "source": {
+        "title": "Introducing Claude 2.1",
+        "url": "https://www.anthropic.com/index/claude-2-1",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 21 de novembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-3-family",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude 3 Opus / Sonnet / Haiku",
+      "release_date": "2024-03-04",
+      "release_stage": "lancamento familia",
+      "model_type": ["multimodal", "texto", "visao"],
+      "description_pt": "Familia Claude 3 com Opus, Sonnet e Haiku, introduzindo forte desempenho multimodal e diferentes pontos de custo/velocidade.",
+      "source": {
+        "title": "Introducing the next generation of Claude",
+        "url": "https://www.anthropic.com/news/claude-3-family",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 4 de marco de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-3-haiku",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude 3 Haiku",
+      "release_date": "2024-03-13",
+      "release_stage": "disponibilidade",
+      "model_type": ["multimodal", "baixo-custo", "rapido"],
+      "description_pt": "Modelo mais rapido e economico da familia Claude 3, liberado depois de Sonnet e Opus para API e claude.ai Pro.",
+      "source": {
+        "title": "Claude 3 Haiku: our fastest model yet",
+        "url": "https://www.anthropic.com/news/claude-3-haiku",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 13 de marco de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-3-5-sonnet",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude 3.5 Sonnet",
+      "release_date": "2024-06-21",
+      "release_stage": "lancamento",
+      "model_type": ["multimodal", "codigo", "visao"],
+      "description_pt": "Primeiro modelo Claude 3.5, elevando desempenho de codigo, visao e escrita com velocidade/custo de modelo intermediario.",
+      "source": {
+        "title": "Claude 3.5 Sonnet",
+        "url": "https://www.anthropic.com/research/claude-3-5-sonnet",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 21 de junho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-3-5-haiku-sonnet-v2",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude 3.5 Haiku / Claude 3.5 Sonnet novo",
+      "release_date": "2024-10-22",
+      "release_stage": "lancamento",
+      "model_type": ["codigo", "baixo-custo", "computador"],
+      "description_pt": "Lancamento do Haiku 3.5 e upgrade do Sonnet 3.5, junto ao beta publico de computer use via API.",
+      "source": {
+        "title": "Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku",
+        "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 22 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-3-7-sonnet",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude 3.7 Sonnet",
+      "release_date": "2025-02-24",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "codigo", "hibrido"],
+      "description_pt": "Modelo hibrido que permite respostas instantaneas ou pensamento estendido, lancado junto ao Claude Code preview.",
+      "source": {
+        "title": "Claude 3.7 Sonnet and Claude Code",
+        "url": "https://www.anthropic.com/research/claude-3-7-sonnet",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 24 de fevereiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-4",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Opus 4 / Sonnet 4",
+      "release_date": "2025-05-22",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "codigo", "agente"],
+      "description_pt": "Nova geracao Claude com Opus 4 e Sonnet 4, voltada a codigo, raciocinio avancado, agentes e thinking com ferramentas.",
+      "source": {
+        "title": "Introducing Claude 4",
+        "url": "https://www.anthropic.com/news/claude-4",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 22 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-opus-4-1",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Opus 4.1",
+      "release_date": "2025-08-05",
+      "release_stage": "lancamento",
+      "model_type": ["codigo", "agente", "raciocinio"],
+      "description_pt": "Upgrade do Opus 4 com ganhos em tarefas agenticas, codificacao real e rastreamento de detalhes.",
+      "source": {
+        "title": "Claude Opus 4.1",
+        "url": "https://www.anthropic.com/news/claude-opus-4-1",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 5 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-sonnet-4-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Sonnet 4.5",
+      "release_date": "2025-09-29",
+      "release_stage": "lancamento",
+      "model_type": ["codigo", "agente", "computador"],
+      "description_pt": "Modelo Sonnet 4.5 para agentes, codigo e uso de computador, com fortes ganhos em tarefas longas e engenharia de software.",
+      "source": {
+        "title": "Introducing Claude Sonnet 4.5",
+        "url": "https://www.anthropic.com/news/claude-sonnet-4-5",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 29 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-haiku-4-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Haiku 4.5",
+      "release_date": "2025-10-15",
+      "release_stage": "lancamento",
+      "model_type": ["baixo-custo", "codigo", "rapido"],
+      "description_pt": "Modelo pequeno Haiku 4.5 com desempenho proximo ao frontier em codigo e computer use, priorizando custo e velocidade.",
+      "source": {
+        "title": "Introducing Claude Haiku 4.5",
+        "url": "https://www.anthropic.com/news/claude-haiku-4-5",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 15 de outubro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-opus-4-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Opus 4.5",
+      "release_date": "2025-11-24",
+      "release_stage": "lancamento",
+      "model_type": ["codigo", "agente", "computador", "trabalho"],
+      "description_pt": "Modelo Opus 4.5 para codigo, agentes e uso de computador, com melhorias em pesquisa profunda, slides e planilhas.",
+      "source": {
+        "title": "Introducing Claude Opus 4.5",
+        "url": "https://www.anthropic.com/news/claude-opus-4-5",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 24 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-opus-4-6",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Opus 4.6",
+      "release_date": "2026-02-05",
+      "release_stage": "lancamento",
+      "model_type": ["codigo", "agente", "longo-contexto"],
+      "description_pt": "Upgrade do modelo Opus com melhor planejamento, codigo, depuracao e contexto beta de 1M tokens.",
+      "source": {
+        "title": "Introducing Claude Opus 4.6",
+        "url": "https://www.anthropic.com/news/claude-opus-4-6",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 5 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-sonnet-4-6",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "release_date": "2026-02-17",
+      "release_stage": "lancamento",
+      "model_type": ["codigo", "computador", "longo-contexto", "agente"],
+      "description_pt": "Sonnet com atualizacao ampla em codigo, uso de computador, planejamento de agentes, conhecimento e contexto beta de 1M tokens.",
+      "source": {
+        "title": "Introducing Claude Sonnet 4.6",
+        "url": "https://www.anthropic.com/research/claude-sonnet-4-6",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 17 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-mythos-preview",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Mythos Preview",
+      "release_date": "2026-04-07",
+      "release_stage": "preview limitado",
+      "model_type": ["seguranca", "codigo", "agente"],
+      "description_pt": "Modelo frontier restrito anunciado no Project Glasswing para defesa de software critico, com capacidades fortes de ciberseguranca.",
+      "source": {
+        "title": "Project Glasswing",
+        "url": "https://www.anthropic.com/project/glasswing",
+        "publisher": "Anthropic",
+        "date_basis": "Anuncio oficial publicado em 7 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-opus-4-7",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Opus 4.7",
+      "release_date": "2026-04-16",
+      "release_stage": "GA",
+      "model_type": ["codigo", "agente", "visao", "trabalho"],
+      "description_pt": "Modelo Opus geralmente disponivel com melhorias em engenharia de software avancada, visao de maior resolucao e tarefas multi-etapa.",
+      "source": {
+        "title": "Introducing Claude Opus 4.7",
+        "url": "https://www.anthropic.com/news/claude-opus-4-7",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 16 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-bard-public",
+      "company": "Google",
+      "family": "Bard/Gemini",
+      "model": "Bard",
+      "release_date": "2023-03-21",
+      "release_stage": "acesso publico inicial",
+      "model_type": ["chat", "produto"],
+      "description_pt": "Experimento publico inicial do Google para colaboracao com IA generativa, antecessor da marca Gemini.",
+      "source": {
+        "title": "Try Bard and share your feedback",
+        "url": "https://blog.google/innovation-and-ai/products/try-bard/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 21 de marco de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-palm-2",
+      "company": "Google",
+      "family": "PaLM/Gemini",
+      "model": "PaLM 2",
+      "release_date": "2023-05-10",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "codigo", "multilingue"],
+      "description_pt": "Modelo de linguagem avancado do Google para raciocinio, codigo e multilinguismo, usado em produtos como Bard e Workspace.",
+      "source": {
+        "title": "Introducing PaLM 2",
+        "url": "https://blog.google/technology/ai/google-palm-2-ai-large-language-model/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 10 de maio de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-1",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 1.0 Ultra / Pro / Nano",
+      "release_date": "2023-12-06",
+      "release_stage": "lancamento familia",
+      "model_type": ["multimodal", "fundacao", "produto"],
+      "description_pt": "Primeira familia Gemini, multimodal desde a base, com tamanhos Ultra, Pro e Nano para datacenters e dispositivos.",
+      "source": {
+        "title": "Introducing Gemini: our largest and most capable AI model",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 6 de dezembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-1-5-pro",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 1.5 Pro",
+      "release_date": "2024-02-15",
+      "release_stage": "preview limitado",
+      "model_type": ["multimodal", "longo-contexto"],
+      "description_pt": "Modelo Gemini 1.5 com salto em contexto longo, incluindo preview de 1 milhao de tokens para desenvolvedores e clientes Cloud.",
+      "source": {
+        "title": "Our next-generation model: Gemini 1.5",
+        "url": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 15 de fevereiro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-1-5-flash",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 1.5 Flash",
+      "release_date": "2024-05-14",
+      "release_stage": "lancamento",
+      "model_type": ["multimodal", "baixo-custo", "rapido"],
+      "description_pt": "Modelo leve da familia 1.5, projetado para baixa latencia e custo menor mantendo contexto longo e capacidades multimodais.",
+      "source": {
+        "title": "Gemini breaks new ground with a faster model, longer context, AI agents and more",
+        "url": "https://blog.google/innovation-and-ai/products/google-gemini-update-flash-ai-assistant-io-2024/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 14 de maio de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-2",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 2.0 Flash Experimental",
+      "release_date": "2024-12-11",
+      "release_stage": "experimental",
+      "model_type": ["multimodal", "agente", "ferramentas"],
+      "description_pt": "Primeiro modelo Gemini 2.0, com saida multimodal nativa, uso de ferramentas e foco na era agentica.",
+      "source": {
+        "title": "Introducing Gemini 2.0: our new AI model for the agentic era",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 11 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-2-5-pro",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 2.5 Pro Experimental",
+      "release_date": "2025-03-25",
+      "release_stage": "experimental",
+      "model_type": ["raciocinio", "multimodal", "codigo"],
+      "description_pt": "Primeiro modelo Gemini 2.5, com raciocinio integrado, forte desempenho em codigo, matematica, ciencia e contexto de 1M tokens.",
+      "source": {
+        "title": "Gemini 2.5: Our most intelligent AI model",
+        "url": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/",
+        "publisher": "Google DeepMind",
+        "date_basis": "Post oficial publicado em 25 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-2-5-io",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 2.5 Pro / 2.5 Flash updates",
+      "release_date": "2025-05-20",
+      "release_stage": "I/O update",
+      "model_type": ["raciocinio", "audio", "agente", "API"],
+      "description_pt": "Atualizacoes de I/O 2025 para Gemini 2.5, incluindo melhorias no Flash, audio nativo, computer use e thought summaries.",
+      "source": {
+        "title": "Gemini 2.5: Our most intelligent models are getting even better",
+        "url": "https://blog.google/technology/google-deepmind/google-gemini-updates-io-2025/",
+        "publisher": "Google DeepMind",
+        "date_basis": "Post oficial publicado em 20 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-2-5-ga",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 2.5 Pro / Flash GA + Flash-Lite",
+      "release_date": "2025-06-17",
+      "release_stage": "GA e preview",
+      "model_type": ["raciocinio", "baixo-custo", "API"],
+      "description_pt": "Gemini 2.5 Pro e Flash passam a estaveis/GA, com introducao do Flash-Lite como modelo 2.5 mais rapido e economico.",
+      "source": {
+        "title": "We are expanding our Gemini 2.5 family of models",
+        "url": "https://blog.google/products/gemini/gemini-2-5-model-family-expands",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 17 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-2-5-deep-think",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 2.5 Deep Think",
+      "release_date": "2025-08-01",
+      "release_stage": "produto/pesquisa",
+      "model_type": ["raciocinio", "matematica", "codigo"],
+      "description_pt": "Modo de raciocinio paralelo para problemas complexos, disponibilizado a assinantes Google AI Ultra e a matematicos selecionados.",
+      "source": {
+        "title": "Try Deep Think in the Gemini app",
+        "url": "https://blog.google/products/gemini/gemini-2-5-deep-think",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 1 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-2-5-computer-use",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 2.5 Computer Use",
+      "release_date": "2025-10-07",
+      "release_stage": "API preview",
+      "model_type": ["computador", "agente", "visao"],
+      "description_pt": "Modelo especializado baseado no Gemini 2.5 Pro para agentes que interagem com interfaces de usuario.",
+      "source": {
+        "title": "Introducing the Gemini 2.5 Computer Use model",
+        "url": "https://blog.google/technology/google-deepmind/gemini-computer-use-model/",
+        "publisher": "Google DeepMind",
+        "date_basis": "Post oficial publicado em 7 de outubro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3",
+      "release_date": "2025-11-18",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "multimodal", "codigo", "produto"],
+      "description_pt": "Nova geracao Gemini com foco em inteligencia geral, raciocinio, multimodalidade, construcao e planejamento.",
+      "source": {
+        "title": "A new era of intelligence with Gemini 3",
+        "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 18 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-pro-vision",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3 Pro vision capabilities",
+      "release_date": "2025-12-05",
+      "release_stage": "developer update",
+      "model_type": ["visao", "multimodal", "documentos", "video"],
+      "description_pt": "Atualizacao destacando Gemini 3 Pro como modelo multimodal para documentos, espaciais, telas e video.",
+      "source": {
+        "title": "Gemini 3 Pro: the frontier of vision AI",
+        "url": "https://blog.google/technology/developers/gemini-3-pro-vision/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 5 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-1-pro",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.1 Pro",
+      "release_date": "2026-02-19",
+      "release_stage": "preview",
+      "model_type": ["raciocinio", "agente", "produto", "API"],
+      "description_pt": "Upgrade de inteligencia core da serie Gemini 3, com rollout para API, Vertex AI, Gemini app, NotebookLM e ferramentas de desenvolvimento.",
+      "source": {
+        "title": "Gemini 3.1 Pro: A smarter model for your most complex tasks",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 19 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-llama-1",
+      "company": "Meta",
+      "family": "Llama",
+      "model": "LLaMA",
+      "release_date": "2023-02-24",
+      "release_stage": "research release",
+      "model_type": ["texto", "foundation", "pesquisa", "pesos sob solicitacao"],
+      "description_pt": "Primeira familia LLaMA da Meta, com modelos de 7B, 13B, 33B e 65B parametros, lancada para a comunidade de pesquisa sob acesso controlado e foco em modelos menores e eficientes.",
+      "source": {
+        "title": "Introducing LLaMA: A foundational, 65-billion-parameter large language model",
+        "url": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
+        "publisher": "Meta AI",
+        "date_basis": "Anuncio oficial da Meta publicado em 24 de fevereiro de 2023 para o release de pesquisa do LLaMA."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-llama-2",
+      "company": "Meta",
+      "family": "Llama",
+      "model": "Llama 2 / Llama 2 Chat",
+      "release_date": "2023-07-18",
+      "release_stage": "open weights/comercial",
+      "model_type": ["texto", "chat", "open-weights", "comercial"],
+      "description_pt": "Segunda geracao da familia Llama, com modelos de 7B, 13B e 70B, incluindo versoes Chat, liberada para pesquisa e uso comercial com pesos e codigo inicial.",
+      "source": {
+        "title": "Meta and Microsoft Introduce the Next Generation of Llama",
+        "url": "https://about.fb.com/news/2023/07/llama-2/amp/",
+        "publisher": "Meta",
+        "date_basis": "Newsroom oficial da Meta registra o anuncio de disponibilidade do Llama 2 em 18 de julho de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-code-llama",
+      "company": "Meta",
+      "family": "Llama",
+      "model": "Code Llama",
+      "release_date": "2023-08-24",
+      "release_stage": "open weights",
+      "model_type": ["codigo", "open-weights", "programacao"],
+      "description_pt": "Modelo da Meta derivado do Llama 2 e especializado em geracao, explicacao, completions e depuracao de codigo, com variantes base, Python e Instruct.",
+      "source": {
+        "title": "Introducing Code Llama, a state-of-the-art large language model for coding",
+        "url": "https://ai.meta.com/blog/code-llama-large-language-model-coding/",
+        "publisher": "Meta AI",
+        "date_basis": "Anuncio oficial de Code Llama em 24 de agosto de 2023; o paper oficial Code Llama tambem foi publicado nessa data."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-llama-3",
+      "company": "Meta",
+      "family": "Llama",
+      "model": "Meta Llama 3",
+      "release_date": "2024-04-18",
+      "release_stage": "open weights",
+      "model_type": ["texto", "codigo", "open-weights", "chat"],
+      "description_pt": "Terceira geracao da familia Llama, inicialmente com modelos 8B e 70B pretreinados e instruction-tuned, usada tambem para impulsionar o Meta AI.",
+      "source": {
+        "title": "Meta-Llama-3-70B-Instruct model card",
+        "url": "https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct",
+        "publisher": "Meta",
+        "date_basis": "Model card oficial da Meta registra Meta Llama 3 Version Release Date: April 18, 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-llama-3-1",
+      "company": "Meta",
+      "family": "Llama",
+      "model": "Llama 3.1",
+      "release_date": "2024-07-23",
+      "release_stage": "open weights",
+      "model_type": ["texto", "codigo", "multilingue", "open-weights", "longo-contexto"],
+      "description_pt": "Atualizacao Llama 3.1 com modelos 8B, 70B e 405B, suporte oficial a oito idiomas, contexto de 128K e forte foco em sintese de dados, destilacao e uso aberto.",
+      "source": {
+        "title": "Llama-3.1-405B-Instruct model card",
+        "url": "https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct",
+        "publisher": "Meta",
+        "date_basis": "Model card oficial da Meta registra Llama 3.1 Version Release Date: July 23, 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-llama-3-2",
+      "company": "Meta",
+      "family": "Llama",
+      "model": "Llama 3.2",
+      "release_date": "2024-09-25",
+      "release_stage": "open weights",
+      "model_type": ["multimodal", "visao", "texto", "open-weights", "edge"],
+      "description_pt": "Geracao Llama 3.2 com modelos de visao 11B e 90B e modelos leves 1B e 3B para dispositivos edge/mobile, mantendo contexto de 128K.",
+      "source": {
+        "title": "Llama-3.2-90B-Vision-Instruct model card",
+        "url": "https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct",
+        "publisher": "Meta",
+        "date_basis": "Model card oficial da Meta registra Llama 3.2 Version Release Date: September 25, 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-llama-3-3",
+      "company": "Meta",
+      "family": "Llama",
+      "model": "Llama 3.3 70B Instruct",
+      "release_date": "2024-12-06",
+      "release_stage": "open weights",
+      "model_type": ["texto", "chat", "multilingue", "open-weights", "eficiencia"],
+      "description_pt": "Modelo Llama 3.3 70B instruction-tuned, voltado a entregar desempenho proximo ao Llama 3.1 405B com custo e requisitos de inferencia menores.",
+      "source": {
+        "title": "Llama-3.3-70B-Instruct model card",
+        "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+        "publisher": "Meta",
+        "date_basis": "Model card oficial da Meta registra Llama 3.3 Version Release Date: December 6, 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-llama-4",
+      "company": "Meta",
+      "family": "Llama",
+      "model": "Llama 4 Scout / Maverick",
+      "release_date": "2025-04-05",
+      "release_stage": "open weights",
+      "model_type": ["multimodal", "visao", "MoE", "open-weights", "longo-contexto"],
+      "description_pt": "Primeira geracao Llama nativamente multimodal e baseada em Mixture-of-Experts, com Llama 4 Scout e Llama 4 Maverick. Scout oferece 17B parametros ativos, 109B totais e contexto de 10M; Maverick oferece 17B ativos, 400B totais e foco em imagem, texto e codigo.",
+      "source": {
+        "title": "Llama-4-Scout-17B-16E-Instruct model card",
+        "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "publisher": "Meta",
+        "date_basis": "Model card oficial da Meta registra Llama 4 Version Effective Date e Model Release Date em 5 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-muse-spark",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Spark",
+      "release_date": "2026-04-08",
+      "release_stage": "produto/private preview API",
+      "model_type": ["raciocinio", "multimodal", "agente", "produto", "proprietario"],
+      "description_pt": "Primeiro modelo da serie Muse, criado pelo Meta Superintelligence Labs para Meta AI. A Meta descreve o Muse Spark como seu modelo mais poderoso ate entao, com raciocinio complexo, percepcao multimodal, uso de subagentes paralelos e rollout para Meta AI app, meta.ai, WhatsApp, Instagram, Facebook, Messenger e oculos com IA.",
+      "source": {
+        "title": "Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People",
+        "url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+        "publisher": "Meta",
+        "date_basis": "Newsroom oficial da Meta registra o anuncio do Muse Spark em 8 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-1",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok / Grok-1",
+      "release_date": "2023-11-03",
+      "release_stage": "beta inicial",
+      "model_type": ["texto", "chat", "produto"],
+      "description_pt": "Primeiro Grok, com acesso a informacoes em tempo real via X e tom mais irreverente que outros assistentes.",
+      "source": {
+        "title": "Announcing Grok",
+        "url": "https://x.ai/news/grok",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 3 de novembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-1-open",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok-1 open release",
+      "release_date": "2024-03-17",
+      "release_stage": "pesos abertos",
+      "model_type": ["texto", "open-weights", "MoE"],
+      "description_pt": "Release aberto dos pesos e arquitetura do Grok-1, modelo MoE de 314B parametros treinado pela xAI.",
+      "source": {
+        "title": "Open Release of Grok-1",
+        "url": "https://x.ai/blog/grok-os",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 17 de marco de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-1-5",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok-1.5",
+      "release_date": "2024-03-28",
+      "release_stage": "anuncio/rollout",
+      "model_type": ["texto", "raciocinio", "longo-contexto"],
+      "description_pt": "Modelo com raciocinio melhorado e janela de contexto de 128K tokens, anunciado para early testers e usuarios Grok.",
+      "source": {
+        "title": "Announcing Grok-1.5",
+        "url": "https://x.ai/news/grok-1.5",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 28 de marco de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-1-5v",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok-1.5V",
+      "release_date": "2024-04-12",
+      "release_stage": "preview",
+      "model_type": ["multimodal", "visao", "documentos"],
+      "description_pt": "Primeiro modelo multimodal da xAI, capaz de processar documentos, diagramas, graficos, screenshots e fotos.",
+      "source": {
+        "title": "Grok-1.5 Vision Preview",
+        "url": "https://x.ai/blog/grok-1.5v",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 12 de abril de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-2",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok-2 / Grok-2 mini",
+      "release_date": "2024-08-13",
+      "release_stage": "beta",
+      "model_type": ["texto", "visao", "codigo", "raciocinio"],
+      "description_pt": "Preview do Grok-2 e Grok-2 mini com fortes ganhos em chat, codigo, raciocinio e benchmarks multimodais.",
+      "source": {
+        "title": "Grok-2 Beta Release",
+        "url": "https://x.ai/news/grok-2",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 13 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-api-public-beta",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "grok-beta API",
+      "release_date": "2024-11-04",
+      "release_stage": "API public beta",
+      "model_type": ["API", "texto", "multimodal"],
+      "description_pt": "Primeira beta publica da API xAI, dando acesso programatico aos modelos Grok e a um modelo preview com 128K tokens.",
+      "source": {
+        "title": "API Public Beta",
+        "url": "https://x.ai/news/api/",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 4 de novembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-2-refresh",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok-2 refreshed",
+      "release_date": "2024-12-12",
+      "release_stage": "rollout geral",
+      "model_type": ["chat", "produto", "multilingue"],
+      "description_pt": "Versao atualizada do Grok-2 mais rapida, precisa e multilíngue, liberada para todos os usuarios da plataforma X.",
+      "source": {
+        "title": "Bringing Grok to Everyone",
+        "url": "https://x.ai/news/grok-1212/",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 12 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-3",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok 3 / Grok 3 mini",
+      "release_date": "2025-02-19",
+      "release_stage": "beta",
+      "model_type": ["raciocinio", "agente", "codigo", "longo-contexto"],
+      "description_pt": "Grok 3 Beta com modelos Think, DeepSearch e janela de 1M tokens, treinado no supercluster Colossus.",
+      "source": {
+        "title": "Grok 3 Beta - The Age of Reasoning Agents",
+        "url": "https://x.ai/news/grok-3",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 19 de fevereiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-4",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok 4 / Grok 4 Heavy",
+      "release_date": "2025-07-09",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "agente", "ferramentas", "API"],
+      "description_pt": "Grok 4 com uso nativo de ferramentas, busca em tempo real e tier Grok 4 Heavy para maior capacidade.",
+      "source": {
+        "title": "Grok 4",
+        "url": "https://x.ai/news/grok-4",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 9 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-4-fast",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok 4 Fast",
+      "release_date": "2025-09-19",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "baixo-custo", "longo-contexto", "busca"],
+      "description_pt": "Modelo unificado de raciocinio e nao-raciocinio com foco em custo-eficiencia, busca web/X e contexto de 2M tokens.",
+      "source": {
+        "title": "Grok 4 Fast",
+        "url": "https://x.ai/news/grok-4-fast",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 19 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-4-1",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok 4.1",
+      "release_date": "2025-11-17",
+      "release_stage": "lancamento",
+      "model_type": ["chat", "raciocinio", "produto"],
+      "description_pt": "Modelo voltado a usabilidade real, interacoes criativas e colaborativas, com modos Thinking e nao-raciocinio.",
+      "source": {
+        "title": "Grok 4.1",
+        "url": "https://x.ai/news/grok-4-1",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 17 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-4-20",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok 4.20 / Grok 4.20 Multi-agent",
+      "release_date": "2026-03-10",
+      "release_stage": "API/live",
+      "model_type": ["raciocinio", "agente", "multi-agent", "longo-contexto", "API", "ferramentas"],
+      "description_pt": "Modelo flagship Grok 4.20 com variantes de raciocinio, nao-raciocinio e multi-agent. A documentacao oficial destaca contexto de 2M tokens, function calling, structured outputs, raciocinio, velocidade alta e tool calling agentico.",
+      "source": {
+        "title": "xAI Release Notes - Grok 4.20 and Grok 4.20 Multi-agent are live",
+        "url": "https://docs.x.ai/docs/release-notes",
+        "publisher": "xAI",
+        "date_basis": "Release notes oficiais da xAI registram em 10 de marco de 2026 que Grok 4.20 e Grok 4.20 Multi-agent estao live."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-4-3-beta",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok 4.3 Beta",
+      "release_date": "2026-04-17",
+      "release_stage": "beta/early access; sem release note oficial publica",
+      "model_type": ["raciocinio", "multimodal", "video", "produto", "longo-contexto"],
+      "description_pt": "Entrada provisoria para Grok 4.3 Beta. Fontes secundarias relatam que a opcao apareceu em 17 de abril de 2026 no seletor do Grok para usuarios de acesso antecipado, com foco em video nativo, geracao de documentos e contexto longo. A xAI ainda nao publicou uma release note ou model card oficial publico confirmando a versao, entao a confianca fica baixa ate haver fonte oficial.",
+      "sources": [
+        {
+          "title": "Grok.com",
+          "url": "https://grok.com/",
+          "publisher": "xAI",
+          "date_basis": "Produto oficial da xAI onde fontes secundarias relatam a presenca de Grok 4.3 Beta no seletor; a pagina publica nao fornece release note ou data em texto indexavel."
+        },
+        {
+          "title": "xAI Models and Pricing",
+          "url": "https://docs.x.ai/developers/models",
+          "publisher": "xAI",
+          "date_basis": "Documentacao oficial consultada em 29 de abril de 2026 ainda lista Grok 4.20 como modelo recomendado da API e nao confirma Grok 4.3."
+        },
+        {
+          "title": "Grok 4.3 Beta Is Live",
+          "url": "https://www.buildfastwithai.com/blogs/grok-4-3-beta-features-review",
+          "publisher": "BuildFastWithAI",
+          "date_basis": "Fonte secundaria relata que Grok 4.3 Beta ficou visivel em 17 de abril de 2026 no grok.com, iOS e Android, sem anuncio oficial da xAI."
+        }
+      ],
+      "confidence": "baixa"
+    },
+    {
+      "id": "moonshot-kimi-k2",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2",
+      "release_date": "2025-07-11",
+      "release_stage": "preview",
+      "model_type": ["codigo", "agente", "MoE", "API"],
+      "description_pt": "Modelo Kimi K2 para codigo e tarefas agenticas, disponibilizado como kimi-k2-0711-preview.",
+      "source": {
+        "title": "Kimi Open Platform: New Feature Release Log",
+        "url": "https://platform.moonshot.ai/blog/posts/changelog",
+        "publisher": "Moonshot AI",
+        "date_basis": "Changelog oficial registra release de kimi-k2-0711-preview em 11 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k2-turbo",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2 Turbo",
+      "release_date": "2025-08-01",
+      "release_stage": "preview",
+      "model_type": ["codigo", "agente", "rapido", "API"],
+      "description_pt": "Versao acelerada do Kimi K2 com maior velocidade de geracao para ferramentas de desenvolvimento e agentes.",
+      "source": {
+        "title": "Kimi Open Platform: New Feature Release Log",
+        "url": "https://platform.moonshot.ai/blog/posts/changelog",
+        "publisher": "Moonshot AI",
+        "date_basis": "Changelog oficial registra launch do kimi-k2-turbo-preview em 1 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k2-0905",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2 0905 Preview",
+      "release_date": "2025-09-05",
+      "release_stage": "preview",
+      "model_type": ["codigo", "agente", "longo-contexto"],
+      "description_pt": "Atualizacao K2 com contexto de 256K e melhorias de capacidade para codigo e agentes.",
+      "source": {
+        "title": "Using Kimi K2.5 Model in Programming Tools",
+        "url": "https://platform.moonshot.ai/docs/guide/agent-support.en-US",
+        "publisher": "Moonshot AI",
+        "date_basis": "Documentacao oficial registra latest release em 5 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k2-thinking",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2 Thinking",
+      "release_date": "2025-11-06",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "agente", "codigo", "ferramentas"],
+      "description_pt": "Modelos K2 Thinking e K2 Thinking Turbo para raciocinio complexo, instrucoes multi-etapa e tarefas agenticas com ferramentas.",
+      "source": {
+        "title": "Kimi Open Platform: New Feature Release Log",
+        "url": "https://platform.moonshot.ai/blog/posts/changelog",
+        "publisher": "Moonshot AI",
+        "date_basis": "Changelog oficial registra launch em 6 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k2-5",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2.5",
+      "release_date": "2026-01-27",
+      "release_stage": "lancamento",
+      "model_type": ["multimodal", "codigo", "agente", "longo-contexto"],
+      "description_pt": "Modelo multimodal MoE com 256K de contexto, fusao nativa de texto e visao e modo de colaboracao de clusters de agentes.",
+      "source": {
+        "title": "Using Kimi K2.5 Model in Programming Tools",
+        "url": "https://platform.moonshot.ai/docs/guide/agent-support.en-US",
+        "publisher": "Moonshot AI",
+        "date_basis": "Documentacao oficial registra latest release em 27 de janeiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k2-6",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2.6",
+      "release_date": "2026-04-20",
+      "release_stage": "lancamento/open-source",
+      "model_type": ["codigo", "agente", "multimodal", "MoE", "open-weights", "longo-contexto"],
+      "description_pt": "Modelo Kimi K2.6 da Moonshot AI, open-source/open-weights, com foco em codigo, execucao agentica de longo horizonte, uso de ferramentas e Agent Swarm. A ficha oficial indica arquitetura MoE, 1T parametros totais, 32B ativos e contexto de 256K.",
+      "source": {
+        "title": "K2.6 Agent Swarm [Beta]",
+        "url": "https://www.kimi.com/help/agent/agent-swarm",
+        "publisher": "Moonshot AI / Kimi",
+        "date_basis": "Help Center oficial da Kimi registra: em 20 de abril de 2026, a Moonshot AI released and open-sourced Kimi K2.6. O blog tecnico oficial Kimi K2.6: Advancing Open-Source Coding confirma disponibilidade via Kimi.com, Kimi App, API e Kimi Code."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "zai-chatglm-6b",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "ChatGLM-6B",
+      "release_date": "2023-03-14",
+      "release_stage": "open weights",
+      "model_type": ["texto", "chat", "open-weights", "bilingue"],
+      "description_pt": "Modelo conversacional bilingue chines/ingles de 6B parametros que popularizou a familia ChatGLM em open weights.",
+      "source": {
+        "title": "ChatGLM-6B",
+        "url": "https://github.com/THUDM/ChatGLM-6B",
+        "publisher": "THUDM",
+        "date_basis": "Repositorio oficial do projeto; data incluida como release inicial publico do projeto."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "zai-glm-4",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-4",
+      "release_date": "2024-01-16",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "multimodal", "API", "ferramentas"],
+      "description_pt": "Geracao GLM-4 da Zhipu/Z.AI, incluindo modelos para chat, codigo, visao e uso de ferramentas na plataforma BigModel.",
+      "source": {
+        "title": "GLM-4 documentation",
+        "url": "https://docs.z.ai/guides/llm/glm-4",
+        "publisher": "Z.AI",
+        "date_basis": "Documentacao oficial da familia GLM-4; data corresponde ao lancamento publico divulgado pela Zhipu AI."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "zai-glm-4-5",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-4.5 / GLM-4.5-Air",
+      "release_date": "2025-07-28",
+      "release_stage": "lancamento",
+      "model_type": ["raciocinio", "codigo", "agente", "open-weights", "MoE"],
+      "description_pt": "Serie GLM-4.5 com modelos MoE para aplicacoes agenticas, raciocinio, codigo, tool calling e desenvolvimento front-end.",
+      "source": {
+        "title": "New Released - GLM-4.5 Series",
+        "url": "https://docs.z.ai/release-notes/new-released",
+        "publisher": "Z.AI",
+        "date_basis": "Release notes oficiais registram GLM-4.5 Series em 28 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "zai-glm-4-5v",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-4.5V",
+      "release_date": "2025-08-11",
+      "release_stage": "lancamento",
+      "model_type": ["multimodal", "visao", "raciocinio", "open-weights"],
+      "description_pt": "Modelo visual de raciocinio de 100B-scale baseado na linha GLM-4.5-Air, para imagem, video, documentos e GUI agents.",
+      "source": {
+        "title": "New Released - GLM-4.5V",
+        "url": "https://docs.z.ai/release-notes/new-released",
+        "publisher": "Z.AI",
+        "date_basis": "Release notes oficiais registram GLM-4.5V em 11 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "zai-glm-5",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-5",
+      "release_date": "2026-02-12",
+      "release_stage": "lancamento/API",
+      "model_type": ["raciocinio", "codigo", "agente", "MoE", "longo-contexto"],
+      "description_pt": "Modelo fundacional de nova geracao da Z.AI para Agentic Engineering, sistemas complexos e tarefas agenticas de longo horizonte. A documentacao oficial destaca contexto de 200K, saida maxima de 128K, 744B parametros totais, 40B ativos, DeepSeek Sparse Attention e forte desempenho em codigo e agentes.",
+      "source": {
+        "title": "New Released - GLM-5",
+        "url": "https://docs.z.ai/release-notes/new-released",
+        "publisher": "Z.AI",
+        "date_basis": "Release notes oficiais registram GLM-5 em 12 de fevereiro de 2026. A documentacao oficial GLM-5 detalha o modelo como foundation model para Agentic Engineering, com contexto de 200K e foco em codigo, sistemas complexos e agentes."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "zai-glm-5-1",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-5.1",
+      "release_date": "2026-04-07",
+      "release_stage": "lancamento/API",
+      "model_type": ["raciocinio", "codigo", "agente", "longo-contexto", "ferramentas"],
+      "description_pt": "Modelo flagship da Z.AI para tarefas de longo horizonte, agentic coding e engenharia autonoma. A documentacao oficial descreve trabalho autonomo continuo por ate 8 horas, contexto de 200K, saida maxima de 128K, tool use, thinking mode e melhorias em planejamento, execucao sustentada, correcao de bugs e iteracao de estrategia.",
+      "source": {
+        "title": "New Released - GLM-5.1",
+        "url": "https://docs.z.ai/release-notes/new-released",
+        "publisher": "Z.AI",
+        "date_basis": "Release notes oficiais registram GLM-5.1 em 7 de abril de 2026. A documentacao oficial GLM-5.1 descreve o modelo como flagship para long-horizon tasks e agentes de codigo."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xiaomi-mimo-7b",
+      "company": "Xiaomi",
+      "family": "MiMo",
+      "model": "MiMo-7B",
+      "release_date": "2025-04-30",
+      "release_stage": "open weights",
+      "model_type": ["raciocinio", "codigo", "open-weights", "pequeno"],
+      "description_pt": "Primeiro modelo aberto MiMo da Xiaomi, focado em raciocinio matematico e codigo com apenas 7B parametros.",
+      "source": {
+        "title": "XiaomiMiMo/MiMo",
+        "url": "https://github.com/XiaomiMiMo/MiMo",
+        "publisher": "XiaomiMiMo",
+        "date_basis": "Repositorio oficial do projeto MiMo; data corresponde ao lancamento inicial publico do MiMo-7B."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "xiaomi-mimo-vl-7b",
+      "company": "Xiaomi",
+      "family": "MiMo",
+      "model": "MiMo-VL-7B",
+      "release_date": "2025-06-04",
+      "release_stage": "open weights",
+      "model_type": ["multimodal", "visao", "open-weights", "raciocinio"],
+      "description_pt": "Extensao visual-linguistica da linha MiMo-7B, com foco em percepcao, grounding, documentos e raciocinio multimodal.",
+      "source": {
+        "title": "XiaomiMiMo organization",
+        "url": "https://huggingface.co/XiaomiMiMo",
+        "publisher": "XiaomiMiMo",
+        "date_basis": "Model cards oficiais da organizacao XiaomiMiMo no Hugging Face."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "xiaomi-mimo-v2-flash",
+      "company": "Xiaomi",
+      "family": "MiMo",
+      "model": "MiMo-V2-Flash",
+      "release_date": "2025-12-17",
+      "release_stage": "open weights",
+      "model_type": ["MoE", "open-weights", "rapido", "agente"],
+      "description_pt": "Modelo MiMo-V2 aberto e rapido, com arquitetura MoE e foco em custo, velocidade e tarefas de agentes.",
+      "source": {
+        "title": "XiaomiMiMo organization",
+        "url": "https://huggingface.co/XiaomiMiMo",
+        "publisher": "XiaomiMiMo",
+        "date_basis": "Model cards oficiais da organizacao XiaomiMiMo no Hugging Face."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "xiaomi-mimo-v2-pro-omni",
+      "company": "Xiaomi",
+      "family": "MiMo",
+      "model": "MiMo-V2-Pro / Omni / TTS",
+      "release_date": "2026-03-18",
+      "release_stage": "API/produto",
+      "model_type": ["agente", "multimodal", "audio", "proprietario"],
+      "description_pt": "Familia MiMo-V2 com modelo Pro de grande escala, Omni multimodal e TTS, integrada a APIs e ao ecossistema Xiaomi.",
+      "sources": [
+        {
+          "title": "MiMo-V2-Pro release page",
+          "url": "https://mimo.xiaomi.com/mimo-v2-pro",
+          "publisher": "Xiaomi",
+          "date_basis": "Pagina oficial do MiMo-V2-Pro publicada em 18 de marco de 2026."
+        },
+        {
+          "title": "MiMo-V2-Omni release page",
+          "url": "https://mimo.xiaomi.com/mimo-v2-omni",
+          "publisher": "Xiaomi",
+          "date_basis": "Pagina oficial do MiMo-V2-Omni publicada em 18 de marco de 2026."
+        },
+        {
+          "title": "MiMo-V2-TTS release page",
+          "url": "https://mimo.xiaomi.com/mimo-v2-tts",
+          "publisher": "Xiaomi",
+          "date_basis": "Pagina oficial do MiMo-V2-TTS publicada em 18 de marco de 2026."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "xiaomi-mimo-v2-5",
+      "company": "Xiaomi",
+      "family": "MiMo",
+      "model": "MiMo-V2.5 / MiMo-V2.5-Pro",
+      "release_date": "2026-04-22",
+      "release_stage": "open weights/API",
+      "model_type": ["agente", "multimodal", "open-weights", "longo-contexto"],
+      "description_pt": "Atualizacao MiMo-V2.5 com contexto de 1M tokens e variantes para agentes de longa duracao e tarefas multimodais.",
+      "sources": [
+        {
+          "title": "MiMo-V2.5 release page",
+          "url": "https://mimo.xiaomi.com/mimo-v2-5",
+          "publisher": "Xiaomi",
+          "date_basis": "Pagina oficial do MiMo-V2.5 publicada em 22 de abril de 2026."
+        },
+        {
+          "title": "MiMo-V2.5-Pro release page",
+          "url": "https://mimo.xiaomi.com/mimo-v2-5-pro",
+          "publisher": "Xiaomi",
+          "date_basis": "Pagina oficial do MiMo-V2.5-Pro publicada em 27 de abril de 2026."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "deepseek-coder",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-Coder",
+      "release_date": "2023-11-02",
+      "release_stage": "open weights",
+      "model_type": ["codigo", "open-weights"],
+      "description_pt": "Primeira familia DeepSeek-Coder, modelos abertos especializados em codigo e completions para desenvolvedores.",
+      "source": {
+        "title": "DeepSeek-Coder",
+        "url": "https://github.com/deepseek-ai/DeepSeek-Coder",
+        "publisher": "DeepSeek",
+        "date_basis": "Repositorio oficial do projeto; data corresponde ao lancamento publico inicial."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "deepseek-llm",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek LLM",
+      "release_date": "2023-11-29",
+      "release_stage": "open weights",
+      "model_type": ["texto", "chat", "open-weights"],
+      "description_pt": "Familia DeepSeek LLM de modelos base e chat, marco inicial da linha geral de linguagem da DeepSeek.",
+      "source": {
+        "title": "DeepSeek-LLM",
+        "url": "https://github.com/deepseek-ai/DeepSeek-LLM",
+        "publisher": "DeepSeek",
+        "date_basis": "Repositorio oficial do projeto; data corresponde ao lancamento publico inicial."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "deepseek-v2",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V2",
+      "release_date": "2024-05-07",
+      "release_stage": "open weights/API",
+      "model_type": ["MoE", "texto", "open-weights", "API"],
+      "description_pt": "Modelo MoE de segunda geracao com melhor custo de inferencia e contexto longo, base para iteracoes posteriores.",
+      "source": {
+        "title": "DeepSeek-V2",
+        "url": "https://github.com/deepseek-ai/DeepSeek-V2",
+        "publisher": "DeepSeek",
+        "date_basis": "Repositorio oficial do projeto; data corresponde ao lancamento publico inicial."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "deepseek-coder-v2",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-Coder-V2",
+      "release_date": "2024-06-17",
+      "release_stage": "open weights/API",
+      "model_type": ["codigo", "MoE", "open-weights"],
+      "description_pt": "Modelo de codigo baseado em MoE, expandindo linguagens e tarefas de software em relacao ao DeepSeek-Coder original.",
+      "source": {
+        "title": "DeepSeek-Coder-V2",
+        "url": "https://github.com/deepseek-ai/DeepSeek-Coder-V2",
+        "publisher": "DeepSeek",
+        "date_basis": "Repositorio oficial do projeto; data corresponde ao lancamento publico inicial."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "deepseek-v2-5",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V2.5",
+      "release_date": "2024-09-05",
+      "release_stage": "open weights/API",
+      "model_type": ["texto", "codigo", "MoE"],
+      "description_pt": "Modelo que combina capacidades gerais de linguagem e codigo, unificando melhorias das linhas V2 e Coder-V2.",
+      "source": {
+        "title": "DeepSeek-V2.5",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V2.5",
+        "publisher": "DeepSeek",
+        "date_basis": "Model card oficial da DeepSeek no Hugging Face; data corresponde ao lancamento publico."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "deepseek-v3",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V3",
+      "release_date": "2024-12-26",
+      "release_stage": "open weights/API",
+      "model_type": ["MoE", "texto", "codigo", "open-weights"],
+      "description_pt": "Modelo MoE de grande escala que colocou a DeepSeek entre os principais laboratorios globais em custo/desempenho.",
+      "source": {
+        "title": "DeepSeek-V3",
+        "url": "https://github.com/deepseek-ai/DeepSeek-V3",
+        "publisher": "DeepSeek",
+        "date_basis": "Repositorio oficial e technical report da DeepSeek-V3."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "deepseek-r1",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-R1",
+      "release_date": "2025-01-20",
+      "release_stage": "open weights/API",
+      "model_type": ["raciocinio", "open-weights", "matematica", "codigo"],
+      "description_pt": "Modelo de raciocinio aberto com desempenho anunciado como comparavel ao OpenAI o1 e licenca MIT para pesos e distilacoes.",
+      "source": {
+        "title": "DeepSeek-R1 Release",
+        "url": "https://api-docs.deepseek.com/news/news250120",
+        "publisher": "DeepSeek",
+        "date_basis": "News oficial publicado em 20 de janeiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "deepseek-r1-0528",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-R1-0528",
+      "release_date": "2025-05-28",
+      "release_stage": "open weights/API",
+      "model_type": ["raciocinio", "codigo", "function-calling"],
+      "description_pt": "Atualizacao do R1 com melhor benchmark, front-end, menor alucinacao, JSON output e function calling.",
+      "source": {
+        "title": "DeepSeek-R1-0528 Release",
+        "url": "https://api-docs.deepseek.com/news/news250528",
+        "publisher": "DeepSeek",
+        "date_basis": "News oficial publicado em 28 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "deepseek-v3-1",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V3.1",
+      "release_date": "2025-08-21",
+      "release_stage": "API/app",
+      "model_type": ["agente", "raciocinio", "hibrido", "ferramentas"],
+      "description_pt": "Modelo hibrido Think/Non-Think, primeira etapa da DeepSeek rumo a agentes com melhor tool use e tarefas multi-etapa.",
+      "source": {
+        "title": "DeepSeek-V3.1 Release",
+        "url": "https://api-docs.deepseek.com/news/news250821",
+        "publisher": "DeepSeek",
+        "date_basis": "News oficial publicado em 21 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "deepseek-v3-2-exp",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V3.2-Exp",
+      "release_date": "2025-09-29",
+      "release_stage": "experimental",
+      "model_type": ["longo-contexto", "eficiencia", "API", "open-weights"],
+      "description_pt": "Modelo experimental com DeepSeek Sparse Attention para melhorar eficiencia em treino e inferencia de contexto longo.",
+      "source": {
+        "title": "Introducing DeepSeek-V3.2-Exp",
+        "url": "https://api-docs.deepseek.com/news/news250929",
+        "publisher": "DeepSeek",
+        "date_basis": "News oficial publicado em 29 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "deepseek-v3-2",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V3.2 / V3.2-Speciale",
+      "release_date": "2025-12-01",
+      "release_stage": "open weights/API",
+      "model_type": ["raciocinio", "agente", "ferramentas", "open-weights"],
+      "description_pt": "Modelos reasoning-first para agentes; V3.2 integra pensamento no tool use e V3.2-Speciale mira raciocinio maximo.",
+      "source": {
+        "title": "DeepSeek-V3.2 Release",
+        "url": "https://api-docs.deepseek.com/news/news251201",
+        "publisher": "DeepSeek",
+        "date_basis": "News oficial publicado em 1 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "deepseek-v4-preview",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V4 Preview (V4-Pro / V4-Flash)",
+      "release_date": "2026-04-24",
+      "release_stage": "preview/open weights/API",
+      "model_type": ["raciocinio", "codigo", "agente", "MoE", "open-weights", "longo-contexto"],
+      "description_pt": "Preview oficial da quarta geracao DeepSeek, com DeepSeek-V4-Pro e DeepSeek-V4-Flash. O release anuncia pesos abertos, API disponivel, contexto padrao de 1M tokens, modos Thinking/Non-Thinking e foco em raciocinio, codigo e agentes.",
+      "source": {
+        "title": "DeepSeek V4 Preview Release",
+        "url": "https://api-docs.deepseek.com/news/news260424",
+        "publisher": "DeepSeek",
+        "date_basis": "News oficial DeepSeek-V4 Preview Release 2026/04/24 registra que DeepSeek-V4 Preview esta oficialmente live e open-sourced, com DeepSeek-V4-Pro e DeepSeek-V4-Flash disponiveis na API no mesmo dia."
+      },
+      "confidence": "alta"
+    }
+  ]
+}
