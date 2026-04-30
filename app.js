@@ -2,6 +2,7 @@ const DATA_URL = "data/models.json";
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
 const VALID_VIEWS = new Set(["timeline", "years", "table", "sources"]);
 const VALID_LANE_MODES = new Set(["company", "all"]);
+const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
 
 const state = {
   metadata: {},
@@ -15,6 +16,7 @@ const state = {
     yearStart: "all",
     yearEnd: "all"
   },
+  tableDateOrder: "desc",
   view: "timeline",
   laneMode: "company",
   selectedId: null
@@ -71,6 +73,7 @@ function cacheElements() {
     yearFilter: document.getElementById("yearFilter"),
     yearStartFilter: document.getElementById("yearStartFilter"),
     yearEndFilter: document.getElementById("yearEndFilter"),
+    tableDateOrder: document.getElementById("tableDateOrder"),
     metricModels: document.getElementById("metricModels"),
     metricCompanies: document.getElementById("metricCompanies"),
     metricYears: document.getElementById("metricYears"),
@@ -123,6 +126,12 @@ function bindEvents() {
       renderTimeline(filteredModels());
     });
   });
+
+  els.tableDateOrder.addEventListener("change", (event) => {
+    state.tableDateOrder = VALID_TABLE_DATE_ORDERS.has(event.target.value) ? event.target.value : "desc";
+    saveViewPreferences();
+    renderTable(filteredModels());
+  });
 }
 
 function renderLastUpdated() {
@@ -163,13 +172,26 @@ function normalizeSources(model) {
       : [];
 
   return rawSources
-    .filter((source) => source && source.url)
     .map((source) => ({
+      source,
+      url: normalizeHttpsUrl(source?.url)
+    }))
+    .filter(({ source, url }) => source && url)
+    .map(({ source, url }) => ({
       title: source.title || "Fonte oficial",
-      url: source.url,
+      url,
       publisher: source.publisher || model.company,
       date_basis: source.date_basis || ""
     }));
+}
+
+function normalizeHttpsUrl(value) {
+  try {
+    const url = new URL(String(value || ""));
+    return url.protocol === "https:" ? url.href : "";
+  } catch {
+    return "";
+  }
 }
 
 function populateFilters() {
@@ -208,6 +230,7 @@ function syncFilterControls() {
   els.yearFilter.value = state.filters.year;
   els.yearStartFilter.value = state.filters.yearStart;
   els.yearEndFilter.value = state.filters.yearEnd;
+  els.tableDateOrder.value = VALID_TABLE_DATE_ORDERS.has(state.tableDateOrder) ? state.tableDateOrder : "desc";
 }
 
 function syncViewControls() {
@@ -224,6 +247,7 @@ function loadViewPreferences() {
     const prefs = JSON.parse(localStorage.getItem(VIEW_PREFS_KEY) || "{}");
     if (VALID_VIEWS.has(prefs.view)) state.view = prefs.view;
     if (VALID_LANE_MODES.has(prefs.laneMode)) state.laneMode = prefs.laneMode;
+    if (VALID_TABLE_DATE_ORDERS.has(prefs.tableDateOrder)) state.tableDateOrder = prefs.tableDateOrder;
     if (prefs.filters && typeof prefs.filters === "object") {
       state.filters = {
         ...state.filters,
@@ -243,6 +267,7 @@ function saveViewPreferences() {
     localStorage.setItem(VIEW_PREFS_KEY, JSON.stringify({
       view: state.view,
       laneMode: state.laneMode,
+      tableDateOrder: state.tableDateOrder,
       filters: state.filters
     }));
   } catch {
@@ -430,7 +455,8 @@ function renderYearChart(models) {
 }
 
 function renderTable(models) {
-  els.modelsTable.innerHTML = models.map((model) => `
+  const sortedModels = sortModelsForTable(models);
+  els.modelsTable.innerHTML = sortedModels.map((model) => `
     <tr>
       <td>${formatDate(model.release_date)}</td>
       <td><span class="company-chip" style="--chip-color:${colorFor(model.company)}">${escapeHtml(model.company)}</span></td>
@@ -441,6 +467,15 @@ function renderTable(models) {
       <td>${renderSourceLinks(model, "compact")}</td>
     </tr>
   `).join("");
+}
+
+function sortModelsForTable(models) {
+  const direction = state.tableDateOrder === "asc" ? 1 : -1;
+  return [...models].sort((a, b) => (
+    ((a.timestamp - b.timestamp) * direction)
+    || a.company.localeCompare(b.company)
+    || a.model.localeCompare(b.model)
+  ));
 }
 
 function renderSources(models) {

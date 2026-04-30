@@ -450,6 +450,16 @@ dd {
   padding: 16px;
 }
 
+.table-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.table-toolbar label {
+  width: min(220px, 100%);
+}
+
 .year-row {
   display: grid;
   grid-template-columns: 64px minmax(140px, 1fr) 44px minmax(220px, 1.7fr);
