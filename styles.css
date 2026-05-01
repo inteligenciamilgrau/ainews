@@ -292,7 +292,7 @@ textarea {
 
 .lane-track {
   position: relative;
-  min-height: 124px;
+  min-height: 142px;
   overflow: visible;
   background:
     linear-gradient(90deg, rgba(23, 23, 23, 0.06) 1px, transparent 1px) 0 0 / 10% 100%;
