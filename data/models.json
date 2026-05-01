@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "updated_at": "2026-04-29",
+    "updated_at": "2026-05-01",
     "last_correction": {
-      "date": "2026-04-29",
-      "description_pt": "Adicionado Grok 4.3 Beta como entrada provisoria de baixa confianca; a xAI ainda nao publicou release note/model card oficial publico para essa versao."
+      "date": "2026-05-01",
+      "description_pt": "Adicionados novos modelos de imagem e video: GPT Image 1.5/2, Nano Banana Pro, FLUX, Seedance, Kling, Wan e Hailuo."
     },
-    "title": "Timeline oficial de lancamentos de LLMs",
-    "scope": "Modelos e familias citados no pedido: OpenAI GPT/o-series, Claude, Gemini/Bard, Meta Llama/Muse, Grok, Kimi, GLM, MiMo e DeepSeek. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
+    "title": "Timeline oficial de lancamentos de modelos de IA",
+    "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao e musica. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
     "date_policy": "release_date e a data publicada em fonte oficial do fornecedor. Quando o fornecedor separa anuncio, preview, disponibilidade em API e disponibilidade geral, o release_stage explicita essa diferenca. Registros podem usar source unico ou sources com multiplos links oficiais quando um item agrega variantes."
   },
   "models": [
@@ -1862,6 +1862,928 @@
         "url": "https://api-docs.deepseek.com/news/news260424",
         "publisher": "DeepSeek",
         "date_basis": "News oficial DeepSeek-V4 Preview Release 2026/04/24 registra que DeepSeek-V4 Preview esta oficialmente live e open-sourced, com DeepSeek-V4-Pro e DeepSeek-V4-Flash disponiveis na API no mesmo dia."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-dall-e",
+      "company": "OpenAI",
+      "family": "DALL-E",
+      "model": "DALL-E",
+      "release_date": "2021-01-05",
+      "release_stage": "pesquisa",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "fundacao"],
+      "description_pt": "Modelo de geracao de imagens a partir de texto, apresentado como uma versao de 12B parametros do GPT-3 treinada em pares texto-imagem.",
+      "source": {
+        "title": "DALL-E: Creating images from text",
+        "url": "https://openai.com/index/dall-e/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 5 de janeiro de 2021."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-dall-e-2",
+      "company": "OpenAI",
+      "family": "DALL-E",
+      "model": "DALL-E 2",
+      "release_date": "2022-04-13",
+      "release_stage": "pesquisa/preview",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "edicao"],
+      "description_pt": "Sistema de imagem com maior realismo e resolucao que o DALL-E original, incluindo inpainting, outpainting e variacoes.",
+      "source": {
+        "title": "DALL-E 2",
+        "url": "https://openai.com/index/dall-e-2/",
+        "publisher": "OpenAI",
+        "date_basis": "Pagina oficial lista a publicacao tecnica relacionada em 13 de abril de 2022."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "openai-dall-e-3-chatgpt",
+      "company": "OpenAI",
+      "family": "DALL-E",
+      "model": "DALL-E 3",
+      "release_date": "2023-10-19",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "ChatGPT"],
+      "description_pt": "Modelo de imagem integrado ao ChatGPT, com melhor aderencia a prompts complexos e suporte a refinamento conversacional.",
+      "source": {
+        "title": "DALL-E 3 is now available in ChatGPT Plus and Enterprise",
+        "url": "https://openai.com/blog/dall-e-3-is-now-available-in-chatgpt-plus-and-enterprise",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 19 de outubro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-image-1",
+      "company": "OpenAI",
+      "family": "GPT Image",
+      "model": "gpt-image-1",
+      "release_date": "2025-04-23",
+      "release_stage": "API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "multimodal", "API", "edicao"],
+      "description_pt": "Modelo multimodal nativo de imagem da OpenAI para geracao e edicao via API, derivado da experiencia de imagem no ChatGPT.",
+      "source": {
+        "title": "Introducing our latest image generation model in the API",
+        "url": "https://openai.com/index/image-generation-api/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 23 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-imagen",
+      "company": "Google",
+      "family": "Imagen",
+      "model": "Imagen",
+      "release_date": "2022-05-23",
+      "release_stage": "pesquisa",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "difusao"],
+      "description_pt": "Modelo de difusao texto-para-imagem da Google Research com foco em fotorrealismo e entendimento de linguagem.",
+      "source": {
+        "title": "Imagen: Text-to-Image Diffusion Models",
+        "url": "https://imagen.research.google/",
+        "publisher": "Google Research",
+        "date_basis": "Pagina oficial do projeto; data baseada na publicacao tecnica de 23 de maio de 2022."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "google-imagen-2-vertex-ai",
+      "company": "Google",
+      "family": "Imagen",
+      "model": "Imagen 2",
+      "release_date": "2023-12-13",
+      "release_stage": "Vertex AI GA",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "Vertex AI"],
+      "description_pt": "Atualizacao do Imagen disponibilizada no Vertex AI, com melhor qualidade de imagem e recursos para casos de uso corporativos.",
+      "source": {
+        "title": "Imagen 2 on Vertex AI is now generally available",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/imagen-2-on-vertex-ai-is-now-generally-available",
+        "publisher": "Google Cloud",
+        "date_basis": "Post oficial publicado em 13 de dezembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-imagen-3",
+      "company": "Google",
+      "family": "Imagen",
+      "model": "Imagen 3",
+      "release_date": "2024-05-14",
+      "release_stage": "preview",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "Google Labs"],
+      "description_pt": "Modelo texto-para-imagem anunciado no Google I/O 2024 como a geracao de maior qualidade da familia Imagen ate entao.",
+      "source": {
+        "title": "New generative media models and tools, built with and for creators",
+        "url": "https://blog.google/technology/ai/google-generative-ai-veo-imagen-3/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 14 de maio de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-imagen-4",
+      "company": "Google",
+      "family": "Imagen",
+      "model": "Imagen 4",
+      "release_date": "2025-05-20",
+      "release_stage": "produto/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "Gemini", "Vertex AI"],
+      "description_pt": "Nova geracao de imagem apresentada no Google I/O 2025, com foco em detalhes, tipografia e qualidade visual.",
+      "source": {
+        "title": "Fuel your creativity with new generative media models and tools",
+        "url": "https://blog.google/technology/ai/generative-media-models-io-2025/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 20 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-2-5-flash-image",
+      "company": "Google",
+      "family": "Gemini Image",
+      "model": "Gemini 2.5 Flash Image (Nano Banana)",
+      "release_date": "2025-08-26",
+      "release_stage": "API/AI Studio",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "Gemini API"],
+      "description_pt": "Modelo de geracao e edicao de imagens tambem conhecido como Nano Banana, com composicao multi-imagem, consistencia de personagens e edicoes por linguagem natural.",
+      "source": {
+        "title": "Introducing Gemini 2.5 Flash Image, our state-of-the-art image model",
+        "url": "https://developers.googleblog.com/introducing-gemini-2-5-flash-image/",
+        "publisher": "Google Developers",
+        "date_basis": "Post oficial publicado em 26 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-sora-research-preview",
+      "company": "OpenAI",
+      "family": "Sora",
+      "model": "Sora",
+      "release_date": "2024-02-15",
+      "release_stage": "research preview",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "difusao"],
+      "description_pt": "Modelo de video generativo apresentado como simulador de mundo, capaz de gerar videos de ate um minuto em alta fidelidade.",
+      "source": {
+        "title": "Video generation models as world simulators",
+        "url": "https://openai.com/index/video-generation-models-as-world-simulators/",
+        "publisher": "OpenAI",
+        "date_basis": "Publicacao oficial de 15 de fevereiro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-sora-turbo",
+      "company": "OpenAI",
+      "family": "Sora",
+      "model": "Sora Turbo",
+      "release_date": "2024-12-09",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "produto"],
+      "description_pt": "Versao mais rapida do Sora lancada em sora.com para usuarios ChatGPT Plus e Pro, movendo o modelo para fora do research preview.",
+      "source": {
+        "title": "Sora is here",
+        "url": "https://openai.com/index/sora-is-here/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 9 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-sora-2",
+      "company": "OpenAI",
+      "family": "Sora",
+      "model": "Sora 2",
+      "release_date": "2025-09-30",
+      "release_stage": "produto/app",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "texto-para-video", "app"],
+      "description_pt": "Modelo de video e audio da OpenAI com maior controle fisico e suporte a dialogos e efeitos sonoros sincronizados.",
+      "source": {
+        "title": "Sora 2 is here",
+        "url": "https://openai.com/index/sora-2/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 30 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-veo",
+      "company": "Google",
+      "family": "Veo",
+      "model": "Veo",
+      "release_date": "2024-05-14",
+      "release_stage": "private preview",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "Google Labs"],
+      "description_pt": "Modelo de video da Google para geracao de videos 1080p em estilos cinematograficos, anunciado no Google I/O 2024.",
+      "source": {
+        "title": "New generative media models and tools, built with and for creators",
+        "url": "https://blog.google/technology/ai/google-generative-ai-veo-imagen-3/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 14 de maio de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-veo-2",
+      "company": "Google",
+      "family": "Veo",
+      "model": "Veo 2",
+      "release_date": "2024-12-16",
+      "release_stage": "Google Labs",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "VideoFX"],
+      "description_pt": "Atualizacao de video da Google com melhor realismo, entendimento de cinematografia e disponibilidade em ferramentas Labs.",
+      "source": {
+        "title": "State-of-the-art video and image generation with Veo 2 and Imagen 3",
+        "url": "https://blog.google/technology/google-labs/video-image-generation-update-december-2024/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 16 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-veo-3",
+      "company": "Google",
+      "family": "Veo",
+      "model": "Veo 3",
+      "release_date": "2025-05-20",
+      "release_stage": "produto/API",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "Gemini", "Vertex AI", "Flow"],
+      "description_pt": "Modelo de video do Google I/O 2025 com geracao nativa de audio, dialogo e efeitos sonoros, integrado ao Gemini, Flow e Vertex AI.",
+      "source": {
+        "title": "Fuel your creativity with new generative media models and tools",
+        "url": "https://blog.google/technology/ai/generative-media-models-io-2025/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 20 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-veo-3-1",
+      "company": "Google",
+      "family": "Veo",
+      "model": "Veo 3.1",
+      "release_date": "2025-10-15",
+      "release_stage": "produto/API",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "edicao", "Flow"],
+      "description_pt": "Atualizacao do Veo com maior controle narrativo, audio mais rico e recursos avancados de edicao no Flow.",
+      "source": {
+        "title": "Introducing Veo 3.1 and advanced capabilities in Flow",
+        "url": "https://blog.google/technology/ai/veo-updates-flow/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 15 de outubro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-whisper",
+      "company": "OpenAI",
+      "family": "Whisper",
+      "model": "Whisper",
+      "release_date": "2022-09-21",
+      "release_stage": "open source",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "ASR", "open-weights"],
+      "description_pt": "Sistema de reconhecimento automatico de fala treinado em dados multilingues e multitarefa, com codigo e modelos abertos.",
+      "source": {
+        "title": "Introducing Whisper",
+        "url": "https://openai.com/index/whisper/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 21 de setembro de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-whisper-api",
+      "company": "OpenAI",
+      "family": "Whisper",
+      "model": "Whisper API",
+      "release_date": "2023-03-01",
+      "release_stage": "API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "API"],
+      "description_pt": "Disponibilizacao do Whisper na API da OpenAI para transcricao e traducao de audio.",
+      "source": {
+        "title": "Introducing APIs for GPT-3.5 Turbo and Whisper",
+        "url": "https://openai.com/index/introducing-chatgpt-and-whisper-apis/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 1 de marco de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4o-realtime-preview",
+      "company": "OpenAI",
+      "family": "Realtime",
+      "model": "gpt-4o-realtime-preview",
+      "release_date": "2024-10-01",
+      "release_stage": "API public beta",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "speech-to-speech", "API"],
+      "description_pt": "Modelo usado na primeira beta publica da Realtime API para experiencias de voz de baixa latencia.",
+      "source": {
+        "title": "Introducing the Realtime API",
+        "url": "https://openai.com/index/introducing-the-realtime-api/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 1 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4o-transcribe",
+      "company": "OpenAI",
+      "family": "GPT-4o Audio",
+      "model": "gpt-4o-transcribe / gpt-4o-mini-transcribe",
+      "release_date": "2025-03-20",
+      "release_stage": "API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "API"],
+      "description_pt": "Novos modelos de fala-para-texto da OpenAI com melhor reconhecimento de idiomas e menor taxa de erro que Whisper em cenarios avaliados.",
+      "source": {
+        "title": "Introducing next-generation audio models in the API",
+        "url": "https://openai.com/index/introducing-our-next-generation-audio-models/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 20 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-realtime",
+      "company": "OpenAI",
+      "family": "Realtime",
+      "model": "gpt-realtime",
+      "release_date": "2025-08-28",
+      "release_stage": "Realtime API GA",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "speech-to-speech", "API"],
+      "description_pt": "Modelo de voz para agentes em producao na Realtime API, com fala mais natural, melhor instrucao e suporte a chamadas de ferramentas.",
+      "source": {
+        "title": "Introducing gpt-realtime and Realtime API updates for production voice agents",
+        "url": "https://openai.com/index/introducing-gpt-realtime",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 28 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "suno-v3",
+      "company": "Suno",
+      "family": "Suno",
+      "model": "Suno v3",
+      "release_date": "2024-03-21",
+      "release_stage": "produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "cancao"],
+      "description_pt": "Primeiro modelo da Suno capaz de criar cancoes completas de cerca de dois minutos em segundos, liberado para todos os usuarios.",
+      "source": {
+        "title": "Introducing v3",
+        "url": "https://about.suno.com/blog/v3",
+        "publisher": "Suno",
+        "date_basis": "Post oficial publicado em 21 de marco de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "suno-v4",
+      "company": "Suno",
+      "family": "Suno",
+      "model": "Suno v4",
+      "release_date": "2024-11-19",
+      "release_stage": "beta",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "cancao"],
+      "description_pt": "Atualizacao com audio mais limpo, letras mais nitidas, estruturas musicais mais dinamicas e recursos como Remaster, Covers e Personas.",
+      "source": {
+        "title": "Introducing v4",
+        "url": "https://about.suno.com/blog/v4",
+        "publisher": "Suno",
+        "date_basis": "Post oficial publicado em 19 de novembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "suno-v4-5",
+      "company": "Suno",
+      "family": "Suno",
+      "model": "Suno v4.5",
+      "release_date": "2025-05-01",
+      "release_stage": "beta",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "cancao"],
+      "description_pt": "Modelo mais expressivo com maior variedade de generos, vocais mais ricos, melhor aderencia a prompts e cancoes de ate oito minutos.",
+      "source": {
+        "title": "Introducing v4.5",
+        "url": "https://suno.com/blog/introducing-v4-5",
+        "publisher": "Suno",
+        "date_basis": "Post oficial publicado em 1 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "suno-v5",
+      "company": "Suno",
+      "family": "Suno",
+      "model": "Suno v5",
+      "release_date": "2025-09-25",
+      "release_stage": "produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "cancao"],
+      "description_pt": "Modelo da Suno com melhor qualidade de audio, vocais mais autenticos, composicao mais coerente e geracao mais rapida.",
+      "source": {
+        "title": "Introducing v5",
+        "url": "https://help.suno.com/en/articles/8105153",
+        "publisher": "Suno",
+        "date_basis": "Artigo oficial editado em 25 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "suno-v5-5",
+      "company": "Suno",
+      "family": "Suno",
+      "model": "Suno v5.5",
+      "release_date": "2026-03-26",
+      "release_stage": "produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "voz", "custom-models", "cancao"],
+      "description_pt": "Modelo mais expressivo da Suno, anunciado com Voices, Custom Models e My Taste para personalizacao musical.",
+      "source": {
+        "title": "Suno v5.5: More Expressive. More You.",
+        "url": "https://suno.com/blog/v5-5",
+        "publisher": "Suno",
+        "date_basis": "Post oficial publicado em 26 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemma",
+      "company": "Google",
+      "family": "Gemma",
+      "model": "Gemma 2B / 7B",
+      "release_date": "2024-02-21",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "open-weights", "OpenSource", "edge", "comercial"],
+      "description_pt": "Primeira familia Gemma de modelos leves da Google, com pesos em 2B e 7B e variantes pre-treinadas e instruction-tuned para desenvolvimento responsavel.",
+      "source": {
+        "title": "Gemma: Introducing new state-of-the-art open models",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-open-models/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 21 de fevereiro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemma-2",
+      "company": "Google",
+      "family": "Gemma",
+      "model": "Gemma 2 9B / 27B",
+      "release_date": "2024-06-27",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "open-weights", "OpenSource", "eficiencia", "comercial"],
+      "description_pt": "Segunda geracao da familia Gemma, com modelos 9B e 27B otimizados para desempenho e eficiencia de inferencia em diferentes hardwares.",
+      "source": {
+        "title": "Gemma 2 is now available to researchers and developers",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-gemma-2/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 27 de junho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemma-3",
+      "company": "Google",
+      "family": "Gemma",
+      "model": "Gemma 3 1B / 4B / 12B / 27B",
+      "release_date": "2025-03-12",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "open-weights", "OpenSource", "longo-contexto", "function-calling"],
+      "description_pt": "Colecao Gemma baseada em tecnologias do Gemini 2.0, com variantes de 1B a 27B, contexto de 128K, capacidades visuais e suporte a function calling.",
+      "source": {
+        "title": "Introducing Gemma 3: The most capable model you can run on a single GPU or TPU",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-3/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 12 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemma-3-270m",
+      "company": "Google",
+      "family": "Gemma",
+      "model": "Gemma 3 270M",
+      "release_date": "2025-08-14",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "open-weights", "OpenSource", "edge", "fine-tuning", "pequeno"],
+      "description_pt": "Modelo compacto de 270M parametros da familia Gemma 3, criado para fine-tuning especifico de tarefas, baixo custo e execucao eficiente.",
+      "source": {
+        "title": "Introducing Gemma 3 270M: The compact model for hyper-efficient AI",
+        "url": "https://developers.googleblog.com/introducing-gemma-3-270m/",
+        "publisher": "Google Developers",
+        "date_basis": "Post oficial publicado em 14 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-oss",
+      "company": "OpenAI",
+      "family": "gpt-oss",
+      "model": "gpt-oss-120b / gpt-oss-20b",
+      "release_date": "2025-08-05",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agente", "open-weights", "OpenSource", "Apache-2.0", "tool-use"],
+      "description_pt": "Dois modelos de raciocinio open-weight da OpenAI, licenciados em Apache 2.0, com foco em execucao local, tool use, agentes e customizacao.",
+      "source": {
+        "title": "Introducing gpt-oss",
+        "url": "https://openai.com/index/introducing-gpt-oss/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 5 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-image-1-5",
+      "company": "OpenAI",
+      "family": "GPT Image",
+      "model": "gpt-image-1.5",
+      "release_date": "2025-12-16",
+      "release_stage": "API/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "API", "ChatGPT"],
+      "description_pt": "Modelo de imagem da OpenAI lancado com a nova experiencia ChatGPT Images, com melhor seguimento de instrucoes, edicao mais precisa e geracao mais rapida.",
+      "sources": [
+        {
+          "title": "The new ChatGPT Images is here",
+          "url": "https://openai.com/index/new-chatgpt-images-is-here/",
+          "publisher": "OpenAI",
+          "date_basis": "Post oficial publicado em 16 de dezembro de 2025."
+        },
+        {
+          "title": "GPT Image 1.5 Model",
+          "url": "https://platform.openai.com/docs/models/gpt-image-1.5",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista o snapshot gpt-image-1.5-2025-12-16."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-image-2",
+      "company": "OpenAI",
+      "family": "GPT Image",
+      "model": "gpt-image-2 / ChatGPT Images 2.0",
+      "release_date": "2026-04-21",
+      "release_stage": "API/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "API", "ChatGPT"],
+      "description_pt": "Modelo de imagem de nova geracao da OpenAI para geracao e edicao de alta qualidade, associado ao lancamento ChatGPT Images 2.0.",
+      "sources": [
+        {
+          "title": "Introducing ChatGPT Images 2.0",
+          "url": "https://openai.com/index/introducing-chatgpt-images-2-0/",
+          "publisher": "OpenAI",
+          "date_basis": "Post oficial publicado em 21 de abril de 2026."
+        },
+        {
+          "title": "GPT Image 2 Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-image-2",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista o snapshot gpt-image-2-2026-04-21."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-nano-banana-pro",
+      "company": "Google",
+      "family": "Gemini Image",
+      "model": "Nano Banana Pro (Gemini 3 Pro Image)",
+      "release_date": "2025-11-20",
+      "release_stage": "produto/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "Gemini", "Google AI Studio", "Vertex AI"],
+      "description_pt": "Modelo de imagem da Google DeepMind baseado no Gemini 3 Pro, com melhor renderizacao de texto, maior controle criativo, conhecimento de mundo e saida ate 4K.",
+      "source": {
+        "title": "Introducing Nano Banana Pro",
+        "url": "https://blog.google/technology/ai/nano-banana-pro/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 20 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-1",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX.1",
+      "release_date": "2024-08-01",
+      "release_stage": "API/open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "open-weights", "OpenSource", "fluxo-retificado"],
+      "description_pt": "Suite inicial FLUX.1 da Black Forest Labs para sintese texto-para-imagem, com variantes comerciais e de pesos abertos.",
+      "source": {
+        "title": "Announcing Black Forest Labs",
+        "url": "https://bfl.ai/announcing-black-forest-labs",
+        "publisher": "Black Forest Labs",
+        "date_basis": "Post oficial publicado em 1 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-1-kontext",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX.1 Kontext",
+      "release_date": "2025-05-29",
+      "release_stage": "API/open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "open-weights", "OpenSource", "in-context"],
+      "description_pt": "Suite FLUX para geracao e edicao in-context, combinando prompts de texto e imagens de referencia para edicoes coerentes.",
+      "source": {
+        "title": "FLUX.1 Kontext",
+        "url": "https://bfl.ai/models/flux-kontext",
+        "publisher": "Black Forest Labs",
+        "date_basis": "Pagina oficial registra o lancamento de FLUX.1 Kontext em 29 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-2",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX.2",
+      "release_date": "2025-11-25",
+      "release_stage": "API/open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "open-weights", "OpenSource", "multi-referencia", "4MP"],
+      "description_pt": "Familia FLUX.2 para geracao e edicao de imagens em workflows de producao, com controle multi-referencia, tipografia melhorada, saida ate 4MP e variantes abertas.",
+      "sources": [
+        {
+          "title": "FLUX.2",
+          "url": "https://bfl.ai/models/flux2",
+          "publisher": "Black Forest Labs",
+          "date_basis": "Pagina oficial da familia FLUX.2."
+        },
+        {
+          "title": "FLUX.2 official inference repo",
+          "url": "https://github.com/black-forest-labs/flux2",
+          "publisher": "Black Forest Labs",
+          "date_basis": "Repositorio oficial registra release de FLUX.2 dev em 25 de novembro de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seedance-1",
+      "company": "ByteDance",
+      "family": "Seedance",
+      "model": "Seedance 1.0",
+      "release_date": "2025-06-11",
+      "release_stage": "technical report/produto",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "1080p", "multi-shot"],
+      "description_pt": "Modelo de video da ByteDance Seed para geracao por texto e imagem, com foco em prompt following, movimento estavel e narrativa multi-shot.",
+      "sources": [
+        {
+          "title": "Tech Report of Seedance 1.0 Is Now Publicly Available",
+          "url": "https://seed.bytedance.com/blog/tech-report-of-seedance-1-0-is-now-publicly-available",
+          "publisher": "ByteDance Seed",
+          "date_basis": "Post oficial publicado em 11 de junho de 2025."
+        },
+        {
+          "title": "Seedance",
+          "url": "https://seed.bytedance.com/en/seedance",
+          "publisher": "ByteDance Seed",
+          "date_basis": "Pagina oficial do produto Seedance 1.0."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seedance-1-5-pro",
+      "company": "ByteDance",
+      "family": "Seedance",
+      "model": "Seedance 1.5 pro",
+      "release_date": "2025-12-16",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "texto-para-video", "audio-visual", "lip-sync"],
+      "description_pt": "Modelo audio-visual da ByteDance Seed com arquitetura conjunta para gerar video e audio sincronizados em uma unica passagem.",
+      "source": {
+        "title": "Sound and Vision, All in One Take | The Official Release of Seedance 1.5 pro",
+        "url": "https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro",
+        "publisher": "ByteDance Seed",
+        "date_basis": "Post oficial publicado em 16 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seedance-2",
+      "company": "ByteDance",
+      "family": "Seedance",
+      "model": "Seedance 2.0",
+      "release_date": "2026-02-12",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "multimodal", "texto-para-video", "imagem-para-video", "audio-visual"],
+      "description_pt": "Modelo de video de nova geracao da ByteDance Seed com geracao multimodal audio-video, referencias de texto, imagem, audio e video, e maior qualidade em cenas complexas.",
+      "source": {
+        "title": "Seedance 2.0 Official Launch",
+        "url": "https://seed.bytedance.com/blog/seedance-2-0-official-launch",
+        "publisher": "ByteDance Seed",
+        "date_basis": "Post oficial publicado em 12 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "kuaishou-kling",
+      "company": "Kuaishou",
+      "family": "Kling",
+      "model": "Kling",
+      "release_date": "2024-06-10",
+      "release_stage": "beta",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "DiT", "1080p"],
+      "description_pt": "Modelo proprietario de video da Kuaishou capaz de gerar videos por texto com simulacao de movimento e fisica, ate 1080p e 30 fps.",
+      "source": {
+        "title": "Kuaishou Unveils Proprietary Video Generation Model 'Kling;' Testing Now Available",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-proprietary-video-generation-model-kling",
+        "publisher": "Kuaishou",
+        "date_basis": "Comunicado oficial publicado em 10 de junho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "kuaishou-kling-2",
+      "company": "Kuaishou",
+      "family": "Kling",
+      "model": "Kling AI 2.0",
+      "release_date": "2025-04-15",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "imagem", "texto-para-video", "imagem-para-video", "edicao"],
+      "description_pt": "Atualizacao 2.0 do Kling AI com modelo de video e imagem, melhorias em qualidade, movimento e capacidade de criacao global.",
+      "source": {
+        "title": "Kling AI Advances to the 2.0 Era",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-advances-20-era-empowering-everyone-tell-great-stories/",
+        "publisher": "Kuaishou",
+        "date_basis": "Comunicado oficial publicado em 15 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "kuaishou-kling-2-5-turbo",
+      "company": "Kuaishou",
+      "family": "Kling",
+      "model": "Kling AI 2.5 Turbo",
+      "release_date": "2025-09-23",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "1080p", "turbo"],
+      "description_pt": "Modelo Kling 2.5 Turbo com melhorias em texto-para-video e imagem-para-video, maior qualidade e custo reduzido em relacao ao 2.1.",
+      "source": {
+        "title": "Kling AI Launches 2.5 Turbo Video Model",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-25-turbo-video-model-industry-leading/",
+        "publisher": "Kuaishou",
+        "date_basis": "Comunicado oficial informa lancamento em 23 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "kuaishou-kling-o1",
+      "company": "Kuaishou",
+      "family": "Kling",
+      "model": "Kling O1",
+      "release_date": "2025-12-01",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "imagem", "multimodal", "edicao", "referencia"],
+      "description_pt": "Modelo multimodal unificado da Kuaishou para geracao, edicao, inpainting, transformacao de estilo, extensao de planos e entradas por texto, imagem, video e sujeitos.",
+      "source": {
+        "title": "Kling O1 Launches as the World's First Unified Multimodal Video Model",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-o1-launches-worlds-first-unified-multimodal-video-model-0/",
+        "publisher": "Kuaishou",
+        "date_basis": "Comunicado oficial informa lancamento em 1 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "kuaishou-kling-3",
+      "company": "Kuaishou",
+      "family": "Kling",
+      "model": "Kling AI 3.0",
+      "release_date": "2026-02-05",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "imagem", "multimodal", "texto-para-video", "edicao"],
+      "description_pt": "Serie Kling 3.0 com modelos Video 3.0, Video 3.0 Omni, Image 3.0 e Image 3.0 Omni, adicionando audio nativo, maior consistencia e videos de ate 15 segundos.",
+      "source": {
+        "title": "Kling AI Launches 3.0 Model",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/",
+        "publisher": "Kuaishou",
+        "date_basis": "Comunicado oficial publicado em 5 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-wan-2-1",
+      "company": "Alibaba",
+      "family": "Wan",
+      "model": "Wan2.1",
+      "release_date": "2025-02-27",
+      "release_stage": "open weights",
+      "ai_category": "Video",
+      "model_type": ["video", "imagem", "texto-para-video", "imagem-para-video", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Serie Wan2.1 da Alibaba para geracao de video e imagem, com modelos 1.3B e 14B abertos para a comunidade.",
+      "source": {
+        "title": "Alibaba Cloud Open Sources its AI Models for Video Generation",
+        "url": "https://www.alibabacloud.com/blog/alibaba-cloud-open-sources-its-ai-models-for-video-generation_602025",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial publicado em 27 de fevereiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-wan-2-2",
+      "company": "Alibaba",
+      "family": "Wan",
+      "model": "Wan2.2",
+      "release_date": "2025-07-29",
+      "release_stage": "open weights",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "MoE", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Suite Wan2.2 com modelos abertos MoE para texto-para-video, imagem-para-video e tarefa hibrida, focada em qualidade cinematica e controle visual.",
+      "sources": [
+        {
+          "title": "Alibaba Releases Wan2.2 to Uplift Cinematic Video Production",
+          "url": "https://www.alibabacloud.com/press-room/alibaba-releases-wan2-2-to-uplift-cinematic",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Comunicado oficial publicado em 29 de julho de 2025."
+        },
+        {
+          "title": "Wan2.2 official repository",
+          "url": "https://github.com/Wan-Video/Wan2.2",
+          "publisher": "Alibaba Cloud / Wan",
+          "date_basis": "Repositorio oficial registra release de codigo e pesos em 28 de julho de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-hailuo-02",
+      "company": "MiniMax",
+      "family": "Hailuo",
+      "model": "MiniMax Hailuo 02",
+      "release_date": "2025-06-18",
+      "release_stage": "produto/API",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "1080p", "fisica"],
+      "description_pt": "Modelo de video Hailuo 02 da MiniMax com saida 1080p, forte seguimento de instrucoes e foco em movimentos fisicamente complexos.",
+      "source": {
+        "title": "MiniMax Hailuo 02, World-Class Quality, Record-Breaking Cost Efficiency",
+        "url": "https://www.minimax.io/news/minimax-hailuo-02",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 18 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-hailuo-2-3",
+      "company": "MiniMax",
+      "family": "Hailuo",
+      "model": "MiniMax Hailuo 2.3",
+      "release_date": "2025-10-28",
+      "release_stage": "produto/API",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "Media Agent", "estilizacao"],
+      "description_pt": "Atualizacao Hailuo 2.3 com melhorias em movimento de personagens, qualidade visual, estilizacao, microexpressoes e resposta a comandos de movimento.",
+      "source": {
+        "title": "MiniMax Hailuo 2.3: A New Level of Complex Video Performance & Media Agent",
+        "url": "https://www.minimax.io/news/minimax-hailuo-23",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 28 de outubro de 2025."
       },
       "confidence": "alta"
     }

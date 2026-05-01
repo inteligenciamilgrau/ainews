@@ -37,17 +37,23 @@ a {
 }
 
 .topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 26px clamp(18px, 4vw, 48px) 18px;
+  padding: 0;
   border-bottom: 1px solid var(--line);
   background: rgba(255, 253, 248, 0.92);
   position: sticky;
   top: 0;
   z-index: 20;
   backdrop-filter: blur(12px);
+}
+
+.topbar-inner {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px clamp(14px, 3vw, 36px) 18px;
 }
 
 .eyebrow {
@@ -148,7 +154,7 @@ button.secondary {
 
 .controls {
   display: grid;
-  grid-template-columns: minmax(240px, 1.5fr) repeat(6, minmax(128px, 1fr));
+  grid-template-columns: minmax(240px, 1.5fr) repeat(7, minmax(128px, 1fr));
   gap: 10px;
   margin-bottom: 14px;
   align-items: end;
@@ -398,6 +404,11 @@ dd {
   background: #fff;
 }
 
+.category-pill {
+  background: #dcebe8;
+  color: #173f3a;
+}
+
 .date-basis {
   color: var(--muted);
   font-size: 0.88rem;
@@ -619,6 +630,9 @@ td a,
 @media (max-width: 760px) {
   .topbar {
     position: static;
+  }
+
+  .topbar-inner {
     align-items: flex-start;
   }
 

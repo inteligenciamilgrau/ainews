@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Timeline de LLMs</title>
+    <title>Timeline de IA</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">LLM release tracker</p>
-        <h1>Timeline dos principais LLMs</h1>
-        <p id="lastUpdated" class="last-updated">Carregando ultima atualizacao...</p>
-      </div>
-    </header>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <p class="eyebrow">AI release tracker</p>
+      <h1>Timeline dos principais modelos de IA</h1>
+      <p id="lastUpdated" class="last-updated">Carregando ultima atualizacao...</p>
+    </div>
+  </header>
 
     <main>
       <section class="summary-grid" aria-label="Resumo">
@@ -40,6 +40,10 @@
         <label>
           <span>Busca</span>
           <input id="searchInput" type="search" placeholder="modelo, familia, descricao">
+        </label>
+        <label>
+          <span>Tipo de IA</span>
+          <select id="aiCategoryFilter"></select>
         </label>
         <label>
           <span>Empresa</span>
@@ -108,6 +112,7 @@
                 <th>Empresa</th>
                 <th>Modelo</th>
                 <th>Familia</th>
+                <th>Tipo de IA</th>
                 <th>Tipo</th>
                 <th>Descricao</th>
                 <th>Fonte</th>

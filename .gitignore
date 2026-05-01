@@ -24,9 +24,10 @@ build/
 coverage/
 
 # Python/cache leftovers from local tooling
+venv/
+.venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-

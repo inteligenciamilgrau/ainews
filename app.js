@@ -3,12 +3,15 @@ const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
 const VALID_VIEWS = new Set(["timeline", "years", "table", "sources"]);
 const VALID_LANE_MODES = new Set(["company", "all"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
+const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica"];
+const VALID_AI_CATEGORIES = new Set(AI_CATEGORIES);
 
 const state = {
   metadata: {},
   canonicalModels: [],
   filters: {
     query: "",
+    aiCategory: "LLMs",
     company: "all",
     type: "all",
     family: "all",
@@ -30,7 +33,13 @@ const companyColors = {
   "Moonshot AI": "#7c3aed",
   "Z.AI": "#dc2626",
   Xiaomi: "#ea580c",
-  DeepSeek: "#0891b2"
+  DeepSeek: "#0891b2",
+  Suno: "#be185d",
+  "Black Forest Labs": "#166534",
+  ByteDance: "#0f172a",
+  Kuaishou: "#f97316",
+  Alibaba: "#c2410c",
+  MiniMax: "#7c2d12"
 };
 
 const els = {};
@@ -67,6 +76,7 @@ async function init() {
 function cacheElements() {
   Object.assign(els, {
     searchInput: document.getElementById("searchInput"),
+    aiCategoryFilter: document.getElementById("aiCategoryFilter"),
     companyFilter: document.getElementById("companyFilter"),
     typeFilter: document.getElementById("typeFilter"),
     familyFilter: document.getElementById("familyFilter"),
@@ -95,6 +105,7 @@ function bindEvents() {
   });
 
   for (const [key, element] of [
+    ["aiCategory", els.aiCategoryFilter],
     ["company", els.companyFilter],
     ["type", els.typeFilter],
     ["family", els.familyFilter],
@@ -104,6 +115,10 @@ function bindEvents() {
   ]) {
     element.addEventListener("change", (event) => {
       state.filters[key] = event.target.value;
+      if (key === "aiCategory") {
+        state.filters.type = "all";
+        syncFilterControls();
+      }
       saveViewPreferences();
       render();
     });
@@ -153,11 +168,21 @@ function normalizeModels(models) {
     .map((model) => ({
       ...model,
       sources: normalizeSources(model),
+      ai_category: normalizeAiCategories(model.ai_category),
       model_type: Array.isArray(model.model_type) ? model.model_type : String(model.model_type || "").split(",").map((item) => item.trim()).filter(Boolean),
       year: Number(String(model.release_date || "").slice(0, 4)),
       timestamp: Date.parse(`${model.release_date}T00:00:00`)
     }))
     .sort((a, b) => a.timestamp - b.timestamp || a.company.localeCompare(b.company) || a.model.localeCompare(b.model));
+}
+
+function normalizeAiCategories(value) {
+  const rawCategories = Array.isArray(value) ? value : value ? [value] : ["LLMs"];
+  const categories = rawCategories
+    .map((category) => String(category).trim())
+    .filter((category) => VALID_AI_CATEGORIES.has(category));
+
+  return categories.length ? categories : ["LLMs"];
 }
 
 function allModels() {
@@ -196,6 +221,7 @@ function normalizeHttpsUrl(value) {
 
 function populateFilters() {
   const models = allModels();
+  fillSelect(els.aiCategoryFilter, ["LLMs", "all", ...AI_CATEGORIES.filter((category) => category !== "LLMs")], "Todos");
   fillSelect(els.companyFilter, ["all", ...unique(models.map((model) => model.company))], "Todas");
   fillSelect(els.typeFilter, ["all", ...unique(models.flatMap((model) => model.model_type))], "Todos");
   fillSelect(els.familyFilter, ["all", ...unique(models.map((model) => model.family))], "Todas");
@@ -217,6 +243,7 @@ function fillSelect(element, values, allLabel) {
 
 function syncFilterControls() {
   els.searchInput.value = state.filters.query;
+  state.filters.aiCategory = optionExists(els.aiCategoryFilter, state.filters.aiCategory) ? state.filters.aiCategory : "LLMs";
   state.filters.company = optionExists(els.companyFilter, state.filters.company) ? state.filters.company : "all";
   state.filters.type = optionExists(els.typeFilter, state.filters.type) ? state.filters.type : "all";
   state.filters.family = optionExists(els.familyFilter, state.filters.family) ? state.filters.family : "all";
@@ -224,6 +251,7 @@ function syncFilterControls() {
   state.filters.yearStart = optionExists(els.yearStartFilter, state.filters.yearStart) ? state.filters.yearStart : "all";
   state.filters.yearEnd = optionExists(els.yearEndFilter, state.filters.yearEnd) ? state.filters.yearEnd : "all";
 
+  els.aiCategoryFilter.value = state.filters.aiCategory;
   els.companyFilter.value = state.filters.company;
   els.typeFilter.value = state.filters.type;
   els.familyFilter.value = state.filters.family;
@@ -291,10 +319,12 @@ function filteredModels() {
       model.family,
       model.release_stage,
       model.description_pt,
+      ...(model.ai_category || []),
       ...(model.model_type || [])
     ].join(" ").toLowerCase();
 
     if (state.filters.query && !queryTarget.includes(state.filters.query)) return false;
+    if (state.filters.aiCategory !== "all" && !model.ai_category.includes(state.filters.aiCategory)) return false;
     if (state.filters.company !== "all" && model.company !== state.filters.company) return false;
     if (state.filters.type !== "all" && !model.model_type.includes(state.filters.type)) return false;
     if (state.filters.family !== "all" && model.family !== state.filters.family) return false;
@@ -402,13 +432,14 @@ function renderDetails(model) {
     <div class="detail-heading">
       <span class="dot" style="background:${colorFor(model.company)}"></span>
       <div>
-        <p>${escapeHtml(model.company)} · ${escapeHtml(model.family)}</p>
+        <p>${escapeHtml(model.company)} - ${escapeHtml(model.family)}</p>
         <h2>${escapeHtml(model.model)}</h2>
       </div>
     </div>
     <dl>
       <div><dt>Data</dt><dd>${formatDate(model.release_date)}</dd></div>
       <div><dt>Estagio</dt><dd>${escapeHtml(model.release_stage)}</dd></div>
+      <div><dt>Tipo de IA</dt><dd>${model.ai_category.map(categoryPill).join("")}</dd></div>
       <div><dt>Tipos</dt><dd>${model.model_type.map(typePill).join("")}</dd></div>
       <div><dt>Confianca</dt><dd>${escapeHtml(model.confidence || "nao informada")}</dd></div>
     </dl>
@@ -462,6 +493,7 @@ function renderTable(models) {
       <td><span class="company-chip" style="--chip-color:${colorFor(model.company)}">${escapeHtml(model.company)}</span></td>
       <td><strong>${escapeHtml(model.model)}</strong></td>
       <td>${escapeHtml(model.family)}</td>
+      <td>${model.ai_category.map(categoryPill).join("")}</td>
       <td>${model.model_type.map(typePill).join("")}</td>
       <td>${escapeHtml(model.description_pt || "")}</td>
       <td>${renderSourceLinks(model, "compact")}</td>
@@ -537,6 +569,10 @@ function colorFor(company) {
 
 function typePill(type) {
   return `<span class="type-pill">${escapeHtml(type)}</span>`;
+}
+
+function categoryPill(category) {
+  return `<span class="type-pill category-pill">${escapeHtml(category)}</span>`;
 }
 
 function formatDate(value) {

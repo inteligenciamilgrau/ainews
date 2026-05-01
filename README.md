@@ -1,14 +1,15 @@
-# Timeline de lancamentos de LLMs
+# Timeline de lancamentos de IA
 
-Aplicacao estatica para visualizar lancamentos de modelos de LLM por empresa, familia, tipo e ano, com foco em datas e fontes de lancamento.
+Aplicacao estatica para visualizar lancamentos de modelos de IA por categoria, empresa, familia, tipo e ano, com foco em datas e fontes de lancamento.
 
 ## Escopo da primeira base
 
-A base principal fica em `data/models.json` e cobre OpenAI GPT/o-series, Claude, Gemini/Bard, Meta Llama/Muse, Grok, Kimi, GLM, MiMo e DeepSeek. Cada item tem:
+A base principal fica em `data/models.json` e cobre LLMs, modelos de imagem, video, audio/transcricao e musica. A categoria padrao para registros sem `ai_category` e `LLMs`. Cada item tem:
 
 - `release_date`: data ISO do anuncio, preview, API, GA ou release de pesos, conforme a fonte oficial.
 - `release_stage`: diferencia anuncio, preview, API, GA, produto e open weights.
-- `model_type`: tags usadas nos filtros.
+- `ai_category`: categoria ampla usada no menu de Tipo de IA. Valores atuais: `LLMs`, `Imagem`, `Video`, `Audio/Transcricao`, `Musica`.
+- `model_type`: tags usadas nos filtros. Use `OpenSource` como rotulo amigavel quando o item for modelo aberto/open-weight, mantendo `open-weights` quando os pesos estiverem publicamente disponiveis.
 - `description_pt`: descricao curta em portugues.
 - `source` ou `sources`: titulo, URL, publicador e criterio usado para a data. Use `sources` quando um registro agrupa mais de um modelo ou variante.
 - `confidence`: `alta`, `media` ou `baixa`.
@@ -42,6 +43,7 @@ Ao adicionar na base canonica, mantenha o padrao:
   "model": "Modelo",
   "release_date": "YYYY-MM-DD",
   "release_stage": "lancamento",
+  "ai_category": "LLMs",
   "model_type": ["texto", "raciocinio"],
   "description_pt": "Descricao curta.",
   "sources": [
