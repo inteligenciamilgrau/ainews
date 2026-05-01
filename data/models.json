@@ -3,7 +3,7 @@
     "updated_at": "2026-05-01",
     "last_correction": {
       "date": "2026-05-01",
-      "description_pt": "Adicionados novos modelos de imagem e video: GPT Image 1.5/2, Nano Banana Pro, FLUX, Seedance, Kling, Wan e Hailuo."
+      "description_pt": "Adicionados Gemma 4 e Nano Banana 2 da Google, alem de novos modelos de imagem e video: GPT Image 1.5/2, Nano Banana Pro, FLUX, Seedance, Kling, Wan e Hailuo."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao e musica. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -1361,7 +1361,7 @@
       "description_pt": "Modelo Kimi K2 para codigo e tarefas agenticas, disponibilizado como kimi-k2-0711-preview.",
       "source": {
         "title": "Kimi Open Platform: New Feature Release Log",
-        "url": "https://platform.moonshot.ai/blog/posts/changelog",
+        "url": "https://platform.moonshot.ai/blog/posts/changelog#july-11-2025",
         "publisher": "Moonshot AI",
         "date_basis": "Changelog oficial registra release de kimi-k2-0711-preview em 11 de julho de 2025."
       },
@@ -1378,7 +1378,7 @@
       "description_pt": "Versao acelerada do Kimi K2 com maior velocidade de geracao para ferramentas de desenvolvimento e agentes.",
       "source": {
         "title": "Kimi Open Platform: New Feature Release Log",
-        "url": "https://platform.moonshot.ai/blog/posts/changelog",
+        "url": "https://platform.moonshot.ai/blog/posts/changelog#august-1-2025",
         "publisher": "Moonshot AI",
         "date_basis": "Changelog oficial registra launch do kimi-k2-turbo-preview em 1 de agosto de 2025."
       },
@@ -1394,8 +1394,8 @@
       "model_type": ["codigo", "agente", "longo-contexto"],
       "description_pt": "Atualizacao K2 com contexto de 256K e melhorias de capacidade para codigo e agentes.",
       "source": {
-        "title": "Using Kimi K2.5 Model in Programming Tools",
-        "url": "https://platform.moonshot.ai/docs/guide/agent-support.en-US",
+        "title": "Kimi K2: Open Agentic Intelligence",
+        "url": "https://moonshotai.github.io/Kimi-K2/",
         "publisher": "Moonshot AI",
         "date_basis": "Documentacao oficial registra latest release em 5 de setembro de 2025."
       },
@@ -1412,7 +1412,7 @@
       "description_pt": "Modelos K2 Thinking e K2 Thinking Turbo para raciocinio complexo, instrucoes multi-etapa e tarefas agenticas com ferramentas.",
       "source": {
         "title": "Kimi Open Platform: New Feature Release Log",
-        "url": "https://platform.moonshot.ai/blog/posts/changelog",
+        "url": "https://platform.moonshot.ai/blog/posts/changelog#november-6-2025",
         "publisher": "Moonshot AI",
         "date_basis": "Changelog oficial registra launch em 6 de novembro de 2025."
       },
@@ -1429,7 +1429,7 @@
       "description_pt": "Modelo multimodal MoE com 256K de contexto, fusao nativa de texto e visao e modo de colaboracao de clusters de agentes.",
       "source": {
         "title": "Using Kimi K2.5 Model in Programming Tools",
-        "url": "https://platform.moonshot.ai/docs/guide/agent-support.en-US",
+        "url": "https://www.kimi.com/blog/kimi-k2-5",
         "publisher": "Moonshot AI",
         "date_basis": "Documentacao oficial registra latest release em 27 de janeiro de 2026."
       },
@@ -2406,6 +2406,24 @@
       "confidence": "alta"
     },
     {
+      "id": "google-gemma-4",
+      "company": "Google",
+      "family": "Gemma",
+      "model": "Gemma 4 E2B / E4B / 26B MoE / 31B Dense",
+      "release_date": "2026-04-02",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video", "multimodal", "raciocinio", "agente", "open-weights", "OpenSource", "Apache-2.0", "edge", "function-calling", "longo-contexto"],
+      "description_pt": "Familia Gemma 4 de modelos abertos da Google, com variantes E2B, E4B, 26B MoE e 31B Dense, foco em raciocinio avancado, workflows agenticos, multimodalidade e execucao local ou em edge.",
+      "source": {
+        "title": "Gemma 4: Byte for byte, the most capable open models",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 2 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "openai-gpt-oss",
       "company": "OpenAI",
       "family": "gpt-oss",
@@ -2490,6 +2508,24 @@
         "url": "https://blog.google/technology/ai/nano-banana-pro/",
         "publisher": "Google",
         "date_basis": "Post oficial publicado em 20 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-nano-banana-2",
+      "company": "Google",
+      "family": "Gemini Image",
+      "model": "Nano Banana 2 (Gemini 3.1 Flash Image)",
+      "release_date": "2026-02-26",
+      "release_stage": "produto/API preview",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "Gemini", "Google AI Studio", "Gemini API", "Vertex AI", "Flow", "Google Search", "4K"],
+      "description_pt": "Modelo de imagem da Google DeepMind que combina recursos do Nano Banana Pro com velocidade Flash, com conhecimento de mundo, consistencia de sujeitos, edicao rapida, renderizacao de texto e saidas de 512px a 4K.",
+      "source": {
+        "title": "Nano Banana 2: Combining Pro capabilities with lightning-fast speed",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 26 de fevereiro de 2026."
       },
       "confidence": "alta"
     },
