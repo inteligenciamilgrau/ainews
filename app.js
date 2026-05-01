@@ -5,6 +5,7 @@ const VALID_LANE_MODES = new Set(["company", "all"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
 const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica"];
 const VALID_AI_CATEGORIES = new Set(AI_CATEGORIES);
+const TIMELINE_EVENT_EDGE_PX = 108;
 
 const state = {
   metadata: {},
@@ -81,6 +82,7 @@ async function init() {
 function cacheElements() {
   Object.assign(els, {
     topbar: document.querySelector(".topbar"),
+    controls: document.querySelector(".controls"),
     searchInput: document.getElementById("searchInput"),
     aiCategoryFilter: document.getElementById("aiCategoryFilter"),
     companyFilter: document.getElementById("companyFilter"),
@@ -240,6 +242,7 @@ function populateFilters() {
   fillSelect(els.yearStartFilter, ["all", ...years], "Inicio");
   fillSelect(els.yearEndFilter, ["all", ...years], "Fim");
   syncFilterControls();
+  syncStickyOffsets();
   saveViewPreferences();
 }
 
@@ -282,7 +285,9 @@ function syncViewControls() {
 function syncStickyOffsets() {
   const compactLayout = window.matchMedia("(max-width: 760px)").matches;
   const topbarHeight = compactLayout ? 0 : Math.ceil(els.topbar?.getBoundingClientRect().height || 0);
+  const controlsHeight = Math.ceil(els.controls?.getBoundingClientRect().height || 0);
   document.documentElement.style.setProperty("--sticky-filter-top", `${topbarHeight}px`);
+  document.documentElement.style.setProperty("--sticky-filter-height", `${controlsHeight}px`);
 }
 
 function loadViewPreferences() {
@@ -405,7 +410,7 @@ function renderTimeline(models) {
         <button class="timeline-event ${model.id === state.selectedId ? "selected" : ""}"
           type="button"
           data-id="${escapeHtml(model.id)}"
-          style="left:clamp(82px, ${clamp(left, 0, 100)}%, calc(100% - 82px)); --event-color:${color}; --stack:${stack};"
+          style="left:clamp(${TIMELINE_EVENT_EDGE_PX}px, ${clamp(left, 0, 100)}%, calc(100% - ${TIMELINE_EVENT_EDGE_PX}px)); --event-color:${color}; --stack:${stack};"
           title="${escapeHtml(model.company)} - ${escapeHtml(model.model)}">
           <span>${formatDate(model.release_date)}</span>
           <strong>${escapeHtml(model.model)}</strong>
