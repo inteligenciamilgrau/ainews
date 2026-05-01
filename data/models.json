@@ -3,7 +3,7 @@
     "updated_at": "2026-05-01",
     "last_correction": {
       "date": "2026-05-01",
-      "description_pt": "Adicionados Gemma 4 e Nano Banana 2 da Google, alem de novos modelos de imagem e video: GPT Image 1.5/2, Nano Banana Pro, FLUX, Seedance, Kling, Wan e Hailuo."
+      "description_pt": "Adicionados modelos da Maritaca AI e da Udio, mantendo os LLMs Seed da ByteDance e os modelos recentes da Mistral AI e NVIDIA."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao e musica. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -960,6 +960,832 @@
         "publisher": "Google",
         "date_basis": "Post oficial publicado em 19 de fevereiro de 2026."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-mistral-7b",
+      "company": "Mistral AI",
+      "family": "Mistral",
+      "model": "Mistral 7B",
+      "release_date": "2023-09-27",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "open-weights", "OpenSource", "Apache-2.0", "edge"],
+      "description_pt": "Primeiro modelo aberto da Mistral AI, com 7B parametros, pesos base e instruct sob Apache 2.0 e foco em eficiencia frente a modelos maiores.",
+      "source": {
+        "title": "Mistral 7B",
+        "url": "https://docs.mistral.ai/models/model-cards/mistral-7b-0-1",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 27 de setembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-mixtral-8x7b",
+      "company": "Mistral AI",
+      "family": "Mixtral",
+      "model": "Mixtral 8x7B",
+      "release_date": "2023-12-11",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "MoE", "open-weights", "OpenSource", "Apache-2.0", "multilingue", "32k"],
+      "description_pt": "Primeiro modelo aberto Mixture-of-Experts da Mistral, com 47B parametros totais, 13B ativos e contexto de 32K.",
+      "source": {
+        "title": "Mixtral 8x7B",
+        "url": "https://docs.mistral.ai/models/model-cards/mixtral-8x7b-0-1",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 11 de dezembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-mistral-large-1",
+      "company": "Mistral AI",
+      "family": "Mistral Large",
+      "model": "Mistral Large 1.0",
+      "release_date": "2024-02-26",
+      "release_stage": "API/premier",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "multilingue", "API", "enterprise"],
+      "description_pt": "Primeiro modelo flagship comercial da Mistral, voltado a raciocinio multilingue, transformacao de texto e geracao de codigo via la Plateforme e Azure.",
+      "source": {
+        "title": "Mistral Large 1.0",
+        "url": "https://docs.mistral.ai/models/mistral-large-1-0-24-02",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 26 de fevereiro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-mixtral-8x22b",
+      "company": "Mistral AI",
+      "family": "Mixtral",
+      "model": "Mixtral 8x22B",
+      "release_date": "2024-04-17",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "MoE", "open-weights", "OpenSource", "Apache-2.0", "codigo", "function-calling", "64k"],
+      "description_pt": "Modelo aberto MoE de maior escala da linha Mixtral, com 141B parametros totais, 39B ativos, contexto de 64K, codigo, matematica e function calling.",
+      "source": {
+        "title": "Mixtral 8x22B",
+        "url": "https://docs.mistral.ai/models/mixtral-8x22b-0-1-0-3",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 17 de abril de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-codestral",
+      "company": "Mistral AI",
+      "family": "Codestral",
+      "model": "Codestral",
+      "release_date": "2024-05-29",
+      "release_stage": "pesos/API",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "FIM", "autocomplete", "API", "MNPL", "programacao"],
+      "description_pt": "Linha especializada em codigo e fill-in-the-middle, iniciada com Codestral 2405 e depois atualizada para variantes mais recentes de completacao e embeddings de codigo.",
+      "sources": [
+        {
+          "title": "Codestral",
+          "url": "https://docs.mistral.ai/models/model-cards/codestral-24-05",
+          "publisher": "Mistral AI",
+          "date_basis": "Model card oficial registra o release inicial em 29 de maio de 2024."
+        },
+        {
+          "title": "Codestral model lifecycle",
+          "url": "https://legal.mistral.ai/ai-governance/models/codestral",
+          "publisher": "Mistral AI",
+          "date_basis": "Governance hub oficial lista updates Codestral 2501, 2508 e Codestral Embed."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-mistral-nemo",
+      "company": "Mistral AI",
+      "family": "Mistral Nemo",
+      "model": "Mistral Nemo 12B",
+      "release_date": "2024-07-18",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "multilingue", "open-weights", "OpenSource", "Apache-2.0", "128k", "NVIDIA"],
+      "description_pt": "Modelo aberto de 12B criado com a NVIDIA, com foco multilingue, contexto de 128K e bom custo/desempenho para uso local ou API.",
+      "source": {
+        "title": "Mistral Nemo 12B",
+        "url": "https://docs.mistral.ai/models/mistral-nemo-12b-24-07",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 18 de julho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-mistral-large-2",
+      "company": "Mistral AI",
+      "family": "Mistral Large",
+      "model": "Mistral Large 2",
+      "release_date": "2024-07-24",
+      "release_stage": "pesos/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "raciocinio", "multilingue", "open-weights", "MRL", "function-calling", "128k"],
+      "description_pt": "Segunda geracao do flagship da Mistral, com 123B parametros, janela de 128K, codigo, matematica, raciocinio e suporte multilingue ampliado.",
+      "source": {
+        "title": "Mistral Large 2.0",
+        "url": "https://docs.mistral.ai/models/mistral-large-2-0-24-07",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 24 de julho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-pixtral-12b",
+      "company": "Mistral AI",
+      "family": "Pixtral",
+      "model": "Pixtral 12B",
+      "release_date": "2024-09-11",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "open-weights", "OpenSource", "Apache-2.0", "128k"],
+      "description_pt": "Primeiro modelo multimodal aberto da Mistral, adicionando entendimento de imagens ao texto com contexto de 128K.",
+      "source": {
+        "title": "Pixtral 12B",
+        "url": "https://docs.mistral.ai/models/pixtral-12b-24-09",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 11 de setembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-ministral-1",
+      "company": "Mistral AI",
+      "family": "Ministral",
+      "model": "Ministral 3B / 8B",
+      "release_date": "2024-10-09",
+      "release_stage": "API/pesos sob licenca",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "edge", "baixo-custo", "128k", "dispositivo"],
+      "description_pt": "Primeira linha Ministral para edge e baixa latencia, com variantes 3B e 8B otimizadas para performance/custo e contexto de 128K.",
+      "sources": [
+        {
+          "title": "Ministral 3B",
+          "url": "https://docs.mistral.ai/models/ministral-3b-24-1",
+          "publisher": "Mistral AI",
+          "date_basis": "Model card oficial registra o release em 9 de outubro de 2024."
+        },
+        {
+          "title": "Ministral 8B",
+          "url": "https://docs.mistral.ai/models/ministral-8b-24-1",
+          "publisher": "Mistral AI",
+          "date_basis": "Model card oficial registra o release em 9 de outubro de 2024."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-pixtral-large",
+      "company": "Mistral AI",
+      "family": "Pixtral",
+      "model": "Pixtral Large",
+      "release_date": "2024-11-18",
+      "release_stage": "pesos/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "documentos", "graficos", "MRL", "128k"],
+      "description_pt": "Modelo multimodal frontier da Mistral baseado no Mistral Large 2, com decoder de 123B, encoder visual de 1B e entendimento de documentos, graficos e imagens.",
+      "source": {
+        "title": "Pixtral Large",
+        "url": "https://docs.mistral.ai/models/pixtral-large-24-11",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 18 de novembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-mistral-small-3",
+      "company": "Mistral AI",
+      "family": "Mistral Small",
+      "model": "Mistral Small 3.0 / 3.1 / 3.2",
+      "release_date": "2025-01-30",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "open-weights", "OpenSource", "Apache-2.0", "128k", "pequeno"],
+      "description_pt": "Serie de modelos pequenos abertos da Mistral, iniciada com Mistral Small 3.0 e atualizada com capacidades multimodais, maior contexto e melhorias de instrucao.",
+      "source": {
+        "title": "Mistral Small 3.0 model lifecycle",
+        "url": "https://legal.mistral.ai/ai-governance/models/mistral-small-3",
+        "publisher": "Mistral AI",
+        "date_basis": "Governance hub oficial lista Small 3.0 em 30 de janeiro de 2025, 3.1 em 17 de marco de 2025 e 3.2 em 20 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-saba",
+      "company": "Mistral AI",
+      "family": "Mistral Saba",
+      "model": "Mistral Saba",
+      "release_date": "2025-02-17",
+      "release_stage": "API/premier",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "regional", "multilingue", "arabe", "sul-asiatico", "24B", "enterprise"],
+      "description_pt": "Modelo regional de 24B treinado para nuances linguisticas e culturais do Oriente Medio e Sul da Asia, com foco em arabe e linguas indianas.",
+      "source": {
+        "title": "Mistral Saba",
+        "url": "https://docs.mistral.ai/models/mistral-saba-25-02",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 17 de fevereiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-ocr",
+      "company": "Mistral AI",
+      "family": "Mistral OCR",
+      "model": "Mistral OCR / OCR 2 / OCR 3",
+      "release_date": "2025-03-06",
+      "release_stage": "API/premier",
+      "ai_category": "LLMs",
+      "model_type": ["OCR", "documentos", "visao", "multimodal", "Document AI", "API"],
+      "description_pt": "Linha de OCR e Document AI da Mistral para extracao estruturada, Q&A em documentos, anotacoes e bounding boxes.",
+      "source": {
+        "title": "Mistral OCR model lifecycle",
+        "url": "https://legal.mistral.ai/ai-governance/models/mistral-ocr",
+        "publisher": "Mistral AI",
+        "date_basis": "Governance hub oficial lista OCR 2503 em 6 de marco de 2025 e OCR 2505 em 22 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-medium-3",
+      "company": "Mistral AI",
+      "family": "Mistral Medium",
+      "model": "Mistral Medium 3 / 3.1",
+      "release_date": "2025-05-07",
+      "release_stage": "API/premier",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "codigo", "enterprise", "tool-use", "128k"],
+      "description_pt": "Linha Medium 3 de modelos frontier multimodais para uso empresarial, codigo, tool use e deploy hibrido, com update 3.1 em agosto de 2025.",
+      "source": {
+        "title": "Mistral Medium 3.0 model lifecycle",
+        "url": "https://legal.mistral.ai/ai-governance/models/mistral-medium-3",
+        "publisher": "Mistral AI",
+        "date_basis": "Governance hub oficial lista Medium 3.0 em 7 de maio de 2025 e Medium 3.1 em 12 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-devstral",
+      "company": "Mistral AI",
+      "family": "Devstral",
+      "model": "Devstral",
+      "release_date": "2025-05-21",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "SWE", "tool-use", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Familia de modelos agenticos para engenharia de software, criada com foco em explorar codebases, editar multiplos arquivos e resolver tarefas estilo SWE-Bench.",
+      "source": {
+        "title": "Devstral",
+        "url": "https://mistral.ai/news/devstral",
+        "publisher": "Mistral AI",
+        "date_basis": "Post oficial publicado em 21 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-magistral",
+      "company": "Mistral AI",
+      "family": "Magistral",
+      "model": "Magistral Small / Medium",
+      "release_date": "2025-06-10",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "multilingue", "open-weights", "OpenSource", "Apache-2.0", "enterprise"],
+      "description_pt": "Primeira familia de modelos de raciocinio da Mistral, com variantes Small abertas e Medium empresariais para raciocinio transparente e multilingue.",
+      "sources": [
+        {
+          "title": "Magistral",
+          "url": "https://mistral.ai/fr/news/magistral",
+          "publisher": "Mistral AI",
+          "date_basis": "Post oficial publicado em 10 de junho de 2025."
+        },
+        {
+          "title": "Magistral Medium 1 model lifecycle",
+          "url": "https://legal.mistral.ai/ai-governance/models/magistral-medium-1",
+          "publisher": "Mistral AI",
+          "date_basis": "Governance hub oficial lista updates 1.1 e 1.2."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-voxtral",
+      "company": "Mistral AI",
+      "family": "Voxtral",
+      "model": "Voxtral Small / Mini",
+      "release_date": "2025-07-15",
+      "release_stage": "open weights/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "fala", "speech-understanding", "open-weights", "OpenSource", "Apache-2.0", "multilingue"],
+      "description_pt": "Primeira linha aberta de modelos de entendimento de fala da Mistral, com variantes 24B e 3B para transcricao, compreensao de audio e deploy local/API.",
+      "source": {
+        "title": "Voxtral",
+        "url": "https://mistral.ai/news/voxtral",
+        "publisher": "Mistral AI",
+        "date_basis": "Post oficial publicado em 15 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-mistral-3",
+      "company": "Mistral AI",
+      "family": "Mistral 3",
+      "model": "Mistral Large 3 / Ministral 3",
+      "release_date": "2025-12-02",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "multilingue", "MoE", "edge", "raciocinio", "open-weights", "OpenSource", "Apache-2.0", "256k"],
+      "description_pt": "Nova geracao aberta da Mistral com Mistral Large 3, MoE de 675B totais e 41B ativos, e a familia Ministral 3 em 3B, 8B e 14B com variantes base, instruct e reasoning.",
+      "sources": [
+        {
+          "title": "Introducing Mistral 3",
+          "url": "https://mistral.ai/news/mistral-3",
+          "publisher": "Mistral AI",
+          "date_basis": "Post oficial anuncia Mistral Large 3 e Ministral 3."
+        },
+        {
+          "title": "Mistral Large 3",
+          "url": "https://docs.mistral.ai/models/model-cards/mistral-large-3-25-12",
+          "publisher": "Mistral AI",
+          "date_basis": "Model card oficial registra o release em 2 de dezembro de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-devstral-2",
+      "company": "Mistral AI",
+      "family": "Devstral",
+      "model": "Devstral 2",
+      "release_date": "2025-12-09",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "SWE", "tool-use", "open-weights", "OpenSource", "256k"],
+      "description_pt": "Modelo frontier da linha Devstral para agentes de software, com contexto de 256K e foco em explorar repositorios, usar ferramentas e editar projetos grandes.",
+      "source": {
+        "title": "Devstral 2",
+        "url": "https://docs.mistral.ai/models/model-cards/devstral-2-25-12",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 9 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-voxtral-transcribe-2",
+      "company": "Mistral AI",
+      "family": "Voxtral",
+      "model": "Voxtral Mini Transcribe 2 / Realtime",
+      "release_date": "2026-02-04",
+      "release_stage": "API/open weights",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "realtime", "traducao", "OpenSource", "API", "baixo-custo"],
+      "description_pt": "Atualizacao da linha Voxtral focada em transcricao eficiente e transcricao ao vivo, incluindo variante Realtime aberta para baixa latencia.",
+      "sources": [
+        {
+          "title": "Voxtral Mini Transcribe 2",
+          "url": "https://docs.mistral.ai/models/model-cards/voxtral-mini-transcribe-26-02",
+          "publisher": "Mistral AI",
+          "date_basis": "Model card oficial registra o release em 4 de fevereiro de 2026."
+        },
+        {
+          "title": "Voxtral Mini Transcribe Realtime",
+          "url": "https://docs.mistral.ai/models/model-cards/voxtral-mini-transcribe-realtime-26-02",
+          "publisher": "Mistral AI",
+          "date_basis": "Model card oficial registra o release em 4 de fevereiro de 2026."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-small-4",
+      "company": "Mistral AI",
+      "family": "Mistral Small",
+      "model": "Mistral Small 4",
+      "release_date": "2026-03-16",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "codigo", "raciocinio", "MoE", "agente", "open-weights", "OpenSource", "256k"],
+      "description_pt": "Modelo hibrido de 119B parametros e 6,5B ativos que unifica instrucao, raciocinio e codigo em um modelo eficiente com suporte a texto e imagem.",
+      "source": {
+        "title": "Mistral Small 4",
+        "url": "https://docs.mistral.ai/models/model-cards/mistral-small-4-0-26-03",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 16 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-voxtral-tts",
+      "company": "Mistral AI",
+      "family": "Voxtral",
+      "model": "Voxtral TTS",
+      "release_date": "2026-03-23",
+      "release_stage": "open weights/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "clonagem-de-voz", "streaming", "open-weights", "OpenSource", "multilingue"],
+      "description_pt": "Modelo text-to-speech da familia Voxtral com clonagem de voz zero-shot, streaming, suporte multilingue e time-to-first-audio em torno de 90 ms.",
+      "source": {
+        "title": "Voxtral TTS",
+        "url": "https://docs.mistral.ai/models/model-cards/voxtral-tts-26-03",
+        "publisher": "Mistral AI",
+        "date_basis": "Model card oficial registra o release em 23 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-medium-3-5",
+      "company": "Mistral AI",
+      "family": "Mistral Medium",
+      "model": "Mistral Medium 3.5",
+      "release_date": "2026-04-29",
+      "release_stage": "public preview/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "codigo", "raciocinio", "agente", "open-weights", "OpenSource", "Modified MIT", "256k"],
+      "description_pt": "Modelo dense de 128B que combina instrucao, raciocinio e codigo em um unico conjunto de pesos, com contexto de 256K e foco em agentes de longa duracao.",
+      "sources": [
+        {
+          "title": "Remote agents in Vibe. Powered by Mistral Medium 3.5.",
+          "url": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+          "publisher": "Mistral AI",
+          "date_basis": "Post oficial informa disponibilidade em public preview e pesos abertos."
+        },
+        {
+          "title": "Mistral Medium 3.5",
+          "url": "https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04",
+          "publisher": "Mistral AI",
+          "date_basis": "Model card oficial registra o release em abril de 2026; data exata usada para ordenacao conforme anuncio publico de 29 de abril de 2026."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "nvidia-nemotron-4-340b",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron-4 340B Base / Instruct / Reward",
+      "release_date": "2024-06-14",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "instrucao", "reward-model", "synthetic-data", "open-weights", "OpenSource", "NVIDIA Open Model License"],
+      "description_pt": "Familia aberta de 340B parametros da NVIDIA com variantes Base, Instruct e Reward, criada para gerar e filtrar dados sinteticos de alta qualidade e treinar modelos menores.",
+      "source": {
+        "title": "Nemotron-4 340B",
+        "url": "https://research.nvidia.com/publication/2024-06_nemotron-4-340b",
+        "publisher": "NVIDIA Research",
+        "date_basis": "Publicacao oficial registra 14 de junho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-llama-3-1-nemotron-51b",
+      "company": "NVIDIA",
+      "family": "Llama Nemotron",
+      "model": "Llama-3.1-Nemotron-51B-Instruct",
+      "release_date": "2024-09-23",
+      "release_stage": "NIM/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "instrucao", "NAS", "destilacao", "eficiencia", "NIM", "TensorRT-LLM", "open-weights"],
+      "description_pt": "Modelo derivado do Llama 3.1 70B por busca neural de arquitetura e destilacao, otimizado para melhor relacao qualidade/custo e execucao em uma unica GPU H100.",
+      "source": {
+        "title": "Advancing the Accuracy-Efficiency Frontier with Llama-3.1-Nemotron-51B",
+        "url": "https://developer.nvidia.com/blog/advancing-the-accuracy-efficiency-frontier-with-llama-3-1-nemotron-51b/",
+        "publisher": "NVIDIA Developer",
+        "date_basis": "Post tecnico oficial publicado em 23 de setembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-llama-nemotron-reasoning",
+      "company": "NVIDIA",
+      "family": "Llama Nemotron",
+      "model": "Llama Nemotron Nano / Super / Ultra",
+      "release_date": "2025-03-18",
+      "release_stage": "open weights/NIM",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agente", "codigo", "math", "tool-use", "NIM", "OpenSource", "open-weights"],
+      "description_pt": "Familia aberta de modelos de raciocinio baseada em Llama, pos-treinada pela NVIDIA para agentes, matematica, codigo, tomada de decisao e workflows multiagente.",
+      "source": {
+        "title": "NVIDIA Launches Family of Open Reasoning AI Models",
+        "url": "https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Launches-Family-of-Open-Reasoning-AI-Models-for-Developers-and-Enterprises-to-Build-Agentic-AI-Platforms/default.aspx",
+        "publisher": "NVIDIA",
+        "date_basis": "Press release oficial publicado em 18 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-nemotron-3",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron 3 Nano / Super / Ultra",
+      "release_date": "2025-12-15",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agente", "MoE", "open-weights", "OpenSource", "Nano", "Super", "Ultra", "1M-contexto"],
+      "description_pt": "Familia Nemotron 3 de modelos abertos em tamanhos Nano, Super e Ultra, com arquitetura MoE hibrida, foco em agentes especializados, eficiencia e raciocinio de longo horizonte.",
+      "source": {
+        "title": "NVIDIA Debuts Nemotron 3 Family of Open Models",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models/",
+        "publisher": "NVIDIA Newsroom",
+        "date_basis": "Press release oficial publicado em 15 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-nemotron-3-nano-omni",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron 3 Nano Omni",
+      "release_date": "2026-04-28",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video", "multimodal", "omni", "MoE", "open-weights", "OpenSource", "agente"],
+      "description_pt": "Modelo multimodal aberto da familia Nemotron 3 que unifica entendimento de texto, imagem, video e audio em um unico loop de raciocinio para subagentes e fluxos agenticos.",
+      "source": {
+        "title": "NVIDIA Nemotron 3 Nano Omni Powers Multimodal Agent Reasoning in a Single Efficient Open Model",
+        "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-nano-omni-powers-multimodal-agent-reasoning-in-a-single-efficient-open-model",
+        "publisher": "NVIDIA Developer",
+        "date_basis": "Post tecnico oficial publicado em 28 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seed-1-5-pro",
+      "company": "ByteDance",
+      "family": "Seed",
+      "model": "Seed1.5 / Doubao-1.5-pro",
+      "release_date": "2025-01-22",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "multimodal", "MoE", "raciocinio", "codigo", "Doubao"],
+      "description_pt": "Modelo MoE multimodal da ByteDance Seed, usado como Doubao-1.5-pro, com foco em conhecimento, codigo, raciocinio e capacidades de visao e fala.",
+      "source": {
+        "title": "Doubao-1.5-pro",
+        "url": "https://seed.bytedance.com/en/doubao_1_5_pro",
+        "publisher": "ByteDance Seed",
+        "date_basis": "Post oficial publicado em 22 de janeiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seed-coder",
+      "company": "ByteDance",
+      "family": "Seed",
+      "model": "Seed-Coder 8B Base / Instruct / Reasoning",
+      "release_date": "2025-05-08",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "raciocinio", "instruct", "open-weights", "OpenSource", "MIT", "32k", "64k"],
+      "description_pt": "Familia aberta de LLMs de codigo de 8B da ByteDance Seed, com variantes Base, Instruct e Reasoning treinadas com curadoria de dados centrada em modelos.",
+      "source": {
+        "title": "Seed-Coder",
+        "url": "https://github.com/ByteDance-Seed/Seed-Coder",
+        "publisher": "ByteDance Seed",
+        "date_basis": "Repositorio oficial registra release em 8 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seed-1-6",
+      "company": "ByteDance",
+      "family": "Seed",
+      "model": "Seed1.6 / Seed1.6-Thinking",
+      "release_date": "2025-06-25",
+      "release_stage": "API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "MoE", "raciocinio", "adaptive-thinking", "GUI", "256k"],
+      "description_pt": "Serie geral Seed1.6 com capacidades multimodais, contexto de 256K, pensamento adaptativo e variantes de raciocinio como Seed1.6-Thinking.",
+      "source": {
+        "title": "Introduction to Techniques Used in Seed1.6",
+        "url": "https://seed.bytedance.com/blog/seed1-6-%E7%B3%BB%E5%88%97%E6%A8%A1%E5%9E%8B%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D",
+        "publisher": "ByteDance Seed",
+        "date_basis": "Post oficial publicado em 25 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seed-diffusion-preview",
+      "company": "ByteDance",
+      "family": "Seed",
+      "model": "Seed Diffusion Preview",
+      "release_date": "2025-08-04",
+      "release_stage": "pesquisa/preview",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "diffusion-LLM", "geracao-de-codigo", "alta-velocidade", "preview"],
+      "description_pt": "Modelo experimental de linguagem por difusao discreta, especializado em geracao de codigo e apresentado pela Seed como alternativa rapida a modelos autoregressivos.",
+      "source": {
+        "title": "ByteDance Seed LLM",
+        "url": "https://seed.bytedance.com/en/direction/llm",
+        "publisher": "ByteDance Seed",
+        "date_basis": "Pagina oficial de LLM lista o paper Seed Diffusion em 4 de agosto de 2025."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "bytedance-seed-oss-36b",
+      "company": "ByteDance",
+      "family": "Seed",
+      "model": "Seed-OSS 36B Base / Instruct",
+      "release_date": "2025-08-20",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agente", "long-context", "open-weights", "OpenSource", "Apache-2.0", "512k"],
+      "description_pt": "Serie aberta Seed-OSS de 36B parametros, com variantes Base e Instruct, contexto nativo ate 512K, controle de thinking budget, raciocinio e capacidades agenticas.",
+      "source": {
+        "title": "Seed-OSS Open-Source Models",
+        "url": "https://github.com/ByteDance-Seed/seed-oss",
+        "publisher": "ByteDance Seed",
+        "date_basis": "Repositorio oficial registra release em 20 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seed-1-8",
+      "company": "ByteDance",
+      "family": "Seed",
+      "model": "Seed1.8",
+      "release_date": "2025-12-18",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "agente", "codigo", "GUI", "busca", "workflow"],
+      "description_pt": "Modelo agentico generalista da ByteDance Seed, com entrada de texto e imagem, busca, codigo, interacao GUI e foco em completar workflows complexos.",
+      "source": {
+        "title": "Official Release of Seed1.8: A Generalized Agentic Model",
+        "url": "https://seed.bytedance.com/en/blog/official-release-of-seed1-8-a-generalized-agentic-model",
+        "publisher": "ByteDance Seed",
+        "date_basis": "Post oficial publicado em 18 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seed-2",
+      "company": "ByteDance",
+      "family": "Seed",
+      "model": "Seed2.0 Pro / Lite / Mini / Code",
+      "release_date": "2026-02-14",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "video", "multimodal", "agente", "raciocinio", "codigo", "documentos", "Volcano Engine"],
+      "description_pt": "Serie Seed2.0 com modelos Pro, Lite, Mini e Code, voltada a agentes generalistas, entendimento multimodal, raciocinio, documentos complexos e workflows reais de longa duracao.",
+      "sources": [
+        {
+          "title": "Seed 2.0 Official Launch",
+          "url": "https://seed.bytedance.com/en/blog/seed2-0-%25E6%25AD%25A3%25E5%25BC%258F%25E5%258F%2591%25E5%25B8%2583",
+          "publisher": "ByteDance Seed",
+          "date_basis": "Post oficial publicado em 14 de fevereiro de 2026."
+        },
+        {
+          "title": "Seed2.0",
+          "url": "https://seed.bytedance.com/en/seed2",
+          "publisher": "ByteDance Seed",
+          "date_basis": "Pagina oficial do modelo lista Pro, Lite e Mini e descreve capacidades LLM, VLM e Agent."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "maritaca-ai-sabia",
+      "company": "Maritaca AI",
+      "family": "Sabia",
+      "model": "Sabia 7B / 65B",
+      "release_date": "2023-04-16",
+      "release_stage": "pesquisa/pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "portugues", "Brasil", "pesquisa", "open-weights", "dominio-local"],
+      "description_pt": "Primeira familia Sabia de modelos de linguagem em portugues da Maritaca AI, com variantes derivadas de LLaMA e GPT-J e foco em conhecimento e nuances do portugues brasileiro.",
+      "source": {
+        "title": "Sabia: Portuguese Large Language Models",
+        "url": "https://arxiv.org/abs/2304.07880",
+        "publisher": "Maritaca AI",
+        "date_basis": "Preprint oficial submetido em 16 de abril de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "maritaca-ai-sabia-2",
+      "company": "Maritaca AI",
+      "family": "Sabia",
+      "model": "Sabia-2 Small / Medium",
+      "release_date": "2024-03-14",
+      "release_stage": "relatorio tecnico/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "portugues", "Brasil", "provas-brasileiras", "baixo-custo", "API"],
+      "description_pt": "Segunda geracao dos modelos Sabia, treinada para tarefas em portugues e avaliada em exames brasileiros como ENEM, ENADE, OAB, USP, Unicamp e provas de residencia.",
+      "sources": [
+        {
+          "title": "Sabia-2: A New Generation of Portuguese Large Language Models",
+          "url": "https://arxiv.org/abs/2403.09887",
+          "publisher": "Maritaca AI",
+          "date_basis": "Preprint oficial submetido em 14 de marco de 2024."
+        },
+        {
+          "title": "Pesquisa Maritaca AI",
+          "url": "https://www.maritaca.ai/research",
+          "publisher": "Maritaca AI",
+          "date_basis": "Pagina oficial de pesquisa lista Sabia-2 entre as publicacoes da Maritaca."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "maritaca-ai-juru",
+      "company": "Maritaca AI",
+      "family": "Juru",
+      "model": "Juru-7B",
+      "release_date": "2024-03-26",
+      "release_stage": "pesquisa/pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "juridico", "portugues", "Brasil", "open-weights", "especializado"],
+      "description_pt": "Modelo juridico brasileiro especializado a partir de dados legais de fontes reputadas, criado por pre-treinamento continuo de um modelo de 7B para tarefas de direito no Brasil.",
+      "sources": [
+        {
+          "title": "Juru: Legal Brazilian Large Language Model from Reputable Sources",
+          "url": "https://arxiv.org/abs/2403.18140",
+          "publisher": "Maritaca AI",
+          "date_basis": "Preprint oficial submetido em 26 de marco de 2024."
+        },
+        {
+          "title": "Pesquisa Maritaca AI",
+          "url": "https://www.maritaca.ai/research",
+          "publisher": "Maritaca AI",
+          "date_basis": "Pagina oficial de pesquisa descreve Juru como LLM juridico brasileiro."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "maritaca-ai-sabia-3",
+      "company": "Maritaca AI",
+      "family": "Sabia",
+      "model": "Sabia 3 / Sabiazinho 3",
+      "release_date": "2024-10-15",
+      "release_stage": "relatorio tecnico/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "portugues", "Brasil", "function-calling", "agente", "long-context", "API"],
+      "description_pt": "Geracao Sabia 3 da Maritaca AI, com modelo principal e variante menor, treinada em corpus centrado no Brasil e avaliada em provas, conversacao, function calling e tarefas agenticas.",
+      "sources": [
+        {
+          "title": "Sabia-3 Technical Report",
+          "url": "https://arxiv.org/abs/2410.12049",
+          "publisher": "Maritaca AI",
+          "date_basis": "Relatorio tecnico submetido em 15 de outubro de 2024."
+        },
+        {
+          "title": "Modelos Maritaca AI",
+          "url": "https://docs.maritaca.ai/pt/modelos",
+          "publisher": "Maritaca AI",
+          "date_basis": "Docs oficiais listam Sabia 3 e Sabiazinho 3 entre os modelos disponiveis."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "maritaca-ai-sabia-3-1",
+      "company": "Maritaca AI",
+      "family": "Sabia",
+      "model": "Sabia 3.1",
+      "release_date": "2025-05-08",
+      "release_stage": "API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "portugues", "Brasil", "raciocinio", "codigo", "juridico", "128k", "API"],
+      "description_pt": "Modelo robusto da familia Sabia com contexto de 128K, atualizado ate agosto de 2024 e indicado para codigo, raciocinio matematico, pesquisa clinica e assistencia juridica.",
+      "source": {
+        "title": "Modelos Maritaca AI",
+        "url": "https://docs.maritaca.ai/pt/modelos",
+        "publisher": "Maritaca AI",
+        "date_basis": "Docs oficiais listam o alias sabia-3.1-2025-05-08."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "maritaca-ai-sabia-4",
+      "company": "Maritaca AI",
+      "family": "Sabia",
+      "model": "Sabia 4 / Sabiazinho 4",
+      "release_date": "2026-01-06",
+      "release_stage": "API/relatorio tecnico",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "portugues", "Brasil", "juridico", "agente", "function-calling", "128k", "baixo-custo", "API"],
+      "description_pt": "Nova geracao Sabia com variante principal e Sabiazinho 4, contexto de 128K, foco em portugues brasileiro, direito brasileiro, fluxos agenticos e melhor relacao custo/desempenho.",
+      "sources": [
+        {
+          "title": "Modelos Maritaca AI",
+          "url": "https://docs.maritaca.ai/pt/modelos",
+          "publisher": "Maritaca AI",
+          "date_basis": "Docs oficiais listam os aliases sabia-4-2026-01-06 e sabiazinho-4-2026-01-06."
+        },
+        {
+          "title": "Sabia-4 Technical Report",
+          "url": "https://arxiv.org/abs/2603.10213",
+          "publisher": "Maritaca AI",
+          "date_basis": "Relatorio tecnico submetido em 10 de marco de 2026."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -2330,6 +3156,78 @@
         "url": "https://suno.com/blog/v5-5",
         "publisher": "Suno",
         "date_basis": "Post oficial publicado em 26 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "udio-v1",
+      "company": "Udio",
+      "family": "Udio",
+      "model": "Udio v1",
+      "release_date": "2024-04-10",
+      "release_stage": "public beta",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "voz", "instrumental", "cancao", "beta"],
+      "description_pt": "Primeira versao publica da plataforma de geracao musical da Udio, com criacao de musicas a partir de prompts, letras, referencias de estilo e recursos de remix/extensao.",
+      "source": {
+        "title": "Former Google Deepmind Researchers Launch Udio",
+        "url": "https://www.prnewswire.com/news-releases/former-google-deepmind-researchers-assemble-luminaries-across-music-and-tech-to-launch-udio-a-new-ai-powered-app-that-allows-anyone-to-create-extraordinary-music-in-an-instant-302113071.html",
+        "publisher": "Udio",
+        "date_basis": "Press release oficial publicado em 10 de abril de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "udio-two-minute-model",
+      "company": "Udio",
+      "family": "Udio",
+      "model": "Udio two-minute model",
+      "release_date": "2024-05-29",
+      "release_stage": "experimental/pro",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "long-form", "2-minutos", "cancao"],
+      "description_pt": "Modelo experimental da Udio capaz de gerar faixas de dois minutos, criado para melhorar coerencia e estrutura musical de longo prazo em comparacao com clipes curtos.",
+      "source": {
+        "title": "Two-Minute Model, New Controls, and More",
+        "url": "https://www.udio.com/blog/two-minute-model-new-controls",
+        "publisher": "Udio",
+        "date_basis": "Post oficial publicado em 29 de maio de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "udio-v1-5",
+      "company": "Udio",
+      "family": "Udio",
+      "model": "Udio v1.5",
+      "release_date": "2024-07-23",
+      "release_stage": "produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "audio-to-audio", "stems", "48kHz", "controle-de-tom", "cancao"],
+      "description_pt": "Atualizacao principal da Udio com melhor qualidade de audio, saida stereo 48 kHz, melhor separacao de instrumentos, controle de tom, remix por upload de audio e download de stems.",
+      "source": {
+        "title": "Introducing v1.5",
+        "url": "https://www.udio.com/blog/introducing-v1-5",
+        "publisher": "Udio",
+        "date_basis": "Post oficial publicado em 23 de julho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "udio-allegro-v1-5",
+      "company": "Udio",
+      "family": "Udio Allegro",
+      "model": "Allegro v1.5",
+      "release_date": "2025-03-18",
+      "release_stage": "produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "geracao-rapida", "cancao"],
+      "description_pt": "Versao Allegro v1.5 da Udio, voltada a tempos de geracao bem mais rapidos mantendo a qualidade sonora da linha v1.5.",
+      "source": {
+        "title": "Changelog: What's new with Udio",
+        "url": "https://help.udio.com/en/articles/10748731-changelog-what-s-new-with-udio",
+        "publisher": "Udio",
+        "date_basis": "Changelog oficial lista Allegro v1.5 model version em 18 de marco de 2025."
       },
       "confidence": "alta"
     },

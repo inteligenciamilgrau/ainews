@@ -10,6 +10,7 @@
   --accent: #0f766e;
   --focus: #1d4ed8;
   --shadow: 0 14px 35px rgba(34, 28, 19, 0.08);
+  --sticky-filter-top: 0px;
 }
 
 * {
@@ -158,6 +159,14 @@ button.secondary {
   gap: 10px;
   margin-bottom: 14px;
   align-items: end;
+  position: sticky;
+  top: var(--sticky-filter-top);
+  z-index: 18;
+  padding: 10px 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(246, 244, 239, 0.94);
+  box-shadow: 0 12px 24px rgba(34, 28, 19, 0.08);
+  backdrop-filter: blur(10px);
 }
 
 label span {
@@ -636,9 +645,20 @@ td a,
     align-items: flex-start;
   }
 
-  .summary-grid,
-  .controls {
+  .summary-grid {
     grid-template-columns: 1fr;
+  }
+
+  .controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    top: 0;
+    max-height: calc(100vh - 8px);
+    overflow: auto;
+    padding: 8px 0 10px;
+  }
+
+  .controls label:first-child {
+    grid-column: 1 / -1;
   }
 
   .timeline-lane {

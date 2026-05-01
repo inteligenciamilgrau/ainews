@@ -34,7 +34,11 @@ const companyColors = {
   "Z.AI": "#dc2626",
   Xiaomi: "#ea580c",
   DeepSeek: "#0891b2",
+  "Maritaca AI": "#047857",
+  "Mistral AI": "#e25822",
+  NVIDIA: "#76b900",
   Suno: "#be185d",
+  Udio: "#6d28d9",
   "Black Forest Labs": "#166534",
   ByteDance: "#0f172a",
   Kuaishou: "#f97316",
@@ -48,6 +52,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
   cacheElements();
+  syncStickyOffsets();
   loadViewPreferences();
   syncViewControls();
   bindEvents();
@@ -75,6 +80,7 @@ async function init() {
 
 function cacheElements() {
   Object.assign(els, {
+    topbar: document.querySelector(".topbar"),
     searchInput: document.getElementById("searchInput"),
     aiCategoryFilter: document.getElementById("aiCategoryFilter"),
     companyFilter: document.getElementById("companyFilter"),
@@ -98,6 +104,8 @@ function cacheElements() {
 }
 
 function bindEvents() {
+  window.addEventListener("resize", syncStickyOffsets);
+
   els.searchInput.addEventListener("input", (event) => {
     state.filters.query = event.target.value.trim().toLowerCase();
     saveViewPreferences();
@@ -160,6 +168,7 @@ function renderLastUpdated() {
   element.textContent = description
     ? `Ultima atualizacao: ${formattedDate} - ${description}`
     : `Ultima atualizacao: ${formattedDate}`;
+  syncStickyOffsets();
 }
 
 function normalizeModels(models) {
@@ -268,6 +277,12 @@ function syncViewControls() {
   document.querySelectorAll("[data-lane-mode]").forEach((button) => {
     button.classList.toggle("active", button.dataset.laneMode === state.laneMode);
   });
+}
+
+function syncStickyOffsets() {
+  const compactLayout = window.matchMedia("(max-width: 760px)").matches;
+  const topbarHeight = compactLayout ? 0 : Math.ceil(els.topbar?.getBoundingClientRect().height || 0);
+  document.documentElement.style.setProperty("--sticky-filter-top", `${topbarHeight}px`);
 }
 
 function loadViewPreferences() {
