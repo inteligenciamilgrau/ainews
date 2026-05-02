@@ -46,7 +46,9 @@ const state = {
   mapStyleFallbackActive: false,
   mapFallbackTried: false,
   mapHasInitialView: false,
-  mapPopup: null
+  mapPopup: null,
+  mapPreviewPopup: null,
+  mapPreviewKey: null
 };
 
 const companyColors = {
@@ -2080,7 +2082,7 @@ function handleMapError(event) {
   if (!state.mapFallbackTried && /style/i.test(message)) {
     state.mapFallbackTried = true;
     state.mapStyleFallbackActive = true;
-    state.companyMap?.setStyle(MAP_FALLBACK_STYLE_URL);
+    state.companyMap?.setStyle(MAP_FALLBACK_STYLE_URL, { diff: false });
     return;
   }
 
@@ -2144,9 +2146,9 @@ function addAdminBoundaryLayers() {
   const firstBaseSymbol = layers.find((layer) => layer.type === "symbol" && !layer.id.startsWith("ai-"));
   const boundaryFilter = [
     "all",
-    ["==", ["get", "admin_level"], 4],
-    ["!=", ["get", "maritime"], 1],
-    ["!=", ["get", "disputed"], 1],
+    ["==", ["to-number", ["get", "admin_level"], -1], 4],
+    ["!=", ["to-number", ["get", "maritime"], 0], 1],
+    ["!=", ["to-number", ["get", "disputed"], 0], 1],
     ["!", ["has", "claimed_by"]]
   ];
 
@@ -2296,20 +2298,31 @@ function addMapLocationLayers() {
   });
 
   const handleLocationClick = (event) => {
-    const feature = event.features?.[0];
-    const location = locationsForMap().find((item) => item.mapKey === feature?.properties?.mapKey);
+    const location = locationFromMapEvent(event);
+    hideMapPreviewPopup();
     selectCompanyOnMap(location, { popup: true, focus: false });
+  };
+  const handleLocationPreview = (event) => {
+    const location = locationFromMapEvent(event);
+    showMapPreviewPopup(location, event.lngLat);
   };
 
   ["ai-locations-core", "ai-locations-flags"].forEach((layerId) => {
     map.on("click", layerId, handleLocationClick);
+    map.on("mousemove", layerId, handleLocationPreview);
     map.on("mouseenter", layerId, () => {
       map.getCanvas().style.cursor = "pointer";
     });
     map.on("mouseleave", layerId, () => {
       map.getCanvas().style.cursor = "";
+      hideMapPreviewPopup();
     });
   });
+}
+
+function locationFromMapEvent(event) {
+  const feature = event.features?.[0];
+  return locationsForMap().find((item) => item.mapKey === feature?.properties?.mapKey);
 }
 
 function updateCompanyMap(locations) {
@@ -2478,7 +2491,7 @@ function applyMapBaseMode(mode) {
   if (!state.mapStyleFallbackActive && state.mapStyleMode !== desiredStyleMode) {
     state.mapStyleMode = desiredStyleMode;
     state.mapFallbackTried = false;
-    map.setStyle(MAP_STYLE_URLS[desiredStyleMode]);
+    map.setStyle(MAP_STYLE_URLS[desiredStyleMode], { diff: false });
     return;
   }
 
@@ -2788,19 +2801,54 @@ function showMapPopup(location) {
   const map = state.companyMap;
   if (!map || typeof maplibregl === "undefined") return;
 
+  hideMapPreviewPopup();
   state.mapPopup?.remove();
-  state.mapPopup = new maplibregl.Popup({ closeButton: true, offset: 14, maxWidth: "300px" })
+  state.mapPopup = new maplibregl.Popup({ closeButton: true, closeOnClick: false, offset: 14, maxWidth: "300px" })
     .setLngLat([location.lng, location.lat])
-    .setHTML(`
-      <div class="map-popup">
-        <span>${escapeHtml(mapKindLabel(location))}</span>
-        <strong>${escapeHtml(mapItemTitle(location))}</strong>
-        <p>${escapeHtml(location.address || `${location.city}, ${location.country}`)}</p>
-        ${location.notes ? `<small>${escapeHtml(location.notes)}</small>` : ""}
-        <a href="${escapeAttribute(location.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(location.sourceName)}</a>
-      </div>
-    `)
+    .setHTML(mapPopupHtml(location, { source: true }))
     .addTo(map);
+}
+
+function showMapPreviewPopup(location, lngLat) {
+  const map = state.companyMap;
+  if (!location || !map || typeof maplibregl === "undefined") return;
+
+  if (state.mapPreviewKey === location.mapKey && state.mapPreviewPopup) {
+    state.mapPreviewPopup.setLngLat(lngLat || [location.lng, location.lat]);
+    return;
+  }
+
+  hideMapPreviewPopup();
+  state.mapPreviewKey = location.mapKey;
+  state.mapPreviewPopup = new maplibregl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+    closeOnMove: false,
+    className: "map-preview-popup",
+    offset: 14,
+    maxWidth: "300px"
+  })
+    .setLngLat(lngLat || [location.lng, location.lat])
+    .setHTML(mapPopupHtml(location, { source: false }))
+    .addTo(map);
+}
+
+function hideMapPreviewPopup() {
+  state.mapPreviewPopup?.remove();
+  state.mapPreviewPopup = null;
+  state.mapPreviewKey = null;
+}
+
+function mapPopupHtml(location, options = {}) {
+  return `
+    <div class="map-popup">
+      <span>${escapeHtml(mapKindLabel(location))}</span>
+      <strong>${escapeHtml(mapItemTitle(location))}</strong>
+      <p>${escapeHtml(location.address || `${location.city}, ${location.country}`)}</p>
+      ${location.notes ? `<small>${escapeHtml(location.notes)}</small>` : ""}
+      ${options.source ? `<a href="${escapeAttribute(location.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(location.sourceName)}</a>` : ""}
+    </div>
+  `;
 }
 
 function syncMapScaleFromMap() {
