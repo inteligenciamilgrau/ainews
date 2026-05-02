@@ -483,10 +483,9 @@ dd {
 }
 
 .map-toolbar {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
   margin-bottom: 12px;
 }
 
@@ -506,18 +505,20 @@ dd {
 .map-summary {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 7px;
 }
 
 .map-actions {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
 }
 
-.map-layer-toggle {
+.map-control-group,
+.map-scale-toggle {
+  flex: 0 0 auto;
   display: inline-flex;
   padding: 3px;
   border: 1px solid var(--line);
@@ -525,7 +526,8 @@ dd {
   background: var(--panel);
 }
 
-.map-layer-toggle button {
+.map-control-group button,
+.map-scale-toggle button {
   min-height: 30px;
   padding: 5px 9px;
   border: 0;
@@ -536,9 +538,14 @@ dd {
   font-weight: 720;
 }
 
-.map-layer-toggle button.active {
+.map-control-group button.active,
+.map-scale-toggle button.active {
   background: #1f6f78;
   color: #fff;
+}
+
+.map-scale-toggle button.active {
+  background: #1f2937;
 }
 
 .map-summary span {
@@ -554,14 +561,14 @@ dd {
   font-weight: 650;
 }
 
-.globe-layout {
+.map-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 16px;
   align-items: stretch;
 }
 
-.company-globe {
+.map-stage {
   min-height: 620px;
   height: min(72vh, 760px);
   position: relative;
@@ -571,6 +578,74 @@ dd {
   border-radius: 8px;
   background: #020617;
   box-shadow: 0 18px 42px rgba(5, 9, 20, 0.28);
+}
+
+.company-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-stage .maplibregl-ctrl-group {
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.28);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  box-shadow: 0 12px 28px rgba(2, 6, 23, 0.28);
+}
+
+.map-stage .maplibregl-ctrl-group button {
+  background-color: transparent;
+  border-color: rgba(226, 232, 240, 0.16);
+}
+
+.map-stage .maplibregl-ctrl-group button:hover {
+  background-color: rgba(226, 232, 240, 0.14);
+}
+
+.map-stage .maplibregl-ctrl button .maplibregl-ctrl-icon {
+  filter: invert(1);
+}
+
+.map-stage .maplibregl-ctrl-attrib {
+  min-width: 28px;
+  min-height: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.24);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.82);
+  color: #cbd5e1;
+  font-size: 0.68rem;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.28);
+}
+
+.map-stage .maplibregl-ctrl-attrib:not(.maplibregl-compact-show) {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+}
+
+.map-stage .maplibregl-ctrl-attrib:not(.maplibregl-compact-show) .maplibregl-ctrl-attrib-inner {
+  display: none;
+}
+
+.map-stage .maplibregl-ctrl-attrib.maplibregl-compact-show {
+  max-width: min(460px, calc(100vw - 72px));
+  padding: 4px 31px 4px 9px;
+  border-radius: 8px;
+}
+
+.map-stage .maplibregl-ctrl-attrib-button {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  filter: invert(1);
+}
+
+.map-stage .maplibregl-ctrl-attrib a {
+  color: #bae6fd;
 }
 
 .company-location-list {
@@ -688,23 +763,11 @@ dd {
   background: #6b7280;
 }
 
-.globe-marker-anchor {
+.map-flag-marker {
   --marker-color: #475569;
-  width: 0;
-  height: 0;
+  width: 58px;
+  height: 58px;
   position: relative;
-  overflow: visible;
-  pointer-events: none;
-}
-
-.globe-company-marker {
-  pointer-events: auto;
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translate(-8px, -42px);
   min-height: 0;
   padding: 0;
   border: 0;
@@ -712,95 +775,224 @@ dd {
   background: transparent;
   color: #fff;
   cursor: pointer;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.38));
+  filter: drop-shadow(0 8px 16px rgba(2, 6, 23, 0.36));
 }
 
-.globe-company-marker:hover,
-.globe-company-marker:focus-visible {
+.map-marker-hidden {
+  display: none;
+}
+
+.map-flag-marker:hover,
+.map-flag-marker:focus-visible {
   border: 0;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.48));
+  filter: drop-shadow(0 10px 20px rgba(2, 6, 23, 0.48));
 }
 
-.globe-company-marker::before {
-  content: "";
+.map-marker-pole {
   position: absolute;
-  left: 7px;
-  bottom: 7px;
+  left: 28px;
+  bottom: 9px;
   width: 2px;
-  height: 25px;
+  height: 34px;
   border-radius: 999px;
   background: #f8fafc;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 2px 6px rgba(2, 6, 23, 0.36);
 }
 
-.globe-company-marker .marker-pin {
+.map-marker-pin {
   position: absolute;
-  left: 3px;
-  bottom: 0;
-  width: 8px;
-  height: 8px;
+  left: 23px;
+  bottom: 2px;
+  width: 12px;
+  height: 12px;
   border: 2px solid #fff;
   border-radius: 50%;
   background: var(--marker-color);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--marker-color) 24%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--marker-color) 26%, transparent);
 }
 
-.globe-company-marker .marker-flag {
+.map-marker-flag {
   position: absolute;
-  left: 9px;
-  bottom: 26px;
-  width: 30px;
-  height: 19px;
+  left: 30px;
+  bottom: 35px;
+  width: 34px;
+  height: 22px;
   display: grid;
   place-items: center;
-  border-radius: 4px 3px 3px 4px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 5px 4px 4px 5px;
   background: var(--marker-color);
   color: white;
-  font-size: 0.52rem;
+  font-size: 0.56rem;
   font-weight: 850;
   line-height: 1;
 }
 
-.globe-company-marker .marker-label {
+.map-flag-marker.lab .map-marker-flag {
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--marker-color), color-mix(in srgb, var(--marker-color) 62%, #0f172a));
+}
+
+.map-flag-marker.datacenter .map-marker-flag {
+  border-style: double;
+  border-width: 3px;
+}
+
+.map-marker-label {
   position: absolute;
-  left: 43px;
-  bottom: 26px;
-  max-width: 118px;
+  left: 55px;
+  bottom: 37px;
+  max-width: 156px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 3px 6px;
+  padding: 4px 7px;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 5px;
-  background: rgba(15, 23, 42, 0.78);
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.84);
   color: #fff;
-  font-size: 0.7rem;
-  font-weight: 750;
+  font-size: 0.72rem;
+  font-weight: 760;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-4px);
+  transform: translateX(-5px);
   transition: opacity 0.16s ease, transform 0.16s ease;
 }
 
-.globe-company-marker:hover .marker-label,
-.globe-company-marker:focus-visible .marker-label,
-.globe-company-marker.selected .marker-label {
-  border-color: rgba(255, 255, 255, 0.62);
-  background: color-mix(in srgb, var(--marker-color) 82%, #0f172a);
+.map-flag-marker:hover .map-marker-label,
+.map-flag-marker:focus-visible .map-marker-label,
+.map-flag-marker.selected .map-marker-label {
+  border-color: rgba(255, 255, 255, 0.64);
+  background: color-mix(in srgb, var(--marker-color) 78%, #0f172a);
   opacity: 1;
   transform: translateX(0);
 }
 
-.globe-fallback {
-  display: grid;
-  place-items: center;
-  min-height: inherit;
-  padding: 24px;
-  color: #dbeafe;
+.map-flag-marker.selected .map-marker-pin {
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--marker-color) 32%, transparent),
+    0 0 0 7px color-mix(in srgb, var(--marker-color) 18%, transparent);
 }
 
-.company-globe .scene-tooltip {
-  display: none !important;
+.map-corner {
+  position: absolute;
+  z-index: 2;
+  width: 15px;
+  height: 15px;
+  pointer-events: none;
+  border-color: rgba(248, 250, 252, 0.46);
+}
+
+.map-corner-tl {
+  top: 10px;
+  left: 10px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.map-corner-tr {
+  top: 10px;
+  right: 10px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.map-corner-bl {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.map-corner-br {
+  right: 10px;
+  bottom: 10px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.map-loading,
+.map-error {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  max-width: min(360px, calc(100% - 40px));
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(226, 232, 240, 0.22);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e0f2fe;
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 0.86rem;
+  font-weight: 720;
+  box-shadow: 0 18px 38px rgba(2, 6, 23, 0.3);
+}
+
+.map-loading[hidden],
+.map-error[hidden] {
+  display: none;
+}
+
+.map-error {
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.5);
+}
+
+.map-stage .maplibregl-popup-content {
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.24);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.96);
+  color: #f8fafc;
+  padding: 0;
+  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.35);
+}
+
+.map-stage .maplibregl-popup-tip {
+  border-top-color: rgba(15, 23, 42, 0.96);
+  border-bottom-color: rgba(15, 23, 42, 0.96);
+}
+
+.map-stage .maplibregl-popup-close-button {
+  color: #e2e8f0;
+  font-size: 1.1rem;
+}
+
+.map-popup {
+  display: grid;
+  gap: 5px;
+  min-width: 220px;
+  padding: 13px 14px;
+}
+
+.map-popup span {
+  color: #93c5fd;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.map-popup strong {
+  font-size: 0.98rem;
+  line-height: 1.2;
+}
+
+.map-popup p,
+.map-popup small {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.map-popup a {
+  width: fit-content;
+  margin-top: 3px;
+  color: #67e8f9;
+  font-size: 0.78rem;
+  font-weight: 750;
 }
 
 .table-toolbar {
@@ -955,11 +1147,11 @@ td a,
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .globe-layout {
+  .map-layout {
     grid-template-columns: 1fr;
   }
 
-  .company-globe {
+  .map-stage {
     min-height: 520px;
     height: 62vh;
   }
@@ -1009,21 +1201,15 @@ td a,
     grid-column: 1 / -1;
   }
 
-  .map-toolbar {
-    display: block;
-  }
-
   .map-summary {
-    justify-content: flex-start;
-    margin-top: 10px;
+    width: 100%;
   }
 
   .map-actions {
     align-items: flex-start;
-    margin-top: 10px;
   }
 
-  .company-globe {
+  .map-stage {
     min-height: 440px;
     height: 56vh;
   }

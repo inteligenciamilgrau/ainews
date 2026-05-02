@@ -1,9 +1,14 @@
 const DATA_URL = "data/models.json";
-const COUNTRY_GEOJSON_URL = "https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json";
-const BRAZIL_STATES_GEOJSON_URL = "https://raw.githubusercontent.com/giuliano-macedo/geodata-br-states/main/geojson/br_states.json";
+const MAP_STYLE_URL = "https://tiles.openfreemap.org/styles/dark";
+const MAP_FALLBACK_STYLE_URL = "https://demotiles.maplibre.org/style.json";
+const MAP_SATELLITE_TILE_URL = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
+const MAP_FLAG_ICON_PREFIX = "ai-location-flag-";
+const MAP_FLAG_MIN_ZOOM = 3.2;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
 const VALID_VIEWS = new Set(["timeline", "years", "map", "table", "sources"]);
 const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
+const VALID_MAP_BASE_MODES = new Set(["map", "earth", "hybrid"]);
+const VALID_MAP_SCALES = new Set(["globe", "country", "city", "street"]);
 const VALID_LANE_MODES = new Set(["company", "all"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
 const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica"];
@@ -27,17 +32,15 @@ const state = {
   view: "timeline",
   laneMode: "company",
   mapLayer: "all",
+  mapBaseMode: "hybrid",
+  mapLabels: false,
+  mapScale: "globe",
   selectedId: null,
   selectedMapCompany: null,
-  companyGlobe: null,
-  globeResizeObserver: null,
-  globeLayoutLocations: [],
-  countryBorderFeatures: [],
-  countryBordersLoaded: false,
-  countryBordersRequest: null,
-  brazilStateBorderFeatures: [],
-  brazilStateBordersLoaded: false,
-  brazilStateBordersRequest: null
+  companyMap: null,
+  mapFallbackTried: false,
+  mapHasInitialView: false,
+  mapPopup: null
 };
 
 const companyColors = {
@@ -1426,10 +1429,15 @@ function cacheElements() {
     timelineScale: document.getElementById("timelineScale"),
     modelDetails: document.getElementById("modelDetails"),
     yearChart: document.getElementById("yearChart"),
-    companyGlobe: document.getElementById("companyGlobe"),
+    companyMap: document.getElementById("companyMap"),
     companyLocationList: document.getElementById("companyLocationList"),
     mapSummary: document.getElementById("mapSummary"),
     mapLayerButtons: document.querySelectorAll("[data-map-layer]"),
+    mapBaseButtons: document.querySelectorAll("[data-map-base]"),
+    mapLabelButtons: document.querySelectorAll("[data-map-labels]"),
+    mapScaleButtons: document.querySelectorAll("[data-map-scale]"),
+    mapLoading: document.getElementById("mapLoading"),
+    mapError: document.getElementById("mapError"),
     modelsTable: document.getElementById("modelsTable"),
     sourcesList: document.getElementById("sourcesList")
   });
@@ -1487,7 +1495,33 @@ function bindEvents() {
       state.mapLayer = VALID_MAP_LAYERS.has(button.dataset.mapLayer) ? button.dataset.mapLayer : "all";
       state.selectedMapCompany = null;
       syncViewControls();
+      saveViewPreferences();
       renderCompanyMap();
+    });
+  });
+
+  els.mapBaseButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.mapBaseMode = VALID_MAP_BASE_MODES.has(button.dataset.mapBase) ? button.dataset.mapBase : "hybrid";
+      syncViewControls();
+      saveViewPreferences();
+      applyMapBaseMode(state.mapBaseMode);
+    });
+  });
+
+  els.mapLabelButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.mapLabels = button.dataset.mapLabels === "on";
+      syncViewControls();
+      saveViewPreferences();
+      applyMapBaseMode(state.mapBaseMode);
+    });
+  });
+
+  els.mapScaleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      applyMapScale(button.dataset.mapScale);
+      saveViewPreferences();
     });
   });
 
@@ -1622,6 +1656,16 @@ function syncViewControls() {
   els.mapLayerButtons?.forEach((button) => {
     button.classList.toggle("active", button.dataset.mapLayer === state.mapLayer);
   });
+  els.mapBaseButtons?.forEach((button) => {
+    button.classList.toggle("active", button.dataset.mapBase === state.mapBaseMode);
+  });
+  els.mapLabelButtons?.forEach((button) => {
+    const activeValue = state.mapLabels ? "on" : "off";
+    button.classList.toggle("active", button.dataset.mapLabels === activeValue);
+  });
+  els.mapScaleButtons?.forEach((button) => {
+    button.classList.toggle("active", button.dataset.mapScale === state.mapScale);
+  });
 }
 
 function syncStickyOffsets() {
@@ -1638,6 +1682,9 @@ function loadViewPreferences() {
     if (VALID_VIEWS.has(prefs.view)) state.view = prefs.view;
     if (VALID_LANE_MODES.has(prefs.laneMode)) state.laneMode = prefs.laneMode;
     if (VALID_MAP_LAYERS.has(prefs.mapLayer)) state.mapLayer = prefs.mapLayer;
+    if (VALID_MAP_BASE_MODES.has(prefs.mapBaseMode)) state.mapBaseMode = prefs.mapBaseMode;
+    if (typeof prefs.mapLabels === "boolean") state.mapLabels = prefs.mapLabels;
+    if (VALID_MAP_SCALES.has(prefs.mapScale)) state.mapScale = prefs.mapScale;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.tableDateOrder)) state.tableDateOrder = prefs.tableDateOrder;
     if (prefs.filters && typeof prefs.filters === "object") {
       state.filters = {
@@ -1659,6 +1706,9 @@ function saveViewPreferences() {
       view: state.view,
       laneMode: state.laneMode,
       mapLayer: state.mapLayer,
+      mapBaseMode: state.mapBaseMode,
+      mapLabels: state.mapLabels,
+      mapScale: state.mapScale,
       tableDateOrder: state.tableDateOrder,
       filters: state.filters
     }));
@@ -1851,9 +1901,13 @@ function renderYearChart(models) {
 }
 
 function renderCompanyMap() {
-  if (!els.companyLocationList || !els.mapSummary || !els.companyGlobe) return;
+  if (!els.companyLocationList || !els.mapSummary || !els.companyMap) return;
 
   const locations = locationsForMap();
+  if (state.selectedMapCompany && !locations.some((location) => location.mapKey === state.selectedMapCompany)) {
+    state.selectedMapCompany = null;
+  }
+
   const countries = unique(locations.map((location) => location.country));
   const companyCount = locations.filter((location) => location.kind === "company").length;
   const labCount = locations.filter((location) => location.kind === "lab").length;
@@ -1872,13 +1926,14 @@ function renderCompanyMap() {
   if (state.view !== "map") return;
 
   requestAnimationFrame(() => {
-    if (typeof Globe !== "function") {
-      els.companyGlobe.innerHTML = `<div class="globe-fallback">Nao foi possivel carregar o mapa 3D.</div>`;
+    if (typeof maplibregl === "undefined") {
+      showMapError("Nao foi possivel carregar o MapLibre GL JS.");
       return;
     }
 
-    if (!state.companyGlobe) initCompanyGlobe();
-    updateCompanyGlobe(locations);
+    if (!state.companyMap) initCompanyMap();
+    state.companyMap?.resize();
+    updateCompanyMap(locations);
   });
 }
 
@@ -1942,203 +1997,576 @@ function missingLocationCompanies() {
     .filter((company) => !mappedCompanies.has(company));
 }
 
-function initCompanyGlobe() {
-  els.companyGlobe.innerHTML = "";
-  state.companyGlobe = Globe()
-    .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
-    .bumpImageUrl("https://unpkg.com/three-globe/example/img/earth-topology.png")
-    .backgroundImageUrl("https://unpkg.com/three-globe/example/img/night-sky.png")
-    .showAtmosphere(true)
-    .atmosphereColor("#c7f0ff")
-    .atmosphereAltitude(0.18)
-    .polygonsData([])
-    .polygonGeoJsonGeometry("geometry")
-    .polygonCapColor(() => "rgba(15, 23, 42, 0.01)")
-    .polygonSideColor(() => "rgba(15, 23, 42, 0)")
-    .polygonStrokeColor((feature) => (
-      feature.boundaryKind === "brazil-state"
-        ? "rgba(250, 204, 21, 0.76)"
-        : "rgba(226, 232, 240, 0.42)"
-    ))
-    .polygonAltitude((feature) => (feature.boundaryKind === "brazil-state" ? 0.002 : 0.001))
-    .polygonLabel(() => "")
-    .polygonsTransitionDuration(0)
-    .labelsData([])
-    .htmlLat("displayLat")
-    .htmlLng("displayLng")
-    .htmlAltitude(0.001)
-    .htmlElement(createCompanyMarker)
-    .htmlTransitionDuration(0)
-    .arcsData([])
-    .arcStartLat("lat")
-    .arcStartLng("lng")
-    .arcEndLat("displayLat")
-    .arcEndLng("displayLng")
-    .arcColor((location) => [
-      colorForMapItem(location),
-      "rgba(255,255,255,0.78)"
-    ])
-    .arcAltitude(0.006)
-    .arcStroke(0.42)
-    .arcDashLength(0.08)
-    .arcDashGap(0.04)
-    .arcDashAnimateTime(1900)
-    (els.companyGlobe);
+function initCompanyMap() {
+  clearMapError();
+  els.mapLoading.hidden = false;
+  state.mapFallbackTried = false;
 
-  const controls = state.companyGlobe.controls();
-  controls.autoRotate = false;
-  controls.enableDamping = true;
+  try {
+    state.companyMap = new maplibregl.Map({
+      container: els.companyMap,
+      style: MAP_STYLE_URL,
+      center: [8, 16],
+      zoom: 1.35,
+      pitch: 0,
+      bearing: 0,
+      renderWorldCopies: false,
+      attributionControl: false,
+      canvasContextAttributes: { antialias: true }
+    });
+  } catch (error) {
+    showMapError(`Erro ao iniciar mapa: ${error.message}`);
+    return;
+  }
 
-  resizeCompanyGlobe();
-  state.companyGlobe.pointOfView({ lat: 25, lng: 15, altitude: 2.15 }, 0);
-  loadCountryBorders();
-  loadBrazilStateBorders();
+  const map = state.companyMap;
+  map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
+  map.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-right");
 
-  if ("ResizeObserver" in window && !state.globeResizeObserver) {
-    state.globeResizeObserver = new ResizeObserver(resizeCompanyGlobe);
-    state.globeResizeObserver.observe(els.companyGlobe);
+  map.on("error", handleMapError);
+  map.on("styleimagemissing", (event) => {
+    if (String(event.id || "").startsWith(MAP_FLAG_ICON_PREFIX)) return;
+    if (!map.hasImage(event.id)) {
+      map.addImage(event.id, { width: 1, height: 1, data: new Uint8Array(4) });
+    }
+  });
+  map.on("style.load", () => {
+    try {
+      map.setProjection({ type: "globe" });
+    } catch (error) {
+      console.warn("Nao foi possivel ativar a projecao globo.", error);
+    }
+
+    configureMapSky();
+    addSatelliteLayer();
+    addMapLocationLayers();
+    applyMapBaseMode(state.mapBaseMode);
+    updateCompanyMap(locationsForMap());
+  });
+  map.on("load", () => {
+    els.mapLoading.hidden = true;
+    clearMapError();
+    syncMapScaleFromMap();
+  });
+  map.on("move", () => {
+    syncMapScaleFromMap();
+  });
+  map.on("zoom", () => {
+    syncMapScaleFromMap();
+  });
+
+  setTimeout(() => {
+    if (!els.mapLoading.hidden && state.companyMap) {
+      els.mapLoading.hidden = true;
+      showMapError("O mapa esta demorando para carregar. Algumas camadas podem aparecer aos poucos.");
+    }
+  }, 15000);
+}
+
+function handleMapError(event) {
+  const error = event.error || event;
+  const message = String(error?.message || error || "");
+  console.warn("[mapa]", error);
+
+  if (!state.mapFallbackTried && /style/i.test(message)) {
+    state.mapFallbackTried = true;
+    state.companyMap?.setStyle(MAP_FALLBACK_STYLE_URL);
+    return;
+  }
+
+  if (!state.companyMap?.loaded() && message) {
+    showMapError(`Falha ao carregar mapa: ${message}`);
   }
 }
 
-function updateCompanyGlobe(locations) {
-  if (!state.companyGlobe) return;
-  const layoutLocations = layoutCompanyMarkers(locations);
-  state.globeLayoutLocations = layoutLocations;
-  resizeCompanyGlobe();
-  state.companyGlobe
-    .pointsData([])
-    .labelsData([])
-    .htmlElementsData(layoutLocations)
-    .arcsData(layoutLocations.filter((location) => location.hasLeaderLine));
-}
+function configureMapSky() {
+  const map = state.companyMap;
+  if (!map?.setSky) return;
 
-function resizeCompanyGlobe() {
-  if (!state.companyGlobe || !els.companyGlobe) return;
-  const rect = els.companyGlobe.getBoundingClientRect();
-  const width = Math.max(Math.round(rect.width), 320);
-  const height = Math.max(Math.round(rect.height), 420);
-  state.companyGlobe.width(width).height(height);
-}
-
-function loadCountryBorders() {
-  if (!state.companyGlobe || state.countryBordersLoaded) return;
-  if (state.countryBordersRequest) return;
-
-  state.countryBordersRequest = fetch(COUNTRY_GEOJSON_URL)
-    .then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
-    })
-    .then((geojson) => {
-      if (!state.companyGlobe) return;
-      state.countryBordersLoaded = true;
-      state.countryBorderFeatures = (geojson.features || []).map((feature) => ({
-        ...feature,
-        boundaryKind: "country"
-      }));
-      updateBoundaryPolygons();
-    })
-    .catch((error) => {
-      state.countryBordersRequest = null;
-      console.warn("Nao foi possivel carregar as fronteiras dos paises.", error);
+  try {
+    map.setSky({
+      "sky-color": "#07111f",
+      "horizon-color": "#18314a",
+      "fog-color": "#07111f",
+      "sky-horizon-blend": 0.45,
+      "horizon-fog-blend": 0.55,
+      "fog-ground-blend": 0.18,
+      "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 0, 1, 5, 1, 7, 0]
     });
+  } catch (error) {
+    console.warn("Nao foi possivel configurar o ceu do mapa.", error);
+  }
 }
 
-function loadBrazilStateBorders() {
-  if (!state.companyGlobe || state.brazilStateBordersLoaded) return;
-  if (state.brazilStateBordersRequest) return;
+function addSatelliteLayer() {
+  const map = state.companyMap;
+  if (!map || map.getSource("satellite-source")) return;
 
-  state.brazilStateBordersRequest = fetch(BRAZIL_STATES_GEOJSON_URL)
-    .then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
-    })
-    .then((geojson) => {
-      if (!state.companyGlobe) return;
-      state.brazilStateBordersLoaded = true;
-      state.brazilStateBorderFeatures = (geojson.features || []).map((feature) => ({
-        ...feature,
-        boundaryKind: "brazil-state"
-      }));
-      updateBoundaryPolygons();
-    })
-    .catch((error) => {
-      state.brazilStateBordersRequest = null;
-      console.warn("Nao foi possivel carregar as fronteiras dos estados do Brasil.", error);
+  map.addSource("satellite-source", {
+    type: "raster",
+    tiles: [MAP_SATELLITE_TILE_URL],
+    tileSize: 256,
+    maxzoom: 19,
+    attribution: "Tiles Esri - World Imagery"
+  });
+
+  const layers = map.getStyle().layers || [];
+  const firstLineOrSymbol = layers.find((layer) => layer.type === "line" || layer.type === "symbol");
+
+  map.addLayer({
+    id: "satellite-layer",
+    type: "raster",
+    source: "satellite-source",
+    layout: { visibility: "none" },
+    paint: {
+      "raster-opacity": 0.95,
+      "raster-saturation": -0.08,
+      "raster-contrast": 0.08
+    }
+  }, firstLineOrSymbol?.id);
+}
+
+function addMapLocationLayers() {
+  const map = state.companyMap;
+  if (!map || map.getSource("ai-locations")) return;
+  const locations = locationsForMap();
+
+  registerMapFlagImages(locations);
+
+  map.addSource("ai-locations", {
+    type: "geojson",
+    data: buildMapLocationsGeoJson(locations)
+  });
+
+  map.addLayer({
+    id: "ai-locations-halo",
+    type: "circle",
+    source: "ai-locations",
+    filter: ["==", ["get", "selected"], true],
+    paint: {
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 0, 13, 6, 21, 12, 30, 16, 42],
+      "circle-color": ["get", "color"],
+      "circle-opacity": 0.18,
+      "circle-stroke-color": "#ffffff",
+      "circle-stroke-width": 1
+    }
+  });
+
+  map.addLayer({
+    id: "ai-locations-ring",
+    type: "circle",
+    source: "ai-locations",
+    paint: {
+      "circle-radius": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0,
+        ["case", ["==", ["get", "selected"], true], 10, 7],
+        6,
+        ["case", ["==", ["get", "selected"], true], 15, 11],
+        12,
+        ["case", ["==", ["get", "selected"], true], 22, 17],
+        16,
+        ["case", ["==", ["get", "selected"], true], 30, 24]
+      ],
+      "circle-color": "rgba(255,255,255,0)",
+      "circle-stroke-color": "#f8fafc",
+      "circle-stroke-opacity": 0.88,
+      "circle-stroke-width": [
+        "case",
+        ["==", ["get", "selected"], true],
+        2.8,
+        ["==", ["get", "kind"], "datacenter"],
+        2.2,
+        1.4
+      ]
+    }
+  });
+
+  map.addLayer({
+    id: "ai-locations-core",
+    type: "circle",
+    source: "ai-locations",
+    paint: {
+      "circle-radius": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0,
+        ["case", ["==", ["get", "selected"], true], 5, 3.5],
+        6,
+        ["case", ["==", ["get", "selected"], true], 8, 5.5],
+        12,
+        ["case", ["==", ["get", "selected"], true], 11, 8],
+        16,
+        ["case", ["==", ["get", "selected"], true], 16, 12]
+      ],
+      "circle-color": ["get", "color"],
+      "circle-stroke-color": "#020617",
+      "circle-stroke-width": 1.8
+    }
+  });
+
+  map.addLayer({
+    id: "ai-locations-flags",
+    type: "symbol",
+    source: "ai-locations",
+    minzoom: MAP_FLAG_MIN_ZOOM,
+    layout: {
+      "icon-image": ["get", "flagIcon"],
+      "icon-anchor": "bottom",
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 4, 0.72, 8, 0.88, 14, 1.04, 16, 1.12],
+      "icon-allow-overlap": false,
+      "icon-ignore-placement": false,
+      "icon-padding": 6
+    },
+    paint: {
+      "icon-opacity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        MAP_FLAG_MIN_ZOOM,
+        0,
+        MAP_FLAG_MIN_ZOOM + 0.55,
+        1
+      ]
+    }
+  });
+
+  const handleLocationClick = (event) => {
+    const feature = event.features?.[0];
+    const location = locationsForMap().find((item) => item.mapKey === feature?.properties?.mapKey);
+    selectCompanyOnMap(location, { popup: true, focus: false });
+  };
+
+  ["ai-locations-core", "ai-locations-flags"].forEach((layerId) => {
+    map.on("click", layerId, handleLocationClick);
+    map.on("mouseenter", layerId, () => {
+      map.getCanvas().style.cursor = "pointer";
     });
+    map.on("mouseleave", layerId, () => {
+      map.getCanvas().style.cursor = "";
+    });
+  });
 }
 
-function updateBoundaryPolygons() {
-  if (!state.companyGlobe) return;
-  state.companyGlobe.polygonsData([
-    ...state.countryBorderFeatures,
-    ...state.brazilStateBorderFeatures
-  ]);
+function updateCompanyMap(locations) {
+  const map = state.companyMap;
+  if (!map?.getSource("ai-locations")) return;
+
+  registerMapFlagImages(locations);
+  map.getSource("ai-locations").setData(buildMapLocationsGeoJson(locations));
+  syncMapScaleFromMap();
+
+  if (!state.mapHasInitialView && locations.length) {
+    state.mapHasInitialView = true;
+    applyMapScale(state.mapScale, { animate: false });
+  }
 }
 
-function selectCompanyOnMap(location) {
+function registerMapFlagImages(locations) {
+  const map = state.companyMap;
+  if (!map) return;
+
+  locations.forEach((location) => {
+    const iconId = mapFlagIconId(location);
+    if (map.hasImage(iconId)) return;
+
+    const imageData = createMapFlagImage(location);
+    if (!imageData) return;
+
+    try {
+      map.addImage(iconId, imageData, { pixelRatio: 2 });
+    } catch (error) {
+      console.warn("Nao foi possivel registrar bandeira do mapa.", error);
+    }
+  });
+}
+
+function createMapFlagImage(location) {
+  const canvas = document.createElement("canvas");
+  const pixelRatio = 2;
+  const width = 68;
+  const height = 66;
+  canvas.width = width * pixelRatio;
+  canvas.height = height * pixelRatio;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+
+  ctx.scale(pixelRatio, pixelRatio);
+  const color = colorForMapItem(location);
+  const pinX = 25;
+  const pinY = 58;
+
+  ctx.save();
+  ctx.shadowColor = "rgba(2, 6, 23, 0.42)";
+  ctx.shadowBlur = 8;
+  ctx.shadowOffsetY = 5;
+
+  ctx.strokeStyle = "#f8fafc";
+  ctx.lineWidth = 2;
+  ctx.lineCap = "round";
+  ctx.beginPath();
+  ctx.moveTo(pinX, pinY - 5);
+  ctx.lineTo(pinX, 22);
+  ctx.stroke();
+
+  ctx.fillStyle = color;
+  fillRoundedRect(ctx, 27, 14, 34, 22, 5);
+
+  if (location.kind === "datacenter") {
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.72)";
+    ctx.lineWidth = 2;
+    strokeRoundedRect(ctx, 29, 16, 30, 18, 3);
+  } else {
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.42)";
+    ctx.lineWidth = 1;
+    strokeRoundedRect(ctx, 27, 14, 34, 22, 5);
+  }
+
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(pinX, pinY, 6, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = "#ffffff";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  ctx.restore();
+
+  const initials = mapItemInitials(location);
+  let fontSize = initials.length > 2 ? 8.5 : 10.5;
+  ctx.font = `800 ${fontSize}px Inter, Arial, sans-serif`;
+  while (ctx.measureText(initials).width > 25 && fontSize > 7) {
+    fontSize -= 0.5;
+    ctx.font = `800 ${fontSize}px Inter, Arial, sans-serif`;
+  }
+  ctx.fillStyle = "#ffffff";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(initials, 44, 25.5);
+
+  return ctx.getImageData(0, 0, canvas.width, canvas.height);
+}
+
+function fillRoundedRect(ctx, x, y, width, height, radius) {
+  roundedRectPath(ctx, x, y, width, height, radius);
+  ctx.fill();
+}
+
+function strokeRoundedRect(ctx, x, y, width, height, radius) {
+  roundedRectPath(ctx, x, y, width, height, radius);
+  ctx.stroke();
+}
+
+function roundedRectPath(ctx, x, y, width, height, radius) {
+  const safeRadius = Math.min(radius, width / 2, height / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + safeRadius, y);
+  ctx.lineTo(x + width - safeRadius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + safeRadius);
+  ctx.lineTo(x + width, y + height - safeRadius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - safeRadius, y + height);
+  ctx.lineTo(x + safeRadius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - safeRadius);
+  ctx.lineTo(x, y + safeRadius);
+  ctx.quadraticCurveTo(x, y, x + safeRadius, y);
+  ctx.closePath();
+}
+
+function mapFlagIconId(location) {
+  return `${MAP_FLAG_ICON_PREFIX}${slugify(location.kind)}-${slugify(mapItemInitials(location))}-${slugify(colorForMapItem(location))}`;
+}
+
+function buildMapLocationsGeoJson(locations) {
+  return {
+    type: "FeatureCollection",
+    features: locations.map((location) => ({
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [location.lng, location.lat]
+      },
+      properties: mapFeatureProperties(location)
+    }))
+  };
+}
+
+function mapFeatureProperties(location) {
+  return {
+    mapKey: location.mapKey,
+    kind: location.kind,
+    label: mapItemTitle(location),
+    initials: mapItemInitials(location),
+    city: location.city || "",
+    country: location.country || "",
+    color: colorForMapItem(location),
+    flagIcon: mapFlagIconId(location),
+    selected: location.mapKey === state.selectedMapCompany
+  };
+}
+
+function applyMapBaseMode(mode) {
+  const map = state.companyMap;
+  state.mapBaseMode = VALID_MAP_BASE_MODES.has(mode) ? mode : "hybrid";
+  syncViewControls();
+  if (!map?.getStyle()?.layers) return;
+
+  const showSatellite = state.mapBaseMode === "earth" || state.mapBaseMode === "hybrid";
+  if (map.getLayer("satellite-layer")) {
+    map.setLayoutProperty("satellite-layer", "visibility", showSatellite ? "visible" : "none");
+  }
+
+  const backgroundTypes = new Set(["background", "fill", "fill-extrusion", "hillshade", "raster"]);
+  (map.getStyle().layers || []).forEach((layer) => {
+    if (layer.id === "satellite-layer" || layer.id.startsWith("ai-locations-")) return;
+
+    const labelLayer = isBaseLabelLayer(layer);
+    let visible = true;
+    if (state.mapBaseMode === "earth") {
+      visible = labelLayer && state.mapLabels;
+    } else if (state.mapBaseMode === "hybrid") {
+      visible = !backgroundTypes.has(layer.type);
+    }
+    if (labelLayer && !state.mapLabels) visible = false;
+    if (labelLayer && state.mapLabels) applyReadableMapLabelPaint(layer.id);
+
+    try {
+      map.setLayoutProperty(layer.id, "visibility", visible ? "visible" : "none");
+    } catch {
+      // Some style layers cannot be toggled in older fallback styles.
+    }
+  });
+}
+
+function isBaseLabelLayer(layer) {
+  return layer.type === "symbol"
+    && layer.layout
+    && Object.prototype.hasOwnProperty.call(layer.layout, "text-field");
+}
+
+function applyReadableMapLabelPaint(layerId) {
+  const map = state.companyMap;
+  if (!map?.getLayer(layerId)) return;
+
+  const labelPaint = {
+    "text-color": "#f8fafc",
+    "text-halo-color": "rgba(2, 6, 23, 0.92)",
+    "text-halo-width": 2.2,
+    "text-halo-blur": 0.45
+  };
+
+  Object.entries(labelPaint).forEach(([property, value]) => {
+    try {
+      map.setPaintProperty(layerId, property, value);
+    } catch {
+      // Some fallback styles can reject text paint overrides on specific layers.
+    }
+  });
+}
+
+function applyMapScale(scale, options = {}) {
+  const map = state.companyMap;
+  const targetScale = VALID_MAP_SCALES.has(scale) ? scale : "globe";
+  state.mapScale = targetScale;
+  syncViewControls();
+  if (!map) return;
+
+  const animate = options.animate !== false;
+  const referenceLocation = getMapReferenceLocation();
+
+  if (targetScale === "globe") {
+    const camera = { center: [8, 16], zoom: 1.35, pitch: 0, bearing: 0 };
+    animate ? map.flyTo({ ...camera, speed: 0.85, curve: 1.35, essential: true }) : map.jumpTo(camera);
+    return;
+  }
+
+  if (targetScale === "country") {
+    fitCountryScale(referenceLocation, animate);
+    return;
+  }
+
+  if (!referenceLocation) {
+    fitLocationsOnMap(locationsForMap(), { animate, maxZoom: 3.2 });
+    return;
+  }
+
+  const camera = targetScale === "street"
+    ? { center: [referenceLocation.lng, referenceLocation.lat], zoom: 16.2, pitch: 58, bearing: -18 }
+    : { center: [referenceLocation.lng, referenceLocation.lat], zoom: 10.8, pitch: 35, bearing: 0 };
+
+  animate ? map.flyTo({ ...camera, speed: 0.85, curve: 1.35, essential: true }) : map.jumpTo(camera);
+}
+
+function fitCountryScale(referenceLocation, animate) {
+  const countryLocations = referenceLocation
+    ? locationsForMap().filter((location) => location.country === referenceLocation.country)
+    : locationsForMap();
+
+  if (!countryLocations.length) return;
+  if (countryLocations.length === 1) {
+    const only = countryLocations[0];
+    const camera = { center: [only.lng, only.lat], zoom: 4.4, pitch: 0, bearing: 0 };
+    animate
+      ? state.companyMap.flyTo({ ...camera, speed: 0.85, curve: 1.35, essential: true })
+      : state.companyMap.jumpTo(camera);
+    return;
+  }
+
+  fitLocationsOnMap(countryLocations, { animate, maxZoom: 5.1 });
+}
+
+function fitLocationsOnMap(locations, options = {}) {
+  const map = state.companyMap;
+  const bounds = mapBoundsForLocations(locations);
+  if (!map || !bounds) return;
+
+  map.fitBounds(bounds, {
+    padding: { top: 90, right: 90, bottom: 90, left: 90 },
+    maxZoom: options.maxZoom || 8,
+    duration: options.animate === false ? 0 : 900,
+    essential: true
+  });
+}
+
+function mapBoundsForLocations(locations) {
+  const validLocations = locations.filter((location) => Number.isFinite(location.lat) && Number.isFinite(location.lng));
+  if (!validLocations.length || typeof maplibregl === "undefined") return null;
+
+  const bounds = new maplibregl.LngLatBounds();
+  validLocations.forEach((location) => bounds.extend([location.lng, location.lat]));
+  return bounds;
+}
+
+function getMapReferenceLocation() {
+  const locations = locationsForMap();
+  const selected = locations.find((location) => location.mapKey === state.selectedMapCompany);
+  if (selected) return selected;
+
+  if (state.filters.company !== "all") {
+    const companyLocation = locations.find((location) => location.company === state.filters.company);
+    if (companyLocation) return companyLocation;
+  }
+
+  return locations.find((location) => location.country === "Brazil")
+    || locations.find((location) => location.country === "United States")
+    || locations[0]
+    || null;
+}
+
+function selectCompanyOnMap(location, options = {}) {
   if (!location) return;
   state.selectedMapCompany = location.mapKey;
   renderCompanyLocationList(locationsForMap());
-  updateCompanyGlobe(locationsForMap());
-}
+  updateCompanyMap(locationsForMap());
 
-function createCompanyMarker(location) {
-  const wrapper = document.createElement("div");
-  wrapper.className = "globe-marker-anchor";
-  wrapper.style.setProperty("--marker-color", colorForMapItem(location));
-
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "globe-company-marker";
-  if (location.mapKey === state.selectedMapCompany) button.classList.add("selected");
-  button.title = `${mapItemTitle(location)} - ${location.city}, ${location.country}`;
-
-  const pin = document.createElement("span");
-  pin.className = "marker-pin";
-
-  const flag = document.createElement("span");
-  flag.className = "marker-flag";
-  flag.textContent = mapItemInitials(location);
-
-  const label = document.createElement("span");
-  label.className = "marker-label";
-  label.textContent = mapItemTitle(location);
-
-  button.append(pin, flag, label);
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-    selectCompanyOnMap(location);
-  });
-  button.addEventListener("wheel", zoomGlobeFromMarker, { passive: false });
-
-  wrapper.append(button);
-  return wrapper;
-}
-
-function zoomGlobeFromMarker(event) {
-  event.preventDefault();
-  event.stopPropagation();
-
-  const canvas = els.companyGlobe?.querySelector("canvas");
-  if (!canvas) return;
-
-  canvas.dispatchEvent(new WheelEvent("wheel", {
-    bubbles: true,
-    cancelable: true,
-    deltaX: event.deltaX,
-    deltaY: event.deltaY,
-    deltaZ: event.deltaZ,
-    deltaMode: event.deltaMode,
-    clientX: event.clientX,
-    clientY: event.clientY,
-    screenX: event.screenX,
-    screenY: event.screenY,
-    ctrlKey: event.ctrlKey,
-    shiftKey: event.shiftKey,
-    altKey: event.altKey,
-    metaKey: event.metaKey
-  }));
+  if (options.focus !== false) {
+    focusCompanyOnMap(location.mapKey);
+  }
+  if (options.popup) {
+    showMapPopup(location);
+  }
 }
 
 function renderCompanyLocationList(locations) {
@@ -2157,11 +2585,40 @@ function renderCompanyLocationList(locations) {
 
   els.companyLocationList.querySelectorAll("[data-map-company]").forEach((button) => {
     button.addEventListener("click", () => {
-      state.selectedMapCompany = button.dataset.mapCompany;
-      renderCompanyLocationList(locations);
-      updateCompanyGlobe(locations);
-      focusCompanyOnGlobe(state.selectedMapCompany);
+      const location = locations.find((item) => item.mapKey === button.dataset.mapCompany);
+      selectCompanyOnMap(location, { popup: true });
     });
+  });
+
+  scrollSelectedMapLocationIntoView();
+}
+
+function scrollSelectedMapLocationIntoView() {
+  const list = els.companyLocationList;
+  const selectedCard = list?.querySelector(".company-location-card.selected");
+  if (!list || !selectedCard) return;
+
+  const padding = 12;
+  const listRect = list.getBoundingClientRect();
+  const cardRect = selectedCard.getBoundingClientRect();
+  const cardTop = cardRect.top - listRect.top + list.scrollTop;
+  const cardBottom = cardRect.bottom - listRect.top + list.scrollTop;
+  const visibleTop = list.scrollTop;
+  const visibleBottom = visibleTop + list.clientHeight;
+  let targetScroll = null;
+
+  if (cardTop < visibleTop + padding) {
+    targetScroll = Math.max(0, cardTop - padding);
+  } else if (cardBottom > visibleBottom - padding) {
+    targetScroll = cardBottom - list.clientHeight + padding;
+  }
+
+  if (targetScroll === null) return;
+
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  list.scrollTo({
+    top: targetScroll,
+    behavior: reduceMotion ? "auto" : "smooth"
   });
 }
 
@@ -2203,82 +2660,83 @@ function renderMapLocationCard(location, selectedCompany) {
   `;
 }
 
-function focusCompanyOnGlobe(company) {
-  const location = state.globeLayoutLocations.find((item) => item.mapKey === company)
-    || locationsForMap().find((item) => item.mapKey === company);
-  if (!location || !state.companyGlobe) return;
-  state.companyGlobe.pointOfView({
-    lat: location.displayLat ?? location.lat,
-    lng: location.displayLng ?? location.lng,
-    altitude: 1.45
-  }, 900);
+function focusCompanyOnMap(company) {
+  const map = state.companyMap;
+  const location = locationsForMap().find((item) => item.mapKey === company);
+  if (!location || !map) return;
+
+  state.mapScale = map.getZoom() >= 14 ? "street" : "city";
+  syncViewControls();
+  map.flyTo({
+    center: [location.lng, location.lat],
+    zoom: Math.max(map.getZoom(), 10.8),
+    pitch: map.getZoom() >= 14 ? 58 : 35,
+    bearing: map.getZoom() >= 14 ? -18 : 0,
+    speed: 0.85,
+    curve: 1.35,
+    essential: true
+  });
 }
 
-function layoutCompanyMarkers(locations) {
-  const remaining = [...locations].sort((a, b) => mapItemTitle(a).localeCompare(mapItemTitle(b)));
-  const laidOut = [];
-  const clusterDistance = 0.28;
+function showMapPopup(location) {
+  const map = state.companyMap;
+  if (!map || typeof maplibregl === "undefined") return;
 
-  while (remaining.length) {
-    const seed = remaining.shift();
-    const cluster = [seed];
+  state.mapPopup?.remove();
+  state.mapPopup = new maplibregl.Popup({ closeButton: true, offset: 14, maxWidth: "300px" })
+    .setLngLat([location.lng, location.lat])
+    .setHTML(`
+      <div class="map-popup">
+        <span>${escapeHtml(mapKindLabel(location))}</span>
+        <strong>${escapeHtml(mapItemTitle(location))}</strong>
+        <p>${escapeHtml(location.address || `${location.city}, ${location.country}`)}</p>
+        ${location.notes ? `<small>${escapeHtml(location.notes)}</small>` : ""}
+        <a href="${escapeAttribute(location.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(location.sourceName)}</a>
+      </div>
+    `)
+    .addTo(map);
+}
 
-    for (let index = remaining.length - 1; index >= 0; index -= 1) {
-      if (distanceDegrees(seed, remaining[index]) <= clusterDistance) {
-        cluster.push(remaining[index]);
-        remaining.splice(index, 1);
-      }
-    }
+function syncMapScaleFromMap() {
+  const map = state.companyMap;
+  if (!map) return;
 
-    if (cluster.length === 1) {
-      laidOut.push({
-        ...seed,
-        displayLat: seed.lat,
-        displayLng: seed.lng,
-        hasLeaderLine: false
-      });
-      continue;
-    }
+  const zoom = map.getZoom();
+  setMapScaleFromZoom(zoom);
+}
 
-    const centerLat = average(cluster.map((location) => location.lat));
-    const centerLng = average(cluster.map((location) => location.lng));
-    const spread = Math.min(0.92, 0.26 + cluster.length * 0.07);
+function setMapScaleFromZoom(zoom) {
+  const scale = zoom < MAP_FLAG_MIN_ZOOM
+    ? "globe"
+    : zoom < 7
+      ? "country"
+      : zoom < 14
+        ? "city"
+        : "street";
 
-    cluster
-      .sort((a, b) => mapItemTitle(a).localeCompare(mapItemTitle(b)))
-      .forEach((location, index) => {
-        const angle = (-90 + (360 / cluster.length) * index) * Math.PI / 180;
-        const latOffset = Math.sin(angle) * spread * 0.72;
-        const lngOffset = Math.cos(angle) * spread / Math.max(0.48, Math.cos(centerLat * Math.PI / 180));
-        const displayLat = clamp(centerLat + latOffset, -78, 78);
-        const displayLng = wrapLng(centerLng + lngOffset);
-
-        laidOut.push({
-          ...location,
-          displayLat,
-          displayLng,
-          hasLeaderLine: distanceDegrees(location, { lat: displayLat, lng: displayLng }) > 0.12
-        });
-      });
+  if (state.mapScale !== scale) {
+    state.mapScale = scale;
+    syncViewControls();
   }
-
-  return laidOut.sort((a, b) => mapItemTitle(a).localeCompare(mapItemTitle(b)));
 }
 
-function distanceDegrees(a, b) {
-  const latDelta = a.lat - b.lat;
-  const lngDelta = (a.lng - b.lng) * Math.cos(((a.lat + b.lat) / 2) * Math.PI / 180);
-  return Math.sqrt(latDelta ** 2 + lngDelta ** 2);
+function showMapError(message) {
+  if (!els.mapError) return;
+  els.mapError.hidden = false;
+  els.mapError.textContent = message;
+  if (els.mapLoading) els.mapLoading.hidden = true;
 }
 
-function average(values) {
-  return values.reduce((total, value) => total + value, 0) / values.length;
+function clearMapError() {
+  if (!els.mapError) return;
+  els.mapError.hidden = true;
+  els.mapError.textContent = "";
 }
 
-function wrapLng(lng) {
-  if (lng > 180) return lng - 360;
-  if (lng < -180) return lng + 360;
-  return lng;
+function mapKindLabel(location) {
+  if (location.kind === "datacenter") return "Data center";
+  if (location.kind === "lab") return "Lab IA";
+  return "Sede";
 }
 
 function mapItemTitle(location) {
