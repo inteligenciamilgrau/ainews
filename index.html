@@ -75,6 +75,7 @@
         <div class="segmented" role="tablist" aria-label="Views">
           <button class="active" type="button" data-view="timeline">Timeline</button>
           <button type="button" data-view="years">Ano a ano</button>
+          <button type="button" data-view="map">Mapa</button>
           <button type="button" data-view="table">Tabela</button>
           <button type="button" data-view="sources">Fontes</button>
         </div>
@@ -92,6 +93,30 @@
 
       <section id="yearsView" class="view">
         <div id="yearChart" class="year-chart"></div>
+      </section>
+
+      <section id="mapView" class="view">
+        <div class="map-shell">
+          <div class="map-toolbar">
+            <div>
+              <p class="section-kicker">Mapa</p>
+              <h2>Empresas e infraestrutura de IA</h2>
+            </div>
+            <div class="map-actions">
+              <div class="map-layer-toggle" aria-label="Camada do mapa">
+                <button type="button" data-map-layer="companies">Sedes</button>
+                <button type="button" data-map-layer="labs">Labs IA</button>
+                <button type="button" data-map-layer="datacenters">Data centers</button>
+                <button type="button" data-map-layer="all">Tudo</button>
+              </div>
+              <div id="mapSummary" class="map-summary"></div>
+            </div>
+          </div>
+          <div class="globe-layout">
+            <div id="companyGlobe" class="company-globe" aria-label="Mapa mundial 3D de empresas, labs e infraestrutura de IA"></div>
+            <aside id="companyLocationList" class="company-location-list" aria-label="Lista de pontos no mapa"></aside>
+          </div>
+        </div>
       </section>
 
       <section id="tableView" class="view">
@@ -128,6 +153,7 @@
       </section>
     </main>
 
+    <script src="https://unpkg.com/globe.gl" defer></script>
     <script src="app.js" defer></script>
   </body>
 </html>

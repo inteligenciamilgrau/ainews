@@ -25,6 +25,7 @@ coverage/
 
 # Python/cache leftovers from local tooling
 venv/
+xp/
 .venv/
 __pycache__/
 *.py[cod]
