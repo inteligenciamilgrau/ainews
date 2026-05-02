@@ -1,7 +1,11 @@
 const DATA_URL = "data/models.json";
-const MAP_STYLE_URL = "https://tiles.openfreemap.org/styles/dark";
+const MAP_STYLE_URLS = {
+  dark: "https://tiles.openfreemap.org/styles/dark",
+  light: "https://tiles.openfreemap.org/styles/bright"
+};
 const MAP_FALLBACK_STYLE_URL = "https://demotiles.maplibre.org/style.json";
 const MAP_SATELLITE_TILE_URL = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
+const MAP_ADMIN_BOUNDARY_LAYER_IDS = ["ai-admin-boundaries-casing", "ai-admin-boundaries"];
 const MAP_FLAG_ICON_PREFIX = "ai-location-flag-";
 const MAP_FLAG_MIN_ZOOM = 3.2;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
@@ -38,6 +42,8 @@ const state = {
   selectedId: null,
   selectedMapCompany: null,
   companyMap: null,
+  mapStyleMode: "dark",
+  mapStyleFallbackActive: false,
   mapFallbackTried: false,
   mapHasInitialView: false,
   mapPopup: null
@@ -2001,11 +2007,13 @@ function initCompanyMap() {
   clearMapError();
   els.mapLoading.hidden = false;
   state.mapFallbackTried = false;
+  state.mapStyleFallbackActive = false;
+  state.mapStyleMode = mapStyleModeForBaseMode(state.mapBaseMode);
 
   try {
     state.companyMap = new maplibregl.Map({
       container: els.companyMap,
-      style: MAP_STYLE_URL,
+      style: MAP_STYLE_URLS[state.mapStyleMode],
       center: [8, 16],
       zoom: 1.35,
       pitch: 0,
@@ -2039,6 +2047,7 @@ function initCompanyMap() {
 
     configureMapSky();
     addSatelliteLayer();
+    addAdminBoundaryLayers();
     addMapLocationLayers();
     applyMapBaseMode(state.mapBaseMode);
     updateCompanyMap(locationsForMap());
@@ -2070,6 +2079,7 @@ function handleMapError(event) {
 
   if (!state.mapFallbackTried && /style/i.test(message)) {
     state.mapFallbackTried = true;
+    state.mapStyleFallbackActive = true;
     state.companyMap?.setStyle(MAP_FALLBACK_STYLE_URL);
     return;
   }
@@ -2124,6 +2134,57 @@ function addSatelliteLayer() {
       "raster-contrast": 0.08
     }
   }, firstLineOrSymbol?.id);
+}
+
+function addAdminBoundaryLayers() {
+  const map = state.companyMap;
+  if (!map || !map.getSource("openmaptiles") || map.getLayer("ai-admin-boundaries")) return;
+
+  const layers = map.getStyle().layers || [];
+  const firstBaseSymbol = layers.find((layer) => layer.type === "symbol" && !layer.id.startsWith("ai-"));
+  const boundaryFilter = [
+    "all",
+    ["==", ["get", "admin_level"], 4],
+    ["!=", ["get", "maritime"], 1],
+    ["!=", ["get", "disputed"], 1],
+    ["!", ["has", "claimed_by"]]
+  ];
+
+  map.addLayer({
+    id: "ai-admin-boundaries-casing",
+    type: "line",
+    source: "openmaptiles",
+    "source-layer": "boundary",
+    minzoom: 3,
+    filter: boundaryFilter,
+    layout: {
+      "line-cap": "round",
+      "line-join": "round"
+    },
+    paint: {
+      "line-opacity": 0.82,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 3, 1.5, 5, 2.4, 8, 3.2, 12, 5.2]
+    }
+  }, firstBaseSymbol?.id);
+
+  map.addLayer({
+    id: "ai-admin-boundaries",
+    type: "line",
+    source: "openmaptiles",
+    "source-layer": "boundary",
+    minzoom: 3,
+    filter: boundaryFilter,
+    layout: {
+      "line-cap": "round",
+      "line-join": "round"
+    },
+    paint: {
+      "line-opacity": 0.92,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.8, 5, 1.2, 8, 1.7, 12, 2.8]
+    }
+  }, firstBaseSymbol?.id);
+
+  applyAdminBoundaryPaint();
 }
 
 function addMapLocationLayers() {
@@ -2411,6 +2472,16 @@ function applyMapBaseMode(mode) {
   const map = state.companyMap;
   state.mapBaseMode = VALID_MAP_BASE_MODES.has(mode) ? mode : "hybrid";
   syncViewControls();
+  if (!map) return;
+
+  const desiredStyleMode = mapStyleModeForBaseMode(state.mapBaseMode);
+  if (!state.mapStyleFallbackActive && state.mapStyleMode !== desiredStyleMode) {
+    state.mapStyleMode = desiredStyleMode;
+    state.mapFallbackTried = false;
+    map.setStyle(MAP_STYLE_URLS[desiredStyleMode]);
+    return;
+  }
+
   if (!map?.getStyle()?.layers) return;
 
   const showSatellite = state.mapBaseMode === "earth" || state.mapBaseMode === "hybrid";
@@ -2420,7 +2491,7 @@ function applyMapBaseMode(mode) {
 
   const backgroundTypes = new Set(["background", "fill", "fill-extrusion", "hillshade", "raster"]);
   (map.getStyle().layers || []).forEach((layer) => {
-    if (layer.id === "satellite-layer" || layer.id.startsWith("ai-locations-")) return;
+    if (layer.id === "satellite-layer" || layer.id.startsWith("ai-locations-") || layer.id.startsWith("ai-admin-")) return;
 
     const labelLayer = isBaseLabelLayer(layer);
     let visible = true;
@@ -2438,6 +2509,40 @@ function applyMapBaseMode(mode) {
       // Some style layers cannot be toggled in older fallback styles.
     }
   });
+
+  applyAdminBoundaryPaint();
+}
+
+function mapStyleModeForBaseMode(mode) {
+  return mode === "map" ? "light" : "dark";
+}
+
+function applyAdminBoundaryPaint() {
+  const map = state.companyMap;
+  if (!map) return;
+
+  const lightMap = state.mapBaseMode === "map";
+  const paintByLayer = {
+    "ai-admin-boundaries-casing": {
+      "line-color": lightMap ? "rgba(255, 255, 255, 0.96)" : "rgba(2, 6, 23, 0.88)",
+      "line-opacity": lightMap ? 0.9 : 0.86
+    },
+    "ai-admin-boundaries": {
+      "line-color": lightMap ? "#334155" : "#fde047",
+      "line-opacity": lightMap ? 0.82 : 0.94
+    }
+  };
+
+  MAP_ADMIN_BOUNDARY_LAYER_IDS.forEach((layerId) => {
+    if (!map.getLayer(layerId)) return;
+    Object.entries(paintByLayer[layerId]).forEach(([property, value]) => {
+      try {
+        map.setPaintProperty(layerId, property, value);
+      } catch {
+        // Fallback styles may not expose the OpenMapTiles boundary layer.
+      }
+    });
+  });
 }
 
 function isBaseLabelLayer(layer) {
@@ -2449,12 +2554,13 @@ function isBaseLabelLayer(layer) {
 function applyReadableMapLabelPaint(layerId) {
   const map = state.companyMap;
   if (!map?.getLayer(layerId)) return;
+  const lightMap = state.mapBaseMode === "map";
 
   const labelPaint = {
-    "text-color": "#f8fafc",
-    "text-halo-color": "rgba(2, 6, 23, 0.92)",
-    "text-halo-width": 2.2,
-    "text-halo-blur": 0.45
+    "text-color": lightMap ? "#111827" : "#f8fafc",
+    "text-halo-color": lightMap ? "rgba(255, 255, 255, 0.94)" : "rgba(2, 6, 23, 0.92)",
+    "text-halo-width": lightMap ? 2.4 : 2.2,
+    "text-halo-blur": lightMap ? 0.35 : 0.45
   };
 
   Object.entries(labelPaint).forEach(([property, value]) => {
