@@ -26,8 +26,16 @@ Este projeto e um site estatico. Para publicar, envie estes arquivos mantendo a 
 - `app.js`
 - `styles.css`
 - `data/models.json`
+- `_headers`, quando a hospedagem for Netlify ou Cloudflare Pages
+- `vercel.json`, quando a hospedagem for Vercel
 
 O arquivo `data/models.json` precisa continuar disponivel no caminho relativo `data/models.json`, porque a aplicacao carrega a base a partir dele.
+
+### Cabecalhos de seguranca
+
+O site define CSP, `X-Content-Type-Options: nosniff`, bloqueio de embed por `frame-ancestors 'none'` e `X-Frame-Options: DENY` nos arquivos de configuracao de hospedagem. O `index.html` tambem usa SRI nos assets externos do MapLibre carregados pelo jsDelivr.
+
+Se a publicacao for feita em GitHub Pages puro, esses cabecalhos nao serao aplicados, porque GitHub Pages nao permite configurar headers HTTP por repositorio. Nesse caso, publique por Vercel, Netlify, Cloudflare Pages ou por um proxy/servidor que aplique os mesmos headers definidos em `_headers`.
 
 ## Atualizar a base
 
