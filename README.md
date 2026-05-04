@@ -28,6 +28,7 @@ Este projeto e um site estatico. Para publicar, envie estes arquivos mantendo a 
 - `data/models.json`
 - `_headers`, quando a hospedagem for Netlify ou Cloudflare Pages
 - `vercel.json`, quando a hospedagem for Vercel
+- `netlify.toml`, quando a hospedagem for Netlify
 
 O arquivo `data/models.json` precisa continuar disponivel no caminho relativo `data/models.json`, porque a aplicacao carrega a base a partir dele.
 
