@@ -15,7 +15,7 @@ const VALID_MAP_BASE_MODES = new Set(["map", "earth", "hybrid"]);
 const VALID_MAP_SCALES = new Set(["globe", "country", "city", "street"]);
 const VALID_LANE_MODES = new Set(["company", "all"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
-const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica"];
+const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models"];
 const VALID_AI_CATEGORIES = new Set(AI_CATEGORIES);
 const TIMELINE_EVENT_EDGE_PX = 108;
 
@@ -228,11 +228,12 @@ const companyLocations = [
     city: "London",
     region: "England",
     country: "United Kingdom",
-    address: "Google DeepMind, King's Cross, 6 Pancras Square",
+    address: "6 Pancras Square, King's Cross, London N1C 4AG",
     lat: 51.5335,
     lng: -0.1251,
-    sourceName: "Google DeepMind",
-    sourceUrl: "https://deepmind.google/about/"
+    notes: "Google DeepMind lists London as a location; address uses the public Google King's Cross campus at 6 Pancras Square.",
+    sourceName: "Google DeepMind Careers",
+    sourceUrl: "https://deepmind.google/careers/"
   },
   {
     company: "Google",

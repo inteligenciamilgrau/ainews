@@ -4,11 +4,11 @@ Aplicacao estatica para visualizar lancamentos de modelos de IA por categoria, e
 
 ## Escopo da primeira base
 
-A base principal fica em `data/models.json` e cobre LLMs, modelos de imagem, video, audio/transcricao e musica. A categoria padrao para registros sem `ai_category` e `LLMs`. Cada item tem:
+A base principal fica em `data/models.json` e cobre LLMs, modelos de imagem, video, audio/transcricao, musica e robotica/world models. A categoria padrao para registros sem `ai_category` e `LLMs`. Cada item tem:
 
 - `release_date`: data ISO do anuncio, preview, API, GA ou release de pesos, conforme a fonte oficial.
 - `release_stage`: diferencia anuncio, preview, API, GA, produto e open weights.
-- `ai_category`: categoria ampla usada no menu de Tipo de IA. Valores atuais: `LLMs`, `Imagem`, `Video`, `Audio/Transcricao`, `Musica`.
+- `ai_category`: categoria ampla usada no menu de Tipo de IA. Valores atuais: `LLMs`, `Imagem`, `Video`, `Audio/Transcricao`, `Musica`, `Robotica/World models`.
 - `model_type`: tags usadas nos filtros. Use `OpenSource` como rotulo amigavel quando o item for modelo aberto/open-weight, mantendo `open-weights` quando os pesos estiverem publicamente disponiveis.
 - `description_pt`: descricao curta em portugues.
 - `source` ou `sources`: titulo, URL, publicador e criterio usado para a data. Use `sources` quando um registro agrupa mais de um modelo ou variante.

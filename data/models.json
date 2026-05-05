@@ -3,10 +3,10 @@
     "updated_at": "2026-05-05",
     "last_correction": {
       "date": "2026-05-05",
-      "description_pt": "Revisada a cobertura Anthropic: separada a disponibilidade do Claude 3.5 Haiku, ajustado o evento do Sonnet 3.5/computer use e atualizados pontos de pesquisa/localizacao."
+      "description_pt": "Revisada a cobertura Google: validadas datas/fontes oficiais, adicionados modelos ausentes de linguagem, audio, musica, open weights, embeddings, robotica e world models."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
-    "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao e musica. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
+    "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
     "date_policy": "release_date e a data publicada em fonte oficial do fornecedor. Quando o fornecedor separa anuncio, preview, disponibilidade em API e disponibilidade geral, o release_stage explicita essa diferenca. Registros podem usar source unico ou sources com multiplos links oficiais quando um item agrega variantes."
   },
   "models": [
@@ -978,6 +978,204 @@
       "confidence": "alta"
     },
     {
+      "id": "google-bert",
+      "company": "Google",
+      "family": "BERT",
+      "model": "BERT",
+      "release_date": "2018-11-02",
+      "release_stage": "open source/pre-treinamento",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "NLP", "representacao", "open-weights", "OpenSource"],
+      "description_pt": "Modelo bidirecional de representacao de linguagem baseado em Transformer, aberto com codigo e checkpoints pre-treinados para tarefas de NLP.",
+      "source": {
+        "title": "Open Sourcing BERT: State-of-the-Art Pre-training for Natural Language Processing",
+        "url": "https://research.google/blog/open-sourcing-bert-state-of-the-art-pre-training-for-natural-language-processing/",
+        "publisher": "Google Research",
+        "date_basis": "Post oficial publicado em 2 de novembro de 2018."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-t5",
+      "company": "Google",
+      "family": "T5",
+      "model": "T5",
+      "release_date": "2020-02-24",
+      "release_stage": "pesquisa/open source",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "text-to-text", "encoder-decoder", "open-weights", "OpenSource"],
+      "description_pt": "Text-To-Text Transfer Transformer da Google Research, unificando tarefas de NLP em formato texto-para-texto e disponibilizado com codigo, dados C4 e modelos pre-treinados.",
+      "source": {
+        "title": "Exploring Transfer Learning with T5: the Text-To-Text Transfer Transformer",
+        "url": "https://research.google/blog/exploring-transfer-learning-with-t5-the-text-to-text-transfer-transformer/",
+        "publisher": "Google Research",
+        "date_basis": "Post oficial publicado em 24 de fevereiro de 2020."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-lamda",
+      "company": "Google",
+      "family": "LaMDA",
+      "model": "LaMDA",
+      "release_date": "2021-05-18",
+      "release_stage": "pesquisa/anuncio",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "dialogo", "conversacional"],
+      "description_pt": "Language Model for Dialogue Applications, modelo de dialogo aberto a temas apresentado no Google I/O 2021 e precursor direto do Bard.",
+      "source": {
+        "title": "LaMDA: our breakthrough conversation technology",
+        "url": "https://blog.google/innovation-and-ai/products/lamda/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 18 de maio de 2021."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-mum",
+      "company": "Google",
+      "family": "MUM",
+      "model": "Multitask Unified Model (MUM)",
+      "release_date": "2021-05-18",
+      "release_stage": "pesquisa/produto Search",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "imagem", "multimodal", "multilingue", "busca"],
+      "description_pt": "Modelo multitarefa e multimodal para entender informacoes complexas na Busca, treinado em 75 idiomas e capaz de transferir conhecimento entre linguas e modalidades.",
+      "source": {
+        "title": "MUM: A new AI milestone for understanding information",
+        "url": "https://blog.google/products-and-platforms/products/search/introducing-mum/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 18 de maio de 2021."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-palm",
+      "company": "Google",
+      "family": "PaLM",
+      "model": "PaLM 540B",
+      "release_date": "2022-04-04",
+      "release_stage": "pesquisa",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "raciocinio", "Pathways", "fundacao"],
+      "description_pt": "Pathways Language Model de 540B parametros, marco da escala em LLMs da Google antes do PaLM 2 e Gemini.",
+      "source": {
+        "title": "Pathways Language Model (PaLM): Scaling to 540 Billion Parameters for Breakthrough Performance",
+        "url": "https://research.google/blog/pathways-language-model-palm-scaling-to-540-billion-parameters-for-breakthrough-performance/",
+        "publisher": "Google Research",
+        "date_basis": "Post oficial publicado em 4 de abril de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-palm-e",
+      "company": "Google",
+      "family": "PaLM-E",
+      "model": "PaLM-E",
+      "release_date": "2023-03-10",
+      "release_stage": "pesquisa",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "multimodal", "visao-linguagem", "embodied-ai", "fundacao"],
+      "description_pt": "Modelo multimodal incorporado que combina PaLM com dados sensoriais de robos, funcionando tambem como modelo geral de visao-linguagem.",
+      "source": {
+        "title": "PaLM-E: An embodied multimodal language model",
+        "url": "https://research.google/blog/palm-e-an-embodied-multimodal-language-model/",
+        "publisher": "Google Research",
+        "date_basis": "Post oficial publicado em 10 de marco de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-codey",
+      "company": "Google",
+      "family": "Codey",
+      "model": "Codey",
+      "release_date": "2023-05-10",
+      "release_stage": "Vertex AI",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "texto-para-codigo", "API", "Vertex AI", "fundacao"],
+      "description_pt": "Modelo fundacional de codigo do Vertex AI para geracao, completamento e chat sobre codigo.",
+      "source": {
+        "title": "Google Cloud advances generative AI at I/O: new foundation models, embeddings, and tuning tools in Vertex AI",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-launches-new-ai-models-opens-generative-ai-studio",
+        "publisher": "Google Cloud",
+        "date_basis": "Post oficial publicado em 10 de maio de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-medlm",
+      "company": "Google",
+      "family": "MedLM",
+      "model": "MedLM",
+      "release_date": "2023-12-13",
+      "release_stage": "allowlisted GA/preview",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "saude", "medicina", "Vertex AI", "fine-tuned"],
+      "description_pt": "Familia de modelos fundacionais ajustados para casos de uso da industria de saude, baseada em Med-PaLM 2 e disponibilizada no Vertex AI.",
+      "source": {
+        "title": "MedLM: generative AI fine-tuned for the healthcare industry",
+        "url": "https://cloud.google.com/blog/topics/healthcare-life-sciences/introducing-medlm-for-the-healthcare-industry",
+        "publisher": "Google Cloud",
+        "date_basis": "Post oficial publicado em 13 de dezembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-learnlm",
+      "company": "Google",
+      "family": "LearnLM",
+      "model": "LearnLM",
+      "release_date": "2024-05-14",
+      "release_stage": "lancamento",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "educacao", "Gemini", "fine-tuned", "produto"],
+      "description_pt": "Familia de modelos baseada em Gemini e ajustada para ensino e aprendizagem, apresentada no Google I/O 2024.",
+      "source": {
+        "title": "How generative AI expands curiosity and understanding with LearnLM",
+        "url": "https://blog.google/products-and-platforms/products/education/google-learnlm-gemini-generative-ai/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 14 de maio de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-robotics",
+      "company": "Google",
+      "family": "Gemini Robotics",
+      "model": "Gemini Robotics / Gemini Robotics-ER",
+      "release_date": "2025-03-12",
+      "release_stage": "pesquisa/modelos",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "visao-linguagem-acao", "embodied-ai", "Gemini 2.0", "agente"],
+      "description_pt": "Modelos baseados no Gemini 2.0 para robos, incluindo um modelo VLA que gera acoes fisicas e um modelo ER para raciocinio incorporado.",
+      "source": {
+        "title": "Gemini Robotics brings AI into the physical world",
+        "url": "https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/",
+        "publisher": "Google DeepMind",
+        "date_basis": "Post oficial publicado em 12 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-genie-3",
+      "company": "Google",
+      "family": "Genie",
+      "model": "Genie 3",
+      "release_date": "2025-08-05",
+      "release_stage": "pesquisa/prototipo",
+      "ai_category": "Robotica/World models",
+      "model_type": ["world-model", "ambientes-interativos", "texto-para-mundo", "simulacao", "agente"],
+      "description_pt": "World model de proposito geral capaz de gerar ambientes dinamicos navegaveis em tempo real a partir de prompts de texto.",
+      "source": {
+        "title": "Genie 3: A new frontier for world models",
+        "url": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+        "publisher": "Google DeepMind",
+        "date_basis": "Post oficial publicado em 5 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "google-bard-public",
       "company": "Google",
       "family": "Bard/Gemini",
@@ -1212,6 +1410,60 @@
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
         "publisher": "Google",
         "date_basis": "Post oficial publicado em 19 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-flash",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3 Flash",
+      "release_date": "2025-12-17",
+      "release_stage": "preview/produto",
+      "ai_category": "LLMs",
+      "model_type": ["raciocinio", "multimodal", "codigo", "baixo-custo", "rapido", "API"],
+      "description_pt": "Variante rapida da familia Gemini 3, com raciocinio de nivel Pro em latencia e custo menores para Gemini app, Search, AI Studio, Vertex AI e Gemini Enterprise.",
+      "source": {
+        "title": "Gemini 3 Flash: frontier intelligence built for speed",
+        "url": "https://blog.google/products/gemini/gemini-3-flash/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 17 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-1-flash-lite",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.1 Flash-Lite",
+      "release_date": "2026-03-03",
+      "release_stage": "preview",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "multimodal", "baixo-custo", "alto-volume", "API"],
+      "description_pt": "Modelo Gemini 3.1 mais rapido e economico para workloads de alto volume, com niveis de thinking configuraveis em AI Studio e Vertex AI.",
+      "source": {
+        "title": "Gemini 3.1 Flash-Lite: Built for intelligence at scale",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 3 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-embedding-2",
+      "company": "Google",
+      "family": "Gemini Embedding",
+      "model": "Gemini Embedding 2",
+      "release_date": "2026-03-10",
+      "release_stage": "public preview",
+      "ai_category": "LLMs",
+      "model_type": ["embedding", "multimodal", "texto", "imagem", "video", "audio", "documentos", "RAG"],
+      "description_pt": "Primeiro modelo de embeddings nativamente multimodal da familia Gemini, mapeando texto, imagens, video, audio e documentos em um espaco unico.",
+      "source": {
+        "title": "Gemini Embedding 2: Our first natively multimodal embedding model",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 10 de marco de 2026."
       },
       "confidence": "alta"
     },
@@ -3519,6 +3771,114 @@
       "confidence": "media"
     },
     {
+      "id": "google-audiolm",
+      "company": "Google",
+      "family": "AudioLM",
+      "model": "AudioLM",
+      "release_date": "2022-10-06",
+      "release_stage": "pesquisa",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "geracao", "fala", "musica", "language-modeling"],
+      "description_pt": "Modelo generativo de audio que usa modelagem de linguagem sobre tokens de audio para continuar fala e piano sem transcricoes ou anotacoes.",
+      "source": {
+        "title": "AudioLM: a Language Modeling Approach to Audio Generation",
+        "url": "https://research.google/blog/audiolm-a-language-modeling-approach-to-audio-generation/",
+        "publisher": "Google Research",
+        "date_basis": "Post oficial publicado em 6 de outubro de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-usm",
+      "company": "Google",
+      "family": "Universal Speech Model",
+      "model": "USM",
+      "release_date": "2023-03-06",
+      "release_stage": "pesquisa",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "fala", "transcricao", "ASR", "multilingue"],
+      "description_pt": "Familia de modelos de fala de 2B parametros para reconhecimento automatico em mais de 100 idiomas, primeiro passo da iniciativa de 1.000 idiomas.",
+      "source": {
+        "title": "Universal Speech Model (USM): State-of-the-art speech AI for 100+ languages",
+        "url": "https://research.google/blog/universal-speech-model-usm-state-of-the-art-speech-ai-for-100-languages/",
+        "publisher": "Google Research",
+        "date_basis": "Post oficial publicado em 6 de marco de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-chirp",
+      "company": "Google",
+      "family": "Chirp",
+      "model": "Chirp",
+      "release_date": "2023-05-19",
+      "release_stage": "Speech-to-Text API preview",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "ASR", "Google Cloud", "API", "multilingue"],
+      "description_pt": "Modelo de fala do Google Cloud baseado em USM para reconhecimento automatico de fala em escala, disponibilizado no Speech-to-Text API.",
+      "source": {
+        "title": "Bringing the power of large models to Google Cloud's Speech API",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/bringing-power-large-models-google-clouds-speech-api",
+        "publisher": "Google Cloud",
+        "date_basis": "Post oficial publicado em 19 de maio de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-chirp-3",
+      "company": "Google",
+      "family": "Chirp",
+      "model": "Chirp 3",
+      "release_date": "2026-05-01",
+      "release_stage": "documentacao GA/preview regional",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "ASR", "diarizacao", "language-detection", "Google Cloud", "API"],
+      "description_pt": "Geracao mais recente dos modelos ASR multilingues Chirp, com melhor precisao e velocidade, diarizacao e deteccao automatica de idioma no Speech-to-Text V2.",
+      "source": {
+        "title": "Chirp 3 Transcription: Enhanced multilingual accuracy",
+        "url": "https://cloud.google.com/speech-to-text/v2/docs/chirp-model",
+        "publisher": "Google Cloud",
+        "date_basis": "Documentacao oficial de Chirp 3 com ultima atualizacao em 1 de maio de 2026; nao encontrei post oficial separado de lancamento."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "google-gemini-3-1-flash-live",
+      "company": "Google",
+      "family": "Gemini Audio",
+      "model": "Gemini 3.1 Flash Live",
+      "release_date": "2026-03-26",
+      "release_stage": "preview/produto",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "tempo-real", "speech-to-speech", "Gemini Live API", "agente"],
+      "description_pt": "Modelo de audio em tempo real da familia Gemini 3.1 Flash para dialogo natural, menor latencia e agentes de voz.",
+      "source": {
+        "title": "Gemini 3.1 Flash Live: Making audio AI more natural and reliable",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 26 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-1-flash-tts",
+      "company": "Google",
+      "family": "Gemini Audio",
+      "model": "Gemini 3.1 Flash TTS",
+      "release_date": "2026-04-15",
+      "release_stage": "preview/produto",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "multilingue", "audio-tags", "SynthID", "API"],
+      "description_pt": "Modelo text-to-speech da familia Gemini 3.1 Flash com controle por audio tags, suporte a mais de 70 idiomas e marca d'agua SynthID.",
+      "source": {
+        "title": "Gemini 3.1 Flash TTS: the next generation of expressive AI speech",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 15 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "openai-musenet",
       "company": "OpenAI",
       "family": "MuseNet",
@@ -3551,6 +3911,60 @@
         "url": "https://openai.com/index/jukebox/",
         "publisher": "OpenAI",
         "date_basis": "Post oficial publicado em 30 de abril de 2020."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-musiclm",
+      "company": "Google",
+      "family": "MusicLM",
+      "model": "MusicLM",
+      "release_date": "2023-05-10",
+      "release_stage": "AI Test Kitchen",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "audio", "AI Test Kitchen"],
+      "description_pt": "Modelo experimental texto-para-musica da Google, liberado para testes no AI Test Kitchen depois do anuncio de pesquisa em janeiro de 2023.",
+      "source": {
+        "title": "Turn ideas into music with MusicLM",
+        "url": "https://blog.google/innovation-and-ai/products/musiclm-google-ai-test-kitchen/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 10 de maio de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-lyria",
+      "company": "Google",
+      "family": "Lyria",
+      "model": "Lyria",
+      "release_date": "2023-11-16",
+      "release_stage": "pesquisa/experimentos",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "geracao", "YouTube", "Dream Track"],
+      "description_pt": "Modelo de geracao musical da Google DeepMind anunciado com os experimentos Dream Track e Music AI tools em parceria com o YouTube.",
+      "source": {
+        "title": "Transforming the future of music creation",
+        "url": "https://deepmind.google/blog/transforming-the-future-of-music-creation/",
+        "publisher": "Google DeepMind",
+        "date_basis": "Post oficial publicado em 16 de novembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-lyria-2-realtime",
+      "company": "Google",
+      "family": "Lyria",
+      "model": "Lyria 2 / Lyria RealTime",
+      "release_date": "2025-05-20",
+      "release_stage": "produto/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "geracao", "tempo-real", "Vertex AI", "YouTube Shorts", "AI Studio"],
+      "description_pt": "Atualizacao da familia Lyria para composicao musical, incluindo Lyria 2 e Lyria RealTime para criacao e controle musical interativo em tempo real.",
+      "source": {
+        "title": "Fuel your creativity with new generative media models and tools",
+        "url": "https://blog.google/technology/ai/generative-media-models-io-2025/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 20 de maio de 2025."
       },
       "confidence": "alta"
     },
@@ -3735,6 +4149,42 @@
       "confidence": "alta"
     },
     {
+      "id": "google-codegemma-recurrentgemma",
+      "company": "Google",
+      "family": "Gemma",
+      "model": "CodeGemma / RecurrentGemma",
+      "release_date": "2024-04-09",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "open-weights", "OpenSource", "edge", "arquitetura-recorrente"],
+      "description_pt": "Primeiras variantes especializadas da familia Gemma: CodeGemma para completamento/geracao de codigo e RecurrentGemma para inferencia eficiente com arquitetura recorrente.",
+      "source": {
+        "title": "Gemma Family Expands with Models Tailored for Developers and Researchers",
+        "url": "https://developers.googleblog.com/en/gemma-family-expands-with-models-tailored-for-developers-and-researchers/",
+        "publisher": "Google Developers",
+        "date_basis": "Post oficial publicado em 9 de abril de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-paligemma",
+      "company": "Google",
+      "family": "PaliGemma",
+      "model": "PaliGemma",
+      "release_date": "2024-05-14",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["visao", "texto", "visao-linguagem", "multimodal", "open-weights", "OpenSource"],
+      "description_pt": "Primeiro modelo aberto de visao-linguagem da familia Gemma, inspirado em PaLI-3 e voltado a captioning, VQA, deteccao e segmentacao.",
+      "source": {
+        "title": "Introducing PaliGemma, Gemma 2, and an Upgraded Responsible AI Toolkit",
+        "url": "https://developers.googleblog.com/en/gemma-family-and-toolkit-expansion-io-2024/",
+        "publisher": "Google Developers",
+        "date_basis": "Post oficial publicado em 14 de maio de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "google-gemma-2",
       "company": "Google",
       "family": "Gemma",
@@ -3749,6 +4199,24 @@
         "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-gemma-2/",
         "publisher": "Google",
         "date_basis": "Post oficial publicado em 27 de junho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-datagemma",
+      "company": "Google",
+      "family": "DataGemma",
+      "model": "DataGemma",
+      "release_date": "2024-09-12",
+      "release_stage": "pesquisa/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "dados", "RAG", "RIG", "Data Commons", "open-weights", "OpenSource"],
+      "description_pt": "Modelos abertos criados para conectar LLMs ao Data Commons e reduzir alucinacoes em consultas sobre dados estatisticos reais.",
+      "source": {
+        "title": "DataGemma: Using real-world data to address AI hallucinations",
+        "url": "https://blog.google/innovation-and-ai/products/google-datagemma-ai-llm/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 12 de setembro de 2024."
       },
       "confidence": "alta"
     },
@@ -3785,6 +4253,24 @@
         "url": "https://developers.googleblog.com/introducing-gemma-3-270m/",
         "publisher": "Google Developers",
         "date_basis": "Post oficial publicado em 14 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-translategemma",
+      "company": "Google",
+      "family": "TranslateGemma",
+      "model": "TranslateGemma 4B / 12B / 27B",
+      "release_date": "2026-01-15",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["traducao", "multilingue", "visao", "Gemma 3", "open-weights", "OpenSource", "edge"],
+      "description_pt": "Suite aberta de modelos de traducao baseada em Gemma 3, com variantes de 4B, 12B e 27B para traducao em 55 idiomas, incluindo texto em imagens.",
+      "source": {
+        "title": "TranslateGemma: A new suite of open translation models",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/translategemma/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 15 de janeiro de 2026."
       },
       "confidence": "alta"
     },
