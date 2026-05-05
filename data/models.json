@@ -3,7 +3,7 @@
     "updated_at": "2026-05-05",
     "last_correction": {
       "date": "2026-05-05",
-      "description_pt": "Revisada a cobertura Moonshot AI/Kimi: validadas datas/fontes oficiais, adicionados modelos ausentes de texto, visao, audio, raciocinio, codigo, pesquisa agentica e open weights."
+      "description_pt": "Revisada a cobertura Udio AI: validadas datas e fontes dos 4 modelos existentes (v1, two-minute, v1.5, Allegro v1.5), adicionadas features de IA Styles (2025-03-31), Sessions (2025-06-26) e Voices (2025-09-11) com fontes oficiais do blog da Udio. Descartado suposto modelo v4 por falta de evidencia em fontes oficiais."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -4445,6 +4445,60 @@
         "url": "https://help.udio.com/en/articles/10748731-changelog-what-s-new-with-udio",
         "publisher": "Udio",
         "date_basis": "Changelog oficial lista Allegro v1.5 model version em 18 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "udio-styles",
+      "company": "Udio",
+      "family": "Udio",
+      "model": "Udio Styles",
+      "release_date": "2025-03-31",
+      "release_stage": "early access/Pro",
+      "ai_category": "Musica",
+      "model_type": ["musica", "style-transfer", "referencia-audio", "criacao-assistida"],
+      "description_pt": "Feature de IA da Udio que permite criar musicas usando uma faixa de audio como referencia de estilo, extraindo representacao de instrumentacao, timbre, tempo e estrutura vocal sem copiar a melodia. Lancada para assinantes Pro e expandida para o plano gratuito em julho de 2025 com Styles Library e Style Blending.",
+      "source": {
+        "title": "Introducing Styles",
+        "url": "https://www.udio.com/blog/introducing-styles",
+        "publisher": "Udio",
+        "date_basis": "Post oficial publicado em 31 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "udio-sessions",
+      "company": "Udio",
+      "family": "Udio",
+      "model": "Udio Sessions",
+      "release_date": "2025-06-26",
+      "release_stage": "early access/assinantes",
+      "ai_category": "Musica",
+      "model_type": ["musica", "edicao-timeline", "DAW", "edicao-nao-destrutiva"],
+      "description_pt": "Interface de edicao visual tipo timeline (DAW-like) da Udio para editar e estender faixas de IA, com identificacao de secoes (verso, refrao, ponte), edicao nao destrutiva com snapshots e organizacao automatica em pasta Sessions.",
+      "source": {
+        "title": "Sessions",
+        "url": "https://www.udio.com/blog/sessions",
+        "publisher": "Udio",
+        "date_basis": "Post oficial publicado em 26 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "udio-voices",
+      "company": "Udio",
+      "family": "Udio",
+      "model": "Udio Voices",
+      "release_date": "2025-09-11",
+      "release_stage": "early access/assinantes",
+      "ai_category": "Musica",
+      "model_type": ["musica", "voz", "voice-cloning", "voice-blending"],
+      "description_pt": "Feature de IA da Udio para criar cancoes usando vozes da biblioteca Udio ou de faixas proprias anteriores. Inclui Voices Blending (outubro de 2025) para combinar duas vozes distintas em uma unica criacao, acessivel pelo Playground e pelo fluxo Create.",
+      "source": {
+        "title": "Voices",
+        "url": "https://www.udio.com/blog/introducing-voices",
+        "publisher": "Udio",
+        "date_basis": "Post oficial publicado em 11 de setembro de 2025."
       },
       "confidence": "alta"
     },
