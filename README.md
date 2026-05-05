@@ -29,12 +29,6 @@ Este projeto e um site estatico. Para publicar, envie estes arquivos mantendo a 
 
 O arquivo `data/models.json` precisa continuar disponivel no caminho relativo `data/models.json`, porque a aplicacao carrega a base a partir dele.
 
-### Cabecalhos de seguranca
-
-Este site e publicado por GitHub Pages. O Pages nao permite configurar headers HTTP por repositorio, entao `Content-Security-Policy`, `X-Content-Type-Options` e `X-Frame-Options` nao podem ser enviados diretamente pelo projeto estatico.
-
-Como alternativa compativel com GitHub Pages, o `index.html` define uma CSP via `<meta http-equiv="Content-Security-Policy">` e usa SRI nos assets externos do MapLibre carregados pelo jsDelivr. Essa meta CSP ajuda o navegador, mas nao substitui headers HTTP e nao satisfaz todas as checagens do Mozilla Observatory, especialmente `frame-ancestors`, `X-Frame-Options` e `X-Content-Type-Options`.
-
 ## Atualizar a base
 
 Adicione e corrija modelos editando `data/models.json`. O site nao tem interface publica de edicao; a base canonica fica sempre no fonte.

@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-05-01",
+    "updated_at": "2026-05-05",
     "last_correction": {
-      "date": "2026-05-01",
-      "description_pt": "Adicionados modelos da Maritaca AI e da Udio, mantendo os LLMs Seed da ByteDance e os modelos recentes da Mistral AI e NVIDIA."
+      "date": "2026-05-05",
+      "description_pt": "Completada a cobertura de modelos OpenAI com Codex historico, variantes GPT/Codex recentes, modelos de audio/voz, Sora 2 Pro, GPT Image mini, CLIP, MuseNet e Jukebox."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao e musica. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -75,6 +75,23 @@
         "url": "https://openai.com/blog/openai-api",
         "publisher": "OpenAI",
         "date_basis": "Post oficial publicado em 11 de junho de 2020."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-codex-2021",
+      "company": "OpenAI",
+      "family": "Codex",
+      "model": "OpenAI Codex",
+      "release_date": "2021-07-07",
+      "release_stage": "pesquisa",
+      "model_type": ["texto", "codigo", "fundacao"],
+      "description_pt": "Modelo GPT ajustado em codigo publico do GitHub, precursor direto de ferramentas como GitHub Copilot e das familias Codex posteriores.",
+      "source": {
+        "title": "Evaluating large language models trained on code",
+        "url": "https://openai.com/index/evaluating-large-language-models-trained-on-code/",
+        "publisher": "OpenAI",
+        "date_basis": "Publicacao oficial de pesquisa publicada em 7 de julho de 2021."
       },
       "confidence": "alta"
     },
@@ -300,6 +317,48 @@
       "confidence": "alta"
     },
     {
+      "id": "openai-o3-pro",
+      "company": "OpenAI",
+      "family": "o-series",
+      "model": "OpenAI o3-pro",
+      "release_date": "2025-06-10",
+      "release_stage": "produto/API",
+      "model_type": ["raciocinio", "pro", "codigo", "matematica"],
+      "description_pt": "Versao do o3 com mais computacao para respostas mais confiaveis em tarefas dificeis, disponibilizada para usuarios Pro/Team e na API.",
+      "source": {
+        "title": "Model Release Notes",
+        "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "publisher": "OpenAI Help Center",
+        "date_basis": "Notas oficiais registram o lancamento do o3-pro em 10 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-deep-research-o3-o4-mini",
+      "company": "OpenAI",
+      "family": "Deep Research",
+      "model": "o3-deep-research / o4-mini-deep-research",
+      "release_date": "2025-06-26",
+      "release_stage": "API",
+      "model_type": ["raciocinio", "pesquisa", "agente", "web"],
+      "description_pt": "Modelos especializados para tarefas de pesquisa profunda multi-etapas, com busca e sintese de informacoes da web e de dados conectados.",
+      "sources": [
+        {
+          "title": "o3-deep-research Model",
+          "url": "https://developers.openai.com/api/docs/models/o3-deep-research",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista o snapshot o3-deep-research-2025-06-26."
+        },
+        {
+          "title": "o4-mini-deep-research Model",
+          "url": "https://developers.openai.com/api/docs/models/o4-mini-deep-research",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista o snapshot o4-mini-deep-research-2025-06-26."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "openai-gpt-5",
       "company": "OpenAI",
       "family": "GPT",
@@ -313,6 +372,65 @@
         "url": "https://openai.com/index/gpt-5-new-era-of-work/",
         "publisher": "OpenAI",
         "date_basis": "Post oficial publicado em 7 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-mini-nano",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5 mini / nano",
+      "release_date": "2025-08-07",
+      "release_stage": "API",
+      "model_type": ["texto", "raciocinio", "baixo-custo", "API"],
+      "description_pt": "Variantes menores da familia GPT-5 para workloads de menor latencia, custo reduzido, classificacao, sumarizacao e tarefas bem definidas.",
+      "sources": [
+        {
+          "title": "GPT-5 mini Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5-mini",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista o snapshot gpt-5-mini-2025-08-07."
+        },
+        {
+          "title": "GPT-5 nano Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5-nano",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista o snapshot gpt-5-nano-2025-08-07."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-codex",
+      "company": "OpenAI",
+      "family": "GPT/Codex",
+      "model": "GPT-5-Codex",
+      "release_date": "2025-09-15",
+      "release_stage": "Codex/produto",
+      "model_type": ["codigo", "agente", "Codex", "raciocinio"],
+      "description_pt": "Variante do GPT-5 otimizada para programacao agentica em Codex e ambientes semelhantes, com trabalho autonomo em tarefas de codigo.",
+      "source": {
+        "title": "Introducing upgrades to Codex",
+        "url": "https://openai.com/index/introducing-upgrades-to-codex/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 15 de setembro de 2025; disponibilidade na Responses API registrada em 23 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-pro",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5 pro",
+      "release_date": "2025-10-06",
+      "release_stage": "API",
+      "model_type": ["raciocinio", "pro", "API"],
+      "description_pt": "Versao do GPT-5 com mais computacao para raciocinio profundo e respostas mais precisas em problemas complexos.",
+      "source": {
+        "title": "OpenAI API changelog",
+        "url": "https://platform.openai.com/docs/changelog",
+        "publisher": "OpenAI",
+        "date_basis": "Changelog oficial registra o lancamento de gpt-5-pro em 6 de outubro de 2025."
       },
       "confidence": "alta"
     },
@@ -334,6 +452,40 @@
       "confidence": "alta"
     },
     {
+      "id": "openai-gpt-5-1-codex",
+      "company": "OpenAI",
+      "family": "GPT/Codex",
+      "model": "GPT-5.1-Codex / GPT-5.1-Codex mini",
+      "release_date": "2025-11-13",
+      "release_stage": "API/Codex",
+      "model_type": ["codigo", "agente", "Codex", "baixo-custo"],
+      "description_pt": "Familia Codex baseada no GPT-5.1, com variante mini para mais uso e menor custo em fluxos de programacao agentica.",
+      "source": {
+        "title": "OpenAI API changelog",
+        "url": "https://platform.openai.com/docs/changelog",
+        "publisher": "OpenAI",
+        "date_basis": "Changelog oficial registra gpt-5.1-codex e gpt-5.1-codex-mini em 13 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-1-codex-max",
+      "company": "OpenAI",
+      "family": "GPT/Codex",
+      "model": "GPT-5.1-Codex-Max",
+      "release_date": "2025-11-19",
+      "release_stage": "Codex/produto",
+      "model_type": ["codigo", "agente", "longo-horizonte", "compaction"],
+      "description_pt": "Modelo Codex para trabalhos longos e em escala de projeto, treinado para operar com compactacao em multiplas janelas de contexto.",
+      "source": {
+        "title": "Building more with GPT-5.1-Codex-Max",
+        "url": "https://openai.com/index/gpt-5-1-codex-max/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 19 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "openai-gpt-5-2",
       "company": "OpenAI",
       "family": "GPT",
@@ -351,6 +503,40 @@
       "confidence": "alta"
     },
     {
+      "id": "openai-gpt-5-2-pro",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.2 pro",
+      "release_date": "2025-12-11",
+      "release_stage": "API",
+      "model_type": ["raciocinio", "pro", "trabalho", "API"],
+      "description_pt": "Variante pro do GPT-5.2 para tarefas profissionais complexas que exigem raciocinio mais longo e respostas mais precisas.",
+      "source": {
+        "title": "GPT-5.2 pro Model",
+        "url": "https://developers.openai.com/api/docs/models/gpt-5.2-pro",
+        "publisher": "OpenAI",
+        "date_basis": "Documentacao oficial lista o snapshot gpt-5.2-pro-2025-12-11."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-2-codex",
+      "company": "OpenAI",
+      "family": "GPT/Codex",
+      "model": "GPT-5.2-Codex",
+      "release_date": "2025-12-18",
+      "release_stage": "lancamento",
+      "model_type": ["codigo", "agente", "cybersecurity", "Codex"],
+      "description_pt": "Modelo Codex baseado no GPT-5.2 para engenharia de software profissional, tarefas longas, Windows e ciberseguranca defensiva.",
+      "source": {
+        "title": "Introducing GPT-5.2-Codex",
+        "url": "https://openai.com/index/introducing-gpt-5-2-codex/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 18 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "openai-gpt-5-3-codex",
       "company": "OpenAI",
       "family": "GPT/Codex",
@@ -358,7 +544,7 @@
       "release_date": "2026-02-05",
       "release_stage": "lancamento",
       "model_type": ["codigo", "agente", "computador"],
-      "description_pt": "Modelo Codex para trabalho agentico em software e tarefas profissionais no computador, combinando avanços do GPT-5.2-Codex e GPT-5.2.",
+      "description_pt": "Modelo Codex para trabalho agentico em software e tarefas profissionais no computador, combinando avancos do GPT-5.2-Codex e GPT-5.2.",
       "source": {
         "title": "Introducing GPT-5.3-Codex",
         "url": "https://openai.com/index/introducing-gpt-5-3-codex",
@@ -402,6 +588,23 @@
       "confidence": "alta"
     },
     {
+      "id": "openai-gpt-5-4-pro",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.4 Pro",
+      "release_date": "2026-03-05",
+      "release_stage": "API/produto",
+      "model_type": ["raciocinio", "pro", "agente", "codigo"],
+      "description_pt": "Variante de maior computacao do GPT-5.4 para problemas especialmente complexos, disponivel no ChatGPT e na API.",
+      "source": {
+        "title": "Introducing GPT-5.4",
+        "url": "https://openai.com/index/introducing-gpt-5-4/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 5 de marco de 2026 informa GPT-5.4 Pro no ChatGPT e na API."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "openai-gpt-5-4-mini-nano",
       "company": "OpenAI",
       "family": "GPT",
@@ -432,6 +635,23 @@
         "url": "https://openai.com/index/introducing-gpt-5-5/",
         "publisher": "OpenAI",
         "date_basis": "Post oficial publicado em 23 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-5-pro",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.5 Pro",
+      "release_date": "2026-04-23",
+      "release_stage": "produto/API",
+      "model_type": ["raciocinio", "pro", "agente", "codigo"],
+      "description_pt": "Variante de maior computacao do GPT-5.5 para problemas complexos, com disponibilidade inicial no ChatGPT e atualizacao posterior para API.",
+      "source": {
+        "title": "Introducing GPT-5.5",
+        "url": "https://openai.com/index/introducing-gpt-5-5/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial de 23 de abril de 2026 anuncia GPT-5.5 Pro no ChatGPT; atualizacao de 24 de abril informa disponibilidade na API."
       },
       "confidence": "alta"
     },
@@ -2692,6 +2912,24 @@
       "confidence": "alta"
     },
     {
+      "id": "openai-clip",
+      "company": "OpenAI",
+      "family": "CLIP",
+      "model": "CLIP",
+      "release_date": "2021-01-05",
+      "release_stage": "pesquisa/open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "visao", "texto-imagem", "open-weights"],
+      "description_pt": "Modelo de visao-linguagem treinado para conectar imagens e texto em larga escala, base de classificacao zero-shot e recuperacao texto-imagem.",
+      "source": {
+        "title": "CLIP: Connecting text and images",
+        "url": "https://openai.com/index/clip/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 5 de janeiro de 2021."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "openai-dall-e",
       "company": "OpenAI",
       "family": "DALL-E",
@@ -2760,6 +2998,24 @@
         "url": "https://openai.com/index/image-generation-api/",
         "publisher": "OpenAI",
         "date_basis": "Post oficial publicado em 23 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-image-1-mini",
+      "company": "OpenAI",
+      "family": "GPT Image",
+      "model": "gpt-image-1-mini",
+      "release_date": "2025-10-06",
+      "release_stage": "API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "baixo-custo", "API"],
+      "description_pt": "Variante menor e mais economica do gpt-image-1 para geracao e edicao de imagens na API.",
+      "source": {
+        "title": "OpenAI API changelog",
+        "url": "https://platform.openai.com/docs/changelog",
+        "publisher": "OpenAI",
+        "date_basis": "Changelog oficial registra gpt-image-1-mini em 6 de outubro de 2025."
       },
       "confidence": "alta"
     },
@@ -2908,6 +3164,24 @@
       "confidence": "alta"
     },
     {
+      "id": "openai-sora-2-pro",
+      "company": "OpenAI",
+      "family": "Sora",
+      "model": "Sora 2 Pro",
+      "release_date": "2025-10-06",
+      "release_stage": "API",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "texto-para-video", "pro", "API"],
+      "description_pt": "Variante de maior qualidade do Sora 2 para geracao de video e audio, exposta na API para workflows de producao.",
+      "source": {
+        "title": "OpenAI API changelog",
+        "url": "https://platform.openai.com/docs/changelog",
+        "publisher": "OpenAI",
+        "date_basis": "Changelog oficial registra sora-2-pro em 6 de outubro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "google-veo",
       "company": "Google",
       "family": "Veo",
@@ -3016,6 +3290,24 @@
       "confidence": "alta"
     },
     {
+      "id": "openai-tts-1",
+      "company": "OpenAI",
+      "family": "TTS",
+      "model": "tts-1 / tts-1-hd",
+      "release_date": "2023-11-06",
+      "release_stage": "API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "API"],
+      "description_pt": "Primeiros modelos text-to-speech da OpenAI API, com variante rapida e variante HD para maior qualidade.",
+      "source": {
+        "title": "New models and developer products announced at DevDay",
+        "url": "https://openai.com/blog/new-models-and-developer-products-announced-at-devday",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial de 6 de novembro de 2023 anuncia novos modelos de text-to-speech na API."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "openai-gpt-4o-realtime-preview",
       "company": "OpenAI",
       "family": "Realtime",
@@ -3034,6 +3326,50 @@
       "confidence": "alta"
     },
     {
+      "id": "openai-gpt-4o-audio-preview",
+      "company": "OpenAI",
+      "family": "GPT-4o Audio",
+      "model": "gpt-4o-audio-preview",
+      "release_date": "2024-10-01",
+      "release_stage": "API preview",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "chat-completions", "API"],
+      "description_pt": "Preview de audio para Chat Completions, permitindo entrada e saida de audio com o GPT-4o fora da interface Realtime.",
+      "source": {
+        "title": "Introducing the Realtime API",
+        "url": "https://openai.com/index/introducing-the-realtime-api/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial de 1 de outubro de 2024 tambem apresenta suporte de audio em Chat Completions."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4o-mini-audio-realtime-preview",
+      "company": "OpenAI",
+      "family": "GPT-4o Audio",
+      "model": "gpt-4o-mini-realtime-preview / gpt-4o-mini-audio-preview",
+      "release_date": "2024-12-17",
+      "release_stage": "API preview",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "baixo-custo", "API"],
+      "description_pt": "Variantes mini para voz em tempo real e audio em Chat Completions, com menor custo e menor latencia.",
+      "sources": [
+        {
+          "title": "GPT-4o mini Realtime Preview Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini-realtime-preview",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista o snapshot gpt-4o-mini-realtime-preview-2024-12-17."
+        },
+        {
+          "title": "GPT-4o mini Audio Preview Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini-audio-preview",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista o snapshot gpt-4o-mini-audio-preview-2024-12-17."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "openai-gpt-4o-transcribe",
       "company": "OpenAI",
       "family": "GPT-4o Audio",
@@ -3043,6 +3379,24 @@
       "ai_category": "Audio/Transcricao",
       "model_type": ["audio", "transcricao", "API"],
       "description_pt": "Novos modelos de fala-para-texto da OpenAI com melhor reconhecimento de idiomas e menor taxa de erro que Whisper em cenarios avaliados.",
+      "source": {
+        "title": "Introducing next-generation audio models in the API",
+        "url": "https://openai.com/index/introducing-our-next-generation-audio-models/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 20 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-4o-mini-tts",
+      "company": "OpenAI",
+      "family": "GPT-4o Audio",
+      "model": "gpt-4o-mini-tts",
+      "release_date": "2025-03-20",
+      "release_stage": "API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "API"],
+      "description_pt": "Modelo text-to-speech com instrucao de estilo e controle de voz, anunciado junto aos modelos de audio de nova geracao.",
       "source": {
         "title": "Introducing next-generation audio models in the API",
         "url": "https://openai.com/index/introducing-our-next-generation-audio-models/",
@@ -3066,6 +3420,104 @@
         "url": "https://openai.com/index/introducing-gpt-realtime",
         "publisher": "OpenAI",
         "date_basis": "Post oficial publicado em 28 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-audio",
+      "company": "OpenAI",
+      "family": "GPT Audio",
+      "model": "gpt-audio",
+      "release_date": "2025-08-28",
+      "release_stage": "API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "chat-completions", "API"],
+      "description_pt": "Modelo de audio para Chat Completions com entrada e saida de fala em fluxos que nao exigem sessao Realtime persistente.",
+      "source": {
+        "title": "GPT audio Model",
+        "url": "https://developers.openai.com/api/docs/models/gpt-audio",
+        "publisher": "OpenAI",
+        "date_basis": "Documentacao oficial lista o snapshot gpt-audio-2025-08-28."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-realtime-mini-audio-mini",
+      "company": "OpenAI",
+      "family": "Realtime/GPT Audio",
+      "model": "gpt-realtime-mini / gpt-audio-mini",
+      "release_date": "2025-10-06",
+      "release_stage": "API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "baixo-custo", "API"],
+      "description_pt": "Variantes menores para voz em tempo real e audio em Chat Completions, focadas em menor custo e maior escala.",
+      "source": {
+        "title": "OpenAI API changelog",
+        "url": "https://platform.openai.com/docs/changelog",
+        "publisher": "OpenAI",
+        "date_basis": "Changelog oficial registra gpt-realtime-mini e gpt-audio-mini em 6 de outubro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-realtime-1-5-audio-1-5",
+      "company": "OpenAI",
+      "family": "Realtime/GPT Audio",
+      "model": "gpt-realtime-1.5 / gpt-audio-1.5",
+      "release_date": "2026-02-23",
+      "release_stage": "API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "speech-to-speech", "API"],
+      "description_pt": "Atualizacao 1.5 dos modelos de voz e audio da OpenAI, listada como modelo atual para Realtime e Chat Completions audio.",
+      "sources": [
+        {
+          "title": "gpt-realtime-1.5 Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-realtime-1.5",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista gpt-realtime-1.5 como modelo atual."
+        },
+        {
+          "title": "gpt-audio-1.5 Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-audio-1.5",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial lista gpt-audio-1.5 como modelo atual; a data usa a primeira disponibilidade publica observada em documentacao de plataforma."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "openai-musenet",
+      "company": "OpenAI",
+      "family": "MuseNet",
+      "model": "MuseNet",
+      "release_date": "2019-04-25",
+      "release_stage": "pesquisa/demo",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "geracao", "MIDI"],
+      "description_pt": "Rede neural para gerar composicoes musicais com multiplos instrumentos e estilos a partir de sequencias MIDI.",
+      "source": {
+        "title": "MuseNet",
+        "url": "https://openai.com/index/musenet/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 25 de abril de 2019."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-jukebox",
+      "company": "OpenAI",
+      "family": "Jukebox",
+      "model": "Jukebox",
+      "release_date": "2020-04-30",
+      "release_stage": "pesquisa/open weights",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "geracao", "open-weights"],
+      "description_pt": "Modelo neural para gerar musica com canto e audio bruto em diferentes estilos, disponibilizado com codigo e pesos.",
+      "source": {
+        "title": "Jukebox",
+        "url": "https://openai.com/index/jukebox/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 30 de abril de 2020."
       },
       "confidence": "alta"
     },
@@ -3336,6 +3788,24 @@
         "url": "https://openai.com/index/introducing-gpt-oss/",
         "publisher": "OpenAI",
         "date_basis": "Post oficial publicado em 5 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-oss-safeguard",
+      "company": "OpenAI",
+      "family": "gpt-oss",
+      "model": "gpt-oss-safeguard-120b / gpt-oss-safeguard-20b",
+      "release_date": "2025-10-29",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "seguranca", "moderacao", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Modelos abertos de classificacao de seguranca baseados em gpt-oss, projetados para identificar conteudo conforme politicas configuraveis.",
+      "source": {
+        "title": "Introducing gpt-oss-safeguard",
+        "url": "https://openai.com/index/introducing-gpt-oss-safeguard/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 29 de outubro de 2025."
       },
       "confidence": "alta"
     },
