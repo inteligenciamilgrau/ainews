@@ -105,7 +105,7 @@ const companyLocations = [
     city: "San Francisco",
     region: "California",
     country: "United States",
-    address: "548 Market Street",
+    address: "548 Market Street, PMB 90375, San Francisco, CA 94104-5401",
     lat: 37.7895,
     lng: -122.4005,
     sourceName: "Anthropic Help Center",
@@ -147,6 +147,19 @@ const companyLocations = [
     lat: 51.5074,
     lng: -0.1278,
     notes: "Public careers pages list London roles across AI safety and research; exact office address is not published there.",
+    sourceName: "Anthropic Careers",
+    sourceUrl: "https://www.anthropic.com/careers/jobs"
+  },
+  {
+    company: "Anthropic",
+    site: "AI research/fellows location",
+    city: "Ontario",
+    region: "Ontario",
+    country: "Canada",
+    address: "Ontario, Canada",
+    lat: 50,
+    lng: -85,
+    notes: "Public careers pages list AI Research & Engineering fellowship roles in Ontario, Canada; exact office address is not published there.",
     sourceName: "Anthropic Careers",
     sourceUrl: "https://www.anthropic.com/careers/jobs"
   },

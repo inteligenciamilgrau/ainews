@@ -3,7 +3,7 @@
     "updated_at": "2026-05-05",
     "last_correction": {
       "date": "2026-05-05",
-      "description_pt": "Completada a cobertura de modelos OpenAI com Codex historico, variantes GPT/Codex recentes, modelos de audio/voz, Sora 2 Pro, GPT Image mini, CLIP, MuseNet e Jukebox."
+      "description_pt": "Revisada a cobertura Anthropic: separada a disponibilidade do Claude 3.5 Haiku, ajustado o evento do Sonnet 3.5/computer use e atualizados pontos de pesquisa/localizacao."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao e musica. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -758,20 +758,53 @@
       "confidence": "alta"
     },
     {
-      "id": "anthropic-claude-3-5-haiku-sonnet-v2",
+      "id": "anthropic-claude-3-5-sonnet-v2-computer-use",
       "company": "Anthropic",
       "family": "Claude",
-      "model": "Claude 3.5 Haiku / Claude 3.5 Sonnet novo",
+      "model": "Claude 3.5 Sonnet novo / computer use",
       "release_date": "2024-10-22",
-      "release_stage": "lancamento",
-      "model_type": ["codigo", "baixo-custo", "computador"],
-      "description_pt": "Lancamento do Haiku 3.5 e upgrade do Sonnet 3.5, junto ao beta publico de computer use via API.",
-      "source": {
-        "title": "Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku",
-        "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
-        "publisher": "Anthropic",
-        "date_basis": "Post oficial publicado em 22 de outubro de 2024."
-      },
+      "release_stage": "lancamento / beta API",
+      "model_type": ["codigo", "computador", "agente"],
+      "description_pt": "Upgrade do Sonnet 3.5 e beta publico de computer use na API; o Haiku 3.5 foi anunciado no mesmo post, mas ficou com disponibilidade propria na API em novembro.",
+      "sources": [
+        {
+          "title": "Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku",
+          "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+          "publisher": "Anthropic",
+          "date_basis": "Post oficial publicado em 22 de outubro de 2024."
+        },
+        {
+          "title": "Claude Platform release notes",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "publisher": "Anthropic",
+          "date_basis": "Release notes de 22 de outubro de 2024 registram o Sonnet 3.5 atualizado e computer use na API."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-3-5-haiku-api",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude 3.5 Haiku",
+      "release_date": "2024-11-04",
+      "release_stage": "API",
+      "model_type": ["texto", "baixo-custo", "rapido", "codigo"],
+      "description_pt": "Modelo Haiku 3.5 disponibilizado na API como modelo text-only apos o anuncio de outubro, com foco em velocidade, custo e tarefas de codigo.",
+      "sources": [
+        {
+          "title": "Claude Platform release notes",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "publisher": "Anthropic",
+          "date_basis": "Release notes de 4 de novembro de 2024 informam que Claude Haiku 3.5 ficou disponivel na API como modelo text-only."
+        },
+        {
+          "title": "Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku",
+          "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+          "publisher": "Anthropic",
+          "date_basis": "Post oficial de 22 de outubro de 2024 anuncia o Haiku 3.5 e informa disponibilidade posterior."
+        }
+      ],
       "confidence": "alta"
     },
     {
