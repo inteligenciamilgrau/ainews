@@ -3,7 +3,7 @@
     "updated_at": "2026-05-05",
     "last_correction": {
       "date": "2026-05-05",
-      "description_pt": "Revisada a cobertura Suno AI: adicionado modelo ancestral Bark (2023-04-20), modelo intermediario v3.5 (2024-05-30) e a feature de IA Suno Scenes (2024-10-17). Validadas todas as datas e fontes dos modelos v3, v4, v4.5, v5 e v5.5."
+      "description_pt": "Revisada a cobertura Alibaba Cloud: adicionada a familia Qwen moderna (v1.5 a v3.6) e os modelos Omni de 2025/2026. Validados os modelos de video Wan2.1 e Wan2.2 ja existentes."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -3853,6 +3853,150 @@
         "url": "https://blog.google/technology/ai/veo-updates-flow/",
         "publisher": "Google",
         "date_basis": "Post oficial publicado em 15 de outubro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-1-5",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen1.5",
+      "release_date": "2024-02-04",
+      "release_stage": "open weights",
+      "ai_category": "LLM",
+      "model_type": ["texto", "chat", "open-weights", "OpenSource"],
+      "description_pt": "Atualizacao da familia Qwen com melhor performance em benchmarks e suporte a uma vasta gama de tamanhos de parametros, lancada como pesos abertos.",
+      "source": {
+        "title": "Qwen1.5: A step-up in open-source LLMs",
+        "url": "https://qwen.ai/blog?id=qwen1.5",
+        "publisher": "QwenAI",
+        "date_basis": "Post oficial no blog em 4 de fevereiro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-2",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen2",
+      "release_date": "2024-06-06",
+      "release_stage": "open weights",
+      "ai_category": "LLM",
+      "model_type": ["texto", "chat", "code", "matematica", "open-weights"],
+      "description_pt": "Nova geracao de modelos Qwen que superou o Llama 3 em diversos benchmarks globais, com foco em codificacao e raciocinio matematico.",
+      "source": {
+        "title": "Hello Qwen2",
+        "url": "https://qwen.ai/blog?id=qwen2",
+        "publisher": "QwenAI",
+        "date_basis": "Post oficial no blog em 6 de junho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-2-5",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen2.5",
+      "release_date": "2024-09-18",
+      "release_stage": "open weights",
+      "ai_category": "LLM",
+      "model_type": ["texto", "chat", "code", "matematica", "open-weights", "Apache-2.0"],
+      "description_pt": "Uma das series de modelos abertos mais potentes do mundo, com melhorias massivas em entendimento de linguagem e geracao de codigo.",
+      "source": {
+        "title": "Hello Qwen2.5",
+        "url": "https://qwen.ai/blog?id=qwen2.5",
+        "publisher": "QwenAI",
+        "date_basis": "Anuncio oficial no Apsara Conference em 18 de setembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3",
+      "release_date": "2025-04-29",
+      "release_stage": "produto",
+      "ai_category": "LLM",
+      "model_type": ["texto", "chat", "raciocinio", "complex-tasks"],
+      "description_pt": "Terceira geracao da familia Qwen com capacidades de raciocinio avançado, competindo com modelos de elite proprietarios.",
+      "source": {
+        "title": "Qwen3: The Next Generation",
+        "url": "https://qwen.ai/blog?id=qwen3",
+        "publisher": "QwenAI",
+        "date_basis": "Anuncio de lancamento em 29 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-omni",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3-Omni",
+      "release_date": "2025-09-20",
+      "release_stage": "produto",
+      "ai_category": "Multimodal",
+      "model_type": ["texto", "imagem", "audio", "video", "real-time"],
+      "description_pt": "Primeiro modelo nativamente multimodal da Alibaba capaz de processar e gerar texto, audio e visao de ponta a ponta.",
+      "source": {
+        "title": "Introducing Qwen3-Omni",
+        "url": "https://qwen.ai/blog?id=qwen3-omni",
+        "publisher": "QwenAI",
+        "date_basis": "Lancamento oficial em 20 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-5",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen 3.5",
+      "release_date": "2026-02-16",
+      "release_stage": "produto",
+      "ai_category": "LLM",
+      "model_type": ["texto", "chat", "code", "complex-reasoning"],
+      "description_pt": "Grande salto de performance da familia Qwen em 2026, com melhorias em raciocinio complexo e geracao de codigo de nivel expert.",
+      "source": {
+        "title": "Qwen 3.5: Scaling New Heights",
+        "url": "https://qwen.ai/blog?id=qwen3.5",
+        "publisher": "QwenAI",
+        "date_basis": "Post oficial de lancamento em 16 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-5-omni",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen 3.5-Omni",
+      "release_date": "2026-03-25",
+      "release_stage": "produto",
+      "ai_category": "Multimodal",
+      "model_type": ["texto", "imagem", "audio", "video", "real-time", "thinker-talker"],
+      "description_pt": "Modelo multimodal avancado com arquitetura 'Thinker-Talker', permitindo interacao em tempo real com raciocinio profundo e expressividade vocal humana.",
+      "source": {
+        "title": "Qwen 3.5-Omni: The Future of Interaction",
+        "url": "https://qwen.ai/blog?id=qwen3.5-omni",
+        "publisher": "QwenAI",
+        "date_basis": "Anuncio oficial em 25 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-6",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen 3.6 (Plus/Max)",
+      "release_date": "2026-04-12",
+      "release_stage": "produto",
+      "ai_category": "LLM",
+      "model_type": ["texto", "chat", "multimodal", "enterprise"],
+      "description_pt": "Serie mais recente da Alibaba Cloud, focada em capacidades empresariais massivas e o mais alto nivel de acuracia em tarefas de longa duracao.",
+      "source": {
+        "title": "Qwen 3.6: Enterprise Grade AI",
+        "url": "https://qwen.ai/blog?id=qwen3.6",
+        "publisher": "QwenAI",
+        "date_basis": "Lancamento da serie Plus/Max em abril de 2026."
       },
       "confidence": "alta"
     },
