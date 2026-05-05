@@ -3,7 +3,7 @@
     "updated_at": "2026-05-05",
     "last_correction": {
       "date": "2026-05-05",
-      "description_pt": "Revisada a cobertura Google: validadas datas/fontes oficiais, adicionados modelos ausentes de linguagem, audio, musica, open weights, embeddings, robotica e world models."
+      "description_pt": "Revisada a cobertura Moonshot AI/Kimi: validadas datas/fontes oficiais, adicionados modelos ausentes de texto, visao, audio, raciocinio, codigo, pesquisa agentica e open weights."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -2682,14 +2682,293 @@
       "confidence": "baixa"
     },
     {
+      "id": "moonshot-v1",
+      "company": "Moonshot AI",
+      "family": "Moonshot V1",
+      "model": "moonshot-v1-8k / 32k / 128k",
+      "release_date": "2024-01-31",
+      "release_stage": "API public beta",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "API", "longo-contexto"],
+      "description_pt": "Serie inicial de modelos de geracao da Kimi Open Platform, com variantes de 8K, 32K e 128K de contexto para texto e chat via API.",
+      "source": {
+        "title": "Por que lancar o modelo Kimi Latest?",
+        "url": "https://platform.moonshot.cn/blog/posts/kimi-latest",
+        "publisher": "Moonshot AI",
+        "date_basis": "Post oficial informa que a Kimi Open Platform abriu public beta em 31 de janeiro de 2024 e lancou a serie moonshot-v1 com ate 128K de contexto."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k1-5",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K1.5",
+      "release_date": "2025-01-20",
+      "release_stage": "research release",
+      "ai_category": "LLMs",
+      "model_type": ["raciocinio", "codigo", "matematica", "multimodal", "RL", "longo-contexto"],
+      "description_pt": "Modelo de raciocinio Kimi treinado com reinforcement learning em contexto longo, apresentado como marco anterior a familia K2.",
+      "sources": [
+        {
+          "title": "Kimi Research Articles & Technical Blogs",
+          "url": "https://www.kimi.com/blog/",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Indice oficial de pesquisa lista Kimi K1.5 em 20 de janeiro de 2025."
+        },
+        {
+          "title": "Kimi-k1.5",
+          "url": "https://github.com/MoonshotAI/Kimi-k1.5",
+          "publisher": "MoonshotAI",
+          "date_basis": "Repositorio oficial do relatorio tecnico Kimi K1.5."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-v1-vision-preview",
+      "company": "Moonshot AI",
+      "family": "Moonshot V1",
+      "model": "moonshot-v1 vision preview",
+      "release_date": "2025-01-13",
+      "release_stage": "API preview",
+      "ai_category": "LLMs",
+      "model_type": ["visao", "multimodal", "API", "longo-contexto"],
+      "description_pt": "Variantes vision-preview da serie moonshot-v1, com entendimento de imagens e saida em texto nos tamanhos 8K, 32K e 128K.",
+      "sources": [
+        {
+          "title": "Kimi Open Platform: New Feature Release Log",
+          "url": "https://platform.moonshot.cn/blog/posts/changelog",
+          "publisher": "Moonshot AI",
+          "date_basis": "Changelog oficial registra moonshot-v1-vision-preview em 13 de janeiro de 2025."
+        },
+        {
+          "title": "Model List - Kimi API Platform",
+          "url": "https://platform.kimi.ai/docs/models",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Documentacao oficial lista moonshot-v1-8k/32k/128k-vision-preview como modelos vision."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-latest",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "kimi-latest",
+      "release_date": "2025-02-17",
+      "release_stage": "API (descontinuado)",
+      "ai_category": "LLMs",
+      "model_type": ["chat", "visao", "API", "longo-contexto", "descontinuado"],
+      "description_pt": "Modelo API dinamico alinhado ao Kimi Assistant, com 128K de contexto e suporte a imagem; foi descontinuado para novos usuarios em janeiro de 2026.",
+      "sources": [
+        {
+          "title": "Por que lancar o modelo Kimi Latest?",
+          "url": "https://platform.moonshot.cn/blog/posts/kimi-latest",
+          "publisher": "Moonshot AI",
+          "date_basis": "Post oficial publicado em 17 de fevereiro de 2025 anuncia o kimi-latest."
+        },
+        {
+          "title": "Model List - Kimi API Platform",
+          "url": "https://platform.kimi.ai/docs/models",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Documentacao oficial registra que kimi-latest foi descontinuado em 28 de janeiro de 2026."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-moonlight",
+      "company": "Moonshot AI",
+      "family": "Moonlight",
+      "model": "Moonlight-16B-A3B / Instruct",
+      "release_date": "2025-03-03",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "MoE", "eficiente", "Muon", "open-weights", "OpenSource"],
+      "description_pt": "Modelo MoE leve treinado com otimizador Muon, com 16B parametros totais, 3B ativos e checkpoints base/instruct abertos.",
+      "sources": [
+        {
+          "title": "Technical report: Muon optimizer at scale / Moonlight",
+          "url": "https://platform.moonshot.cn/blog/posts/moonlight",
+          "publisher": "Moonshot AI",
+          "date_basis": "Post tecnico oficial publicado em 3 de marco de 2025 apresenta Moonlight e links de download."
+        },
+        {
+          "title": "Moonlight-16B-A3B",
+          "url": "https://huggingface.co/moonshotai/Moonlight-16B-A3B",
+          "publisher": "MoonshotAI",
+          "date_basis": "Model card oficial dos pesos Moonlight no Hugging Face."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimina-prover-preview",
+      "company": "Moonshot AI",
+      "family": "Kimina",
+      "model": "Kimina-Prover Preview",
+      "release_date": "2025-04-15",
+      "release_stage": "research/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["raciocinio", "matematica", "prova-formal", "Lean", "open-weights", "OpenSource"],
+      "description_pt": "Modelo de raciocinio formal para provar teoremas em Lean 4, com modelos destilados e ferramentas auxiliares publicados.",
+      "sources": [
+        {
+          "title": "Kimi Research Articles & Technical Blogs",
+          "url": "https://www.kimi.com/blog/",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Indice oficial de pesquisa lista Kimina-Prover Preview em 15 de abril de 2025."
+        },
+        {
+          "title": "Kimina-Prover-Preview",
+          "url": "https://github.com/MoonshotAI/Kimina-Prover-Preview",
+          "publisher": "MoonshotAI",
+          "date_basis": "Repositorio oficial apresenta o Kimina-Prover Preview e os artefatos publicados."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-vl",
+      "company": "Moonshot AI",
+      "family": "Kimi-VL",
+      "model": "Kimi-VL-A3B",
+      "release_date": "2025-04-10",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["visao", "multimodal", "video", "OCR", "agente", "MoE", "open-weights", "OpenSource"],
+      "description_pt": "Modelo vision-language MoE para raciocinio multimodal, OCR, video, documentos longos e tarefas de agente, com variantes Instruct e Thinking.",
+      "sources": [
+        {
+          "title": "Kimi Research Articles & Technical Blogs",
+          "url": "https://www.kimi.com/blog/",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Indice oficial de pesquisa lista Kimi-VL em 10 de abril de 2025."
+        },
+        {
+          "title": "Kimi-VL",
+          "url": "https://github.com/MoonshotAI/Kimi-VL",
+          "publisher": "MoonshotAI",
+          "date_basis": "Repositorio oficial descreve as variantes Kimi-VL-A3B, contexto de 128K e capacidades multimodais."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-audio",
+      "company": "Moonshot AI",
+      "family": "Kimi-Audio",
+      "model": "Kimi-Audio-7B / 7B-Instruct",
+      "release_date": "2025-04-26",
+      "release_stage": "open weights",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "fala", "conversacao", "geracao-audio", "open-weights", "OpenSource"],
+      "description_pt": "Modelo fundacional de audio aberto para entendimento, geracao e conversa por audio, com variantes base e instruct.",
+      "sources": [
+        {
+          "title": "Kimi Research Articles & Technical Blogs",
+          "url": "https://www.kimi.com/blog/",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Indice oficial de pesquisa lista Kimi-Audio em 26 de abril de 2025."
+        },
+        {
+          "title": "Kimi-Audio",
+          "url": "https://github.com/MoonshotAI/Kimi-Audio",
+          "publisher": "MoonshotAI",
+          "date_basis": "Repositorio oficial descreve o Kimi-Audio como audio foundation model aberto para entendimento, geracao e conversa."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-thinking-preview",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "kimi-thinking-preview",
+      "release_date": "2025-05-06",
+      "release_stage": "API preview (descontinuado)",
+      "ai_category": "LLMs",
+      "model_type": ["raciocinio", "multimodal", "API", "descontinuado"],
+      "description_pt": "Modelo de pensamento multimodal da API Kimi, voltado a raciocinio profundo; foi substituido pela linha K2 Thinking/K2.5.",
+      "sources": [
+        {
+          "title": "Kimi long-thinking model API launch",
+          "url": "https://platform.moonshot.cn/blog/posts/kimi-thinking",
+          "publisher": "Moonshot AI",
+          "date_basis": "Post oficial publicado em 6 de maio de 2025 anuncia kimi-thinking-preview."
+        },
+        {
+          "title": "Model List - Kimi API Platform",
+          "url": "https://platform.kimi.ai/docs/models",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Documentacao oficial registra que kimi-thinking-preview foi descontinuado em 11 de novembro de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-dev",
+      "company": "Moonshot AI",
+      "family": "Kimi-Dev",
+      "model": "Kimi-Dev-72B",
+      "release_date": "2025-06-17",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "software-engineering", "SWE", "open-weights", "OpenSource"],
+      "description_pt": "Modelo aberto de 72B parametros especializado em tarefas de engenharia de software e benchmarks de programacao.",
+      "sources": [
+        {
+          "title": "Kimi Research Articles & Technical Blogs",
+          "url": "https://www.kimi.com/blog/",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Indice oficial de pesquisa lista Kimi-Dev em 17 de junho de 2025."
+        },
+        {
+          "title": "Kimi-Dev",
+          "url": "https://github.com/MoonshotAI/Kimi-Dev",
+          "publisher": "MoonshotAI",
+          "date_basis": "Repositorio oficial do modelo Kimi-Dev."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-researcher",
+      "company": "Moonshot AI",
+      "family": "Kimi-Researcher",
+      "model": "Kimi-Researcher",
+      "release_date": "2025-06-20",
+      "release_stage": "research release",
+      "ai_category": "LLMs",
+      "model_type": ["raciocinio", "agente", "pesquisa", "ferramentas", "RL"],
+      "description_pt": "Modelo agentico autonomo treinado com RL end-to-end para resolver problemas complexos com planejamento, navegacao, busca e execucao de codigo.",
+      "sources": [
+        {
+          "title": "Kimi Research Articles & Technical Blogs",
+          "url": "https://www.kimi.com/blog/",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Indice oficial de pesquisa lista Kimi-Researcher em 20 de junho de 2025."
+        },
+        {
+          "title": "Kimi-Researcher: End-to-End RL Training for Emerging Agentic Capabilities",
+          "url": "https://moonshotai.github.io/Kimi-Researcher/",
+          "publisher": "MoonshotAI",
+          "date_basis": "Pagina oficial descreve o Kimi-Researcher como modelo agentico e de pensamento para planejamento multi-etapas e uso de ferramentas."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "moonshot-kimi-k2",
       "company": "Moonshot AI",
       "family": "Kimi",
       "model": "Kimi K2",
       "release_date": "2025-07-11",
       "release_stage": "preview",
-      "model_type": ["codigo", "agente", "MoE", "API"],
-      "description_pt": "Modelo Kimi K2 para codigo e tarefas agenticas, disponibilizado como kimi-k2-0711-preview.",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "MoE", "API", "open-weights", "OpenSource"],
+      "description_pt": "Modelo Kimi K2 para codigo e tarefas agenticas, disponibilizado como kimi-k2-0711-preview e publicado com pesos abertos.",
       "source": {
         "title": "Kimi Open Platform: New Feature Release Log",
         "url": "https://platform.moonshot.ai/blog/posts/changelog#july-11-2025",
@@ -2705,7 +2984,8 @@
       "model": "Kimi K2 Turbo",
       "release_date": "2025-08-01",
       "release_stage": "preview",
-      "model_type": ["codigo", "agente", "rapido", "API"],
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "rapido", "API", "MoE"],
       "description_pt": "Versao acelerada do Kimi K2 com maior velocidade de geracao para ferramentas de desenvolvimento e agentes.",
       "source": {
         "title": "Kimi Open Platform: New Feature Release Log",
@@ -2722,15 +3002,42 @@
       "model": "Kimi K2 0905 Preview",
       "release_date": "2025-09-05",
       "release_stage": "preview",
-      "model_type": ["codigo", "agente", "longo-contexto"],
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "longo-contexto", "MoE", "open-weights", "OpenSource"],
       "description_pt": "Atualizacao K2 com contexto de 256K e melhorias de capacidade para codigo e agentes.",
       "source": {
-        "title": "Kimi K2: Open Agentic Intelligence",
-        "url": "https://moonshotai.github.io/Kimi-K2/",
+        "title": "Kimi K2 model update: stronger coding capability and faster API",
+        "url": "https://platform.moonshot.cn/blog/posts/kimi-k2-0905",
         "publisher": "Moonshot AI",
-        "date_basis": "Documentacao oficial registra latest release em 5 de setembro de 2025."
+        "date_basis": "Post oficial publicado em 5 de setembro de 2025 registra a versao 0905 e a expansao de contexto para 256K."
       },
       "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-linear-48b-a3b",
+      "company": "Moonshot AI",
+      "family": "Kimi Linear",
+      "model": "Kimi-Linear-48B-A3B / Instruct",
+      "release_date": "2025-10-30",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "MoE", "linear-attention", "longo-contexto", "1M-contexto", "open-weights", "OpenSource"],
+      "description_pt": "Modelo experimental MoE com Kimi Delta Attention, 48B parametros totais, 3B ativos e contexto de ate 1M tokens, focado em eficiencia de KV cache e throughput em contexto longo.",
+      "sources": [
+        {
+          "title": "Kimi-Linear-48B-A3B-Instruct",
+          "url": "https://huggingface.co/moonshotai/Kimi-Linear-48B-A3B-Instruct",
+          "publisher": "MoonshotAI",
+          "date_basis": "Model card oficial descreve o Kimi Linear e informa o paper Kimi Linear publicado em 30 de outubro de 2025; a pagina tambem registra o release dos checkpoints Base e Instruct."
+        },
+        {
+          "title": "Kimi-Linear-A3B Collection",
+          "url": "https://huggingface.co/collections/moonshotai/kimi-linear-a3b",
+          "publisher": "MoonshotAI",
+          "date_basis": "Colecao oficial da MoonshotAI no Hugging Face agrupa os modelos Kimi-Linear-A3B."
+        }
+      ],
+      "confidence": "media"
     },
     {
       "id": "moonshot-kimi-k2-thinking",
@@ -2739,13 +3046,14 @@
       "model": "Kimi K2 Thinking",
       "release_date": "2025-11-06",
       "release_stage": "lancamento",
-      "model_type": ["raciocinio", "agente", "codigo", "ferramentas"],
+      "ai_category": "LLMs",
+      "model_type": ["raciocinio", "agente", "codigo", "ferramentas", "MoE", "open-weights", "OpenSource"],
       "description_pt": "Modelos K2 Thinking e K2 Thinking Turbo para raciocinio complexo, instrucoes multi-etapa e tarefas agenticas com ferramentas.",
       "source": {
-        "title": "Kimi Open Platform: New Feature Release Log",
-        "url": "https://platform.moonshot.ai/blog/posts/changelog#november-6-2025",
+        "title": "Kimi K2 Thinking model release and open source",
+        "url": "https://platform.moonshot.cn/blog/posts/k2-think",
         "publisher": "Moonshot AI",
-        "date_basis": "Changelog oficial registra launch em 6 de novembro de 2025."
+        "date_basis": "Post oficial publicado em 6 de novembro de 2025 anuncia Kimi K2 Thinking e seu release open-source."
       },
       "confidence": "alta"
     },
@@ -2755,14 +3063,15 @@
       "family": "Kimi",
       "model": "Kimi K2.5",
       "release_date": "2026-01-27",
-      "release_stage": "lancamento",
-      "model_type": ["multimodal", "codigo", "agente", "longo-contexto"],
-      "description_pt": "Modelo multimodal MoE com 256K de contexto, fusao nativa de texto e visao e modo de colaboracao de clusters de agentes.",
+      "release_stage": "lancamento/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["multimodal", "visao", "video", "codigo", "agente", "raciocinio", "longo-contexto", "open-weights", "OpenSource"],
+      "description_pt": "Modelo multimodal MoE com 256K de contexto, fusao nativa de texto, imagem e video, modos com/sem pensamento e colaboracao de clusters de agentes.",
       "source": {
-        "title": "Using Kimi K2.5 Model in Programming Tools",
+        "title": "Kimi K2.5: Visual Agentic Intelligence",
         "url": "https://www.kimi.com/blog/kimi-k2-5",
         "publisher": "Moonshot AI",
-        "date_basis": "Documentacao oficial registra latest release em 27 de janeiro de 2026."
+        "date_basis": "Blog tecnico oficial publicado em 27 de janeiro de 2026 apresenta o Kimi K2.5."
       },
       "confidence": "alta"
     },
@@ -2772,15 +3081,24 @@
       "family": "Kimi",
       "model": "Kimi K2.6",
       "release_date": "2026-04-20",
-      "release_stage": "lancamento/open-source",
-      "model_type": ["codigo", "agente", "multimodal", "MoE", "open-weights", "longo-contexto"],
+      "release_stage": "lancamento/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "multimodal", "visao", "video", "raciocinio", "MoE", "open-weights", "OpenSource", "longo-contexto"],
       "description_pt": "Modelo Kimi K2.6 da Moonshot AI, open-source/open-weights, com foco em codigo, execucao agentica de longo horizonte, uso de ferramentas e Agent Swarm. A ficha oficial indica arquitetura MoE, 1T parametros totais, 32B ativos e contexto de 256K.",
-      "source": {
-        "title": "K2.6 Agent Swarm [Beta]",
-        "url": "https://www.kimi.com/help/agent/agent-swarm",
-        "publisher": "Moonshot AI / Kimi",
-        "date_basis": "Help Center oficial da Kimi registra: em 20 de abril de 2026, a Moonshot AI released and open-sourced Kimi K2.6. O blog tecnico oficial Kimi K2.6: Advancing Open-Source Coding confirma disponibilidade via Kimi.com, Kimi App, API e Kimi Code."
-      },
+      "sources": [
+        {
+          "title": "Kimi K2.6: Advancing Open-Source Coding",
+          "url": "https://www.kimi.com/blog/kimi-k2-6",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Blog tecnico oficial publicado em 20 de abril de 2026 anuncia o Kimi K2.6 e sua disponibilidade em Kimi.com, Kimi App, API e Kimi Code."
+        },
+        {
+          "title": "K2.6 Agent Swarm [Beta]",
+          "url": "https://www.kimi.com/help/agent/agent-swarm",
+          "publisher": "Moonshot AI / Kimi",
+          "date_basis": "Help Center oficial registra que, em 20 de abril de 2026, a Moonshot AI released and open-sourced Kimi K2.6."
+        }
+      ],
       "confidence": "alta"
     },
     {

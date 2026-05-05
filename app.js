@@ -541,12 +541,14 @@ const companyLocations = [
   },
   {
     company: "Moonshot AI",
+    site: "Headquarters / AI research hub",
     city: "Beijing",
     region: "Beijing",
     country: "China",
     address: "13F, Building 1, JD Technology Building, 76 Zhichun Road",
     lat: 39.976,
     lng: 116.3377,
+    notes: "Moonshot publishes this Beijing contact address. I found recruiting signals for AI roles in other Chinese cities, but no official exact research-center addresses suitable for map pins.",
     sourceName: "Moonshot AI",
     sourceUrl: "https://www.moonshot.cn/about"
   },
