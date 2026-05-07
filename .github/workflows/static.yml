@@ -1,0 +1,61 @@
+name: Minificar e Fazer Deploy no GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+# Github Good Practices
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar codigo do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar ambiente (Node.js)
+        uses: actions/setup-node@v4
+        with:
+          # Atualizado para o Node 24, acompanhando o resto do servidor!
+          node-version: '24'
+
+      - name: Instalar o Minificador
+        run: npm install -g minify
+
+      - name: Preparar e Minificar os arquivos
+        run: |
+          mkdir dist
+          rsync -av --exclude='.git' --exclude='.github' --exclude='dist' ./ dist/
+          cd dist
+          find . -type f \( -name "*.css" -o -name "*.js" -o -name "*.html" \) -print0 | while IFS= read -r -d '' file; do
+            echo "Minificando $file..."
+            minify "$file" > "${file}.tmp"
+            mv "${file}.tmp" "$file"
+          done
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Fazer upload apenas da pasta minificada
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Fazer Deploy do site
+        id: deployment
+        uses: actions/deploy-pages@v5
