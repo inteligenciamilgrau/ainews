@@ -5,10 +5,6 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
-# Github Good Practices
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 permissions:
   contents: read
   pages: write
@@ -25,25 +21,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Baixar codigo do repositório
+      - name: Baixar codigo do repositorio
         uses: actions/checkout@v4
 
-      - name: Configurar ambiente (Node.js)
-        uses: actions/setup-node@v4
+      - name: Configurar ambiente Python
+        uses: actions/setup-python@v5
         with:
-          # Atualizado para o Node 24, acompanhando o resto do servidor!
-          node-version: '24'
+          python-version: "3.12"
 
-      - name: Preparar e Minificar os arquivos
-        run: |
-          mkdir dist
-          rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='dist' ./ dist/
-          cd dist
-          find . -type f \( -name "*.css" -o -name "*.js" -o -name "*.html" \) -print0 | while IFS= read -r -d '' file; do
-            echo "Minificando $file..."
-            npx minify "$file" > "${file}.tmp"
-            mv "${file}.tmp" "$file"
-          done
+      - name: Instalar minificadores
+        run: python -m pip install rjsmin==1.2.5 csscompressor==0.9.5 htmlmin==0.1.12
+
+      - name: Preparar e minificar arquivos
+        run: python .github/scripts/minify_static.py
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
@@ -51,8 +41,8 @@ jobs:
       - name: Fazer upload apenas da pasta minificada
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: "./dist"
 
-      - name: Fazer Deploy do site
+      - name: Fazer deploy do site
         id: deployment
         uses: actions/deploy-pages@v5
