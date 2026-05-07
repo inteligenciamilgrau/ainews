@@ -34,17 +34,14 @@ jobs:
           # Atualizado para o Node 24, acompanhando o resto do servidor!
           node-version: '24'
 
-      - name: Instalar o Minificador
-        run: npm install -g minify
-
       - name: Preparar e Minificar os arquivos
         run: |
           mkdir dist
-          rsync -av --exclude='.git' --exclude='.github' --exclude='dist' ./ dist/
+          rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='dist' ./ dist/
           cd dist
           find . -type f \( -name "*.css" -o -name "*.js" -o -name "*.html" \) -print0 | while IFS= read -r -d '' file; do
             echo "Minificando $file..."
-            minify "$file" > "${file}.tmp"
+            npx minify "$file" > "${file}.tmp"
             mv "${file}.tmp" "$file"
           done
 
