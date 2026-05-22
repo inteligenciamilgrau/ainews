@@ -20,7 +20,7 @@
     <div class="topbar-inner">
       <p class="eyebrow">AI release tracker</p>
       <h1>Timeline dos principais modelos de IA</h1>
-      <p id="lastUpdated" class="last-updated">Carregando ultima atualizacao..</p>
+      <p id="lastUpdated" class="last-updated">Carregando última atualização..</p>
     </div>
   </header>
 
@@ -36,7 +36,7 @@
         </div>
         <div class="metric">
           <span id="metricYears">-</span>
-          <small>periodo</small>
+          <small>período</small>
         </div>
         <div class="metric">
           <span id="metricSources">0</span>
@@ -47,7 +47,7 @@
       <section class="controls" aria-label="Filtros">
         <label>
           <span>Busca</span>
-          <input id="searchInput" type="search" placeholder="modelo, familia, descricao">
+          <input id="searchInput" type="search" placeholder="modelo, família, descrição">
         </label>
         <label>
           <span>Tipo de IA</span>
@@ -62,7 +62,7 @@
           <select id="typeFilter"></select>
         </label>
         <label>
-          <span>Familia</span>
+          <span>Família</span>
           <select id="familyFilter"></select>
         </label>
         <label>
@@ -79,13 +79,14 @@
         </label>
       </section>
 
-      <section class="view-row" aria-label="Modo de visualizacao">
+      <section class="view-row" aria-label="Modo de visualização">
         <div class="segmented" role="tablist" aria-label="Views">
           <button class="active" type="button" data-view="timeline">Timeline</button>
           <button type="button" data-view="years">Ano a ano</button>
           <button type="button" data-view="table">Tabela</button>
           <button type="button" data-view="sources">Fontes</button>
           <button type="button" data-view="map">Mapa</button>
+          <button type="button" data-view="history">História</button>
         </div>
         <div class="segmented compact" role="group" aria-label="Agrupamento">
           <button class="active" type="button" data-lane-mode="company">Por empresa</button>
@@ -120,15 +121,15 @@
               <div class="map-control-group" aria-label="Camada base do mapa">
                 <button type="button" data-map-base="map">Mapa</button>
                 <button type="button" data-map-base="earth">Terra</button>
-                <button type="button" data-map-base="hybrid">Hibrido</button>
+                <button type="button" data-map-base="hybrid">Híbrido</button>
               </div>
-              <div class="map-control-group" aria-label="Nomes de cidades e paises">
+              <div class="map-control-group" aria-label="Nomes de cidades e países">
                 <button type="button" data-map-labels="off">Nomes off</button>
                 <button type="button" data-map-labels="on">Nomes on</button>
               </div>
-              <div class="map-scale-toggle" aria-label="Escala de visualizacao">
+              <div class="map-scale-toggle" aria-label="Escala de visualização">
                 <button type="button" data-map-scale="globe">Globo</button>
-                <button type="button" data-map-scale="country">Pais</button>
+                <button type="button" data-map-scale="country">País</button>
                 <button type="button" data-map-scale="city">Cidade</button>
                 <button type="button" data-map-scale="street">Rua</button>
               </div>
@@ -167,10 +168,10 @@
                 <th>Data</th>
                 <th>Empresa</th>
                 <th>Modelo</th>
-                <th>Familia</th>
+                <th>Família</th>
                 <th>Tipo de IA</th>
                 <th>Tipo</th>
-                <th>Descricao</th>
+                <th>Descrição</th>
                 <th>Fonte</th>
               </tr>
             </thead>
@@ -182,6 +183,8 @@
       <section id="sourcesView" class="view">
         <div id="sourcesList" class="sources-list"></div>
       </section>
+
+      <section id="historyView" class="view"></section>
     </main>
 
     <script

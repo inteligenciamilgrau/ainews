@@ -9,7 +9,7 @@ const MAP_ADMIN_BOUNDARY_LAYER_IDS = ["ai-admin-boundaries-casing", "ai-admin-bo
 const MAP_FLAG_ICON_PREFIX = "ai-location-flag-";
 const MAP_FLAG_MIN_ZOOM = 3.2;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
-const VALID_VIEWS = new Set(["timeline", "years", "map", "table", "sources"]);
+const VALID_VIEWS = new Set(["timeline", "years", "map", "table", "sources", "history"]);
 const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
 const VALID_MAP_BASE_MODES = new Set(["map", "earth", "hybrid"]);
 const VALID_MAP_SCALES = new Set(["globe", "country", "city", "street"]);
@@ -17,6 +17,12 @@ const VALID_LANE_MODES = new Set(["company", "all"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
 const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models"];
 const VALID_AI_CATEGORIES = new Set(AI_CATEGORIES);
+const AI_CATEGORY_LABELS = {
+  Video: "Vídeo",
+  "Audio/Transcricao": "Áudio/Transcrição",
+  Musica: "Música",
+  "Robotica/World models": "Robótica/World models"
+};
 const TIMELINE_EVENT_EDGE_PX = 108;
 
 const state = {
@@ -80,11 +86,19 @@ const dataCenterStatusColors = {
   Pausado: "#94a3b8"
 };
 
+const dataCenterStatusLabels = {
+  "Em construcao": "Em construção"
+};
+
 const researchLabColors = {
   Consorcio: "#0f766e",
   Universidade: "#2563eb",
   Instituto: "#7c3aed",
   "Lab corporativo": "#be185d"
+};
+
+const researchLabCategoryLabels = {
+  Consorcio: "Consórcio"
 };
 
 const companyLocations = [
@@ -962,7 +976,7 @@ const aiDataCenters = [
     power: "150 MW grid + 150 MW backup; fase 2 ~300 MW",
     accelerators: "200.000 GPUs",
     acceleratorType: "NVIDIA Hopper H100/H200",
-    notes: "Cluster original de 100.000 H100, com expansao para 200.000 GPUs Hopper.",
+    notes: "Cluster original de 100.000 H100, com expansão para 200.000 GPUs Hopper.",
     sourceName: "NVIDIA",
     sourceUrl: "https://nvidianews.nvidia.com/news/spectrum-x-ethernet-networking-xai-colossus"
   },
@@ -978,9 +992,9 @@ const aiDataCenters = [
     lat: 35.023,
     lng: -90.018,
     power: "N/D; projeto descrito como gigawatt-scale",
-    accelerators: "110.000 em instalacao; meta publica de 1.000.000+",
+    accelerators: "110.000 em instalação; meta pública de 1.000.000+",
     acceleratorType: "NVIDIA GB200",
-    notes: "Expansao do Colossus em propriedade de cerca de 1 milhao de ft2.",
+    notes: "Expansão do Colossus em propriedade de cerca de 1 milhão de ft2.",
     sourceName: "WMC Action News 5",
     sourceUrl: "https://www.actionnews5.com/2025/07/22/xai-begins-installing-computing-infrastructure-colossus-2/"
   },
@@ -995,7 +1009,7 @@ const aiDataCenters = [
     address: "5502 Spinks Rd, Abilene, TX",
     lat: 32.441,
     lng: -99.892,
-    power: "1,2 GW alvo; 200 MW+ em operacao inicial",
+    power: "1,2 GW alvo; 200 MW+ em operação inicial",
     accelerators: "450.000+ GPUs planejadas",
     acceleratorType: "NVIDIA GB200",
     notes: "Campus Crusoe/Oracle usado para cargas da OpenAI; primeiros edificios operacionais.",
@@ -1052,7 +1066,7 @@ const aiDataCenters = [
     power: "Parte de 1,5 GW SoftBank/OpenAI",
     accelerators: "N/D",
     acceleratorType: "N/D",
-    notes: "SoftBank iniciou construcao; operacao prevista para o ano seguinte ao anuncio.",
+    notes: "SoftBank iniciou construção; operação prevista para o ano seguinte ao anúncio.",
     sourceName: "OpenAI",
     sourceUrl: "https://openai.com/index/five-new-stargate-sites"
   },
@@ -1088,7 +1102,7 @@ const aiDataCenters = [
     power: "N/D",
     accelerators: "Centenas de milhares",
     acceleratorType: "NVIDIA GPUs",
-    notes: "AI datacenter de 315 acres e 1,2 milhao de ft2; conclusao planejada para 2026.",
+    notes: "AI datacenter de 315 acres e 1,2 milhão de ft2; conclusão planejada para 2026.",
     sourceName: "Microsoft",
     sourceUrl: "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/"
   },
@@ -1103,10 +1117,10 @@ const aiDataCenters = [
     address: "Richland Parish, near Holly Ridge / Rayville, LA",
     lat: 32.417,
     lng: -91.517,
-    power: "Multi-GW; 2 GW+ ate 2030, potencial 5 GW",
+    power: "Multi-GW; 2 GW+ até 2030, potencial 5 GW",
     accelerators: "N/D",
     acceleratorType: "N/D",
-    notes: "Maior cluster de treinamento de IA da Meta, segundo a propria empresa.",
+    notes: "Maior cluster de treinamento de IA da Meta, segundo a própria empresa.",
     sourceName: "Meta",
     sourceUrl: "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/"
   },
@@ -1124,7 +1138,7 @@ const aiDataCenters = [
     power: "1 GW",
     accelerators: "N/D",
     acceleratorType: "N/D",
-    notes: "Cluster de IA da Meta previsto para entrar em operacao em 2026.",
+    notes: "Cluster de IA da Meta previsto para entrar em operação em 2026.",
     sourceName: "AP News",
     sourceUrl: "https://apnews.com/article/0eb051a9a11d96f7ce200e186ad13476"
   },
@@ -1157,8 +1171,8 @@ const aiDataCenters = [
     address: "Tesla Gigafactory Texas, Austin, TX",
     lat: 30.221,
     lng: -97.617,
-    power: "130 MW inicial; ate 500 MW planejado",
-    accelerators: "50.000 GPUs operacionais; expansao para ~100.000",
+    power: "130 MW inicial; até 500 MW planejado",
+    accelerators: "50.000 GPUs operacionais; expansão para ~100.000",
     acceleratorType: "NVIDIA H100/H200",
     notes: "Cluster de treinamento de FSD/Optimus da Tesla em Giga Texas.",
     sourceName: "Data Center Dynamics",
@@ -1268,7 +1282,7 @@ const aiDataCenters = [
     power: "500 MW contratado",
     accelerators: "N/D",
     acceleratorType: "N/D",
-    notes: "Acordo de capacidade para Doubao e outras cargas de IA; ponto no mapa e aproximacao nacional.",
+    notes: "Acordo de capacidade para Doubao e outras cargas de IA; ponto no mapa é aproximação nacional.",
     sourceName: "Data Center Dynamics",
     sourceUrl: "https://www.datacenterdynamics.com/en/news/tiktok-owner-bytedance-signs-500mw-vnet-china-data-center-deal/"
   },
@@ -1285,8 +1299,8 @@ const aiDataCenters = [
     lng: 54.3773,
     power: "1 GW cluster; dentro de campus UAE-US de 5 GW; 200 MW previstos para 2026",
     accelerators: "N/D",
-    acceleratorType: "NVIDIA GPUs previstas; modelo e quantidade publica nao detalhados",
-    notes: "Nao aparece como cancelado: OpenAI anunciou o projeto em maio de 2025 e G42/Khazna reportou progresso de construcao da primeira fase de 200 MW.",
+    acceleratorType: "NVIDIA GPUs previstas; modelo e quantidade pública não detalhados",
+    notes: "Não aparece como cancelado: OpenAI anunciou o projeto em maio de 2025 e G42/Khazna reportou progresso de construção da primeira fase de 200 MW.",
     sourceName: "G42",
     sourceUrl: "https://www.prnewswire.com/news-releases/g42-provides-update-on-construction-of-stargate-uae-ai-infrastructure-cluster-302586401.html"
   },
@@ -1302,7 +1316,7 @@ const aiDataCenters = [
     lat: 68.4385,
     lng: 17.4273,
     power: "230 MW inicial; ambicao de +290 MW",
-    accelerators: "100.000 GPUs alvo ate fim de 2026",
+    accelerators: "100.000 GPUs alvo até fim de 2026",
     acceleratorType: "NVIDIA GPUs",
     notes: "Anunciado por OpenAI, Nscale e Aker. Reportes de abril de 2026 indicam que a estrutura comercial pode ter mudado para leasing via Microsoft/Nscale, mas o campus europeu segue relevante.",
     sourceName: "OpenAI",
@@ -1322,7 +1336,7 @@ const aiDataCenters = [
     power: "N/D",
     accelerators: "8.000 GPUs previstos inicialmente; potencial de 31.000",
     acceleratorType: "NVIDIA GPUs",
-    notes: "Anunciado em setembro de 2025, mas pausado em abril de 2026 por custos de energia e incerteza regulatoria; nao esta ativo no momento.",
+    notes: "Anunciado em setembro de 2025, mas pausado em abril de 2026 por custos de energia e incerteza regulatória; não está ativo no momento.",
     sourceName: "The Guardian",
     sourceUrl: "https://www.theguardian.com/technology/2026/apr/09/openai-pulls-out-of-landmark-31bn-uk-investment"
   },
@@ -1394,7 +1408,7 @@ const aiDataCenters = [
     power: "N/D",
     accelerators: "Quase 10.000 GPUs",
     acceleratorType: "NVIDIA Blackwell: DGX B200 e RTX PRO Server GPUs",
-    notes: "AI factory soberana operada pela Deutsche Telekom em solo alemao para industria, pesquisa, startups e setor publico.",
+    notes: "AI factory soberana operada pela Deutsche Telekom em solo alemão para indústria, pesquisa, startups e setor público.",
     sourceName: "Deutsche Telekom",
     sourceUrl: "https://www.telekom.com/en/media/media-information/archive/germany-s-first-ai-factory-for-industry-1101670"
   }
@@ -1563,10 +1577,10 @@ function renderLastUpdated() {
   const correction = state.metadata.last_correction;
   const date = correction?.date || state.metadata.updated_at;
   const description = correction?.description_pt;
-  const formattedDate = date ? formatDate(date) : "data nao informada";
+  const formattedDate = date ? formatDate(date) : "data não informada";
   element.textContent = description
-    ? `Ultima atualizacao: ${formattedDate} - ${description}`
-    : `Ultima atualizacao: ${formattedDate}`;
+    ? `Última atualização: ${formattedDate} - ${description}`
+    : `Última atualização: ${formattedDate}`;
   syncStickyOffsets();
 }
 
@@ -1636,7 +1650,7 @@ function populateFilters() {
 
   const years = unique(models.map((model) => model.year)).sort((a, b) => a - b);
   fillSelect(els.yearFilter, ["all", ...years], "Todos");
-  fillSelect(els.yearStartFilter, ["all", ...years], "Inicio");
+  fillSelect(els.yearStartFilter, ["all", ...years], "Início");
   fillSelect(els.yearEndFilter, ["all", ...years], "Fim");
   syncFilterControls();
   syncStickyOffsets();
@@ -1645,7 +1659,7 @@ function populateFilters() {
 
 function fillSelect(element, values, allLabel) {
   element.innerHTML = values.map((value) => {
-    const label = value === "all" ? allLabel : value;
+    const label = value === "all" ? allLabel : AI_CATEGORY_LABELS[value] || value;
     return `<option value="${escapeHtml(String(value))}">${escapeHtml(String(label))}</option>`;
   }).join("");
 }
@@ -1710,6 +1724,7 @@ function loadViewPreferences() {
     if (typeof prefs.mapLabels === "boolean") state.mapLabels = prefs.mapLabels;
     if (VALID_MAP_SCALES.has(prefs.mapScale)) state.mapScale = prefs.mapScale;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.tableDateOrder)) state.tableDateOrder = prefs.tableDateOrder;
+    if (VALID_TABLE_DATE_ORDERS.has(prefs.historyEventDateOrder)) historyState.eventDateOrder = prefs.historyEventDateOrder;
     if (prefs.filters && typeof prefs.filters === "object") {
       state.filters = {
         ...state.filters,
@@ -1734,6 +1749,7 @@ function saveViewPreferences() {
       mapLabels: state.mapLabels,
       mapScale: state.mapScale,
       tableDateOrder: state.tableDateOrder,
+      historyEventDateOrder: historyState.eventDateOrder,
       filters: state.filters
     }));
   } catch {
@@ -1790,6 +1806,10 @@ function render() {
   renderTable(models);
   renderSources(models);
   renderDetails(models.find((model) => model.id === state.selectedId));
+  try { renderHistory(); } catch (e) {
+    const c = document.getElementById("historyView");
+    if (c) c.innerHTML = `<p style="padding:24px;color:var(--muted)">Erro ao carregar história.</p>`;
+  }
 }
 
 function renderMetrics(models) {
@@ -1877,10 +1897,10 @@ function renderDetails(model) {
     </div>
     <dl>
       <div><dt>Data</dt><dd>${formatDate(model.release_date)}</dd></div>
-      <div><dt>Estagio</dt><dd>${escapeHtml(model.release_stage)}</dd></div>
+      <div><dt>Estágio</dt><dd>${escapeHtml(model.release_stage)}</dd></div>
       <div><dt>Tipo de IA</dt><dd>${model.ai_category.map(categoryPill).join("")}</dd></div>
       <div><dt>Tipos</dt><dd>${model.model_type.map(typePill).join("")}</dd></div>
-      <div><dt>Confianca</dt><dd>${escapeHtml(model.confidence || "nao informada")}</dd></div>
+      <div><dt>Confiança</dt><dd>${escapeHtml(model.confidence || "não informada")}</dd></div>
     </dl>
     <p>${escapeHtml(model.description_pt || "")}</p>
     ${renderSourceBasis(model)}
@@ -1942,7 +1962,7 @@ function renderCompanyMap() {
     ${companyCount ? `<span>${companyCount} sedes</span>` : ""}
     ${labCount ? `<span>${labCount} labs IA</span>` : ""}
     ${dataCenterCount ? `<span>${dataCenterCount} data centers</span>` : ""}
-    <span>${countries.length} paises</span>
+    <span>${countries.length} países</span>
     ${(state.mapLayer === "companies" || state.mapLayer === "all") && missingCompanies.length ? `<span>${missingCompanies.length} sem coordenada</span>` : ""}
   `;
 
@@ -1951,7 +1971,7 @@ function renderCompanyMap() {
 
   requestAnimationFrame(() => {
     if (typeof maplibregl === "undefined") {
-      showMapError("Nao foi possivel carregar o MapLibre GL JS.");
+      showMapError("Não foi possível carregar o MapLibre GL JS.");
       return;
     }
 
@@ -2060,7 +2080,7 @@ function initCompanyMap() {
     try {
       map.setProjection({ type: "globe" });
     } catch (error) {
-      console.warn("Nao foi possivel ativar a projecao globo.", error);
+      console.warn("Não foi possível ativar a projeção globo.", error);
     }
 
     configureMapSky();
@@ -2085,7 +2105,7 @@ function initCompanyMap() {
   setTimeout(() => {
     if (!els.mapLoading.hidden && state.companyMap) {
       els.mapLoading.hidden = true;
-      showMapError("O mapa esta demorando para carregar. Algumas camadas podem aparecer aos poucos.");
+      showMapError("O mapa está demorando para carregar. Algumas camadas podem aparecer aos poucos.");
     }
   }, 15000);
 }
@@ -2122,7 +2142,7 @@ function configureMapSky() {
       "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 0, 1, 5, 1, 7, 0]
     });
   } catch (error) {
-    console.warn("Nao foi possivel configurar o ceu do mapa.", error);
+    console.warn("Não foi possível configurar o céu do mapa.", error);
   }
 }
 
@@ -2369,7 +2389,7 @@ function registerMapFlagImages(locations) {
     try {
       map.addImage(iconId, imageData, { pixelRatio: 2 });
     } catch (error) {
-      console.warn("Nao foi possivel registrar bandeira do mapa.", error);
+      console.warn("Não foi possível registrar bandeira do mapa.", error);
     }
   });
 }
@@ -2763,14 +2783,14 @@ function renderMapLocationCard(location, selectedCompany) {
   const labClass = location.kind === "lab" ? " lab" : "";
   const details = location.kind === "datacenter"
     ? `
-      <small>${escapeHtml(location.status)} - ${escapeHtml(location.city)}, ${escapeHtml(location.country)}</small>
+      <small>${escapeHtml(dataCenterStatusLabel(location.status))} - ${escapeHtml(location.city)}, ${escapeHtml(location.country)}</small>
       <em>${escapeHtml(location.address)}</em>
-      <em>Potencia: ${escapeHtml(location.power || "N/D")}</em>
+      <em>Potência: ${escapeHtml(location.power || "N/D")}</em>
       <em>Compute: ${escapeHtml(location.accelerators || "N/D")} / ${escapeHtml(location.acceleratorType || "N/D")}</em>
     `
     : location.kind === "lab"
       ? `
-        <small>${escapeHtml(location.category)} - ${escapeHtml(location.city)}, ${escapeHtml(location.country)}</small>
+        <small>${escapeHtml(researchLabCategoryLabel(location.category))} - ${escapeHtml(location.city)}, ${escapeHtml(location.country)}</small>
         <em>${escapeHtml(location.organization)}</em>
         <em>${escapeHtml(location.focus)}</em>
         <em>${escapeHtml(location.address)}</em>
@@ -2909,6 +2929,14 @@ function mapKindLabel(location) {
   return "Sede";
 }
 
+function dataCenterStatusLabel(status) {
+  return dataCenterStatusLabels[status] || status;
+}
+
+function researchLabCategoryLabel(category) {
+  return researchLabCategoryLabels[category] || category;
+}
+
 function mapItemTitle(location) {
   if (location.kind === "datacenter") return location.name;
   if (location.kind === "lab") return location.name;
@@ -3036,7 +3064,7 @@ function typePill(type) {
 }
 
 function categoryPill(category) {
-  return `<span class="type-pill category-pill">${escapeHtml(category)}</span>`;
+  return `<span class="type-pill category-pill">${escapeHtml(AI_CATEGORY_LABELS[category] || category)}</span>`;
 }
 
 function formatDate(value) {
@@ -3060,4 +3088,890 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) {
   return escapeHtml(value).replaceAll("`", "&#096;");
+}
+
+// ===== História (Stories) =====
+
+const historyState = {
+  activeStoryId: null,
+  expandedEventIds: new Set(),
+  expandedExtendedEventIds: new Set(),
+  eventDateOrder: "desc"
+};
+
+const storiesData = [
+  {
+    id: "musk-vs-openai",
+    title: "Musk vs. OpenAI",
+    subtitle: "A batalha pelo fim lucrativo da IA",
+    summary: "Desde 2015, Elon Musk e a OpenAI travam um conflito sobre se a organização traiu sua missão original sem fins lucrativos. Em maio de 2026, um júri federal encerrou o processo — mas não a disputa.",
+    lastUpdated: "2026-05-18",
+    tags: ["OpenAI", "Elon Musk", "Processo judicial", "Corporativo"],
+    events: [
+      {
+        date: "2026-05-18",
+        title: "Musk perde o processo",
+        importance: "O processo termina por prazo, não por uma resposta judicial definitiva sobre a missão da OpenAI.",
+        summary: "Júri federal decidiu unanimemente contra Musk após menos de duas horas de deliberação. A decisão foi por prescrição, não pelo mérito.",
+        details: "Um júri federal em Oakland decidiu contra Elon Musk unanimemente, concluindo que todas as suas alegações excediam o prazo prescricional. A juíza Yvonne Gonzalez Rogers concordou, afirmando haver 'evidências extensas' para apoiar a decisão do júri. Musk chamou a decisão de 'tecnicidade de calendário' e prometeu recorrer. Seu advogado disse que o recurso seria baseado parcialmente na 'doutrina de violação contínua', que pode estender o prazo prescricional em casos com um longo padrão de conduta irregular. O júri não decidiu se a OpenAI traiu sua missão — apenas que o processo foi ajuizado tarde demais.",
+        extended: [
+          {
+            text: "Em 18 de maio de 2026, depois de um julgamento de três semanas em Oakland, um júri consultivo de nove pessoas decidiu por unanimidade que Elon Musk demorou demais para levar sua ação contra a OpenAI, Sam Altman, Greg Brockman e Microsoft ao tribunal. A deliberação levou menos de duas horas. A juíza Yvonne Gonzalez Rogers aceitou a conclusão do júri como decisão da corte e encerrou as alegações de Musk nessa ação.",
+            sources: [
+              { title: "AP: court rejects Musk claims", url: "https://apnews.com/article/musk-openai-trial-verdict-0b9b0bfaffe96f2c930341f52dfe4f8c" },
+              { title: "NPR/KPBS: jury dismisses all claims", url: "https://www.kpbs.org/news/science-technology/2026/05/18/jury-dismisses-all-claims-in-elon-musks-lawsuit-against-openai-ceo-sam-altman" }
+            ]
+          },
+          {
+            text: "O ponto decisivo não foi se a OpenAI traiu ou não a missão sem fins lucrativos anunciada em sua fundação. A defesa venceu na barreira do prazo prescricional: segundo a tese aceita no veredito, os danos que Musk dizia ter sofrido já teriam ocorrido cedo demais para sustentar a ação ajuizada em 2024. Por isso, o júri não precisou resolver o núcleo narrativo da briga, que era a acusação de que a OpenAI teria abandonado sua finalidade beneficente para perseguir lucro privado.",
+            sources: [
+              { title: "TechCrunch: statute of limitations defense", url: "https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/" },
+              { title: "NPR/KPBS: merits were sidestepped", url: "https://www.kpbs.org/news/science-technology/2026/05/18/jury-dismisses-all-claims-in-elon-musks-lawsuit-against-openai-ceo-sam-altman" }
+            ]
+          },
+          {
+            text: "Na prática, a derrota retirou desse processo a ameaça imediata de indenizações e de uma ordem judicial que pudesse interferir na estrutura da OpenAI. O julgamento havia revisitado promessas feitas na origem da empresa, documentos antigos e a ruptura entre Musk e os líderes da OpenAI, mas terminou por uma pergunta mais estreita: quando Musk já tinha informações suficientes para processar.",
+            sources: [
+              { title: "TechCrunch: verdict consequences", url: "https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/" },
+              { title: "AP: three-week trial and dismissal", url: "https://apnews.com/article/musk-openai-trial-verdict-0b9b0bfaffe96f2c930341f52dfe4f8c" }
+            ]
+          },
+          {
+            text: "Musk reagiu dizendo que a corte não avaliou o mérito da disputa e indicou que recorreria. Seus advogados também sinalizaram recurso. Isso faz deste evento um encerramento importante da fase de julgamento, mas não um consenso sobre a pergunta histórica que alimenta a história inteira: se a evolução corporativa da OpenAI preservou ou rompeu a promessa feita quando ela nasceu como organização sem fins lucrativos.",
+            sources: [
+              { title: "AP: Musk says he will appeal", url: "https://apnews.com/article/musk-openai-trial-verdict-0b9b0bfaffe96f2c930341f52dfe4f8c" },
+              { title: "TechCrunch: appeal response after verdict", url: "https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/" }
+            ]
+          }
+        ],
+        links: [
+          { title: "TechCrunch: Musk loses lawsuit against OpenAI", url: "https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/" },
+          { title: "MIT Tech Review: Elon Musk suit OpenAI verdict", url: "https://www.technologyreview.com/2026/05/18/1137488/elon-musk-suit-openai-verdict/" },
+          { title: "Al Jazeera: Elon Musk loses lawsuit against OpenAI", url: "https://www.aljazeera.com/news/2026/5/18/elon-musk-loses-lawsuit-against-openai" },
+          { title: "NPR: Musk Altman OpenAI jury verdict", url: "https://www.npr.org/2026/05/18/nx-s1-5822366/musk-altman-openai-jury-verdict-claims-dismissed" },
+          { title: "CNN: OpenAI Musk lawsuit verdict", url: "https://www.cnn.com/2026/05/18/tech/openai-musk-lawsuit-verdict" },
+          { title: "PBS NewsHour: Jury sides with OpenAI", url: "https://www.pbs.org/newshour/nation/jury-sides-with-openai-saying-elon-musks-lawsuit-was-not-filed-on-time" }
+        ]
+      },
+      {
+        date: "2026-04-27",
+        title: "Julgamento começa em Oakland",
+        importance: "A briga sai do debate público e chega a um júri com pedidos que poderiam redesenhar a OpenAI.",
+        summary: "Início do julgamento expõe a ruptura entre Musk e Altman. Musk pedia devolução de até US$ 180 bilhões em 'ganhos ilícitos' e a remoção de Altman e Brockman.",
+        details: "O julgamento teve início em Oakland, expondo a ruptura entre Musk e Altman. Musk pedia que OpenAI e Microsoft devolvessem até US$ 180 bilhões em 'ganhos ilícitos', a remoção de Altman e Brockman da liderança, e o desfazimento da reestruturação de 2025 que permitiu o crescimento do braço com fins lucrativos. Os advogados da OpenAI argumentaram que a missão da empresa não havia mudado, que ainda era governada pelo conselho de uma fundação sem fins lucrativos, e que Musk só entrou com o processo após fundar sua própria empresa concorrente, a xAI. A defesa chamou a ação de 'tentativa hipócrita de sabotar um concorrente'.",
+        extended: [
+          {
+            text: "O julgamento começou em 27 de abril de 2026 no tribunal federal de Oakland com a seleção do júri. Sam Altman e Greg Brockman compareceram ao tribunal nessa abertura; Elon Musk não estava presente na seleção, mas era esperado como testemunha mais adiante. A juíza Yvonne Gonzalez Rogers apresentou ao grupo de jurados um caso centrado em promessas, supostas quebras dessas promessas e na passagem da OpenAI de uma origem sem fins lucrativos para uma operação com afiliada lucrativa.",
+            sources: [
+              { title: "GeekWire: inside the courthouse on April 27", url: "https://www.geekwire.com/2026/musk-v-altman-inside-the-courthouse-as-microsofts-13-billion-openai-bet-goes-on-trial/" }
+            ]
+          },
+          {
+            text: "A abertura do julgamento deixou claro que a briga não era apenas pessoal. Musk alegava que Altman, Brockman e a OpenAI violaram deveres ligados a uma missão beneficente e que a Microsoft ajudou essa transformação. A pergunta colocada diante do processo era se a estrutura comercial que sustentou a escalada da OpenAI preservou ou rompeu os compromissos assumidos quando a organização nasceu.",
+            sources: [
+              { title: "GeekWire: claims described to the jury pool", url: "https://www.geekwire.com/2026/musk-v-altman-inside-the-courthouse-as-microsofts-13-billion-openai-bet-goes-on-trial/" },
+              { title: "Yahoo/UPI: trial challenges OpenAI for-profit status", url: "https://finance.yahoo.com/sectors/technology/articles/elon-musk-sam-altman-head-164558480.html" }
+            ]
+          },
+          {
+            text: "O impacto potencial era grande. Segundo a cobertura do início do julgamento, o perito de danos de Musk calculava uma demanda combinada de até US$ 134 bilhões contra OpenAI e Microsoft, e uma vitória poderia direcionar pagamentos para o braço sem fins lucrativos da OpenAI. Em paralelo, a disputa podia atingir a reorganização corporativa da empresa e manter Altman e Brockman sob ameaça de remoção de posições de liderança.",
+            sources: [
+              { title: "GeekWire: damages stakes for OpenAI and Microsoft", url: "https://www.geekwire.com/2026/musk-v-altman-inside-the-courthouse-as-microsofts-13-billion-openai-bet-goes-on-trial/" },
+              { title: "Axios: damages and Altman ouster stakes", url: "https://www.axios.com/2026/05/18/musk-loses-ai-trial-openai-altman" }
+            ]
+          },
+          {
+            text: "A Microsoft não era figurante nessa fase. A empresa havia investido mais de US$ 13 bilhões na OpenAI desde 2019 e defendia que entrou como parceira comercial sem ser informada de restrições beneficentes ligadas às contribuições de Musk. Ao mesmo tempo, sua defesa já apontava para uma via processual que acabaria decisiva: sustentar que Musk sabia da participação da Microsoft cedo demais para processar apenas em 2024.",
+            sources: [
+              { title: "GeekWire: Microsoft's role and defense", url: "https://www.geekwire.com/2026/musk-v-altman-inside-the-courthouse-as-microsofts-13-billion-openai-bet-goes-on-trial/" }
+            ]
+          }
+        ],
+        links: [
+          { title: "Yahoo Finance: Musk OpenAI jury trial begin", url: "https://finance.yahoo.com/news/musk-openai-jury-trial-begin-231611771.html" },
+          { title: "Malay Mail: Musk's lawsuit heads to trial April 27", url: "https://malaymail.com/news/money/2026/01/14/elon-musks-lawsuit-against-openai-and-microsoft-heads-to-trial-april-27/205387" }
+        ]
+      },
+      {
+        date: "2026-01-15",
+        title: "Juíza rejeita pedido de arquivamento",
+        importance: "Essa decisão mantém viva a ação que chegaria ao julgamento de 2026.",
+        summary: "Juíza federal Yvonne Gonzalez Rogers rejeitou pedidos da OpenAI e Microsoft para encerrar as alegações remanescentes antes do julgamento.",
+        extended: [
+          {
+            text: "Em 15 de janeiro de 2026, a juíza federal Yvonne Gonzalez Rogers rejeitou os pedidos da OpenAI e da Microsoft para evitar o julgamento das alegações remanescentes de Elon Musk. A decisão foi publicada como a última barreira relevante antes de um júri ouvir o caso, com julgamento previsto para o fim de abril em Oakland.",
+            sources: [
+              { title: "Bloomberg Law: last chance to avoid trial denied", url: "https://news.bloomberglaw.com/legal-ops-and-tech/openai-microsoft-lose-last-chance-to-avoid-trial-with-musk" },
+              { title: "Yahoo/Bloomberg: case proceeds to late-April jury trial", url: "https://uk.finance.yahoo.com/news/openai-microsoft-lose-last-chance-023334905.html" }
+            ]
+          },
+          {
+            text: "A decisão não foi uma vitória final de Musk no mérito. O tribunal não declarou que a OpenAI traiu sua missão; concluiu que as questões restantes não deveriam morrer antes do julgamento. Segundo a cobertura da decisão, Rogers afirmou que o registro ainda era misto, mas que Musk sustentava de modo plausível que seu apoio teria sido condicionado a OpenAI permanecer aberta e sem fins lucrativos, termos ligados à carta e à missão da organização.",
+            sources: [
+              { title: "Yahoo/GuruFocus: mixed record and plausible conditions", url: "https://finance.yahoo.com/news/judge-sends-musks-openai-lawsuit-175551430.html" }
+            ]
+          },
+          {
+            text: "A importância histórica do despacho é que ele preservou a pergunta central para a etapa pública seguinte. Musk alegava que a OpenAI, depois de aceitar bilhões em financiamento da Microsoft e caminhar para uma estrutura mais comercial, havia rompido compromissos de origem. A OpenAI respondeu que o processo era infundado e parte de um padrão de assédio, mas teve de levar a defesa ao julgamento em vez de encerrar a briga nessa fase.",
+            sources: [
+              { title: "Bloomberg Law: claims about founding mission and Microsoft funding", url: "https://news.bloomberglaw.com/privacy-and-data-security/openai-microsoft-lose-last-chance-to-avoid-trial-with-musk" },
+              { title: "The Japan Times/Bloomberg: OpenAI statement after ruling", url: "https://www.japantimes.co.jp/business/2026/01/16/tech/elon-musk-openai-microsoft-trial/" }
+            ]
+          },
+          {
+            text: "Vista dentro da cronologia inteira, a decisão de janeiro explica por que a história chegou a abril e maio de 2026. Ela abriu a porta para o julgamento, mas não impediu que a defesa continuasse insistindo em problemas de prazo e de prova. Meses depois, o caso terminaria quando o júri aceitou que Musk havia processado tarde demais.",
+            sources: [
+              { title: "Bloomberg Law: late-April trial ordered", url: "https://news.bloomberglaw.com/legal-ops-and-tech/openai-microsoft-lose-last-chance-to-avoid-trial-with-musk" },
+              { title: "AP: later verdict dismissed claims as too late", url: "https://apnews.com/article/musk-openai-trial-verdict-0b9b0bfaffe96f2c930341f52dfe4f8c" }
+            ]
+          }
+        ],
+        details: "A juíza federal Yvonne Gonzalez Rogers rejeitou os pedidos da OpenAI e da Microsoft para arquivar o caso, permitindo que Musk levasse suas alegações a um júri. Essa decisão foi considerada uma vitória temporária para Musk, pois significava que as questões centrais — se a OpenAI traiu sua missão original — poderiam ser examinadas em julgamento. A decisão abriu caminho para o julgamento de abril de 2026.",
+        links: [
+          { title: "Bloomberg Law: OpenAI and Microsoft lose last chance to avoid trial", url: "https://news.bloomberglaw.com/legal-ops-and-tech/openai-microsoft-lose-last-chance-to-avoid-trial-with-musk" },
+          { title: "Yahoo/Bloomberg: Judge sends Musk suit to jury trial", url: "https://finance.yahoo.com/news/judge-sends-musks-openai-lawsuit-175551430.html" }
+        ]
+      },
+      {
+        date: "2024-11-14",
+        title: "Microsoft incluída como ré",
+        importance: "A disputa passa a mirar também o parceiro que financiou a expansão comercial da OpenAI.",
+        summary: "Queixa emendada adicionou a Microsoft como corré, expandindo o escopo do litígio por conta dos bilhões investidos e dos direitos de propriedade intelectual obtidos.",
+        details: "Uma queixa emendada adicionou a Microsoft como ré no processo, expandindo o escopo do litígio. A lógica era que a Microsoft — com seus bilhões de investimento e direitos sobre a propriedade intelectual da OpenAI — também teria se beneficiado da suposta transformação indevida da organização sem fins lucrativos em uma empresa com fins lucrativos. O primeiro investimento da Microsoft foi de US$ 1 bilhão em 2019; em 2023, chegou a US$ 10 bilhões com direitos de propriedade intelectual.",
+        extended: [
+          {
+            text: "Em 14 de novembro de 2024, Musk protocolou a primeira queixa emendada do processo federal. O documento passou a listar a Microsoft entre os réus, ao lado de Altman, Brockman, entidades da OpenAI, Reid Hoffman e Deannah Templeton. A mesma peça também trouxe xAI como autora e Shivon Zilis em pedido derivativo em nome da OpenAI, ampliando a disputa para além da relação original entre Musk e os fundadores da empresa.",
+            sources: [
+              { title: "First Amended Complaint: filing and parties", url: "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.32.0_1.pdf" },
+              { title: "Court order on motions to dismiss FAC", url: "https://assets.alm.com/55/9a/e00fdd11463781f6348bb3cbe5bf/musk-v-open-ai-mtd-order.pdf" }
+            ]
+          },
+          {
+            text: "A entrada da Microsoft mudou o foco do litígio. A queixa não tratava a parceira apenas como financiadora da OpenAI: ela a colocava dentro da teoria de que a OpenAI teria se afastado da missão sem fins lucrativos e, ao mesmo tempo, ajudado a criar barreiras competitivas no mercado de modelos e plataformas de IA generativa.",
+            sources: [
+              { title: "First Amended Complaint: claims listed in the caption", url: "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.32.0_1.pdf" },
+              { title: "DOJ/FTC: allegations in the FAC", url: "https://www.ftc.gov/system/files/ftc_gov/pdf/2323044openaimuskvaltmanamicusbrief.pdf" }
+            ]
+          },
+          {
+            text: "Entre as novas frentes estavam alegações antitruste. A queixa emendada incluiu pedidos sob o Sherman Act e o Clayton Act. O DOJ e a FTC, ao apresentar manifestação de interesse em janeiro de 2025, registraram que os autores alegavam violações baseadas em condutas que afetariam o mercado de modelos e plataformas de IA generativa; os órgãos não endossaram os fatos alegados, mas explicaram como regras sobre diretorias interligadas e boicotes coletivos poderiam se aplicar ao debate.",
+            sources: [
+              { title: "First Amended Complaint: antitrust counts", url: "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.32.0_1.pdf" },
+              { title: "DOJ/FTC: Statement of Interest", url: "https://www.ftc.gov/system/files/ftc_gov/pdf/2323044openaimuskvaltmanamicusbrief.pdf" }
+            ]
+          },
+          {
+            text: "Uma parte concreta dessa narrativa passou por vínculos de governança. A queixa apontou Reid Hoffman por ter ocupado assentos nos conselhos de OpenAI e Microsoft em períodos sobrepostos e Deannah Templeton por ter sido executiva da Microsoft e observadora sem voto no conselho da OpenAI. Esses vínculos sustentavam a acusação de diretorias interligadas; depois, o pedido de liminar de Musk buscou impedir condutas que, segundo ele, poderiam explorar informação competitivamente sensível ou coordenação entre as duas organizações.",
+            sources: [
+              { title: "DOJ/FTC: board overlap allegations", url: "https://www.ftc.gov/system/files/ftc_gov/pdf/2323044openaimuskvaltmanamicusbrief.pdf" },
+              { title: "Preliminary injunction motion after FAC", url: "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.46.0.pdf" }
+            ]
+          },
+          {
+            text: "Historicamente, este tópico importa porque transforma a Microsoft de pano de fundo econômico em alvo processual direto. Daqui em diante, a disputa deixa de perguntar apenas se a OpenAI rompeu sua promessa fundadora; ela passa a perguntar também se a aliança comercial, tecnológica e de governança com a Microsoft teria ampliado o dano alegado por Musk e por seu concorrente xAI.",
+            sources: [
+              { title: "First Amended Complaint: Microsoft named defendant", url: "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.32.0_1.pdf" },
+              { title: "Reuters/CNBC: lawsuit expanded with Microsoft and antitrust claims", url: "https://www.cnbc.com/2024/11/15/musk-expands-lawsuit-against-openai-adding-microsoft-and-antitrust-claims.html" }
+            ]
+          }
+        ],
+        links: [
+          { title: "First Amended Complaint: Musk v. Altman", url: "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.32.0_1.pdf" },
+          { title: "DOJ/FTC: Statement of Interest", url: "https://www.ftc.gov/system/files/ftc_gov/pdf/2323044openaimuskvaltmanamicusbrief.pdf" },
+          { title: "Yahoo Finance: trial background and Microsoft claims", url: "https://finance.yahoo.com/news/musk-openai-jury-trial-begin-231611771.html" }
+        ]
+      },
+      {
+        date: "2024-08-05",
+        title: "Musk reajuíza ação no tribunal federal",
+        importance: "O processo federal vira o caminho jurídico que realmente segue até o julgamento.",
+        summary: "Após retirar a ação da corte estadual, Musk reajuizou no Tribunal Distrital dos EUA para o Distrito Norte da Califórnia, com alegações reformuladas.",
+        details: "Após ter retirado a ação da corte estadual da Califórnia, Musk reajuizou no Tribunal Distrital dos EUA para o Distrito Norte da Califórnia. A mudança para o tribunal federal foi estratégica, buscando uma jurisdição diferente para as alegações reformuladas e mais abrangentes. Essa versão do processo seria a que chegaria ao julgamento de 2026.",
+        extended: [
+          {
+            text: "Em 5 de agosto de 2024, Musk abriu um novo processo no Tribunal Distrital dos EUA para o Distrito Norte da Califórnia contra Sam Altman, Greg Brockman e entidades da OpenAI. A queixa federal apareceu menos de dois meses depois de ele retirar, em 11 de junho, a ação estadual anterior em São Francisco. Na prática, não era só uma reabertura mecânica: era a escolha de uma nova via processual para continuar a mesma disputa de fundo.",
+            sources: [
+              { title: "Federal complaint: filing date and defendants", url: "https://www.courthousenews.com/wp-content/uploads/2024/08/elon-musk-v-sam-altman-complaint.pdf" },
+              { title: "Reuters/CNBC: suit filed after prior case withdrawal", url: "https://www.cnbc.com/2024/08/05/elon-musk-revives-lawsuit-against-openai-sam-altman-in-federal-court.html" }
+            ]
+          },
+          {
+            text: "A nova queixa recontou a origem da OpenAI sob uma acusação de engano. Segundo Musk, Altman e Brockman o convenceram a apoiar e cofundar uma organização sem fins lucrativos, aberta e voltada à segurança da humanidade; depois, teriam transformado a empresa em veículo para lucro privado e parceria estreita com a Microsoft. A OpenAI negou a narrativa e já havia divulgado e-mails para sustentar que Musk conhecia a necessidade de capital e chegou a discutir uma estrutura lucrativa.",
+            sources: [
+              { title: "Federal complaint: alleged founding inducement", url: "https://www.courthousenews.com/wp-content/uploads/2024/08/elon-musk-v-sam-altman-complaint.pdf" },
+              { title: "OpenAI: Elon Musk and OpenAI", url: "https://openai.com/index/elon-musk-and-openai/" },
+              { title: "Reuters/CNBC: alleged manipulation narrative", url: "https://www.cnbc.com/2024/08/05/elon-musk-revives-lawsuit-against-openai-sam-altman-in-federal-court.html" }
+            ]
+          },
+          {
+            text: "O desenho jurídico ficou mais agressivo do que no primeiro processo estadual. A queixa federal listou 15 pedidos, incluindo fraude, conspiração para fraude, ajuda e incentivo à fraude, violações federais de RICO, quebra de contratos, quebra de dever fiduciário, publicidade enganosa, enriquecimento sem causa e pedidos declaratórios. Esse empilhamento de teses mostra que Musk tentou transformar uma disputa sobre missão institucional em uma ação com múltiplos caminhos para indenização e intervenção judicial.",
+            sources: [
+              { title: "Federal complaint: causes of action", url: "https://www.courthousenews.com/wp-content/uploads/2024/08/elon-musk-v-sam-altman-complaint.pdf" },
+              { title: "NPR/AP: federal suit with fraud and RICO claims", url: "https://www.npr.org/2024/08/06/nx-s1-5065832/elon-musk-lawsuit-openai-sam-altman" }
+            ]
+          },
+          {
+            text: "A queixa também antecipou o conflito sobre controle e recursos da OpenAI. Musk pediu, entre outras medidas, restituição de ganhos que os réus teriam obtido por conduta ilícita, reparação por contribuições feitas sob suposto engano e declarações judiciais sobre o que a OpenAI poderia fazer com tecnologia e ativos ligados à missão original. Isso ajuda a explicar por que a ação federal se tornou a base do litígio que, depois de emendas e decisões intermediárias, chegaria ao julgamento de 2026.",
+            sources: [
+              { title: "Federal complaint: prayer for relief", url: "https://www.courthousenews.com/wp-content/uploads/2024/08/elon-musk-v-sam-altman-complaint.pdf" },
+              { title: "Court order: claims proceeding after amended complaint", url: "https://assets.alm.com/55/9a/e00fdd11463781f6348bb3cbe5bf/musk-v-open-ai-mtd-order.pdf" }
+            ]
+          },
+          {
+            text: "Na cronologia da história, este evento é a ponte entre a denúncia pública de fevereiro e o caso que realmente sobreviveu no tribunal federal. O processo ainda mudaria muito: em novembro de 2024 a Microsoft entraria como ré e surgiriam alegações antitruste. Mas o trilho processual usado para levar a briga adiante começa aqui, com a queixa federal de agosto.",
+            sources: [
+              { title: "Federal complaint: August 2024 case opening", url: "https://www.courthousenews.com/wp-content/uploads/2024/08/elon-musk-v-sam-altman-complaint.pdf" },
+              { title: "First Amended Complaint: November expansion", url: "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.32.0_1.pdf" }
+            ]
+          }
+        ],
+        links: [
+          { title: "Federal Complaint: Musk v. Altman", url: "https://www.courthousenews.com/wp-content/uploads/2024/08/elon-musk-v-sam-altman-complaint.pdf" },
+          { title: "Reuters/CNBC: Musk revives lawsuit in federal court", url: "https://www.cnbc.com/2024/08/05/elon-musk-revives-lawsuit-against-openai-sam-altman-in-federal-court.html" },
+          { title: "MIT Technology Review: chronology of the revived case", url: "https://www.technologyreview.com/2026/05/18/1137488/elon-musk-suit-openai-verdict/" }
+        ]
+      },
+      {
+        date: "2024-06-11",
+        title: "Musk retira processo da corte estadual",
+        importance: "O recuo separa a primeira ação da versão reformulada que Musk levaria adiante.",
+        summary: "Os advogados de Musk pediram ao tribunal estadual da Califórnia para arquivar o caso sem justificativa. Arquivado 'sem prejuízo', podendo ser reajuizado.",
+        details: "Os advogados de Musk pediram ao tribunal estadual da Califórnia para arquivar o caso sem dar razão. O processo foi arquivado 'sem prejuízo', o que significa que poderia ser reajuizado. Especulou-se que a retirada foi tática, para apresentar um caso mais robusto em outra jurisdição. Menos de dois meses depois, Musk reajuizou o processo no tribunal federal.",
+        extended: [
+          {
+            text: "Em 11 de junho de 2024, os advogados de Musk pediram à Superior Court da Califórnia em São Francisco que dispensasse a ação estadual inteira contra OpenAI, Sam Altman e Greg Brockman. O pedido não trouxe uma explicação pública para a retirada. Por isso, o evento marcou um recuo processual brusco em um caso que Musk havia aberto apenas alguns meses antes, em 29 de fevereiro.",
+            sources: [
+              { title: "CNBC: Musk drops state-court suit", url: "https://www.cnbc.com/2024/06/11/elon-musk-drops-suit-against-openai-and-sam-altman.html" },
+              { title: "Reuters/Yahoo: dismissal filing gave no reason", url: "https://finance.yahoo.com/news/elon-musk-withdraws-lawsuit-against-203435324.html" }
+            ]
+          },
+          {
+            text: "O momento da retirada importava. A ação foi dispensada na véspera de uma audiência em que a OpenAI e os demais réus buscariam derrubar o caso. Isso significa que a corte estadual não chegou a decidir naquele momento se as alegações sobre contrato fundador, missão sem fins lucrativos e uso dos ativos da OpenAI poderiam seguir adiante.",
+            sources: [
+              { title: "The Guardian: dismissal before scheduled hearing", url: "https://www.theguardian.com/technology/article/2024/jun/11/elon-musk-withdraws-lawsuit-against-sam-altman-openai" },
+              { title: "Local News Matters: court would not weigh governance questions", url: "https://localnewsmatters.org/2024/06/12/ai-lawsuit-stunner-musk-decides-to-abandon-case-against-openai-on-eve-of-court-hearing/" }
+            ]
+          },
+          {
+            text: "A expressão decisiva foi 'sem prejuízo'. Nesse tipo de dispensa voluntária, o arquivamento encerra aquele processo sem impedir que a disputa volte em nova ação. Foi exatamente por isso que a retirada não deve ser lida como renúncia definitiva de Musk ao conflito: ela fechou o caso estadual específico, mas preservou espaço para outra ofensiva judicial.",
+            sources: [
+              { title: "CNBC: dismissed without prejudice", url: "https://www.cnbc.com/2024/06/11/elon-musk-drops-suit-against-openai-and-sam-altman.html" },
+              { title: "Reuters/anews: could refile at another time", url: "https://www.anews.com.tr/business/2024/06/11/billionaire-entrepreneur-elon-musk-withdraws-lawsuit-against-openai" }
+            ]
+          },
+          {
+            text: "Até ser retirada, a ação estadual buscava impedir que a OpenAI tratasse tecnologia como o GPT-4 e outros ativos da organização de forma incompatível com a missão pública que Musk dizia ter financiado. O pedido tinha uma ambição maior do que uma cobrança comum: queria levar o tribunal a interferir na relação entre a promessa de abertura da OpenAI, seu braço comercial e os benefícios econômicos ligados à Microsoft.",
+            sources: [
+              { title: "Reuters/Cybernews: requested public access and limits on Microsoft benefit", url: "https://cybernews.com/news/elon-musk-drops-lawsuit-against-openai-sam-altman/" },
+              { title: "OpenAI: response to Musk allegations", url: "https://openai.com/index/elon-musk-and-openai/" }
+            ]
+          },
+          {
+            text: "Na sequência histórica, esse arquivamento separa duas fases. A primeira foi a denúncia estadual inicial, centrada na acusação de traição da missão. A segunda começaria em agosto de 2024, quando Musk levaria uma queixa federal reformulada ao Distrito Norte da Califórnia, com uma bateria maior de teses jurídicas e o caminho que depois receberia a Microsoft como ré.",
+            sources: [
+              { title: "Reuters/CNBC: federal suit revived in August", url: "https://www.cnbc.com/2024/08/05/elon-musk-revives-lawsuit-against-openai-sam-altman-in-federal-court.html" },
+              { title: "Federal Complaint: August 2024 case opening", url: "https://www.courthousenews.com/wp-content/uploads/2024/08/elon-musk-v-sam-altman-complaint.pdf" }
+            ]
+          }
+        ],
+        links: [
+          { title: "CNBC: Musk drops suit against OpenAI", url: "https://www.cnbc.com/2024/06/11/elon-musk-drops-suit-against-openai-and-sam-altman.html" },
+          { title: "Reuters/Yahoo: Musk withdraws lawsuit against OpenAI", url: "https://finance.yahoo.com/news/elon-musk-withdraws-lawsuit-against-203435324.html" },
+          { title: "Malay Mail: Elon Musk withdraws lawsuit against OpenAI", url: "https://www.malaymail.com/amp/news/money/2024/06/12/elon-musk-withdraws-lawsuit-against-openai/139309" },
+          { title: "Al Jazeera: Elon Musk drops lawsuit accusing OpenAI", url: "https://www.aljazeera.com/economy/2024/6/12/elon-musk-drops-lawsuit-accusing-openai-of-betraying-mission" }
+        ]
+      },
+      {
+        date: "2024-02-29",
+        title: "Musk processa OpenAI, Altman e Brockman",
+        importance: "A divergência sobre lucro e missão vira uma disputa judicial formal.",
+        summary: "Musk processou Altman, Brockman e a OpenAI alegando que 'roubaram uma instituição de caridade' ao migrar para uma estrutura com fins lucrativos.",
+        details: "Musk processou Altman, Brockman e a OpenAI, alegando que 'roubaram uma instituição de caridade' e se enriqueceram injustamente ao migrar para uma estrutura com fins lucrativos. Em resposta, a OpenAI divulgou publicamente um conjunto de e-mails entre a empresa e Musk desde 2015, sugerindo que Musk queria controle da OpenAI e, ao não consegui-lo, saiu da empresa em 2018. A OpenAI argumentou que Musk foi quem primeiro pressionou pela criação de um braço com fins lucrativos — e que saiu quando não obteve o controle que queria.",
+        extended: [
+          {
+            text: "Em 29 de fevereiro de 2024, Musk abriu na Superior Court da Califórnia em São Francisco sua primeira ação contra Sam Altman, Greg Brockman e entidades da OpenAI. A petição transformou anos de atrito público sobre abertura, lucro e parceria com a Microsoft em disputa judicial formal, com pedido de julgamento por júri.",
+            sources: [
+              { title: "State complaint: filing and defendants", url: "https://www.courthousenews.com/wp-content/uploads/2024/02/musk-v-altman-openai-complaint-sf.pdf?ftag=MSFd61514f" },
+              { title: "AP: Musk sues OpenAI and Altman", url: "https://apnews.com/article/425186c7640aa3d0956e99314a9240e2" }
+            ]
+          },
+          {
+            text: "A tese de Musk girava em torno de um suposto acordo fundador. Segundo a queixa, ele apoiou a OpenAI porque Altman, Brockman e a organização teriam prometido uma entidade sem fins lucrativos, orientada ao benefício da humanidade e à abertura da pesquisa. A petição diz que Musk contribuiu com dezenas de milhões de dólares, aconselhamento e poder de recrutamento confiando nessa premissa.",
+            sources: [
+              { title: "State complaint: Founding Agreement allegations", url: "https://www.courthousenews.com/wp-content/uploads/2024/02/musk-v-altman-openai-complaint-sf.pdf?ftag=MSFd61514f" }
+            ]
+          },
+          {
+            text: "A primeira ação estadual veio com cinco frentes jurídicas: quebra de contrato, promessa que gerou confiança, quebra de dever fiduciário, práticas comerciais desleais sob a lei californiana e prestação de contas. Isso mostra o enquadramento inicial da briga: antes de RICO, antitruste e Microsoft como ré aparecerem no caso federal, Musk tentou construir a disputa como violação das promessas que justificaram suas contribuições à OpenAI.",
+            sources: [
+              { title: "State complaint: five causes of action", url: "https://www.courthousenews.com/wp-content/uploads/2024/02/musk-v-altman-openai-complaint-sf.pdf?ftag=MSFd61514f" },
+              { title: "CNBC: complaint analysis after filing", url: "https://www.cnbc.com/2024/03/05/read-the-complaint-in-elon-musk-v-sam-altman-greg-brockman-openai.html" }
+            ]
+          },
+          {
+            text: "Os pedidos deixavam claro que Musk queria mais do que indenização. A queixa buscava obrigar a OpenAI a voltar a disponibilizar pesquisa e tecnologia ao público, impedir que ativos e tecnologias fossem usados para beneficiar financeiramente Microsoft e outros em desacordo com a missão alegada, exigir prestação de contas e pedir restituições ligadas ao suposto descumprimento.",
+            sources: [
+              { title: "State complaint: prayer for relief", url: "https://www.courthousenews.com/wp-content/uploads/2024/02/musk-v-altman-openai-complaint-sf.pdf?ftag=MSFd61514f" },
+              { title: "AP: requested nonprofit and public-benefit enforcement", url: "https://apnews.com/article/425186c7640aa3d0956e99314a9240e2" }
+            ]
+          },
+          {
+            text: "A OpenAI respondeu publicamente em 5 de março de 2024 com uma narrativa oposta. Disse que permanecia comprometida com a missão, que todos viram cedo a necessidade de muito mais capital para desenvolver AGI e que Musk participou de discussões sobre uma estrutura com fins lucrativos. A empresa divulgou e-mails para sustentar que Musk queria controle majoritário, controle inicial do conselho e até cogitou unir a OpenAI à Tesla.",
+            sources: [
+              { title: "OpenAI: Elon Musk and OpenAI", url: "https://openai.com/index/elon-musk-and-openai/" },
+              { title: "OpenAI: public email response in March 2024", url: "https://openai.com/es-ES/index/openai-elon-musk/" }
+            ]
+          },
+          {
+            text: "Esse é o ponto em que a história passa a ter duas versões jurídicas concorrentes. Para Musk, a OpenAI teria virado contra a promessa que justificou sua fundação. Para a OpenAI, o próprio Musk sabia do problema de capital, discutiu a conversão lucrativa e rompeu com a organização quando não obteve o controle que queria. O processo estadual seria retirado em junho, mas esse conflito narrativo permaneceria no caso federal posterior.",
+            sources: [
+              { title: "State complaint: Musk's founding narrative", url: "https://www.courthousenews.com/wp-content/uploads/2024/02/musk-v-altman-openai-complaint-sf.pdf?ftag=MSFd61514f" },
+              { title: "OpenAI: competing account and emails", url: "https://openai.com/index/elon-musk-and-openai/" },
+              { title: "AP: state suit later withdrawn", url: "https://apnews.com/article/e3932deb15957c915cd694d63583a043" }
+            ]
+          }
+        ],
+        links: [
+          { title: "State Complaint: Musk v. Altman", url: "https://www.courthousenews.com/wp-content/uploads/2024/02/musk-v-altman-openai-complaint-sf.pdf?ftag=MSFd61514f" },
+          { title: "OpenAI: Elon Musk and OpenAI", url: "https://openai.com/index/elon-musk-and-openai/" },
+          { title: "AP: Musk sues OpenAI and Sam Altman", url: "https://apnews.com/article/425186c7640aa3d0956e99314a9240e2" }
+        ]
+      },
+      {
+        date: "2025-10-28",
+        title: "OpenAI reestrutura: de lucro limitado para PBC",
+        importance: "A estrutura corporativa vira o centro material da discussão sobre controle, capital e missão.",
+        summary: "OpenAI anunciou nova estrutura: a parte sem fins lucrativos vira OpenAI Foundation (26%) e o braço lucrativo vira OpenAI Group PBC — sem limite de lucro. Microsoft ficou com 27%.",
+        details: "Em outubro de 2025, a OpenAI reformou sua estrutura. A parte sem fins lucrativos se tornou a OpenAI Foundation (com 26% do braço lucrativo), e a parte com fins lucrativos se tornou uma corporação de benefício público (PBC) chamada OpenAI Group PBC. A diferença crítica: o limite de lucro de 100x foi completamente removido — investidores agora podem ter retornos ilimitados. Microsoft ficou com 27%, e os 47% restantes foram distribuídos entre outros investidores. Críticos apontaram que esse foi o ponto de ruptura definitivo: a missão deixou de ser um freio real ao lucro. Foi exatamente essa mudança que Musk citou em seu processo.",
+        extended: [
+          {
+            text: "Em 28 de outubro de 2025, a OpenAI anunciou que concluiu uma recapitalização e reorganizou o braço comercial como OpenAI Group PBC, uma corporação de benefício público. Esse foi o fechamento de uma transição que vinha sendo debatida havia meses: sair da arquitetura de 'lucro limitado' criada em 2019 e adotar uma empresa com ações tradicionais, ainda ligada formalmente à missão da fundação.",
+            sources: [
+              { title: "OpenAI: nossa estrutura atualizada", url: "https://openai.com/pt-BR/our-structure/" },
+              { title: "AP: OpenAI reorganizes its structure", url: "https://apnews.com/article/openai-chatgpt-nonprofit-microsoft-c661df3242766d6b0ddbab401ad1fd84" },
+              { title: "OpenAI: OpenAI LP capped-profit model", url: "https://openai.com/index/openai-lp/" }
+            ]
+          },
+          {
+            text: "A comparação com 2019 é o ponto central. Quando lançou a OpenAI LP, a empresa dizia que investidores e funcionários poderiam receber retornos limitados, que o primeiro ciclo de investidores tinha teto de 100 vezes o investimento e que o excedente ficaria com a entidade sem fins lucrativos. Na estrutura anunciada em 2025, a própria OpenAI passou a dizer que todos os acionistas do OpenAI Group possuem o mesmo tipo de ação tradicional, com participação proporcional no aumento de valor da empresa.",
+            sources: [
+              { title: "OpenAI: OpenAI LP announcement", url: "https://openai.com/index/openai-lp/" },
+              { title: "OpenAI: acionistas após a recapitalização", url: "https://openai.com/pt-BR/our-structure/" }
+            ]
+          },
+          {
+            text: "A OpenAI apresentou a mudança como uma forma de levantar mais capital e alinhar crescimento de longo prazo com a missão. Ao fechar a recapitalização, a OpenAI Foundation ficou com 26% do OpenAI Group, avaliados pela empresa em cerca de US$ 130 bilhões, além de um warrant que pode entregar ações adicionais se a valorização atingir determinado marco. A fundação também afirmou manter direitos especiais de voto e governança para nomear e substituir os diretores do OpenAI Group.",
+            sources: [
+              { title: "OpenAI: Foundation stake and governance rights", url: "https://openai.com/pt-BR/our-structure/" },
+              { title: "California AG MOU: nonprofit control representations", url: "https://oag.ca.gov/system/files/attachments/press-docs/Final%20Executed%20MOU%20Between%20OpenAI%20and%20California%20AG%20re%20Notice%20of%20Conditions%20of%20Non-Objection%20%2810.27.2025%29%20%28Signed%20by%20OpenAI%29%20%28Signed%20by%20CA%20DOJ%29.pdf" }
+            ]
+          },
+          {
+            text: "A Microsoft saiu da reorganização como acionista explícita do novo desenho. A OpenAI informou que a parceira ficou com aproximadamente 27% do OpenAI Group PBC, em um investimento avaliado em cerca de US$ 135 bilhões, enquanto os 47% restantes ficaram com funcionários atuais e antigos e outros investidores. O acordo também preservou elementos importantes da parceria, como direitos de propriedade intelectual e exclusividade de API no Azure até a verificação de AGI, com mudanças em outras cláusulas.",
+            sources: [
+              { title: "OpenAI: next chapter of Microsoft partnership", url: "https://openai.com/index/next-chapter-of-microsoft-openai-partnership/" },
+              { title: "OpenAI: shareholder split after recapitalization", url: "https://openai.com/pt-BR/our-structure/" }
+            ]
+          },
+          {
+            text: "Os procuradores-gerais da Califórnia e de Delaware não trataram a reorganização como simples formalidade. Os dois gabinetes passaram mais de um ano examinando a operação e disseram que não se oporiam ao plano após compromissos sobre controle da entidade sem fins lucrativos, segurança e preservação da missão. Por isso, dentro da briga com Musk, este evento vira uma peça decisiva: a OpenAI diz que a missão continuou no comando; os críticos enxergam aqui a passagem para uma estrutura muito mais confortável para capital privado e valorização acionária.",
+            sources: [
+              { title: "California AG: statement on recapitalization plan", url: "https://oag.ca.gov/news/press-releases/attorney-general-bonta-issues-statement-openai%E2%80%99s-recapitalization-plan" },
+              { title: "Delaware AG: review of recapitalization", url: "https://news.delaware.gov/2025/10/28/ag-jennings-completes-review-of-openai-recapitalization/" },
+              { title: "AP: regulators and nonprofit control", url: "https://apnews.com/article/openai-chatgpt-nonprofit-microsoft-c661df3242766d6b0ddbab401ad1fd84" }
+            ]
+          }
+        ],
+        links: [
+          { title: "OpenAI: Evolving our structure", url: "https://openai.com/index/evolving-our-structure/" },
+          { title: "Built In: OpenAI new corporate structure", url: "https://builtin.com/articles/openai-new-corporate-structure" },
+          { title: "Data Center Dynamics: OpenAI nonprofit stake", url: "https://www.datacenterdynamics.com/en/news/openai-nonprofit-to-take-100bn-stake-in-public-benefit-corporation-as-part-of-restructure/" }
+        ]
+      },
+      {
+        date: "2023-07-12",
+        title: "Musk funda a xAI",
+        importance: "A história passa a envolver também concorrência direta entre empresas de IA.",
+        summary: "Musk fundou a startup concorrente xAI. A Microsoft expandiu o investimento na OpenAI para US$ 10 bilhões, em troca de direitos de PI e participação nos lucros.",
+        details: "Musk fundou a startup de IA xAI, entrando diretamente em competição com a OpenAI. No mesmo período, a Microsoft expandiu massivamente seu investimento na OpenAI para US$ 10 bilhões, em troca de direitos de propriedade intelectual e participação nos lucros futuros. Musk disse que ficou definitivamente irado em 2023 com esse acordo. Para a defesa da OpenAI no julgamento de 2026, o timing era revelador: Musk só entrou com o processo um ano depois de fundar seu próprio concorrente direto.",
+        extended: [
+          {
+            text: "Em 12 de julho de 2023, Musk anunciou a formação da xAI. A nova empresa se apresentou com uma missão ampla de buscar entendimento da realidade e da natureza do universo, mas o contexto competitivo era direto: Musk estava voltando ao centro da corrida por modelos de IA depois de ter saído da OpenAI anos antes.",
+            sources: [
+              { title: "CNBC: xAI launch announcement", url: "https://www.cnbc.com/2023/07/12/elon-musk-launches-his-new-company-xai.html" },
+              { title: "TechCrunch: xAI announcement and goal", url: "https://techcrunch.com/2023/07/12/elon-musk-wants-to-build-ai-to-understand-the-true-nature-of-the-universe/" }
+            ]
+          },
+          {
+            text: "O primeiro sinal público era que xAI não nascia como projeto lateral pequeno. A equipe anunciada reunia pesquisadores com passagens por OpenAI, DeepMind, Google Research, Microsoft Research, Tesla e outras instituições relevantes. Poucos meses depois, ao apresentar o Grok, a própria xAI descreveu que treinou um protótipo após o anúncio da empresa e que Grok-1 foi desenvolvido ao longo de quatro meses, deixando evidente que a startup pretendia entrar rapidamente na disputa por modelos de fronteira.",
+            sources: [
+              { title: "CNBC: xAI founding team background", url: "https://www.cnbc.com/2023/07/12/elon-musk-launches-his-new-company-xai.html" },
+              { title: "xAI: Announcing Grok", url: "https://x.ai/news/grok" }
+            ]
+          },
+          {
+            text: "A cronologia com a Microsoft precisa ficar separada. Em 23 de janeiro de 2023, meses antes do anúncio da xAI, a Microsoft havia anunciado a terceira fase da parceria com a OpenAI por meio de um investimento multianual e multibilionário. Na disputa judicial posterior, Musk trataria a escala desse aporte como um marco de ruptura; no julgamento de 2026, ele disse que o investimento de US$ 10 bilhões foi o momento em que concluiu que a confiança beneficente havia sido violada.",
+            sources: [
+              { title: "Microsoft: partnership extended in January 2023", url: "https://blogs.microsoft.com/blog/2023/01/23/microsoftandopenaiextendpartnership/" },
+              { title: "KUNC/NPR: Musk testimony on 2023 Microsoft investment", url: "https://www.kunc.org/npr-news/2026-04-29/elon-musk-accuses-openais-leaders-of-looting-the-non-profit-in-court-testimony" }
+            ]
+          },
+          {
+            text: "Para a história do litígio, a criação da xAI muda o lugar de Musk. Ele não era mais apenas excofundador, exdoador e crítico da OpenAI; passou a operar uma concorrente que desenvolveria seu próprio assistente e modelos. Esse fato virou arma retórica e processual da defesa: OpenAI sustentaria que a ação de Musk servia também para retardar um rival enquanto sua própria empresa avançava.",
+            sources: [
+              { title: "Reuters/Investing: 2026 trial opening and xAI context", url: "https://www.investing.com/news/stock-market-news/openai-trial-pitting-elon-musk-against-sam-altman-kicks-off-4640752" },
+              { title: "GeekWire: pretrial fight over xAI dual role", url: "https://www.geekwire.com/2026/pre-trial-fight-in-openai-case-focuses-on-elon-musks-dual-role-as-microsoft-partner-and-plaintiff/" }
+            ]
+          },
+          {
+            text: "Isso não resolve sozinho se a OpenAI preservou ou rompeu sua missão original, mas muda a leitura do conflito. A partir de 2023, a disputa entre Musk e a OpenAI passa a misturar três camadas: uma briga sobre promessa fundadora, uma disputa sobre capital e controle da OpenAI com a Microsoft, e uma competição comercial direta entre empresas que querem construir sistemas de IA cada vez mais poderosos.",
+            sources: [
+              { title: "Microsoft: OpenAI partnership expansion", url: "https://blogs.microsoft.com/blog/2023/01/23/microsoftandopenaiextendpartnership/" },
+              { title: "xAI: Grok as first public product path", url: "https://x.ai/news/grok" },
+              { title: "Reuters/Investing: trial framing in 2026", url: "https://www.investing.com/news/stock-market-news/openai-trial-pitting-elon-musk-against-sam-altman-kicks-off-4640752" }
+            ]
+          }
+        ],
+        links: [
+          { title: "CNBC: Elon Musk launches xAI", url: "https://www.cnbc.com/2023/07/12/elon-musk-launches-his-new-company-xai.html" },
+          { title: "Microsoft: Microsoft and OpenAI extend partnership", url: "https://blogs.microsoft.com/blog/2023/01/23/microsoftandopenaiextendpartnership/" },
+          { title: "Yahoo Finance: 2023 investment dispute background", url: "https://finance.yahoo.com/news/musk-openai-jury-trial-begin-231611771.html" }
+        ]
+      },
+      {
+        date: "2020-09-24",
+        title: "Musk critica exclusividade do GPT-3 com Microsoft",
+        importance: "Esse é um dos primeiros sinais públicos de ruptura sobre abertura e financiamento.",
+        summary: "A Microsoft obteve licença exclusiva do GPT-3. Musk postou que parecia 'o oposto de aberto' e que a OpenAI estava 'essencialmente capturada pela Microsoft'.",
+        details: "Quando a Microsoft obteve uma licença exclusiva do modelo GPT-3, Musk postou no X (então Twitter) que isso parecia 'o oposto de aberto' e que a OpenAI estava 'essencialmente capturada pela Microsoft'. O comentário foi um dos primeiros sinais públicos de que Musk e a OpenAI estavam em rota de colisão. A OpenAI argumentou que a exclusividade era necessária para viabilizar o modelo de 'lucro limitado' criado em 2019.",
+        extended: [
+          {
+            text: "A sequência começou em 22 de setembro de 2020, quando a OpenAI anunciou que licenciaria a tecnologia do GPT-3 para a Microsoft usar em produtos e serviços próprios. A OpenAI ressaltou que o acordo não encerraria o acesso ao GPT-3 pela API e que desenvolvedores atuais e futuros continuariam a construir aplicações pela plataforma.",
+            sources: [
+              { title: "OpenAI: GPT-3 licensed to Microsoft", url: "https://openai.com/index/openai-licenses-gpt-3-technology-to-microsoft/" }
+            ]
+          },
+          {
+            text: "Dois dias depois, em 24 de setembro de 2020, Musk criticou publicamente o movimento. Em resposta a notícias sobre a exclusividade da licença, ele escreveu que aquilo parecia o oposto de aberto e afirmou que a OpenAI estaria essencialmente capturada pela Microsoft. Por isso, a data deste tópico acompanha a crítica pública de Musk, não o anúncio original do acordo.",
+            sources: [
+              { title: "GeekWire: Musk's 2020 GPT-3 criticism", url: "https://www.geekwire.com/2026/the-microsoft-openai-files-internal-documents-reveal-the-realities-of-ais-defining-alliance/" },
+              { title: "TechTimes: Musk response to the license", url: "https://www.techtimes.com/articles/252826/20200924/elon-musk-criticizes-microsofts-acquisition-openai-behind-much-touted-human-like-text-generator-executive-license-defeats-ai-democracy.htm" }
+            ]
+          },
+          {
+            text: "Esse episódio é importante porque antecipa o vocabulário central da briga futura. A OpenAI havia nascido com o nome 'Open' e com uma missão pública; Musk passou a usar a relação com Microsoft como evidência de fechamento e captura comercial. A própria OpenAI, por outro lado, enquadrou o licenciamento como parte de uma parceria plurianual já anunciada e de um caminho comercial que manteria a API disponível.",
+            sources: [
+              { title: "OpenAI: API access unchanged by license", url: "https://openai.com/index/openai-licenses-gpt-3-technology-to-microsoft/" },
+              { title: "GeekWire: opposite-of-open framing in later case record", url: "https://www.geekwire.com/2026/the-microsoft-openai-files-internal-documents-reveal-the-realities-of-ais-defining-alliance/" }
+            ]
+          },
+          {
+            text: "A diferença técnica e comercial também importa. GPT-3 era o modelo de 175 bilhões de parâmetros por trás da API da OpenAI naquele momento. Licenciar a tecnologia para a Microsoft não significava retirar o modelo da API, mas significava dar à parceira um caminho próprio para usar a tecnologia em seus produtos. Para quem discutia se a OpenAI continuava suficientemente aberta, essa distinção não eliminava a tensão.",
+            sources: [
+              { title: "OpenAI: GPT-3 and API context", url: "https://openai.com/index/openai-licenses-gpt-3-technology-to-microsoft/" }
+            ]
+          },
+          {
+            text: "Na cronologia do litígio, esse tweet de 2020 ganhou peso porque mostrava que Musk já demonstrava desconforto com a direção comercial da OpenAI anos antes de processá-la em 2024. Em 2026, cobertura do julgamento voltou a esse comentário ao reconstruir quando Musk passou a perceber a Microsoft como parte central do problema que ele dizia enxergar na OpenAI.",
+            sources: [
+              { title: "Le Monde: 2020 tweet revisited at trial", url: "https://www.lemonde.fr/en/economy/article/2026/04/29/at-openai-trial-musk-portrays-himself-as-a-benefactor-of-humanity_6752958_19.html" },
+              { title: "GeekWire: alliance history and 2020 criticism", url: "https://www.geekwire.com/2026/the-microsoft-openai-files-internal-documents-reveal-the-realities-of-ais-defining-alliance/" }
+            ]
+          }
+        ],
+        links: [
+          { title: "OpenAI: GPT-3 technology licensed to Microsoft", url: "https://openai.com/index/openai-licenses-gpt-3-technology-to-microsoft/" },
+          { title: "GeekWire: Microsoft-OpenAI files", url: "https://www.geekwire.com/2026/the-microsoft-openai-files-internal-documents-reveal-the-realities-of-ais-defining-alliance/" },
+          { title: "MIT Technology Review: GPT-3 license in the chronology", url: "https://www.technologyreview.com/2026/05/18/1137488/elon-musk-suit-openai-verdict/" }
+        ]
+      },
+      {
+        date: "2019-03-11",
+        title: "OpenAI cria subsidiária com lucro limitado",
+        importance: "A OpenAI LP cria a ponte entre a origem sem fins lucrativos e a escala comercial futura.",
+        summary: "OpenAI criou a OpenAI LP: um modelo híbrido para captar capital com retornos limitados e manter a entidade sem fins lucrativos no controle formal.",
+        details: "Em março de 2019, a OpenAI criou a OpenAI LP, descrita como uma empresa de 'lucro limitado' dentro da estrutura governada pela entidade sem fins lucrativos. A proposta era captar bilhões para computação e talentos sem tratar o retorno financeiro como objetivo máximo: investidores e funcionários poderiam receber retorno limitado, enquanto o excedente econômico ficaria com a OpenAI Nonprofit. O primeiro limite anunciado para investidores foi de até 100x o investimento. Meses depois, em julho de 2019, a Microsoft anunciaria um investimento de US$ 1 bilhão e uma parceria de infraestrutura com a OpenAI.",
+        extended: [
+          {
+            text: "Em 11 de março de 2019, a OpenAI anunciou a OpenAI LP. A justificativa pública era que sistemas de IA mais ambiciosos exigiriam muito mais computação, contratação e infraestrutura do que a organização havia planejado no início. A OpenAI disse que precisaria investir bilhões de dólares nos anos seguintes e que não via uma estrutura jurídica pronta que equilibrasse captação de capital e missão.",
+            sources: [
+              { title: "OpenAI: OpenAI LP announcement", url: "https://openai.com/index/openai-lp/" }
+            ]
+          },
+          {
+            text: "A solução escolhida foi uma estrutura híbrida: a OpenAI LP teria elementos de empresa com fins lucrativos, mas seria apresentada como 'capped-profit'. Isso permitia oferecer participação econômica a investidores e funcionários, sem prometer que todo valor criado seria destinado a eles. A própria OpenAI escreveu que retornos acima do limite negociado pertenciam à entidade sem fins lucrativos original.",
+            sources: [
+              { title: "OpenAI: capped-profit rationale", url: "https://openai.com/index/openai-lp/" }
+            ]
+          },
+          {
+            text: "No anúncio, a OpenAI afirmou que a OpenAI LP continuaria controlada pelo conselho da OpenAI Nonprofit e que sua obrigação fiduciária primária seria avançar os objetivos do OpenAI Charter. Também disse que investidores e funcionários assinariam documentos reconhecendo que a obrigação com a Carta viria antes do interesse financeiro, inclusive se isso custasse parte ou toda a participação econômica deles.",
+            sources: [
+              { title: "OpenAI: mission-first governance of OpenAI LP", url: "https://openai.com/index/openai-lp/" }
+            ]
+          },
+          {
+            text: "O detalhe do limite importa para entender o termo 'lucro limitado'. Para a primeira rodada de investidores, a OpenAI anunciou um teto de 100 vezes o capital investido e disse esperar múltiplos menores em rodadas futuras conforme a organização avançasse. Esse desenho não eliminava a busca por capital privado; ele tentava encaixá-la dentro de uma promessa de controle sem fins lucrativos.",
+            sources: [
+              { title: "OpenAI: first-round return cap", url: "https://openai.com/index/openai-lp/" }
+            ]
+          },
+          {
+            text: "A parceria com a Microsoft veio depois desse marco. Em 22 de julho de 2019, a OpenAI anunciou que a Microsoft investiria US$ 1 bilhão, que as duas trabalhariam em tecnologias de supercomputação no Azure e que a Microsoft passaria a ser a provedora de nuvem exclusiva da OpenAI. Na cronologia da disputa, a OpenAI LP abre a porta estrutural para escalar; o acordo com Microsoft mostra como essa escala começou a ser financiada e operacionalizada.",
+            sources: [
+              { title: "OpenAI: Microsoft invests and partners with OpenAI", url: "https://openai.com/index/microsoft-invests-in-and-partners-with-openai/" },
+              { title: "OpenAI: OpenAI LP announcement", url: "https://openai.com/index/openai-lp/" }
+            ]
+          },
+          {
+            text: "Esse ponto também é usado pela OpenAI para contestar a narrativa posterior de Musk. Segundo a empresa, Musk recebeu uma cópia antecipada do anúncio da OpenAI LP e pediu que o texto deixasse explícito que ele não tinha interesse financeiro no braço com fins lucrativos. A mesma publicação afirma que ele já havia defendido uma estrutura com fins lucrativos em 2017, embora esse enquadramento seja parte da disputa pública entre as partes.",
+            sources: [
+              { title: "OpenAI: Elon Musk wanted an OpenAI for-profit", url: "https://openai.com/index/elon-musk-wanted-an-openai-for-profit/" }
+            ]
+          }
+        ],
+        links: [
+          { title: "OpenAI: OpenAI LP announcement", url: "https://openai.com/index/openai-lp/" },
+          { title: "OpenAI: Microsoft invests and partners with OpenAI", url: "https://openai.com/index/microsoft-invests-in-and-partners-with-openai/" },
+          { title: "OpenAI: Our structure", url: "https://openai.com/our-structure/" },
+          { title: "OpenAI: Elon Musk wanted an OpenAI for-profit", url: "https://openai.com/index/elon-musk-wanted-an-openai-for-profit/" }
+        ]
+      },
+      {
+        date: "2018-02-20",
+        title: "Musk sai do conselho da OpenAI",
+        importance: "A saída de Musk mistura desacordo de missão com disputa por governança e controle.",
+        summary: "A OpenAI anunciou que Musk deixaria o conselho para evitar conflito com a IA da Tesla; anos depois, a saída virou parte central da disputa sobre controle e financiamento.",
+        details: "Em 20 de fevereiro de 2018, a OpenAI anunciou que Elon Musk deixaria seu conselho, continuaria a doar e aconselhar a organização e evitaria um possível conflito à medida que a Tesla se concentrava mais em IA. Na reconstrução posterior da briga, a separação aparece ligada também às discussões sobre como financiar uma OpenAI muito mais cara de escalar: a OpenAI afirma que recusou dar a Musk controle unilateral de uma estrutura com fins lucrativos e rejeitou a ideia de ligar a organização à Tesla. Por isso, a saída de 2018 é ao mesmo tempo um marco público de governança e um ponto disputado sobre o caminho comercial que viria depois.",
+        extended: [
+          {
+            text: "O registro público do dia é direto. Em 20 de fevereiro de 2018, ao anunciar novos apoiadores e a ampliação de sua base de financiamento, a OpenAI informou que Elon Musk sairia do conselho, mas continuaria a doar e aconselhar a organização. A justificativa publicada foi preventiva: como a Tesla estava ficando mais focada em IA, a saída eliminaria um possível conflito futuro para Musk.",
+            sources: [
+              { title: "OpenAI: OpenAI supporters", url: "https://openai.com/index/openai-supporters/" }
+            ]
+          },
+          {
+            text: "A composição do conselho mudou naquele mesmo anúncio. A OpenAI disse que o board passaria a ser formado por Greg Brockman, Ilya Sutskever, Holden Karnofsky e Sam Altman, com intenção de adicionar outro diretor depois. Isso marca o momento em que Musk deixa a governança formal da organização que havia ajudado a lançar como co-chair.",
+            sources: [
+              { title: "OpenAI: board after Musk departure", url: "https://openai.com/index/openai-supporters/" },
+              { title: "OpenAI: Introducing OpenAI", url: "https://openai.com/index/introducing-openai/" }
+            ]
+          },
+          {
+            text: "A leitura do evento ficou mais complexa quando a disputa virou pública. Em sua cronologia posterior, a OpenAI afirma que, em 2017, Musk discutiu uma transição para uma estrutura com fins lucrativos, buscou maioria econômica, controle inicial do conselho e o cargo de CEO dessa nova estrutura, e que a equipe rejeitou uma configuração que poderia concentrar controle sobre AGI em uma pessoa.",
+            sources: [
+              { title: "OpenAI: Elon Musk wanted an OpenAI for-profit", url: "https://openai.com/index/elon-musk-wanted-an-openai-for-profit/" }
+            ]
+          },
+          {
+            text: "Depois que essas negociações fracassaram, a OpenAI diz que Musk propôs absorver a organização pela Tesla e tratava a Tesla como a única rota plausível para competir com o Google em IA. Essa é a versão da OpenAI para o contexto imediatamente anterior à saída; ela importa porque coloca o rompimento de 2018 dentro de uma disputa sobre capital, missão e quem teria poder sobre a próxima fase da organização.",
+            sources: [
+              { title: "OpenAI: January 2018 Tesla proposal", url: "https://openai.com/index/elon-musk-wanted-an-openai-for-profit/" },
+              { title: "OpenAI: OpenAI and Elon Musk", url: "https://openai.com/index/openai-elon-musk/" }
+            ]
+          },
+          {
+            text: "A própria OpenAI também relata que, na despedida de fevereiro de 2018, Musk disse que seguiria pesquisa avançada de IA na Tesla e que a OpenAI deveria buscar o caminho que visse para levantar bilhões por ano. Em uma peça judicial de 2025, os réus descrevem a retirada como uma separação em que Musk focaria na rota de IA que considerava viável e encorajaria a OpenAI a perseguir financiamento em escala muito maior.",
+            sources: [
+              { title: "OpenAI: February 2018 goodbye all-hands", url: "https://openai.com/index/elon-musk-wanted-an-openai-for-profit/" },
+              { title: "OpenAI defendants: counterclaims and defenses", url: "https://cdn.openai.com/pdf/0ada8797-a5ae-4577-857e-94598d5234d5/2025-04-09-openai-defendants-counterclaims-answer-and-defenses.pdf" }
+            ]
+          },
+          {
+            text: "Na história da briga, esse é o ponto em que os papéis se separam. Musk deixa de estar dentro do conselho da OpenAI antes da OpenAI LP de 2019, antes da parceria bilionária com Microsoft e antes do licenciamento do GPT-3. Quando ele passa a acusar a OpenAI de ter abandonado sua missão, a resposta da empresa insiste que ele conhecia a necessidade de mais capital e já havia defendido caminhos com fins lucrativos antes de sair.",
+            sources: [
+              { title: "OpenAI: OpenAI LP and Musk not formally involved", url: "https://openai.com/index/openai-lp/" },
+              { title: "OpenAI: The truth Elon left out", url: "https://openai.com/index/the-truth-elon-left-out/" }
+            ]
+          }
+        ],
+        links: [
+          { title: "OpenAI: OpenAI supporters", url: "https://openai.com/index/openai-supporters/" },
+          { title: "OpenAI: Elon Musk wanted an OpenAI for-profit", url: "https://openai.com/index/elon-musk-wanted-an-openai-for-profit/" },
+          { title: "OpenAI: OpenAI and Elon Musk", url: "https://openai.com/index/openai-elon-musk/" },
+          { title: "OpenAI: OpenAI LP announcement", url: "https://openai.com/index/openai-lp/" }
+        ]
+      },
+      {
+        date: "2015-12-11",
+        title: "Fundação da OpenAI como organização sem fins lucrativos",
+        importance: "Essa promessa fundadora vira a referência usada para julgar todos os eventos seguintes.",
+        summary: "Musk cofunda a OpenAI com Sam Altman e Greg Brockman como organização sem fins lucrativos, com objetivo de desenvolver IA 'para o benefício da humanidade'.",
+        details: "Em 11 de dezembro de 2015, a OpenAI se apresentou como uma empresa de pesquisa em IA sem fins lucrativos. O anúncio dizia que seu objetivo era avançar a inteligência digital da forma mais provável de beneficiar a humanidade como um todo, sem a obrigação de gerar retorno financeiro. Sam Altman e Elon Musk apareciam como co-chairs; Ilya Sutskever como diretor de pesquisa; Greg Brockman como CTO. A defesa de uma instituição orientada a benefício amplo, colaboração e publicação aberta é o ponto de partida usado depois para discutir se a OpenAI preservou ou transformou demais sua missão.",
+        extended: [
+          {
+            text: "A história começa publicamente em 11 de dezembro de 2015. No anúncio de lançamento, a OpenAI se definiu como uma empresa de pesquisa em inteligência artificial sem fins lucrativos e disse que queria avançar a inteligência digital da maneira mais provável de beneficiar a humanidade como um todo. O texto ligava essa escolha estrutural à ausência de obrigação de gerar retorno financeiro.",
+            sources: [
+              { title: "OpenAI: Introducing OpenAI", url: "https://openai.com/index/introducing-openai/" }
+            ]
+          },
+          {
+            text: "O anúncio também explicava o risco que a organização dizia enxergar. Sistemas de IA poderiam trazer benefícios enormes, mas também causar dano se fossem construídos ou usados incorretamente. Por isso, a OpenAI defendia que deveria existir uma instituição de pesquisa de ponta capaz de priorizar um bom resultado para todos acima do interesse próprio.",
+            sources: [
+              { title: "OpenAI: launch rationale for broad benefit", url: "https://openai.com/index/introducing-openai/" }
+            ]
+          },
+          {
+            text: "A palavra 'Open' não era só branding naquele texto inicial. A OpenAI escreveu que, como organização sem fins lucrativos, pretendia criar valor para todos em vez de acionistas, encorajar pesquisadores a publicar papers, posts e código, compartilhar patentes se existissem e colaborar livremente com outras instituições. Esse conjunto de promessas é o pano de fundo de várias críticas posteriores quando a empresa passa a operar com modelos mais fechados e parceiros comerciais.",
+            sources: [
+              { title: "OpenAI: publishing, patents and collaboration at launch", url: "https://openai.com/index/introducing-openai/" }
+            ]
+          },
+          {
+            text: "A equipe fundadora já incluía nomes que continuam centrais na história da organização. O anúncio listava Ilya Sutskever como diretor de pesquisa, Greg Brockman como CTO e dizia que Sam Altman e Elon Musk eram co-chairs. Também citava outros pesquisadores fundadores e uma base de apoiadores que incluía Altman, Brockman, Musk, Reid Hoffman, Jessica Livingston, Peter Thiel, AWS, Infosys e YC Research.",
+            sources: [
+              { title: "OpenAI: founding team and supporters", url: "https://openai.com/index/introducing-openai/" }
+            ]
+          },
+          {
+            text: "No lançamento, esses apoiadores foram descritos como comprometendo US$ 1 bilhão no total, embora a OpenAI dissesse que esperava gastar apenas uma pequena fração nos primeiros anos. Esse detalhe ajuda a entender a tensão que aparece depois: a ambição inicial já era grande, mas a organização ainda não havia apresentado a estrutura comercial criada em 2019 para captar capital em escala muito maior.",
+            sources: [
+              { title: "OpenAI: founding funding commitment", url: "https://openai.com/index/introducing-openai/" },
+              { title: "OpenAI: OpenAI LP announcement", url: "https://openai.com/index/openai-lp/" }
+            ]
+          },
+          {
+            text: "A formulação da missão seria refinada depois na OpenAI Charter, que afirma que a AGI deve beneficiar toda a humanidade, que seus benefícios não devem concentrar poder indevidamente e que a organização espera precisar de recursos substanciais sem abandonar essa orientação. Na cronologia da disputa com Musk, 2015 funciona como a promessa de origem; os eventos seguintes discutem como essa promessa foi interpretada ao mudar a estrutura da OpenAI.",
+            sources: [
+              { title: "OpenAI: OpenAI Charter", url: "https://openai.com/charter/" },
+              { title: "OpenAI: Introducing OpenAI", url: "https://openai.com/index/introducing-openai/" }
+            ]
+          },
+          {
+            text: "Há ainda uma nuance que ficou pública só mais tarde. Em sua cronologia de 2024, a OpenAI afirma que, antes do anúncio público, Musk já havia questionado se uma estrutura apenas sem fins lucrativos era a melhor opção e sugerido uma corporação padrão com uma organização sem fins lucrativos paralela. Isso não muda o marco de dezembro de 2015, mas mostra por que a fundação virou terreno de disputa quando as partes passaram a contar versões diferentes sobre a missão original.",
+            sources: [
+              { title: "OpenAI: Elon Musk wanted an OpenAI for-profit", url: "https://openai.com/index/elon-musk-wanted-an-openai-for-profit/" }
+            ]
+          }
+        ],
+        links: [
+          { title: "OpenAI: Introducing OpenAI", url: "https://openai.com/index/introducing-openai/" },
+          { title: "OpenAI: OpenAI Charter", url: "https://openai.com/charter/" },
+          { title: "OpenAI: OpenAI LP announcement", url: "https://openai.com/index/openai-lp/" },
+          { title: "OpenAI: Elon Musk wanted an OpenAI for-profit", url: "https://openai.com/index/elon-musk-wanted-an-openai-for-profit/" }
+        ]
+      }
+    ]
+  }
+];
+
+function renderHistory() {
+  const container = document.getElementById("historyView");
+  if (!container) return;
+
+  if (!historyState.activeStoryId) {
+    renderStoriesList(container);
+  } else {
+    renderStoryDetail(container);
+  }
+}
+
+function renderStoriesList(container) {
+  const sorted = [...storiesData].sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated));
+
+  container.innerHTML = `
+    <div class="history-header">
+      <p class="section-kicker">Histórias</p>
+      <h2>Narrativas da IA ao longo do tempo</h2>
+      <p class="history-desc">Contexto aprofundado sobre os grandes eventos e disputas que moldam a indústria da IA.</p>
+    </div>
+    <div class="stories-grid">
+      ${sorted.map((story) => `
+        <button class="story-card" type="button" data-story-id="${escapeHtml(story.id)}">
+          <div class="story-card-meta">
+            <time>${formatDate(story.lastUpdated)}</time>
+            <span class="story-event-count">${story.events.length} eventos</span>
+          </div>
+          <h3>${escapeHtml(story.title)}</h3>
+          <p class="story-card-subtitle">${escapeHtml(story.subtitle)}</p>
+          <p class="story-summary">${escapeHtml(story.summary)}</p>
+          <div class="story-tags">
+            ${story.tags.map((tag) => `<span class="story-tag">${escapeHtml(tag)}</span>`).join("")}
+          </div>
+        </button>
+      `).join("")}
+    </div>
+  `;
+
+  container.querySelectorAll("[data-story-id]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      historyState.activeStoryId = btn.dataset.storyId;
+      historyState.expandedEventIds.clear();
+      historyState.expandedExtendedEventIds.clear();
+      renderHistory();
+    });
+  });
+}
+
+function renderStoryDetail(container) {
+  const story = storiesData.find((s) => s.id === historyState.activeStoryId);
+  if (!story) {
+    historyState.activeStoryId = null;
+    renderHistory();
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="story-detail">
+      <button class="history-back" type="button" data-back>&#8592; Todas as histórias</button>
+      <div class="story-detail-header">
+        <div class="story-detail-meta">
+          <time>Atualizado em ${formatDate(story.lastUpdated)}</time>
+          ${story.tags.map((tag) => `<span class="story-tag">${escapeHtml(tag)}</span>`).join("")}
+        </div>
+        <h2>${escapeHtml(story.title)}</h2>
+        <p class="story-detail-subtitle">${escapeHtml(story.subtitle)}</p>
+        <p class="story-detail-summary">${escapeHtml(story.summary)}</p>
+      </div>
+      <div class="story-events-header">
+        <div>
+          <p class="section-kicker">Eventos</p>
+          <h3>Resumo cronológico</h3>
+        </div>
+        <label class="history-order-control">
+          <span>Ordem da data</span>
+          <select data-history-event-order>
+            <option value="desc"${historyState.eventDateOrder === "desc" ? " selected" : ""}>Mais recentes</option>
+            <option value="asc"${historyState.eventDateOrder === "asc" ? " selected" : ""}>Mais antigas</option>
+          </select>
+        </label>
+      </div>
+      <div class="events-list">
+        ${sortedStoryEvents(story).map(({ event, eventId }) => {
+    const isExpanded = historyState.expandedEventIds.has(eventId);
+    const isExtendedExpanded = historyState.expandedExtendedEventIds.has(eventId);
+    return `
+            <div class="event-item${isExpanded ? " expanded" : ""}" data-event-id="${escapeHtml(eventId)}">
+              <button
+                class="event-header"
+                type="button"
+                data-event-toggle="${escapeHtml(eventId)}"
+                aria-controls="${escapeHtml(eventId)}-details"
+                aria-expanded="${isExpanded}">
+                <div class="event-header-left">
+                  <div class="event-topic-meta">
+                    <span class="event-topic-label">T&oacute;pico</span>
+                    <time class="event-date">${formatDate(event.date)}</time>
+                  </div>
+                  <strong class="event-title">${escapeHtml(event.title)}</strong>
+                  <span class="event-summary">${escapeHtml(event.summary)}</span>
+                </div>
+                <span class="event-toggle-meta">
+                  <span class="event-toggle-label">${isExpanded ? "Fechar resumo" : "Abrir resumo"}</span>
+                  <span class="event-chevron">&#9660;</span>
+                </span>
+              </button>
+              <article class="event-details" id="${escapeHtml(eventId)}-details">
+                <section class="event-summary-panel">
+                  <p class="event-details-label">Vers&atilde;o Resumida</p>
+                  <div class="event-narrative">
+                    ${renderHistoryParagraphs(event.details)}
+                  </div>
+                  ${event.importance ? `
+                    <section class="event-importance">
+                      <h4>Por que importa</h4>
+                      <p>${escapeHtml(event.importance)}</p>
+                    </section>
+                  ` : ""}
+                  ${event.links?.length ? `
+                    <div class="event-links">
+                      <span class="event-links-label">Fontes do resumo</span>
+                      <ul>
+                        ${event.links.map((link) => `
+                          <li><a href="${escapeAttribute(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(link.title)}</a></li>
+                        `).join("")}
+                      </ul>
+                    </div>
+                  ` : ""}
+                </section>
+                ${event.extended?.length ? `
+                  <details class="event-extended" data-event-extended="${escapeHtml(eventId)}"${isExtendedExpanded ? " open" : ""}>
+                    <summary class="event-extended-toggle">
+                      <span class="event-details-label">Vers&atilde;o Estendida</span>
+                      <span class="event-extended-action">Abrir leitura completa</span>
+                    </summary>
+                    <div class="event-extended-narrative">
+                      ${renderHistoryExtendedParagraphs(event.extended)}
+                    </div>
+                  </details>
+                ` : ""}
+              </article>
+            </div>
+          `;
+  }).join("")}
+      </div>
+    </div>
+  `;
+
+  container.querySelector("[data-back]").addEventListener("click", () => {
+    historyState.activeStoryId = null;
+    historyState.expandedEventIds.clear();
+    historyState.expandedExtendedEventIds.clear();
+    renderHistory();
+  });
+
+  container.querySelector("[data-history-event-order]").addEventListener("change", (event) => {
+    historyState.eventDateOrder = event.target.value === "asc" ? "asc" : "desc";
+    saveViewPreferences();
+    renderHistory();
+  });
+
+  container.querySelectorAll("[data-event-toggle]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const eventId = btn.dataset.eventToggle;
+      if (historyState.expandedEventIds.has(eventId)) {
+        historyState.expandedEventIds.delete(eventId);
+      } else {
+        historyState.expandedEventIds.add(eventId);
+      }
+      renderHistory();
+    });
+  });
+
+  container.querySelectorAll("[data-event-extended]").forEach((details) => {
+    details.addEventListener("toggle", () => {
+      const eventId = details.dataset.eventExtended;
+      if (details.open) {
+        historyState.expandedExtendedEventIds.add(eventId);
+      } else {
+        historyState.expandedExtendedEventIds.delete(eventId);
+      }
+    });
+  });
+}
+
+function sortedStoryEvents(story) {
+  const direction = historyState.eventDateOrder === "asc" ? 1 : -1;
+  return story.events
+    .map((event, index) => ({
+      event,
+      eventId: `${story.id}-${index}`
+    }))
+    .sort((a, b) => direction * a.event.date.localeCompare(b.event.date));
+}
+
+function renderHistoryParagraphs(details) {
+  const paragraphs = Array.isArray(details) ? details : [details];
+  return paragraphs
+    .filter(Boolean)
+    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+    .join("");
+}
+
+function renderHistoryExtendedParagraphs(paragraphs) {
+  return paragraphs
+    .filter((paragraph) => paragraph?.text)
+    .map((paragraph) => `
+      <article class="event-extended-paragraph">
+        <p>${escapeHtml(paragraph.text)}</p>
+        ${paragraph.sources?.length ? `
+          <div class="event-citations">
+            ${paragraph.sources.map((source) => `
+              <a href="${escapeAttribute(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.title)}</a>
+            `).join("")}
+          </div>
+        ` : ""}
+      </article>
+    `)
+    .join("");
 }
