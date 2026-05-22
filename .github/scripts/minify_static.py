@@ -4,7 +4,7 @@ import shutil
 import sys
 from pathlib import Path
 
-import csscompressor
+import rcssmin
 import htmlmin
 import rjsmin
 
@@ -100,7 +100,7 @@ def minify_text(text: str, suffix: str) -> str:
         return rjsmin.jsmin(text)
 
     if suffix == ".css":
-        return csscompressor.compress(text)
+        return rcssmin.cssmin(text)
 
     if suffix == ".html":
         return htmlmin.minify(

@@ -30,7 +30,7 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar minificadores
-        run: python -m pip install rjsmin==1.2.5 csscompressor==0.9.5 htmlmin==0.1.12
+        run: python -m pip install rjsmin==1.2.5 rcssmin==1.1.2 htmlmin==0.1.12
 
       - name: Preparar e minificar arquivos
         run: python .github/scripts/minify_static.py
