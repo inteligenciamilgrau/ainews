@@ -3897,7 +3897,7 @@ function renderStoryDetail(container) {
                       ${renderHistoryExtendedParagraphs(event.extended)}
                     </div>
                   </details>
-                ` : ""}
+                `})() : ""}
               </article>
             </div>
           `;
