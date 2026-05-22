@@ -3840,8 +3840,9 @@ function renderStoryDetail(container) {
         ${sortedStoryEvents(story).map(({ event, eventId }) => {
     const isExpanded = historyState.expandedEventIds.has(eventId);
     const isExtendedExpanded = historyState.expandedExtendedEventIds.has(eventId);
+    const itemClass = isExpanded ? "event-item expanded" : "event-item";
     return `
-            <div class="event-item${isExpanded ? " expanded" : ""}" data-event-id="${escapeHtml(eventId)}">
+            <div class="${itemClass}" data-event-id="${escapeHtml(eventId)}">
               <button
                 class="event-header"
                 type="button"
@@ -3884,8 +3885,10 @@ function renderStoryDetail(container) {
                     </div>
                   ` : ""}
                 </section>
-                ${event.extended?.length ? `
-                  <details class="event-extended" data-event-extended="${escapeHtml(eventId)}"${isExtendedExpanded ? " open" : ""}>
+                ${event.extended?.length ? (() => {
+                  const openAttr = isExtendedExpanded ? " open" : "";
+                  return `
+                  <details class="event-extended" data-event-extended="${escapeHtml(eventId)}"${openAttr}>
                     <summary class="event-extended-toggle">
                       <span class="event-details-label">Vers&atilde;o Estendida</span>
                       <span class="event-extended-action">Abrir leitura completa</span>
