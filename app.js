@@ -3841,6 +3841,21 @@ function renderStoryDetail(container) {
     const isExpanded = historyState.expandedEventIds.has(eventId);
     const isExtendedExpanded = historyState.expandedExtendedEventIds.has(eventId);
     const itemClass = isExpanded ? "event-item expanded" : "event-item";
+    let extendedHtml = "";
+    if (event.extended?.length) {
+      const openAttr = isExtendedExpanded ? " open" : "";
+      extendedHtml = `
+                  <details class="event-extended" data-event-extended="${escapeHtml(eventId)}"${openAttr}>
+                    <summary class="event-extended-toggle">
+                      <span class="event-details-label">Vers&atilde;o Estendida</span>
+                      <span class="event-extended-action">Abrir leitura completa</span>
+                    </summary>
+                    <div class="event-extended-narrative">
+                      ${renderHistoryExtendedParagraphs(event.extended)}
+                    </div>
+                  </details>
+      `;
+    }
     return `
             <div class="${itemClass}" data-event-id="${escapeHtml(eventId)}">
               <button
@@ -3885,19 +3900,7 @@ function renderStoryDetail(container) {
                     </div>
                   ` : ""}
                 </section>
-                ${event.extended?.length ? (() => {
-                  const openAttr = isExtendedExpanded ? " open" : "";
-                  return `
-                  <details class="event-extended" data-event-extended="${escapeHtml(eventId)}"${openAttr}>
-                    <summary class="event-extended-toggle">
-                      <span class="event-details-label">Vers&atilde;o Estendida</span>
-                      <span class="event-extended-action">Abrir leitura completa</span>
-                    </summary>
-                    <div class="event-extended-narrative">
-                      ${renderHistoryExtendedParagraphs(event.extended)}
-                    </div>
-                  </details>
-                `})() : ""}
+                ${extendedHtml}
               </article>
             </div>
           `;
