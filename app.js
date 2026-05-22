@@ -3919,12 +3919,19 @@ function renderStoryDetail(container) {
   container.querySelectorAll("[data-event-toggle]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const eventId = btn.dataset.eventToggle;
+      const eventItem = btn.closest(".event-item");
+      const label = btn.querySelector(".event-toggle-label");
       if (historyState.expandedEventIds.has(eventId)) {
         historyState.expandedEventIds.delete(eventId);
+        eventItem.classList.remove("expanded");
+        btn.setAttribute("aria-expanded", "false");
+        label.textContent = "Abrir resumo";
       } else {
         historyState.expandedEventIds.add(eventId);
+        eventItem.classList.add("expanded");
+        btn.setAttribute("aria-expanded", "true");
+        label.textContent = "Fechar resumo";
       }
-      renderHistory();
     });
   });
 
