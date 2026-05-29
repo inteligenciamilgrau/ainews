@@ -3,7 +3,7 @@
     "updated_at": "2026-05-29",
     "last_correction": {
       "date": "2026-05-29",
-      "description_pt": "Atualizado com Claude Opus 4.8, Qwen3.7-Max e Composer 2.5."
+      "description_pt": "Atualizado com Claude Opus 4.8, Gemini 3.5 Flash, Gemini Omni Flash, Qwen3.7-Max e Composer 2.5."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -1498,6 +1498,24 @@
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/",
         "publisher": "Google",
         "date_basis": "Post oficial publicado em 10 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-5-flash",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.5 Flash",
+      "release_date": "2026-05-19",
+      "release_stage": "GA",
+      "ai_category": "LLMs",
+      "model_type": ["raciocinio", "multimodal", "codigo", "agente", "baixo-custo", "rapido", "API"],
+      "description_pt": "Primeiro modelo da familia Gemini 3.5, otimizado para agentes, codigo e tarefas longas com alta velocidade; tornou-se o modelo padrao do Gemini app e do AI Mode no Search.",
+      "source": {
+        "title": "Gemini 3.5: frontier intelligence with action",
+        "url": "https://blog.google/intl/en-africa/products/explore-get-answers/gemini-3-5/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 19 de maio de 2026 anuncia a familia Gemini 3.5 e informa que o Gemini 3.5 Flash esta geralmente disponivel."
       },
       "confidence": "alta"
     },
@@ -3888,6 +3906,32 @@
         "publisher": "Google",
         "date_basis": "Post oficial publicado em 15 de outubro de 2025."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-omni-flash",
+      "company": "Google",
+      "family": "Gemini Omni",
+      "model": "Gemini Omni Flash",
+      "release_date": "2026-05-19",
+      "release_stage": "produto / API em breve",
+      "ai_category": "Video",
+      "model_type": ["video", "multimodal", "edicao", "audio", "imagem", "texto", "Gemini", "Flow", "YouTube Shorts"],
+      "description_pt": "Primeiro modelo da familia Gemini Omni, capaz de criar e editar videos a partir de combinacoes de texto, imagem, audio e video, com edicao conversacional e fundamentacao no conhecimento de mundo do Gemini.",
+      "sources": [
+        {
+          "title": "Introducing Gemini Omni",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/",
+          "publisher": "Google",
+          "date_basis": "Post oficial de 19 de maio de 2026 apresenta o Gemini Omni e informa o rollout do primeiro modelo da familia, Gemini Omni Flash, para Gemini app, Google Flow e YouTube Shorts."
+        },
+        {
+          "title": "Google I/O 2026: News and announcements",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-collection/",
+          "publisher": "Google",
+          "date_basis": "Colecao oficial do Google I/O 2026 lista Gemini Omni entre os modelos lancados em 19 de maio de 2026."
+        }
+      ],
       "confidence": "alta"
     },
     {
