@@ -3,7 +3,7 @@
     "updated_at": "2026-05-29",
     "last_correction": {
       "date": "2026-05-29",
-      "description_pt": "Atualizado com Claude Opus 4.8, Gemini 3.5 Flash, Gemini Omni Flash, Qwen3.7-Max e Composer 2.5."
+      "description_pt": "Atualizado com Claude Opus 4.8, Gemini 3.5 Flash, Gemini Omni Flash, Qwen3.7-Max e a serie Composer do Cursor."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -4102,6 +4102,60 @@
           "date_basis": "Model Studio lista Qwen3.7-Max com launch time em 21 de maio de 2026 e id de modelo qwen3.7-max."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "cursor-composer-1",
+      "company": "Cursor",
+      "family": "Composer",
+      "model": "Composer 1",
+      "release_date": "2025-10-29",
+      "release_stage": "lancamento",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "RL", "software-engineering", "MoE"],
+      "description_pt": "Primeiro modelo de agente Composer do Cursor, otimizado para engenharia de software interativa com alta velocidade, contexto longo, uso de ferramentas e reinforcement learning em ambientes de desenvolvimento.",
+      "source": {
+        "title": "Composer: Building a fast frontier model with RL",
+        "url": "https://cursor.com/blog/composer",
+        "publisher": "Cursor / Anysphere",
+        "date_basis": "Post oficial publicado em 29 de outubro de 2025 apresenta o Composer como novo modelo de agente para engenharia de software."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "cursor-composer-1-5",
+      "company": "Cursor",
+      "family": "Composer",
+      "model": "Composer 1.5",
+      "release_date": "2026-02-09",
+      "release_stage": "lancamento",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "RL", "thinking", "software-engineering"],
+      "description_pt": "Atualizacao do Composer com melhor equilibrio entre velocidade e inteligencia, escalando RL 20x sobre o mesmo modelo pretreinado, com thinking tokens e auto-sumarizacao para tarefas longas.",
+      "source": {
+        "title": "Introducing Composer 1.5",
+        "url": "https://cursor.com/blog/composer-1-5",
+        "publisher": "Cursor / Anysphere",
+        "date_basis": "Post oficial publicado em 9 de fevereiro de 2026 anuncia o Composer 1.5."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "cursor-composer-2",
+      "company": "Cursor",
+      "family": "Composer",
+      "model": "Composer 2",
+      "release_date": "2026-03-19",
+      "release_stage": "lancamento",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "RL", "longo-horizonte", "software-engineering"],
+      "description_pt": "Modelo Composer de segunda geracao, com ganhos amplos em CursorBench, Terminal-Bench 2.0 e SWE-bench Multilingual, treinado sobre pretreinamento continuo e tarefas de codigo de longo horizonte.",
+      "source": {
+        "title": "Introducing Composer 2",
+        "url": "https://cursor.com/blog/composer-2",
+        "publisher": "Cursor / Anysphere",
+        "date_basis": "Post oficial publicado em 19 de marco de 2026 informa que o Composer 2 esta disponivel no Cursor."
+      },
       "confidence": "alta"
     },
     {
