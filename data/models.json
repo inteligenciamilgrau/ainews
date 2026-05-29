@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-05-05",
+    "updated_at": "2026-05-29",
     "last_correction": {
-      "date": "2026-05-05",
-      "description_pt": "Atualizado com o lancamento do GPT-5.5 Instant da OpenAI em 05/05/2026."
+      "date": "2026-05-29",
+      "description_pt": "Atualizado com o lancamento do Claude Opus 4.8 da Anthropic em 28/05/2026."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -991,6 +991,23 @@
         "url": "https://www.anthropic.com/news/claude-opus-4-7",
         "publisher": "Anthropic",
         "date_basis": "Post oficial publicado em 16 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-opus-4-8",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Opus 4.8",
+      "release_date": "2026-05-28",
+      "release_stage": "GA",
+      "model_type": ["codigo", "agente", "raciocinio", "trabalho"],
+      "description_pt": "Upgrade do Opus 4.7 com melhorias em benchmarks, colaboracao agentica, honestidade, eficiencia de ferramentas e fast mode mais barato.",
+      "source": {
+        "title": "Introducing Claude Opus 4.8",
+        "url": "https://www.anthropic.com/news/claude-opus-4-8",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 28 de maio de 2026 informa disponibilidade imediata e uso via Claude API como claude-opus-4-8."
       },
       "confidence": "alta"
     },
