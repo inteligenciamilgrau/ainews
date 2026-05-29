@@ -3,7 +3,7 @@
     "updated_at": "2026-05-29",
     "last_correction": {
       "date": "2026-05-29",
-      "description_pt": "Atualizado com o lancamento do Claude Opus 4.8 da Anthropic em 28/05/2026."
+      "description_pt": "Atualizado com Claude Opus 4.8, Qwen3.7-Max e Composer 2.5."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -4031,6 +4031,50 @@
         "url": "https://qwen.ai/blog?id=qwen3.6",
         "publisher": "QwenAI",
         "date_basis": "Lancamento da serie Plus/Max em abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-7-max",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3.7-Max",
+      "release_date": "2026-05-20",
+      "release_stage": "anuncio / API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "raciocinio", "longo-contexto", "MCP"],
+      "description_pt": "Modelo proprietario da familia Qwen para a era agentica, voltado a codigo, automacao de escritorio, workflows com MCP e execucao autonoma de longo horizonte.",
+      "sources": [
+        {
+          "title": "Qwen3.7: The Agent Frontier",
+          "url": "https://qwen.ai/blog?id=qwen3.7",
+          "publisher": "Qwen Team",
+          "date_basis": "Post oficial de release publicado em 20 de maio de 2026 apresenta o Qwen3.7-Max como modelo proprietario para agentes."
+        },
+        {
+          "title": "Alibaba Cloud Model Studio",
+          "url": "https://modelstudio.alibabacloud.com/",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Model Studio lista Qwen3.7-Max com launch time em 21 de maio de 2026 e id de modelo qwen3.7-max."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "cursor-composer-2-5",
+      "company": "Cursor",
+      "family": "Composer",
+      "model": "Composer 2.5",
+      "release_date": "2026-05-18",
+      "release_stage": "lancamento",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "RL", "software-engineering"],
+      "description_pt": "Modelo de agente do Cursor para engenharia de software, com ganhos sobre o Composer 2 em tarefas longas, seguimento de instrucoes complexas, comportamento colaborativo e treinamento com RL direcionado.",
+      "source": {
+        "title": "Apresentando o Composer 2.5",
+        "url": "https://cursor.com/pt-BR/blog/composer-2-5",
+        "publisher": "Cursor / Anysphere",
+        "date_basis": "Post oficial publicado em 18 de maio de 2026 informa que o Composer 2.5 esta disponivel no Cursor."
       },
       "confidence": "alta"
     },

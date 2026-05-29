@@ -75,6 +75,7 @@ const companyColors = {
   ByteDance: "#0f172a",
   Kuaishou: "#f97316",
   Alibaba: "#c2410c",
+  Cursor: "#0f172a",
   MiniMax: "#7c2d12"
 };
 
