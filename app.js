@@ -227,6 +227,19 @@ const companyLocations = [
     sourceUrl: "https://craft.co/bytedance/locations"
   },
   {
+    company: "Cursor",
+    site: "San Francisco hub",
+    city: "San Francisco",
+    region: "California",
+    country: "United States",
+    address: "San Francisco, CA",
+    lat: 37.7749,
+    lng: -122.4194,
+    notes: "Cursor's official careers page lists San Francisco among its active locations; marker is city-level because a public office address is not published there.",
+    sourceName: "Cursor Careers",
+    sourceUrl: "https://cursor.com/careers"
+  },
+  {
     company: "DeepSeek",
     city: "Hangzhou",
     region: "Zhejiang",
