@@ -520,12 +520,14 @@ const companyLocations = [
   },
   {
     company: "MiniMax",
+    site: "Headquarters",
     city: "Shanghai",
     region: "Shanghai",
     country: "China",
-    address: "No. 65 Guiqing Road, Xuhui District",
+    address: "No. 65 Guiqing Road, 11th Floor, Building B, Xinyan Building, Xuhui District",
     lat: 31.1706,
     lng: 121.4135,
+    notes: "CB Insights lists MiniMax's headquarters at this Shanghai address; marker coordinates are approximate for Guiqing Road in Xuhui.",
     sourceName: "CB Insights",
     sourceUrl: "https://www.cbinsights.com/company/minimax-ai"
   },

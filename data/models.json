@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-05-29",
+    "updated_at": "2026-06-01",
     "last_correction": {
-      "date": "2026-05-29",
-      "description_pt": "Atualizado com Claude Opus 4.8, Gemini 3.5 Flash, Gemini Omni Flash, Qwen3.7-Max e a serie Composer do Cursor."
+      "date": "2026-06-01",
+      "description_pt": "Adicionada a linha historica da MiniMax desde os primeiros modelos publicos e reforcado o marcador da empresa no mapa."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -5421,6 +5421,192 @@
       "confidence": "alta"
     },
     {
+      "id": "minimax-speech-01",
+      "company": "MiniMax",
+      "family": "Speech",
+      "model": "Speech-01",
+      "release_date": "2023-11-01",
+      "release_stage": "uso empresarial",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "enterprise"],
+      "description_pt": "Primeira geracao publica da linha de fala da MiniMax, usada em cenarios empresariais de voz, conversa e narracao personalizada.",
+      "source": {
+        "title": "MiniMax speech model Speech-01, has served over 2,000 enterprise users",
+        "url": "https://www.minimax.io/news/served-over-2000-enterprise",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial de 20 de junho de 2024 informa que o modelo de fala era usado desde novembro de 2023; dia 1 usado para ordenar o mes."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "minimax-abab-6-5",
+      "company": "MiniMax",
+      "family": "abab",
+      "model": "abab6.5 / abab6.5s",
+      "release_date": "2024-04-17",
+      "release_stage": "modelo geral",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "MoE", "longo-contexto", "200k"],
+      "description_pt": "Serie abab6.5 de LLMs gerais da MiniMax, com abab6.5 de escala trilionaria e abab6.5s otimizado para eficiencia, ambos com contexto de 200k tokens.",
+      "source": {
+        "title": "The General Large Language Model abab6.5 Series",
+        "url": "https://www.minimax.io/news/abab65-series",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 17 de abril de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-video-01",
+      "company": "MiniMax",
+      "family": "Hailuo",
+      "model": "Video-01",
+      "release_date": "2024-08-31",
+      "release_stage": "produto/API",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "720p", "25fps"],
+      "description_pt": "Primeiro modelo AI-native de video da MiniMax, com geracao texto-para-video e imagem-para-video em 720p e 25 fps para clipes curtos.",
+      "source": {
+        "title": "MiniMax officially releases the Video-01 video generation model",
+        "url": "https://www.minimax.io/news/video-01",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 31 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-s2v-01",
+      "company": "MiniMax",
+      "family": "Hailuo",
+      "model": "S2V-01",
+      "release_date": "2025-01-10",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "imagem-para-video", "referencia-de-sujeito", "consistencia"],
+      "description_pt": "Modelo Hailuo focado em subject reference, mantendo identidade e caracteristicas faciais consistentes ao longo de videos dinamicos.",
+      "source": {
+        "title": "S2V-01: Subject Reference of Hailuo",
+        "url": "https://www.minimax.io/news/s2v-01-release",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 10 de janeiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-01",
+      "company": "MiniMax",
+      "family": "MiniMax-01",
+      "model": "MiniMax-Text-01 / MiniMax-VL-01",
+      "release_date": "2025-01-15",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "MoE", "Lightning Attention", "open-weights", "longo-contexto"],
+      "description_pt": "Serie MiniMax-01 com modelo de linguagem Text-01 e modelo visual-linguistico VL-01, usando Lightning Attention e contexto muito longo.",
+      "source": {
+        "title": "MiniMax-01 is Now Open-Source: Scaling Lightning Attention for the AI Agent Era",
+        "url": "https://www.minimax.io/news/minimax-01-series-2",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 15 de janeiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-t2v-i2v-01-director",
+      "company": "MiniMax",
+      "family": "Hailuo",
+      "model": "T2V-01-Director / I2V-01-Director",
+      "release_date": "2025-02-11",
+      "release_stage": "produto/API",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "camera-control", "cinematico"],
+      "description_pt": "Modelos Director da familia Hailuo para video com controle aprimorado de camera, composicao de cena e aderencia a movimentos cinematograficos.",
+      "sources": [
+        {
+          "title": "Models - MiniMax API Docs",
+          "url": "https://platform.minimax.io/docs/release-notes/models",
+          "publisher": "MiniMax",
+          "date_basis": "Release notes oficiais listam T2V-01-Director / I2V-01-Director em 11 de fevereiro de 2025."
+        },
+        {
+          "title": "Hailuo AI Advances Cinematic Storytelling with T2V-01-Director and I2V-01-Director",
+          "url": "https://www.minimax.io/news/01-director",
+          "publisher": "MiniMax",
+          "date_basis": "Post oficial publicado em 3 de marco de 2025 detalha a familia Director."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-image-01",
+      "company": "MiniMax",
+      "family": "Image",
+      "model": "Image-01",
+      "release_date": "2025-02-15",
+      "release_stage": "produto/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "API"],
+      "description_pt": "Primeiro modelo texto-para-imagem da MiniMax, com foco em aderencia a prompt, composicao visual e formatos de saida flexiveis.",
+      "sources": [
+        {
+          "title": "Models - MiniMax API Docs",
+          "url": "https://platform.minimax.io/docs/release-notes/models",
+          "publisher": "MiniMax",
+          "date_basis": "Release notes oficiais listam Image-01 em 15 de fevereiro de 2025."
+        },
+        {
+          "title": "MiniMax Launches Image-01: Expanding Multimodal Vision with Text-to-Image Generation",
+          "url": "https://www.minimax.io/news/image-01",
+          "publisher": "MiniMax",
+          "date_basis": "Post oficial publicado em 28 de fevereiro de 2025 detalha o modelo."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-speech-02",
+      "company": "MiniMax",
+      "family": "Speech",
+      "model": "Speech-02-turbo / Speech-02-hd",
+      "release_date": "2025-04-02",
+      "release_stage": "produto/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "voice-cloning", "multilingue", "API"],
+      "description_pt": "Serie Speech-02 para sintese de fala e clonagem de voz, com variantes HD para alta fidelidade e Turbo para baixa latencia.",
+      "source": {
+        "title": "Speech-02-series : The Next Leap in Text-to-Audio and AI Voice Technology",
+        "url": "https://www.minimax.io/news/speech-02-series",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 2 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-m1",
+      "company": "MiniMax",
+      "family": "M",
+      "model": "MiniMax-M1",
+      "release_date": "2025-06-16",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "MoE", "hybrid-attention", "open-weights", "longo-contexto", "1M"],
+      "description_pt": "Modelo de raciocinio open-weight de grande escala com atencao hibrida, 456B parametros totais, 45,9B ativos e contexto de ate 1M tokens.",
+      "sources": [
+        {
+          "title": "MiniMax-M1: Scaling Test-Time Compute Efficiently with Lightning Attention",
+          "url": "https://arxiv.org/abs/2506.13585",
+          "publisher": "MiniMax / arXiv",
+          "date_basis": "Artigo publicado em 16 de junho de 2025 informa a liberacao publica do MiniMax-M1."
+        },
+        {
+          "title": "MiniMax-M1 GitHub",
+          "url": "https://github.com/MiniMax-AI/MiniMax-M1",
+          "publisher": "MiniMax",
+          "date_basis": "Repositorio oficial dos pesos e relatorio tecnico."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "minimax-hailuo-02",
       "company": "MiniMax",
       "family": "Hailuo",
@@ -5435,6 +5621,78 @@
         "url": "https://www.minimax.io/news/minimax-hailuo-02",
         "publisher": "MiniMax",
         "date_basis": "Post oficial publicado em 18 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-music-1-5-beta",
+      "company": "MiniMax",
+      "family": "Music",
+      "model": "Music-1.5 Beta",
+      "release_date": "2025-06-20",
+      "release_stage": "beta/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "letra", "prompt-musical"],
+      "description_pt": "Beta da geracao musical Music-1.5, voltada a criar musicas a partir de prompts musicais e letras.",
+      "source": {
+        "title": "Models - MiniMax API Docs",
+        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "publisher": "MiniMax",
+        "date_basis": "Release notes oficiais listam Music-1.5 Beta em 20 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-speech-2-5",
+      "company": "MiniMax",
+      "family": "Speech",
+      "model": "Speech-2.5",
+      "release_date": "2025-08-06",
+      "release_stage": "produto/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "voice-cloning", "multilingue"],
+      "description_pt": "Modelo de sintese de fala com maior cobertura de idiomas e alta similaridade de voz para experiencias de audio personalizadas.",
+      "source": {
+        "title": "Models - MiniMax API Docs",
+        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "publisher": "MiniMax",
+        "date_basis": "Release notes oficiais listam Speech-2.5 em 6 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-music-1-5",
+      "company": "MiniMax",
+      "family": "Music",
+      "model": "Music-1.5",
+      "release_date": "2025-09-11",
+      "release_stage": "produto/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "cancao", "4-minutos"],
+      "description_pt": "Atualizacao Music-1.5 para criacao de musicas de ate quatro minutos, com foco em qualidade sonora e estrutura musical.",
+      "source": {
+        "title": "Models - MiniMax API Docs",
+        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "publisher": "MiniMax",
+        "date_basis": "Release notes oficiais listam Music-1.5 em 11 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-m2",
+      "company": "MiniMax",
+      "family": "M",
+      "model": "MiniMax-M2",
+      "release_date": "2025-10-27",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "tool-use", "open-weights"],
+      "description_pt": "Modelo da serie M voltado a agentes e codigo, com foco em desempenho agentico, velocidade e custo para fluxos de desenvolvimento.",
+      "source": {
+        "title": "MiniMax M2 & Agent: Ingenious in Simplicity",
+        "url": "https://www.minimax.io/blog/minimax-m2-en-1748600000",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 27 de outubro de 2025."
       },
       "confidence": "alta"
     },
@@ -5454,6 +5712,228 @@
         "publisher": "MiniMax",
         "date_basis": "Post oficial publicado em 28 de outubro de 2025."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-speech-2-6",
+      "company": "MiniMax",
+      "family": "Speech",
+      "model": "Speech-2.6",
+      "release_date": "2025-10-29",
+      "release_stage": "produto/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "baixa-latencia", "agente"],
+      "description_pt": "Atualizacao de voz para agentes com fala mais humana, resposta instantanea e melhorias de expressividade.",
+      "source": {
+        "title": "Models - MiniMax API Docs",
+        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "publisher": "MiniMax",
+        "date_basis": "Release notes oficiais listam Speech-2.6 em 29 de outubro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-music-2-0",
+      "company": "MiniMax",
+      "family": "Music",
+      "model": "Music-2.0",
+      "release_date": "2025-10-29",
+      "release_stage": "produto/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "expressividade"],
+      "description_pt": "Modelo Music-2.0 com maior expressividade musical e foco em tornar melodias geradas mais emocionais e consistentes.",
+      "source": {
+        "title": "Models - MiniMax API Docs",
+        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "publisher": "MiniMax",
+        "date_basis": "Release notes oficiais listam Music-2.0 em 29 de outubro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-m2-1",
+      "company": "MiniMax",
+      "family": "M",
+      "model": "MiniMax-M2.1",
+      "release_date": "2025-12-22",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "refatoracao", "multilingue"],
+      "description_pt": "Atualizacao M2.1 com foco em programacao multilingue, refatoracao precisa e tarefas reais complexas de engenharia.",
+      "sources": [
+        {
+          "title": "Models - MiniMax API Docs",
+          "url": "https://platform.minimax.io/docs/release-notes/models",
+          "publisher": "MiniMax",
+          "date_basis": "Release notes oficiais listam MiniMax-M2.1 em 22 de dezembro de 2025."
+        },
+        {
+          "title": "MiniMax M2.1: Significantly Enhanced Multi-Language Programming, Built for Real-World Complex Tasks",
+          "url": "https://www.minimax.io/news/minimax-m21",
+          "publisher": "MiniMax",
+          "date_basis": "Post oficial de 23 de dezembro de 2025 detalha o modelo."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-music-2-5",
+      "company": "MiniMax",
+      "family": "Music",
+      "model": "Music-2.5",
+      "release_date": "2026-01-16",
+      "release_stage": "produto/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "texto-para-musica", "controle-criativo"],
+      "description_pt": "Modelo Music-2.5 voltado a maior controle de detalhes musicais e realismo na geracao de musicas.",
+      "source": {
+        "title": "Models - MiniMax API Docs",
+        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "publisher": "MiniMax",
+        "date_basis": "Release notes oficiais listam Music-2.5 em 16 de janeiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-m2-her",
+      "company": "MiniMax",
+      "family": "M",
+      "model": "MiniMax-M2-her",
+      "release_date": "2026-01-27",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "role-play", "dialogo-longo", "personagens", "conversa"],
+      "description_pt": "Modelo da familia M2 voltado a role-play, dialogos longos e experiencias multi-personagem em produtos como Talkie e Xingye.",
+      "sources": [
+        {
+          "title": "A Deep Dive into the MiniMax-M2-her",
+          "url": "https://www.minimax.io/news/a-deep-dive-into-the-minimax-m2-her-2",
+          "publisher": "MiniMax",
+          "date_basis": "Post oficial publicado em 27 de janeiro de 2026 detalha o MiniMax-M2-her."
+        },
+        {
+          "title": "MiniMax Global Announces Full Year 2025 Financial Results",
+          "url": "https://www.minimax.io/news/minimax-global-announces-full-year-2025-financial-results",
+          "publisher": "MiniMax",
+          "date_basis": "Resultado anual informa que M2, M2.1 e M2-her foram atualizados no quarto trimestre de 2025; a data do post tecnico e usada para ordenacao publica."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "minimax-speech-2-8",
+      "company": "MiniMax",
+      "family": "Speech",
+      "model": "Speech-2.8",
+      "release_date": "2026-01-23",
+      "release_stage": "produto/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "audio-tags", "qualidade"],
+      "description_pt": "Modelo Speech-2.8 com tags de som naturais, voz mais realista e qualidade de audio aprimorada.",
+      "source": {
+        "title": "Models - MiniMax API Docs",
+        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "publisher": "MiniMax",
+        "date_basis": "Release notes oficiais listam Speech-2.8 em 23 de janeiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-m2-5",
+      "company": "MiniMax",
+      "family": "M",
+      "model": "MiniMax-M2.5 / M2.5-highspeed",
+      "release_date": "2026-02-12",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "tool-use", "busca", "produtividade"],
+      "description_pt": "Serie M2.5 para produtividade real, programacao, chamadas de ferramenta, busca e tarefas agenticas com maior eficiencia.",
+      "source": {
+        "title": "MiniMax M2.5: Built for Real-World Productivity.",
+        "url": "https://www.minimax.io/blog/minimax-m25",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 12 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-music-2-5-plus",
+      "company": "MiniMax",
+      "family": "Music",
+      "model": "Music2.5+",
+      "release_date": "2026-03-01",
+      "release_stage": "produto/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "instrumental", "texto-para-musica"],
+      "description_pt": "Atualizacao Music2.5+ com foco em geracao instrumental e maior flexibilidade de estilos musicais.",
+      "source": {
+        "title": "Models - MiniMax API Docs",
+        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "publisher": "MiniMax",
+        "date_basis": "Release notes oficiais listam Music2.5+ em marco de 2026; dia 1 usado para ordenacao do mes."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "minimax-m2-7",
+      "company": "MiniMax",
+      "family": "M",
+      "model": "MiniMax-M2.7 / M2.7-highspeed",
+      "release_date": "2026-03-18",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "self-improvement", "tool-use"],
+      "description_pt": "Serie M2.7 com foco em autoevolucao de modelos, construcao de harnesses agenticos e tarefas complexas de produtividade.",
+      "source": {
+        "title": "MiniMax M2.7: Early Echoes of Self-Evolution",
+        "url": "https://www.minimax.io/news/minimax-m27-en",
+        "publisher": "MiniMax",
+        "date_basis": "Post oficial publicado em 18 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-music-2-6",
+      "company": "MiniMax",
+      "family": "Music",
+      "model": "Music-2.6",
+      "release_date": "2026-04-01",
+      "release_stage": "produto/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "cover", "baixo", "texto-para-musica"],
+      "description_pt": "Modelo Music-2.6 com foco em covers, controle de baixo e refinamento da expressividade musical.",
+      "source": {
+        "title": "Models - MiniMax API Docs",
+        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "publisher": "MiniMax",
+        "date_basis": "Release notes oficiais listam Music-2.6 em abril de 2026; dia 1 usado para ordenacao do mes."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "minimax-m3",
+      "company": "MiniMax",
+      "family": "M",
+      "model": "MiniMax-M3",
+      "release_date": "2026-06-01",
+      "release_stage": "produto/API/open weights anunciado",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "video-input", "multimodal", "codigo", "agente", "MSA", "open-weights", "1M"],
+      "description_pt": "Modelo M3 para codigo, agentes, entrada multimodal e contexto longo, usando MiniMax Sparse Attention e suporte de ate 1M tokens.",
+      "sources": [
+        {
+          "title": "MiniMax M3: Frontier Coding, 1M Context, Native Multimodality",
+          "url": "https://www.minimax.io/blog/minimax-m3",
+          "publisher": "MiniMax",
+          "date_basis": "Post oficial publicado em 1 de junho de 2026 informa o lancamento do MiniMax M3."
+        },
+        {
+          "title": "Models - MiniMax API Docs",
+          "url": "https://platform.minimax.io/docs/release-notes/models",
+          "publisher": "MiniMax",
+          "date_basis": "Release notes oficiais listam MiniMax M3 em 1 de junho de 2026."
+        }
+      ],
       "confidence": "alta"
     }
   ]
