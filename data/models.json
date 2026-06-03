@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-06-01",
+    "updated_at": "2026-06-03",
     "last_correction": {
-      "date": "2026-06-01",
-      "description_pt": "Adicionada a linha historica da MiniMax desde os primeiros modelos publicos e reforcado o marcador da empresa no mapa."
+      "date": "2026-06-03",
+      "description_pt": "Adicionada a linha historica da familia Microsoft MAI, incluindo os sete modelos anunciados no Build 2026, variantes anteriores e marcador da Microsoft no mapa."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -5934,6 +5934,308 @@
           "date_basis": "Release notes oficiais listam MiniMax M3 em 1 de junho de 2026."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-voice-1",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Voice-1",
+      "release_date": "2025-08-28",
+      "release_stage": "produto/preview",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "expressivo", "on-device"],
+      "description_pt": "Primeiro modelo de geracao de fala da Microsoft AI, usado em Copilot Daily, Podcasts e experiencias do Copilot Labs, com foco em fala natural e expressiva.",
+      "sources": [
+        {
+          "title": "Two in-house models in support of our mission",
+          "url": "https://microsoft.ai/news/two-new-in-house-models/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial publicado em 28 de agosto de 2025 anunciou MAI-Voice-1."
+        },
+        {
+          "title": "Today we're announcing 3 new world class MAI models, available in Foundry",
+          "url": "https://microsoft.ai/news/today-were-announcing-3-new-world-class-mai-models-available-in-foundry/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 2 de abril de 2026 atualizou a disponibilidade em Microsoft Foundry."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-1-preview",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-1-preview",
+      "release_date": "2025-08-28",
+      "release_stage": "teste publico/API para trusted testers",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "MoE", "instruct", "LMArena"],
+      "description_pt": "Primeiro modelo fundacional end-to-end da Microsoft AI, colocado em teste publico no LMArena e previsto para casos de texto no Copilot.",
+      "source": {
+        "title": "Two in-house models in support of our mission",
+        "url": "https://microsoft.ai/news/two-new-in-house-models/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 28 de agosto de 2025 anunciou o teste publico do MAI-1-preview."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-image-1",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Image-1",
+      "release_date": "2025-10-13",
+      "release_stage": "anuncio/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "fotorealismo", "Copilot", "Bing"],
+      "description_pt": "Primeiro modelo de imagem desenvolvido integralmente pela Microsoft AI, posteriormente disponibilizado em Bing Image Creator e Copilot Audio Expressions.",
+      "source": {
+        "title": "Introducing MAI-Image-1, debuting in the top 10 on LMArena",
+        "url": "https://microsoft.ai/news/introducing-mai-image-1-debuting-in-the-top-10-on-lmarena/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 13 de outubro de 2025; atualizacao de 4 de novembro informou rollout em produtos Microsoft."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-image-2",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Image-2",
+      "release_date": "2026-03-19",
+      "release_stage": "playground/API seletiva",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "fotorealismo", "texto-em-imagem", "Arena"],
+      "description_pt": "Modelo de imagem MAI de segunda geracao, anunciado como familia top 3 no Arena.ai e focado em fotorealismo, texto dentro da imagem e workflows criativos.",
+      "sources": [
+        {
+          "title": "Introducing MAI-Image-2: for limitless creativity",
+          "url": "https://microsoft.ai/news/introducing-mai-image-2/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial publicado em 19 de marco de 2026 anunciou o MAI-Image-2."
+        },
+        {
+          "title": "Today we're announcing 3 new world class MAI models, available in Foundry",
+          "url": "https://microsoft.ai/news/today-were-announcing-3-new-world-class-mai-models-available-in-foundry/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 2 de abril de 2026 detalhou disponibilidade em Foundry e rollouts em produtos."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-transcribe-1",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Transcribe-1",
+      "release_date": "2026-04-02",
+      "release_stage": "Foundry/produto",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "speech-to-text", "transcricao", "multilingue", "25-idiomas"],
+      "description_pt": "Modelo de transcricao speech-to-text da Microsoft AI para audio real e ruidoso, anunciado com suporte aos 25 idiomas mais usados em produtos Microsoft.",
+      "source": {
+        "title": "Today we're announcing 3 new world class MAI models, available in Foundry",
+        "url": "https://microsoft.ai/news/today-were-announcing-3-new-world-class-mai-models-available-in-foundry/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 2 de abril de 2026 anunciou MAI-Transcribe-1 em Microsoft Foundry."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-image-2-efficient",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Image-2-Efficient",
+      "release_date": "2026-04-14",
+      "release_stage": "Foundry/Playground",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "eficiente", "baixa-latencia", "producao"],
+      "description_pt": "Variante mais eficiente do MAI-Image-2, voltada a volume, custo e velocidade para imagens de producao.",
+      "source": {
+        "title": "MAI-Image-2-Efficient: Flagship Quality, 41% Lower Cost",
+        "url": "https://microsoft.ai/news/mai-image-2-efficient/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 14 de abril de 2026 informou disponibilidade no Foundry e MAI Playground."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-thinking-1",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Thinking-1",
+      "release_date": "2026-06-02",
+      "release_stage": "private preview",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "MoE", "35B-ativos", "256k", "tool-use"],
+      "description_pt": "Modelo de raciocinio da Microsoft AI, com 35B parametros ativos e cerca de 1T totais em arquitetura MoE, focado em matematica, codigo, chat empresarial e tool use.",
+      "sources": [
+        {
+          "title": "Introducing MAI-Thinking-1",
+          "url": "https://microsoft.ai/news/introducing-mai-thinking-1/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial publicado em 2 de junho de 2026 anunciou o MAI-Thinking-1."
+        },
+        {
+          "title": "Building a hill-climbing machine: Launching seven new MAI models",
+          "url": "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 2 de junho de 2026 enquadrou o modelo na familia de sete novos MAI."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-code-1-flash",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Code-1-Flash",
+      "release_date": "2026-06-02",
+      "release_stage": "rollout em GitHub Copilot",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "tool-use", "5B-ativos", "Copilot"],
+      "description_pt": "Modelo agentico de codigo com 5B parametros ativos, integrado ao GitHub Copilot e VS Code para fluxos de desenvolvimento eficientes.",
+      "source": {
+        "title": "Introducing MAI-Code-1-Flash",
+        "url": "https://microsoft.ai/news/introducingmai-code-1-flash/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 2 de junho de 2026 anunciou o rollout no GitHub Copilot."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-image-2-5",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Image-2.5",
+      "release_date": "2026-06-02",
+      "release_stage": "Foundry/Playground/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "edicao", "image-to-image", "Arena", "PowerPoint", "OneDrive"],
+      "description_pt": "Modelo de imagem e edicao MAI com maior fidelidade, controle local de edicoes, melhor texto em imagem e rollout em PowerPoint, OneDrive, Foundry e MAI Playground.",
+      "source": {
+        "title": "MAI-Image-2.5 launches at No. 2 for image editing on Arena",
+        "url": "https://microsoft.ai/news/introducing-mai-image-2-5/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 2 de junho de 2026 informou disponibilidade do MAI-Image-2.5."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-image-2-5-flash",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Image-2.5-Flash",
+      "release_date": "2026-06-02",
+      "release_stage": "Foundry/Playground",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "edicao", "flash", "baixo-custo", "baixa-latencia"],
+      "description_pt": "Variante rapida e de menor custo do MAI-Image-2.5 para geracao e edicao de imagens em workloads de producao.",
+      "source": {
+        "title": "MAI-Image-2.5 launches at No. 2 for image editing on Arena",
+        "url": "https://microsoft.ai/news/introducing-mai-image-2-5/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 2 de junho de 2026 lancou MAI-Image-2.5 e MAI-Image-2.5-Flash."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-transcribe-1-5",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Transcribe-1.5",
+      "release_date": "2026-06-02",
+      "release_stage": "Foundry/Playground",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "speech-to-text", "transcricao", "multilingue", "43-idiomas", "keyword-biasing"],
+      "description_pt": "Atualizacao do modelo de transcricao MAI com cobertura expandida para 43 idiomas, biasing de termos de dominio e alta velocidade para audio longo.",
+      "source": {
+        "title": "Introducing MAI-Transcribe-1.5",
+        "url": "https://microsoft.ai/news/mai-transcribe-1-5more-accurate-context-aware-and-built-for-production/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 2 de junho de 2026 anunciou o MAI-Transcribe-1.5."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-voice-2",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Voice-2",
+      "release_date": "2026-06-02",
+      "release_stage": "Foundry/produto",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "multilingue", "15-idiomas", "voice-cloning", "emocao"],
+      "description_pt": "Modelo de text-to-speech da Microsoft AI com fala natural e expressiva, controle de emocao, referencia curta de voz e suporte multilingue.",
+      "source": {
+        "title": "Introducing MAI-Voice-2",
+        "url": "https://microsoft.ai/news/mai-voice-2expressive-speech-in-10-languages/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 2 de junho de 2026 anunciou o MAI-Voice-2."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-voice-2-flash",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Voice-2-Flash",
+      "release_date": "2026-06-02",
+      "release_stage": "anuncio/coming soon",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "flash", "baixo-custo", "baixa-latencia"],
+      "description_pt": "Variante anunciada do MAI-Voice-2 para sintese de voz mais barata e eficiente, ainda marcada pela Microsoft como coming soon no anuncio da familia MAI.",
+      "source": {
+        "title": "Building a hill-climbing machine: Launching seven new MAI models",
+        "url": "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/",
+        "publisher": "Microsoft AI",
+        "date_basis": "Post oficial publicado em 2 de junho de 2026 citou MAI-Voice-2-Flash como parte dos sete modelos, com disponibilidade coming soon."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-aion-1-instruct",
+      "company": "Microsoft",
+      "family": "Aion",
+      "model": "Aion 1.0 Instruct",
+      "release_date": "2026-06-02",
+      "release_stage": "developer preview/open weights anunciado",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "SLM", "instruct", "on-device", "Edge", "Windows", "open-weights"],
+      "description_pt": "Modelo SLM local para Windows e Edge, menor e mais eficiente que o SLM anterior do Windows, voltado a sumarizacao, reescrita, deteccao de intencoes e acessibilidade.",
+      "sources": [
+        {
+          "title": "Build 2026: Furthering Windows as the trusted platform for development",
+          "url": "https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/",
+          "publisher": "Windows Developer Blog",
+          "date_basis": "Post oficial publicado em 2 de junho de 2026 anunciou Aion 1.0 Instruct em preview."
+        },
+        {
+          "title": "Expanding on-device AI in Microsoft Edge: New models and APIs for the web",
+          "url": "https://blogs.windows.com/msedgedev/2026/06/02/expanding-on-device-ai-in-microsoft-edge-new-models-and-apis-for-the-web/",
+          "publisher": "Microsoft Edge Blog",
+          "date_basis": "Post oficial publicado em 2 de junho de 2026 informou developer preview do Aion-1.0-Instruct no Edge."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-aion-1-plan",
+      "company": "Microsoft",
+      "family": "Aion",
+      "model": "Aion 1.0 Plan",
+      "release_date": "2026-06-02",
+      "release_stage": "preview/anuncio",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "SLM", "raciocinio", "tool-use", "agente", "on-device", "14B", "32k"],
+      "description_pt": "Modelo local de raciocinio e chamada de ferramentas com 14B parametros e contexto de 32K, criado para habilitar workflows agenticos totalmente locais em dispositivos Windows capazes.",
+      "source": {
+        "title": "Build 2026: Furthering Windows as the trusted platform for development",
+        "url": "https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/",
+        "publisher": "Windows Developer Blog",
+        "date_basis": "Post oficial publicado em 2 de junho de 2026 anunciou Aion 1.0 Plan em preview."
+      },
       "confidence": "alta"
     }
   ]
