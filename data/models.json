@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-06-03",
+    "updated_at": "2026-06-10",
     "last_correction": {
-      "date": "2026-06-03",
-      "description_pt": "Adicionada a linha historica da familia Microsoft MAI, incluindo os sete modelos anunciados no Build 2026, variantes anteriores e marcador da Microsoft no mapa."
+      "date": "2026-06-10",
+      "description_pt": "Adicionados Claude Fable 5 e Claude Mythos 5 (lancados em 9 de junho de 2026) a timeline da Anthropic."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -1008,6 +1008,48 @@
         "url": "https://www.anthropic.com/news/claude-opus-4-8",
         "publisher": "Anthropic",
         "date_basis": "Post oficial publicado em 28 de maio de 2026 informa disponibilidade imediata e uso via Claude API como claude-opus-4-8."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-fable-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Fable 5",
+      "release_date": "2026-06-09",
+      "release_stage": "lancamento",
+      "model_type": ["codigo", "agente", "raciocinio", "trabalho"],
+      "description_pt": "Lancamento publico da capacidade Mythos-class, modelo mais capaz da Anthropic disponivel amplamente. Usa classificadores de seguranca que roteiam ~5% de consultas sensiveis para Opus 4.8. Contexto de 1M tokens, precos reduzidos em mais de 50% em relacao ao Mythos Preview.",
+      "sources": [
+        {
+          "title": "Claude Fable 5 and Mythos 5: the operator's read",
+          "url": "https://innovativegroup.io/blog/claude-fable-5-mythos-5-launch/",
+          "publisher": "Innovative Group",
+          "date_basis": "Artigo de 9 de junho de 2026 sobre o lancamento oficial."
+        },
+        {
+          "title": "Anthropic Claude News | June, 2026",
+          "url": "https://blog.mean.ceo/anthropic-claude-news-june-2026/",
+          "publisher": "Mean CEO Blog",
+          "date_basis": "Artigo de junho de 2026 referencia Fable 5 como lancamento oficial da Anthropic."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-mythos-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Mythos 5",
+      "release_date": "2026-06-09",
+      "release_stage": "restrito/enterprise",
+      "model_type": ["codigo", "agente", "raciocinio", "seguranca"],
+      "description_pt": "Versao restrita do Fable 5 para parceiros aprovados do Project Glasswing. Mesmas capacidades subjacentes, mas com salvaguardas reduzidas em certos dominios. Nao disponivel ao publico geral.",
+      "source": {
+        "title": "Claude Fable 5 and Mythos 5: the operator's read",
+        "url": "https://innovativegroup.io/blog/claude-fable-5-mythos-5-launch/",
+        "publisher": "Innovative Group",
+        "date_basis": "Artigo de 9 de junho de 2026 descreve Mythos 5 como versao restrita do Fable 5 para trusted-access enterprise."
       },
       "confidence": "alta"
     },
