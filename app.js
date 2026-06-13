@@ -1925,7 +1925,7 @@ function renderTimeline(models) {
   els.timeline.innerHTML = laneGroups.map(([label, laneModels]) => {
     const events = laneModels.map((model, index) => {
       const left = ((model.timestamp - min) / span) * 100;
-      const color = colorFor(model.company);
+      const color = model.is_negative ? "#ef4444" : colorFor(model.company);
       const stack = index % 4;
       return `
         <button class="timeline-event ${model.id === state.selectedId ? "selected" : ""}"
@@ -1971,7 +1971,7 @@ function renderDetails(model) {
 
   els.modelDetails.innerHTML = `
     <div class="detail-heading">
-      <span class="dot" style="background:${colorFor(model.company)}"></span>
+      <span class="dot" style="background:${model.is_negative ? '#ef4444' : colorFor(model.company)}"></span>
       <div>
         <p>${escapeHtml(model.company)} - ${escapeHtml(model.family)}</p>
         <h2>${escapeHtml(model.model)}</h2>
@@ -3064,7 +3064,7 @@ function renderTable(models) {
   els.modelsTable.innerHTML = sortedModels.map((model) => `
     <tr>
       <td>${formatDate(model.release_date)}</td>
-      <td><span class="company-chip" style="--chip-color:${colorFor(model.company)}">${escapeHtml(model.company)}</span></td>
+      <td><span class="company-chip" style="--chip-color:${model.is_negative ? '#ef4444' : colorFor(model.company)}">${escapeHtml(model.company)}</span></td>
       <td><strong>${escapeHtml(model.model)}</strong></td>
       <td>${escapeHtml(model.family)}</td>
       <td>${model.ai_category.map(categoryPill).join("")}</td>

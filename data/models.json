@@ -6449,6 +6449,24 @@
         "date_basis": "Lancamento por volta de 10 de junho de 2026."
       },
       "confidence": "media"
+    },
+    {
+      "id": "anthropic-fable-mythos-remocao",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Fable 5 & Mythos 5 Removidos",
+      "release_date": "2026-06-12",
+      "release_stage": "retirada",
+      "model_type": ["texto"],
+      "description_pt": "O Fable 5 e o Mythos 5 foram retirados do ar globalmente, passando a ter seu uso restrito apenas para americanos.",
+      "is_negative": true,
+      "source": {
+        "title": "Atualização de Disponibilidade de Modelos",
+        "url": "https://www.anthropic.com/news/fable-mythos-availability",
+        "publisher": "Anthropic",
+        "date_basis": "Anúncio oficial de remoção global em 12 de junho de 2026."
+      },
+      "confidence": "alta"
     }
   ]
 }
