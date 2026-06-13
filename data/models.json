@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-06-10",
+    "updated_at": "2026-06-12",
     "last_correction": {
-      "date": "2026-06-10",
-      "description_pt": "Adicionados Claude Fable 5 e Claude Mythos 5 (lancados em 9 de junho de 2026) a timeline da Anthropic."
+      "date": "2026-06-12",
+      "description_pt": "Adicionados modelos Kimi da Moonshot (incluindo Kimi K2.7 Code de 12 de junho de 2026) e outros modelos recentes (Apple Siri AI, NVIDIA Nemotron 3 Ultra, MiniMax M3, Qwen3 Coder Next)."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -6279,6 +6279,176 @@
         "date_basis": "Post oficial publicado em 2 de junho de 2026 anunciou Aion 1.0 Plan em preview."
       },
       "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi",
+      "release_date": "2023-11-16",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "chat", "longo-contexto"],
+      "description_pt": "Lancamento publico do chatbot Kimi baseado no modelo original da Moonshot, destacando-se por suportar uma janela de contexto de 128 mil tokens.",
+      "source": {
+        "title": "Moonshot AI releases Kimi",
+        "url": "https://www.moonshot.cn/",
+        "publisher": "Moonshot AI",
+        "date_basis": "Lancamento publico em 16 de novembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k1-5",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K1.5",
+      "release_date": "2025-01-20",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "raciocinio", "multimodal"],
+      "description_pt": "Modelo de raciocinio multimodal com desempenho em matematica e codigo comparavel ao OpenAI o1.",
+      "source": {
+        "title": "Kimi K1.5 release",
+        "url": "https://www.moonshot.cn/",
+        "publisher": "Moonshot AI",
+        "date_basis": "Lancamento em 20 de janeiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k2",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2",
+      "release_date": "2025-07-11",
+      "release_stage": "preview",
+      "model_type": ["texto", "chat", "longo-contexto"],
+      "description_pt": "Preview oficial da serie K2 com contexto expandido para 256K e melhorias significativas de performance.",
+      "source": {
+        "title": "Kimi K2 Preview",
+        "url": "https://www.moonshot.cn/",
+        "publisher": "Moonshot AI",
+        "date_basis": "Preview lancado em 11 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k2-5",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2.5",
+      "release_date": "2026-01-15",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "agente", "longo-contexto"],
+      "description_pt": "Modelo MoE de 1 trilhao de parametros introduzindo a tecnologia 'Agent Swarm' para coordenar dezenas de sub-agentes.",
+      "source": {
+        "title": "Kimi K2.5 and Agent Swarm",
+        "url": "https://www.moonshot.cn/",
+        "publisher": "Moonshot AI",
+        "date_basis": "Lancamento em janeiro de 2026."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "moonshot-kimi-k2-6",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2.6",
+      "release_date": "2026-04-20",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "multimodal", "agente", "codigo"],
+      "description_pt": "Modelo multimodal nativo com forte capacidade em codigo e suporte para o agente de desktop autonomo Kimi Work.",
+      "source": {
+        "title": "Kimi K2.6 and Kimi Work",
+        "url": "https://www.moonshot.cn/",
+        "publisher": "Moonshot AI",
+        "date_basis": "Lancamento em 20 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k2-7-code",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2.7 Code",
+      "release_date": "2026-06-12",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "codigo", "agente", "open-weights"],
+      "description_pt": "Modelo especializado em codigo com foco em workflows de longo horizonte e agentes de programacao autonomos. Arquitetura MoE de 1T e eficiencia aprimorada.",
+      "source": {
+        "title": "Kimi K2.7 Code",
+        "url": "https://huggingface.co/moonshotai",
+        "publisher": "Moonshot AI",
+        "date_basis": "Disponibilizado em 12 de junho de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "apple-siri-ai",
+      "company": "Apple",
+      "family": "Apple Intelligence",
+      "model": "Siri AI",
+      "release_date": "2026-06-08",
+      "release_stage": "anuncio",
+      "model_type": ["texto", "agente", "on-device"],
+      "description_pt": "Evolucao majoritaria da Siri alimentada pela Apple Intelligence, com forte entendimento de contexto pessoal, acoes on-screen e foco em privacidade.",
+      "source": {
+        "title": "Apple Introduces Siri AI",
+        "url": "https://www.apple.com/newsroom/",
+        "publisher": "Apple",
+        "date_basis": "Anunciado em 8 de junho de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-nemotron-3-ultra",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron 3 Ultra",
+      "release_date": "2026-06-04",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "raciocinio", "agente", "open-weights"],
+      "description_pt": "Modelo aberto de 550 bilhoes de parametros focado em raciocinio de fronteira e performance agentica, disponivel no Oracle Cloud OCI.",
+      "source": {
+        "title": "NVIDIA Nemotron 3 Ultra",
+        "url": "https://developer.nvidia.com/",
+        "publisher": "NVIDIA",
+        "date_basis": "Lancamento em 4 de junho de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-m3",
+      "company": "MiniMax",
+      "family": "MiniMax",
+      "model": "MiniMax M3",
+      "release_date": "2026-06-01",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "codigo", "longo-contexto"],
+      "description_pt": "Modelo frontier chines com habilidades avancadas de codigo e contexto de 1 milhao de tokens.",
+      "source": {
+        "title": "MiniMax M3",
+        "url": "https://api.minimax.chat/",
+        "publisher": "MiniMax",
+        "date_basis": "Lancamento em 1 de junho de 2026."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "alibaba-qwen3-coder-next",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3 Coder Next",
+      "release_date": "2026-06-10",
+      "release_stage": "lancamento",
+      "model_type": ["texto", "codigo", "open-weights"],
+      "description_pt": "Nova iteracao da serie Qwen focada em programacao, com avancos significativos de desempenho em benchmarks.",
+      "source": {
+        "title": "Qwen3 Coder Next",
+        "url": "https://qwenlm.github.io/",
+        "publisher": "Alibaba",
+        "date_basis": "Lancamento por volta de 10 de junho de 2026."
+      },
+      "confidence": "media"
     }
   ]
 }

@@ -58,6 +58,7 @@ const state = {
 };
 
 const companyColors = {
+  Apple: "#52525b",
   OpenAI: "#0f766e",
   Anthropic: "#a16207",
   Google: "#2563eb",
@@ -114,6 +115,18 @@ const companyLocations = [
     lng: 120.032,
     sourceName: "Alibaba Group",
     sourceUrl: "https://www.alibabagroup.com/en-US/faqs-corporate-information"
+  },
+  {
+    company: "Apple",
+    site: "Headquarters / Apple Intelligence",
+    city: "Cupertino",
+    region: "California",
+    country: "United States",
+    address: "One Apple Park Way",
+    lat: 37.3346,
+    lng: -122.0090,
+    sourceName: "Apple",
+    sourceUrl: "https://www.apple.com/contact/"
   },
   {
     company: "Anthropic",
