@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Revisao de Black Forest Labs, Cohere e Core42: BFL ganhou FLUX1.1 [pro], Ultra/Raw, FLUX.1 Tools, Kontext [dev] e Krea [dev] (5 entradas); Cohere ganhou Command R, R+, R7B, Rerank 3.5, Embed 4, Command A Vision/Reasoning/Translate (8 entradas); Core42 ganhou Jais 30B, Jais Family/70B e Jais 2 (3 entradas). Antes: revisao completa da Alibaba/Qwen com 17 novas entradas."
+      "description_pt": "Revisao de Databricks, Danish Foundation Models e ElevenLabs: Databricks ganhou Dolly, Dolly 2.0 e os MPT-7B/30B da MosaicML (4 entradas); DFM ganhou o Munin 7B Alpha (1 entrada); ElevenLabs ganhou Multilingual v2, Turbo v2.5, Flash v2.5, Scribe, Eleven Music e Scribe v2 Realtime (6 entradas). Antes: revisao de Black Forest Labs, Cohere e Core42 com 16 novas entradas."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -7446,6 +7446,86 @@
       "confidence": "alta"
     },
     {
+      "id": "databricks-dolly",
+      "company": "Databricks",
+      "family": "Dolly",
+      "model": "Dolly",
+      "release_date": "2023-03-24",
+      "release_stage": "open source/pesquisa",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "instruction-tuned", "open-source"],
+      "description_pt": "Primeiro Dolly da Databricks, um LLM de 6B (baseado no GPT-J) ajustado por instrucoes para demonstrar que modelos abertos existentes podiam ganhar comportamento tipo ChatGPT com treinamento barato.",
+      "source": {
+        "title": "Hello Dolly: Democratizing the magic of ChatGPT with open models",
+        "url": "https://www.databricks.com/blog/2023/03/24/hello-dolly-democratizing-magic-chatgpt-open-models.html",
+        "publisher": "Databricks",
+        "date_basis": "Post oficial publicado em 24 de marco de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "databricks-dolly-2",
+      "company": "Databricks",
+      "family": "Dolly",
+      "model": "Dolly 2.0",
+      "release_date": "2023-04-12",
+      "release_stage": "open source",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "instruction-tuned", "open-source", "uso-comercial"],
+      "description_pt": "Primeiro LLM aberto de instrucao para uso comercial, com 12B parametros (baseado no Pythia) e ajustado no dataset humano databricks-dolly-15k, liberado com pesos, codigo e dados.",
+      "sources": [
+        {
+          "title": "Free Dolly: Introducing the World's First Truly Open Instruction-Tuned LLM",
+          "url": "https://www.databricks.com/blog/2023/04/12/dolly-first-open-commercially-viable-instruction-tuned-llm",
+          "publisher": "Databricks",
+          "date_basis": "Post oficial publicado em 12 de abril de 2023."
+        },
+        {
+          "title": "databrickslabs/dolly",
+          "url": "https://github.com/databrickslabs/dolly",
+          "publisher": "Databricks",
+          "date_basis": "Repositorio oficial com codigo e dataset databricks-dolly-15k."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "databricks-mpt-7b",
+      "company": "Databricks",
+      "family": "MPT",
+      "model": "MPT-7B",
+      "release_date": "2023-05-05",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "longo-contexto", "open-weights"],
+      "description_pt": "Modelo aberto de 7B da MosaicML (posteriormente adquirida pela Databricks), treinado em 1T tokens para uso comercial, com variantes Instruct, Chat e StoryWriter-65k+ de contexto longo.",
+      "source": {
+        "title": "Introducing MPT-7B: A New Standard for Open-Source, Commercially Usable LLMs",
+        "url": "https://www.databricks.com/blog/mpt-7b",
+        "publisher": "MosaicML / Databricks",
+        "date_basis": "Post oficial publicado em 5 de maio de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "databricks-mpt-30b",
+      "company": "Databricks",
+      "family": "MPT",
+      "model": "MPT-30B",
+      "release_date": "2023-06-22",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "codigo", "open-weights"],
+      "description_pt": "Modelo aberto de 30B da MosaicML (hoje Databricks), treinado em GPUs H100 e superando o GPT-3 em varias tarefas, com variantes Base, Instruct e Chat para texto e codigo.",
+      "source": {
+        "title": "MPT-30B: Raising the bar for open-source foundation models",
+        "url": "https://www.databricks.com/blog/mpt-30b",
+        "publisher": "MosaicML / Databricks",
+        "date_basis": "Post oficial publicado em 22 de junho de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "databricks-dbrx",
       "company": "Databricks",
       "family": "DBRX",
@@ -8036,6 +8116,130 @@
       "confidence": "media"
     },
     {
+      "id": "elevenlabs-multilingual-v2",
+      "company": "ElevenLabs",
+      "family": "Eleven",
+      "model": "Eleven Multilingual v2",
+      "release_date": "2023-08-01",
+      "release_stage": "produto/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "text-to-speech", "multilingue"],
+      "description_pt": "Modelo de text-to-speech emocionalmente expressivo da ElevenLabs com suporte a cerca de 29 idiomas, que se tornou por muito tempo o modelo padrao de maior qualidade e naturalidade da plataforma.",
+      "source": {
+        "title": "Models | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/overview/models",
+        "publisher": "ElevenLabs",
+        "date_basis": "Documentacao oficial descreve o Eleven Multilingual v2, lancado em agosto de 2023 (sem dia especifico; data usa o primeiro dia do mes)."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "elevenlabs-turbo-v2-5",
+      "company": "ElevenLabs",
+      "family": "Eleven",
+      "model": "Eleven Turbo v2.5",
+      "release_date": "2024-07-01",
+      "release_stage": "produto/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "text-to-speech", "baixa-latencia", "multilingue"],
+      "description_pt": "Modelo de baixa latencia da ElevenLabs equilibrando qualidade e velocidade em 32 idiomas, com geracao ate 3x mais rapida e adicao de idiomas como hindi para fluxos conversacionais.",
+      "source": {
+        "title": "Introducing Turbo v2.5, low latency text to speech in 32 languages",
+        "url": "https://elevenlabs.io/blog/introducing-turbo-v25",
+        "publisher": "ElevenLabs",
+        "date_basis": "Post oficial publicado em julho de 2024 (sem dia especifico; data usa o primeiro dia do mes)."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "elevenlabs-flash-v2-5",
+      "company": "ElevenLabs",
+      "family": "Eleven",
+      "model": "Eleven Flash v2.5",
+      "release_date": "2024-12-01",
+      "release_stage": "produto/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "text-to-speech", "ultra-baixa-latencia", "multilingue"],
+      "description_pt": "Modelo ultra-rapido da ElevenLabs que gera fala em menos de 75ms, voltado a agentes de voz e aplicacoes conversacionais em tempo real, com custo reduzido por caractere.",
+      "source": {
+        "title": "Meet Flash",
+        "url": "https://elevenlabs.io/blog/meet-flash",
+        "publisher": "ElevenLabs",
+        "date_basis": "Post oficial 'Meet Flash' publicado em dezembro de 2024 (sem dia especifico; data usa o primeiro dia do mes)."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "elevenlabs-scribe",
+      "company": "ElevenLabs",
+      "family": "Scribe",
+      "model": "Scribe (v1)",
+      "release_date": "2025-02-26",
+      "release_stage": "produto/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "speech-to-text", "transcricao", "diarizacao", "multilingue"],
+      "description_pt": "Primeiro modelo proprio de speech-to-text da ElevenLabs, com transcricao de alta acuracia (cerca de 97% em ingles) em mais de 99 idiomas, timestamps por palavra, diarizacao de falantes e marcacao de eventos sonoros.",
+      "sources": [
+        {
+          "title": "ElevenLabs is launching its own speech-to-text model",
+          "url": "https://techcrunch.com/2025/02/26/elevenlabs-is-launching-its-own-speech-to-text-model/",
+          "publisher": "TechCrunch",
+          "date_basis": "Lancamento do Scribe em 26 de fevereiro de 2025."
+        },
+        {
+          "title": "Speech to Text — ElevenLabs",
+          "url": "https://elevenlabs.io/speech-to-text",
+          "publisher": "ElevenLabs",
+          "date_basis": "Pagina oficial do modelo Scribe."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "elevenlabs-eleven-music",
+      "company": "ElevenLabs",
+      "family": "Eleven Music",
+      "model": "Eleven Music",
+      "release_date": "2025-08-05",
+      "release_stage": "produto/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "geracao-musical", "texto-para-musica", "uso-comercial"],
+      "description_pt": "Modelo de geracao de musica em nivel de estudio da ElevenLabs, criando cancoes a partir de prompts em linguagem natural em qualquer estilo, construido com parcerias de artistas, gravadoras e editoras e liberado para uso comercial.",
+      "sources": [
+        {
+          "title": "Eleven Music is here",
+          "url": "https://elevenlabs.io/blog/eleven-music-is-here",
+          "publisher": "ElevenLabs",
+          "date_basis": "Post oficial de lancamento em 5 de agosto de 2025."
+        },
+        {
+          "title": "ElevenLabs Launches Eleven Music in Collaboration with Music Industry Partners",
+          "url": "https://www.businesswire.com/news/home/20250805333301/en/ElevenLabs-Launches-Eleven-Music-in-Collaboration-with-Music-Industry-Partners",
+          "publisher": "ElevenLabs",
+          "date_basis": "Comunicado oficial de 5 de agosto de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "elevenlabs-scribe-v2-realtime",
+      "company": "ElevenLabs",
+      "family": "Scribe",
+      "model": "Scribe v2 Realtime",
+      "release_date": "2025-11-11",
+      "release_stage": "produto/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "speech-to-text", "transcricao", "streaming", "tempo-real", "multilingue"],
+      "description_pt": "Versao em streaming do Scribe da ElevenLabs, com latencia em torno de 150ms para transcricao em tempo real, voltada a agentes de voz e legendagem ao vivo em mais de 90 idiomas.",
+      "source": {
+        "title": "Introducing Scribe v2",
+        "url": "https://elevenlabs.io/blog/introducing-scribe-v2",
+        "publisher": "ElevenLabs",
+        "date_basis": "Lancamento do Scribe v2 Realtime em meados de novembro de 2025."
+      },
+      "confidence": "media"
+    },
+    {
       "id": "elevenlabs-eleven-v3",
       "company": "ElevenLabs",
       "family": "Eleven",
@@ -8511,6 +8715,32 @@
           "url": "https://lelapa.ai/",
           "publisher": "Lelapa AI",
           "date_basis": "Pagina oficial descreve a empresa e seus produtos de linguagem."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "dfm-munin-7b-alpha",
+      "company": "Danish Foundation Models",
+      "family": "Munin",
+      "model": "Munin 7B Alpha",
+      "release_date": "2024-01-11",
+      "release_stage": "open weights/pesquisa",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "dinamarques", "ingles", "open-weights", "europeu"],
+      "description_pt": "Primeiro modelo do projeto Danish Foundation Models, um LLM de 7B com pre-treinamento continuado sobre o Mistral-7B-v0.1 em dados dinamarqueses, lancado como versao alpha aberta para pesquisa.",
+      "sources": [
+        {
+          "title": "Releasing Munin 7B Alpha - A Danish LLM",
+          "url": "https://www.foundationmodels.dk/blog/2024/01/11/releasing-munin-7b-alpha---a-danish-llm.html",
+          "publisher": "Danish Foundation Models",
+          "date_basis": "Post oficial publicado em 11 de janeiro de 2024."
+        },
+        {
+          "title": "danish-foundation-models/munin-7b-alpha",
+          "url": "https://huggingface.co/danish-foundation-models/munin-7b-alpha",
+          "publisher": "Danish Foundation Models",
+          "date_basis": "Model card oficial do Munin 7B Alpha."
         }
       ],
       "confidence": "alta"
