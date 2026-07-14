@@ -7341,6 +7341,312 @@
         "date_basis": "Pagina oficial documenta o Ideogram 4.0; data-base usa a disponibilidade publica em 2026."
       },
       "confidence": "media"
+    },
+    {
+      "id": "midjourney-v1",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V1",
+      "release_date": "2022-02-01",
+      "release_stage": "legacy/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "legacy", "criativo"],
+      "description_pt": "Primeira versao publica/legacy do Midjourney, com resultado mais abstrato e pictorico e baixa coerencia em relacao aos modelos posteriores.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial diz que V1 foi o modelo padrao de fevereiro a abril de 2022; dia 01 usado para posicionamento na timeline."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "midjourney-v2",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V2",
+      "release_date": "2022-04-01",
+      "release_stage": "legacy/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "legacy", "pictorico"],
+      "description_pt": "Versao legacy mais colorida e criativa, ainda com baixa coerencia, representando a segunda etapa do gerador de imagem da Midjourney.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial diz que V2 foi o modelo padrao de abril a julho de 2022; dia 01 usado para posicionamento na timeline."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "midjourney-v3",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V3",
+      "release_date": "2022-07-01",
+      "release_stage": "legacy/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "legacy", "composicao"],
+      "description_pt": "Versao legacy conhecida por composicoes criativas e coerencia moderada, antes da mudanca grande de arquitetura trazida pelo V4.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial diz que V3 foi o modelo padrao de julho a novembro de 2022; dia 01 usado para posicionamento na timeline."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "midjourney-test-testp",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "test / testp",
+      "release_date": "2022-08-01",
+      "release_stage": "experimental/legacy",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "experimental", "legacy"],
+      "description_pt": "Modelos experimentais test e testp usados para coletar feedback da comunidade sobre novos recursos e estilos de composicao.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial diz que os modelos test e testp foram introduzidos em agosto de 2022; dia 01 usado para posicionamento na timeline."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "midjourney-v4",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V4",
+      "release_date": "2022-11-01",
+      "release_stage": "legacy/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "legacy", "nova-arquitetura", "image-prompts"],
+      "description_pt": "Grande salto tecnico da Midjourney, descrito como nova codebase e nova arquitetura treinada no supercluster da empresa, com melhora forte em detalhes, objetos e prompts complexos.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial diz que V4 foi lancado em novembro de 2022 e virou padrao em 20 de dezembro de 2022; dia 01 usado para posicionamento na timeline."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "midjourney-niji-4",
+      "company": "Midjourney",
+      "family": "Niji",
+      "model": "Niji 4",
+      "release_date": "2022-12-20",
+      "release_stage": "produto/legacy",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "anime", "ilustracao", "texto-para-imagem", "legacy"],
+      "description_pt": "Primeiro modelo Niji, feito em colaboracao com Spellbrush e ajustado para estetica anime, ilustracao e estilos orientais.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial informa que Niji 4 foi lancado em 20 de dezembro de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-v5",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V5",
+      "release_date": "2023-03-01",
+      "release_stage": "legacy/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "fotorealismo", "legacy"],
+      "description_pt": "Versao com geracoes mais fotograficas e maior aderencia ao prompt, marcando a fase em que o Midjourney ganhou muito mais realismo.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial diz que V5 foi lancado em marco de 2023 e foi padrao de 30 de marco a 3 de maio; dia 01 usado para posicionamento na timeline."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "midjourney-niji-5",
+      "company": "Midjourney",
+      "family": "Niji",
+      "model": "Niji 5",
+      "release_date": "2023-04-01",
+      "release_stage": "produto/legacy",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "anime", "ilustracao", "texto-para-imagem", "style-parameters"],
+      "description_pt": "Niji 5 expandiu o foco anime/ilustracao com parametros de estilo como cute, expressive, original e scenic.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial diz que Niji 5 foi lancado em abril de 2023; dia 01 usado para posicionamento na timeline."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "midjourney-v5-1",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V5.1",
+      "release_date": "2023-05-04",
+      "release_stage": "legacy/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "prompt-understanding", "tile", "legacy"],
+      "description_pt": "Versao com estetica padrao mais forte, maior coerencia, melhor interpretacao de linguagem natural e suporte a recursos avancados como padroes com tile.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial informa que V5.1 foi lancado em 4 de maio de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-v5-2",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V5.2",
+      "release_date": "2023-06-22",
+      "release_stage": "legacy/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "zoom-out", "style-tuner", "legacy"],
+      "description_pt": "Versao mais detalhada e nitida, com melhor cor, contraste e composicao, alem de recursos historicos como zoom out e style tuner.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial diz que V5.2 foi lancado em junho de 2023 e foi padrao a partir de 22 de junho de 2023; essa data foi usada."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-v6",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V6",
+      "release_date": "2023-12-20",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "prompt-adherence", "image-prompts", "remix"],
+      "description_pt": "Versao com maior precisao de prompt em entradas longas, mais coerencia e conhecimento, alem de capacidades avancadas de image prompting e remix.",
+      "source": {
+        "title": "Version",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial informa que V6 foi lancado em 20 de dezembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-niji-6",
+      "company": "Midjourney",
+      "family": "Niji",
+      "model": "Niji 6",
+      "release_date": "2024-06-07",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "anime", "ilustracao", "japanese-text", "texto-para-imagem"],
+      "description_pt": "Modelo Niji com melhor renderizacao de texto japones, mais detalhe em elementos de anime e reducao de artefatos em geracoes.",
+      "source": {
+        "title": "Legacy Features",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial informa que Niji 6 foi lancado em 7 de junho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-v6-1",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V6.1",
+      "release_date": "2024-07-30",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "coerencia", "detalhes", "velocidade"],
+      "description_pt": "Atualizacao do V6 com mais coerencia, detalhes e texturas mais precisos, e geracao aproximadamente 25% mais rapida que V6.",
+      "source": {
+        "title": "Version",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial informa que V6.1 foi lancado em 30 de julho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-v7",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V7",
+      "release_date": "2025-04-03",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "draft-mode", "omni-reference", "prompt-adherence"],
+      "description_pt": "Versao que trouxe maior precisao para prompts de texto e imagem, texturas mais ricas, corpos/maos/objetos mais coerentes, Draft Mode e Omni Reference.",
+      "source": {
+        "title": "Version",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial informa que V7 foi lancado em 3 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-video-v1",
+      "company": "Midjourney",
+      "family": "Midjourney Video",
+      "model": "Video V1",
+      "release_date": "2025-06-18",
+      "release_stage": "produto",
+      "ai_category": ["Imagem", "Video"],
+      "model_type": ["video", "image-to-video", "animacao", "motion-prompt", "web"],
+      "description_pt": "Primeiro modelo de video da Midjourney, focado em image-to-video: o usuario anima imagens geradas ou enviadas, com controles de movimento e extensoes de clipes.",
+      "source": {
+        "title": "Introducing Our V1 Video Model",
+        "url": "https://updates.midjourney.com/introducing-our-v1-video-model/",
+        "publisher": "Midjourney",
+        "date_basis": "Post oficial publicado em 18 de junho de 2025 anuncia o lancamento do Video Model V1 para a comunidade."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-niji-7",
+      "company": "Midjourney",
+      "family": "Niji",
+      "model": "Niji 7",
+      "release_date": "2026-01-09",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "anime", "ilustracao", "prompt-adherence", "text-rendering"],
+      "description_pt": "Niji 7 melhora coerencia, detalhes finos, leitura de prompt, renderizacao de texto e line work para geracoes anime e ilustradas.",
+      "source": {
+        "title": "Version",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial informa que Niji 7 foi lancado em 9 de janeiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-v8",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V8 Alpha",
+      "release_date": "2026-03-17",
+      "release_stage": "alpha/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "alpha", "hd", "style-reference"],
+      "description_pt": "Alpha do V8, etapa intermediaria antes do V8.1, com novas regras de compatibilidade para HD, qualidade e style references.",
+      "source": {
+        "title": "Version",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "publisher": "Midjourney",
+        "date_basis": "Pagina oficial informa que V8.0 Alpha foi lancado em 17 de marco de 2026."
+      },
+      "confidence": "alta"
     }
   ]
 }
