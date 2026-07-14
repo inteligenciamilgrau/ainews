@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Revisao completa da Apple: mapeadas as familias Ferret, MGIE, OpenELM, DCLM, Depth Pro, AIM, FastVLM e Apple Intelligence (AFM 2024, iOS 18.1, Foundation Models framework 2025, AFM 3 e Siri AI 2026), com 11 novas entradas e detalhamento do Siri AI. Antes: revisao da AI Singapore (familia SEA-LION completa, SEA-Guard e Embedding, 8 novas entradas)."
+      "description_pt": "Revisao completa da Alibaba/Qwen: adicionadas 17 entradas cobrindo Qwen-7B (2023), Qwen-VL, Qwen-72B/1.8B, Qwen2-Audio, Qwen2-VL, Qwen2.5-Coder, QwQ-32B-Preview, QVQ-72B-Preview, Qwen2.5-Max, Qwen2.5-VL, QwQ-32B, Qwen2.5-Omni, Qwen3-Coder, Qwen-Image, Qwen3-VL, Qwen3-Max e Wan2.5. Antes: revisao da Apple (Ferret, OpenELM, DCLM, Depth Pro, AIM, FastVLM e Apple Intelligence, 11 novas entradas)."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -3986,6 +3986,76 @@
       "confidence": "alta"
     },
     {
+      "id": "alibaba-qwen-7b",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen-7B (Tongyi Qianwen)",
+      "release_date": "2023-08-03",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "fundacao", "open-weights"],
+      "description_pt": "Primeiros modelos de pesos abertos da familia Qwen (Tongyi Qianwen) da Alibaba Cloud, com Qwen-7B e Qwen-7B-Chat liberados no ModelScope e Hugging Face para uso comercial, iniciando uma das maiores linhagens abertas de LLMs.",
+      "sources": [
+        {
+          "title": "QwenLM/Qwen (repositorio oficial)",
+          "url": "https://github.com/QwenLM/Qwen",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Repositorio oficial registra o open-source do Qwen-7B em 3 de agosto de 2023."
+        },
+        {
+          "title": "Alibaba Publishes Open Source AI Model for Commercial Use",
+          "url": "https://aibusiness.com/nlp/alibaba-publishes-open-source-ai-model-for-commercial-use",
+          "publisher": "AI Business",
+          "date_basis": "Cobertura de agosto de 2023 sobre o lancamento do Qwen-7B."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-vl",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen-VL",
+      "release_date": "2023-08-22",
+      "release_stage": "open weights",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "multimodal", "grounding", "open-weights"],
+      "description_pt": "Primeiros modelos de visao-linguagem abertos da Alibaba (Qwen-VL e Qwen-VL-Chat), construidos sobre o Qwen-7B, aceitando imagem, texto e bounding box como entrada e saida, com forte desempenho em reconhecimento e localizacao visual.",
+      "sources": [
+        {
+          "title": "QwenLM/Qwen-VL (repositorio oficial)",
+          "url": "https://github.com/QwenLM/Qwen-VL",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Repositorio oficial registra o release do Qwen-VL e Qwen-VL-Chat em 22 de agosto de 2023."
+        },
+        {
+          "title": "Alibaba Cloud launches two open-source large vision language models",
+          "url": "https://techwireasia.com/2023/08/alibaba-cloud-launches-two-open-source-large-vision-language-models/",
+          "publisher": "Tech Wire Asia",
+          "date_basis": "Cobertura de agosto de 2023 sobre o lancamento das VLMs."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-72b-1-8b",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen-72B / Qwen-1.8B",
+      "release_date": "2023-11-30",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "fundacao", "open-weights"],
+      "description_pt": "Expansao da primeira geracao Qwen com o modelo maior de 72B e o compacto de 1.8B (alem do Qwen-Audio), ampliando a familia aberta em ambos os extremos de escala para pesquisa e producao.",
+      "source": {
+        "title": "Qwen (Tongyi Qianwen) model cards",
+        "url": "https://github.com/QwenLM/Qwen",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Repositorio e model cards oficiais registram o release do Qwen-72B e Qwen-1.8B em 30 de novembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "alibaba-qwen-1-5",
       "company": "Alibaba",
       "family": "Qwen",
@@ -4022,6 +4092,42 @@
       "confidence": "alta"
     },
     {
+      "id": "alibaba-qwen-2-audio",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen2-Audio",
+      "release_date": "2024-08-09",
+      "release_stage": "open weights",
+      "ai_category": ["LLMs", "Audio/Transcricao"],
+      "model_type": ["texto", "audio", "multimodal", "voz", "open-weights"],
+      "description_pt": "Modelo aberto de audio-linguagem da Alibaba capaz de receber fala e sons como entrada e responder em texto, com modos de chat por voz e analise de audio para conversas e tarefas de compreensao sonora.",
+      "source": {
+        "title": "QwenLM/Qwen2-Audio (repositorio oficial)",
+        "url": "https://github.com/QwenLM/Qwen2-Audio",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Repositorio oficial registra o release do Qwen2-Audio em 9 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-2-vl",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen2-VL",
+      "release_date": "2024-08-29",
+      "release_stage": "open weights",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "video", "multimodal", "open-weights"],
+      "description_pt": "Segunda geracao de visao-linguagem da Alibaba (2B, 7B e 72B) com resolucao dinamica, entendimento de video longo e agentes visuais, superando modelos abertos equivalentes em benchmarks multimodais.",
+      "source": {
+        "title": "Qwen2-VL: To See the World More Clearly",
+        "url": "https://qwenlm.github.io/blog/qwen2-vl/",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial no blog Qwen publicado em 29 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "alibaba-qwen-2-5",
       "company": "Alibaba",
       "family": "Qwen",
@@ -4036,6 +4142,140 @@
         "url": "https://qwen.ai/blog?id=qwen2.5",
         "publisher": "QwenAI",
         "date_basis": "Anuncio oficial no Apsara Conference em 18 de setembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-2-5-coder",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen2.5-Coder",
+      "release_date": "2024-11-12",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "open-weights", "Apache-2.0"],
+      "description_pt": "Familia completa de modelos de codigo do Qwen2.5 (0.5B a 32B), com o carro-chefe Qwen2.5-Coder-32B-Instruct alcancando desempenho de nivel SOTA aberto em geracao, reparo e raciocinio sobre codigo, rivalizando com modelos proprietarios.",
+      "source": {
+        "title": "Qwen2.5-Coder Series: Powerful, Diverse, Practical",
+        "url": "https://qwenlm.github.io/blog/qwen2.5-coder-family/",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial no blog Qwen publicado em 12 de novembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwq-32b-preview",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "QwQ-32B-Preview",
+      "release_date": "2024-11-28",
+      "release_stage": "open weights/preview",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "open-weights", "Apache-2.0"],
+      "description_pt": "Primeiro modelo de raciocinio aberto da Alibaba, um experimental de 32.5B que verifica os proprios passos e superou o o1-preview e o o1-mini da OpenAI em provas de matematica (AIME, MATH), sob licenca Apache 2.0.",
+      "sources": [
+        {
+          "title": "QwQ: Reflect Deeply on the Boundaries of the Unknown",
+          "url": "https://qwenlm.github.io/blog/qwq-32b-preview/",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Post oficial no blog Qwen publicado em 28 de novembro de 2024."
+        },
+        {
+          "title": "Alibaba releases an 'open' challenger to OpenAI's o1 reasoning model",
+          "url": "https://techcrunch.com/2024/11/27/alibaba-releases-an-open-challenger-to-openais-o1-reasoning-model/",
+          "publisher": "TechCrunch",
+          "date_basis": "Cobertura de 27-28 de novembro de 2024."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qvq-72b-preview",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "QVQ-72B-Preview",
+      "release_date": "2024-12-24",
+      "release_stage": "open weights/preview",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "raciocinio", "multimodal", "open-weights"],
+      "description_pt": "Modelo experimental de raciocinio visual da Alibaba, de 72B, que estende a abordagem de 'pensar antes de responder' do QwQ para entradas com imagens, resolvendo problemas multimodais de matematica e ciencia passo a passo.",
+      "source": {
+        "title": "QVQ: To See the World with Wisdom",
+        "url": "https://qwenlm.github.io/blog/qvq-72b-preview/",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial no blog Qwen publicado em 24 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-2-5-max",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen2.5-Max",
+      "release_date": "2025-01-28",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "MoE", "proprietario"],
+      "description_pt": "Modelo proprietario MoE de grande escala da Alibaba, pre-treinado em mais de 20T tokens e pos-treinado com SFT e RLHF; lancado durante o Ano Novo Chines, superou o DeepSeek V3 em benchmarks como Arena-Hard, LiveBench e GPQA-Diamond.",
+      "source": {
+        "title": "Qwen2.5-Max: Exploring the Intelligence of Large-scale MoE Model",
+        "url": "https://qwenlm.github.io/blog/qwen2.5-max/",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial no blog Qwen publicado em 28 de janeiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-2-5-vl",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen2.5-VL",
+      "release_date": "2025-01-26",
+      "release_stage": "open weights",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "video", "multimodal", "agente", "open-weights"],
+      "description_pt": "Terceira geracao de visao-linguagem da Alibaba (3B, 7B, 32B e 72B), com melhor compreensao de documentos, localizacao de objetos, leitura de video longo e uso como agente visual para operar computadores e celulares.",
+      "source": {
+        "title": "Qwen2.5-VL",
+        "url": "https://qwenlm.github.io/blog/qwen2.5-vl/",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial no blog Qwen publicado em 26-28 de janeiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwq-32b",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "QwQ-32B",
+      "release_date": "2025-03-06",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "open-weights", "Apache-2.0"],
+      "description_pt": "Versao final do modelo de raciocinio compacto da Alibaba, com 32B parametros e treinamento por reforco, entregando desempenho comparavel ao DeepSeek-R1 (671B) em matematica e codigo apesar de muito menor, sob licenca Apache 2.0.",
+      "source": {
+        "title": "QwQ-32B: Embracing the Power of Reinforcement Learning",
+        "url": "https://qwenlm.github.io/blog/qwq-32b/",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial no blog Qwen publicado em 6 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-2-5-omni",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen2.5-Omni",
+      "release_date": "2025-03-27",
+      "release_stage": "open weights",
+      "ai_category": ["LLMs", "Imagem", "Audio/Transcricao"],
+      "model_type": ["texto", "imagem", "audio", "video", "multimodal", "real-time", "open-weights"],
+      "description_pt": "Primeiro modelo omni-modal aberto da Alibaba (3B e 7B) com arquitetura 'Thinker-Talker', capaz de perceber texto, imagem, audio e video e responder em texto e fala natural em tempo real.",
+      "source": {
+        "title": "Qwen2.5-Omni: See, Hear, Talk, Write, Do It All!",
+        "url": "https://qwenlm.github.io/blog/qwen2.5-omni/",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial no blog Qwen publicado em 27 de marco de 2025."
       },
       "confidence": "alta"
     },
@@ -4055,6 +4295,86 @@
         "publisher": "QwenAI",
         "date_basis": "Anuncio de lancamento em 29 de abril de 2025."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-coder",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3-Coder",
+      "release_date": "2025-07-22",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "MoE", "longo-contexto", "open-weights"],
+      "description_pt": "Modelo de codigo agentico da Alibaba, com o carro-chefe Qwen3-Coder-480B-A35B (MoE, 35B ativos) e contexto nativo de 256K (ate 1M), lancado junto da ferramenta de linha de comando Qwen Code para fluxos de programacao autonomos.",
+      "source": {
+        "title": "Qwen3-Coder: Agentic Coding in the World",
+        "url": "https://qwenlm.github.io/blog/qwen3-coder/",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial no blog Qwen publicado em 22 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-image",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen-Image",
+      "release_date": "2025-08-04",
+      "release_stage": "open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "edicao", "renderizacao-de-texto", "open-weights"],
+      "description_pt": "Primeiro modelo de geracao de imagens da familia Qwen, um MMDiT de 20B com destaque para renderizacao nativa de texto em varias linhas (ingles e chines) e edicao precisa preservando semantica e realismo; acompanhado depois pelo Qwen-Image-Edit.",
+      "source": {
+        "title": "Qwen-Image: Crafting with Native Text Rendering",
+        "url": "https://qwenlm.github.io/blog/qwen-image/",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Post oficial no blog Qwen publicado em 4 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-vl",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3-VL",
+      "release_date": "2025-09-22",
+      "release_stage": "open weights",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "video", "multimodal", "agente", "open-weights"],
+      "description_pt": "Quarta geracao de visao-linguagem da Alibaba, com o carro-chefe Qwen3-VL-235B-A22B (MoE), melhor raciocinio visual, agentes de GUI, compreensao de video longo e OCR ampliado em muitos idiomas.",
+      "source": {
+        "title": "QwenLM/Qwen3-VL (repositorio oficial)",
+        "url": "https://github.com/QwenLM/Qwen3-VL",
+        "publisher": "Alibaba Cloud",
+        "date_basis": "Repositorio e blog oficiais registram o release do Qwen3-VL em 22 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-max",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3-Max",
+      "release_date": "2025-09-24",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "raciocinio", "agente", "MoE", "proprietario"],
+      "description_pt": "Maior modelo Qwen ate entao, proprietario e com mais de 1 trilhao de parametros; estreou em preview em setembro e teve lancamento formal na Apsara Conference em 24 de setembro de 2025, com modo de pensamento, uso de ferramentas e contexto de 262K tokens.",
+      "sources": [
+        {
+          "title": "Qwen3-Max: Just Scale it",
+          "url": "https://qwenlm.github.io/blog/qwen3-max/",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Preview anunciado em 5 de setembro e lancamento formal na Apsara Conference em 24 de setembro de 2025."
+        },
+        {
+          "title": "Qwen3-Max arrives in preview with 1 trillion parameters",
+          "url": "https://venturebeat.com/technology/qwen3-max-arrives-in-preview-with-1-trillion-parameters-blazing-fast",
+          "publisher": "VentureBeat",
+          "date_basis": "Cobertura de setembro de 2025 sobre o preview de 1T parametros."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -5470,6 +5790,32 @@
         }
       ],
       "confidence": "alta"
+    },
+    {
+      "id": "alibaba-wan-2-5",
+      "company": "Alibaba",
+      "family": "Wan",
+      "model": "Wan2.5 (preview)",
+      "release_date": "2025-09-23",
+      "release_stage": "preview/API",
+      "ai_category": ["Video", "Imagem"],
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "audio-sincronizado", "4k"],
+      "description_pt": "Geracao Wan2.5 do Tongyi Wanxiang, apresentada na Yunqi/Apsara Conference, capaz de gerar video em 1080P/4K com audio sincronizado (voz, efeitos e cena) pela primeira vez na serie, alem de geracao e edicao de imagem.",
+      "sources": [
+        {
+          "title": "WAN 2.5 Preview Launched",
+          "url": "https://www.latestly.com/socially/technology/wan-2-5-preview-launched-alibabas-wan-launches-next-gen-ai-platform-with-advanced-video-generate-and-image-capabilities-7126881.html",
+          "publisher": "LatestLY",
+          "date_basis": "Cobertura do lancamento do Wan2.5-preview na Yunqi Conference em 23-24 de setembro de 2025."
+        },
+        {
+          "title": "Wan (Tongyi Wanxiang) official site",
+          "url": "https://wan.video/",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Site oficial do Wan apresenta a serie 2.5 com geracao de video e audio sincronizado."
+        }
+      ],
+      "confidence": "media"
     },
     {
       "id": "minimax-speech-01",
