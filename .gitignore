@@ -1,34 +1,80 @@
 # OS/editor files
 .DS_Store
+._*
+.Spotlight-V100/
+.Trashes/
 Thumbs.db
+ehthumbs.db
 Desktop.ini
 .vscode/
 .idea/
+.history/
+*.swp
+*.swo
+*~
+
+# Local assistant/tool settings
+.claude/settings.local.json
 
 # Logs and temporary files
 *.log
+*.bak
+*.orig
 *.tmp
 *.temp
+logs/
 tmp/
 temp/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Local environment files
 .env
 .env.*
 !.env.example
 
+# Private keys and local certificates
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Private outreach contact lists
+data/arc_prize_br_contacts.csv
+
 # Dependency/build folders, in case the static app evolves later
 node_modules/
 dist/
 build/
+out/
 coverage/
+.cache/
+.parcel-cache/
+.npm/
+.yarn/
+.pnpm-store/
+*.tsbuildinfo
 
 # Python/cache leftovers from local tooling
 venv/
 xp/
 .venv/
+env/
+ENV/
 __pycache__/
 *.py[cod]
+.eggs/
+*.egg-info/
+pip-wheel-metadata/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
