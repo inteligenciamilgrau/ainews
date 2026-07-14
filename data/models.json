@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Revisao de Swiss AI Initiative, Technology Innovation Institute e Tencent: 36 registros confirmados foram acrescentados (1 Swiss AI, 11 TII e 24 Tencent), com base em comunicados, repositorios e model cards oficiais; a primeira entrada Falcon tambem foi corrigida para refletir a data real de abertura dos pesos. Antes: revisao de NAVER, NVIDIA e Sarvam AI e separacao entre confianca e precisao cronologica."
+      "description_pt": "Revisao de Aleph Alpha, Amazon, Runway e Yandex: 33 registros confirmados foram acrescentados (4 Aleph Alpha, 7 Amazon, 10 Runway e 12 Yandex), com base em anuncios, repositorios, documentacao e paginas de pesquisa oficiais. O registro Luminous foi corrigido porque a fonte de 2023 apresentava Luminous-World apenas como desenvolvimento futuro. Antes: revisao de Swiss AI, TII e Tencent; revisao de NAVER, NVIDIA e Sarvam AI; e separacao entre confianca e precisao cronologica."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -8998,18 +8998,20 @@
       "id": "aleph-alpha-luminous",
       "company": "Aleph Alpha",
       "family": "Luminous",
-      "model": "Luminous / Luminous World",
+      "model": "Luminous",
       "release_date": "2023-02-16",
-      "release_stage": "produto/relatorio tecnico",
+      "release_stage": "relatorio tecnico/marco publico",
       "ai_category": "LLMs",
       "model_type": ["texto", "imagem", "multimodal", "europeu", "enterprise", "soberania-digital"],
-      "description_pt": "Familia de modelos da Aleph Alpha, baseada na Alemanha, voltada a texto, imagem, explicabilidade e uso corporativo/governamental europeu.",
+      "description_pt": "Familia de modelos da Aleph Alpha voltada a texto, multimodalidade, explicabilidade e uso corporativo ou governamental europeu. A fonte registra o Luminous como existente; Luminous-World ainda era apenas um desenvolvimento esperado e por isso nao integra este registro.",
       "source": {
         "title": "Luminous: European AI closes gap to world leaders",
         "url": "https://aleph-alpha.com/luminous-european-ai-closes-gap-to-world-leaders/",
         "publisher": "Aleph Alpha",
-        "date_basis": "Post oficial publicado em 16 de fevereiro de 2023 apresenta Luminous e a expectativa de Luminous-World."
+        "date_basis": "Post oficial de 16 de fevereiro de 2023 publica o relatorio de desempenho do Luminous e trata Luminous-World somente como futuro."
       },
+      "date_precision": "dia oficial do relatorio, nao do primeiro lancamento",
+      "date_note_pt": "A data representa o marco tecnico documentado pela fonte oficial; a familia Luminous ja existia antes desse relatorio.",
       "confidence": "alta"
     },
     {
@@ -11203,6 +11205,668 @@
         "url": "https://github.com/Tencent-Hunyuan/HunyuanOCR",
         "publisher": "Tencent Hunyuan",
         "date_basis": "Repositorio oficial registra o lancamento da versao 1.5 em 7 de julho de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "aleph-alpha-luminous-explore",
+      "company": "Aleph Alpha",
+      "family": "Luminous",
+      "model": "Luminous-Explore",
+      "release_date": "2022-09-23",
+      "release_stage": "API/pesquisa",
+      "ai_category": "Embeddings",
+      "model_type": ["embeddings", "busca-semantica", "classificacao", "multilingue", "13B"],
+      "description_pt": "Modelo de embeddings semanticos derivado do Luminous-Base 13B, com representacoes simetricas e assimetricas para busca, agrupamento e classificacao.",
+      "source": {
+        "title": "Luminous-Explore - A model for world-class semantic representation",
+        "url": "https://aleph-alpha.com/luminous-explore-a-model-for-world-class-semantic-representation/",
+        "publisher": "Aleph Alpha",
+        "date_basis": "Pagina oficial de pesquisa publicada em 23 de setembro de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "aleph-alpha-pharia-1-llm",
+      "company": "Aleph Alpha",
+      "family": "Pharia",
+      "model": "Pharia-1-LLM-7B-control / control-aligned",
+      "release_date": "2024-08-26",
+      "release_stage": "pesos publicos/licenca de pesquisa",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "7B", "multilingue", "instrucao", "alinhamento", "open-weights"],
+      "description_pt": "Familia de 7B parametros otimizada para respostas controladas e uso europeu, com variantes flexivel e alinhada com protecoes adicionais.",
+      "sources": [
+        {
+          "title": "Introducing Pharia-1-LLM: transparent and compliant",
+          "url": "https://aleph-alpha.com/en/blog/introducing-pharia-1-llm-transparent-and-compliant/",
+          "publisher": "Aleph Alpha",
+          "date_basis": "Anuncio oficial publicado em 26 de agosto de 2024."
+        },
+        {
+          "title": "Pharia-1-LLM-7B-control",
+          "url": "https://huggingface.co/Aleph-Alpha/Pharia-1-LLM-7B-control",
+          "publisher": "Aleph Alpha",
+          "date_basis": "Model card oficial documenta as duas variantes e seus idiomas."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "aleph-alpha-pharia-1-embedding",
+      "company": "Aleph Alpha",
+      "family": "Pharia",
+      "model": "Pharia-1-Embedding-4608-control",
+      "release_date": "2024-12-19",
+      "release_stage": "pesos publicos",
+      "ai_category": "Embeddings",
+      "model_type": ["embeddings", "busca-semantica", "RAG", "multilingue", "open-weights"],
+      "description_pt": "Modelo de embeddings da geracao Pharia-1, publicado pela organizacao oficial para recuperacao semantica e aplicacoes corporativas.",
+      "source": {
+        "title": "Pharia-1-Embedding-4608-control",
+        "url": "https://huggingface.co/Aleph-Alpha/Pharia-1-Embedding-4608-control",
+        "publisher": "Aleph Alpha",
+        "date_basis": "Repositorio oficial registra a publicacao dos artefatos em 19 de dezembro de 2024."
+      },
+      "date_precision": "dia oficial dos artefatos",
+      "date_note_pt": "A data representa a publicacao verificavel no repositorio oficial, nao necessariamente um anuncio comercial separado.",
+      "confidence": "alta"
+    },
+    {
+      "id": "aleph-alpha-tfree-hat-7b",
+      "company": "Aleph Alpha",
+      "family": "TFree-HAT",
+      "model": "TFree-HAT 7B Base / DPO",
+      "release_date": "2025-08-20",
+      "release_stage": "pesquisa/pesos publicos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "7B", "tokenizer-free", "HAT", "alemao", "ingles", "open-weights"],
+      "description_pt": "Modelos sem tokenizer tradicional baseados na arquitetura Hierarchical Autoregressive Transformer, treinados para melhor compressao de sequencias em ingles e alemao.",
+      "source": {
+        "title": "Introducing TFree-HAT 7B: Tokenizer-Free Models Achieving Top-Tier Multilingual Performance",
+        "url": "https://aleph-alpha.com/en/blog/introducing-tfree-hat-7b-tokenizer-free-models-achieving-top-tier-multilingual-performance/",
+        "publisher": "Aleph Alpha",
+        "date_basis": "Anuncio oficial publicado em 20 de agosto de 2025 confirma os modelos Base e DPO e os pesos publicos."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "amazon-titan-family",
+      "company": "Amazon",
+      "family": "Titan",
+      "model": "Titan Text / Embeddings / Multimodal Embeddings / Image Generator",
+      "release_date": "2023-11-29",
+      "release_stage": "GA/preview no Amazon Bedrock",
+      "ai_category": ["LLMs", "Embeddings", "Imagem"],
+      "model_type": ["texto", "embeddings", "multimodal", "imagem", "API", "Bedrock"],
+      "description_pt": "Primeira linha ampla de modelos fundacionais Amazon Titan no Bedrock, reunindo geracao de texto, embeddings textuais e multimodais e geracao ou edicao de imagens.",
+      "source": {
+        "title": "Amazon Titan Image Generator, Multimodal Embeddings, and Text models are now available in Amazon Bedrock",
+        "url": "https://aws.amazon.com/blogs/aws/amazon-titan-image-generator-multimodal-embeddings-and-text-models-are-now-available-in-amazon-bedrock/",
+        "publisher": "AWS",
+        "date_basis": "Anuncio oficial publicado em 29 de novembro de 2023; modelos de texto estavam em GA e o gerador de imagens em preview."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "amazon-nova-act",
+      "company": "Amazon",
+      "family": "Nova",
+      "model": "Amazon Nova Act",
+      "release_date": "2025-03-31",
+      "release_stage": "preview de pesquisa",
+      "ai_category": "Agentes",
+      "model_type": ["agente", "browser-use", "computer-use", "automacao", "SDK"],
+      "description_pt": "Modelo agente treinado para executar acoes em navegadores, apresentado com um SDK de pesquisa para compor fluxos web controlados por linguagem natural e Python.",
+      "source": {
+        "title": "Introducing Amazon Nova Act",
+        "url": "https://www.amazon.science/blog/nova-act",
+        "publisher": "Amazon Science",
+        "date_basis": "Preview de pesquisa anunciado oficialmente em 31 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "amazon-nova-sonic",
+      "company": "Amazon",
+      "family": "Nova",
+      "model": "Amazon Nova Sonic",
+      "release_date": "2025-04-08",
+      "release_stage": "GA no Amazon Bedrock",
+      "ai_category": "Audio",
+      "model_type": ["audio", "speech-to-speech", "voz", "tempo-real", "multimodal", "API"],
+      "description_pt": "Modelo fundacional que unifica compreensao e geracao de fala para conversas de voz bidirecionais em tempo real, preservando contexto acustico e prosodia.",
+      "source": {
+        "title": "Announcing Amazon Nova Sonic",
+        "url": "https://aws.amazon.com/about-aws/whats-new/2025/04/amazon-nova-sonic-speech-to-speech-conversations-bedrock/",
+        "publisher": "AWS",
+        "date_basis": "Disponibilidade geral anunciada oficialmente em 8 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "amazon-nova-premier",
+      "company": "Amazon",
+      "family": "Nova",
+      "model": "Amazon Nova Premier",
+      "release_date": "2025-04-30",
+      "release_stage": "GA no Amazon Bedrock",
+      "ai_category": "Multimodal",
+      "model_type": ["texto", "imagem", "video", "multimodal", "1M-contexto", "destilacao", "API"],
+      "description_pt": "Modelo mais capaz da primeira geracao Nova para tarefas complexas, planejamento e coordenacao de ferramentas, tambem usado como professor para destilar modelos menores.",
+      "source": {
+        "title": "Amazon Nova Premier: Our most capable model for complex tasks and teacher for model distillation",
+        "url": "https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/",
+        "publisher": "AWS",
+        "date_basis": "Disponibilidade geral anunciada em 30 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "amazon-deepfleet",
+      "company": "Amazon",
+      "family": "DeepFleet",
+      "model": "DeepFleet",
+      "release_date": "2025-06-30",
+      "release_stage": "implantacao interna/anuncio publico",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "foundation-model", "multi-robo", "logistica", "previsao", "coordenacao"],
+      "description_pt": "Modelo fundacional para prever interacoes e coordenar grandes frotas de robos moveis nos centros logisticos da Amazon, reduzindo congestionamentos e tempos de deslocamento.",
+      "sources": [
+        {
+          "title": "Amazon launches a new AI foundation model to power its robotic fleet",
+          "url": "https://www.aboutamazon.com/news/operations/amazon-million-robots-ai-foundation-model",
+          "publisher": "Amazon",
+          "date_basis": "Apresentacao publica oficial em 30 de junho de 2025."
+        },
+        {
+          "title": "Amazon builds first foundation model for multirobot coordination",
+          "url": "https://www.amazon.science/blog/amazon-builds-first-foundation-model-for-multirobot-coordination/",
+          "publisher": "Amazon Science",
+          "date_basis": "Artigo tecnico oficial de 11 de agosto de 2025 descreve a familia de modelos e sua avaliacao."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "amazon-project-eluna",
+      "company": "Amazon",
+      "family": "Project Eluna",
+      "model": "Project Eluna",
+      "release_date": "2025-10-22",
+      "release_stage": "piloto operacional/anuncio publico",
+      "ai_category": "Agentes",
+      "model_type": ["agente", "operacoes", "logistica", "planejamento", "assistente"],
+      "description_pt": "Modelo agente para ajudar operadores de centros logisticos a interpretar dados, antecipar gargalos e tomar decisoes de planejamento e seguranca.",
+      "source": {
+        "title": "Introducing Blue Jay and Project Eluna",
+        "url": "https://www.aboutamazon.com/news/operations/new-robots-amazon-fulfillment-agentic-ai",
+        "publisher": "Amazon",
+        "date_basis": "Projeto e modelo agente apresentados oficialmente em 22 de outubro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "amazon-nova-2",
+      "company": "Amazon",
+      "family": "Nova",
+      "model": "Amazon Nova 2 Lite / Pro / Omni / Sonic",
+      "release_date": "2025-12-02",
+      "release_stage": "GA/preview no Amazon Bedrock",
+      "ai_category": ["LLMs", "Multimodal", "Audio", "Imagem"],
+      "model_type": ["texto", "imagem", "video", "audio", "raciocinio", "multimodal", "1M-contexto", "API"],
+      "description_pt": "Segunda geracao Nova, com raciocinio ajustavel: Lite e Sonic em disponibilidade geral e Pro e Omni em preview, cobrindo compreensao multimodal, voz e geracao de imagens.",
+      "sources": [
+        {
+          "title": "Announcing Amazon Nova 2 foundation models now available in Amazon Bedrock",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2025/12/nova-2-foundation-models-amazon-bedrock/",
+          "publisher": "AWS",
+          "date_basis": "Anuncio oficial de 2 de dezembro de 2025 confirma Nova 2 Lite e Pro."
+        },
+        {
+          "title": "Introducing Amazon Nova 2 Omni in Preview",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-nova-2-omni-preview/",
+          "publisher": "AWS",
+          "date_basis": "Anuncio oficial no mesmo dia confirma o Omni em preview."
+        },
+        {
+          "title": "Introducing Amazon Nova 2 Sonic",
+          "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-nova-2-sonic-next-generation-speech-to-speech-model-for-conversational-ai/",
+          "publisher": "AWS",
+          "date_basis": "Anuncio oficial no mesmo dia confirma o Sonic em disponibilidade geral."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-gen-1",
+      "company": "Runway",
+      "family": "Gen",
+      "model": "Gen-1",
+      "release_date": "2023-02-01",
+      "release_stage": "pesquisa/produto",
+      "ai_category": "Video",
+      "model_type": ["video", "video-to-video", "estilizacao", "multimodal", "difusao"],
+      "description_pt": "Primeira geracao publica da linha Gen, capaz de transformar videos existentes usando texto e imagens como condicionamento de estilo e composicao.",
+      "source": {
+        "title": "Gen-1: The Next Step Forward for Generative AI",
+        "url": "https://runwayml.com/research/gen-1",
+        "publisher": "Runway",
+        "date_basis": "Pagina oficial identifica a apresentacao como fevereiro de 2023, sem informar o dia."
+      },
+      "date_precision": "mes oficial; dia convencional",
+      "date_note_pt": "O dia 1 e usado apenas para ordenar; a fonte oficial confirma fevereiro de 2023.",
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-gen-2",
+      "company": "Runway",
+      "family": "Gen",
+      "model": "Gen-2",
+      "release_date": "2023-02-01",
+      "release_stage": "pesquisa/produto",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "video-to-video", "multimodal"],
+      "description_pt": "Segunda geracao que removeu a necessidade de um video estrutural e passou a gerar cenas a partir de texto, imagens ou combinacoes multimodais.",
+      "sources": [
+        {
+          "title": "Gen-2: Generate novel videos with text, images or video clips",
+          "url": "https://runwayml.com/research/gen-2",
+          "publisher": "Runway",
+          "date_basis": "Pagina oficial identifica o trabalho como fevereiro de 2023, sem informar o dia."
+        },
+        {
+          "title": "Scaling our in-house research infrastructure with AWS",
+          "url": "https://runwayml.com/news/scaling-our-in-house-research-infrastructure-with-aws",
+          "publisher": "Runway",
+          "date_basis": "Post oficial de 22 de marco de 2023 corrobora que o release de pesquisa ja havia ocorrido."
+        }
+      ],
+      "date_precision": "mes oficial; dia convencional",
+      "date_note_pt": "O dia 1 e usado apenas para ordenar; a pagina oficial atribui o modelo a fevereiro e uma segunda fonte confirma sua existencia publica em marco.",
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-gen-3-alpha",
+      "company": "Runway",
+      "family": "Gen",
+      "model": "Gen-3 Alpha / Turbo",
+      "release_date": "2024-06-17",
+      "release_stage": "anuncio/implantacao gradual",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "multimodal", "controle-temporal"],
+      "description_pt": "Nova geracao de modelos fundacionais de video treinada em infraestrutura multimodal propria, com ganhos de fidelidade, consistencia, movimento e controle temporal.",
+      "sources": [
+        {
+          "title": "Introducing Gen-3 Alpha: A New Frontier for Video Generation",
+          "url": "https://runwayml.com/research/introducing-gen-3-alpha",
+          "publisher": "Runway",
+          "date_basis": "Pagina oficial publicada em 17 de junho de 2024."
+        },
+        {
+          "title": "Introducing the Runway API for Gen-3 Alpha Turbo",
+          "url": "https://runwayml.com/news/introducing-the-runway-api",
+          "publisher": "Runway",
+          "date_basis": "Anuncio oficial de 16 de setembro de 2024 confirma a variante Turbo e sua API."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-act-one",
+      "company": "Runway",
+      "family": "Act",
+      "model": "Act-One",
+      "release_date": "2024-10-22",
+      "release_stage": "produto no Gen-3 Alpha",
+      "ai_category": "Video",
+      "model_type": ["video", "performance-capture", "animacao", "personagens", "voz"],
+      "description_pt": "Modelo para transferir interpretacao, fala, expressoes e movimentos de um video de referencia para personagens realistas ou animados.",
+      "source": {
+        "title": "Introducing Act-One",
+        "url": "https://runwayml.com/research/introducing-act-one",
+        "publisher": "Runway",
+        "date_basis": "Lancamento oficial publicado em 22 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-frames",
+      "company": "Runway",
+      "family": "Frames",
+      "model": "Frames / Gen-4 Images",
+      "release_date": "2024-11-25",
+      "release_stage": "anuncio/implantacao gradual",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "consistencia-de-estilo", "base-model"],
+      "description_pt": "Modelo-base de geracao de imagens com foco em controle e consistencia estilistica, posteriormente renomeado Gen-4 Images.",
+      "source": {
+        "title": "Introducing Frames",
+        "url": "https://runwayml.com/research/introducing-frames",
+        "publisher": "Runway",
+        "date_basis": "Anuncio oficial publicado em 25 de novembro de 2024; a propria pagina informa a renomeacao posterior."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-act-two",
+      "company": "Runway",
+      "family": "Act",
+      "model": "Act-Two",
+      "release_date": "2025-07-17",
+      "release_stage": "produto/planos pagos",
+      "ai_category": "Video",
+      "model_type": ["video", "performance-capture", "motion-capture", "personagens", "corpo", "maos"],
+      "description_pt": "Segunda geracao de captura de performance, ampliando o controle de cabeca, rosto, corpo e maos e melhorando a qualidade do movimento transferido.",
+      "sources": [
+        {
+          "title": "Product Updates & Changelog - Act-Two",
+          "url": "https://runwayml.com/changelog",
+          "publisher": "Runway",
+          "date_basis": "Changelog oficial registra Act-Two em 17 de julho de 2025."
+        },
+        {
+          "title": "Performance Capture with Act-Two",
+          "url": "https://help.runwayml.com/hc/en-us/articles/42311337895827-Performance-Capture-with-Act-Two",
+          "publisher": "Runway",
+          "date_basis": "Documentacao oficial confirma capacidades e disponibilidade do modelo."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-aleph",
+      "company": "Runway",
+      "family": "Aleph",
+      "model": "Runway Aleph",
+      "release_date": "2025-07-25",
+      "release_stage": "produto/planos pagos",
+      "ai_category": "Video",
+      "model_type": ["video", "edicao", "transformacao", "in-context", "multi-tarefa"],
+      "description_pt": "Modelo de video in-context para adicionar, remover ou transformar elementos, mudar angulos, ambientes, iluminacao e estilo preservando o material de entrada.",
+      "source": {
+        "title": "Introducing Runway Aleph",
+        "url": "https://runwayml.com/research/introducing-runway-aleph",
+        "publisher": "Runway",
+        "date_basis": "Pagina oficial publicada em 25 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-gen-4-5",
+      "company": "Runway",
+      "family": "Gen",
+      "model": "Gen-4.5",
+      "release_date": "2025-12-01",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "fisica", "controle", "audio-nativo"],
+      "description_pt": "Geracao intermediaria com avancos em movimento, aderencia ao prompt, fidelidade visual e fisica, depois ampliada com audio nativo e edicao multi-shot.",
+      "source": {
+        "title": "Introducing Runway Gen-4.5",
+        "url": "https://runwayml.com/research/introducing-runway-gen-4.5",
+        "publisher": "Runway",
+        "date_basis": "Lancamento oficial publicado em 1 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-gwm-1",
+      "company": "Runway",
+      "family": "GWM",
+      "model": "GWM-1 Worlds / Avatars / Robotics",
+      "release_date": "2025-12-11",
+      "release_stage": "produto/API/acesso antecipado",
+      "ai_category": "Robotica/World models",
+      "model_type": ["world-model", "tempo-real", "interativo", "robotica", "avatares", "simulacao"],
+      "description_pt": "Primeira familia General World Model da Runway, construida sobre Gen-4.5 para mundos exploraveis, personagens conversacionais e simulacao ou treinamento de robos.",
+      "source": {
+        "title": "Introducing GWM-1",
+        "url": "https://runwayml.com/research/introducing-runway-gwm-1",
+        "publisher": "Runway",
+        "date_basis": "Anuncio oficial publicado em 11 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-aleph-2",
+      "company": "Runway",
+      "family": "Aleph",
+      "model": "Aleph 2.0",
+      "release_date": "2026-05-21",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "edicao", "1080p", "preservacao", "edicao-localizada", "30-segundos"],
+      "description_pt": "Atualizacao do modelo de edicao de video com clipes de ate 30 segundos em 1080p, edicoes localizadas e maior preservacao do material original.",
+      "source": {
+        "title": "Introducing Aleph 2.0 and Edit Studio",
+        "url": "https://runwayml.com/news/introducing-aleph-2-and-edit-studio",
+        "publisher": "Runway",
+        "date_basis": "Lancamento oficial publicado em 21 de maio de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yalm-100b",
+      "company": "Yandex",
+      "family": "YaLM",
+      "model": "YaLM 100B",
+      "release_date": "2022-06-23",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "100B", "russo", "ingles", "open-weights", "Apache-2.0"],
+      "description_pt": "Modelo GPT-like bilingue de 100 bilhoes de parametros publicado para pesquisa e uso comercial sob Apache 2.0.",
+      "source": {
+        "title": "Yandex publishes YaLM 100B, the largest GPT-like neural network in open source",
+        "url": "https://yandex.com/company/press_center/press_releases/2022/2022-23-06",
+        "publisher": "Yandex",
+        "date_basis": "Comunicado oficial publicado em 23 de junho de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yandexgpt-2",
+      "company": "Yandex",
+      "family": "YandexGPT",
+      "model": "YandexGPT 2",
+      "release_date": "2023-09-07",
+      "release_stage": "produto/API gradual",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "assistente", "russo", "reescrita", "sumarizacao"],
+      "description_pt": "Segunda geracao do LLM da Yandex, com melhor qualidade de resposta, adaptacao de estilo, analise e manutencao de contexto nos produtos com Alice.",
+      "source": {
+        "title": "Yandex presents the latest version of its language model: YandexGPT 2",
+        "url": "https://yandex.com/company/news/07-09-2023",
+        "publisher": "Yandex",
+        "date_basis": "Lancamento oficial publicado em 7 de setembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yandexart",
+      "company": "Yandex",
+      "family": "YandexART",
+      "model": "YandexART",
+      "release_date": "2023-10-18",
+      "release_stage": "produto",
+      "ai_category": ["Imagem", "Video"],
+      "model_type": ["imagem", "animacao", "texto-para-imagem", "difusao", "RLHF"],
+      "description_pt": "Primeira geracao nomeada da Yandex AI Rendering Technology, uma rede de difusao em cascata para criar imagens e animacoes a partir de texto.",
+      "source": {
+        "title": "Yandex introduces the YandexART",
+        "url": "https://yandex.com/company/news/01-18-10-2023",
+        "publisher": "Yandex",
+        "date_basis": "Comunicado oficial publicado em 18 de outubro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yandexgpt-3",
+      "company": "Yandex",
+      "family": "YandexGPT",
+      "model": "YandexGPT 3 / 3 Pro",
+      "release_date": "2024-04-19",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "assistente", "russo", "RAG", "corporativo"],
+      "description_pt": "Terceira geracao integrada integralmente a Alice, com uma variante Pro para consultas complexas, edicao avancada e tarefas profissionais.",
+      "source": {
+        "title": "Yandex upgrades its virtual assistant Alice with the YandexGPT 3 large language model",
+        "url": "https://yandex.com/company/news/01-19-04-2024",
+        "publisher": "Yandex",
+        "date_basis": "Comunicado oficial publicado em 19 de abril de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yandexart-1-3",
+      "company": "Yandex",
+      "family": "YandexART",
+      "model": "YandexART 1.3",
+      "release_date": "2024-04-24",
+      "release_stage": "produto",
+      "ai_category": ["Imagem", "Video"],
+      "model_type": ["imagem", "animacao", "texto-para-imagem", "latent-diffusion", "multiformato"],
+      "description_pt": "Atualizacao visual que migrou para difusao latente, ampliou o conjunto de treinamento e melhorou realismo, formatos e compreensao de prompts.",
+      "source": {
+        "title": "Yandex releases YandexART 1.3",
+        "url": "https://yandex.com/company/news/01-24-04-2024",
+        "publisher": "Yandex",
+        "date_basis": "Lancamento oficial publicado em 24 de abril de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yandexart-2",
+      "company": "Yandex",
+      "family": "YandexART",
+      "model": "YandexART 2.0",
+      "release_date": "2024-10-10",
+      "release_stage": "produto/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "arquitetura-hibrida", "texto-em-imagem", "API"],
+      "description_pt": "Segunda geracao visual com arquitetura hibrida convolucional e Transformer, melhor composicao e capacidade de produzir texto dentro das imagens.",
+      "source": {
+        "title": "Yandex introduces YandexART 2.0",
+        "url": "https://yandex.com/company/news/10-10-2024",
+        "publisher": "Yandex",
+        "date_basis": "Lancamento oficial publicado em 10 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yandexgpt-4",
+      "company": "Yandex",
+      "family": "YandexGPT",
+      "model": "YandexGPT 4 Pro / Lite",
+      "release_date": "2024-10-24",
+      "release_stage": "API/recursos em beta",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "RAG", "function-calling", "Pro", "Lite", "API"],
+      "description_pt": "Quarta geracao com variantes Pro e Lite, contexto ampliado, raciocinio passo a passo, menor taxa de erros e integracao planejada com funcoes externas.",
+      "source": {
+        "title": "Yandex launches next-generation language models YandexGPT 4",
+        "url": "https://yandex.com/company/news/24-10-2024",
+        "publisher": "Yandex",
+        "date_basis": "Lancamento oficial publicado em 24 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yandexgpt-5",
+      "company": "Yandex",
+      "family": "YandexGPT",
+      "model": "YandexGPT 5 Pro / Lite 8B",
+      "release_date": "2025-02-25",
+      "release_stage": "produto/API/pesos abertos parciais",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "russo", "ingles", "Pro", "Lite", "8B", "open-weights"],
+      "description_pt": "Quinta geracao com uma variante Pro servida em Alice e Yandex Cloud e uma variante Lite Pretrain de 8B publicada para adaptacao local.",
+      "sources": [
+        {
+          "title": "Yandex relaunches Alice chat with YandexGPT 5 Pro",
+          "url": "https://yandex.ru/company/news/02-25-02-2025",
+          "publisher": "Yandex",
+          "date_basis": "Anuncio oficial em russo publicado em 25 de fevereiro de 2025."
+        },
+        {
+          "title": "Yandex releases a YandexGPT family model openly",
+          "url": "https://yandex.ru/company/news/04-25-02-2025",
+          "publisher": "Yandex",
+          "date_basis": "Comunicado oficial no mesmo dia confirma o YandexGPT 5 Lite Pretrain 8B em acesso aberto."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yandexart-2-5",
+      "company": "Yandex",
+      "family": "YandexART",
+      "model": "YandexART 2.5 / 2.5 Pro",
+      "release_date": "2025-03-20",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "Pro", "4K", "realismo", "uso-comercial"],
+      "description_pt": "Linha visual atualizada com melhor obediencia a prompts, composicao de objetos e realismo; a variante Pro acrescentou resultados mais detalhados e exportacao em 4K.",
+      "source": {
+        "title": "Yandex launches the new YandexART lineup",
+        "url": "https://yandex.ru/company/news/03-20-03-2025",
+        "publisher": "Yandex",
+        "date_basis": "Lancamento oficial em russo publicado em 20 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-yandexgpt-5-1",
+      "company": "Yandex",
+      "family": "YandexGPT",
+      "model": "YandexGPT 5.1 Pro",
+      "release_date": "2025-08-28",
+      "release_stage": "API empresarial",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "corporativo", "RAG", "bases-de-conhecimento", "API"],
+      "description_pt": "Atualizacao empresarial do modelo Pro, otimizada para processamento de texto, respostas baseadas em conhecimento e automacao de fluxos corporativos.",
+      "source": {
+        "title": "Yandex B2B Tech opens access to YandexGPT 5.1 Pro",
+        "url": "https://yandex.ru/company/news/28-08-2025-01",
+        "publisher": "Yandex",
+        "date_basis": "Disponibilidade empresarial anunciada oficialmente em 28 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-alice-ai-family",
+      "company": "Yandex",
+      "family": "Alice AI",
+      "model": "Alice AI LLM / Art / VLM",
+      "release_date": "2025-10-28",
+      "release_stage": "produto/implantacao gradual",
+      "ai_category": "Multimodal",
+      "model_type": ["texto", "imagem", "visao-linguagem", "MoE", "assistente", "agentes"],
+      "description_pt": "Nova familia geracional que sucede a nomenclatura YandexGPT/YandexART nos produtos Alice, reunindo um LLM MoE, um gerador visual e um modelo visao-linguagem.",
+      "source": {
+        "title": "Alice, what's new? - Yandex introduces Alice AI",
+        "url": "https://yandex.com/company/news/2025-10-28-01",
+        "publisher": "Yandex",
+        "date_basis": "Familia anunciada oficialmente em 28 de outubro de 2025; recursos agentes ainda tinham implantacao futura."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "yandex-alice-ai-2026-update",
+      "company": "Yandex",
+      "family": "Alice AI",
+      "model": "Alice AI LLM / LLM Search / ART / VLM (2026)",
+      "release_date": "2026-06-25",
+      "release_stage": "atualizacao de produto",
+      "ai_category": "Multimodal",
+      "model_type": ["texto", "busca", "imagem", "visao-linguagem", "assistente", "personalizacao"],
+      "description_pt": "Atualizacao coordenada das variantes de linguagem, busca e visao da familia Alice AI, com foco em completar tarefas, personalizar respostas e interpretar imagens, tabelas e graficos.",
+      "source": {
+        "title": "Major Alice AI update",
+        "url": "https://yandex.ru/company/news/25-06-2026-03",
+        "publisher": "Yandex",
+        "date_basis": "Atualizacao oficial publicada em 25 de junho de 2026."
       },
       "confidence": "alta"
     }
