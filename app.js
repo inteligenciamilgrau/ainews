@@ -157,7 +157,7 @@ const companyLocations = [
   },
   {
     company: "AI21 Labs",
-    site: "Headquarters / Jamba",
+    site: "Headquarters / Jurassic & Jamba",
     city: "Tel Aviv",
     region: "Tel Aviv",
     country: "Israel",
@@ -170,7 +170,7 @@ const companyLocations = [
   },
   {
     company: "Ai2",
-    site: "Allen Institute for AI / Molmo",
+    site: "Allen Institute for AI / OLMo & Molmo",
     city: "Seattle",
     region: "Washington",
     country: "United States",

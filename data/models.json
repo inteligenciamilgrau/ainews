@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Adicionados modelos e marcadores globais fora do eixo EUA/Franca/China, incluindo Russia, Alemanha, Dinamarca, Canada, Africa do Sul, Singapura, India, Emirados Arabes, Coreia do Sul, Suica e Australia."
+      "description_pt": "Mapeamento completo das familias da Ai2 (ELMo, OLMo, OLMoE, Tulu, Molmo, MolmoAct, OLMoASR, FlexOlmo) e da AI21 Labs (Jurassic e Jamba), com 22 novas entradas verificadas em fontes oficiais."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -6767,6 +6767,68 @@
       "confidence": "alta"
     },
     {
+      "id": "ai2-elmo",
+      "company": "Ai2",
+      "family": "ELMo",
+      "model": "ELMo",
+      "release_date": "2018-02-15",
+      "release_stage": "pesquisa",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "embeddings-contextuais", "biLSTM", "pesquisa"],
+      "description_pt": "Modelo pioneiro de representacoes contextuais de palavras do Allen Institute for AI com a University of Washington, marco da era de modelos de linguagem pre-treinados anterior ao GPT-1.",
+      "source": {
+        "title": "Deep contextualized word representations",
+        "url": "https://arxiv.org/abs/1802.05365",
+        "publisher": "Ai2 / University of Washington",
+        "date_basis": "Paper primario publicado no arXiv em 15 de fevereiro de 2018."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-olmo-7b",
+      "company": "Ai2",
+      "family": "OLMo",
+      "model": "OLMo 1B / 7B",
+      "release_date": "2024-02-01",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "open-weights", "open-data", "Apache-2.0"],
+      "description_pt": "Primeira geracao do Open Language Model da Ai2, lancada com pesos, dados de treino (Dolma), codigo e logs de treinamento para ciencia totalmente aberta de LLMs.",
+      "sources": [
+        {
+          "title": "OLMo: Accelerating the Science of Language Models",
+          "url": "https://arxiv.org/abs/2402.00838",
+          "publisher": "Ai2",
+          "date_basis": "Paper primario publicado no arXiv em 1 de fevereiro de 2024."
+        },
+        {
+          "title": "OLMo",
+          "url": "https://allenai.org/olmo",
+          "publisher": "Ai2",
+          "date_basis": "Pagina oficial da familia OLMo."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-olmoe",
+      "company": "Ai2",
+      "family": "OLMo",
+      "model": "OLMoE 1B-7B",
+      "release_date": "2024-09-03",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "mixture-of-experts", "open-weights", "open-data", "eficiencia"],
+      "description_pt": "Primeiro mixture-of-experts totalmente aberto da Ai2, com 1B de parametros ativos e 7B totais, publicado com dados, codigo e checkpoints intermediarios.",
+      "source": {
+        "title": "OLMoE: Open Mixture-of-Experts Language Models",
+        "url": "https://arxiv.org/abs/2409.02060",
+        "publisher": "Ai2",
+        "date_basis": "Paper primario publicado no arXiv em 3 de setembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "ai2-molmo-pixmo",
       "company": "Ai2",
       "family": "Molmo",
@@ -6790,6 +6852,220 @@
           "date_basis": "Pagina oficial da Ai2 apresenta a familia Molmo e seus artefatos abertos."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-tulu-3",
+      "company": "Ai2",
+      "family": "Tulu",
+      "model": "Tulu 3 8B / 70B",
+      "release_date": "2024-11-21",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "post-training", "instrucao", "RLVR", "open-weights", "open-data"],
+      "description_pt": "Familia aberta de post-training da Ai2 sobre Llama 3.1, publicando modelos, dados, codigo e a receita RLVR de aprendizado por recompensas verificaveis.",
+      "sources": [
+        {
+          "title": "Tulu 3: Pushing Frontiers in Open Language Model Post-Training",
+          "url": "https://arxiv.org/abs/2411.15124",
+          "publisher": "Ai2",
+          "date_basis": "Lancamento anunciado em 21 de novembro de 2024; paper primario publicado no arXiv em 22 de novembro de 2024."
+        },
+        {
+          "title": "Tulu 3",
+          "url": "https://allenai.org/tulu",
+          "publisher": "Ai2",
+          "date_basis": "Pagina oficial da familia Tulu."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-olmo-2",
+      "company": "Ai2",
+      "family": "OLMo",
+      "model": "OLMo 2 7B / 13B",
+      "release_date": "2024-11-26",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "open-weights", "open-data", "Apache-2.0"],
+      "description_pt": "Segunda geracao do OLMo com treinamento em ate 5T de tokens, arquitetura mais estavel e post-training baseado na receita Tulu 3, mantendo dados e codigo abertos.",
+      "source": {
+        "title": "OLMo 2: The best fully open language model to date",
+        "url": "https://allenai.org/blog/olmo2",
+        "publisher": "Ai2",
+        "date_basis": "Post oficial publicado em 26 de novembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-tulu-3-405b",
+      "company": "Ai2",
+      "family": "Tulu",
+      "model": "Tulu 3 405B",
+      "release_date": "2025-01-30",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "post-training", "405B", "RLVR", "open-weights"],
+      "description_pt": "Escalada da receita aberta Tulu 3 para 405B de parametros, aplicando post-training e RLVR sobre o Llama 3.1 405B com resultados competitivos com DeepSeek V3 e GPT-4o.",
+      "source": {
+        "title": "Scaling the Tulu 3 post-training recipes to surpass the performance of DeepSeek V3",
+        "url": "https://allenai.org/blog/tulu-3-405B",
+        "publisher": "Ai2",
+        "date_basis": "Post oficial publicado em 30 de janeiro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-olmo-2-32b",
+      "company": "Ai2",
+      "family": "OLMo",
+      "model": "OLMo 2 32B",
+      "release_date": "2025-03-13",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "32B", "open-weights", "open-data", "Apache-2.0"],
+      "description_pt": "Maior modelo da familia OLMo 2, apresentado pela Ai2 como o primeiro modelo totalmente aberto a superar GPT-3.5 Turbo e GPT-4o mini em suites academicas populares.",
+      "source": {
+        "title": "OLMo 2 32B: First fully open model to outperform GPT 3.5 and GPT 4o mini",
+        "url": "https://allenai.org/blog/olmo2-32B",
+        "publisher": "Ai2",
+        "date_basis": "Post oficial publicado em 13 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-olmo-2-1b",
+      "company": "Ai2",
+      "family": "OLMo",
+      "model": "OLMo 2 1B",
+      "release_date": "2025-05-01",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "1B", "open-weights", "on-device", "Apache-2.0"],
+      "description_pt": "Variante compacta da familia OLMo 2 voltada a pesquisa e execucao local, reportada como superior a modelos pequenos equivalentes de Google, Meta e Alibaba.",
+      "source": {
+        "title": "OLMo-2-0425-1B",
+        "url": "https://huggingface.co/allenai/OLMo-2-0425-1B",
+        "publisher": "Ai2",
+        "date_basis": "Checkpoint oficial no Hugging Face; lancamento coberto pela imprensa em 1 de maio de 2025."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "ai2-flexolmo",
+      "company": "Ai2",
+      "family": "OLMo",
+      "model": "FlexOlmo",
+      "release_date": "2025-07-09",
+      "release_stage": "pesquisa/pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "mixture-of-experts", "treinamento-distribuido", "data-governance", "open-weights"],
+      "description_pt": "Arquitetura mixture-of-experts da Ai2 que permite treinar modulos em dados fechados sem compartilha-los e ativar ou remover a contribuicao de cada fonte de dados na inferencia.",
+      "source": {
+        "title": "FlexOlmo: Open Language Models for Flexible Data Use",
+        "url": "https://arxiv.org/abs/2507.07024",
+        "publisher": "Ai2",
+        "date_basis": "Paper primario publicado no arXiv em 9 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-molmoact",
+      "company": "Ai2",
+      "family": "MolmoAct",
+      "model": "MolmoAct 7B",
+      "release_date": "2025-08-12",
+      "release_stage": "pesos abertos",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "action-reasoning", "visao-linguagem-acao", "3D", "open-weights"],
+      "description_pt": "Action Reasoning Model aberto da Ai2 que planeja acoes de robos raciocinando no espaco 3D, com trajetorias visuais editaveis antes da execucao.",
+      "sources": [
+        {
+          "title": "MolmoAct: Action Reasoning Models that can Reason in Space",
+          "url": "https://arxiv.org/abs/2508.07917",
+          "publisher": "Ai2",
+          "date_basis": "Paper primario publicado no arXiv em 12 de agosto de 2025."
+        },
+        {
+          "title": "MolmoAct: An Action Reasoning Model that reasons in 3D space",
+          "url": "https://allenai.org/blog/molmoact",
+          "publisher": "Ai2",
+          "date_basis": "Post oficial de lancamento em agosto de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-olmoasr",
+      "company": "Ai2",
+      "family": "OLMoASR",
+      "model": "OLMoASR",
+      "release_date": "2025-08-27",
+      "release_stage": "pesos abertos",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "speech-to-text", "ASR", "open-weights", "open-data"],
+      "description_pt": "Familia de modelos abertos de reconhecimento de fala da Ai2 treinada do zero em dataset curado de 3 milhoes de horas, posicionada como alternativa aberta ao Whisper.",
+      "source": {
+        "title": "OLMoASR: A series of open speech recognition models",
+        "url": "https://allenai.org/blog/olmoasr",
+        "publisher": "Ai2",
+        "date_basis": "Relatorio tecnico publicado em 27 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-olmo-3",
+      "company": "Ai2",
+      "family": "OLMo",
+      "model": "OLMo 3 7B / 32B (Base, Instruct, Think, RL Zero)",
+      "release_date": "2025-11-20",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "fundacao", "open-weights", "open-data", "longo-contexto"],
+      "description_pt": "Terceira geracao do OLMo com o primeiro modelo de raciocinio 32B totalmente aberto (OLMo 3 Think), contexto de 65K tokens e todo o fluxo de dados a deployment publicado.",
+      "source": {
+        "title": "Olmo 3: Charting a path through the model flow to lead open-source AI",
+        "url": "https://allenai.org/blog/olmo3",
+        "publisher": "Ai2",
+        "date_basis": "Post oficial publicado em 20 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-molmo-2",
+      "company": "Ai2",
+      "family": "Molmo",
+      "model": "Molmo 2 4B / 8B / Molmo 2-O 7B",
+      "release_date": "2025-12-16",
+      "release_stage": "pesos abertos",
+      "ai_category": ["LLMs", "Imagem", "Video"],
+      "model_type": ["multimodal", "video", "visao", "pointing", "tracking", "open-weights", "open-data"],
+      "description_pt": "Suite multimodal aberta da Ai2 para entendimento de video, imagem e multi-imagem com grounding espacial e temporal; o 8B supera o Molmo 72B da geracao anterior.",
+      "source": {
+        "title": "Ai2 Releases Molmo 2: State-of-the-Art Open Multimodal Family for Video and Multi-Image Understanding",
+        "url": "https://www.businesswire.com/news/home/20251216910167/en/Ai2-Releases-Molmo-2-State-of-the-Art-Open-Multimodal-Family-for-Video-and-Multi-Image-Understanding",
+        "publisher": "Ai2 / Business Wire",
+        "date_basis": "Comunicado oficial publicado em 16 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-molmoact-2",
+      "company": "Ai2",
+      "family": "MolmoAct",
+      "model": "MolmoAct 2",
+      "release_date": "2026-05-05",
+      "release_stage": "pesos abertos",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "action-reasoning", "bimanual", "embodied-ai", "open-weights", "open-data"],
+      "description_pt": "Segunda geracao do modelo de robotica aberto da Ai2, ate 37x mais rapida que a anterior e acompanhada do dataset bimanual MolmoAct 2-Bimanual YAM com mais de 720 horas.",
+      "source": {
+        "title": "MolmoAct 2: An open foundation for robots that work in the real world",
+        "url": "https://allenai.org/blog/molmoact2",
+        "publisher": "Ai2",
+        "date_basis": "Post oficial publicado em 5 de maio de 2026."
+      },
       "confidence": "alta"
     },
     {
@@ -6915,6 +7191,150 @@
         "url": "https://elevenlabs.io/blog/eleven-v3",
         "publisher": "ElevenLabs",
         "date_basis": "Post oficial publicado em 3 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai21-jurassic-1",
+      "company": "AI21 Labs",
+      "family": "Jurassic",
+      "model": "Jurassic-1 Large / Jumbo",
+      "release_date": "2021-08-11",
+      "release_stage": "API beta/AI21 Studio",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "178B", "API"],
+      "description_pt": "Primeira familia de LLMs da AI21, com o J1-Jumbo de 178B parametros lancado junto do AI21 Studio como alternativa comercial ao GPT-3.",
+      "source": {
+        "title": "Announcing AI21 Studio and Jurassic-1 Language Models",
+        "url": "https://www.ai21.com/blog/announcing-ai21-studio-and-jurassic-1/",
+        "publisher": "AI21 Labs",
+        "date_basis": "Post oficial publicado em 11 de agosto de 2021."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai21-jurassic-2",
+      "company": "AI21 Labs",
+      "family": "Jurassic",
+      "model": "Jurassic-2 Large / Grande / Jumbo",
+      "release_date": "2023-03-09",
+      "release_stage": "API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "multilingue", "instrucao", "API"],
+      "description_pt": "Segunda geracao dos LLMs da AI21 com seguimento de instrucoes, suporte multilingue e APIs de tarefas especificas no AI21 Studio.",
+      "source": {
+        "title": "Announcing Jurassic-2 and Task-Specific APIs",
+        "url": "https://www.ai21.com/blog/introducing-j2/",
+        "publisher": "AI21 Labs",
+        "date_basis": "Post oficial publicado em 9 de marco de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai21-jamba",
+      "company": "AI21 Labs",
+      "family": "Jamba",
+      "model": "Jamba",
+      "release_date": "2024-03-28",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "hybrid-architecture", "Mamba", "mixture-of-experts", "longo-contexto", "open-weights", "Apache-2.0"],
+      "description_pt": "Primeiro modelo de producao a combinar Mamba (SSM) com Transformer, MoE de 52B (12B ativos) e janela de 256K tokens, lancado com pesos abertos.",
+      "source": {
+        "title": "Introducing Jamba: AI21's Groundbreaking SSM-Transformer Model",
+        "url": "https://www.ai21.com/blog/announcing-jamba/",
+        "publisher": "AI21 Labs",
+        "date_basis": "Post oficial publicado em 28 de marco de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai21-jamba-instruct",
+      "company": "AI21 Labs",
+      "family": "Jamba",
+      "model": "Jamba-Instruct",
+      "release_date": "2024-05-02",
+      "release_stage": "API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "instrucao", "chat", "longo-contexto", "empresarial", "API"],
+      "description_pt": "Versao alinhada e ajustada por instrucoes do Jamba, com chat e guardrails de seguranca para uso empresarial imediato na plataforma da AI21.",
+      "source": {
+        "title": "Built for the Enterprise: Introducing AI21's Jamba-Instruct Model",
+        "url": "https://www.ai21.com/blog/announcing-jamba-instruct/",
+        "publisher": "AI21 Labs",
+        "date_basis": "Post oficial publicado em 2 de maio de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai21-jamba-1-5",
+      "company": "AI21 Labs",
+      "family": "Jamba",
+      "model": "Jamba 1.5 Mini / Large",
+      "release_date": "2024-08-22",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "hybrid-architecture", "mixture-of-experts", "longo-contexto", "open-weights", "multilingue"],
+      "description_pt": "Familia aberta com Mini (12B ativos/52B totais) e Large (94B ativos/398B totais), apresentada como os modelos de contexto longo mais rapidos da categoria.",
+      "source": {
+        "title": "The Jamba 1.5 Open Model Family: The Most Powerful and Efficient Long Context Models",
+        "url": "https://www.ai21.com/blog/announcing-jamba-model-family/",
+        "publisher": "AI21 Labs",
+        "date_basis": "Post oficial publicado em 22 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai21-jamba-1-6",
+      "company": "AI21 Labs",
+      "family": "Jamba",
+      "model": "Jamba 1.6 Mini / Large",
+      "release_date": "2025-03-06",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "hybrid-architecture", "longo-contexto", "open-weights", "empresarial", "deploy-privado"],
+      "description_pt": "Atualizacao da familia Jamba posicionada como melhor modelo aberto para uso empresarial, superando Cohere, Meta e Mistral em qualidade e velocidade com deploy privado.",
+      "source": {
+        "title": "Jamba 1.6: The Best Open Model for Enterprise Deployment",
+        "url": "https://www.ai21.com/blog/introducing-jamba-1-6/",
+        "publisher": "AI21 Labs",
+        "date_basis": "Post oficial publicado em 6 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai21-jamba-1-7",
+      "company": "AI21 Labs",
+      "family": "Jamba",
+      "model": "Jamba 1.7 Mini / Large",
+      "release_date": "2025-07-03",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "hybrid-architecture", "longo-contexto", "grounding", "open-weights"],
+      "description_pt": "Refinamento da familia Jamba com melhorias em grounding e seguimento de instrucoes, disponivel no AI21 Studio e no Hugging Face.",
+      "source": {
+        "title": "AI21 Changelog: Jamba 1.7",
+        "url": "https://docs.ai21.com/changelog",
+        "publisher": "AI21 Labs",
+        "date_basis": "Changelog oficial registra o lancamento em 3 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai21-jamba-reasoning-3b",
+      "company": "AI21 Labs",
+      "family": "Jamba",
+      "model": "Jamba Reasoning 3B",
+      "release_date": "2025-10-08",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "hybrid-architecture", "on-device", "longo-contexto", "open-weights", "Apache-2.0"],
+      "description_pt": "Modelo compacto de raciocinio com arquitetura hibrida SSM-Transformer, janela de 256K tokens e execucao em laptops e celulares com ganhos de eficiencia de 2-5x.",
+      "source": {
+        "title": "Introducing Jamba Reasoning 3B: Tiny Model, Huge Possibilities",
+        "url": "https://www.ai21.com/blog/introducing-jamba-reasoning-3b/",
+        "publisher": "AI21 Labs",
+        "date_basis": "Post oficial publicado em 8 de outubro de 2025."
       },
       "confidence": "alta"
     },
