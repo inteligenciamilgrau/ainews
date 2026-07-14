@@ -2045,6 +2045,8 @@ function bindMultiFilter(key, element) {
     closeMultiFilterMenus(element);
     element.classList.toggle("open", shouldOpen);
     toggle.setAttribute("aria-expanded", String(shouldOpen));
+    const menu = element.querySelector(".multi-filter-menu");
+    if (menu) menu.hidden = !shouldOpen;
   });
 
   element.addEventListener("change", (event) => {
@@ -2077,7 +2079,7 @@ function fillMultiFilter(element, key, values, allLabel) {
       <span class="multi-filter-count" data-multi-filter-count></span>
       <span class="multi-filter-chevron" aria-hidden="true">&#9662;</span>
     </button>
-    <div class="multi-filter-menu" id="${escapeAttribute(menuId)}" role="group" aria-label="${escapeAttribute(fieldLabel)}">
+    <div class="multi-filter-menu" id="${escapeAttribute(menuId)}" role="group" aria-label="${escapeAttribute(fieldLabel)}" hidden>
       ${options}
     </div>
   `;
@@ -2174,6 +2176,8 @@ function closeMultiFilterMenus(exceptElement = null) {
     if (element === exceptElement) return;
     element.classList.remove("open");
     element.querySelector("[data-multi-filter-toggle]")?.setAttribute("aria-expanded", "false");
+    const menu = element.querySelector(".multi-filter-menu");
+    if (menu) menu.hidden = true;
   });
 }
 

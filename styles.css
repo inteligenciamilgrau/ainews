@@ -265,6 +265,10 @@ textarea {
   gap: 2px;
 }
 
+.multi-filter-menu[hidden] {
+  display: none;
+}
+
 .multi-filter-option {
   display: flex;
   align-items: center;
