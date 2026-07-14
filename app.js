@@ -23,6 +23,14 @@ const AI_CATEGORY_LABELS = {
   Musica: "Música",
   "Robotica/World models": "Robótica/World models"
 };
+const MULTI_FILTER_KEYS = ["aiCategory", "company", "type", "family", "year"];
+const DEFAULT_MULTI_FILTERS = {
+  aiCategory: ["LLMs"],
+  company: ["all"],
+  type: ["all"],
+  family: ["all"],
+  year: ["all"]
+};
 const TIMELINE_EVENT_EDGE_PX = 108;
 
 const state = {
@@ -30,11 +38,11 @@ const state = {
   canonicalModels: [],
   filters: {
     query: "",
-    aiCategory: "LLMs",
-    company: "all",
-    type: "all",
-    family: "all",
-    year: "all",
+    aiCategory: [...DEFAULT_MULTI_FILTERS.aiCategory],
+    company: [...DEFAULT_MULTI_FILTERS.company],
+    type: [...DEFAULT_MULTI_FILTERS.type],
+    family: [...DEFAULT_MULTI_FILTERS.family],
+    year: [...DEFAULT_MULTI_FILTERS.year],
     yearStart: "all",
     yearEnd: "all"
   },
@@ -77,8 +85,20 @@ const companyColors = {
   ByteDance: "#0f172a",
   Kuaishou: "#f97316",
   Alibaba: "#c2410c",
+  Amazon: "#ff9900",
+  "AI21 Labs": "#334155",
+  Baidu: "#1d4ed8",
+  Cohere: "#39594d",
   Cursor: "#0f172a",
-  MiniMax: "#7c2d12"
+  Databricks: "#ef4444",
+  ElevenLabs: "#111827",
+  IBM: "#0f62fe",
+  "Luma AI": "#7c3aed",
+  Midjourney: "#6b7280",
+  MiniMax: "#7c2d12",
+  Runway: "#0f172a",
+  "Stability AI": "#0d9488",
+  Tencent: "#2563eb"
 };
 
 const dataCenterStatusColors = {
@@ -1835,20 +1855,31 @@ function bindEvents() {
     ["company", els.companyFilter],
     ["type", els.typeFilter],
     ["family", els.familyFilter],
-    ["year", els.yearFilter],
+    ["year", els.yearFilter]
+  ]) {
+    bindMultiFilter(key, element);
+  }
+
+  for (const [key, element] of [
     ["yearStart", els.yearStartFilter],
     ["yearEnd", els.yearEndFilter]
   ]) {
     element.addEventListener("change", (event) => {
       state.filters[key] = event.target.value;
-      if (key === "aiCategory") {
-        state.filters.type = "all";
-        syncFilterControls();
-      }
       saveViewPreferences();
       render();
     });
   }
+
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element) || !event.target.closest(".multi-filter")) {
+      closeMultiFilterMenus();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMultiFilterMenus();
+  });
 
   document.querySelectorAll("[data-view]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -1983,13 +2014,13 @@ function normalizeHttpsUrl(value) {
 
 function populateFilters() {
   const models = allModels();
-  fillSelect(els.aiCategoryFilter, ["LLMs", "all", ...AI_CATEGORIES.filter((category) => category !== "LLMs")], "Todos");
-  fillSelect(els.companyFilter, ["all", ...unique(models.map((model) => model.company))], "Todas");
-  fillSelect(els.typeFilter, ["all", ...unique(models.flatMap((model) => model.model_type))], "Todos");
-  fillSelect(els.familyFilter, ["all", ...unique(models.map((model) => model.family))], "Todas");
+  fillMultiFilter(els.aiCategoryFilter, "aiCategory", ["LLMs", "all", ...AI_CATEGORIES.filter((category) => category !== "LLMs")], "Todos");
+  fillMultiFilter(els.companyFilter, "company", ["all", ...unique(models.map((model) => model.company))], "Todas");
+  fillMultiFilter(els.typeFilter, "type", ["all", ...unique(models.flatMap((model) => model.model_type))], "Todos");
+  fillMultiFilter(els.familyFilter, "family", ["all", ...unique(models.map((model) => model.family))], "Todas");
 
   const years = unique(models.map((model) => model.year)).sort((a, b) => a - b);
-  fillSelect(els.yearFilter, ["all", ...years], "Todos");
+  fillMultiFilter(els.yearFilter, "year", ["all", ...years], "Todos");
   fillSelect(els.yearStartFilter, ["all", ...years], "Início");
   fillSelect(els.yearEndFilter, ["all", ...years], "Fim");
   syncFilterControls();
@@ -2004,21 +2035,162 @@ function fillSelect(element, values, allLabel) {
   }).join("");
 }
 
+function bindMultiFilter(key, element) {
+  element.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+    const toggle = event.target.closest("[data-multi-filter-toggle]");
+    if (!toggle || !element.contains(toggle)) return;
+
+    const shouldOpen = !element.classList.contains("open");
+    closeMultiFilterMenus(element);
+    element.classList.toggle("open", shouldOpen);
+    toggle.setAttribute("aria-expanded", String(shouldOpen));
+  });
+
+  element.addEventListener("change", (event) => {
+    if (!(event.target instanceof HTMLInputElement) || event.target.type !== "checkbox") return;
+    state.filters[key] = readMultiFilterSelection(element, event.target.value);
+    syncMultiFilter(element, key);
+    saveViewPreferences();
+    render();
+  });
+}
+
+function fillMultiFilter(element, key, values, allLabel) {
+  const fieldLabel = element.closest(".filter-field")?.querySelector("span")?.textContent?.trim() || "Filtro";
+  const menuId = `${key}MultiFilterMenu`;
+  const options = values.map((value, index) => {
+    const stringValue = String(value);
+    const label = stringValue === "all" ? allLabel : AI_CATEGORY_LABELS[stringValue] || stringValue;
+    const inputId = `${key}-${slugify(stringValue) || index}`;
+    return `
+      <label class="multi-filter-option" for="${escapeAttribute(inputId)}">
+        <input id="${escapeAttribute(inputId)}" type="checkbox" value="${escapeAttribute(stringValue)}" data-filter-value>
+        <span>${escapeHtml(label)}</span>
+      </label>
+    `;
+  }).join("");
+
+  element.innerHTML = `
+    <button class="multi-filter-toggle" type="button" data-multi-filter-toggle aria-expanded="false" aria-controls="${escapeAttribute(menuId)}">
+      <span class="multi-filter-summary" data-multi-filter-summary>${escapeHtml(fieldLabel)}</span>
+      <span class="multi-filter-count" data-multi-filter-count></span>
+      <span class="multi-filter-chevron" aria-hidden="true">&#9662;</span>
+    </button>
+    <div class="multi-filter-menu" id="${escapeAttribute(menuId)}" role="group" aria-label="${escapeAttribute(fieldLabel)}">
+      ${options}
+    </div>
+  `;
+}
+
+function readMultiFilterSelection(element, changedValue) {
+  const checked = [...element.querySelectorAll("input[data-filter-value]:checked")]
+    .map((input) => input.value);
+  if (changedValue === "all" && checked.includes("all")) return ["all"];
+
+  const specificValues = checked.filter((value) => value !== "all");
+  return specificValues.length ? specificValues : ["all"];
+}
+
+function syncMultiFilter(element, key) {
+  const validValues = multiFilterValues(element);
+  state.filters[key] = normalizeMultiFilterValues(key, state.filters[key], validValues);
+  const selected = state.filters[key];
+  const selectedSet = new Set(selected.map(String));
+
+  element.querySelectorAll("input[data-filter-value]").forEach((input) => {
+    input.checked = selectedSet.has(input.value);
+  });
+
+  const summary = element.querySelector("[data-multi-filter-summary]");
+  const count = element.querySelector("[data-multi-filter-count]");
+  const selectedLabels = selected
+    .filter((value) => value !== "all")
+    .map((value) => multiFilterLabelForValue(element, value));
+
+  if (summary) {
+    summary.textContent = selected.includes("all")
+      ? multiFilterLabelForValue(element, "all")
+      : selectedLabels.slice(0, 2).join(", ");
+  }
+  if (count) {
+    const overflow = selectedLabels.length - 2;
+    count.textContent = selected.includes("all")
+      ? ""
+      : overflow > 0
+        ? `+${overflow}`
+        : "";
+  }
+
+  const toggle = element.querySelector("[data-multi-filter-toggle]");
+  if (toggle) toggle.setAttribute("aria-expanded", String(element.classList.contains("open")));
+}
+
+function normalizeMultiFilterValues(key, value, validValues = []) {
+  const fallback = DEFAULT_MULTI_FILTERS[key] || ["all"];
+  const rawValues = Array.isArray(value)
+    ? value
+    : typeof value === "string"
+      ? [value]
+      : fallback;
+  const validSet = new Set(validValues.map(String));
+  const selected = rawValues
+    .map((item) => String(item))
+    .filter((item) => validSet.has(item));
+
+  if (!selected.length) return [...fallback];
+  if (selected.includes("all")) return ["all"];
+  return [...new Set(selected)];
+}
+
+function multiFilterValues(element) {
+  return [...element.querySelectorAll("input[data-filter-value]")]
+    .map((input) => input.value);
+}
+
+function multiFilterLabelForValue(element, value) {
+  const input = [...element.querySelectorAll("input[data-filter-value]")]
+    .find((candidate) => candidate.value === String(value));
+  return input?.closest(".multi-filter-option")?.querySelector("span")?.textContent?.trim() || String(value);
+}
+
+function filterHasAll(key) {
+  return selectedFilterValues(key).includes("all");
+}
+
+function selectedFilterValues(key) {
+  return Array.isArray(state.filters[key])
+    ? state.filters[key].map(String)
+    : [String(state.filters[key] || "all")];
+}
+
+function selectedCompaniesForFilter() {
+  const companies = selectedFilterValues("company").filter((company) => company !== "all");
+  return companies.length ? new Set(companies) : null;
+}
+
+function closeMultiFilterMenus(exceptElement = null) {
+  document.querySelectorAll(".multi-filter.open").forEach((element) => {
+    if (element === exceptElement) return;
+    element.classList.remove("open");
+    element.querySelector("[data-multi-filter-toggle]")?.setAttribute("aria-expanded", "false");
+  });
+}
+
 function syncFilterControls() {
   els.searchInput.value = state.filters.query;
-  state.filters.aiCategory = optionExists(els.aiCategoryFilter, state.filters.aiCategory) ? state.filters.aiCategory : "LLMs";
-  state.filters.company = optionExists(els.companyFilter, state.filters.company) ? state.filters.company : "all";
-  state.filters.type = optionExists(els.typeFilter, state.filters.type) ? state.filters.type : "all";
-  state.filters.family = optionExists(els.familyFilter, state.filters.family) ? state.filters.family : "all";
-  state.filters.year = optionExists(els.yearFilter, state.filters.year) ? state.filters.year : "all";
+  for (const [key, element] of [
+    ["aiCategory", els.aiCategoryFilter],
+    ["company", els.companyFilter],
+    ["type", els.typeFilter],
+    ["family", els.familyFilter],
+    ["year", els.yearFilter]
+  ]) {
+    syncMultiFilter(element, key);
+  }
   state.filters.yearStart = optionExists(els.yearStartFilter, state.filters.yearStart) ? state.filters.yearStart : "all";
   state.filters.yearEnd = optionExists(els.yearEndFilter, state.filters.yearEnd) ? state.filters.yearEnd : "all";
 
-  els.aiCategoryFilter.value = state.filters.aiCategory;
-  els.companyFilter.value = state.filters.company;
-  els.typeFilter.value = state.filters.type;
-  els.familyFilter.value = state.filters.family;
-  els.yearFilter.value = state.filters.year;
   els.yearStartFilter.value = state.filters.yearStart;
   els.yearEndFilter.value = state.filters.yearEnd;
   els.tableDateOrder.value = VALID_TABLE_DATE_ORDERS.has(state.tableDateOrder) ? state.tableDateOrder : "desc";
@@ -2066,13 +2238,17 @@ function loadViewPreferences() {
     if (VALID_TABLE_DATE_ORDERS.has(prefs.tableDateOrder)) state.tableDateOrder = prefs.tableDateOrder;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.historyEventDateOrder)) historyState.eventDateOrder = prefs.historyEventDateOrder;
     if (prefs.filters && typeof prefs.filters === "object") {
-      state.filters = {
-        ...state.filters,
-        ...Object.fromEntries(
-          Object.entries(prefs.filters)
-            .filter(([key, value]) => key in state.filters && typeof value === "string")
-        )
-      };
+      const restoredFilters = { ...state.filters };
+      for (const [key, value] of Object.entries(prefs.filters)) {
+        if (!(key in restoredFilters)) continue;
+        if (MULTI_FILTER_KEYS.includes(key)) {
+          if (Array.isArray(value)) restoredFilters[key] = value.map(String);
+          if (typeof value === "string") restoredFilters[key] = [value];
+        } else if (typeof value === "string") {
+          restoredFilters[key] = value;
+        }
+      }
+      state.filters = restoredFilters;
     }
   } catch {
     localStorage.removeItem(VIEW_PREFS_KEY);
@@ -2118,11 +2294,11 @@ function filteredModels() {
     ].join(" ").toLowerCase();
 
     if (state.filters.query && !queryTarget.includes(state.filters.query)) return false;
-    if (state.filters.aiCategory !== "all" && !model.ai_category.includes(state.filters.aiCategory)) return false;
-    if (state.filters.company !== "all" && model.company !== state.filters.company) return false;
-    if (state.filters.type !== "all" && !model.model_type.includes(state.filters.type)) return false;
-    if (state.filters.family !== "all" && model.family !== state.filters.family) return false;
-    if (state.filters.year !== "all" && model.year !== Number(state.filters.year)) return false;
+    if (!filterHasAll("aiCategory") && !model.ai_category.some((category) => selectedFilterValues("aiCategory").includes(category))) return false;
+    if (!filterHasAll("company") && !selectedFilterValues("company").includes(model.company)) return false;
+    if (!filterHasAll("type") && !model.model_type.some((type) => selectedFilterValues("type").includes(type))) return false;
+    if (!filterHasAll("family") && !selectedFilterValues("family").includes(model.family)) return false;
+    if (!filterHasAll("year") && !selectedFilterValues("year").includes(String(model.year))) return false;
     if (state.filters.yearStart !== "all" && model.year < Number(state.filters.yearStart)) return false;
     if (state.filters.yearEnd !== "all" && model.year > Number(state.filters.yearEnd)) return false;
     return true;
@@ -2354,10 +2530,10 @@ function locationsForMap() {
 
 function companyLocationsForMap() {
   const companiesInData = new Set(allModels().map((model) => model.company));
-  const selectedCompany = state.filters.company !== "all" ? state.filters.company : null;
+  const selectedCompanies = selectedCompaniesForFilter();
   return companyLocations
     .filter((location) => companiesInData.has(location.company))
-    .filter((location) => !selectedCompany || location.company === selectedCompany)
+    .filter((location) => !selectedCompanies || selectedCompanies.has(location.company))
     .map((location) => ({
       ...location,
       kind: "company",
@@ -2379,9 +2555,9 @@ function researchLabsForMap() {
 }
 
 function dataCentersForMap() {
-  const selectedCompany = state.filters.company !== "all" ? state.filters.company : null;
+  const selectedCompanies = selectedCompaniesForFilter();
   return aiDataCenters
-    .filter((location) => !selectedCompany || location.company === selectedCompany)
+    .filter((location) => !selectedCompanies || selectedCompanies.has(location.company))
     .map((location) => ({
       ...location,
       kind: "datacenter",
@@ -2391,7 +2567,9 @@ function dataCentersForMap() {
 
 function missingLocationCompanies() {
   const mappedCompanies = new Set(companyLocations.map((location) => location.company));
+  const selectedCompanies = selectedCompaniesForFilter();
   return unique(allModels().map((model) => model.company))
+    .filter((company) => !selectedCompanies || selectedCompanies.has(company))
     .filter((company) => !mappedCompanies.has(company));
 }
 
@@ -3053,8 +3231,9 @@ function getMapReferenceLocation() {
   const selected = locations.find((location) => location.mapKey === state.selectedMapCompany);
   if (selected) return selected;
 
-  if (state.filters.company !== "all") {
-    const companyLocation = locations.find((location) => location.company === state.filters.company);
+  const selectedCompanies = selectedCompaniesForFilter();
+  if (selectedCompanies) {
+    const companyLocation = locations.find((location) => selectedCompanies.has(location.company));
     if (companyLocation) return companyLocation;
   }
 

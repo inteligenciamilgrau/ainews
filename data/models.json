@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Adicionados o retorno do Claude Fable 5, GPT-5.6, GPT-Live, Grok 4.5 e outros lançamentos oficiais recentes."
+      "description_pt": "Adicionados filtros multiplos persistentes e novas empresas/modelos no radar, incluindo Amazon Nova, Cohere Command A, AI21 Jamba2, DBRX, Stable Diffusion 3.5, Eleven v3, Midjourney V8.1, Ray2, Runway Gen-4 e HunyuanVideo."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -6727,6 +6727,186 @@
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/",
         "publisher": "Google DeepMind",
         "date_basis": "Post oficial publicado em 30 de junho de 2026 anuncia disponibilidade do Nano Banana 2 Lite no Google AI Studio, Gemini API e Gemini Enterprise."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "databricks-dbrx",
+      "company": "Databricks",
+      "family": "DBRX",
+      "model": "DBRX",
+      "release_date": "2024-03-27",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "MoE", "codigo", "open-weights"],
+      "description_pt": "Modelo aberto MoE da Databricks com 132B parametros totais e 36B ativos, voltado a workloads empresariais, codigo e uso como base customizavel.",
+      "source": {
+        "title": "Introducing DBRX: A New State-of-the-Art Open LLM",
+        "url": "https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm",
+        "publisher": "Databricks",
+        "date_basis": "Post oficial publicado em 27 de marco de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "stability-ai-stable-diffusion-3-5",
+      "company": "Stability AI",
+      "family": "Stable Diffusion",
+      "model": "Stable Diffusion 3.5",
+      "release_date": "2024-10-22",
+      "release_stage": "pesos abertos/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "geracao", "open-weights", "texto-para-imagem"],
+      "description_pt": "Familia Stable Diffusion 3.5 com variantes Large, Large Turbo e Medium para geracao de imagens, controle de estilo e execucao em diferentes perfis de hardware.",
+      "source": {
+        "title": "Introducing Stable Diffusion 3.5",
+        "url": "https://stability.ai/news/introducing-stable-diffusion-3-5",
+        "publisher": "Stability AI",
+        "date_basis": "Post oficial publicado em 22 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "amazon-nova",
+      "company": "Amazon",
+      "family": "Nova",
+      "model": "Amazon Nova Micro / Lite / Pro / Canvas / Reel",
+      "release_date": "2024-12-03",
+      "release_stage": "Amazon Bedrock",
+      "ai_category": ["LLMs", "Imagem", "Video"],
+      "model_type": ["texto", "multimodal", "imagem", "video", "API", "Bedrock"],
+      "description_pt": "Familia de modelos fundacionais da Amazon para texto, multimodalidade, imagem e video, integrada ao Amazon Bedrock.",
+      "source": {
+        "title": "Introducing Amazon Nova",
+        "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-nova-frontier-intelligence-and-industry-leading-price-performance/",
+        "publisher": "AWS",
+        "date_basis": "Post oficial publicado em 3 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuanvideo",
+      "company": "Tencent",
+      "family": "Hunyuan",
+      "model": "HunyuanVideo",
+      "release_date": "2024-12-03",
+      "release_stage": "pesquisa/open source",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "open-source", "difusao"],
+      "description_pt": "Modelo aberto de geracao de video da Tencent, publicado com paper tecnico e implementacao de referencia para texto-para-video.",
+      "source": {
+        "title": "HunyuanVideo: A Systematic Framework For Large Video Generative Models",
+        "url": "https://arxiv.org/abs/2412.03603",
+        "publisher": "Tencent",
+        "date_basis": "Paper primario publicado no arXiv em 3 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "luma-ai-ray2",
+      "company": "Luma AI",
+      "family": "Ray",
+      "model": "Ray2",
+      "release_date": "2025-01-16",
+      "release_stage": "produto/API",
+      "ai_category": "Video",
+      "model_type": ["video", "geracao", "texto-para-video", "imagem-para-video"],
+      "description_pt": "Modelo de video da Luma para geracao e edicao criativa, com foco em movimento realista, controle por prompt e workflows de imagem-para-video.",
+      "source": {
+        "title": "Ray2",
+        "url": "https://lumalabs.ai/ray2",
+        "publisher": "Luma AI",
+        "date_basis": "Pagina oficial do Ray2 descreve o modelo; data de disponibilidade publica registrada como janeiro de 2025."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "cohere-command-a",
+      "company": "Cohere",
+      "family": "Command",
+      "model": "Command A",
+      "release_date": "2025-03-13",
+      "release_stage": "API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agente", "RAG", "multilingue"],
+      "description_pt": "Modelo empresarial da Cohere para agentes, RAG, codigo e uso multilingue, posicionado como sucessor de maior capacidade na familia Command.",
+      "source": {
+        "title": "Introducing Command A",
+        "url": "https://cohere.com/blog/command-a",
+        "publisher": "Cohere",
+        "date_basis": "Post oficial publicado em 13 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "runway-gen-4",
+      "company": "Runway",
+      "family": "Gen",
+      "model": "Gen-4",
+      "release_date": "2025-03-31",
+      "release_stage": "produto/pesquisa",
+      "ai_category": "Video",
+      "model_type": ["video", "geracao", "consistencia-de-personagem", "world-consistency"],
+      "description_pt": "Modelo de video da Runway com foco em consistencia de personagens, objetos e ambientes entre cenas para producao criativa.",
+      "source": {
+        "title": "Introducing Runway Gen-4",
+        "url": "https://runwayml.com/research/introducing-runway-gen-4",
+        "publisher": "Runway",
+        "date_basis": "Pagina oficial apresenta o Gen-4; data publica de lancamento registrada como 31 de marco de 2025."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "elevenlabs-eleven-v3",
+      "company": "ElevenLabs",
+      "family": "Eleven",
+      "model": "Eleven v3",
+      "release_date": "2025-06-03",
+      "release_stage": "alpha/produto",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "text-to-speech", "multilingue", "multi-speaker"],
+      "description_pt": "Modelo de voz da ElevenLabs com controles expressivos por tags de audio, dialogo multi-speaker e suporte a dezenas de idiomas.",
+      "source": {
+        "title": "Eleven v3",
+        "url": "https://elevenlabs.io/blog/eleven-v3",
+        "publisher": "ElevenLabs",
+        "date_basis": "Post oficial publicado em 3 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai21-jamba2",
+      "company": "AI21 Labs",
+      "family": "Jamba",
+      "model": "Jamba2 3B / Mini",
+      "release_date": "2026-01-08",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "hybrid-architecture", "longo-contexto", "open-weights", "Apache-2.0"],
+      "description_pt": "Nova geracao da familia Jamba com arquitetura hibrida, variantes menores e contexto longo para aplicacoes de texto em producao.",
+      "source": {
+        "title": "Introducing Jamba2",
+        "url": "https://www.ai21.com/blog/introducing-jamba2/",
+        "publisher": "AI21 Labs",
+        "date_basis": "Post oficial publicado em 8 de janeiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "midjourney-v8-1",
+      "company": "Midjourney",
+      "family": "Midjourney",
+      "model": "V8.1",
+      "release_date": "2026-04-30",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "geracao", "edicao", "produto"],
+      "description_pt": "Versao atual da familia Midjourney para geracao e edicao de imagens, relevante para acompanhar qualidade visual, aderencia a prompt e ferramentas criativas.",
+      "source": {
+        "title": "Version",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "publisher": "Midjourney",
+        "date_basis": "Documentacao oficial lista a V8.1 como lancada em 30 de abril de 2026."
       },
       "confidence": "alta"
     }

@@ -177,6 +177,18 @@ label span {
   margin-bottom: 5px;
 }
 
+.filter-field {
+  position: relative;
+  min-width: 0;
+}
+
+.filter-field > span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.79rem;
+  margin-bottom: 5px;
+}
+
 input,
 select,
 textarea {
@@ -190,6 +202,101 @@ textarea {
 
 textarea {
   resize: vertical;
+}
+
+.multi-filter {
+  position: relative;
+  min-width: 0;
+}
+
+.multi-filter-toggle {
+  width: 100%;
+  min-height: 39px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.multi-filter-summary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.multi-filter-count {
+  min-width: 24px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 750;
+  text-align: right;
+}
+
+.multi-filter-chevron {
+  color: var(--muted);
+  font-size: 0.72rem;
+  transition: transform 120ms ease;
+}
+
+.multi-filter.open .multi-filter-chevron {
+  transform: rotate(180deg);
+}
+
+.multi-filter-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: min(330px, 52vh);
+  overflow: auto;
+  padding: 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  box-shadow: 0 16px 34px rgba(34, 28, 19, 0.16);
+}
+
+.multi-filter.open .multi-filter-menu {
+  display: grid;
+  gap: 2px;
+}
+
+.multi-filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 6px 7px;
+  border-radius: 6px;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.83rem;
+  line-height: 1.25;
+}
+
+.multi-filter-option:hover {
+  background: #f4efe5;
+}
+
+.multi-filter-option input {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+}
+
+.multi-filter-option span {
+  display: inline;
+  min-width: 0;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  overflow-wrap: anywhere;
 }
 
 .view-row {
@@ -1239,7 +1346,7 @@ td a,
     padding: 8px 0 10px;
   }
 
-  .controls label:first-child {
+  .controls > :first-child {
     grid-column: 1 / -1;
   }
 
