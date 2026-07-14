@@ -12,6 +12,8 @@ const MAP_OVERLAP_GROUP_PX = 26;
 const MAP_SPREAD_SPACING_PX = 28;
 const MAP_SPREAD_MIN_RADIUS_PX = 24;
 const MAP_SPREAD_CIRCLE_MAX = 9;
+const MAP_SPREAD_MIN_ZOOM = 4;
+const MAP_SPREAD_MAX_OFFSET_DEG = 20;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
 const VALID_VIEWS = new Set(["timeline", "years", "map", "table", "sources", "history"]);
 const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
@@ -3504,7 +3506,7 @@ function applyMapSpread(locations) {
     displayLat: location.lat,
     spread: false
   }));
-  if (!map || passthrough.length < 2) return passthrough;
+  if (!map || passthrough.length < 2 || map.getZoom() < MAP_SPREAD_MIN_ZOOM) return passthrough;
 
   const groups = [];
   const result = [];
@@ -3523,6 +3525,8 @@ function applyMapSpread(locations) {
       groups.push({ x: point.x, y: point.y, members: [{ location, point }] });
     }
   });
+
+  mergeOverlappingSpreadGroups(groups);
 
   groups.forEach((group) => {
     if (group.members.length === 1) {
@@ -3550,7 +3554,9 @@ function applyMapSpread(locations) {
       }
 
       const unprojected = safeUnproject(map, group.x + offsetX, group.y + offsetY);
-      if (!unprojected) {
+      const lngOffset = unprojected ? wrappedLngDelta(unprojected.lng, member.location.lng) : Infinity;
+      const latOffset = unprojected ? Math.abs(unprojected.lat - member.location.lat) : Infinity;
+      if (!unprojected || lngOffset > MAP_SPREAD_MAX_OFFSET_DEG || latOffset > MAP_SPREAD_MAX_OFFSET_DEG) {
         result.push(member.location);
         return;
       }
@@ -3568,11 +3574,53 @@ function applyMapSpread(locations) {
   return result;
 }
 
+function spreadGroupRadius(count) {
+  if (count <= 1) return 0;
+  if (count <= MAP_SPREAD_CIRCLE_MAX) {
+    return Math.max(MAP_SPREAD_MIN_RADIUS_PX, (count * MAP_SPREAD_SPACING_PX) / (2 * Math.PI));
+  }
+  let spiralAngle = 0;
+  let radius = MAP_SPREAD_MIN_RADIUS_PX;
+  for (let index = 0; index < count; index++) {
+    radius = MAP_SPREAD_MIN_RADIUS_PX + (MAP_SPREAD_SPACING_PX * spiralAngle) / (2 * Math.PI);
+    spiralAngle += MAP_SPREAD_SPACING_PX / Math.max(radius, MAP_SPREAD_SPACING_PX / 2);
+  }
+  return radius;
+}
+
+function mergeOverlappingSpreadGroups(groups) {
+  let merged = true;
+  while (merged) {
+    merged = false;
+    for (let i = 0; i < groups.length && !merged; i++) {
+      for (let j = i + 1; j < groups.length && !merged; j++) {
+        const clearance = spreadGroupRadius(groups[i].members.length)
+          + spreadGroupRadius(groups[j].members.length)
+          + MAP_SPREAD_SPACING_PX;
+        const distance = Math.hypot(groups[i].x - groups[j].x, groups[i].y - groups[j].y);
+        if (distance >= clearance) continue;
+
+        groups[i].members.push(...groups[j].members);
+        groups[i].x = groups[i].members.reduce((sum, member) => sum + member.point.x, 0) / groups[i].members.length;
+        groups[i].y = groups[i].members.reduce((sum, member) => sum + member.point.y, 0) / groups[i].members.length;
+        groups.splice(j, 1);
+        merged = true;
+      }
+    }
+  }
+}
+
+function wrappedLngDelta(lngA, lngB) {
+  return Math.abs(((lngA - lngB + 540) % 360) - 180);
+}
+
 function safeProject(map, lng, lat) {
   if (!Number.isFinite(lng) || !Number.isFinite(lat)) return null;
   try {
     const point = map.project([lng, lat]);
     if (!point || !Number.isFinite(point.x) || !Number.isFinite(point.y)) return null;
+    const roundTrip = map.unproject([point.x, point.y]);
+    if (!roundTrip || wrappedLngDelta(roundTrip.lng, lng) > 0.5 || Math.abs(roundTrip.lat - lat) > 0.5) return null;
     return point;
   } catch {
     return null;
