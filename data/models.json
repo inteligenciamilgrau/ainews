@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "A confianca passou a medir a veracidade do registro, separadamente da precisao cronologica. Os 19 registros verdadeiros que ainda estavam como confianca media foram elevados para alta e agora explicam, em date_precision e date_note_pt, quando o dia e corroborado, aproximado ou apenas convencional para ordenacao."
+      "description_pt": "Revisao de Swiss AI Initiative, Technology Innovation Institute e Tencent: 36 registros confirmados foram acrescentados (1 Swiss AI, 11 TII e 24 Tencent), com base em comunicados, repositorios e model cards oficiais; a primeira entrada Falcon tambem foi corrigida para refletir a data real de abertura dos pesos. Antes: revisao de NAVER, NVIDIA e Sarvam AI e separacao entre confianca e precisao cronologica."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -2016,6 +2016,24 @@
       "confidence": "alta"
     },
     {
+      "id": "nvidia-megatron-turing-nlg",
+      "company": "NVIDIA",
+      "family": "Megatron",
+      "model": "Megatron-Turing NLG 530B",
+      "release_date": "2021-10-11",
+      "release_stage": "pesquisa",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "escala"],
+      "description_pt": "Modelo de 530B parametros treinado pela NVIDIA com a Microsoft (DeepSpeed + Megatron), na epoca o maior modelo denso de linguagem do mundo, marco da corrida de escala pre-ChatGPT.",
+      "source": {
+        "title": "Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B",
+        "url": "https://developer.nvidia.com/blog/using-deepspeed-and-megatron-to-train-megatron-turing-nlg-530b-the-worlds-largest-and-most-powerful-generative-language-model/",
+        "publisher": "NVIDIA Developer",
+        "date_basis": "Post tecnico oficial publicado em 11 de outubro de 2021."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "nvidia-nemotron-4-340b",
       "company": "NVIDIA",
       "family": "Nemotron",
@@ -2052,6 +2070,42 @@
       "confidence": "alta"
     },
     {
+      "id": "nvidia-llama-3-1-nemotron-70b",
+      "company": "NVIDIA",
+      "family": "Llama Nemotron",
+      "model": "Llama-3.1-Nemotron-70B-Instruct",
+      "release_date": "2024-10-15",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "instrucao", "RLHF", "alinhamento", "open-weights"],
+      "description_pt": "Modelo alinhado pela NVIDIA sobre o Llama 3.1 70B usando RLHF e reward models proprios, que liderou benchmarks de helpfulness (Arena Hard, AlpacaEval 2) superando na epoca GPT-4o e Claude 3.5 Sonnet nesses testes.",
+      "source": {
+        "title": "nvidia/Llama-3.1-Nemotron-70B-Instruct",
+        "url": "https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct",
+        "publisher": "NVIDIA",
+        "date_basis": "Model card oficial; release em 15 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-cosmos",
+      "company": "NVIDIA",
+      "family": "Cosmos",
+      "model": "Cosmos World Foundation Models",
+      "release_date": "2025-01-06",
+      "release_stage": "open weights/plataforma",
+      "ai_category": "Robotica/World models",
+      "model_type": ["world-model", "video", "fisica", "robotica", "veiculos-autonomos", "open-weights"],
+      "description_pt": "Plataforma de world foundation models da NVIDIA para IA fisica, anunciada na CES 2025 com modelos abertos (Predict, depois Transfer e Reason), tokenizers de video e pipeline de dados para treinar robos e veiculos autonomos em mundos simulados.",
+      "source": {
+        "title": "NVIDIA Launches Cosmos World Foundation Model Platform",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-world-foundation-model-platform-to-accelerate-physical-ai-development",
+        "publisher": "NVIDIA Newsroom",
+        "date_basis": "Press release oficial publicado em 6 de janeiro de 2025, na CES."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "nvidia-llama-nemotron-reasoning",
       "company": "NVIDIA",
       "family": "Llama Nemotron",
@@ -2066,6 +2120,76 @@
         "url": "https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Launches-Family-of-Open-Reasoning-AI-Models-for-Developers-and-Enterprises-to-Build-Agentic-AI-Platforms/default.aspx",
         "publisher": "NVIDIA",
         "date_basis": "Press release oficial publicado em 18 de marco de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-isaac-gr00t-n1",
+      "company": "NVIDIA",
+      "family": "GR00T",
+      "model": "Isaac GR00T N1",
+      "release_date": "2025-03-18",
+      "release_stage": "open weights",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "humanoide", "vision-language-action", "fundacao", "open-weights"],
+      "description_pt": "Primeiro foundation model aberto do mundo para robos humanoides generalistas, com arquitetura dual-system (raciocinio lento + acao rapida), anunciado por Jensen Huang na GTC 2025; seguido pelas versoes N1.5 e posteriores.",
+      "sources": [
+        {
+          "title": "NVIDIA Announces Isaac GR00T N1",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-isaac-gr00t-n1-open-humanoid-robot-foundation-model-simulation-frameworks",
+          "publisher": "NVIDIA Newsroom",
+          "date_basis": "Press release oficial publicado em 18 de marco de 2025, na GTC."
+        },
+        {
+          "title": "NVIDIA/Isaac-GR00T",
+          "url": "https://github.com/NVIDIA/Isaac-GR00T",
+          "publisher": "NVIDIA",
+          "date_basis": "Repositorio oficial da familia GR00T."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-parakeet-tdt",
+      "company": "NVIDIA",
+      "family": "Parakeet",
+      "model": "Parakeet-TDT-0.6B-v2",
+      "release_date": "2025-05-01",
+      "release_stage": "open weights",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "speech-to-text", "transcricao", "open-weights", "CC-BY-4.0"],
+      "description_pt": "Modelo aberto de reconhecimento de fala que assumiu o topo do Open ASR Leaderboard com 6,05% de WER, transcrevendo 1 hora de audio em cerca de 1 segundo, sob licenca CC-BY-4.0 para uso comercial; a v3 multilingue veio depois com o Canary-1B-v2.",
+      "sources": [
+        {
+          "title": "nvidia/parakeet-tdt-0.6b-v2",
+          "url": "https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2",
+          "publisher": "NVIDIA",
+          "date_basis": "Model card oficial; release em 1 de maio de 2025."
+        },
+        {
+          "title": "Nvidia launches fully open source transcription AI model",
+          "url": "https://venturebeat.com/ai/nvidia-launches-fully-open-source-transcription-ai-model-parakeet-tdt-0-6b-v2-on-hugging-face",
+          "publisher": "VentureBeat",
+          "date_basis": "Cobertura de maio de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-nemotron-nano-2",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron Nano 2 (9B/12B)",
+      "release_date": "2025-08-18",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "mamba-transformer", "hibrido", "128K", "open-weights"],
+      "description_pt": "Familia de modelos hibridos Mamba-Transformer para raciocinio eficiente, com o Nano-9B-v2 igualando ou superando o Qwen3-8B em benchmarks com ate 6x mais throughput; lancada com o dataset de pre-treino Nemotron aberto.",
+      "source": {
+        "title": "NVIDIA Nemotron Nano 2: An Accurate and Efficient Hybrid Mamba-Transformer Reasoning Model",
+        "url": "https://arxiv.org/abs/2508.14444",
+        "publisher": "NVIDIA",
+        "date_basis": "Relatorio tecnico e release aberto em 18 de agosto de 2025."
       },
       "confidence": "alta"
     },
@@ -8928,18 +9052,18 @@
       "id": "tii-falcon-series",
       "company": "Technology Innovation Institute",
       "family": "Falcon",
-      "model": "Falcon 7B / 40B / 180B",
-      "release_date": "2023-11-28",
-      "release_stage": "open weights/paper",
+      "model": "Falcon 1.3B / 7.5B / 40B",
+      "release_date": "2023-05-25",
+      "release_stage": "pesos abertos",
       "ai_category": "LLMs",
       "model_type": ["texto", "open-weights", "multilingue", "arabe", "RefinedWeb", "Apache-2.0"],
-      "description_pt": "Serie Falcon do Technology Innovation Institute, em Abu Dhabi, uma das familias abertas mais relevantes de 2023, com variantes 7B, 40B e 180B.",
+      "description_pt": "Primeira geracao publica da familia Falcon do TII, liderada pelo Falcon 40B e acompanhada por variantes de 7,5B e 1,3B parametros com pesos para pesquisa e uso comercial.",
       "sources": [
         {
-          "title": "The Falcon Series of Open Language Models",
-          "url": "https://arxiv.org/abs/2311.16867",
+          "title": "UAE's TII Launches Open-Source Falcon 40B Large Language Model",
+          "url": "https://www.tii.ae/news/uaes-technology-innovation-institute-launches-open-source-falcon-40b-large-language-model",
           "publisher": "Technology Innovation Institute",
-          "date_basis": "Paper primario publicado em 28 de novembro de 2023."
+          "date_basis": "Comunicado oficial de 25 de maio de 2023 confirma a abertura do Falcon 40B, 7.5B e 1.3B."
         },
         {
           "title": "Falcon LLM",
@@ -9415,6 +9539,96 @@
       "confidence": "alta"
     },
     {
+      "id": "naver-hyperclova",
+      "company": "NAVER",
+      "family": "HyperCLOVA",
+      "model": "HyperCLOVA (204B)",
+      "release_date": "2021-05-25",
+      "release_stage": "anuncio/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "coreano", "fundacao", "escala"],
+      "description_pt": "Primeiro modelo hyperscale da Coreia do Sul, com 204B parametros e treinado em um volume de dados em coreano milhares de vezes maior que o do GPT-3, apresentado no evento NAVER AI Now como base da estrategia de IA da empresa.",
+      "source": {
+        "title": "NAVER unveils HyperCLOVA, Korea's first hyperscale AI",
+        "url": "https://www.navercorp.com/en/promotion/pressReleasesView/30546",
+        "publisher": "NAVER",
+        "date_basis": "Apresentacao oficial em 25 de maio de 2021 no NAVER AI Now."
+      },
+      "date_precision": "dia corroborado",
+      "date_note_pt": "O modelo e o anuncio sao oficiais; o dia 25 e corroborado pela cobertura contemporanea do evento NAVER AI Now.",
+      "confidence": "alta"
+    },
+    {
+      "id": "naver-hyperclova-x",
+      "company": "NAVER",
+      "family": "HyperCLOVA X",
+      "model": "HyperCLOVA X",
+      "release_date": "2023-08-24",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "coreano", "busca", "API"],
+      "description_pt": "Nova geracao do LLM coreano da NAVER, lancada no evento DAN 23 junto do chatbot CLOVA X e do buscador generativo Cue:, posicionada como alternativa soberana ao ChatGPT para o mercado coreano.",
+      "sources": [
+        {
+          "title": "Korea's internet giant Naver unveils generative AI services",
+          "url": "https://techcrunch.com/2023/08/24/koreas-internet-giant-naver-unveils-generative-ai-services/",
+          "publisher": "TechCrunch",
+          "date_basis": "Lancamento oficial em 24 de agosto de 2023."
+        },
+        {
+          "title": "HyperCLOVA X Technical Report",
+          "url": "https://arxiv.org/abs/2404.01954",
+          "publisher": "NAVER Cloud",
+          "date_basis": "Relatorio tecnico oficial da familia HyperCLOVA X."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "naver-hyperclova-x-seed",
+      "company": "NAVER",
+      "family": "HyperCLOVA X",
+      "model": "HyperCLOVA X SEED (0.5B/1.5B/3B)",
+      "release_date": "2025-04-24",
+      "release_stage": "open weights",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "coreano", "on-device", "open-weights"],
+      "description_pt": "Primeiros modelos abertos da NAVER, tres versoes leves (0.5B, 1.5B e 3B, esta com visao) liberadas para uso comercial gratuito, plantando a base do ecossistema aberto do HyperCLOVA X.",
+      "sources": [
+        {
+          "title": "Introducing HyperCLOVA X SEED, a commercial open-source AI",
+          "url": "https://clova.ai/en/tech-blog/sowing-the-seeds-in-the-ai-ecosystem-introducing-hyperclova-x-seed-a-commercial-open-source-ai",
+          "publisher": "NAVER Cloud",
+          "date_basis": "Blog oficial; modelos disponibilizados em 24 de abril de 2025."
+        },
+        {
+          "title": "naver-hyperclovax on Hugging Face",
+          "url": "https://huggingface.co/naver-hyperclovax",
+          "publisher": "NAVER Cloud",
+          "date_basis": "Organizacao oficial com os modelos SEED."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "naver-hyperclova-x-think",
+      "company": "NAVER",
+      "family": "HyperCLOVA X",
+      "model": "HyperCLOVA X THINK",
+      "release_date": "2025-06-27",
+      "release_stage": "produto/pesquisa",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "coreano", "multimodal", "sovereign-ai"],
+      "description_pt": "Primeiro modelo de raciocinio da familia HyperCLOVA X, pre-treinado em cerca de 6T tokens de coreano e ingles, com modos de resposta detalhada ou concisa e raciocinio multimodal, peca central da estrategia de IA soberana coreana da NAVER.",
+      "source": {
+        "title": "HyperCLOVA X THINK Technical Report",
+        "url": "https://arxiv.org/abs/2506.22403",
+        "publisher": "NAVER Cloud",
+        "date_basis": "Relatorio tecnico publicado em 27 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "naver-hyperclovax-seed",
       "company": "NAVER",
       "family": "HyperCLOVA X",
@@ -9438,6 +9652,70 @@
           "date_basis": "Relatorio tecnico publicado em 3 de janeiro de 2026."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "sarvam-openhathi",
+      "company": "Sarvam AI",
+      "family": "OpenHathi",
+      "model": "OpenHathi-Hi-v0.1",
+      "release_date": "2023-12-01",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "hindi", "indic-languages", "open-weights"],
+      "description_pt": "Primeiro LLM aberto de hindi da Sarvam AI, construido sobre o Llama 2 7B com vocabulario estendido para devanagari, apresentado como o primeiro da serie OpenHathi para linguas indianas.",
+      "sources": [
+        {
+          "title": "sarvamai/OpenHathi-7B-Hi-v0.1-Base",
+          "url": "https://huggingface.co/sarvamai/OpenHathi-7B-Hi-v0.1-Base",
+          "publisher": "Sarvam AI",
+          "date_basis": "Model card oficial; lancamento em dezembro de 2023, sem dia especifico; a data usa o primeiro dia do mes."
+        },
+        {
+          "title": "Indian Startup Releases OpenHathi: First-ever Hindi LLM",
+          "url": "https://www.analyticsvidhya.com/blog/2023/12/sarvamai-openhathi-first-hindi-llm-released/",
+          "publisher": "Analytics Vidhya",
+          "date_basis": "Cobertura de dezembro de 2023."
+        }
+      ],
+      "date_precision": "mes confirmado; dia convencional",
+      "date_note_pt": "O modelo e o lancamento em dezembro de 2023 sao confirmados; 01/12 e usado apenas para ordenacao.",
+      "confidence": "alta"
+    },
+    {
+      "id": "sarvam-1",
+      "company": "Sarvam AI",
+      "family": "Sarvam",
+      "model": "Sarvam-1 (2B)",
+      "release_date": "2024-10-24",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "indic-languages", "small-language-model", "token-efficiency", "open-weights"],
+      "description_pt": "LLM de 2B construido do zero para linguas indianas, cobrindo 10 idiomas indicos alem do ingles com tokenizer eficiente para escritas indianas, mostrando que curadoria de dados compensa escala modesta.",
+      "source": {
+        "title": "Sarvam 1: The first Indian language LLM",
+        "url": "https://www.sarvam.ai/blogs/sarvam-1",
+        "publisher": "Sarvam AI",
+        "date_basis": "Post oficial de lancamento em 24 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "sarvam-m",
+      "company": "Sarvam AI",
+      "family": "Sarvam",
+      "model": "Sarvam-M (24B)",
+      "release_date": "2025-05-23",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "indic-languages", "hibrido", "open-weights"],
+      "description_pt": "Modelo hibrido de 24B da Sarvam (base Mistral Small) com SFT e reforco para raciocinio, matematica, programacao e tarefas em linguas indianas, superando modelos maiores em benchmarks indianos.",
+      "source": {
+        "title": "Sarvam-M",
+        "url": "https://www.sarvam.ai/blogs/sarvam-m",
+        "publisher": "Sarvam AI",
+        "date_basis": "Post oficial de lancamento em 23 de maio de 2025."
+      },
       "confidence": "alta"
     },
     {
@@ -10227,6 +10505,704 @@
         "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
         "publisher": "Midjourney",
         "date_basis": "Pagina oficial informa que V8.0 Alpha foi lancado em 17 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-180b",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon",
+      "model": "Falcon 180B",
+      "release_date": "2023-09-06",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "open-weights", "multilingue", "180B"],
+      "description_pt": "Iteracao de 180 bilhoes de parametros da familia Falcon, treinada em 3,5 trilhoes de tokens e disponibilizada para pesquisa e uso comercial.",
+      "source": {
+        "title": "Technology Innovation Institute Introduces World's Most Powerful Open LLM: Falcon 180B",
+        "url": "https://www.tii.ae/index.php/news/technology-innovation-institute-introduces-worlds-most-powerful-open-llm-falcon-180b",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Comunicado oficial publicado em 6 de setembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-2",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon",
+      "model": "Falcon 2 11B / 11B VLM",
+      "release_date": "2024-05-13",
+      "release_stage": "pesos abertos",
+      "ai_category": ["LLMs", "Multimodal"],
+      "model_type": ["texto", "imagem", "visao-linguagem", "open-weights", "multilingue", "11B"],
+      "description_pt": "Segunda geracao Falcon, com um LLM de 11B e uma variante vision-to-language capaz de interpretar imagens e produzir respostas textuais.",
+      "source": {
+        "title": "Falcon 2: TII Releases New AI Model Series, Outperforming Meta's New Llama 3",
+        "url": "https://www.tii.ae/index.php/news/falcon-2-uaes-technology-innovation-institute-releases-new-ai-model-series-outperforming-metas",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Comunicado oficial publicado em 13 de maio de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-mamba-7b",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon Mamba",
+      "model": "Falcon Mamba 7B",
+      "release_date": "2024-08-12",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "open-weights", "state-space-model", "Mamba", "7B"],
+      "description_pt": "Primeiro Falcon baseado em State Space Language Model, trocando a arquitetura Transformer pura por Mamba para reduzir o custo de memoria em sequencias longas.",
+      "source": {
+        "title": "UAE's Technology Innovation Institute Revolutionizes AI Language Models With New Architecture",
+        "url": "https://www.tii.ae/news/uaes-technology-innovation-institute-revolutionizes-ai-language-models-new-architecture",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Comunicado oficial publicado em 12 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-3",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon",
+      "model": "Falcon 3 1B / 3B / 7B / 10B",
+      "release_date": "2024-12-17",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "open-weights", "multilingue", "edge", "1B-10B"],
+      "description_pt": "Familia de modelos compactos Base e Instruct treinada em 14 trilhoes de tokens, projetada para rodar em infraestrutura leve, inclusive laptops.",
+      "source": {
+        "title": "Falcon 3: TII Launches World's Most Powerful Small AI Models",
+        "url": "https://www.tii.ae/news/falcon-3-uaes-technology-innovation-institute-launches-worlds-most-powerful-small-ai-models",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Comunicado oficial publicado em 17 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-e",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon Edge",
+      "model": "Falcon-E 1B / 3B",
+      "release_date": "2025-05-15",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "open-weights", "edge", "1.58-bit", "BitNet", "eficiente"],
+      "description_pt": "Familia Falcon Edge de baixa precisao, com modelos de 1B e 3B em 1,58 bit voltados a inferencia eficiente em CPU e dispositivos limitados.",
+      "source": {
+        "title": "Falcon-Edge: A series of powerful, universal, fine-tunable 1.58bit language models",
+        "url": "https://huggingface.co/tiiuae",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "A organizacao oficial do TII no Hugging Face data o artigo de lancamento em 15 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-arabic",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon Arabic",
+      "model": "Falcon Arabic",
+      "release_date": "2025-05-21",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "open-weights", "arabe", "dialetos", "7B", "Falcon-3"],
+      "description_pt": "Modelo arabe construido sobre o Falcon 3 7B e treinado com dados nativos em arabe padrao moderno e dialetos regionais.",
+      "source": {
+        "title": "TII Launches Two New AI Models: Falcon Arabic and Falcon-H1",
+        "url": "https://www.tii.ae/index.php/news/middle-easts-leading-ai-powerhouse-tii-launches-two-new-ai-models-falcon-arabic-first-arabic",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Comunicado oficial publicado em 21 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-h1",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon-H1",
+      "model": "Falcon-H1 0.5B / 1.5B / 3B / 7B / 34B",
+      "release_date": "2025-05-21",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "open-weights", "hibrido", "Transformer-Mamba", "256K"],
+      "description_pt": "Familia hibrida Transformer-Mamba em seis configuracoes, de 0,5B a 34B, projetada para contexto longo, inferencia rapida e menor uso de memoria.",
+      "source": {
+        "title": "TII Launches Two New AI Models: Falcon Arabic and Falcon-H1",
+        "url": "https://www.tii.ae/index.php/news/middle-easts-leading-ai-powerhouse-tii-launches-two-new-ai-models-falcon-arabic-first-arabic",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Comunicado oficial publicado em 21 de maio de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-h1r-7b",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon-H1",
+      "model": "Falcon-H1R 7B",
+      "release_date": "2026-01-05",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "matematica", "open-weights", "7B"],
+      "description_pt": "Variante compacta de raciocinio da arquitetura Falcon-H1, especializada em matematica, codigo, logica e seguimento de instrucoes.",
+      "source": {
+        "title": "TII Launches Falcon Reasoning: Best 7B AI Model Globally",
+        "url": "https://www.tii.ae/news/tii-launches-falcon-reasoning-best-7b-ai-model-globally-also-outperforms-larger-models",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Comunicado oficial publicado em 5 de janeiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-h1-arabic",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon-H1 Arabic",
+      "model": "Falcon-H1 Arabic 3B / 7B / 34B",
+      "release_date": "2026-01-05",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "arabe", "raciocinio", "hibrido", "open-weights", "3B-34B"],
+      "description_pt": "Familia arabe baseada na arquitetura hibrida Falcon-H1, com melhor cobertura de dialetos, contexto longo e raciocinio matematico.",
+      "source": {
+        "title": "Abu Dhabi's TII Launches Falcon-H1 Arabic",
+        "url": "https://www.tii.ae/index.php/news/abu-dhabis-tii-launches-falcon-h1-arabic-establishing-worlds-leading-arabic-ai-model",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Comunicado oficial publicado em 5 de janeiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-h1-tiny",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon-H1 Tiny",
+      "model": "Falcon-H1 Tiny / Tiny-R",
+      "release_date": "2026-01-15",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "edge", "raciocinio", "tool-use", "codigo", "90M-600M"],
+      "description_pt": "Linha de micro-modelos hibridos para dispositivos de borda, incluindo variantes gerais e Tiny-R de raciocinio entre 90M e 600M parametros.",
+      "source": {
+        "title": "Falcon-H1-Tiny Collection",
+        "url": "https://huggingface.co/collections/tiiuae/falcon-h1-tiny",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Os primeiros checkpoints oficiais da familia foram publicados em 15 de janeiro de 2026."
+      },
+      "date_precision": "dia corroborado",
+      "date_note_pt": "A familia e os pesos sao oficiais; 15 de janeiro corresponde a publicacao inicial dos checkpoints no repositorio oficial.",
+      "confidence": "alta"
+    },
+    {
+      "id": "tii-falcon-perception",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon Perception",
+      "model": "Falcon Perception / Falcon OCR",
+      "release_date": "2026-03-31",
+      "release_stage": "anuncio e pesos abertos",
+      "ai_category": ["Multimodal", "Imagem"],
+      "model_type": ["visao-linguagem", "segmentacao", "object-grounding", "OCR", "documentos", "open-weights"],
+      "description_pt": "Familia multimodal compacta que unifica imagem e linguagem para segmentacao, localizacao de objetos e leitura de documentos, com modelos de 600M e 300M.",
+      "source": {
+        "title": "TII Launches Falcon Perception",
+        "url": "https://www.tii.ae/news/tii-launches-falcon-perception-new-multimodal-ai-model-helps-machines-see-and-understand-world",
+        "publisher": "Technology Innovation Institute",
+        "date_basis": "Comunicado oficial publicado em 31 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "swiss-ai-apertus-v1-1",
+      "company": "Swiss AI Initiative",
+      "family": "Apertus",
+      "model": "Apertus v1.1 Mini 0.5B / 1.5B / 4B",
+      "release_date": "2026-05-29",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "open-weights", "open-data", "multilingue", "destilacao", "edge"],
+      "description_pt": "Expansao compacta do Apertus criada por destilacao do modelo 8B, com variantes Base e Instruct de 0,5B, 1,5B e 4B e formatos quantizados para hardware limitado.",
+      "sources": [
+        {
+          "title": "Apertus-v1.1-4B",
+          "url": "https://huggingface.co/swiss-ai/Apertus-v1.1-4B",
+          "publisher": "Swiss AI Initiative",
+          "date_basis": "Model card oficial da familia Apertus v1.1 e seus artefatos abertos."
+        },
+        {
+          "title": "Apertus LLM Family Expansion via Distillation and Quantization",
+          "url": "https://arxiv.org/abs/2605.29128",
+          "publisher": "Swiss AI Initiative",
+          "date_basis": "Paper primario publicado em 27 de maio de 2026; checkpoints Instruct foram publicados em 29 de maio."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "O paper saiu em 27 de maio; 29 de maio e usado como a data dos primeiros checkpoints Instruct oficiais da familia compacta.",
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-foundation",
+      "company": "Tencent",
+      "family": "Hunyuan",
+      "model": "Hunyuan Foundation Model",
+      "release_date": "2023-09-07",
+      "release_stage": "API/testes empresariais",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "API", "chines", "100B+", "empresarial"],
+      "description_pt": "Modelo fundacional proprietario original da Tencent, apresentado com mais de 100 bilhoes de parametros e acesso por API no Tencent Cloud para empresas chinesas.",
+      "source": {
+        "title": "Tencent Unveils Hunyuan, its Proprietary Large Foundation Model on Tencent Cloud",
+        "url": "https://www.tencent.com/en-us/articles/2201685.html",
+        "publisher": "Tencent",
+        "date_basis": "Comunicado oficial publicado em 7 de setembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-dit",
+      "company": "Tencent",
+      "family": "Hunyuan Image",
+      "model": "Hunyuan-DiT",
+      "release_date": "2024-05-14",
+      "release_stage": "pesos abertos",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "diffusion-transformer", "chines", "multirresolucao", "open-weights"],
+      "description_pt": "Diffusion Transformer aberto para geracao de imagens, com foco em compreensao fina de prompts em chines e suporte a multiplas resolucoes.",
+      "source": {
+        "title": "Hunyuan-DiT",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanDiT",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio e licenca oficiais registram 14 de maio de 2024 como data de lancamento."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-large",
+      "company": "Tencent",
+      "family": "Hunyuan",
+      "model": "Hunyuan-Large (A52B)",
+      "release_date": "2024-11-05",
+      "release_stage": "paper e pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "open-weights", "MoE", "389B-total", "52B-ativos", "256K"],
+      "description_pt": "Modelo MoE aberto de 389B parametros totais e 52B ativos, com variantes Pretrain e Instruct e contexto de ate 256K no modelo base.",
+      "sources": [
+        {
+          "title": "Tencent-Hunyuan-Large",
+          "url": "https://huggingface.co/tencent/Tencent-Hunyuan-Large",
+          "publisher": "Tencent",
+          "date_basis": "Model card e repositorio oficiais distribuem os pesos; a licenca registra 5 de novembro de 2024 como data do release."
+        },
+        {
+          "title": "Hunyuan-Large: An Open-Source MoE Model with 52 Billion Activated Parameters",
+          "url": "https://arxiv.org/abs/2411.02265",
+          "publisher": "Tencent",
+          "date_basis": "Paper primario publicado em 4 de novembro de 2024, um dia antes da abertura formal dos pesos."
+        }
+      ],
+      "date_precision": "dia oficial dos pesos",
+      "date_note_pt": "O paper saiu em 04/11; a timeline usa 05/11, data registrada pela licenca e pela publicacao oficial dos pesos.",
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan3d-1",
+      "company": "Tencent",
+      "family": "Hunyuan 3D",
+      "model": "Hunyuan3D 1.0",
+      "release_date": "2024-11-05",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": ["Imagem", "Robotica/World models"],
+      "model_type": ["3d", "texto-para-3d", "imagem-para-3d", "reconstrucao", "open-weights"],
+      "description_pt": "Primeira geracao aberta do Hunyuan3D, com pipeline em dois estagios para criar ativos 3D a partir de texto ou imagem.",
+      "source": {
+        "title": "Tencent Hunyuan3D-1.0",
+        "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-1",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a disponibilizacao das demonstracoes de texto-para-3D e imagem-para-3D em 5 de novembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan3d-2",
+      "company": "Tencent",
+      "family": "Hunyuan 3D",
+      "model": "Hunyuan3D 2.0",
+      "release_date": "2025-01-21",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": ["Imagem", "Robotica/World models"],
+      "model_type": ["3d", "texto-para-3d", "imagem-para-3d", "textura", "alta-resolucao", "open-weights"],
+      "description_pt": "Segunda geracao do Hunyuan3D, escalada para ativos texturizados de alta resolucao com modelos separados de geometria e pintura.",
+      "source": {
+        "title": "Hunyuan3D 2.0",
+        "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio e licenca oficiais registram 21 de janeiro de 2025 como data do codigo e dos modelos pre-treinados."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan3d-2-1",
+      "company": "Tencent",
+      "family": "Hunyuan 3D",
+      "model": "Hunyuan3D 2.1",
+      "release_date": "2025-06-13",
+      "release_stage": "codigo, pesos e treino abertos",
+      "ai_category": ["Imagem", "Robotica/World models"],
+      "model_type": ["3d", "imagem-para-3d", "PBR", "textura", "training-code", "open-weights"],
+      "description_pt": "Versao voltada a producao de ativos 3D com materiais PBR, novo VAE, modelo de textura e abertura do codigo de treinamento.",
+      "source": {
+        "title": "Hunyuan3D 2.1",
+        "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a abertura completa em 13 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-a13b",
+      "company": "Tencent",
+      "family": "Hunyuan",
+      "model": "Hunyuan-A13B",
+      "release_date": "2025-06-27",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agentes", "codigo", "MoE", "80B-total", "13B-ativos", "256K"],
+      "description_pt": "Modelo MoE eficiente com 80B parametros totais e 13B ativos, combinando raciocinio rapido e lento, agentes, codigo e contexto de 256K.",
+      "source": {
+        "title": "Hunyuan-A13B",
+        "url": "https://github.com/Tencent-Hunyuan/Hunyuan-A13B",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a abertura das variantes Pretrain, Instruct, FP8 e Int4 em 27 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-world-1",
+      "company": "Tencent",
+      "family": "Hunyuan World",
+      "model": "HunyuanWorld 1.0",
+      "release_date": "2025-07-26",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": "Robotica/World models",
+      "model_type": ["world-model", "3d", "texto-para-mundo", "imagem-para-mundo", "simulacao", "360-graus", "open-weights"],
+      "description_pt": "Modelo de mundo 3D para gerar ambientes imersivos, exploraveis e editaveis a partir de texto ou imagem, com exportacao de malha.",
+      "source": {
+        "title": "HunyuanWorld 1.0",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a liberacao do modelo e do relatorio em 26 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-dense",
+      "company": "Tencent",
+      "family": "Hunyuan",
+      "model": "Hunyuan Dense 0.5B / 1.8B / 4B / 7B",
+      "release_date": "2025-07-30",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agentes", "dense", "edge", "open-weights", "256K"],
+      "description_pt": "Familia densa Base e Instruct de 0,5B a 7B, com raciocinio hibrido, contexto de 256K e foco em implantacao de borda e alta concorrencia.",
+      "source": {
+        "title": "Hunyuan Dense Model",
+        "url": "https://huggingface.co/collections/tencent/hunyuan-dense-model",
+        "publisher": "Tencent",
+        "date_basis": "Model cards oficiais registram a abertura dos oito checkpoints Base e Instruct em 30 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-mt",
+      "company": "Tencent",
+      "family": "Hunyuan MT",
+      "model": "Hunyuan-MT 7B / Chimera 7B",
+      "release_date": "2025-09-01",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "traducao", "33-idiomas", "ensemble", "7B", "open-weights"],
+      "description_pt": "Familia especializada em traducao entre 33 idiomas, com um modelo de 7B e a variante Chimera que combina varias traducoes em uma resposta refinada.",
+      "source": {
+        "title": "Hunyuan-MT",
+        "url": "https://github.com/Tencent-Hunyuan/Hunyuan-MT",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a abertura do Hunyuan-MT e Chimera em 1 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-world-voyager",
+      "company": "Tencent",
+      "family": "Hunyuan World",
+      "model": "HunyuanWorld-Voyager",
+      "release_date": "2025-09-02",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": ["Robotica/World models", "Video"],
+      "model_type": ["world-model", "RGB-D", "video", "camera-control", "reconstrucao-3d", "open-weights"],
+      "description_pt": "Modelo de difusao de video RGB-D controlado por camera para exploracao consistente de mundos e reconstrucao 3D em tempo real.",
+      "source": {
+        "title": "HunyuanWorld-Voyager",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-Voyager",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a abertura do codigo e dos pesos em 2 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-image-2-1",
+      "company": "Tencent",
+      "family": "Hunyuan Image",
+      "model": "HunyuanImage 2.1",
+      "release_date": "2025-09-08",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "2K", "diffusion-transformer", "texto-em-imagem", "open-weights"],
+      "description_pt": "Modelo de 17B para gerar imagens 2K, com encoders multimodal e ByT5, refiner separado e variantes completa e destilada.",
+      "source": {
+        "title": "HunyuanImage 2.1",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanImage-2.1",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a liberacao do codigo e dos pesos em 8 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan3d-3",
+      "company": "Tencent",
+      "family": "Hunyuan 3D",
+      "model": "Hunyuan 3D 3.0",
+      "release_date": "2025-09-16",
+      "release_stage": "anuncio/produto",
+      "ai_category": ["Imagem", "Robotica/World models"],
+      "model_type": ["3d", "texto-para-3d", "imagem-para-3d", "ativos-3d", "produto"],
+      "description_pt": "Terceira geracao anunciada da plataforma Hunyuan 3D para criacao de ativos destinados a midia, jogos e fluxos profissionais.",
+      "source": {
+        "title": "Tencent Announces Global Rollout of Scenario-Based AI Capabilities",
+        "url": "https://www.tencent.com/en-us/articles/2202183.html",
+        "publisher": "Tencent",
+        "date_basis": "Comunicado oficial de 16 de setembro de 2025 anuncia o Hunyuan 3D 3.0."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-image-3",
+      "company": "Tencent",
+      "family": "Hunyuan Image",
+      "model": "HunyuanImage 3.0",
+      "release_date": "2025-09-28",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": ["Imagem", "Multimodal"],
+      "model_type": ["imagem", "texto-para-imagem", "multimodal-nativo", "MoE", "80B-total", "13B-ativos", "open-weights"],
+      "description_pt": "Modelo multimodal nativo de geracao de imagens com 80B parametros totais e 13B ativos, posteriormente ampliado com variante Instruct para edicao e raciocinio.",
+      "source": {
+        "title": "HunyuanImage 3.0",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanImage-3.0",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a abertura do codigo, pesos e relatorio em 28 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-video-1-5",
+      "company": "Tencent",
+      "family": "Hunyuan Video",
+      "model": "HunyuanVideo 1.5",
+      "release_date": "2025-11-20",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "8.3B", "consumer-GPU", "open-weights"],
+      "description_pt": "Geracao seguinte e mais leve do HunyuanVideo, com 8,3B parametros, texto-para-video e imagem-para-video executaveis em GPUs de consumo.",
+      "sources": [
+        {
+          "title": "HunyuanVideo 1.5",
+          "url": "https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5",
+          "publisher": "Tencent Hunyuan",
+          "date_basis": "Repositorio dedicado registra codigo e pesos de inferencia em 20 de novembro de 2025."
+        },
+        {
+          "title": "HunyuanVideo",
+          "url": "https://github.com/Tencent-Hunyuan/HunyuanVideo",
+          "publisher": "Tencent Hunyuan",
+          "date_basis": "Changelog da familia referencia a abertura do HunyuanVideo 1.5 em 21 de novembro de 2025."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "Os repositorios oficiais divergem por um dia; 20/11 e usado porque o repositorio dedicado marca nessa data a liberacao do codigo e dos pesos.",
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-ocr",
+      "company": "Tencent",
+      "family": "Hunyuan OCR",
+      "model": "HunyuanOCR 1.0",
+      "release_date": "2025-11-25",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": "Multimodal",
+      "model_type": ["visao-linguagem", "OCR", "documentos", "text-spotting", "traducao-de-imagem", "1B", "open-weights"],
+      "description_pt": "VLM especialista em OCR para documentos, texto em cenas, extracao estruturada e traducao de texto em imagens, com apenas 1B de parametros.",
+      "source": {
+        "title": "HunyuanOCR",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanOCR/tree/v1.0",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Changelog oficial registra a disponibilizacao publica do codigo e dos pesos em 25 de novembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-world-1-5",
+      "company": "Tencent",
+      "family": "Hunyuan World",
+      "model": "HY-World 1.5 (WorldPlay)",
+      "release_date": "2025-12-17",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": ["Robotica/World models", "Video"],
+      "model_type": ["world-model", "video", "interativo", "tempo-real", "camera-control", "open-weights"],
+      "description_pt": "Modelo de mundo interativo em tempo real com exploracao prolongada e consistencia geometrica, incluindo variantes de 8B e 5B.",
+      "sources": [
+        {
+          "title": "HY-World 1.5 WorldPlay",
+          "url": "https://github.com/Tencent-Hunyuan/HY-WorldPlay",
+          "publisher": "Tencent Hunyuan",
+          "date_basis": "Repositorio dedicado registra a abertura em 17 de dezembro de 2025."
+        },
+        {
+          "title": "HunyuanWorld 1.0 changelog",
+          "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0",
+          "publisher": "Tencent Hunyuan",
+          "date_basis": "Indice oficial da familia referencia o mesmo lancamento em 18 de dezembro de 2025."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "Os repositorios oficiais divergem por um dia; 17/12 segue o repositorio dedicado do WorldPlay, enquanto o indice da familia registra 18/12.",
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy-motion-1",
+      "company": "Tencent",
+      "family": "HY-Motion",
+      "model": "HY-Motion 1.0 / Lite",
+      "release_date": "2025-12-30",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": "Robotica/World models",
+      "model_type": ["3d", "texto-para-movimento", "animacao", "esqueleto-3d", "1B", "open-weights"],
+      "description_pt": "Familia de texto-para-movimento 3D para animacao de personagens, com modelos de 1B e 460M que geram sequencias de esqueletos a partir de prompts.",
+      "source": {
+        "title": "HY-Motion 1.0",
+        "url": "https://github.com/Tencent-Hunyuan/HY-Motion-1.0",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra codigo e modelos pre-treinados em 30 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy-mt-1-5",
+      "company": "Tencent",
+      "family": "Hunyuan MT",
+      "model": "HY-MT 1.5 1.8B / 7B",
+      "release_date": "2025-12-30",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "traducao", "33-idiomas", "edge", "1.8B", "7B", "open-weights"],
+      "description_pt": "Segunda geracao da familia de traducao Hunyuan, com modelos de 1,8B e 7B, suporte a contexto, terminologia e traducao formatada.",
+      "source": {
+        "title": "HY-MT 1.5",
+        "url": "https://github.com/Tencent-Hunyuan/HY-MT",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a abertura dos modelos 1.8B e 7B em 30 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy-embodied-0-5",
+      "company": "Tencent",
+      "family": "HY-Embodied",
+      "model": "HY-Embodied 0.5",
+      "release_date": "2026-04-09",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": ["Robotica/World models", "Multimodal"],
+      "model_type": ["robotica", "visao-linguagem", "embodied-ai", "planejamento", "VLA", "MoT", "open-weights"],
+      "description_pt": "Familia fundacional para agentes fisicos, treinada para percepcao espaco-temporal, previsao, interacao, planejamento e integracao como cerebro de pipelines VLA.",
+      "source": {
+        "title": "HY-Embodied",
+        "url": "https://github.com/Tencent-Hunyuan/HY-Embodied",
+        "publisher": "Tencent Robotics X e Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra a abertura do modelo MoT-2B e do codigo de inferencia em 9 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy-world-2",
+      "company": "Tencent",
+      "family": "Hunyuan World",
+      "model": "HY-World 2.0",
+      "release_date": "2026-04-16",
+      "release_stage": "release parcial/open source",
+      "ai_category": "Robotica/World models",
+      "model_type": ["world-model", "3d", "reconstrucao", "geracao", "simulacao", "WorldMirror", "open-weights"],
+      "description_pt": "Sistema multimodal para reconstruir, gerar e simular mundos 3D, combinando panorama, planejamento de trajetoria, expansao e composicao em representacoes editaveis.",
+      "source": {
+        "title": "HY-World 2.0",
+        "url": "https://github.com/Tencent-Hunyuan/HY-World-2.0",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra relatorio, codigo parcial e pesos do WorldMirror 2.0 em 16 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy3-preview",
+      "company": "Tencent",
+      "family": "Hy",
+      "model": "Hy3 preview",
+      "release_date": "2026-04-24",
+      "release_stage": "preview/pesos abertos/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agentes", "codigo", "MoE", "295B-total", "21B-ativos", "256K"],
+      "description_pt": "Preview da nova geracao Hy, com pensamento rapido e lento, 295B parametros totais, 21B ativos e foco em fluxos longos de agentes.",
+      "source": {
+        "title": "Tencent Unveils Hy3 preview",
+        "url": "https://www.tencent.com/en-us/articles/2202320.html",
+        "publisher": "Tencent",
+        "date_basis": "Comunicado oficial publicado em 24 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy3",
+      "company": "Tencent",
+      "family": "Hy",
+      "model": "Hy3",
+      "release_date": "2026-07-06",
+      "release_stage": "pesos abertos/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agentes", "codigo", "MoE", "295B-total", "21B-ativos", "256K"],
+      "description_pt": "Versao final do Hy3, refinada apos o preview com melhor estabilidade, pos-treinamento ampliado e integracao em produtos e servicos da Tencent.",
+      "sources": [
+        {
+          "title": "Tencent Hunyuan Officially Releases Hy3",
+          "url": "https://www.tencent.com/tencent-hunyuan-officially-releases-hy3-advancing-agent-capabilities-and-deeper-product-integration/",
+          "publisher": "Tencent",
+          "date_basis": "Comunicado oficial publicado em 6 de julho de 2026."
+        },
+        {
+          "title": "Hy3",
+          "url": "https://huggingface.co/tencent/Hy3",
+          "publisher": "Tencent",
+          "date_basis": "Model card oficial distribui os pesos Hy3 e Hy3-FP8 sob Apache 2.0."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hunyuan-ocr-1-5",
+      "company": "Tencent",
+      "family": "Hunyuan OCR",
+      "model": "HunyuanOCR 1.5",
+      "release_date": "2026-07-07",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": "Multimodal",
+      "model_type": ["visao-linguagem", "OCR", "documentos", "DFlash", "128K", "PC", "open-weights"],
+      "description_pt": "Atualizacao do OCR multimodal com decodificacao especulativa DFlash, contexto de 128K, dados orientados por agentes e suporte planejado a execucao local via llama.cpp.",
+      "source": {
+        "title": "HunyuanOCR 1.5",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanOCR",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Repositorio oficial registra o lancamento da versao 1.5 em 7 de julho de 2026."
       },
       "confidence": "alta"
     }
