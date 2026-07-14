@@ -60,12 +60,15 @@ const state = {
   mapStyleFallbackActive: false,
   mapFallbackTried: false,
   mapHasInitialView: false,
+  mapFullscreen: false,
   mapPopup: null,
   mapPreviewPopup: null,
   mapPreviewKey: null
 };
 
 const companyColors = {
+  "AI Singapore": "#0f766e",
+  "Aleph Alpha": "#2563eb",
   Apple: "#52525b",
   OpenAI: "#0f766e",
   Anthropic: "#a16207",
@@ -88,18 +91,30 @@ const companyColors = {
   Alibaba: "#c2410c",
   Amazon: "#ff9900",
   "AI21 Labs": "#334155",
+  "Core42": "#7c3aed",
   Baidu: "#1d4ed8",
   Cohere: "#39594d",
   Cursor: "#0f172a",
+  "Danish Foundation Models": "#dc2626",
   Databricks: "#ef4444",
   ElevenLabs: "#111827",
   IBM: "#0f62fe",
+  Ideogram: "#ec4899",
+  "Lelapa AI": "#16a34a",
+  "Leonardo.Ai": "#0891b2",
+  "LG AI Research": "#a50034",
   "Luma AI": "#7c3aed",
   Midjourney: "#6b7280",
   MiniMax: "#7c2d12",
+  NAVER: "#03c75a",
   Runway: "#0f172a",
   "Sakana AI": "#0284c7",
+  "Sarvam AI": "#ea580c",
+  Sber: "#21a038",
   "Stability AI": "#0d9488",
+  "Swiss AI Initiative": "#dc2626",
+  "Technology Innovation Institute": "#0f766e",
+  Yandex: "#ffcc00",
   Tencent: "#2563eb"
 };
 
@@ -164,6 +179,183 @@ const companyLocations = [
     lng: -122.3258,
     sourceName: "Ai2 Contact",
     sourceUrl: "https://allenai.org/contact"
+  },
+  {
+    company: "AI Singapore",
+    site: "SEA-LION",
+    city: "Singapore",
+    region: "Singapore",
+    country: "Singapore",
+    address: "3 Research Link, #02-04, Innovation 4.0",
+    lat: 1.2966,
+    lng: 103.7764,
+    sourceName: "SEA-LION",
+    sourceUrl: "https://sea-lion.ai/"
+  },
+  {
+    company: "Aleph Alpha",
+    site: "Headquarters / Luminous",
+    city: "Heidelberg",
+    region: "Baden-Wurttemberg",
+    country: "Germany",
+    address: "Heidelberg, Germany",
+    lat: 49.3988,
+    lng: 8.6724,
+    notes: "Marker is city-level because the official Luminous post identifies Aleph Alpha as Heidelberg-based but does not publish a current street address there.",
+    sourceName: "Aleph Alpha",
+    sourceUrl: "https://aleph-alpha.com/luminous-european-ai-closes-gap-to-world-leaders/"
+  },
+  {
+    company: "Core42",
+    site: "Jais / Sovereign AI infrastructure",
+    city: "Abu Dhabi",
+    region: "Abu Dhabi",
+    country: "United Arab Emirates",
+    address: "Abu Dhabi, UAE",
+    lat: 24.4539,
+    lng: 54.3773,
+    notes: "Marker is city-level for Core42/G42's Abu Dhabi base and Jais-related sovereign AI work.",
+    sourceName: "Core42",
+    sourceUrl: "https://www.core42.ai/"
+  },
+  {
+    company: "Danish Foundation Models",
+    site: "Munin collaboration",
+    city: "Copenhagen",
+    region: "Capital Region",
+    country: "Denmark",
+    address: "Copenhagen, Denmark",
+    lat: 55.6761,
+    lng: 12.5683,
+    notes: "National collaboration across Danish universities and research institutions; marker is city-level for the Danish AI ecosystem rather than a single office.",
+    sourceName: "Danish Foundation Models",
+    sourceUrl: "https://www.foundationmodels.dk/"
+  },
+  {
+    company: "Ideogram",
+    site: "Headquarters / Ideogram 4.0",
+    city: "Toronto",
+    region: "Ontario",
+    country: "Canada",
+    address: "Toronto, Ontario",
+    lat: 43.6532,
+    lng: -79.3832,
+    notes: "Marker is city-level because a current public street address was not found on Ideogram's official pages.",
+    sourceName: "Ideogram",
+    sourceUrl: "https://ideogram.ai/models/4.0/"
+  },
+  {
+    company: "Lelapa AI",
+    site: "InkubaLM / Vulavula",
+    city: "Johannesburg",
+    region: "Gauteng",
+    country: "South Africa",
+    address: "Johannesburg, South Africa",
+    lat: -26.2041,
+    lng: 28.0473,
+    notes: "Marker is city-level, reflecting Lelapa AI's South African roots and Johannesburg launch context.",
+    sourceName: "Lelapa AI",
+    sourceUrl: "https://lelapa.ai/"
+  },
+  {
+    company: "Leonardo.Ai",
+    site: "Phoenix / Lucid Origin",
+    city: "Sydney",
+    region: "New South Wales",
+    country: "Australia",
+    address: "Sydney, NSW",
+    lat: -33.8688,
+    lng: 151.2093,
+    notes: "Marker is city-level for Leonardo.Ai's Sydney headquarters and Australian origin.",
+    sourceName: "Leonardo.Ai",
+    sourceUrl: "https://leonardo.ai/"
+  },
+  {
+    company: "LG AI Research",
+    site: "EXAONE",
+    city: "Seoul",
+    region: "Seoul",
+    country: "South Korea",
+    address: "Seoul, South Korea",
+    lat: 37.5665,
+    lng: 126.978,
+    notes: "Marker is city-level because LG AI Research's public model pages do not publish a stable research office address.",
+    sourceName: "LG AI EXAONE",
+    sourceUrl: "https://huggingface.co/LGAI-EXAONE"
+  },
+  {
+    company: "NAVER",
+    site: "HyperCLOVA X",
+    city: "Seongnam",
+    region: "Gyeonggi-do",
+    country: "South Korea",
+    address: "NAVER 1784, 95 Jeongjail-ro, Bundang-gu",
+    lat: 37.3595,
+    lng: 127.1052,
+    sourceName: "HyperCLOVA X",
+    sourceUrl: "https://clova.ai/en/hyperclova"
+  },
+  {
+    company: "Sarvam AI",
+    site: "Sarvam 30B / 105B",
+    city: "Bengaluru",
+    region: "Karnataka",
+    country: "India",
+    address: "732, Chinmaya Mission Hospital Road, Indiranagar Stage 1",
+    lat: 12.9784,
+    lng: 77.6408,
+    sourceName: "Sarvam AI",
+    sourceUrl: "https://www.sarvam.ai/"
+  },
+  {
+    company: "Sber",
+    site: "GigaChat / Kandinsky",
+    city: "Moscow",
+    region: "Moscow",
+    country: "Russia",
+    address: "Sberbank City, Kutuzovsky Prospekt 32",
+    lat: 55.7405,
+    lng: 37.5334,
+    sourceName: "Sber Developers",
+    sourceUrl: "https://developers.sber.ru/portal/products/gigachat-api"
+  },
+  {
+    company: "Swiss AI Initiative",
+    site: "Apertus",
+    city: "Zurich",
+    region: "Zurich",
+    country: "Switzerland",
+    address: "Zurich, Switzerland",
+    lat: 47.3769,
+    lng: 8.5417,
+    notes: "Initiative spans EPFL, ETH Zurich and CSCS; marker uses Zurich at city level for the Swiss AI Initiative ecosystem.",
+    sourceName: "Apertus",
+    sourceUrl: "https://apertvs.ai/"
+  },
+  {
+    company: "Technology Innovation Institute",
+    site: "Falcon",
+    city: "Abu Dhabi",
+    region: "Abu Dhabi",
+    country: "United Arab Emirates",
+    address: "Abu Dhabi, UAE",
+    lat: 24.4539,
+    lng: 54.3773,
+    notes: "Marker is city-level for TII's Abu Dhabi research base and Falcon model family.",
+    sourceName: "Falcon LLM",
+    sourceUrl: "https://falconllm.tii.ae/"
+  },
+  {
+    company: "Yandex",
+    site: "YandexGPT / Alice AI",
+    city: "Moscow",
+    region: "Moscow",
+    country: "Russia",
+    address: "16 Leo Tolstoy Street",
+    lat: 55.7339,
+    lng: 37.5871,
+    sourceName: "Yandex AI Studio",
+    sourceUrl: "https://aistudio.yandex.ru/en/model-gallery"
   },
   {
     company: "Amazon",
@@ -1982,6 +2174,7 @@ function cacheElements() {
     timelineScale: document.getElementById("timelineScale"),
     modelDetails: document.getElementById("modelDetails"),
     yearChart: document.getElementById("yearChart"),
+    mapShell: document.getElementById("mapShell"),
     companyMap: document.getElementById("companyMap"),
     companyLocationList: document.getElementById("companyLocationList"),
     mapSummary: document.getElementById("mapSummary"),
@@ -1989,6 +2182,7 @@ function cacheElements() {
     mapBaseButtons: document.querySelectorAll("[data-map-base]"),
     mapLabelButtons: document.querySelectorAll("[data-map-labels]"),
     mapScaleButtons: document.querySelectorAll("[data-map-scale]"),
+    mapFullscreenButton: document.querySelector("[data-map-fullscreen]"),
     mapLoading: document.getElementById("mapLoading"),
     mapError: document.getElementById("mapError"),
     modelsTable: document.getElementById("modelsTable"),
@@ -1997,7 +2191,10 @@ function cacheElements() {
 }
 
 function bindEvents() {
-  window.addEventListener("resize", syncStickyOffsets);
+  window.addEventListener("resize", () => {
+    syncStickyOffsets();
+    state.companyMap?.resize();
+  });
 
   els.searchInput.addEventListener("input", (event) => {
     state.filters.query = event.target.value.trim().toLowerCase();
@@ -2033,7 +2230,13 @@ function bindEvents() {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeMultiFilterMenus();
+    if (event.key !== "Escape") return;
+    if (state.mapFullscreen) {
+      event.preventDefault();
+      setMapFullscreen(false);
+      return;
+    }
+    closeMultiFilterMenus();
   });
 
   document.querySelectorAll("[data-view]").forEach((button) => {
@@ -2087,6 +2290,10 @@ function bindEvents() {
       applyMapScale(button.dataset.mapScale);
       saveViewPreferences();
     });
+  });
+
+  els.mapFullscreenButton?.addEventListener("click", () => {
+    setMapFullscreen(!state.mapFullscreen);
   });
 
   els.tableDateOrder.addEventListener("change", (event) => {
@@ -2375,6 +2582,34 @@ function syncViewControls() {
   els.mapScaleButtons?.forEach((button) => {
     button.classList.toggle("active", button.dataset.mapScale === state.mapScale);
   });
+  syncMapFullscreenControls();
+}
+
+function setMapFullscreen(enabled) {
+  state.mapFullscreen = Boolean(enabled);
+  syncMapFullscreenControls();
+
+  requestAnimationFrame(() => {
+    state.companyMap?.resize();
+    if (state.mapFullscreen) {
+      scrollSelectedMapLocationIntoView();
+    }
+  });
+}
+
+function syncMapFullscreenControls() {
+  els.mapShell?.classList.toggle("map-fullscreen", state.mapFullscreen);
+  document.body.classList.toggle("map-fullscreen-open", state.mapFullscreen);
+
+  if (!els.mapFullscreenButton) return;
+  els.mapFullscreenButton.classList.toggle("active", state.mapFullscreen);
+  els.mapFullscreenButton.setAttribute("aria-pressed", String(state.mapFullscreen));
+  els.mapFullscreenButton.setAttribute(
+    "aria-label",
+    state.mapFullscreen ? "Sair da tela cheia do mapa" : "Abrir mapa em tela cheia"
+  );
+  els.mapFullscreenButton.title = state.mapFullscreen ? "Sair da tela cheia (Esc)" : "Abrir mapa em tela cheia";
+  els.mapFullscreenButton.textContent = state.mapFullscreen ? "Sair" : "Tela cheia";
 }
 
 function syncStickyOffsets() {

@@ -1949,3 +1949,130 @@ td a,
     flex-direction: column;
   }
 }
+
+.map-shell {
+  min-width: 0;
+}
+
+.map-fullscreen-button {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 7px 11px;
+  border-color: #1f2937;
+  background: #111827;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+.map-fullscreen-button:hover,
+.map-fullscreen-button.active {
+  border-color: #0f766e;
+  background: #0f766e;
+  color: #fff;
+}
+
+body.map-fullscreen-open {
+  overflow: hidden;
+}
+
+.map-shell.map-fullscreen {
+  position: fixed;
+  inset: 12px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  border-radius: 8px;
+  background: var(--bg);
+  box-shadow: 0 28px 80px rgba(2, 6, 23, 0.32);
+}
+
+.map-shell.map-fullscreen .map-toolbar {
+  flex: 0 0 auto;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.map-shell.map-fullscreen .map-actions {
+  justify-content: flex-end;
+}
+
+.map-shell.map-fullscreen .map-layout {
+  flex: 1 1 auto;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+  gap: 14px;
+}
+
+.map-shell.map-fullscreen .map-stage {
+  min-height: 0;
+  height: 100%;
+}
+
+.map-shell.map-fullscreen .company-location-list {
+  display: flex;
+  max-height: none;
+  min-height: 0;
+  padding-right: 6px;
+}
+
+@media (max-width: 1100px) {
+  .map-shell.map-fullscreen {
+    inset: 8px;
+  }
+
+  .map-shell.map-fullscreen .map-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .map-shell.map-fullscreen .map-actions {
+    justify-content: flex-start;
+  }
+
+  .map-shell.map-fullscreen .map-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) minmax(160px, 28vh);
+  }
+
+  .map-shell.map-fullscreen .company-location-list {
+    display: flex;
+    max-height: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .map-shell.map-fullscreen {
+    inset: 0;
+    padding: 10px;
+    border-radius: 0;
+  }
+
+  .map-shell.map-fullscreen .map-toolbar h2 {
+    font-size: 1.04rem;
+  }
+
+  .map-shell.map-fullscreen .map-actions {
+    gap: 6px;
+  }
+
+  .map-shell.map-fullscreen .map-control-group,
+  .map-shell.map-fullscreen .map-scale-toggle {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .map-shell.map-fullscreen .map-layout {
+    grid-template-rows: minmax(0, 1fr) minmax(150px, 32vh);
+    gap: 10px;
+  }
+
+  .map-shell.map-fullscreen .map-stage {
+    min-height: 0;
+    height: auto;
+  }
+}

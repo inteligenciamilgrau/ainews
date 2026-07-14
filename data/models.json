@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Adicionados Molmo/Ai2, Sakana AI e marcadores no mapa para empresas que ainda estavam sem localizacao, incluindo AI21 em Tel Aviv."
+      "description_pt": "Adicionados modelos e marcadores globais fora do eixo EUA/Franca/China, incluindo Russia, Alemanha, Dinamarca, Canada, Africa do Sul, Singapura, India, Emirados Arabes, Coreia do Sul, Suica e Australia."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -6989,6 +6989,358 @@
         "date_basis": "Post oficial publicado em 24 de abril de 2026."
       },
       "confidence": "alta"
+    },
+    {
+      "id": "aleph-alpha-luminous",
+      "company": "Aleph Alpha",
+      "family": "Luminous",
+      "model": "Luminous / Luminous World",
+      "release_date": "2023-02-16",
+      "release_stage": "produto/relatorio tecnico",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "imagem", "multimodal", "europeu", "enterprise", "soberania-digital"],
+      "description_pt": "Familia de modelos da Aleph Alpha, baseada na Alemanha, voltada a texto, imagem, explicabilidade e uso corporativo/governamental europeu.",
+      "source": {
+        "title": "Luminous: European AI closes gap to world leaders",
+        "url": "https://aleph-alpha.com/luminous-european-ai-closes-gap-to-world-leaders/",
+        "publisher": "Aleph Alpha",
+        "date_basis": "Post oficial publicado em 16 de fevereiro de 2023 apresenta Luminous e a expectativa de Luminous-World."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "sber-gigachat",
+      "company": "Sber",
+      "family": "GigaChat",
+      "model": "GigaChat Lite / Pro / MAX",
+      "release_date": "2023-04-24",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "API", "russo", "multimodal", "enterprise"],
+      "description_pt": "Familia russa de modelos generativos da Sber, com variantes Lite, Pro e MAX para chat, texto, resumo, dominios corporativos e entendimento de imagens.",
+      "source": {
+        "title": "GigaChat API",
+        "url": "https://developers.sber.ru/portal/products/gigachat-api",
+        "publisher": "Sber",
+        "date_basis": "Pagina oficial descreve GigaChat API e as variantes Lite, Pro e MAX; a data-base usa o lancamento publico inicial do GigaChat."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "yandex-yandexgpt-alice",
+      "company": "Yandex",
+      "family": "Yandex AI Studio",
+      "model": "YandexGPT Pro / Lite / Alice AI ART",
+      "release_date": "2023-05-17",
+      "release_stage": "produto/API",
+      "ai_category": ["LLMs", "Imagem", "Audio/Transcricao"],
+      "model_type": ["texto", "chat", "imagem", "voz", "API", "russo", "multilingue"],
+      "description_pt": "Conjunto de modelos da Yandex no AI Studio, incluindo YandexGPT para texto e RAG, Alice AI LLM, Alice AI ART para imagem e modelos de voz.",
+      "source": {
+        "title": "Yandex AI Studio model gallery",
+        "url": "https://aistudio.yandex.ru/en/model-gallery",
+        "publisher": "Yandex",
+        "date_basis": "Galeria oficial lista Alice AI LLM, Alice AI ART, YandexGPT Pro e YandexGPT Lite; a data-base usa o lancamento publico inicial do YandexGPT."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "tii-falcon-series",
+      "company": "Technology Innovation Institute",
+      "family": "Falcon",
+      "model": "Falcon 7B / 40B / 180B",
+      "release_date": "2023-11-28",
+      "release_stage": "open weights/paper",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "open-weights", "multilingue", "arabe", "RefinedWeb", "Apache-2.0"],
+      "description_pt": "Serie Falcon do Technology Innovation Institute, em Abu Dhabi, uma das familias abertas mais relevantes de 2023, com variantes 7B, 40B e 180B.",
+      "sources": [
+        {
+          "title": "The Falcon Series of Open Language Models",
+          "url": "https://arxiv.org/abs/2311.16867",
+          "publisher": "Technology Innovation Institute",
+          "date_basis": "Paper primario publicado em 28 de novembro de 2023."
+        },
+        {
+          "title": "Falcon LLM",
+          "url": "https://falconllm.tii.ae/",
+          "publisher": "Technology Innovation Institute",
+          "date_basis": "Pagina oficial da familia Falcon apresenta a linha atual de modelos."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "core42-jais",
+      "company": "Core42",
+      "family": "Jais",
+      "model": "Jais / Jais-chat",
+      "release_date": "2023-08-30",
+      "release_stage": "open weights/paper",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "arabe", "ingles", "open-weights", "Apache-2.0"],
+      "description_pt": "Modelo arabe-centrico criado por Inception/Core42, MBZUAI e Cerebras, com variantes base e chat para arabe e ingles.",
+      "sources": [
+        {
+          "title": "Jais and Jais-chat: Arabic-Centric Foundation and Instruction-Tuned Open Generative Large Language Models",
+          "url": "https://arxiv.org/abs/2308.16149",
+          "publisher": "Core42 / MBZUAI / Cerebras",
+          "date_basis": "Paper primario publicado em 30 de agosto de 2023."
+        },
+        {
+          "title": "Core42",
+          "url": "https://www.core42.ai/",
+          "publisher": "Core42",
+          "date_basis": "Pagina oficial da Core42 destaca pesquisa e infraestrutura por tras de modelos como Jais."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "sber-kandinsky-3",
+      "company": "Sber",
+      "family": "Kandinsky",
+      "model": "Kandinsky 3.0 / 3.1",
+      "release_date": "2023-12-06",
+      "release_stage": "pesquisa/open source",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "diffusion", "open-source", "russo", "edicao"],
+      "description_pt": "Modelo texto-para-imagem da Sber/AI Forever, com foco em geracao visual, edicao, inpainting/outpainting e melhor entendimento de prompts em russo.",
+      "source": {
+        "title": "Kandinsky 3.0 Technical Report",
+        "url": "https://arxiv.org/abs/2312.03511",
+        "publisher": "Sber / AI Forever",
+        "date_basis": "Relatorio tecnico publicado em 6 de dezembro de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "cohere-aya",
+      "company": "Cohere",
+      "family": "Aya",
+      "model": "Aya Expanse / Aya Vision / Tiny Aya",
+      "release_date": "2024-05-23",
+      "release_stage": "open weights/pesquisa",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "multimodal", "multilingue", "open-weights", "low-resource-languages"],
+      "description_pt": "Linha global da Cohere Labs para IA multilingue, incluindo Aya 23, Aya Expanse, Aya Vision e Tiny Aya para idiomas sub-representados.",
+      "sources": [
+        {
+          "title": "Aya",
+          "url": "https://cohere.com/research/aya",
+          "publisher": "Cohere",
+          "date_basis": "Pagina oficial da Cohere Labs lista Tiny Aya, Aya Vision, Aya Expanse e Aya 101."
+        },
+        {
+          "title": "Aya 23: Open Weight Releases to Further Multilingual Progress",
+          "url": "https://arxiv.org/abs/2405.15032",
+          "publisher": "Cohere",
+          "date_basis": "Paper do Aya 23 publicado em 23 de maio de 2024."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "lelapa-inkubalm-vulavula",
+      "company": "Lelapa AI",
+      "family": "InkubaLM",
+      "model": "InkubaLM / Vulavula",
+      "release_date": "2024-08-30",
+      "release_stage": "open weights/pesquisa",
+      "ai_category": ["LLMs", "Audio/Transcricao"],
+      "model_type": ["texto", "african-languages", "low-resource-languages", "open-weights", "traducao", "voz"],
+      "description_pt": "Modelos e produtos da Lelapa AI voltados a linguas africanas de baixo recurso, combinando InkubaLM para texto e Vulavula para tarefas de linguagem e fala.",
+      "sources": [
+        {
+          "title": "InkubaLM: A small language model for low-resource African languages",
+          "url": "https://arxiv.org/abs/2408.17024",
+          "publisher": "Lelapa AI",
+          "date_basis": "Paper primario publicado em 30 de agosto de 2024."
+        },
+        {
+          "title": "Lelapa AI",
+          "url": "https://lelapa.ai/",
+          "publisher": "Lelapa AI",
+          "date_basis": "Pagina oficial descreve a empresa e seus produtos de linguagem."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "dfm-munin",
+      "company": "Danish Foundation Models",
+      "family": "Munin",
+      "model": "Munin 1.0",
+      "release_date": "2025-06-11",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "dinamarques", "ingles", "open-weights", "europeu", "soberania-digital"],
+      "description_pt": "Familia aberta de modelos focados em dinamarques e ingles, criada por uma colaboracao de universidades e instituicoes de pesquisa da Dinamarca.",
+      "sources": [
+        {
+          "title": "Danish Foundation Models",
+          "url": "https://www.foundationmodels.dk/",
+          "publisher": "Danish Foundation Models",
+          "date_basis": "Pagina oficial apresenta o projeto e o release note do Munin 1.0."
+        },
+        {
+          "title": "Danish Foundation Models on Hugging Face",
+          "url": "https://huggingface.co/danish-foundation-models",
+          "publisher": "Danish Foundation Models",
+          "date_basis": "Organizacao oficial lista a colecao Munin 1.0 com modelos atualizados em 11 de junho."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "swiss-ai-apertus",
+      "company": "Swiss AI Initiative",
+      "family": "Apertus",
+      "model": "Apertus 8B / 70B",
+      "release_date": "2025-09-02",
+      "release_stage": "open weights/open data",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "open-weights", "open-data", "multilingue", "1000+-idiomas", "soberania-digital"],
+      "description_pt": "Modelo totalmente aberto da Swiss AI Initiative, desenvolvido por EPFL, ETH Zurich e CSCS, com pesos, dados, codigo e metodos documentados.",
+      "source": {
+        "title": "Apertus",
+        "url": "https://apertvs.ai/",
+        "publisher": "Swiss AI Initiative",
+        "date_basis": "Pagina oficial apresenta o Apertus como modelo aberto com variantes 8B e 70B; data-base usa o lancamento publico de setembro de 2025."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "leonardo-ai-phoenix-lucid",
+      "company": "Leonardo.Ai",
+      "family": "Leonardo",
+      "model": "Phoenix / Lucid Origin",
+      "release_date": "2025-09-01",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "criativo", "design", "video-workflows"],
+      "description_pt": "Linha de modelos e ferramentas generativas da australiana Leonardo.Ai para criacao visual, incluindo Phoenix e Lucid Origin em fluxos de imagem e video.",
+      "sources": [
+        {
+          "title": "Leonardo.Ai",
+          "url": "https://leonardo.ai/",
+          "publisher": "Leonardo.Ai",
+          "date_basis": "Pagina oficial descreve a plataforma generativa de imagem, arte e video."
+        },
+        {
+          "title": "Leonardo.ai",
+          "url": "https://en.wikipedia.org/wiki/Leonardo.ai",
+          "publisher": "Wikipedia",
+          "date_basis": "Perfil publico lista Phoenix e Lucid Origin como marcos de modelos da empresa."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "naver-hyperclovax-seed",
+      "company": "NAVER",
+      "family": "HyperCLOVA X",
+      "model": "HyperCLOVA X SEED Think / Omni",
+      "release_date": "2026-01-03",
+      "release_stage": "open weights/produto",
+      "ai_category": ["LLMs", "Imagem", "Audio/Transcricao"],
+      "model_type": ["texto", "visao", "audio", "multimodal", "coreano", "raciocinio", "open-weights"],
+      "description_pt": "Linha coreana da NAVER/HyperCLOVA X, com modelos SEED para raciocinio, visao e omni-modalidade, otimizados para lingua e contexto coreanos.",
+      "sources": [
+        {
+          "title": "HyperCLOVA X",
+          "url": "https://clova.ai/en/hyperclova",
+          "publisher": "NAVER Cloud",
+          "date_basis": "Pagina oficial lista HyperCLOVA X THINK e modelos SEED Think, Omni, Vision e Text."
+        },
+        {
+          "title": "HyperCLOVA X 32B Think",
+          "url": "https://arxiv.org/abs/2601.03286",
+          "publisher": "NAVER Cloud",
+          "date_basis": "Relatorio tecnico publicado em 3 de janeiro de 2026."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "sarvam-30b-105b",
+      "company": "Sarvam AI",
+      "family": "Sarvam",
+      "model": "Sarvam 30B / 105B",
+      "release_date": "2026-03-06",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "indic-languages", "MoE", "open-weights", "Apache-2.0"],
+      "description_pt": "Modelos soberanos indianos da Sarvam AI, com variantes 30B e 105B treinadas para idiomas indianos, raciocinio e uso empresarial.",
+      "sources": [
+        {
+          "title": "Sarvam AI",
+          "url": "https://www.sarvam.ai/",
+          "publisher": "Sarvam AI",
+          "date_basis": "Pagina oficial lista o update 'Open-Sourcing Sarvam 30B and 105B' em 6 de marco de 2026."
+        },
+        {
+          "title": "Sarvam AI on Hugging Face",
+          "url": "https://huggingface.co/sarvamai",
+          "publisher": "Sarvam AI",
+          "date_basis": "Organizacao oficial lista sarvam-105b e sarvam-30b na colecao de modelos soberanos."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "ai-singapore-sea-lion-4-5",
+      "company": "AI Singapore",
+      "family": "SEA-LION",
+      "model": "SEA-LION v4.5",
+      "release_date": "2026-05-20",
+      "release_stage": "open weights/produto",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "multimodal", "southeast-asian-languages", "agentico", "open-source"],
+      "description_pt": "Familia aberta e multilingue da AI Singapore para o Sudeste Asiatico, com SEA-LION v4.5 adicionando foco em agentes, linguas regionais e multimodalidade.",
+      "source": {
+        "title": "SEA-LION",
+        "url": "https://sea-lion.ai/",
+        "publisher": "AI Singapore",
+        "date_basis": "Pagina oficial lista 'Introducing the SEA-LION v4.5 Suite' em 20 de maio de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "lg-ai-research-exaone-4-5",
+      "company": "LG AI Research",
+      "family": "EXAONE",
+      "model": "EXAONE 4.5 / K-EXAONE",
+      "release_date": "2026-04-09",
+      "release_stage": "open weights/pesquisa",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "multimodal", "coreano", "industrial-ai", "open-weights"],
+      "description_pt": "Familia de modelos da LG AI Research, incluindo EXAONE 4.5 como modelo vision-language aberto e K-EXAONE para foundation models coreanos.",
+      "source": {
+        "title": "LG AI EXAONE on Hugging Face",
+        "url": "https://huggingface.co/LGAI-EXAONE",
+        "publisher": "LG AI Research",
+        "date_basis": "Organizacao oficial lista EXAONE 4.5 Technical Report publicado em 9 de abril e modelos EXAONE 4.5."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ideogram-4",
+      "company": "Ideogram",
+      "family": "Ideogram",
+      "model": "Ideogram 4.0",
+      "release_date": "2026-06-01",
+      "release_stage": "produto/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "tipografia", "design", "edicao", "API"],
+      "description_pt": "Modelo de imagem da canadense Ideogram com foco em geracao visual, design e texto legivel dentro de imagens.",
+      "source": {
+        "title": "Ideogram 4.0",
+        "url": "https://ideogram.ai/models/4.0/",
+        "publisher": "Ideogram",
+        "date_basis": "Pagina oficial documenta o Ideogram 4.0; data-base usa a disponibilidade publica em 2026."
+      },
+      "confidence": "media"
     }
   ]
 }
