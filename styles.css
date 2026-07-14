@@ -79,6 +79,16 @@ h1 {
   letter-spacing: 0;
 }
 
+.topbar h1 {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.topbar .eyebrow,
+.topbar .last-updated {
+  min-width: 0;
+}
+
 .last-updated {
   margin: 8px 0 0;
   color: var(--muted);
@@ -1336,6 +1346,23 @@ td a,
 
   .topbar-inner {
     align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
+
+  .topbar h1 {
+    order: 1;
+    flex-basis: 100%;
+  }
+
+  .topbar .eyebrow {
+    order: 0;
+    margin-bottom: 0;
+  }
+
+  .topbar .last-updated {
+    order: 2;
+    margin-top: 0;
   }
 
   .summary-grid {
