@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Adicionados filtros multiplos persistentes e novas empresas/modelos no radar, incluindo Amazon Nova, Cohere Command A, AI21 Jamba2, DBRX, Stable Diffusion 3.5, Eleven v3, Midjourney V8.1, Ray2, Runway Gen-4 e HunyuanVideo."
+      "description_pt": "Adicionados Molmo/Ai2, Sakana AI e marcadores no mapa para empresas que ainda estavam sem localizacao, incluindo AI21 em Tel Aviv."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -6749,6 +6749,50 @@
       "confidence": "alta"
     },
     {
+      "id": "sakana-ai-scientist",
+      "company": "Sakana AI",
+      "family": "AI Scientist",
+      "model": "The AI Scientist",
+      "release_date": "2024-08-13",
+      "release_stage": "pesquisa/open source",
+      "ai_category": "LLMs",
+      "model_type": ["agente", "pesquisa-cientifica", "paper-generation", "automated-research", "open-source"],
+      "description_pt": "Sistema agente da Sakana AI para automatizar partes do ciclo de pesquisa em machine learning, incluindo geracao de ideias, codigo, experimentos, escrita de paper e revisao automatizada.",
+      "source": {
+        "title": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
+        "url": "https://sakana.ai/ai-scientist/",
+        "publisher": "Sakana AI",
+        "date_basis": "Post oficial publicado em 13 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai2-molmo-pixmo",
+      "company": "Ai2",
+      "family": "Molmo",
+      "model": "Molmo / PixMo",
+      "release_date": "2024-09-25",
+      "release_stage": "open weights/open data",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["multimodal", "visao", "VLM", "pointing", "open-weights", "open-data"],
+      "description_pt": "Familia aberta de modelos vision-language da Ai2, acompanhada pelos datasets PixMo, com foco em entendimento visual, respostas sobre imagem e apontamento/grounding.",
+      "sources": [
+        {
+          "title": "Molmo and PixMo: Open Weights and Open Data for State-of-the-Art Vision-Language Models",
+          "url": "https://arxiv.org/abs/2409.17146",
+          "publisher": "Ai2",
+          "date_basis": "Paper primario publicado em 25 de setembro de 2024."
+        },
+        {
+          "title": "Molmo",
+          "url": "https://allenai.org/molmo",
+          "publisher": "Ai2",
+          "date_basis": "Pagina oficial da Ai2 apresenta a familia Molmo e seus artefatos abertos."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "stability-ai-stable-diffusion-3-5",
       "company": "Stability AI",
       "family": "Stable Diffusion",
@@ -6893,6 +6937,24 @@
       "confidence": "alta"
     },
     {
+      "id": "sakana-namazu-alpha",
+      "company": "Sakana AI",
+      "family": "Namazu",
+      "model": "Namazu alpha",
+      "release_date": "2026-03-24",
+      "release_stage": "alpha/Sakana Chat",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "japones", "post-training", "chat", "cultural-adaptation"],
+      "description_pt": "Serie alfa de modelos ajustados pela Sakana AI para uso no contexto japones, demonstrando tecnicas de post-training sobre modelos abertos de alto desempenho.",
+      "source": {
+        "title": "Namazu alpha / Japan-adapted LLM post-training technology",
+        "url": "https://sakana.ai/namazu-alpha/",
+        "publisher": "Sakana AI",
+        "date_basis": "Post oficial publicado em 24 de marco de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "midjourney-v8-1",
       "company": "Midjourney",
       "family": "Midjourney",
@@ -6907,6 +6969,24 @@
         "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
         "publisher": "Midjourney",
         "date_basis": "Documentacao oficial lista a V8.1 como lancada em 30 de abril de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "sakana-fugu",
+      "company": "Sakana AI",
+      "family": "Fugu",
+      "model": "Sakana Fugu / Fugu Ultra",
+      "release_date": "2026-04-24",
+      "release_stage": "beta/API",
+      "ai_category": "LLMs",
+      "model_type": ["agente", "orquestracao", "multi-agent", "API", "raciocinio", "codigo"],
+      "description_pt": "Modelo/API de orquestracao multiagente da Sakana AI que coordena pools de modelos fundacionais para tarefas complexas de codigo, matematica, pesquisa e raciocinio.",
+      "source": {
+        "title": "Sakana Fugu: A Multi-Agent Orchestration System as a Foundation Model",
+        "url": "https://sakana.ai/fugu-beta/",
+        "publisher": "Sakana AI",
+        "date_basis": "Post oficial publicado em 24 de abril de 2026."
       },
       "confidence": "alta"
     }

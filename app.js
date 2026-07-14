@@ -84,6 +84,7 @@ const companyColors = {
   "Black Forest Labs": "#166534",
   ByteDance: "#0f172a",
   Kuaishou: "#f97316",
+  Ai2: "#0e7490",
   Alibaba: "#c2410c",
   Amazon: "#ff9900",
   "AI21 Labs": "#334155",
@@ -97,6 +98,7 @@ const companyColors = {
   Midjourney: "#6b7280",
   MiniMax: "#7c2d12",
   Runway: "#0f172a",
+  "Sakana AI": "#0284c7",
   "Stability AI": "#0d9488",
   Tencent: "#2563eb"
 };
@@ -137,6 +139,44 @@ const companyLocations = [
     lng: 120.032,
     sourceName: "Alibaba Group",
     sourceUrl: "https://www.alibabagroup.com/en-US/faqs-corporate-information"
+  },
+  {
+    company: "AI21 Labs",
+    site: "Headquarters / Jamba",
+    city: "Tel Aviv",
+    region: "Tel Aviv",
+    country: "Israel",
+    address: "Tel Aviv, Israel",
+    lat: 32.0853,
+    lng: 34.7818,
+    notes: "Marker is city-level because a current public street address was not found on AI21's official pages.",
+    sourceName: "AI21 Labs / Wikipedia",
+    sourceUrl: "https://en.wikipedia.org/wiki/AI21_Labs"
+  },
+  {
+    company: "Ai2",
+    site: "Allen Institute for AI / Molmo",
+    city: "Seattle",
+    region: "Washington",
+    country: "United States",
+    address: "3800 Latona Ave NE, Suite 300",
+    lat: 47.6537,
+    lng: -122.3258,
+    sourceName: "Ai2 Contact",
+    sourceUrl: "https://allenai.org/contact"
+  },
+  {
+    company: "Amazon",
+    site: "Amazon HQ / Amazon Nova",
+    city: "Seattle",
+    region: "Washington",
+    country: "United States",
+    address: "Seattle HQ campus / Denny Triangle and South Lake Union",
+    lat: 47.6156,
+    lng: -122.3394,
+    notes: "Amazon Nova is offered through AWS/Amazon Bedrock; marker uses Amazon's Seattle headquarters campus.",
+    sourceName: "List of Amazon locations",
+    sourceUrl: "https://en.wikipedia.org/wiki/List_of_Amazon_locations"
   },
   {
     company: "Apple",
@@ -263,6 +303,19 @@ const companyLocations = [
     sourceUrl: "https://craft.co/bytedance/locations"
   },
   {
+    company: "Cohere",
+    site: "Headquarters / Command",
+    city: "Toronto",
+    region: "Ontario",
+    country: "Canada",
+    address: "Toronto, Ontario",
+    lat: 43.6532,
+    lng: -79.3832,
+    notes: "Marker is city-level because a current public street address was not found on Cohere's official pages.",
+    sourceName: "Cohere / Wikipedia",
+    sourceUrl: "https://en.wikipedia.org/wiki/Cohere"
+  },
+  {
     company: "Cursor",
     site: "San Francisco hub",
     city: "San Francisco",
@@ -276,6 +329,19 @@ const companyLocations = [
     sourceUrl: "https://cursor.com/careers"
   },
   {
+    company: "Databricks",
+    site: "Headquarters / DBRX",
+    city: "San Francisco",
+    region: "California",
+    country: "United States",
+    address: "San Francisco, CA",
+    lat: 37.7749,
+    lng: -122.4194,
+    notes: "Marker is city-level because Databricks' Bay Area office footprint has changed over time.",
+    sourceName: "Databricks / Wikipedia",
+    sourceUrl: "https://en.wikipedia.org/wiki/Databricks"
+  },
+  {
     company: "DeepSeek",
     city: "Hangzhou",
     region: "Zhejiang",
@@ -285,6 +351,19 @@ const companyLocations = [
     lng: 120.1717,
     sourceName: "Craft",
     sourceUrl: "https://craft.co/hangzhou-deepseek-artificial-intelligence/locations"
+  },
+  {
+    company: "ElevenLabs",
+    site: "Global hub / Eleven",
+    city: "New York",
+    region: "New York",
+    country: "United States",
+    address: "New York, NY",
+    lat: 40.7128,
+    lng: -74.006,
+    notes: "ElevenLabs lists New York, London and Warsaw as global hubs; marker uses the New York hub at city level.",
+    sourceName: "ElevenLabs Careers",
+    sourceUrl: "https://elevenlabs.io/careers"
   },
   {
     company: "Google",
@@ -426,6 +505,19 @@ const companyLocations = [
     lng: 116.3074,
     sourceName: "Kuaishou IR",
     sourceUrl: "https://ir.kuaishou.com/investor-resources/investor-faqs"
+  },
+  {
+    company: "Luma AI",
+    site: "Luma / Ray",
+    city: "Palo Alto",
+    region: "California",
+    country: "United States",
+    address: "Palo Alto, CA",
+    lat: 37.4419,
+    lng: -122.143,
+    notes: "Marker is city-level because a current public office address was not found on Luma's official pages.",
+    sourceName: "Economic Times",
+    sourceUrl: "https://m.economictimes.com/tech/startups/lumas-amit-jain-says-fragmented-ai-tools-impacting-creative-workflows-launches-unified-intelligence/articleshow/129154626.cms"
   },
   {
     company: "Maritaca AI",
@@ -620,6 +712,19 @@ const companyLocations = [
     sourceUrl: "https://microsoft.ai/careers/"
   },
   {
+    company: "Midjourney",
+    site: "Independent research lab / V8.1",
+    city: "San Francisco",
+    region: "California",
+    country: "United States",
+    address: "San Francisco, CA",
+    lat: 37.7749,
+    lng: -122.4194,
+    notes: "Marker is city-level because Midjourney does not publish a stable public office address.",
+    sourceName: "Midjourney / Wikipedia",
+    sourceUrl: "https://en.wikipedia.org/wiki/Midjourney"
+  },
+  {
     company: "Mistral AI",
     site: "Headquarters",
     city: "Paris",
@@ -798,6 +903,44 @@ const companyLocations = [
     sourceUrl: "https://www.linkedin.com/news/story/openai-to-open-global-offices-6357505/"
   },
   {
+    company: "Runway",
+    site: "Headquarters / Gen",
+    city: "New York",
+    region: "New York",
+    country: "United States",
+    address: "Manhattan, New York City, NY",
+    lat: 40.7831,
+    lng: -73.9712,
+    notes: "Marker is city-level because a current public street address was not found on Runway's official pages.",
+    sourceName: "Runway / Wikipedia",
+    sourceUrl: "https://en.wikipedia.org/wiki/Runway_(company)"
+  },
+  {
+    company: "Sakana AI",
+    site: "Headquarters / AI Scientist, Namazu and Fugu",
+    city: "Tokyo",
+    region: "Tokyo",
+    country: "Japan",
+    address: "Azabudai Hills Mori JP Tower 22F, 1-3-1 Azabudai, Minato-ku",
+    lat: 35.6602,
+    lng: 139.7406,
+    sourceName: "Sakana AI Corporate Info",
+    sourceUrl: "https://sakana.ai/company-info/"
+  },
+  {
+    company: "Stability AI",
+    site: "Headquarters / Stable Diffusion",
+    city: "London",
+    region: "England",
+    country: "United Kingdom",
+    address: "London, UK",
+    lat: 51.5074,
+    lng: -0.1278,
+    notes: "Marker is city-level because a current public office address was not found on Stability AI's official pages.",
+    sourceName: "Stability AI / Wikipedia",
+    sourceUrl: "https://en.wikipedia.org/wiki/Stability_AI"
+  },
+  {
     company: "Suno",
     city: "Cambridge",
     region: "Massachusetts",
@@ -807,6 +950,18 @@ const companyLocations = [
     lng: -71.119,
     sourceName: "Suno",
     sourceUrl: "https://suno.com/about?_rsc=yqfsr"
+  },
+  {
+    company: "Tencent",
+    site: "Headquarters / Hunyuan",
+    city: "Shenzhen",
+    region: "Guangdong",
+    country: "China",
+    address: "Tencent Binhai Mansion, Nanshan District",
+    lat: 22.527,
+    lng: 113.9349,
+    sourceName: "Tencent / Wikipedia",
+    sourceUrl: "https://en.wikipedia.org/wiki/Tencent"
   },
   {
     company: "Udio",
