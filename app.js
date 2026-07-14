@@ -8,6 +8,10 @@ const MAP_SATELLITE_TILE_URL = "https://server.arcgisonline.com/ArcGIS/rest/serv
 const MAP_ADMIN_BOUNDARY_LAYER_IDS = ["ai-admin-boundaries-casing", "ai-admin-boundaries"];
 const MAP_FLAG_ICON_PREFIX = "ai-location-flag-";
 const MAP_FLAG_MIN_ZOOM = 3.2;
+const MAP_OVERLAP_GROUP_PX = 26;
+const MAP_SPREAD_SPACING_PX = 28;
+const MAP_SPREAD_MIN_RADIUS_PX = 24;
+const MAP_SPREAD_CIRCLE_MAX = 9;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
 const VALID_VIEWS = new Set(["timeline", "years", "map", "table", "sources", "history"]);
 const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
@@ -63,7 +67,8 @@ const state = {
   mapFullscreen: false,
   mapPopup: null,
   mapPreviewPopup: null,
-  mapPreviewKey: null
+  mapPreviewKey: null,
+  mapSpreadPositions: new Map()
 };
 
 const companyColors = {
@@ -3171,6 +3176,11 @@ function initCompanyMap() {
   map.on("zoom", () => {
     syncMapScaleFromMap();
   });
+  ["zoomend", "rotateend", "pitchend"].forEach((eventName) => {
+    map.on(eventName, () => {
+      if (map.getSource("ai-locations")) updateCompanyMap(locationsForMap());
+    });
+  });
 
   setTimeout(() => {
     if (!els.mapLoading.hidden && state.companyMap) {
@@ -3298,13 +3308,45 @@ function addAdminBoundaryLayers() {
 function addMapLocationLayers() {
   const map = state.companyMap;
   if (!map || map.getSource("ai-locations")) return;
-  const locations = locationsForMap();
+  const locations = applyMapSpread(locationsForMap());
 
   registerMapFlagImages(locations);
 
   map.addSource("ai-locations", {
     type: "geojson",
     data: buildMapLocationsGeoJson(locations)
+  });
+
+  map.addSource("ai-location-leaders", {
+    type: "geojson",
+    data: buildMapLeaderGeoJson(locations)
+  });
+
+  map.addLayer({
+    id: "ai-locations-leader-lines",
+    type: "line",
+    source: "ai-location-leaders",
+    filter: ["==", ["geometry-type"], "LineString"],
+    paint: {
+      "line-color": "#f8fafc",
+      "line-opacity": 0.55,
+      "line-width": 1.1,
+      "line-dasharray": [1.6, 1.8]
+    }
+  });
+
+  map.addLayer({
+    id: "ai-locations-origin",
+    type: "circle",
+    source: "ai-location-leaders",
+    filter: ["==", ["geometry-type"], "Point"],
+    paint: {
+      "circle-radius": 2.6,
+      "circle-color": "#f8fafc",
+      "circle-opacity": 0.92,
+      "circle-stroke-color": "#020617",
+      "circle-stroke-width": 1
+    }
   });
 
   map.addLayer({
@@ -3437,13 +3479,152 @@ function updateCompanyMap(locations) {
   if (!map?.getSource("ai-locations")) return;
 
   registerMapFlagImages(locations);
-  map.getSource("ai-locations").setData(buildMapLocationsGeoJson(locations));
+  const spreadLocations = applyMapSpread(locations);
+  map.getSource("ai-locations").setData(buildMapLocationsGeoJson(spreadLocations));
+  map.getSource("ai-location-leaders")?.setData(buildMapLeaderGeoJson(spreadLocations));
   syncMapScaleFromMap();
+
+  if (state.mapPopup?.isOpen?.() && state.selectedMapCompany) {
+    const selected = spreadLocations.find((location) => location.mapKey === state.selectedMapCompany);
+    if (selected) state.mapPopup.setLngLat([selected.displayLng, selected.displayLat]);
+  }
 
   if (!state.mapHasInitialView && locations.length) {
     state.mapHasInitialView = true;
     applyMapScale(state.mapScale, { animate: false });
   }
+}
+
+function applyMapSpread(locations) {
+  const map = state.companyMap;
+  state.mapSpreadPositions = new Map();
+  const passthrough = locations.map((location) => ({
+    ...location,
+    displayLng: location.lng,
+    displayLat: location.lat,
+    spread: false
+  }));
+  if (!map || passthrough.length < 2) return passthrough;
+
+  const groups = [];
+  const result = [];
+  passthrough.forEach((location) => {
+    const point = safeProject(map, location.lng, location.lat);
+    if (!point) {
+      result.push(location);
+      return;
+    }
+    const group = groups.find((candidate) => Math.hypot(candidate.x - point.x, candidate.y - point.y) <= MAP_OVERLAP_GROUP_PX);
+    if (group) {
+      group.members.push({ location, point });
+      group.x = group.members.reduce((sum, member) => sum + member.point.x, 0) / group.members.length;
+      group.y = group.members.reduce((sum, member) => sum + member.point.y, 0) / group.members.length;
+    } else {
+      groups.push({ x: point.x, y: point.y, members: [{ location, point }] });
+    }
+  });
+
+  groups.forEach((group) => {
+    if (group.members.length === 1) {
+      result.push(group.members[0].location);
+      return;
+    }
+
+    const count = group.members.length;
+    const members = [...group.members].sort((a, b) => mapItemTitle(a.location).localeCompare(mapItemTitle(b.location)));
+    const ringRadius = Math.max(MAP_SPREAD_MIN_RADIUS_PX, (count * MAP_SPREAD_SPACING_PX) / (2 * Math.PI));
+    let spiralAngle = 0;
+
+    members.forEach((member, index) => {
+      let offsetX;
+      let offsetY;
+      if (count <= MAP_SPREAD_CIRCLE_MAX) {
+        const angle = -Math.PI / 2 + (index * 2 * Math.PI) / count;
+        offsetX = Math.cos(angle) * ringRadius;
+        offsetY = Math.sin(angle) * ringRadius;
+      } else {
+        const radius = MAP_SPREAD_MIN_RADIUS_PX + (MAP_SPREAD_SPACING_PX * spiralAngle) / (2 * Math.PI);
+        offsetX = Math.cos(spiralAngle) * radius;
+        offsetY = Math.sin(spiralAngle) * radius;
+        spiralAngle += MAP_SPREAD_SPACING_PX / Math.max(radius, MAP_SPREAD_SPACING_PX / 2);
+      }
+
+      const unprojected = safeUnproject(map, group.x + offsetX, group.y + offsetY);
+      if (!unprojected) {
+        result.push(member.location);
+        return;
+      }
+      const spreadLocation = {
+        ...member.location,
+        displayLng: unprojected.lng,
+        displayLat: unprojected.lat,
+        spread: true
+      };
+      state.mapSpreadPositions.set(spreadLocation.mapKey, [unprojected.lng, unprojected.lat]);
+      result.push(spreadLocation);
+    });
+  });
+
+  return result;
+}
+
+function safeProject(map, lng, lat) {
+  if (!Number.isFinite(lng) || !Number.isFinite(lat)) return null;
+  try {
+    const point = map.project([lng, lat]);
+    if (!point || !Number.isFinite(point.x) || !Number.isFinite(point.y)) return null;
+    return point;
+  } catch {
+    return null;
+  }
+}
+
+function safeUnproject(map, x, y) {
+  try {
+    const lngLat = map.unproject([x, y]);
+    if (!lngLat || !Number.isFinite(lngLat.lng) || !Number.isFinite(lngLat.lat)) return null;
+    return lngLat;
+  } catch {
+    return null;
+  }
+}
+
+function buildMapLeaderGeoJson(locations) {
+  const features = [];
+  const origins = new Set();
+
+  locations.forEach((location) => {
+    if (!location.spread) return;
+    features.push({
+      type: "Feature",
+      geometry: {
+        type: "LineString",
+        coordinates: [
+          [location.lng, location.lat],
+          [location.displayLng, location.displayLat]
+        ]
+      },
+      properties: { color: colorForMapItem(location) }
+    });
+
+    const originKey = `${location.lng},${location.lat}`;
+    if (origins.has(originKey)) return;
+    origins.add(originKey);
+    features.push({
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [location.lng, location.lat]
+      },
+      properties: {}
+    });
+  });
+
+  return { type: "FeatureCollection", features };
+}
+
+function mapDisplayLngLat(location) {
+  return state.mapSpreadPositions.get(location.mapKey) || [location.lng, location.lat];
 }
 
 function registerMapFlagImages(locations) {
@@ -3567,7 +3748,10 @@ function buildMapLocationsGeoJson(locations) {
       type: "Feature",
       geometry: {
         type: "Point",
-        coordinates: [location.lng, location.lat]
+        coordinates: [
+          location.displayLng ?? location.lng,
+          location.displayLat ?? location.lat
+        ]
       },
       properties: mapFeatureProperties(location)
     }))
@@ -3912,7 +4096,7 @@ function showMapPopup(location) {
   hideMapPreviewPopup();
   state.mapPopup?.remove();
   state.mapPopup = new maplibregl.Popup({ closeButton: true, closeOnClick: false, offset: 14, maxWidth: "300px" })
-    .setLngLat([location.lng, location.lat])
+    .setLngLat(mapDisplayLngLat(location))
     .setHTML(mapPopupHtml(location, { source: true }))
     .addTo(map);
 }
@@ -3922,7 +4106,7 @@ function showMapPreviewPopup(location, lngLat) {
   if (!location || !map || typeof maplibregl === "undefined") return;
 
   if (state.mapPreviewKey === location.mapKey && state.mapPreviewPopup) {
-    state.mapPreviewPopup.setLngLat(lngLat || [location.lng, location.lat]);
+    state.mapPreviewPopup.setLngLat(lngLat || mapDisplayLngLat(location));
     return;
   }
 
@@ -3936,7 +4120,7 @@ function showMapPreviewPopup(location, lngLat) {
     offset: 14,
     maxWidth: "300px"
   })
-    .setLngLat(lngLat || [location.lng, location.lat])
+    .setLngLat(lngLat || mapDisplayLngLat(location))
     .setHTML(mapPopupHtml(location, { source: false }))
     .addTo(map);
 }
