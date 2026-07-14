@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Revisao de Ideogram, Kuaishou e Lelapa AI: Ideogram ganhou as versoes 0.1, 1.0, 2.0 e 3.0 (4 entradas); Kuaishou ganhou Kolors e Kling 1.5, 1.6 e 2.1 (4 entradas); Lelapa ganhou o Vulavula (2023) e teve o InkubaLM detalhado (1 entrada + refino). Antes: revisao de Databricks, Danish Foundation Models e ElevenLabs com 11 novas entradas."
+      "description_pt": "Revisao de Sber e Stability AI: Stability ganhou Stable Diffusion v1/2.0/SDXL/SD3 Medium, StableLM, Stable Audio 1.0/2.0/2.5/3.0 e Stable Video Diffusion (10 entradas); Sber ganhou Kandinsky 2.1/2.2/4.0 Video/5.0 e GigaChat 2.0/3 (6 entradas). Antes: revisao de Ideogram, Kuaishou e Lelapa AI com 9 novas entradas."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -1994,7 +1994,7 @@
       "company": "Mistral AI",
       "family": "Mistral Medium",
       "model": "Mistral Medium 3.5",
-      "release_date": "2026-04-29",
+      "release_date": "2026-04-28",
       "release_stage": "public preview/open weights",
       "ai_category": "LLMs",
       "model_type": ["texto", "visao", "multimodal", "codigo", "raciocinio", "agente", "open-weights", "OpenSource", "Modified MIT", "256k"],
@@ -2010,10 +2010,10 @@
           "title": "Mistral Medium 3.5",
           "url": "https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04",
           "publisher": "Mistral AI",
-          "date_basis": "Model card oficial registra o release em abril de 2026; data exata usada para ordenacao conforme anuncio publico de 29 de abril de 2026."
+          "date_basis": "Model card oficial registra o release em 28 de abril de 2026."
         }
       ],
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "nvidia-nemotron-4-340b",
@@ -2175,7 +2175,7 @@
         "publisher": "ByteDance Seed",
         "date_basis": "Pagina oficial de LLM lista o paper Seed Diffusion em 4 de agosto de 2025."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "bytedance-seed-oss-36b",
@@ -2737,37 +2737,6 @@
       "confidence": "alta"
     },
     {
-      "id": "xai-grok-4-3-beta",
-      "company": "xAI",
-      "family": "Grok",
-      "model": "Grok 4.3 Beta",
-      "release_date": "2026-04-17",
-      "release_stage": "beta/early access; sem release note oficial publica",
-      "model_type": ["raciocinio", "multimodal", "video", "produto", "longo-contexto"],
-      "description_pt": "Entrada provisoria para Grok 4.3 Beta. Fontes secundarias relatam que a opcao apareceu em 17 de abril de 2026 no seletor do Grok para usuarios de acesso antecipado, com foco em video nativo, geracao de documentos e contexto longo. A xAI ainda nao publicou uma release note ou model card oficial publico confirmando a versao, entao a confianca fica baixa ate haver fonte oficial.",
-      "sources": [
-        {
-          "title": "Grok.com",
-          "url": "https://grok.com/",
-          "publisher": "xAI",
-          "date_basis": "Produto oficial da xAI onde fontes secundarias relatam a presenca de Grok 4.3 Beta no seletor; a pagina publica nao fornece release note ou data em texto indexavel."
-        },
-        {
-          "title": "xAI Models and Pricing",
-          "url": "https://docs.x.ai/developers/models",
-          "publisher": "xAI",
-          "date_basis": "Documentacao oficial consultada em 29 de abril de 2026 ainda lista Grok 4.20 como modelo recomendado da API e nao confirma Grok 4.3."
-        },
-        {
-          "title": "Grok 4.3 Beta Is Live",
-          "url": "https://www.buildfastwithai.com/blogs/grok-4-3-beta-features-review",
-          "publisher": "BuildFastWithAI",
-          "date_basis": "Fonte secundaria relata que Grok 4.3 Beta ficou visivel em 17 de abril de 2026 no grok.com, iOS e Android, sem anuncio oficial da xAI."
-        }
-      ],
-      "confidence": "baixa"
-    },
-    {
       "id": "moonshot-v1",
       "company": "Moonshot AI",
       "family": "Moonshot V1",
@@ -3123,7 +3092,7 @@
           "date_basis": "Colecao oficial da MoonshotAI no Hugging Face agrupa os modelos Kimi-Linear-A3B."
         }
       ],
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "moonshot-kimi-k2-thinking",
@@ -3386,7 +3355,7 @@
           "date_basis": "Pagina oficial do MiMo-V2-TTS publicada em 18 de marco de 2026."
         }
       ],
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "xiaomi-mimo-v2-5",
@@ -3411,7 +3380,7 @@
           "date_basis": "Pagina oficial do MiMo-V2.5-Pro publicada em 27 de abril de 2026."
         }
       ],
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "deepseek-coder",
@@ -3452,7 +3421,7 @@
       "company": "DeepSeek",
       "family": "DeepSeek",
       "model": "DeepSeek-V2",
-      "release_date": "2024-05-07",
+      "release_date": "2024-05-06",
       "release_stage": "open weights/API",
       "model_type": ["MoE", "texto", "open-weights", "API"],
       "description_pt": "Modelo MoE de segunda geracao com melhor custo de inferencia e contexto longo, base para iteracoes posteriores.",
@@ -3460,9 +3429,9 @@
         "title": "DeepSeek-V2",
         "url": "https://github.com/deepseek-ai/DeepSeek-V2",
         "publisher": "DeepSeek",
-        "date_basis": "Repositorio oficial do projeto; data corresponde ao lancamento publico inicial."
+        "date_basis": "Repositorio oficial registra o release do DeepSeek-V2 em 6 de maio de 2024."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "deepseek-coder-v2",
@@ -3473,13 +3442,21 @@
       "release_stage": "open weights/API",
       "model_type": ["codigo", "MoE", "open-weights"],
       "description_pt": "Modelo de codigo baseado em MoE, expandindo linguagens e tarefas de software em relacao ao DeepSeek-Coder original.",
-      "source": {
-        "title": "DeepSeek-Coder-V2",
-        "url": "https://github.com/deepseek-ai/DeepSeek-Coder-V2",
-        "publisher": "DeepSeek",
-        "date_basis": "Repositorio oficial do projeto; data corresponde ao lancamento publico inicial."
-      },
-      "confidence": "media"
+      "sources": [
+        {
+          "title": "DeepSeek-Coder-V2",
+          "url": "https://github.com/deepseek-ai/DeepSeek-Coder-V2",
+          "publisher": "DeepSeek",
+          "date_basis": "Repositorio oficial disponibiliza codigo, pesos e o relatorio tecnico."
+        },
+        {
+          "title": "DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence",
+          "url": "https://arxiv.org/abs/2406.11931",
+          "publisher": "DeepSeek-AI",
+          "date_basis": "Relatorio tecnico primario publicado em 17 de junho de 2024."
+        }
+      ],
+      "confidence": "alta"
     },
     {
       "id": "deepseek-v2-5",
@@ -3491,12 +3468,12 @@
       "model_type": ["texto", "codigo", "MoE"],
       "description_pt": "Modelo que combina capacidades gerais de linguagem e codigo, unificando melhorias das linhas V2 e Coder-V2.",
       "source": {
-        "title": "DeepSeek-V2.5",
-        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V2.5",
+        "title": "DeepSeek-V2.5 Release",
+        "url": "https://api-docs.deepseek.com/news/news0905/",
         "publisher": "DeepSeek",
-        "date_basis": "Model card oficial da DeepSeek no Hugging Face; data corresponde ao lancamento publico."
+        "date_basis": "Anuncio oficial publicado em 5 de setembro de 2024."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "deepseek-v3",
@@ -3507,13 +3484,21 @@
       "release_stage": "open weights/API",
       "model_type": ["MoE", "texto", "codigo", "open-weights"],
       "description_pt": "Modelo MoE de grande escala que colocou a DeepSeek entre os principais laboratorios globais em custo/desempenho.",
-      "source": {
-        "title": "DeepSeek-V3",
-        "url": "https://github.com/deepseek-ai/DeepSeek-V3",
-        "publisher": "DeepSeek",
-        "date_basis": "Repositorio oficial e technical report da DeepSeek-V3."
-      },
-      "confidence": "media"
+      "sources": [
+        {
+          "title": "DeepSeek-V3",
+          "url": "https://github.com/deepseek-ai/DeepSeek-V3",
+          "publisher": "DeepSeek",
+          "date_basis": "Repositorio oficial e relatorio tecnico do DeepSeek-V3."
+        },
+        {
+          "title": "DeepSeek API Updates",
+          "url": "https://api-docs.deepseek.com/updates/",
+          "publisher": "DeepSeek",
+          "date_basis": "Changelog oficial registra o DeepSeek-V3 em 26 de dezembro de 2024."
+        }
+      ],
+      "confidence": "alta"
     },
     {
       "id": "deepseek-r1",
@@ -3669,7 +3654,7 @@
         "publisher": "OpenAI",
         "date_basis": "Pagina oficial lista a publicacao tecnica relacionada em 13 de abril de 2022."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "openai-dall-e-3-chatgpt",
@@ -3735,13 +3720,21 @@
       "ai_category": "Imagem",
       "model_type": ["imagem", "texto-para-imagem", "difusao"],
       "description_pt": "Modelo de difusao texto-para-imagem da Google Research com foco em fotorrealismo e entendimento de linguagem.",
-      "source": {
-        "title": "Imagen: Text-to-Image Diffusion Models",
-        "url": "https://imagen.research.google/",
-        "publisher": "Google Research",
-        "date_basis": "Pagina oficial do projeto; data baseada na publicacao tecnica de 23 de maio de 2022."
-      },
-      "confidence": "media"
+      "sources": [
+        {
+          "title": "Imagen: Text-to-Image Diffusion Models",
+          "url": "https://imagen.research.google/",
+          "publisher": "Google Research",
+          "date_basis": "Pagina oficial do projeto descreve o Imagen e seus resultados."
+        },
+        {
+          "title": "Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding",
+          "url": "https://arxiv.org/abs/2205.11487",
+          "publisher": "Google Research",
+          "date_basis": "Paper primario do Imagen publicado em 23 de maio de 2022."
+        }
+      ],
+      "confidence": "alta"
     },
     {
       "id": "google-imagen-2-vertex-ai",
@@ -4775,9 +4768,15 @@
           "url": "https://developers.openai.com/api/docs/models/gpt-audio-1.5",
           "publisher": "OpenAI",
           "date_basis": "Documentacao oficial lista gpt-audio-1.5 como modelo atual; a data usa a primeira disponibilidade publica observada em documentacao de plataforma."
+        },
+        {
+          "title": "What's new in Azure OpenAI",
+          "url": "https://learn.microsoft.com/azure/ai-foundry/openai/whats-new?view=foundry-classic",
+          "publisher": "Microsoft",
+          "date_basis": "Documentacao oficial registra gpt-realtime-1.5-2026-02-23 e gpt-audio-1.5-2026-02-23 como disponiveis."
         }
       ],
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "google-audiolm",
@@ -4838,18 +4837,26 @@
       "company": "Google",
       "family": "Chirp",
       "model": "Chirp 3",
-      "release_date": "2026-05-01",
-      "release_stage": "documentacao GA/preview regional",
+      "release_date": "2025-08-29",
+      "release_stage": "public preview",
       "ai_category": "Audio/Transcricao",
       "model_type": ["audio", "transcricao", "ASR", "diarizacao", "language-detection", "Google Cloud", "API"],
       "description_pt": "Geracao mais recente dos modelos ASR multilingues Chirp, com melhor precisao e velocidade, diarizacao e deteccao automatica de idioma no Speech-to-Text V2.",
-      "source": {
-        "title": "Chirp 3 Transcription: Enhanced multilingual accuracy",
-        "url": "https://cloud.google.com/speech-to-text/v2/docs/chirp-model",
-        "publisher": "Google Cloud",
-        "date_basis": "Documentacao oficial de Chirp 3 com ultima atualizacao em 1 de maio de 2026; nao encontrei post oficial separado de lancamento."
-      },
-      "confidence": "media"
+      "sources": [
+        {
+          "title": "Speech-to-Text release notes",
+          "url": "https://docs.cloud.google.com/speech-to-text/docs/release-notes",
+          "publisher": "Google Cloud",
+          "date_basis": "Release notes oficiais registram o public preview do Chirp 3 em 29 de agosto de 2025."
+        },
+        {
+          "title": "Chirp 3 Transcription: Enhanced multilingual accuracy",
+          "url": "https://cloud.google.com/speech-to-text/v2/docs/chirp-model",
+          "publisher": "Google Cloud",
+          "date_basis": "Documentacao oficial descreve os recursos e a disponibilidade regional do Chirp 3."
+        }
+      ],
+      "confidence": "alta"
     },
     {
       "id": "google-gemini-3-1-flash-live",
@@ -5978,32 +5985,6 @@
       "confidence": "alta"
     },
     {
-      "id": "alibaba-wan-2-5",
-      "company": "Alibaba",
-      "family": "Wan",
-      "model": "Wan2.5 (preview)",
-      "release_date": "2025-09-23",
-      "release_stage": "preview/API",
-      "ai_category": ["Video", "Imagem"],
-      "model_type": ["video", "texto-para-video", "imagem-para-video", "audio-sincronizado", "4k"],
-      "description_pt": "Geracao Wan2.5 do Tongyi Wanxiang, apresentada na Yunqi/Apsara Conference, capaz de gerar video em 1080P/4K com audio sincronizado (voz, efeitos e cena) pela primeira vez na serie, alem de geracao e edicao de imagem.",
-      "sources": [
-        {
-          "title": "WAN 2.5 Preview Launched",
-          "url": "https://www.latestly.com/socially/technology/wan-2-5-preview-launched-alibabas-wan-launches-next-gen-ai-platform-with-advanced-video-generate-and-image-capabilities-7126881.html",
-          "publisher": "LatestLY",
-          "date_basis": "Cobertura do lancamento do Wan2.5-preview na Yunqi Conference em 23-24 de setembro de 2025."
-        },
-        {
-          "title": "Wan (Tongyi Wanxiang) official site",
-          "url": "https://wan.video/",
-          "publisher": "Alibaba Cloud",
-          "date_basis": "Site oficial do Wan apresenta a serie 2.5 com geracao de video e audio sincronizado."
-        }
-      ],
-      "confidence": "media"
-    },
-    {
       "id": "minimax-speech-01",
       "company": "MiniMax",
       "family": "Speech",
@@ -6480,18 +6461,18 @@
       "company": "MiniMax",
       "family": "Music",
       "model": "Music-2.6",
-      "release_date": "2026-04-01",
+      "release_date": "2026-04-10",
       "release_stage": "produto/API",
       "ai_category": "Musica",
       "model_type": ["musica", "cover", "baixo", "texto-para-musica"],
       "description_pt": "Modelo Music-2.6 com foco em covers, controle de baixo e refinamento da expressividade musical.",
       "source": {
-        "title": "Models - MiniMax API Docs",
-        "url": "https://platform.minimax.io/docs/release-notes/models",
+        "title": "MiniMax Music 2.6: Four Stories We Want to Tell",
+        "url": "https://www.minimax.io/news/music-26",
         "publisher": "MiniMax",
-        "date_basis": "Release notes oficiais listam Music-2.6 em abril de 2026; dia 1 usado para ordenacao do mes."
+        "date_basis": "Post oficial publicado em 10 de abril de 2026 anuncia o release do Music 2.6."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "minimax-m3",
@@ -6873,23 +6854,6 @@
       "confidence": "alta"
     },
     {
-      "id": "moonshot-kimi-k2-5",
-      "company": "Moonshot AI",
-      "family": "Kimi",
-      "model": "Kimi K2.5",
-      "release_date": "2026-01-15",
-      "release_stage": "lancamento",
-      "model_type": ["texto", "agente", "longo-contexto"],
-      "description_pt": "Modelo MoE de 1 trilhao de parametros introduzindo a tecnologia 'Agent Swarm' para coordenar dezenas de sub-agentes.",
-      "source": {
-        "title": "Kimi K2.5 and Agent Swarm",
-        "url": "https://www.moonshot.cn/",
-        "publisher": "Moonshot AI",
-        "date_basis": "Lancamento em janeiro de 2026."
-      },
-      "confidence": "media"
-    },
-    {
       "id": "moonshot-kimi-k2-6",
       "company": "Moonshot AI",
       "family": "Kimi",
@@ -7219,23 +7183,6 @@
         "date_basis": "Lancamento em 4 de junho de 2026."
       },
       "confidence": "alta"
-    },
-    {
-      "id": "minimax-m3",
-      "company": "MiniMax",
-      "family": "MiniMax",
-      "model": "MiniMax M3",
-      "release_date": "2026-06-01",
-      "release_stage": "lancamento",
-      "model_type": ["texto", "codigo", "longo-contexto"],
-      "description_pt": "Modelo frontier chines com habilidades avancadas de codigo e contexto de 1 milhao de tokens.",
-      "source": {
-        "title": "MiniMax M3",
-        "url": "https://api.minimax.chat/",
-        "publisher": "MiniMax",
-        "date_basis": "Lancamento em 1 de junho de 2026."
-      },
-      "confidence": "media"
     },
     {
       "id": "alibaba-qwen3-coder-next",
@@ -7819,13 +7766,21 @@
       "ai_category": "LLMs",
       "model_type": ["texto", "fundacao", "1B", "open-weights", "on-device", "Apache-2.0"],
       "description_pt": "Variante compacta da familia OLMo 2 voltada a pesquisa e execucao local, reportada como superior a modelos pequenos equivalentes de Google, Meta e Alibaba.",
-      "source": {
-        "title": "OLMo-2-0425-1B",
-        "url": "https://huggingface.co/allenai/OLMo-2-0425-1B",
-        "publisher": "Ai2",
-        "date_basis": "Checkpoint oficial no Hugging Face; lancamento coberto pela imprensa em 1 de maio de 2025."
-      },
-      "confidence": "media"
+      "sources": [
+        {
+          "title": "Olmo release notes",
+          "url": "https://docs.allenai.org/release_notes/olmo-release-notes",
+          "publisher": "Ai2",
+          "date_basis": "Release notes oficiais registram o OLMo 2 1B em 1 de maio de 2025."
+        },
+        {
+          "title": "OLMo-2-0425-1B",
+          "url": "https://huggingface.co/allenai/OLMo-2-0425-1B",
+          "publisher": "Ai2",
+          "date_basis": "Checkpoint oficial e artefatos abertos do modelo."
+        }
+      ],
+      "confidence": "alta"
     },
     {
       "id": "ai2-flexolmo",
@@ -7944,6 +7899,166 @@
       "confidence": "alta"
     },
     {
+      "id": "stability-ai-stable-diffusion",
+      "company": "Stability AI",
+      "family": "Stable Diffusion",
+      "model": "Stable Diffusion (v1.4)",
+      "release_date": "2022-08-22",
+      "release_stage": "open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "diffusion", "open-weights"],
+      "description_pt": "Release publico do Stable Diffusion, o modelo de difusao latente criado com CompVis e Runway que popularizou a geracao de imagens aberta ao liberar pesos para download e execucao em GPUs de consumo, dando origem a um ecossistema gigante.",
+      "source": {
+        "title": "Stable Diffusion Public Release",
+        "url": "https://stability.ai/news-updates/stable-diffusion-public-release",
+        "publisher": "Stability AI",
+        "date_basis": "Post oficial publicado em 22 de agosto de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "stability-ai-stable-diffusion-2",
+      "company": "Stability AI",
+      "family": "Stable Diffusion",
+      "model": "Stable Diffusion 2.0",
+      "release_date": "2022-11-24",
+      "release_stage": "open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "diffusion", "upscaler", "open-weights"],
+      "description_pt": "Segunda geracao do Stable Diffusion com novo text encoder OpenCLIP, geracao nativa em 768x768, upscaler 4x e modelo depth-to-image; a versao 2.1 veio semanas depois, em dezembro de 2022.",
+      "source": {
+        "title": "Stable Diffusion 2.0 Release",
+        "url": "https://stability.ai/news-updates/stable-diffusion-v2-release",
+        "publisher": "Stability AI",
+        "date_basis": "Post oficial publicado em 24 de novembro de 2022."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "stability-ai-stablelm",
+      "company": "Stability AI",
+      "family": "StableLM",
+      "model": "StableLM (3B/7B)",
+      "release_date": "2023-04-19",
+      "release_stage": "open weights/alpha",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "fundacao", "open-source"],
+      "description_pt": "Primeira suite de modelos de linguagem abertos da Stability AI, lancada em alpha com 3B e 7B parametros treinados em 800B tokens, estendendo a estrategia de pesos abertos da empresa para alem de imagens.",
+      "sources": [
+        {
+          "title": "Stability-AI/StableLM",
+          "url": "https://github.com/Stability-AI/StableLM",
+          "publisher": "Stability AI",
+          "date_basis": "Repositorio oficial registra o release alpha em 19 de abril de 2023."
+        },
+        {
+          "title": "Stability AI releases ChatGPT-like language models",
+          "url": "https://techcrunch.com/2023/04/19/stability-ai-releases-chatgpt-like-language-models/",
+          "publisher": "TechCrunch",
+          "date_basis": "Cobertura de 19 de abril de 2023."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "stability-ai-sdxl-1",
+      "company": "Stability AI",
+      "family": "Stable Diffusion",
+      "model": "SDXL 1.0",
+      "release_date": "2023-07-26",
+      "release_stage": "open weights/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "diffusion", "open-weights"],
+      "description_pt": "Maior modelo aberto de imagem da epoca, com base de 3,5B parametros e pipeline ensemble de 6,6B, gerando 1024x1024 com melhor fotorrealismo e texto; seguido pelo SDXL Turbo (tempo real) em novembro de 2023.",
+      "source": {
+        "title": "Stability AI Announces Stable Diffusion XL 1.0",
+        "url": "https://www.prnewswire.com/news-releases/stability-ai-announces-stable-diffusion-xl-1-0--featured-on-amazon-bedrock-301886507.html",
+        "publisher": "Stability AI",
+        "date_basis": "Comunicado oficial publicado em 26 de julho de 2023."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "stability-ai-stable-audio",
+      "company": "Stability AI",
+      "family": "Stable Audio",
+      "model": "Stable Audio",
+      "release_date": "2023-09-13",
+      "release_stage": "produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "texto-para-musica", "diffusion"],
+      "description_pt": "Primeiro produto de geracao de musica e efeitos sonoros da Stability AI, usando difusao latente de audio para criar trilhas em 44.1kHz a partir de texto; eleito uma das melhores invencoes de 2023 pela TIME.",
+      "source": {
+        "title": "Stable Audio",
+        "url": "https://stability.ai/stable-audio",
+        "publisher": "Stability AI",
+        "date_basis": "Lancamento em meados de setembro de 2023; cobertura de imprensa registra 13 de setembro."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "stability-ai-stable-video-diffusion",
+      "company": "Stability AI",
+      "family": "Stable Video",
+      "model": "Stable Video Diffusion",
+      "release_date": "2023-11-21",
+      "release_stage": "open weights/pesquisa",
+      "ai_category": "Video",
+      "model_type": ["video", "imagem-para-video", "diffusion", "open-weights"],
+      "description_pt": "Primeiro modelo de video da Stability AI, aberto em research preview, gerando 14 ou 25 frames em 576x1024 a partir de uma imagem, com frame rates configuraveis de 3 a 30 fps.",
+      "sources": [
+        {
+          "title": "Stability-AI/generative-models",
+          "url": "https://github.com/Stability-AI/generative-models",
+          "publisher": "Stability AI",
+          "date_basis": "Repositorio oficial registra o release do SVD em 21 de novembro de 2023."
+        },
+        {
+          "title": "Stability AI gets into the video-generating game",
+          "url": "https://techcrunch.com/2023/11/21/stability-ai-gets-into-the-video-generating-game/",
+          "publisher": "TechCrunch",
+          "date_basis": "Cobertura de 21 de novembro de 2023."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "stability-ai-stable-audio-2",
+      "company": "Stability AI",
+      "family": "Stable Audio",
+      "model": "Stable Audio 2.0",
+      "release_date": "2024-04-03",
+      "release_stage": "produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "texto-para-musica", "audio-para-audio"],
+      "description_pt": "Geracao de musicas completas de ate 3 minutos em estereo 44.1kHz, com nova capacidade audio-to-audio para transformar sons enviados pelo usuario; o modelo aberto Stable Audio Open veio na sequencia, em junho de 2024.",
+      "source": {
+        "title": "Introducing Stable Audio 2.0",
+        "url": "https://stability.ai/news-updates/stable-audio-2-0",
+        "publisher": "Stability AI",
+        "date_basis": "Post oficial publicado em 3 de abril de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "stability-ai-stable-diffusion-3",
+      "company": "Stability AI",
+      "family": "Stable Diffusion",
+      "model": "Stable Diffusion 3 Medium",
+      "release_date": "2024-06-12",
+      "release_stage": "open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "diffusion", "MMDiT", "open-weights"],
+      "description_pt": "Primeiros pesos abertos da geracao SD3, com o modelo Medium de 2B parametros usando arquitetura Multimodal Diffusion Transformer (MMDiT), melhor fotorrealismo em maos e rostos e tipografia mais robusta; a familia foi anunciada em fevereiro e a API abriu em abril de 2024.",
+      "source": {
+        "title": "Stable Diffusion 3 Medium",
+        "url": "https://stability.ai/news/stable-diffusion-3-medium",
+        "publisher": "Stability AI",
+        "date_basis": "Pesos liberados no Hugging Face em 12 de junho de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "stability-ai-stable-diffusion-3-5",
       "company": "Stability AI",
       "family": "Stable Diffusion",
@@ -7960,6 +8075,50 @@
         "date_basis": "Post oficial publicado em 22 de outubro de 2024."
       },
       "confidence": "alta"
+    },
+    {
+      "id": "stability-ai-stable-audio-2-5",
+      "company": "Stability AI",
+      "family": "Stable Audio",
+      "model": "Stable Audio 2.5",
+      "release_date": "2025-09-01",
+      "release_stage": "produto/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "texto-para-musica", "inpainting", "enterprise"],
+      "description_pt": "Primeiro modelo de audio da Stability AI voltado a producao sonora empresarial em escala, gerando faixas de 3 minutos em segundos com o metodo ARC (geracao em 8 passos) e suporte a inpainting de audio para completar trechos enviados.",
+      "source": {
+        "title": "Stability AI Introduces Stable Audio 2.5",
+        "url": "https://stability.ai/news-updates/stability-ai-introduces-stable-audio-25-the-first-audio-model-built-for-enterprise-sound-production-at-scale",
+        "publisher": "Stability AI",
+        "date_basis": "Post oficial publicado em setembro de 2025, sem dia especifico; a data usa o primeiro dia do mes."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "stability-ai-stable-audio-3",
+      "company": "Stability AI",
+      "family": "Stable Audio",
+      "model": "Stable Audio 3.0",
+      "release_date": "2026-05-01",
+      "release_stage": "open weights/API",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "texto-para-musica", "open-weights", "dados-licenciados"],
+      "description_pt": "Familia Stable Audio 3.0 com quatro variantes, tres delas de pesos abertos no Hugging Face, gerando faixas de ate 6:20 minutos (modelo Medium); treinada inteiramente em dados licenciados via parcerias com Universal e Warner Music, com uso comercial sob Community License.",
+      "sources": [
+        {
+          "title": "Stable Audio 3.0 | Generative Audio Models",
+          "url": "https://stability.ai/stable-audio",
+          "publisher": "Stability AI",
+          "date_basis": "Pagina oficial da familia Stable Audio 3.0."
+        },
+        {
+          "title": "Stability AI launches Stable Audio 3.0",
+          "url": "https://the-decoder.com/stability-ai-launches-stable-audio-3-0-with-up-to-six-minute-tracks-and-open-weights/",
+          "publisher": "The Decoder",
+          "date_basis": "Cobertura de 20 de maio de 2026 registra o lancamento em maio de 2026, sem dia especifico; a data usa o primeiro dia do mes."
+        }
+      ],
+      "confidence": "media"
     },
     {
       "id": "amazon-nova",
@@ -8002,18 +8161,18 @@
       "company": "Luma AI",
       "family": "Ray",
       "model": "Ray2",
-      "release_date": "2025-01-16",
+      "release_date": "2025-01-15",
       "release_stage": "produto/API",
       "ai_category": "Video",
       "model_type": ["video", "geracao", "texto-para-video", "imagem-para-video"],
       "description_pt": "Modelo de video da Luma para geracao e edicao criativa, com foco em movimento realista, controle por prompt e workflows de imagem-para-video.",
       "source": {
-        "title": "Ray2",
-        "url": "https://lumalabs.ai/ray2",
+        "title": "Introducing Ray2",
+        "url": "https://lumalabs.ai/changelog/introducing-ray2",
         "publisher": "Luma AI",
-        "date_basis": "Pagina oficial do Ray2 descreve o modelo; data de disponibilidade publica registrada como janeiro de 2025."
+        "date_basis": "Changelog oficial publicado em 15 de janeiro de 2025 anuncia e disponibiliza o Ray2."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "cohere-command-a",
@@ -8119,9 +8278,9 @@
         "title": "Introducing Embed 4: Multimodal search for business",
         "url": "https://cohere.com/blog/embed-4",
         "publisher": "Cohere",
-        "date_basis": "Post oficial publicado em abril de 2025 (Embed 4)."
+        "date_basis": "Post oficial publicado em 15 de abril de 2025."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "cohere-command-a-vision",
@@ -8155,9 +8314,9 @@
         "title": "Command A Reasoning",
         "url": "https://cohere.com/blog/command-a-reasoning",
         "publisher": "Cohere",
-        "date_basis": "Anuncio oficial em agosto de 2025 (id de modelo command-a-reasoning-08-2025)."
+        "date_basis": "Post oficial publicado em 21 de agosto de 2025."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "cohere-command-a-translate",
@@ -8191,34 +8350,34 @@
         "title": "Introducing Runway Gen-4",
         "url": "https://runwayml.com/research/introducing-runway-gen-4",
         "publisher": "Runway",
-        "date_basis": "Pagina oficial apresenta o Gen-4; data publica de lancamento registrada como 31 de marco de 2025."
+        "date_basis": "Pagina oficial de pesquisa publicada em 31 de marco de 2025 apresenta o Gen-4."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "elevenlabs-multilingual-v2",
       "company": "ElevenLabs",
       "family": "Eleven",
       "model": "Eleven Multilingual v2",
-      "release_date": "2023-08-01",
+      "release_date": "2023-08-22",
       "release_stage": "produto/API",
       "ai_category": "Audio/Transcricao",
       "model_type": ["audio", "voz", "text-to-speech", "multilingue"],
       "description_pt": "Modelo de text-to-speech emocionalmente expressivo da ElevenLabs com suporte a cerca de 29 idiomas, que se tornou por muito tempo o modelo padrao de maior qualidade e naturalidade da plataforma.",
       "source": {
-        "title": "Models | ElevenLabs Documentation",
-        "url": "https://elevenlabs.io/docs/overview/models",
+        "title": "Eleven Multilingual v2",
+        "url": "https://elevenlabs.io/blog/eleven-multilingual-v2",
         "publisher": "ElevenLabs",
-        "date_basis": "Documentacao oficial descreve o Eleven Multilingual v2, lancado em agosto de 2023 (sem dia especifico; data usa o primeiro dia do mes)."
+        "date_basis": "Post oficial publicado em 22 de agosto de 2023 anuncia o Eleven Multilingual v2."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "elevenlabs-turbo-v2-5",
       "company": "ElevenLabs",
       "family": "Eleven",
       "model": "Eleven Turbo v2.5",
-      "release_date": "2024-07-01",
+      "release_date": "2024-07-19",
       "release_stage": "produto/API",
       "ai_category": "Audio/Transcricao",
       "model_type": ["audio", "voz", "text-to-speech", "baixa-latencia", "multilingue"],
@@ -8227,16 +8386,16 @@
         "title": "Introducing Turbo v2.5, low latency text to speech in 32 languages",
         "url": "https://elevenlabs.io/blog/introducing-turbo-v25",
         "publisher": "ElevenLabs",
-        "date_basis": "Post oficial publicado em julho de 2024 (sem dia especifico; data usa o primeiro dia do mes)."
+        "date_basis": "Post oficial publicado em 19 de julho de 2024."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "elevenlabs-flash-v2-5",
       "company": "ElevenLabs",
       "family": "Eleven",
       "model": "Eleven Flash v2.5",
-      "release_date": "2024-12-01",
+      "release_date": "2024-12-18",
       "release_stage": "produto/API",
       "ai_category": "Audio/Transcricao",
       "model_type": ["audio", "voz", "text-to-speech", "ultra-baixa-latencia", "multilingue"],
@@ -8245,9 +8404,9 @@
         "title": "Meet Flash",
         "url": "https://elevenlabs.io/blog/meet-flash",
         "publisher": "ElevenLabs",
-        "date_basis": "Post oficial 'Meet Flash' publicado em dezembro de 2024 (sem dia especifico; data usa o primeiro dia do mes)."
+        "date_basis": "Post oficial publicado em 18 de dezembro de 2024 apresenta Flash v2 e Flash v2.5."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "elevenlabs-scribe",
@@ -8312,12 +8471,12 @@
       "model_type": ["audio", "speech-to-text", "transcricao", "streaming", "tempo-real", "multilingue"],
       "description_pt": "Versao em streaming do Scribe da ElevenLabs, com latencia em torno de 150ms para transcricao em tempo real, voltada a agentes de voz e legendagem ao vivo em mais de 90 idiomas.",
       "source": {
-        "title": "Introducing Scribe v2",
-        "url": "https://elevenlabs.io/blog/introducing-scribe-v2",
+        "title": "Introducing Scribe v2 Realtime",
+        "url": "https://elevenlabs.io/blog/introducing-scribe-v2-realtime",
         "publisher": "ElevenLabs",
-        "date_basis": "Lancamento do Scribe v2 Realtime em meados de novembro de 2025."
+        "date_basis": "Post oficial publicado em 11 de novembro de 2025 anuncia a disponibilidade imediata do Scribe v2 Realtime."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "elevenlabs-eleven-v3",
@@ -8592,20 +8751,20 @@
     {
       "id": "yandex-yandexgpt-alice",
       "company": "Yandex",
-      "family": "Yandex AI Studio",
-      "model": "YandexGPT Pro / Lite / Alice AI ART",
+      "family": "YandexGPT",
+      "model": "YandexGPT em Alice",
       "release_date": "2023-05-17",
-      "release_stage": "produto/API",
-      "ai_category": ["LLMs", "Imagem", "Audio/Transcricao"],
-      "model_type": ["texto", "chat", "imagem", "voz", "API", "russo", "multilingue"],
-      "description_pt": "Conjunto de modelos da Yandex no AI Studio, incluindo YandexGPT para texto e RAG, Alice AI LLM, Alice AI ART para imagem e modelos de voz.",
+      "release_stage": "beta/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "assistente", "russo"],
+      "description_pt": "Lancamento inicial do YandexGPT integrado a assistente Alice para geracao de texto e brainstorming em apps, navegador, alto-falantes e TVs da Yandex.",
       "source": {
-        "title": "Yandex AI Studio model gallery",
-        "url": "https://aistudio.yandex.ru/en/model-gallery",
+        "title": "Yandex adds next-generation neural network to Alice virtual assistant",
+        "url": "https://yandex.com/company/news/17-05-23",
         "publisher": "Yandex",
-        "date_basis": "Galeria oficial lista Alice AI LLM, Alice AI ART, YandexGPT Pro e YandexGPT Lite; a data-base usa o lancamento publico inicial do YandexGPT."
+        "date_basis": "Comunicado oficial de 17 de maio de 2023 anuncia o YandexGPT em beta dentro de Alice."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "tii-falcon-series",
@@ -8674,7 +8833,7 @@
           "title": "Core42 Sets New Benchmark for Arabic LLMs with the Release of Jais 30B",
           "url": "https://www.cerebras.ai/press-release/core42-sets-new-benchmark-for-arabic-large-language-models-with-the-release-of-jais-30b",
           "publisher": "Core42 / Cerebras",
-          "date_basis": "Comunicado oficial de lancamento do Jais 30B em novembro de 2023."
+          "date_basis": "Comunicado oficial publicado em 9 de novembro de 2023 anuncia o Jais 30B."
         },
         {
           "title": "inceptionai/jais-30b-v1",
@@ -8683,7 +8842,7 @@
           "date_basis": "Model card oficial do Jais 30B."
         }
       ],
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "core42-jais-family",
@@ -8730,6 +8889,50 @@
       "confidence": "alta"
     },
     {
+      "id": "sber-kandinsky-2-1",
+      "company": "Sber",
+      "family": "Kandinsky",
+      "model": "Kandinsky 2.1",
+      "release_date": "2023-04-04",
+      "release_stage": "produto/open source",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "diffusion", "open-source", "russo", "mistura-de-imagens"],
+      "description_pt": "Versao do Kandinsky que popularizou o gerador de imagens da Sber, com geracao rapida a partir de texto em russo e ingles, mistura de imagens e inpainting; atraiu milhoes de usuarios na primeira semana.",
+      "sources": [
+        {
+          "title": "ai-forever/Kandinsky-2",
+          "url": "https://github.com/ai-forever/Kandinsky-2",
+          "publisher": "Sber / AI Forever",
+          "date_basis": "Repositorio oficial do Kandinsky 2; lancamento do 2.1 em 4 de abril de 2023 conforme imprensa russa."
+        },
+        {
+          "title": "kandinsky-community/kandinsky-2-1",
+          "url": "https://huggingface.co/kandinsky-community/kandinsky-2-1",
+          "publisher": "Sber / AI Forever",
+          "date_basis": "Model card oficial do Kandinsky 2.1."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "sber-kandinsky-2-2",
+      "company": "Sber",
+      "family": "Kandinsky",
+      "model": "Kandinsky 2.2",
+      "release_date": "2023-07-01",
+      "release_stage": "open source",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "diffusion", "open-source", "controlnet", "1024px"],
+      "description_pt": "Atualizacao com 4,8B parametros, novo image encoder CLIP-ViT-G, geracao fotorrealista em 1024x1024 e suporte a ControlNet, sob licenca permissiva que a tornou uma das opcoes abertas mais fortes da epoca.",
+      "source": {
+        "title": "kandinsky-community/kandinsky-2-2-decoder",
+        "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-decoder",
+        "publisher": "Sber / AI Forever",
+        "date_basis": "Lancamento em julho de 2023, sem dia especifico; a data usa o primeiro dia do mes."
+      },
+      "confidence": "media"
+    },
+    {
       "id": "sber-kandinsky-3",
       "company": "Sber",
       "family": "Kandinsky",
@@ -8745,6 +8948,94 @@
         "publisher": "Sber / AI Forever",
         "date_basis": "Relatorio tecnico publicado em 6 de dezembro de 2023."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "sber-kandinsky-4-video",
+      "company": "Sber",
+      "family": "Kandinsky",
+      "model": "Kandinsky 4.0 Video",
+      "release_date": "2024-12-12",
+      "release_stage": "beta",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "russo"],
+      "description_pt": "Gerador de video da Sber apresentado no AI Journey, criando videos realistas de ate 12 segundos em HD (1280x720) a partir de texto ou frame inicial, lancado em beta para profissionais criativos.",
+      "source": {
+        "title": "Sber apresenta o Kandinsky 4.0 Video",
+        "url": "https://www.cnews.ru/news/line/2024-12-12_novyj_etap_v_generatsii_ii-video",
+        "publisher": "Sber",
+        "date_basis": "Apresentacao oficial em 12 de dezembro de 2024, conforme imprensa russa."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "sber-kandinsky-5",
+      "company": "Sber",
+      "family": "Kandinsky",
+      "model": "Kandinsky 5.0",
+      "release_date": "2025-11-18",
+      "release_stage": "open weights",
+      "ai_category": ["Video", "Imagem"],
+      "model_type": ["video", "imagem", "texto-para-video", "diffusion", "open-weights", "Apache-2.0"],
+      "description_pt": "Familia aberta de modelos de difusao do Kandinsky Lab (Sber) para video e imagem: Video Lite (2B) para videos rapidos de ate 10s, Video Pro (19B) para maxima qualidade e Image Lite (6B), todos sob Apache 2.0 para uso comercial.",
+      "sources": [
+        {
+          "title": "kandinskylab/kandinsky-5",
+          "url": "https://github.com/kandinskylab/kandinsky-5/",
+          "publisher": "Kandinsky Lab / Sber",
+          "date_basis": "Repositorio oficial; release aberto em 18 de novembro de 2025."
+        },
+        {
+          "title": "Kandinsky 5.0: A Family of Foundation Models for Image and Video Generation",
+          "url": "https://arxiv.org/abs/2511.14993",
+          "publisher": "Kandinsky Lab / Sber",
+          "date_basis": "Paper tecnico publicado em novembro de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "sber-gigachat-2",
+      "company": "Sber",
+      "family": "GigaChat",
+      "model": "GigaChat 2.0",
+      "release_date": "2025-03-01",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "russo", "API", "enterprise"],
+      "description_pt": "Segunda geracao do GigaChat da Sber, liderando benchmarks russos (MERA) na epoca do lancamento e reivindicando desempenho competitivo com GPT-4o e DeepSeek-V3 em tarefas em russo.",
+      "source": {
+        "title": "GigaChat",
+        "url": "https://giga.chat/",
+        "publisher": "Sber",
+        "date_basis": "Lancamento do GigaChat 2.0 em marco de 2025, sem dia especifico; a data usa o primeiro dia do mes."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "sber-gigachat-3",
+      "company": "Sber",
+      "family": "GigaChat",
+      "model": "GigaChat 3 Ultra Preview / Lightning",
+      "release_date": "2025-11-21",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "MoE", "russo", "open-weights", "MIT"],
+      "description_pt": "Abertura de pesos da terceira geracao do GigaChat sob licenca MIT: o flagship GigaChat 3 Ultra Preview (702B totais, 36B ativos, com MTP e MLA) e o compacto Lightning (10B-A1.8B); a linha 3.5 (432B-A28B) veio na sequencia.",
+      "sources": [
+        {
+          "title": "ai-sage/GigaChat3-702B-A36B-preview",
+          "url": "https://huggingface.co/ai-sage/GigaChat3-702B-A36B-preview",
+          "publisher": "Sber",
+          "date_basis": "Model card oficial no Hugging Face; release aberto em novembro de 2025."
+        },
+        {
+          "title": "GigaChat 3 Ultra Preview: heavy open source",
+          "url": "https://habr.com/en/companies/sberdevices/articles/968904/",
+          "publisher": "SberDevices",
+          "date_basis": "Artigo tecnico oficial publicado em 21 de novembro de 2025."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -8887,39 +9178,39 @@
       "ai_category": "LLMs",
       "model_type": ["texto", "open-weights", "open-data", "multilingue", "1000+-idiomas", "soberania-digital"],
       "description_pt": "Modelo totalmente aberto da Swiss AI Initiative, desenvolvido por EPFL, ETH Zurich e CSCS, com pesos, dados, codigo e metodos documentados.",
-      "source": {
-        "title": "Apertus",
-        "url": "https://apertvs.ai/",
-        "publisher": "Swiss AI Initiative",
-        "date_basis": "Pagina oficial apresenta o Apertus como modelo aberto com variantes 8B e 70B; data-base usa o lancamento publico de setembro de 2025."
-      },
-      "confidence": "media"
-    },
-    {
-      "id": "leonardo-ai-phoenix-lucid",
-      "company": "Leonardo.Ai",
-      "family": "Leonardo",
-      "model": "Phoenix / Lucid Origin",
-      "release_date": "2025-09-01",
-      "release_stage": "produto",
-      "ai_category": "Imagem",
-      "model_type": ["imagem", "texto-para-imagem", "criativo", "design", "video-workflows"],
-      "description_pt": "Linha de modelos e ferramentas generativas da australiana Leonardo.Ai para criacao visual, incluindo Phoenix e Lucid Origin em fluxos de imagem e video.",
       "sources": [
         {
-          "title": "Leonardo.Ai",
-          "url": "https://leonardo.ai/",
-          "publisher": "Leonardo.Ai",
-          "date_basis": "Pagina oficial descreve a plataforma generativa de imagem, arte e video."
+          "title": "Apertus: a fully open, transparent, multilingual language model",
+          "url": "https://ethz.ch/en/news-and-events/eth-news/news/2025/09/press-release-apertus-a-fully-open-transparent-multilingual-language-model.html",
+          "publisher": "ETH Zurich",
+          "date_basis": "Comunicado oficial publicado em 2 de setembro de 2025 anuncia o Apertus 8B e 70B."
         },
         {
-          "title": "Leonardo.ai",
-          "url": "https://en.wikipedia.org/wiki/Leonardo.ai",
-          "publisher": "Wikipedia",
-          "date_basis": "Perfil publico lista Phoenix e Lucid Origin como marcos de modelos da empresa."
+          "title": "Apertus",
+          "url": "https://www.apertus-ai.org/",
+          "publisher": "Swiss AI Initiative",
+          "date_basis": "Site oficial do projeto e seus artefatos abertos."
         }
       ],
-      "confidence": "media"
+      "confidence": "alta"
+    },
+    {
+      "id": "leonardo-ai-lucid-origin",
+      "company": "Leonardo.Ai",
+      "family": "Leonardo",
+      "model": "Lucid Origin",
+      "release_date": "2025-08-05",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "criativo", "design", "Full-HD"],
+      "description_pt": "Modelo proprietario de imagem da Leonardo.Ai voltado a fidelidade estetica, diversidade, aderencia a prompts, texto legivel e geracao nativa em Full HD.",
+      "source": {
+        "title": "Lucid Origin - Leonardo.AI's latest Gen AI model",
+        "url": "https://leonardo.ai/news/lucid-origin-ai-image-model",
+        "publisher": "Leonardo.Ai",
+        "date_basis": "Post oficial publicado em 5 de agosto de 2025 anuncia o Lucid Origin."
+      },
+      "confidence": "alta"
     },
     {
       "id": "naver-hyperclovax-seed",
@@ -9270,18 +9561,18 @@
       "company": "Ideogram",
       "family": "Ideogram",
       "model": "Ideogram 4.0",
-      "release_date": "2026-06-01",
+      "release_date": "2026-06-03",
       "release_stage": "produto/API",
       "ai_category": "Imagem",
       "model_type": ["imagem", "texto-para-imagem", "tipografia", "design", "edicao", "API"],
       "description_pt": "Modelo de imagem da canadense Ideogram com foco em geracao visual, design e texto legivel dentro de imagens.",
       "source": {
         "title": "Ideogram 4.0",
-        "url": "https://ideogram.ai/models/4.0/",
+        "url": "https://ideogram.ai/news/ideogram-4.0/",
         "publisher": "Ideogram",
-        "date_basis": "Pagina oficial documenta o Ideogram 4.0; data-base usa a disponibilidade publica em 2026."
+        "date_basis": "Anuncio oficial publicado em 3 de junho de 2026 apresenta o Ideogram 4.0."
       },
-      "confidence": "media"
+      "confidence": "alta"
     },
     {
       "id": "midjourney-v1",
