@@ -2084,7 +2084,7 @@ function fillMultiFilter(element, key, values, allLabel) {
 }
 
 function readMultiFilterSelection(element, changedValue) {
-  const checked = [...element.querySelectorAll("input[data-filter-value]:checked")]
+  const checked = Array.from(element.querySelectorAll("input[data-filter-value]:checked"))
     .map((input) => input.value);
   if (changedValue === "all" && checked.includes("all")) return ["all"];
 
@@ -2144,12 +2144,12 @@ function normalizeMultiFilterValues(key, value, validValues = []) {
 }
 
 function multiFilterValues(element) {
-  return [...element.querySelectorAll("input[data-filter-value]")]
+  return Array.from(element.querySelectorAll("input[data-filter-value]"))
     .map((input) => input.value);
 }
 
 function multiFilterLabelForValue(element, value) {
-  const input = [...element.querySelectorAll("input[data-filter-value]")]
+  const input = Array.from(element.querySelectorAll("input[data-filter-value]"))
     .find((candidate) => candidate.value === String(value));
   return input?.closest(".multi-filter-option")?.querySelector("span")?.textContent?.trim() || String(value);
 }
@@ -2274,7 +2274,7 @@ function saveViewPreferences() {
 }
 
 function optionExists(select, value) {
-  return [...select.options].some((option) => option.value === String(value));
+  return Array.from(select?.options || []).some((option) => option.value === String(value));
 }
 
 function unique(values) {
