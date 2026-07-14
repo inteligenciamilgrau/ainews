@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Revisao de Databricks, Danish Foundation Models e ElevenLabs: Databricks ganhou Dolly, Dolly 2.0 e os MPT-7B/30B da MosaicML (4 entradas); DFM ganhou o Munin 7B Alpha (1 entrada); ElevenLabs ganhou Multilingual v2, Turbo v2.5, Flash v2.5, Scribe, Eleven Music e Scribe v2 Realtime (6 entradas). Antes: revisao de Black Forest Labs, Cohere e Core42 com 16 novas entradas."
+      "description_pt": "Revisao de Ideogram, Kuaishou e Lelapa AI: Ideogram ganhou as versoes 0.1, 1.0, 2.0 e 3.0 (4 entradas); Kuaishou ganhou Kolors e Kling 1.5, 1.6 e 2.1 (4 entradas); Lelapa ganhou o Vulavula (2023) e teve o InkubaLM detalhado (1 entrada + refino). Antes: revisao de Databricks, Danish Foundation Models e ElevenLabs com 11 novas entradas."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -5782,6 +5782,68 @@
       "confidence": "alta"
     },
     {
+      "id": "kuaishou-kolors",
+      "company": "Kuaishou",
+      "family": "Kolors",
+      "model": "Kolors",
+      "release_date": "2024-07-06",
+      "release_stage": "open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "diffusion", "bilingue", "open-weights"],
+      "description_pt": "Modelo aberto de texto-para-imagem da equipe Kuaishou (Kwai-Kolors), com forte compreensao de prompts em chines e ingles e renderizacao de texto dentro das imagens; base tambem do gerador de imagem integrado ao Kling.",
+      "sources": [
+        {
+          "title": "Kwai-Kolors/Kolors",
+          "url": "https://huggingface.co/Kwai-Kolors/Kolors",
+          "publisher": "Kuaishou",
+          "date_basis": "Modelo aberto lancado em julho de 2024; model card oficial no Hugging Face."
+        },
+        {
+          "title": "Kolors (GitHub oficial)",
+          "url": "https://github.com/Kwai-Kolors/Kolors",
+          "publisher": "Kuaishou",
+          "date_basis": "Repositorio oficial da equipe Kolors."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "kuaishou-kling-1-5",
+      "company": "Kuaishou",
+      "family": "Kling",
+      "model": "Kling AI 1.5",
+      "release_date": "2024-09-19",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "1080p"],
+      "description_pt": "Atualizacao 1.5 do Kling com saida em 1080p, melhor qualidade de movimento e o recurso Motion Brush para controlar a trajetoria de elementos na cena.",
+      "source": {
+        "title": "Kuaishou Kling AI Global Upgrade to Model 1.5: Motion Brush Feature",
+        "url": "https://news.aibase.com/news/11879",
+        "publisher": "Kuaishou",
+        "date_basis": "Cobertura do upgrade global para o modelo 1.5 em 19 de setembro de 2024."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "kuaishou-kling-1-6",
+      "company": "Kuaishou",
+      "family": "Kling",
+      "model": "Kling AI 1.6",
+      "release_date": "2024-12-19",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "first-last-frame"],
+      "description_pt": "Modelo Kling 1.6 com ganhos de qualidade e aderencia ao prompt e controle de primeiro e ultimo frame para transicoes mais precisas em texto-para-video e imagem-para-video.",
+      "source": {
+        "title": "Kuaishou KLING 1.6 Model Releases",
+        "url": "https://ir.kuaishou.com/news-releases",
+        "publisher": "Kuaishou",
+        "date_basis": "Anuncio do modelo Kling 1.6 em 19 de dezembro de 2024."
+      },
+      "confidence": "media"
+    },
+    {
       "id": "kuaishou-kling-2",
       "company": "Kuaishou",
       "family": "Kling",
@@ -5798,6 +5860,24 @@
         "date_basis": "Comunicado oficial publicado em 15 de abril de 2025."
       },
       "confidence": "alta"
+    },
+    {
+      "id": "kuaishou-kling-2-1",
+      "company": "Kuaishou",
+      "family": "Kling",
+      "model": "Kling AI 2.1 / 2.1 Master",
+      "release_date": "2025-05-29",
+      "release_stage": "produto",
+      "ai_category": "Video",
+      "model_type": ["video", "texto-para-video", "imagem-para-video", "1080p", "edicao"],
+      "description_pt": "Serie Kling 2.1 com modos Standard, Pro e Master, gerando video de 5s em 1080p em alta qualidade em menos de um minuto, com melhor consistencia de movimento e custo otimizado.",
+      "source": {
+        "title": "Kuaishou Releases Kling 2.1 and Master Video Models",
+        "url": "https://ir.kuaishou.com/news-releases",
+        "publisher": "Kuaishou",
+        "date_basis": "Lancamento da serie 2.1 em 29 de maio de 2025."
+      },
+      "confidence": "media"
     },
     {
       "id": "kuaishou-kling-2-5-turbo",
@@ -8694,15 +8774,41 @@
       "confidence": "alta"
     },
     {
+      "id": "lelapa-vulavula",
+      "company": "Lelapa AI",
+      "family": "Vulavula",
+      "model": "Vulavula",
+      "release_date": "2023-11-17",
+      "release_stage": "produto/API",
+      "ai_category": ["LLMs", "Audio/Transcricao"],
+      "model_type": ["texto", "voz", "speech-to-text", "NER", "african-languages"],
+      "description_pt": "Primeira plataforma da sul-africana Lelapa AI, com API que faz transcricao de voz para texto e deteccao de entidades (nomes de pessoas e lugares) inicialmente em isiZulu, africaner, sesotho e ingles, com foco em linguas africanas sub-representadas.",
+      "sources": [
+        {
+          "title": "This company is building AI for African languages",
+          "url": "https://www.technologyreview.com/2023/11/17/1083637/lelapa-ai-african-languages-vulavula/",
+          "publisher": "MIT Technology Review",
+          "date_basis": "Cobertura do lancamento do Vulavula em 17 de novembro de 2023."
+        },
+        {
+          "title": "Lelapa AI",
+          "url": "https://lelapa.ai/",
+          "publisher": "Lelapa AI",
+          "date_basis": "Pagina oficial descreve a plataforma Vulavula e seus recursos de fala e linguagem."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
       "id": "lelapa-inkubalm-vulavula",
       "company": "Lelapa AI",
       "family": "InkubaLM",
-      "model": "InkubaLM / Vulavula",
+      "model": "InkubaLM-0.4B",
       "release_date": "2024-08-30",
       "release_stage": "open weights/pesquisa",
-      "ai_category": ["LLMs", "Audio/Transcricao"],
-      "model_type": ["texto", "african-languages", "low-resource-languages", "open-weights", "traducao", "voz"],
-      "description_pt": "Modelos e produtos da Lelapa AI voltados a linguas africanas de baixo recurso, combinando InkubaLM para texto e Vulavula para tarefas de linguagem e fala.",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "african-languages", "low-resource-languages", "open-weights", "small-language-model"],
+      "description_pt": "Apresentado como o primeiro small language model multilingue africano, o InkubaLM-0.4B foi treinado do zero com 2,4B tokens em isiZulu, ioruba, hausa, suaili e isiXhosa (mais ingles e frances), rodando em hardware modesto; versoes posteriores reduziram o modelo em ate 75% sem perda de desempenho.",
       "sources": [
         {
           "title": "InkubaLM: A small language model for low-resource African languages",
@@ -8711,10 +8817,10 @@
           "date_basis": "Paper primario publicado em 30 de agosto de 2024."
         },
         {
-          "title": "Lelapa AI",
-          "url": "https://lelapa.ai/",
+          "title": "InkubaLM na Lelapa AI",
+          "url": "https://lelapa.ai/inkubalm-a-small-language-model-for-low-resource-african-languages/",
           "publisher": "Lelapa AI",
-          "date_basis": "Pagina oficial descreve a empresa e seus produtos de linguagem."
+          "date_basis": "Pagina oficial descreve o InkubaLM-0.4B e as linguas cobertas."
         }
       ],
       "confidence": "alta"
@@ -9084,6 +9190,78 @@
         "url": "https://huggingface.co/LGAI-EXAONE",
         "publisher": "LG AI Research",
         "date_basis": "Organizacao oficial lista EXAONE 4.5 Technical Report publicado em 9 de abril e modelos EXAONE 4.5."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ideogram-0-1",
+      "company": "Ideogram",
+      "family": "Ideogram",
+      "model": "Ideogram 0.1",
+      "release_date": "2023-08-22",
+      "release_stage": "produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "tipografia"],
+      "description_pt": "Primeiro modelo publico da Ideogram, fundada por ex-pesquisadores do Google Brain, com destaque desde o inicio por renderizar texto legivel dentro das imagens, area em que os modelos da epoca falhavam.",
+      "source": {
+        "title": "Ideogram (text-to-image model)",
+        "url": "https://en.wikipedia.org/wiki/Ideogram_(text-to-image_model)",
+        "publisher": "Ideogram",
+        "date_basis": "Lancamento publico do modelo 0.1 em 22 de agosto de 2023, junto do anuncio da empresa."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "ideogram-1-0",
+      "company": "Ideogram",
+      "family": "Ideogram",
+      "model": "Ideogram 1.0",
+      "release_date": "2024-02-28",
+      "release_stage": "produto/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "tipografia", "design"],
+      "description_pt": "Primeira geracao principal da Ideogram, anunciada junto de uma rodada Series A de US$ 80M, com forte salto em fidelidade de texto dentro das imagens e recurso Magic Prompt para enriquecer prompts.",
+      "source": {
+        "title": "Ideogram 1.0",
+        "url": "https://about.ideogram.ai/1.0",
+        "publisher": "Ideogram",
+        "date_basis": "Anuncio oficial do Ideogram 1.0 em 28 de fevereiro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ideogram-2-0",
+      "company": "Ideogram",
+      "family": "Ideogram",
+      "model": "Ideogram 2.0",
+      "release_date": "2024-08-21",
+      "release_stage": "produto/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "tipografia", "design", "estilos", "API"],
+      "description_pt": "Segunda geracao da Ideogram, com estilos Realistic, Design, 3D e Anime, melhor renderizacao de texto, o recurso Canvas para composicao e o lancamento da API publica; recebeu depois o modelo rapido 2a em fevereiro de 2025.",
+      "source": {
+        "title": "Ideogram 2.0",
+        "url": "https://about.ideogram.ai/2.0",
+        "publisher": "Ideogram",
+        "date_basis": "Anuncio oficial do Ideogram 2.0 em 21 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ideogram-3-0",
+      "company": "Ideogram",
+      "family": "Ideogram",
+      "model": "Ideogram 3.0",
+      "release_date": "2025-03-26",
+      "release_stage": "produto/API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "tipografia", "design", "estilos", "API"],
+      "description_pt": "Terceira geracao da Ideogram, com realismo e coerencia visual muito maiores, Style References para replicar estilos a partir de imagens, tipografia aprimorada e forte desempenho em avaliacoes humanas frente a modelos rivais.",
+      "source": {
+        "title": "Ideogram 3.0",
+        "url": "https://about.ideogram.ai/3.0",
+        "publisher": "Ideogram",
+        "date_basis": "Anuncio oficial do Ideogram 3.0 em 26 de marco de 2025."
       },
       "confidence": "alta"
     },
