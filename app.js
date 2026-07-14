@@ -97,11 +97,13 @@ const researchLabColors = {
   Consorcio: "#0f766e",
   Universidade: "#2563eb",
   Instituto: "#7c3aed",
+  Formacao: "#d97706",
   "Lab corporativo": "#be185d"
 };
 
 const researchLabCategoryLabels = {
-  Consorcio: "Consórcio"
+  Consorcio: "Consórcio",
+  Formacao: "Formação em IA"
 };
 
 const companyLocations = [
@@ -960,6 +962,262 @@ const researchLabs = [
     notes: "National institute hosted at DCC UFMG, connecting more than 30 universities and research centers.",
     sourceName: "INCT TILDIAR",
     sourceUrl: "https://tildiar.dcc.ufmg.br/"
+  },
+  {
+    id: "br-inovai-ufrn",
+    name: "InovAI Lab - Laboratório de Inovação em IA",
+    organization: "Instituto Metrópole Digital / UFRN",
+    category: "Universidade",
+    city: "Natal",
+    region: "Rio Grande do Norte",
+    country: "Brazil",
+    address: "R. das Engenharias, s/n, Campus Central da UFRN, Lagoa Nova",
+    lat: -5.8327,
+    lng: -35.2054,
+    focus: "AI for bioinformatics, health, specialized hardware, tactile internet, robotics and automation",
+    notes: "Research and innovation center hosted at IMD-UFRN, linked to graduate programs and national and international research networks.",
+    sourceName: "InovAI Lab",
+    sourceUrl: "https://inovailab.imd.ufrn.br/"
+  },
+  {
+    id: "br-cereia-ufc",
+    name: "Cereia - Centro de Referência em Inteligência Artificial",
+    organization: "UFC / FAPESP / MCTI / MCom / CGI.br",
+    category: "Consorcio",
+    city: "Fortaleza",
+    region: "Ceará",
+    country: "Brazil",
+    address: "Campus do Pici, Universidade Federal do Ceará",
+    lat: -3.7457,
+    lng: -38.5746,
+    focus: "AI, IoT and big data for disease prevention, diagnostics, low-cost therapies and remote patient monitoring",
+    notes: "Applied AI center hosted by UFC, with six priority research lines focused on health and professional training.",
+    sourceName: "FAPESP",
+    sourceUrl: "https://www.fapesp.br/cpa/centro_de_referencia_em_inteligencia_artificial_%28cereia%29/158"
+  },
+  {
+    id: "br-cpa-cybersecurity-ufpe",
+    name: "Centro de Excelência em IA para Segurança Cibernética",
+    organization: "CIn-UFPE / FAPESP / MCTI / CGI.br",
+    category: "Consorcio",
+    city: "Recife",
+    region: "Pernambuco",
+    country: "Brazil",
+    address: "Av. Jornalista Aníbal Fernandes, s/n, Cidade Universitária",
+    lat: -8.0555,
+    lng: -34.9516,
+    focus: "Responsible AI for cyber resilience, attack and defense, adversarial learning and cyber-physical systems",
+    notes: "National and international network headquartered at CIn-UFPE, with researchers from all Brazilian regions and industry partners.",
+    sourceName: "CIn-UFPE",
+    sourceUrl: "https://portal.cin.ufpe.br/2023/09/11/conheca-o-centro-de-excelencia-em-inteligencia-artificial-para-seguranca-cibernetica-sediados-no-cin-ufpe/"
+  },
+  {
+    id: "br-praia-ufpe",
+    name: "PRAIA - Pesquisa Realmente Aplicada em IA",
+    organization: "CIn-UFPE / SENAI / national research network",
+    category: "Consorcio",
+    city: "Recife",
+    region: "Pernambuco",
+    country: "Brazil",
+    address: "Av. Jornalista Aníbal Fernandes, s/n, Cidade Universitária",
+    lat: -8.0562,
+    lng: -34.9508,
+    focus: "Applied AI for education, workforce development, competency-based learning and Industry 4.0",
+    notes: "Academia-industry hub focused on inclusive education, AI training and applied innovation for public and private organizations.",
+    sourceName: "CIn-UFPE",
+    sourceUrl: "https://portal.cin.ufpe.br/pesquisa-e-extensao/pesquisa/grupos-de-pesquisa/praia/"
+  },
+  {
+    id: "br-cpa-renewables-ufrj",
+    name: "Centro de Excelência em IA para Energias Renováveis",
+    organization: "COPPE-UFRJ / FAPESP / MCTI / CGI.br",
+    category: "Consorcio",
+    city: "Rio de Janeiro",
+    region: "Rio de Janeiro",
+    country: "Brazil",
+    address: "Centro de Tecnologia, Cidade Universitária, Ilha do Fundão",
+    lat: -22.8623,
+    lng: -43.2291,
+    focus: "Scientific machine learning for wind, solar, biomass, green hydrogen and renewable-energy operations",
+    notes: "Applied research center operating at COPPE's Lamce facilities to support Brazil's energy transition.",
+    sourceName: "COPPE-UFRJ",
+    sourceUrl: "https://coppe.ufrj.br/planeta-coppe/coppe-sediara-o-centro-de-excelencia-em-inteligencia-artificial-para-energia-renovaveis/"
+  },
+  {
+    id: "br-cpa-cdii",
+    name: "CPA-CDII - Ciência de Dados para a Indústria Inteligente",
+    organization: "USP / Unicamp / Unesp / AI2 / SENAI-SP / FAPESP",
+    category: "Consorcio",
+    city: "São Carlos",
+    region: "São Paulo",
+    country: "Brazil",
+    address: "ICMC-USP, Av. Trabalhador São-carlense, 400",
+    lat: -22.0053,
+    lng: -47.8953,
+    focus: "AI, data engineering, distributed and federated ML, computer vision and NLP for smart industry",
+    notes: "Multi-campus applied research center with nodes at USP, Unicamp, Unesp Bauru and AI2-Unesp, plus SENAI-SP.",
+    sourceName: "CPA-CDII",
+    sourceUrl: "https://cemeai.icmc.usp.br/CDII/"
+  },
+  {
+    id: "br-liarea-inpe",
+    name: "LIAREA - IA para Aplicações Aeroespaciais e Ambientais",
+    organization: "Instituto Nacional de Pesquisas Espaciais",
+    category: "Instituto",
+    city: "São José dos Campos",
+    region: "São Paulo",
+    country: "Brazil",
+    address: "Av. dos Astronautas, 1758, Jardim da Granja",
+    lat: -23.2085,
+    lng: -45.8598,
+    focus: "AI for remote sensing, weather and climate, astrophysics, space geophysics and aerospace engineering",
+    notes: "INPE laboratory created in 2024 to consolidate AI R&D across environmental, space and aerospace applications.",
+    sourceName: "INPE",
+    sourceUrl: "https://www.gov.br/inpe/pt-br/area-conhecimento/pesquisa-aplicada-e-desenvolvimento-tecnologico/laboratorios-banco-de-testes-grupos-p-d/laboratorio-de-inteligencia-artificial-para-aplicacoes-aeroespaciais-e-ambientais-2013-liarea"
+  },
+  {
+    id: "br-liaa-ien",
+    name: "LIAA - Laboratório de Inteligência Artificial Aplicada",
+    organization: "Instituto de Engenharia Nuclear / CNEN",
+    category: "Instituto",
+    city: "Rio de Janeiro",
+    region: "Rio de Janeiro",
+    country: "Brazil",
+    address: "R. Hélio de Almeida, 75, Cidade Universitária, Ilha do Fundão",
+    lat: -22.8606,
+    lng: -43.2282,
+    focus: "Evolutionary computing, swarm intelligence, deep learning, fuzzy logic and robotics for nuclear engineering",
+    notes: "Applied AI laboratory founded in 2006, expanding from nuclear systems to environmental, radiological and robotic applications.",
+    sourceName: "IEN-CNEN",
+    sourceUrl: "https://www.gov.br/ien/pt-br/pesquisa-e-desenvolvimento/laboratorios/laboratorio-de-inteligencia-artificial-aplicada"
+  },
+  {
+    id: "br-liamf-ufpr",
+    name: "LIAMF - Laboratório de IA e Métodos Formais",
+    organization: "Universidade Federal do Paraná",
+    category: "Universidade",
+    city: "Curitiba",
+    region: "Paraná",
+    country: "Brazil",
+    address: "Centro Politécnico, Jardim das Américas",
+    lat: -25.4499,
+    lng: -49.2319,
+    focus: "Classical AI, logic, knowledge representation, planning, theorem proving, NLP, ML and optimization",
+    notes: "UFPR research group combining theoretical, experimental and applied work in AI and formal methods.",
+    sourceName: "LIAMF-UFPR",
+    sourceUrl: "https://www.inf.ufpr.br/liamf/"
+  },
+  {
+    id: "br-gia-unb",
+    name: "GIA - Grupo de Inteligência Artificial",
+    organization: "Universidade de Brasília",
+    category: "Universidade",
+    city: "Brasília",
+    region: "Distrito Federal",
+    country: "Brazil",
+    address: "Campus Universitário Darcy Ribeiro, Asa Norte",
+    lat: -15.7639,
+    lng: -47.8708,
+    focus: "Machine learning, NLP, computer vision, bio-inspired computing and visual analytics",
+    notes: "UnB group active in research, teaching and extension, with national and international collaborations.",
+    sourceName: "GIA-UnB",
+    sourceUrl: "https://gia.unb.br/"
+  },
+  {
+    id: "br-recodai-unicamp",
+    name: "Recod.ai - Laboratório de Inteligência Artificial",
+    organization: "Instituto de Computação / Unicamp",
+    category: "Universidade",
+    city: "Campinas",
+    region: "São Paulo",
+    country: "Brazil",
+    address: "Av. Albert Einstein, 1251, Cidade Universitária",
+    lat: -22.8149,
+    lng: -47.0643,
+    focus: "Frontier AI, machine learning, complex-data inference, computer vision and digital forensics",
+    notes: "Unicamp laboratory conducting research on multimedia, social, spatial and temporal data, with major applied partnerships.",
+    sourceName: "Instituto de Computação - Unicamp",
+    sourceUrl: "https://ic.unicamp.br/pesquisa/projetos-e-laboratorios-de-pesquisa/"
+  },
+  {
+    id: "br-lia-ufpa",
+    name: "LIA - Laboratório de Inteligência Analítica",
+    organization: "Faculdade de Computação / UFPA",
+    category: "Universidade",
+    city: "Belém",
+    region: "Pará",
+    country: "Brazil",
+    address: "R. Augusto Corrêa, 1, Campus Universitário do Guamá",
+    lat: -1.4738833,
+    lng: -48.4543741,
+    focus: "Autonomous intelligent systems, optimization, simulation, ML, multi-agent systems and fuzzy systems",
+    notes: "UFPA laboratory applying computational mathematics and AI to bioeconomy, logistics, energy, finance and industry.",
+    sourceName: "LIA-UFPA",
+    sourceUrl: "https://lia.ufpa.br/"
+  },
+  {
+    id: "br-bacharelado-ia-uftm",
+    name: "Bacharelado em Inteligência Artificial",
+    organization: "Universidade Federal do Triângulo Mineiro",
+    category: "Formacao",
+    city: "Uberaba",
+    region: "Minas Gerais",
+    country: "Brazil",
+    address: "Unidade III, Av. Dr. Randolfo Borges Júnior, 1400, Bloco N",
+    lat: -19.7472,
+    lng: -47.9476,
+    focus: "Undergraduate education in AI, machine learning, data science, mathematics, computing and responsible use of data",
+    notes: "Public, in-person evening bachelor's degree authorized in 2026 and offered through Brazil's Sisu admissions system.",
+    sourceName: "UFTM",
+    sourceUrl: "https://www.uftm.edu.br/inteligencia-artificial"
+  },
+  {
+    id: "br-bacharelado-ia-uffs",
+    name: "Bacharelado em IA, Inovação, Governança e Direitos Humanos",
+    organization: "Universidade Federal da Fronteira Sul",
+    category: "Formacao",
+    city: "Realeza",
+    region: "Paraná",
+    country: "Brazil",
+    address: "Av. Edmundo Gaievski, 1000, acesso pela Rodovia PR-182, km 466",
+    lat: -25.7658,
+    lng: -53.5323,
+    focus: "Undergraduate AI education with innovation, public governance, ethics, transparency and human-rights foundations",
+    notes: "Four-year public bachelor's degree implemented at the UFFS Realeza campus in 2026.",
+    sourceName: "UFFS",
+    sourceUrl: "https://www.uffs.edu.br/uffs/inteligencia-artificial/perfil-do-curso"
+  },
+  {
+    id: "br-bacharelado-ia-ufj",
+    name: "Bacharelado em Inteligência Artificial",
+    organization: "Universidade Federal de Jataí",
+    category: "Formacao",
+    city: "Jataí",
+    region: "Goiás",
+    country: "Brazil",
+    address: "Campus Jatobá, BR-364, km 195, 3800",
+    lat: -17.9239,
+    lng: -51.7185,
+    focus: "Undergraduate education in intelligent agents, ML, responsible AI, governance, innovation and applied research",
+    notes: "In-person evening bachelor's degree launched in 2026 with a regional-development and responsible-innovation mission.",
+    sourceName: "UFJ",
+    sourceUrl: "https://ufj.edu.br/IA/"
+  },
+  {
+    id: "br-bacharelado-ia-ufopa",
+    name: "Bacharelado em Inteligência Artificial",
+    organization: "Universidade Federal do Oeste do Pará",
+    category: "Formacao",
+    city: "Santarém",
+    region: "Pará",
+    country: "Brazil",
+    address: "Unidade Tapajós, R. Vera Paz, s/n, Salé",
+    lat: -2.4172,
+    lng: -54.7408,
+    focus: "Undergraduate AI education linked to scientific and technological challenges of the Amazon region",
+    notes: "Public, in-person evening bachelor's program with 40 authorized places and a curriculum designed for Amazonian development needs.",
+    sourceName: "UFOPA",
+    sourceUrl: "https://proen.ufopa.edu.br/media/file/site/proen/documentos/2025/7d407063-75db-4281-9b39-54cb7bb76cb9.pdf"
   },
   {
     id: "mx-unam-iimas-ai-lab",
@@ -1918,11 +2176,21 @@ function renderTimeline(models) {
     return `<span style="left:clamp(24px, ${clamp(left, 0, 100)}%, calc(100% - 24px))">${year}</span>`;
   }).join("");
 
+  const companies = unique(models.map((model) => model.company));
   const laneGroups = state.laneMode === "all"
-    ? [["Todos", models]]
-    : unique(models.map((model) => model.company)).map((company) => [company, models.filter((model) => model.company === company)]);
+    ? [{
+      label: "Todos",
+      laneModels: models,
+      indexLabel: companies.length,
+      meta: `${companies.length} ${companies.length === 1 ? "empresa" : "empresas"} no filtro`
+    }]
+    : companies.map((company, index) => ({
+      label: company,
+      laneModels: models.filter((model) => model.company === company),
+      indexLabel: String(index + 1).padStart(2, "0")
+    }));
 
-  els.timeline.innerHTML = laneGroups.map(([label, laneModels]) => {
+  els.timeline.innerHTML = laneGroups.map(({ label, laneModels, indexLabel, meta }) => {
     const events = laneModels.map((model, index) => {
       const left = ((model.timestamp - min) / span) * 100;
       const color = model.is_negative ? "#ef4444" : colorFor(model.company);
@@ -1941,7 +2209,11 @@ function renderTimeline(models) {
 
     return `
       <div class="timeline-lane">
-        <div class="lane-label">${escapeHtml(label)}</div>
+        <div class="lane-label">
+          <span class="lane-index">${escapeHtml(indexLabel)}</span>
+          <span class="lane-name">${escapeHtml(label)}</span>
+          ${meta ? `<span class="lane-meta">${escapeHtml(meta)}</span>` : ""}
+        </div>
         <div class="lane-track">${events}</div>
       </div>
     `;
@@ -2042,7 +2314,7 @@ function renderCompanyMap() {
 
   els.mapSummary.innerHTML = `
     ${companyCount ? `<span>${companyCount} sedes</span>` : ""}
-    ${labCount ? `<span>${labCount} labs IA</span>` : ""}
+    ${labCount ? `<span>${labCount} iniciativas IA</span>` : ""}
     ${dataCenterCount ? `<span>${dataCenterCount} data centers</span>` : ""}
     <span>${countries.length} países</span>
     ${(state.mapLayer === "companies" || state.mapLayer === "all") && missingCompanies.length ? `<span>${missingCompanies.length} sem coordenada</span>` : ""}
