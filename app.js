@@ -9,6 +9,7 @@ const MAP_ADMIN_BOUNDARY_LAYER_IDS = ["ai-admin-boundaries-casing", "ai-admin-bo
 const MAP_FLAG_ICON_PREFIX = "ai-location-flag-";
 const MAP_FLAG_MIN_ZOOM = 3.2;
 const MAP_OVERLAP_CLUSTER_LIMIT = 3;
+const MAP_VISIBLE_MARKER_PADDING = 96;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
 const VALID_VIEWS = new Set(["timeline", "years", "map", "table", "sources", "history"]);
 const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
@@ -67,6 +68,7 @@ const state = {
   mapPreviewKey: null,
   mapClusterPopup: null,
   mapClusterHideTimer: null,
+  mapOverlapUpdateFrame: null,
   mapHtmlMarkers: [],
   mapMarkerLocations: []
 };
@@ -2343,7 +2345,7 @@ function bindEvents() {
   window.addEventListener("resize", () => {
     syncStickyOffsets();
     state.companyMap?.resize();
-    requestAnimationFrame(() => updateMapOverlapMarkers(state.mapMarkerLocations));
+    scheduleMapOverlapMarkerUpdate();
   });
 
   els.searchInput.addEventListener("input", (event) => {
@@ -2741,7 +2743,7 @@ function setMapFullscreen(enabled) {
 
   requestAnimationFrame(() => {
     state.companyMap?.resize();
-    updateMapOverlapMarkers(state.mapMarkerLocations);
+    scheduleMapOverlapMarkerUpdate();
     if (state.mapFullscreen) {
       scrollSelectedMapLocationIntoView();
     }
@@ -3179,10 +3181,10 @@ function initCompanyMap() {
     syncMapScaleFromMap();
   });
   map.on("moveend", () => {
-    updateMapOverlapMarkers(state.mapMarkerLocations);
+    scheduleMapOverlapMarkerUpdate();
   });
   map.on("zoomend", () => {
-    updateMapOverlapMarkers(state.mapMarkerLocations);
+    scheduleMapOverlapMarkerUpdate();
   });
 
   setTimeout(() => {
@@ -3469,11 +3471,12 @@ function updateMapOverlapMarkers(locations = []) {
   state.mapMarkerLocations = locations;
   hideMapClusterPopup();
 
-  if (!locations.length) {
+  const visibleLocations = locations.filter(isMapLocationVisibleForHtmlMarker);
+  if (!visibleLocations.length) {
     return;
   }
 
-  const groups = groupMapLocationsByScreenOverlap(locations);
+  const groups = groupMapLocationsByScreenOverlap(visibleLocations);
   groups.forEach((group) => {
     if (group.locations.length > MAP_OVERLAP_CLUSTER_LIMIT) {
       addMapClusterMarker(group);
@@ -3487,14 +3490,53 @@ function updateMapOverlapMarkers(locations = []) {
   });
 }
 
+function scheduleMapOverlapMarkerUpdate() {
+  if (state.mapOverlapUpdateFrame) return;
+  state.mapOverlapUpdateFrame = window.requestAnimationFrame(() => {
+    state.mapOverlapUpdateFrame = null;
+    updateMapOverlapMarkers(state.mapMarkerLocations);
+  });
+}
+
 function clearMapHtmlMarkers() {
   state.mapHtmlMarkers.forEach((marker) => marker.remove());
   state.mapHtmlMarkers = [];
 }
 
+function isMapLocationVisibleForHtmlMarker(location) {
+  const map = state.companyMap;
+  if (!map || !Number.isFinite(location.lat) || !Number.isFinite(location.lng)) return false;
+
+  const point = map.project([location.lng, location.lat]);
+  if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return false;
+
+  const canvas = map.getCanvas();
+  const padding = MAP_VISIBLE_MARKER_PADDING;
+  const insideViewport = point.x >= -padding
+    && point.x <= canvas.clientWidth + padding
+    && point.y >= -padding
+    && point.y <= canvas.clientHeight + padding;
+  if (!insideViewport) return false;
+
+  if (isMapLocationBehindGlobe(location)) return false;
+
+  return true;
+}
+
+function isMapLocationBehindGlobe(location) {
+  const map = state.companyMap;
+  const projection = map?.getProjection?.();
+  const projectionName = projection?.name || projection?.type;
+  if (projectionName !== "globe" || map.getZoom() >= 5.6) return false;
+
+  const center = map.getCenter();
+  return angularDistanceDegrees(center.lat, center.lng, location.lat, location.lng) > 90;
+}
+
 function groupMapLocationsByScreenOverlap(locations) {
   const map = state.companyMap;
   const radius = mapOverlapRadiusPx();
+  const maxGeoDistanceKm = mapOverlapMaxGeoDistanceKm();
   const points = locations
     .filter((location) => Number.isFinite(location.lat) && Number.isFinite(location.lng))
     .map((location, index) => ({
@@ -3512,19 +3554,28 @@ function groupMapLocationsByScreenOverlap(locations) {
     const group = [point];
     used.add(point.index);
 
-    let changed = true;
-    while (changed) {
-      changed = false;
-      points.forEach((candidate) => {
+    points
+      .filter((candidate) => !used.has(candidate.index))
+      .map((candidate) => ({
+        candidate,
+        screenDistance: screenDistance(point.point, candidate.point)
+      }))
+      .filter(({ candidate, screenDistance: distance }) => (
+        distance <= radius
+        && mapLocationsGeoDistanceKm(point.location, candidate.location) <= maxGeoDistanceKm
+      ))
+      .sort((a, b) => a.screenDistance - b.screenDistance)
+      .forEach(({ candidate }) => {
         if (used.has(candidate.index)) return;
-        const overlaps = group.some((member) => screenDistance(member.point, candidate.point) <= radius);
-        if (!overlaps) return;
+        const overlapsEntireGroup = group.every((member) => (
+          screenDistance(member.point, candidate.point) <= radius
+          && mapLocationsGeoDistanceKm(member.location, candidate.location) <= maxGeoDistanceKm
+        ));
+        if (!overlapsEntireGroup) return;
 
         group.push(candidate);
         used.add(candidate.index);
-        changed = true;
       });
-    }
 
     groups.push(mapOverlapGroup(group));
   });
@@ -3543,25 +3594,56 @@ function mapOverlapGroup(points) {
     x: center.x + point.point.x / points.length,
     y: center.y + point.point.y / points.length
   }), { x: 0, y: 0 });
-  const center = state.companyMap.unproject([centerPoint.x, centerPoint.y]);
+  const anchorPoint = points.find((point) => point.location.mapKey === state.selectedMapCompany)
+    || points.reduce((closest, point) => (
+      screenDistance(point.point, centerPoint) < screenDistance(closest.point, centerPoint) ? point : closest
+    ), points[0]);
 
   return {
     locations,
-    center: [center.lng, center.lat],
+    center: [anchorPoint.location.lng, anchorPoint.location.lat],
     centerPoint
   };
 }
 
 function mapOverlapRadiusPx() {
   const zoom = state.companyMap?.getZoom?.() || 0;
-  if (zoom < 3) return 62;
-  if (zoom < 6) return 52;
-  if (zoom < 10) return 42;
-  return 34;
+  if (zoom < 3) return 34;
+  if (zoom < 6) return 30;
+  if (zoom < 10) return 28;
+  return 26;
+}
+
+function mapOverlapMaxGeoDistanceKm() {
+  const zoom = state.companyMap?.getZoom?.() || 0;
+  if (zoom < 3) return 450;
+  if (zoom < 6) return 180;
+  if (zoom < 10) return 70;
+  return 30;
 }
 
 function screenDistance(a, b) {
   return Math.hypot(a.x - b.x, a.y - b.y);
+}
+
+function mapLocationsGeoDistanceKm(a, b) {
+  return angularDistanceDegrees(a.lat, a.lng, b.lat, b.lng) * 111.195;
+}
+
+function angularDistanceDegrees(latA, lngA, latB, lngB) {
+  const toRadians = Math.PI / 180;
+  const phiA = latA * toRadians;
+  const phiB = latB * toRadians;
+  const deltaPhi = (latB - latA) * toRadians;
+  const deltaLambda = normalizeLongitudeDelta(lngB - lngA) * toRadians;
+  const haversine = Math.sin(deltaPhi / 2) ** 2
+    + Math.cos(phiA) * Math.cos(phiB) * Math.sin(deltaLambda / 2) ** 2;
+
+  return (2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(Math.max(0, 1 - haversine)))) / toRadians;
+}
+
+function normalizeLongitudeDelta(delta) {
+  return ((delta + 540) % 360) - 180;
 }
 
 function mapMarkerOffsetsForGroup(count) {

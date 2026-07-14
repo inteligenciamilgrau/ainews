@@ -979,13 +979,13 @@ dd {
 .map-marker-leader::after {
   content: "";
   position: absolute;
-  right: -1px;
+  left: -1px;
   top: 50%;
   width: 7px;
   height: 7px;
   border-top: 2px solid rgba(248, 250, 252, 0.88);
   border-right: 2px solid rgba(248, 250, 252, 0.88);
-  transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(225deg);
   transform-origin: center;
 }
 
