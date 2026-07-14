@@ -15,7 +15,12 @@ const MAP_SPREAD_CIRCLE_MAX = 9;
 const MAP_SPREAD_MIN_ZOOM = 4;
 const MAP_SPREAD_MAX_OFFSET_DEG = 20;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
-const VALID_VIEWS = new Set(["timeline", "years", "map", "table", "sources", "history"]);
+const DEFAULT_MAP_CAMERA = Object.freeze({
+  center: [-52.8, -14.2],
+  zoom: 3.2,
+  pitch: 0,
+  bearing: 0
+});
 const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
 const VALID_MAP_BASE_MODES = new Set(["map", "earth", "hybrid"]);
 const VALID_MAP_SCALES = new Set(["globe", "country", "city", "street"]);
@@ -53,19 +58,19 @@ const state = {
     yearEnd: "all"
   },
   tableDateOrder: "desc",
-  view: "timeline",
+  view: "map",
   laneMode: "company",
   mapLayer: "all",
   mapBaseMode: "hybrid",
   mapLabels: false,
-  mapScale: "globe",
+  mapScale: "country",
+  mapCamera: null,
   selectedId: null,
   selectedMapCompany: null,
   companyMap: null,
   mapStyleMode: "dark",
   mapStyleFallbackActive: false,
   mapFallbackTried: false,
-  mapHasInitialView: false,
   mapFullscreen: false,
   mapPopup: null,
   mapPreviewPopup: null,
@@ -1994,6 +1999,22 @@ const researchLabs = [
     sourceUrl: "https://radaria.ufsc.br/sobre/"
   },
   {
+    id: "br-sc-lia-ufsc",
+    name: "LIA - Liga Academica de Inteligencia Artificial",
+    organization: "Universidade Federal de Santa Catarina - Campus Ararangua",
+    category: "Universidade",
+    city: "Ararangua",
+    region: "Santa Catarina",
+    country: "Brazil",
+    address: "Rodovia Governador Jorge Lacerda, 3201, Campus Jardim das Avenidas",
+    lat: -28.9509,
+    lng: -49.46757,
+    focus: "AI study groups, research and innovation projects, courses, lectures, hackathons, workshops and open knowledge",
+    notes: "Official UFSC academic league dedicated to AI, bringing students together for study, research, projects, events and extension. The marker uses the Ararangua campus address published by UFSC.",
+    sourceName: "Vitrine Tecnologica - UFSC",
+    sourceUrl: "https://vitrine.sites.ufsc.br/ligas-academicas/lia/"
+  },
+  {
     id: "br-sc-visia-ufsc",
     name: "VISIA - Laboratorio de Visao Computacional, Sinais e Inteligencia Artificial",
     organization: "Departamento de Computacao / UFSC Ararangua",
@@ -3142,12 +3163,13 @@ function syncStickyOffsets() {
 function loadViewPreferences() {
   try {
     const prefs = JSON.parse(localStorage.getItem(VIEW_PREFS_KEY) || "{}");
-    if (VALID_VIEWS.has(prefs.view)) state.view = prefs.view;
     if (VALID_LANE_MODES.has(prefs.laneMode)) state.laneMode = prefs.laneMode;
     if (VALID_MAP_LAYERS.has(prefs.mapLayer)) state.mapLayer = prefs.mapLayer;
     if (VALID_MAP_BASE_MODES.has(prefs.mapBaseMode)) state.mapBaseMode = prefs.mapBaseMode;
     if (typeof prefs.mapLabels === "boolean") state.mapLabels = prefs.mapLabels;
     if (VALID_MAP_SCALES.has(prefs.mapScale)) state.mapScale = prefs.mapScale;
+    const restoredMapCamera = normalizeMapCamera(prefs.mapCamera);
+    if (restoredMapCamera) state.mapCamera = restoredMapCamera;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.tableDateOrder)) state.tableDateOrder = prefs.tableDateOrder;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.historyEventDateOrder)) historyState.eventDateOrder = prefs.historyEventDateOrder;
     if (prefs.filters && typeof prefs.filters === "object") {
@@ -3171,12 +3193,12 @@ function loadViewPreferences() {
 function saveViewPreferences() {
   try {
     localStorage.setItem(VIEW_PREFS_KEY, JSON.stringify({
-      view: state.view,
       laneMode: state.laneMode,
       mapLayer: state.mapLayer,
       mapBaseMode: state.mapBaseMode,
       mapLabels: state.mapLabels,
       mapScale: state.mapScale,
+      mapCamera: state.mapCamera,
       tableDateOrder: state.tableDateOrder,
       historyEventDateOrder: historyState.eventDateOrder,
       filters: state.filters
@@ -3184,6 +3206,36 @@ function saveViewPreferences() {
   } catch {
     // Prefer keeping the app usable when browser storage is unavailable.
   }
+}
+
+function normalizeMapCamera(camera) {
+  if (!camera || !Array.isArray(camera.center) || camera.center.length !== 2) return null;
+
+  const [lng, lat] = camera.center.map(Number);
+  const zoom = Number(camera.zoom);
+  const pitch = Number(camera.pitch ?? 0);
+  const bearing = Number(camera.bearing ?? 0);
+  const values = [lng, lat, zoom, pitch, bearing];
+
+  if (!values.every(Number.isFinite)) return null;
+  if (lng < -180 || lng > 180 || lat < -85 || lat > 85) return null;
+  if (zoom < 0 || zoom > 24 || pitch < 0 || pitch > 85) return null;
+
+  return { center: [lng, lat], zoom, pitch, bearing };
+}
+
+function rememberMapCamera() {
+  const map = state.companyMap;
+  if (!map) return;
+
+  const center = map.getCenter();
+  state.mapCamera = normalizeMapCamera({
+    center: [Number(center.lng.toFixed(6)), Number(center.lat.toFixed(6))],
+    zoom: Number(map.getZoom().toFixed(4)),
+    pitch: Number(map.getPitch().toFixed(2)),
+    bearing: Number(map.getBearing().toFixed(2))
+  });
+  saveViewPreferences();
 }
 
 function optionExists(select, value) {
@@ -3501,15 +3553,16 @@ function initCompanyMap() {
   state.mapFallbackTried = false;
   state.mapStyleFallbackActive = false;
   state.mapStyleMode = mapStyleModeForBaseMode(state.mapBaseMode);
+  const initialCamera = state.mapCamera || DEFAULT_MAP_CAMERA;
 
   try {
     state.companyMap = new maplibregl.Map({
       container: els.companyMap,
       style: MAP_STYLE_URLS[state.mapStyleMode],
-      center: [8, 16],
-      zoom: 1.35,
-      pitch: 0,
-      bearing: 0,
+      center: initialCamera.center,
+      zoom: initialCamera.zoom,
+      pitch: initialCamera.pitch,
+      bearing: initialCamera.bearing,
       renderWorldCopies: false,
       attributionControl: false,
       canvasContextAttributes: { antialias: true }
@@ -3555,6 +3608,7 @@ function initCompanyMap() {
   map.on("zoom", () => {
     syncMapScaleFromMap();
   });
+  map.on("moveend", rememberMapCamera);
   ["zoomend", "rotateend", "pitchend"].forEach((eventName) => {
     map.on(eventName, () => {
       if (map.getSource("ai-locations")) updateCompanyMap(locationsForMap());
@@ -3866,11 +3920,6 @@ function updateCompanyMap(locations) {
   if (state.mapPopup?.isOpen?.() && state.selectedMapCompany) {
     const selected = spreadLocations.find((location) => location.mapKey === state.selectedMapCompany);
     if (selected) state.mapPopup.setLngLat([selected.displayLng, selected.displayLat]);
-  }
-
-  if (!state.mapHasInitialView && locations.length) {
-    state.mapHasInitialView = true;
-    applyMapScale(state.mapScale, { animate: false });
   }
 }
 
