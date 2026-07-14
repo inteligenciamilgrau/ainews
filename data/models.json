@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-06-12",
+    "updated_at": "2026-07-14",
     "last_correction": {
-      "date": "2026-06-17",
-      "description_pt": "Adicionado o modelo GLM-5.2 à família GLM da Z.AI."
+      "date": "2026-07-14",
+      "description_pt": "Adicionados o retorno do Claude Fable 5, GPT-5.6, GPT-Live, Grok 4.5 e outros lançamentos oficiais recentes."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -1020,20 +1020,12 @@
       "release_stage": "lancamento",
       "model_type": ["codigo", "agente", "raciocinio", "trabalho"],
       "description_pt": "Lancamento publico da capacidade Mythos-class, modelo mais capaz da Anthropic disponivel amplamente. Usa classificadores de seguranca que roteiam ~5% de consultas sensiveis para Opus 4.8. Contexto de 1M tokens, precos reduzidos em mais de 50% em relacao ao Mythos Preview.",
-      "sources": [
-        {
-          "title": "Claude Fable 5 and Mythos 5: the operator's read",
-          "url": "https://innovativegroup.io/blog/claude-fable-5-mythos-5-launch/",
-          "publisher": "Innovative Group",
-          "date_basis": "Artigo de 9 de junho de 2026 sobre o lancamento oficial."
-        },
-        {
-          "title": "Anthropic Claude News | June, 2026",
-          "url": "https://blog.mean.ceo/anthropic-claude-news-june-2026/",
-          "publisher": "Mean CEO Blog",
-          "date_basis": "Artigo de junho de 2026 referencia Fable 5 como lancamento oficial da Anthropic."
-        }
-      ],
+      "source": {
+        "title": "Claude Fable 5 and Claude Mythos 5",
+        "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 9 de junho de 2026 anuncia o Fable 5 para uso amplo."
+      },
       "confidence": "alta"
     },
     {
@@ -1046,10 +1038,10 @@
       "model_type": ["codigo", "agente", "raciocinio", "seguranca"],
       "description_pt": "Versao restrita do Fable 5 para parceiros aprovados do Project Glasswing. Mesmas capacidades subjacentes, mas com salvaguardas reduzidas em certos dominios. Nao disponivel ao publico geral.",
       "source": {
-        "title": "Claude Fable 5 and Mythos 5: the operator's read",
-        "url": "https://innovativegroup.io/blog/claude-fable-5-mythos-5-launch/",
-        "publisher": "Innovative Group",
-        "date_basis": "Artigo de 9 de junho de 2026 descreve Mythos 5 como versao restrita do Fable 5 para trusted-access enterprise."
+        "title": "Claude Fable 5 and Claude Mythos 5",
+        "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 9 de junho de 2026 descreve Mythos 5 como modelo restrito a parceiros do Project Glasswing."
       },
       "confidence": "alta"
     },
@@ -3302,15 +3294,15 @@
       "company": "Z.AI",
       "family": "GLM",
       "model": "GLM-5.2",
-      "release_date": "2026-06-13",
+      "release_date": "2026-06-16",
       "release_stage": "lancamento/API",
       "model_type": ["raciocinio", "codigo", "agente", "longo-contexto", "engenharia"],
       "description_pt": "Modelo mais recente da Z.AI com janela de contexto expandida para 1 milhão de tokens. Focado fortemente em codificação de longo horizonte, engenharia de sistemas e workflows agênticos intensivos.",
       "source": {
-        "title": "New Released - GLM-5.2",
-        "url": "https://docs.z.ai/release-notes/new-released",
+        "title": "GLM-5.2: Built for Long-Horizon Tasks",
+        "url": "https://z.ai/blog/glm-5.2",
         "publisher": "Z.AI",
-        "date_basis": "Release notes oficiais registram a chegada do GLM-5.2 em meados de junho de 2026 (13 a 17 de junho)."
+        "date_basis": "Post oficial publicado em 16 de junho de 2026 anuncia o GLM-5.2."
       },
       "confidence": "alta"
     },
@@ -6471,17 +6463,270 @@
       "id": "anthropic-fable-mythos-remocao",
       "company": "Anthropic",
       "family": "Claude",
-      "model": "Fable 5 & Mythos 5 Removidos",
+      "model": "Fable 5 & Mythos 5 suspensos",
       "release_date": "2026-06-12",
-      "release_stage": "retirada",
-      "model_type": ["texto"],
-      "description_pt": "O Fable 5 e o Mythos 5 foram retirados do ar globalmente, passando a ter seu uso restrito apenas para americanos.",
+      "release_stage": "suspensao temporaria",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "seguranca", "disponibilidade"],
+      "description_pt": "A Anthropic suspendeu o acesso ao Fable 5 e ao Mythos 5 para todos os usuarios depois que controles de exportacao dos EUA passaram a restringir o uso por estrangeiros e nao havia verificacao de nacionalidade em tempo real.",
       "is_negative": true,
       "source": {
-        "title": "Atualização de Disponibilidade de Modelos",
-        "url": "https://www.anthropic.com/news/fable-mythos-access",
+        "title": "Redeploying Fable 5",
+        "url": "https://www.anthropic.com/news/redeploying-fable-5",
         "publisher": "Anthropic",
-        "date_basis": "Anúncio oficial de remoção global em 12 de junho de 2026."
+        "date_basis": "Post oficial de 30 de junho de 2026 registra que a suspensao global ocorreu em 12 de junho de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-ocr-4",
+      "company": "Mistral AI",
+      "family": "Mistral OCR",
+      "model": "Mistral OCR 4",
+      "release_date": "2026-06-23",
+      "release_stage": "API/Document AI",
+      "ai_category": "LLMs",
+      "model_type": ["OCR", "documentos", "visao", "multimodal", "Document AI", "API", "self-hosted", "170-idiomas"],
+      "description_pt": "Modelo de inteligencia documental com extracao de texto, bounding boxes, classificacao de blocos e confianca por trecho. Suporta 170 idiomas, API, Document AI e implantacao self-hosted.",
+      "source": {
+        "title": "Introducing OCR 4",
+        "url": "https://mistral.ai/news/ocr-4/",
+        "publisher": "Mistral AI",
+        "date_basis": "Post oficial publicado em 23 de junho de 2026 anuncia o Mistral OCR 4."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-fable-5-retorno",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Fable 5 (retorno)",
+      "release_date": "2026-07-01",
+      "release_stage": "retorno/GA global",
+      "ai_category": "LLMs",
+      "model_type": ["codigo", "agente", "raciocinio", "trabalho", "seguranca", "disponibilidade"],
+      "description_pt": "Retorno global do Claude Fable 5 ao Claude Platform, Claude.ai, Claude Code e Claude Cowork, depois da suspensao de 12 de junho. O modelo voltou com um classificador de seguranca aprimorado; o Mythos 5 permaneceu restrito a organizacoes aprovadas.",
+      "source": {
+        "title": "Redeploying Fable 5",
+        "url": "https://www.anthropic.com/news/redeploying-fable-5",
+        "publisher": "Anthropic",
+        "date_basis": "Atualizacao oficial de 30 de junho de 2026 informa que o Fable 5 voltaria globalmente em 1 de julho de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-leanstral-1-5",
+      "company": "Mistral AI",
+      "family": "Leanstral",
+      "model": "Leanstral 1.5",
+      "release_date": "2026-07-02",
+      "release_stage": "open weights/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "matematica", "provas-formais", "Lean-4", "119B", "6B-ativos", "open-weights", "OpenSource", "Apache-2.0", "API"],
+      "description_pt": "Modelo aberto de 119B parametros totais e 6B ativos para engenharia de provas em Lean 4, verificacao formal de codigo e raciocinio matematico de longo horizonte.",
+      "source": {
+        "title": "Leanstral 1.5: Proof Abundance for All",
+        "url": "https://mistral.ai/news/leanstral-1-5/",
+        "publisher": "Mistral AI",
+        "date_basis": "Post oficial publicado em 2 de julho de 2026 libera pesos sob Apache 2.0 e endpoint gratuito de API."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-muse-image",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Image",
+      "release_date": "2026-07-07",
+      "release_stage": "lancamento/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "geracao", "edicao", "multirreferencia", "agente", "tool-use", "self-refinement", "watermark"],
+      "description_pt": "Modelo agentico de geracao e edicao de imagens da Meta, com composicao a partir de multiplas referencias, busca e codigo como ferramentas, autorrefinamento e marca d'agua Content Seal.",
+      "source": {
+        "title": "Introducing Muse Image and Muse Video",
+        "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/",
+        "publisher": "Meta",
+        "date_basis": "Post oficial publicado em 7 de julho de 2026 anuncia disponibilidade imediata do Muse Image em produtos Meta selecionados."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-muse-video-preview",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Video",
+      "release_date": "2026-07-07",
+      "release_stage": "preview/coming soon",
+      "ai_category": "Video",
+      "model_type": ["video", "geracao", "texto-para-video", "audio-nativo", "preview"],
+      "description_pt": "Preview do primeiro modelo de video da Meta Superintelligence Labs, com geracao de video, audio nativo e foco em fidelidade visual, aderencia ao prompt e consistencia temporal.",
+      "source": {
+        "title": "Introducing Muse Image and Muse Video",
+        "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/",
+        "publisher": "Meta",
+        "date_basis": "Post oficial publicado em 7 de julho de 2026 apresenta o Muse Video em preview e informa disponibilidade futura."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-live-1",
+      "company": "OpenAI",
+      "family": "GPT-Live",
+      "model": "GPT-Live-1 / GPT-Live-1 mini",
+      "release_date": "2026-07-08",
+      "release_stage": "ChatGPT/produto; API coming soon",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "speech-to-speech", "full-duplex", "tempo-real", "multimodal", "agente", "produto"],
+      "description_pt": "Nova geracao de modelos de voz full-duplex do ChatGPT, capaz de ouvir e falar simultaneamente, lidar melhor com pausas e interrupcoes e delegar busca ou raciocinio a modelos de fronteira.",
+      "source": {
+        "title": "Introducing GPT-Live",
+        "url": "https://openai.com/index/introducing-gpt-live/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 8 de julho de 2026 anuncia GPT-Live-1 para planos pagos e GPT-Live-1 mini para o plano gratuito."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-4-5",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok 4.5",
+      "release_date": "2026-07-08",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "trabalho", "API", "ferramentas"],
+      "description_pt": "Modelo de fronteira da xAI para codigo, tarefas agenticas e trabalho de conhecimento, treinado em colaboracao com a Cursor e disponibilizado no Grok Build, Cursor e API da xAI.",
+      "source": {
+        "title": "Introducing Grok 4.5",
+        "url": "https://x.ai/news/grok-4-5",
+        "publisher": "xAI",
+        "date_basis": "Post oficial publicado em 8 de julho de 2026 anuncia disponibilidade imediata do Grok 4.5 no produto e na API, exceto inicialmente na Uniao Europeia."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-robostral-navigate",
+      "company": "Mistral AI",
+      "family": "Robostral",
+      "model": "Robostral Navigate",
+      "release_date": "2026-07-08",
+      "release_stage": "lancamento/pesquisa",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "navegacao", "visao", "VLM", "8B", "RGB", "embodied-AI", "reinforcement-learning"],
+      "description_pt": "Modelo de 8B para navegacao robotica autonoma a partir de uma unica camera RGB e instrucoes em linguagem natural, generalizando entre robos com rodas, pernas ou voo.",
+      "source": {
+        "title": "Introducing Robostral Navigate",
+        "url": "https://mistral.ai/news/robostral-navigate/",
+        "publisher": "Mistral AI",
+        "date_basis": "Post e registro oficial de ciclo de vida publicados em 8 de julho de 2026 apresentam o Robostral Navigate."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-5-6",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-5.6 Sol / Terra / Luna",
+      "release_date": "2026-07-09",
+      "release_stage": "GA/ChatGPT/Codex/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "codigo", "agente", "computador", "longo-contexto", "API", "multi-agent"],
+      "description_pt": "Familia GPT-5.6 com Sol como flagship, Terra equilibrando capacidade e custo, e Luna otimizado para velocidade e economia. As tres variantes chegaram ao ChatGPT, Codex e API com contexto de 1,05M tokens.",
+      "source": {
+        "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
+        "url": "https://openai.com/index/gpt-5-6/",
+        "publisher": "OpenAI",
+        "date_basis": "Post oficial publicado em 9 de julho de 2026 anuncia disponibilidade geral de GPT-5.6 Sol, Terra e Luna."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-muse-spark-1-1",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Spark 1.1",
+      "release_date": "2026-07-09",
+      "release_stage": "produto/API public preview",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video", "multimodal", "raciocinio", "codigo", "agente", "computador", "longo-contexto", "API", "multi-agent"],
+      "description_pt": "Atualizacao multimodal do Muse Spark para tarefas agenticas, uso de ferramentas e computador, codigo e contexto de 1M tokens, com acesso no Meta AI e na nova Meta Model API em public preview.",
+      "source": {
+        "title": "Introducing Muse Spark 1.1",
+        "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+        "publisher": "Meta",
+        "date_basis": "Post oficial publicado em 9 de julho de 2026 anuncia Muse Spark 1.1 no Meta AI e na Meta Model API."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemma-4-12b",
+      "company": "Google",
+      "family": "Gemma",
+      "model": "Gemma 4 12B",
+      "release_date": "2026-06-03",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "multimodal", "raciocinio", "agente", "12B", "edge", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Modelo multimodal aberto de 12B para execucao local em laptops com 16 GB de memoria, usando arquitetura unificada sem encoders separados para visao e audio.",
+      "source": {
+        "title": "Introducing Gemma 4 12B: a unified, encoder-free multimodal model",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12B/",
+        "publisher": "Google DeepMind",
+        "date_basis": "Post oficial publicado em 3 de junho de 2026 libera os checkpoints do Gemma 4 12B sob Apache 2.0."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-5-live-translate",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.5 Live Translate",
+      "release_date": "2026-06-09",
+      "release_stage": "produto/API public preview",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "speech-to-speech", "traducao", "tempo-real", "70-idiomas", "Gemini Live API", "SynthID"],
+      "description_pt": "Modelo de traducao voz-a-voz quase em tempo real para mais de 70 idiomas, com deteccao automatica de lingua e preservacao de entonacao, ritmo e tom do falante.",
+      "source": {
+        "title": "Fluid, natural voice translation with Gemini 3.5 Live Translate",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 9 de junho de 2026 anuncia rollout em produtos Google e public preview na Gemini Live API."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-diffusiongemma",
+      "company": "Google",
+      "family": "Gemma",
+      "model": "DiffusionGemma 26B-A4B",
+      "release_date": "2026-06-10",
+      "release_stage": "experimental/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "diffusion-LLM", "MoE", "26B", "3.8B-ativos", "alta-velocidade", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Modelo experimental aberto de geracao de texto por difusao, com 26B parametros totais e 3,8B ativos, que gera e refina blocos de tokens em paralelo para acelerar inferencia local.",
+      "source": {
+        "title": "DiffusionGemma: 4x faster text generation",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/",
+        "publisher": "Google",
+        "date_basis": "Post oficial publicado em 10 de junho de 2026 libera pesos experimentais do DiffusionGemma sob Apache 2.0."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-nano-banana-2-lite",
+      "company": "Google",
+      "family": "Gemini Image",
+      "model": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+      "release_date": "2026-06-30",
+      "release_stage": "API/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "geracao", "edicao", "alta-velocidade", "baixo-custo", "Gemini API", "Google AI Studio", "Gemini Enterprise"],
+      "description_pt": "Variante mais rapida e economica da familia Nano Banana 2, otimizada para geracao e edicao de imagens em alto volume, prototipagem e baixa latencia.",
+      "source": {
+        "title": "Start building with Nano Banana 2 Lite and Gemini Omni Flash",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/",
+        "publisher": "Google DeepMind",
+        "date_basis": "Post oficial publicado em 30 de junho de 2026 anuncia disponibilidade do Nano Banana 2 Lite no Google AI Studio, Gemini API e Gemini Enterprise."
       },
       "confidence": "alta"
     }
