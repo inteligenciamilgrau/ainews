@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Revisao completa da Alibaba/Qwen: adicionadas 17 entradas cobrindo Qwen-7B (2023), Qwen-VL, Qwen-72B/1.8B, Qwen2-Audio, Qwen2-VL, Qwen2.5-Coder, QwQ-32B-Preview, QVQ-72B-Preview, Qwen2.5-Max, Qwen2.5-VL, QwQ-32B, Qwen2.5-Omni, Qwen3-Coder, Qwen-Image, Qwen3-VL, Qwen3-Max e Wan2.5. Antes: revisao da Apple (Ferret, OpenELM, DCLM, Depth Pro, AIM, FastVLM e Apple Intelligence, 11 novas entradas)."
+      "description_pt": "Revisao de Black Forest Labs, Cohere e Core42: BFL ganhou FLUX1.1 [pro], Ultra/Raw, FLUX.1 Tools, Kontext [dev] e Krea [dev] (5 entradas); Cohere ganhou Command R, R+, R7B, Rerank 3.5, Embed 4, Command A Vision/Reasoning/Translate (8 entradas); Core42 ganhou Jais 30B, Jais Family/70B e Jais 2 (3 entradas). Antes: revisao completa da Alibaba/Qwen com 17 novas entradas."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -5552,6 +5552,68 @@
       "confidence": "alta"
     },
     {
+      "id": "black-forest-labs-flux-1-1-pro",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX1.1 [pro]",
+      "release_date": "2024-10-02",
+      "release_stage": "API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "API"],
+      "description_pt": "Modelo topo de linha da BFL lancado junto do beta da BFL API, com geracao ate 6x mais rapida que o FLUX.1 [pro] e ganhos em qualidade, aderencia ao prompt e diversidade das imagens.",
+      "source": {
+        "title": "Announcing FLUX1.1 [pro] and the BFL API",
+        "url": "https://bfl.ai/announcing-flux-1-1-pro-and-the-bfl-api/",
+        "publisher": "Black Forest Labs",
+        "date_basis": "Post oficial publicado em 2 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-1-1-pro-ultra-raw",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX1.1 [pro] Ultra / Raw",
+      "release_date": "2024-11-06",
+      "release_stage": "API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "alta-resolucao", "fotorrealismo", "API"],
+      "description_pt": "Novos modos do FLUX1.1 [pro]: o modo Ultra gera imagens em 4x a resolucao padrao (ate 4MP) mantendo velocidade, e o modo Raw entrega estetica de fotografia candida, mais natural e diversa em pessoas e cenas.",
+      "source": {
+        "title": "Introducing FLUX1.1 [pro] Ultra and Raw Modes",
+        "url": "https://bfl.ai/blog/24-11-06-ultra",
+        "publisher": "Black Forest Labs",
+        "date_basis": "Post oficial publicado em 6 de novembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-1-tools",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX.1 Tools (Fill/Depth/Canny/Redux)",
+      "release_date": "2024-11-21",
+      "release_stage": "API/open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "inpainting", "controlnet", "open-weights"],
+      "description_pt": "Conjunto de ferramentas de edicao e controle sobre os modelos FLUX: Fill (inpainting e outpainting com mascara), Depth e Canny (guia estrutural por profundidade e bordas) e Redux (mistura e recriacao de imagens de referencia), em variantes Pro e Dev.",
+      "sources": [
+        {
+          "title": "Introducing FLUX.1 Tools",
+          "url": "https://bfl.ai/announcements/24-11-21-tools",
+          "publisher": "Black Forest Labs",
+          "date_basis": "Post oficial publicado em 21 de novembro de 2024."
+        },
+        {
+          "title": "black-forest-labs/FLUX.1-Fill-dev",
+          "url": "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev",
+          "publisher": "Black Forest Labs",
+          "date_basis": "Model cards oficiais dos FLUX.1 Tools no Hugging Face."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "black-forest-labs-flux-1-kontext",
       "company": "Black Forest Labs",
       "family": "FLUX",
@@ -5567,6 +5629,50 @@
         "publisher": "Black Forest Labs",
         "date_basis": "Pagina oficial registra o lancamento de FLUX.1 Kontext em 29 de maio de 2025."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-1-kontext-dev",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX.1 Kontext [dev]",
+      "release_date": "2025-06-26",
+      "release_stage": "open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "in-context", "open-weights"],
+      "description_pt": "Versao de pesos abertos do FLUX.1 Kontext, um modelo de 12B para edicao de imagens guiada por instrucoes que roda em hardware de consumo, liberado para pesquisa e desenvolvimento sob licenca nao comercial.",
+      "source": {
+        "title": "FLUX.1 Kontext [dev]",
+        "url": "https://bfl.ai/models/flux-kontext",
+        "publisher": "Black Forest Labs",
+        "date_basis": "Pesos abertos do FLUX.1 Kontext [dev] liberados em 26 de junho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-1-krea-dev",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX.1 Krea [dev]",
+      "release_date": "2025-07-31",
+      "release_stage": "open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "fotorrealismo", "open-weights"],
+      "description_pt": "Modelo aberto de texto-para-imagem focado em fotorrealismo, desenvolvido em parceria com a Krea AI como versao aberta do Krea 1; evita o 'look de IA' e as texturas saturadas, sendo compativel como drop-in do FLUX.1 [dev].",
+      "sources": [
+        {
+          "title": "FLUX.1 Krea [dev]: An 'Opinionated' Text-to-Image Model",
+          "url": "https://bfl.ai/blog/flux-1-krea-dev",
+          "publisher": "Black Forest Labs",
+          "date_basis": "Post oficial publicado em 31 de julho de 2025."
+        },
+        {
+          "title": "black-forest-labs/FLUX.1-Krea-dev",
+          "url": "https://huggingface.co/black-forest-labs/FLUX.1-Krea-dev",
+          "publisher": "Black Forest Labs / Krea",
+          "date_basis": "Model card oficial dos pesos abertos do FLUX.1 Krea [dev]."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -7768,6 +7874,150 @@
       "confidence": "alta"
     },
     {
+      "id": "cohere-command-r",
+      "company": "Cohere",
+      "family": "Command",
+      "model": "Command R",
+      "release_date": "2024-03-11",
+      "release_stage": "API/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "RAG", "tool-use", "multilingue"],
+      "description_pt": "Modelo escalavel de 35B da Cohere voltado a RAG em producao e uso de ferramentas, com contexto de 128K e forte suporte multilingue; recebeu uma atualizacao (command-r-08-2024) em agosto de 2024.",
+      "source": {
+        "title": "Command R: Retrieval Augmented Generation at Production Scale",
+        "url": "https://cohere.com/blog/command-r",
+        "publisher": "Cohere",
+        "date_basis": "Post oficial publicado em 11 de marco de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "cohere-command-r-plus",
+      "company": "Cohere",
+      "family": "Command",
+      "model": "Command R+",
+      "release_date": "2024-04-04",
+      "release_stage": "API/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "RAG", "tool-use", "multilingue", "agente"],
+      "description_pt": "Modelo topo de linha da familia Command R da Cohere, com tool use multi-step, RAG com citacoes e 10 idiomas de negocio; recebeu atualizacao (command-r-plus-08-2024) em agosto de 2024.",
+      "source": {
+        "title": "Introducing Command R+: A Scalable LLM Built for Business",
+        "url": "https://cohere.com/blog/command-r-plus-microsoft-azure",
+        "publisher": "Cohere",
+        "date_basis": "Post oficial publicado em 4 de abril de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "cohere-rerank-3-5",
+      "company": "Cohere",
+      "family": "Rerank",
+      "model": "Rerank 3.5",
+      "release_date": "2024-12-02",
+      "release_stage": "API",
+      "ai_category": "LLMs",
+      "model_type": ["reranking", "busca-semantica", "RAG", "multilingue"],
+      "description_pt": "Modelo de reranking da Cohere para busca empresarial precisa em mais de 100 idiomas, melhorando a relevancia de sistemas de RAG e pesquisa sobre dados complexos.",
+      "source": {
+        "title": "Introducing Rerank 3.5: Precise AI Search",
+        "url": "https://cohere.com/blog/rerank-3pt5",
+        "publisher": "Cohere",
+        "date_basis": "Post oficial publicado em 2 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "cohere-command-r7b",
+      "company": "Cohere",
+      "family": "Command",
+      "model": "Command R7B",
+      "release_date": "2024-12-13",
+      "release_stage": "API/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "RAG", "tool-use", "on-device", "multilingue"],
+      "description_pt": "Menor e mais rapido modelo da familia Command R, com 7B parametros para rodar em hardware de consumo, mantendo boa performance em RAG, matematica, codigo e uso de ferramentas.",
+      "source": {
+        "title": "Announcing Command R7B",
+        "url": "https://docs.cohere.com/v2/changelog/command-r-7b",
+        "publisher": "Cohere",
+        "date_basis": "Changelog oficial registra o lancamento em 13 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "cohere-embed-4",
+      "company": "Cohere",
+      "family": "Embed",
+      "model": "Embed 4",
+      "release_date": "2025-04-15",
+      "release_stage": "API",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["embeddings", "multimodal", "busca-semantica", "RAG", "multilingue"],
+      "description_pt": "Modelo multimodal de embeddings da Cohere para busca empresarial, capaz de indexar texto e imagens (incluindo documentos, tabelas e slides) em mais de 100 idiomas com um unico modelo.",
+      "source": {
+        "title": "Introducing Embed 4: Multimodal search for business",
+        "url": "https://cohere.com/blog/embed-4",
+        "publisher": "Cohere",
+        "date_basis": "Post oficial publicado em abril de 2025 (Embed 4)."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "cohere-command-a-vision",
+      "company": "Cohere",
+      "family": "Command",
+      "model": "Command A Vision",
+      "release_date": "2025-07-31",
+      "release_stage": "API/open weights",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "multimodal", "documentos", "empresarial"],
+      "description_pt": "Modelo multimodal empresarial da Cohere focado em entender imagens, graficos, tabelas e documentos junto com texto, para fluxos agenticos e analise visual de negocios.",
+      "source": {
+        "title": "Announcing Cohere's Command A Vision Model",
+        "url": "https://docs.cohere.com/v1/changelog/2025-07-31-command-a-vision",
+        "publisher": "Cohere",
+        "date_basis": "Changelog oficial registra o lancamento em 31 de julho de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "cohere-command-a-reasoning",
+      "company": "Cohere",
+      "family": "Command",
+      "model": "Command A Reasoning",
+      "release_date": "2025-08-21",
+      "release_stage": "API/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agente", "tool-use", "empresarial"],
+      "description_pt": "Modelo de raciocinio da Cohere, um LLM de 111B para raciocinio avancado, workflows agenticos e uso de ferramentas em contexto empresarial, com controle do orcamento de tokens de pensamento.",
+      "source": {
+        "title": "Command A Reasoning",
+        "url": "https://cohere.com/blog/command-a-reasoning",
+        "publisher": "Cohere",
+        "date_basis": "Anuncio oficial em agosto de 2025 (id de modelo command-a-reasoning-08-2025)."
+      },
+      "confidence": "media"
+    },
+    {
+      "id": "cohere-command-a-translate",
+      "company": "Cohere",
+      "family": "Command",
+      "model": "Command A Translate",
+      "release_date": "2025-08-28",
+      "release_stage": "API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "traducao", "multilingue", "empresarial"],
+      "description_pt": "Modelo de traducao da Cohere para uso empresarial, cobrindo traducao de qualidade em muitos idiomas com controle de terminologia e adequacao de dominio.",
+      "source": {
+        "title": "Announcing Cohere's Command A Translate Model",
+        "url": "https://docs.cohere.com/changelog/2025-08-28-command-a-translate",
+        "publisher": "Cohere",
+        "date_basis": "Changelog oficial registra o lancamento em 28 de agosto de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "runway-gen-4",
       "company": "Runway",
       "family": "Gen",
@@ -8121,6 +8371,76 @@
           "url": "https://www.core42.ai/",
           "publisher": "Core42",
           "date_basis": "Pagina oficial da Core42 destaca pesquisa e infraestrutura por tras de modelos como Jais."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "core42-jais-30b",
+      "company": "Core42",
+      "family": "Jais",
+      "model": "Jais 30B",
+      "release_date": "2023-11-09",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "arabe", "ingles", "open-weights"],
+      "description_pt": "Versao ampliada do Jais para 30B parametros, criada por Inception/Core42, MBZUAI e Cerebras e treinada no supercomputador Condor Galaxy-1, estabelecendo novo patamar para LLMs abertos arabe-centricos.",
+      "sources": [
+        {
+          "title": "Core42 Sets New Benchmark for Arabic LLMs with the Release of Jais 30B",
+          "url": "https://www.cerebras.ai/press-release/core42-sets-new-benchmark-for-arabic-large-language-models-with-the-release-of-jais-30b",
+          "publisher": "Core42 / Cerebras",
+          "date_basis": "Comunicado oficial de lancamento do Jais 30B em novembro de 2023."
+        },
+        {
+          "title": "inceptionai/jais-30b-v1",
+          "url": "https://huggingface.co/inceptionai/jais-30b-v1",
+          "publisher": "Inception / Core42",
+          "date_basis": "Model card oficial do Jais 30B."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "core42-jais-family",
+      "company": "Core42",
+      "family": "Jais",
+      "model": "Jais Family (incl. Jais 70B)",
+      "release_date": "2024-08-05",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "arabe", "ingles", "open-weights"],
+      "description_pt": "Lancamento de uma familia de 20 modelos abertos de fundacao e chat em oito escalas (590M a 70B), incluindo o Jais 70B e variantes 'adapted' baseadas em Llama, para ampliar o processamento de linguagem natural em arabe.",
+      "source": {
+        "title": "G42 launches JAIS 70B and 20 other AI Models to Champion Arabic NLP",
+        "url": "https://inceptionai.ai/2024/08/05/g42-launches-jais-70b-and-20-other-ai-models-to-champion-arabic-natural-language-processing/index.html",
+        "publisher": "Inception / G42",
+        "date_basis": "Anuncio oficial da Inception/G42 publicado em 5 de agosto de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "core42-jais-2",
+      "company": "Core42",
+      "family": "Jais",
+      "model": "Jais 2",
+      "release_date": "2025-12-09",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "raciocinio", "arabe", "ingles", "open-weights"],
+      "description_pt": "Nova geracao do principal LLM aberto arabe, construida do zero com 70B parametros e treinada no maior dataset arabe-first ate hoje (600B tokens arabes), com arquitetura redesenhada, melhor raciocinio e fluencia em arabe padrao, dialetos regionais e ingles.",
+      "sources": [
+        {
+          "title": "Inception, Cerebras and MBZUAI Release Jais 2",
+          "url": "https://www.prnewswire.com/ae/news-releases/inception-cerebras-and-mbzuai-release-jais-2--the-next-generation-of-the-worlds-leading-arabic-open-weight-llm-302636745.html",
+          "publisher": "Inception / Cerebras / MBZUAI",
+          "date_basis": "Comunicado oficial de lancamento do Jais 2 em 9 de dezembro de 2025."
+        },
+        {
+          "title": "Jais 2: A Blueprint for Sovereign AI",
+          "url": "https://www.cerebras.ai/blog/jais2",
+          "publisher": "Cerebras",
+          "date_basis": "Post tecnico da Cerebras sobre o treinamento do Jais 2."
         }
       ],
       "confidence": "alta"
