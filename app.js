@@ -8,6 +8,7 @@ const MAP_SATELLITE_TILE_URL = "https://server.arcgisonline.com/ArcGIS/rest/serv
 const MAP_ADMIN_BOUNDARY_LAYER_IDS = ["ai-admin-boundaries-casing", "ai-admin-boundaries"];
 const MAP_FLAG_ICON_PREFIX = "ai-location-flag-";
 const MAP_FLAG_MIN_ZOOM = 3.2;
+const MAP_OVERLAP_CLUSTER_LIMIT = 3;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
 const VALID_VIEWS = new Set(["timeline", "years", "map", "table", "sources", "history"]);
 const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
@@ -63,7 +64,11 @@ const state = {
   mapFullscreen: false,
   mapPopup: null,
   mapPreviewPopup: null,
-  mapPreviewKey: null
+  mapPreviewKey: null,
+  mapClusterPopup: null,
+  mapClusterHideTimer: null,
+  mapHtmlMarkers: [],
+  mapMarkerLocations: []
 };
 
 const companyColors = {
@@ -2338,6 +2343,7 @@ function bindEvents() {
   window.addEventListener("resize", () => {
     syncStickyOffsets();
     state.companyMap?.resize();
+    requestAnimationFrame(() => updateMapOverlapMarkers(state.mapMarkerLocations));
   });
 
   els.searchInput.addEventListener("input", (event) => {
@@ -2735,6 +2741,7 @@ function setMapFullscreen(enabled) {
 
   requestAnimationFrame(() => {
     state.companyMap?.resize();
+    updateMapOverlapMarkers(state.mapMarkerLocations);
     if (state.mapFullscreen) {
       scrollSelectedMapLocationIntoView();
     }
@@ -3171,6 +3178,12 @@ function initCompanyMap() {
   map.on("zoom", () => {
     syncMapScaleFromMap();
   });
+  map.on("moveend", () => {
+    updateMapOverlapMarkers(state.mapMarkerLocations);
+  });
+  map.on("zoomend", () => {
+    updateMapOverlapMarkers(state.mapMarkerLocations);
+  });
 
   setTimeout(() => {
     if (!els.mapLoading.hidden && state.companyMap) {
@@ -3383,6 +3396,7 @@ function addMapLocationLayers() {
     source: "ai-locations",
     minzoom: MAP_FLAG_MIN_ZOOM,
     layout: {
+      "visibility": "none",
       "icon-image": ["get", "flagIcon"],
       "icon-anchor": "bottom",
       "icon-size": ["interpolate", ["linear"], ["zoom"], 4, 0.72, 8, 0.88, 14, 1.04, 16, 1.12],
@@ -3437,12 +3451,290 @@ function updateCompanyMap(locations) {
 
   registerMapFlagImages(locations);
   map.getSource("ai-locations").setData(buildMapLocationsGeoJson(locations));
+  state.mapMarkerLocations = locations;
+  updateMapOverlapMarkers(locations);
   syncMapScaleFromMap();
 
   if (!state.mapHasInitialView && locations.length) {
     state.mapHasInitialView = true;
     applyMapScale(state.mapScale, { animate: false });
   }
+}
+
+function updateMapOverlapMarkers(locations = []) {
+  const map = state.companyMap;
+  if (!map || typeof maplibregl === "undefined") return;
+
+  clearMapHtmlMarkers();
+  state.mapMarkerLocations = locations;
+  hideMapClusterPopup();
+
+  if (!locations.length) {
+    return;
+  }
+
+  const groups = groupMapLocationsByScreenOverlap(locations);
+  groups.forEach((group) => {
+    if (group.locations.length > MAP_OVERLAP_CLUSTER_LIMIT) {
+      addMapClusterMarker(group);
+      return;
+    }
+
+    const offsets = mapMarkerOffsetsForGroup(group.locations.length);
+    group.locations.forEach((location, index) => {
+      addMapFlagHtmlMarker(location, offsets[index], group.locations.length);
+    });
+  });
+}
+
+function clearMapHtmlMarkers() {
+  state.mapHtmlMarkers.forEach((marker) => marker.remove());
+  state.mapHtmlMarkers = [];
+}
+
+function groupMapLocationsByScreenOverlap(locations) {
+  const map = state.companyMap;
+  const radius = mapOverlapRadiusPx();
+  const points = locations
+    .filter((location) => Number.isFinite(location.lat) && Number.isFinite(location.lng))
+    .map((location, index) => ({
+      index,
+      location,
+      point: map.project([location.lng, location.lat])
+    }));
+
+  const used = new Set();
+  const groups = [];
+
+  points.forEach((point) => {
+    if (used.has(point.index)) return;
+
+    const group = [point];
+    used.add(point.index);
+
+    let changed = true;
+    while (changed) {
+      changed = false;
+      points.forEach((candidate) => {
+        if (used.has(candidate.index)) return;
+        const overlaps = group.some((member) => screenDistance(member.point, candidate.point) <= radius);
+        if (!overlaps) return;
+
+        group.push(candidate);
+        used.add(candidate.index);
+        changed = true;
+      });
+    }
+
+    groups.push(mapOverlapGroup(group));
+  });
+
+  return groups;
+}
+
+function mapOverlapGroup(points) {
+  const locations = points
+    .map((point) => point.location)
+    .sort((a, b) => (
+      a.kind.localeCompare(b.kind)
+      || mapItemTitle(a).localeCompare(mapItemTitle(b))
+    ));
+  const centerPoint = points.reduce((center, point) => ({
+    x: center.x + point.point.x / points.length,
+    y: center.y + point.point.y / points.length
+  }), { x: 0, y: 0 });
+  const center = state.companyMap.unproject([centerPoint.x, centerPoint.y]);
+
+  return {
+    locations,
+    center: [center.lng, center.lat],
+    centerPoint
+  };
+}
+
+function mapOverlapRadiusPx() {
+  const zoom = state.companyMap?.getZoom?.() || 0;
+  if (zoom < 3) return 62;
+  if (zoom < 6) return 52;
+  if (zoom < 10) return 42;
+  return 34;
+}
+
+function screenDistance(a, b) {
+  return Math.hypot(a.x - b.x, a.y - b.y);
+}
+
+function mapMarkerOffsetsForGroup(count) {
+  if (count <= 1) return [{ x: 0, y: 0 }];
+  if (count === 2) {
+    return [
+      { x: -44, y: -34 },
+      { x: 44, y: -34 }
+    ];
+  }
+
+  return [
+    { x: 0, y: -58 },
+    { x: -50, y: -18 },
+    { x: 50, y: -18 }
+  ];
+}
+
+function addMapFlagHtmlMarker(location, offset, groupSize) {
+  const map = state.companyMap;
+  const element = document.createElement("div");
+  const leaderLength = Math.max(Math.hypot(offset.x, offset.y) - 12, 0);
+  const leaderAngle = Math.atan2(offset.y, offset.x) * (180 / Math.PI);
+
+  element.className = `map-overlap-anchor${groupSize > 1 ? " spread" : " single"}`;
+  element.style.setProperty("--offset-x", `${offset.x}px`);
+  element.style.setProperty("--offset-y", `${offset.y}px`);
+  element.style.setProperty("--leader-length", `${leaderLength}px`);
+  element.style.setProperty("--leader-angle", `${leaderAngle}deg`);
+  element.style.setProperty("--marker-color", colorForMapItem(location));
+
+  const kindClass = location.kind === "datacenter" ? " datacenter" : location.kind === "lab" ? " lab" : "";
+  const selectedClass = location.mapKey === state.selectedMapCompany ? " selected" : "";
+  element.innerHTML = `
+    <span class="map-marker-leader" aria-hidden="true"></span>
+    <button class="map-flag-marker${kindClass}${selectedClass}" type="button" title="${escapeAttribute(mapItemTitle(location))}">
+      <span class="map-marker-pole" aria-hidden="true"></span>
+      <span class="map-marker-pin" aria-hidden="true"></span>
+      <span class="map-marker-flag">${escapeHtml(mapItemInitials(location))}</span>
+      <span class="map-marker-label">${escapeHtml(mapItemTitle(location))}</span>
+    </button>
+  `;
+
+  const button = element.querySelector("button");
+  button.addEventListener("click", () => {
+    hideMapClusterPopup();
+    hideMapPreviewPopup();
+    selectCompanyOnMap(location, { popup: true, focus: false });
+  });
+  button.addEventListener("mouseenter", () => {
+    showMapPreviewPopup(location, [location.lng, location.lat]);
+  });
+  button.addEventListener("mouseleave", hideMapPreviewPopup);
+  button.addEventListener("focus", () => {
+    showMapPreviewPopup(location, [location.lng, location.lat]);
+  });
+  button.addEventListener("blur", hideMapPreviewPopup);
+
+  const marker = new maplibregl.Marker({ element, anchor: "center" })
+    .setLngLat([location.lng, location.lat])
+    .addTo(map);
+  state.mapHtmlMarkers.push(marker);
+}
+
+function addMapClusterMarker(group) {
+  const map = state.companyMap;
+  const hasSelected = group.locations.some((location) => location.mapKey === state.selectedMapCompany);
+  const element = document.createElement("button");
+  element.className = `map-cluster-marker${hasSelected ? " selected" : ""}`;
+  element.type = "button";
+  element.title = `${group.locations.length} pontos sobrepostos`;
+  element.innerHTML = `
+    <strong>${group.locations.length}</strong>
+    <span>pontos</span>
+  `;
+
+  element.addEventListener("mouseenter", () => {
+    showMapClusterPopup(group);
+  });
+  element.addEventListener("mouseleave", queueHideMapClusterPopup);
+  element.addEventListener("focus", () => {
+    showMapClusterPopup(group);
+  });
+  element.addEventListener("blur", queueHideMapClusterPopupIfFocusLeaves);
+  element.addEventListener("click", () => {
+    showMapClusterPopup(group);
+  });
+
+  const marker = new maplibregl.Marker({ element, anchor: "center" })
+    .setLngLat(group.center)
+    .addTo(map);
+  state.mapHtmlMarkers.push(marker);
+}
+
+function showMapClusterPopup(group) {
+  const map = state.companyMap;
+  if (!map || typeof maplibregl === "undefined") return;
+
+  cancelMapClusterPopupHide();
+  hideMapPreviewPopup();
+  state.mapPopup?.remove();
+  state.mapPopup = null;
+  state.mapClusterPopup?.remove();
+
+  state.mapClusterPopup = new maplibregl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+    closeOnMove: false,
+    className: "map-cluster-popup",
+    offset: 18,
+    maxWidth: "340px"
+  })
+    .setLngLat(group.center)
+    .setHTML(mapClusterPopupHtml(group.locations))
+    .addTo(map);
+
+  const popupElement = state.mapClusterPopup.getElement();
+  popupElement.addEventListener("mouseenter", cancelMapClusterPopupHide);
+  popupElement.addEventListener("mouseleave", queueHideMapClusterPopup);
+  popupElement.querySelectorAll("[data-map-cluster-location]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const location = group.locations.find((item) => item.mapKey === button.dataset.mapClusterLocation);
+      if (!location) return;
+      hideMapClusterPopup();
+      selectCompanyOnMap(location, { popup: true });
+    });
+  });
+}
+
+function mapClusterPopupHtml(locations) {
+  return `
+    <div class="map-cluster-popup-panel">
+      <span>${locations.length} marcadores sobrepostos</span>
+      <strong>Escolha um ponto</strong>
+      <div class="map-cluster-list">
+        ${locations.map((location) => `
+          <button type="button" data-map-cluster-location="${escapeAttribute(location.mapKey)}" style="--company-color:${colorForMapItem(location)}">
+            <span>${escapeHtml(mapItemInitials(location))}</span>
+            <span>
+              <strong>${escapeHtml(mapItemTitle(location))}</strong>
+              <small>${escapeHtml(mapKindLabel(location))} - ${escapeHtml(location.city || location.region || "")}, ${escapeHtml(location.country || "")}</small>
+            </span>
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function queueHideMapClusterPopup() {
+  cancelMapClusterPopupHide();
+  state.mapClusterHideTimer = window.setTimeout(hideMapClusterPopup, 220);
+}
+
+function queueHideMapClusterPopupIfFocusLeaves() {
+  cancelMapClusterPopupHide();
+  state.mapClusterHideTimer = window.setTimeout(() => {
+    const popupElement = state.mapClusterPopup?.getElement();
+    if (popupElement?.contains(document.activeElement)) return;
+    hideMapClusterPopup();
+  }, 220);
+}
+
+function cancelMapClusterPopupHide() {
+  if (!state.mapClusterHideTimer) return;
+  window.clearTimeout(state.mapClusterHideTimer);
+  state.mapClusterHideTimer = null;
+}
+
+function hideMapClusterPopup() {
+  cancelMapClusterPopupHide();
+  state.mapClusterPopup?.remove();
+  state.mapClusterPopup = null;
 }
 
 function registerMapFlagImages(locations) {
@@ -3909,6 +4201,7 @@ function showMapPopup(location) {
   if (!map || typeof maplibregl === "undefined") return;
 
   hideMapPreviewPopup();
+  hideMapClusterPopup();
   state.mapPopup?.remove();
   state.mapPopup = new maplibregl.Popup({ closeButton: true, closeOnClick: false, offset: 14, maxWidth: "300px" })
     .setLngLat([location.lng, location.lat])
@@ -3920,6 +4213,7 @@ function showMapPreviewPopup(location, lngLat) {
   const map = state.companyMap;
   if (!location || !map || typeof maplibregl === "undefined") return;
 
+  hideMapClusterPopup();
   if (state.mapPreviewKey === location.mapKey && state.mapPreviewPopup) {
     state.mapPreviewPopup.setLngLat(lngLat || [location.lng, location.lat]);
     return;
