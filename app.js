@@ -2975,7 +2975,16 @@ function renderDetails(model) {
       <div><dt>Estágio</dt><dd>${escapeHtml(model.release_stage)}</dd></div>
       <div><dt>Tipo de IA</dt><dd>${model.ai_category.map(categoryPill).join("")}</dd></div>
       <div><dt>Tipos</dt><dd>${model.model_type.map(typePill).join("")}</dd></div>
-      <div><dt>Confiança</dt><dd>${escapeHtml(model.confidence || "não informada")}</dd></div>
+      <div><dt>Confiança do registro</dt><dd>${escapeHtml(model.confidence || "não informada")}</dd></div>
+      ${model.date_precision ? `
+        <div class="date-precision-detail">
+          <dt>Precisão da data</dt>
+          <dd>
+            ${escapeHtml(model.date_precision)}
+            ${model.date_note_pt ? `<span class="date-precision-note">${escapeHtml(model.date_note_pt)}</span>` : ""}
+          </dd>
+        </div>
+      ` : ""}
     </dl>
     <p>${escapeHtml(model.description_pt || "")}</p>
     ${renderSourceBasis(model)}

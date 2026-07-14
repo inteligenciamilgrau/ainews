@@ -558,6 +558,19 @@ dd {
   font-weight: 650;
 }
 
+.date-precision-detail {
+  grid-column: 1 / -1;
+}
+
+.date-precision-note {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 450;
+  line-height: 1.35;
+}
+
 .type-pill,
 .company-chip {
   display: inline-flex;
