@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Mapeamento completo das familias da Ai2 (ELMo, OLMo, OLMoE, Tulu, Molmo, MolmoAct, OLMoASR, FlexOlmo) e da AI21 Labs (Jurassic e Jamba), com 22 novas entradas verificadas em fontes oficiais."
+      "description_pt": "Revisao completa da AI Singapore: mapeada a familia SEA-LION (v1 2023, v2 2024, v3 2024, v3.5 2025, v4 2025, Qwen-SEA-LION-v4 2025, v4.5 2026) e as linhas SEA-Guard e SEA-LION Embedding, com 8 novas entradas e detalhamento do v4.5. Antes: mapeamento das familias da Ai2 e AI21 Labs com 22 novas entradas."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -7709,21 +7709,205 @@
       "confidence": "alta"
     },
     {
+      "id": "ai-singapore-sea-lion-v1",
+      "company": "AI Singapore",
+      "family": "SEA-LION",
+      "model": "SEA-LION v1 (3B/7B)",
+      "release_date": "2023-12-01",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "southeast-asian-languages", "open-source"],
+      "description_pt": "Primeira geracao do SEA-LION da AI Singapore, com modelos de 3B e 7B pre-treinados do zero em arquitetura MPT sobre 980B tokens de 11 linguas do Sudeste Asiatico, usando tokenizer customizado (SEABPE) para a regiao.",
+      "sources": [
+        {
+          "title": "SEA-LION v1 | SEA-LION Documentation",
+          "url": "https://docs.sea-lion.ai/models/sea-lion-v1",
+          "publisher": "AI Singapore",
+          "date_basis": "Documentacao oficial registra o lancamento do SEA-LION v1 em dezembro de 2023, sem dia especifico; a data usa o primeiro dia do mes."
+        },
+        {
+          "title": "aisingapore/SEA-LION-v1-7B",
+          "url": "https://huggingface.co/aisingapore/SEA-LION-v1-7B",
+          "publisher": "AI Singapore",
+          "date_basis": "Model card oficial descreve o pre-treinamento do zero em 11 linguas do Sudeste Asiatico."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "ai-singapore-sea-lion-v2",
+      "company": "AI Singapore",
+      "family": "SEA-LION",
+      "model": "Llama-SEA-LION-v2-8B",
+      "release_date": "2024-07-31",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "southeast-asian-languages", "open-source"],
+      "description_pt": "Segunda geracao do SEA-LION, com pre-treinamento continuado sobre o Llama 3 8B Instruct usando cerca de 48B tokens de linguas do Sudeste Asiatico (ingles, indonesio, tamil, tailandes e vietnamita) e contexto de 8K tokens.",
+      "sources": [
+        {
+          "title": "SEA-LION v2 | SEA-LION Documentation",
+          "url": "https://docs.sea-lion.ai/models/sea-lion-v2",
+          "publisher": "AI Singapore",
+          "date_basis": "Documentacao oficial registra o lancamento em julho de 2024; cobertura de imprensa de 7 de agosto de 2024 situa a disponibilidade no fim de julho."
+        },
+        {
+          "title": "Singapore's Sea-Lion V2 AI Model Is Out",
+          "url": "https://www.cdotrends.com/story/4152/singapores-sea-lion-v2-ai-model-out",
+          "publisher": "CDOTrends",
+          "date_basis": "Artigo de 7 de agosto de 2024 relata anuncio do v2 na semana anterior."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "ai-singapore-sea-lion-v3",
+      "company": "AI Singapore",
+      "family": "SEA-LION",
+      "model": "SEA-LION v3 (9B/8B/70B)",
+      "release_date": "2024-12-19",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "southeast-asian-languages", "open-source"],
+      "description_pt": "Terceira geracao do SEA-LION, colecao com Gemma-SEA-LION-v3-9B (melhor da classe no SEA-HELM) e Llama-SEA-LION-v3 8B/70B com contexto de 128K tokens, treinada com 200B tokens adicionais de dados regionais e cobrindo ate 13 linguas, incluindo javanes e sundanes.",
+      "source": {
+        "title": "SEA-LION v3: 128K Context Length and 70B Models",
+        "url": "https://sea-lion.ai/blog/sea-lion-v3/",
+        "publisher": "AI Singapore",
+        "date_basis": "Post oficial de anuncio publicado em 19 de dezembro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai-singapore-sea-lion-v3-5",
+      "company": "AI Singapore",
+      "family": "SEA-LION",
+      "model": "SEA-LION v3.5 (8B-R/70B-R)",
+      "release_date": "2025-04-15",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "southeast-asian-languages", "open-source"],
+      "description_pt": "Primeiros modelos de raciocinio hibrido treinados em dados do Sudeste Asiatico, com variantes Llama-SEA-LION-v3.5 8B-R e 70B-R que alternam entre modo de pensamento (thinking) e respostas diretas via chat template, mantendo contexto de 128K tokens.",
+      "source": {
+        "title": "SEA-LION v3.5 and Updated v3: Enhanced Language Models for Southeast Asia",
+        "url": "https://sea-lion.ai/blog/sea-lion-v3-5/",
+        "publisher": "AI Singapore",
+        "date_basis": "Post oficial de anuncio publicado em 15 de abril de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai-singapore-sea-lion-v4",
+      "company": "AI Singapore",
+      "family": "SEA-LION",
+      "model": "Gemma-SEA-LION-v4-27B",
+      "release_date": "2025-08-25",
+      "release_stage": "open weights",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "multimodal", "southeast-asian-languages", "open-source"],
+      "description_pt": "Primeira geracao multimodal do SEA-LION, baseada no Gemma 3 27B, com entendimento de texto e imagem, contexto de 128K tokens, function calling e OCR regional; a colecao v4 se expandiu depois com variantes de 4B a 32B sobre bases Gemma 3, Qwen3 e Apertus.",
+      "sources": [
+        {
+          "title": "SEA-LION v4: Our First Multimodal Release, Open, Powerful & Small",
+          "url": "https://sea-lion.ai/blog/sea-lion-v4-multimodal/",
+          "publisher": "AI Singapore",
+          "date_basis": "Post oficial de anuncio; model card no Hugging Face registra o release em 25 de agosto de 2025."
+        },
+        {
+          "title": "aisingapore/Gemma-SEA-LION-v4-27B-IT",
+          "url": "https://huggingface.co/aisingapore/Gemma-SEA-LION-v4-27B-IT",
+          "publisher": "AI Singapore",
+          "date_basis": "Model card oficial datado de 25 de agosto de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "ai-singapore-qwen-sea-lion-v4",
+      "company": "AI Singapore",
+      "family": "SEA-LION",
+      "model": "Qwen-SEA-LION-v4-32B",
+      "release_date": "2025-11-24",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "southeast-asian-languages", "open-source"],
+      "description_pt": "Variante do SEA-LION v4 construida em parceria com a Alibaba sobre o Qwen3-32B, pos-treinada com mais de 100B tokens de linguas do Sudeste Asiatico; estreou como lider do SEA-HELM entre modelos abertos com menos de 200B parametros e roda em laptop com 32GB de RAM.",
+      "sources": [
+        {
+          "title": "Announcing Qwen-SEA-LION-v4: Advanced Reasoning and Language Depth for Southeast Asia",
+          "url": "https://sea-lion.ai/blog/qwen-sea-lion-v4-advanced-reasoning/",
+          "publisher": "AI Singapore",
+          "date_basis": "Post oficial de anuncio; comunicado da Alibaba Cloud data o lancamento em 24 de novembro de 2025."
+        },
+        {
+          "title": "Alibaba's Qwen Powers AI Singapore's latest LLM",
+          "url": "https://www.alibabacloud.com/en/press-room/alibaba-qwen-powers-ai-singapore-latest-llm",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Comunicado de imprensa de 24 de novembro de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "ai-singapore-sea-guard",
+      "company": "AI Singapore",
+      "family": "SEA-LION",
+      "model": "SEA-Guard (4B/8B/12B)",
+      "release_date": "2026-02-04",
+      "release_stage": "open weights",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "seguranca", "moderacao", "southeast-asian-languages", "open-source"],
+      "description_pt": "Suite de modelos de seguranca e moderacao da AI Singapore ajustada para normas culturais do Sudeste Asiatico, com guardrails de texto e visao de 4B a 12B sobre bases Qwen, Llama e Gemma (Qwen-SEA-Guard-4B/8B, Llama-SEA-Guard-8B e Gemma-SEA-Guard-12B).",
+      "source": {
+        "title": "SEA-Guard | SEA-LION Documentation",
+        "url": "https://docs.sea-lion.ai/models/sea-guard",
+        "publisher": "AI Singapore",
+        "date_basis": "Documentacao oficial registra o lancamento em 4 de fevereiro de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "ai-singapore-sea-lion-embedding",
+      "company": "AI Singapore",
+      "family": "SEA-LION",
+      "model": "SEA-LION Embedding (300M/600M)",
+      "release_date": "2026-03-01",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["embeddings", "busca-semantica", "RAG", "southeast-asian-languages", "open-source"],
+      "description_pt": "Modelos de embeddings multilingues do SEA-LION (300M e 600M) sobre arquiteturas ModernBERT (contexto nativo de 8K) e E5-large, voltados para busca semantica, similaridade e RAG em linguas do Sudeste Asiatico.",
+      "source": {
+        "title": "SEA-LION Embedding | SEA-LION Documentation",
+        "url": "https://docs.sea-lion.ai/models/sea-embedding",
+        "publisher": "AI Singapore",
+        "date_basis": "Documentacao oficial registra o lancamento em marco de 2026, sem dia especifico; a data usa o primeiro dia do mes."
+      },
+      "confidence": "media"
+    },
+    {
       "id": "ai-singapore-sea-lion-4-5",
       "company": "AI Singapore",
       "family": "SEA-LION",
-      "model": "SEA-LION v4.5",
+      "model": "SEA-LION v4.5 (E2B/27B)",
       "release_date": "2026-05-20",
       "release_stage": "open weights/produto",
       "ai_category": ["LLMs", "Imagem"],
-      "model_type": ["texto", "visao", "multimodal", "southeast-asian-languages", "agentico", "open-source"],
-      "description_pt": "Familia aberta e multilingue da AI Singapore para o Sudeste Asiatico, com SEA-LION v4.5 adicionando foco em agentes, linguas regionais e multimodalidade.",
-      "source": {
-        "title": "SEA-LION",
-        "url": "https://sea-lion.ai/",
-        "publisher": "AI Singapore",
-        "date_basis": "Pagina oficial lista 'Introducing the SEA-LION v4.5 Suite' em 20 de maio de 2026."
-      },
+      "model_type": ["texto", "visao", "multimodal", "raciocinio", "southeast-asian-languages", "agentico", "open-source"],
+      "description_pt": "Geracao agentica do SEA-LION, com variantes E2B e 27B sobre bases Gemma-4-E2B-it e Qwen3.6-27B criadas via destilacao de conhecimento e model merging, focada em raciocinio, uso de ferramentas e linguas regionais, com decodificador especulativo customizado ate 6x mais eficiente.",
+      "sources": [
+        {
+          "title": "SEA-LION",
+          "url": "https://sea-lion.ai/",
+          "publisher": "AI Singapore",
+          "date_basis": "Pagina oficial lista 'Introducing the SEA-LION v4.5 Suite' em 20 de maio de 2026."
+        },
+        {
+          "title": "SEA-LION v4.5 | SEA-LION Documentation",
+          "url": "https://docs.sea-lion.ai/models/sea-lion-v4.5",
+          "publisher": "AI Singapore",
+          "date_basis": "Documentacao oficial detalha as variantes E2B e 27B e as bases Gemma-4-E2B-it e Qwen3.6-27B."
+        }
+      ],
       "confidence": "alta"
     },
     {
