@@ -9,6 +9,7 @@ const MAP_ADMIN_BOUNDARY_LAYER_IDS = ["ai-admin-boundaries-casing", "ai-admin-bo
 const MAP_FLAG_ICON_PREFIX = "ai-location-flag-";
 const MAP_FLAG_MIN_ZOOM = 3.2;
 const MAP_OVERLAP_CLUSTER_LIMIT = 3;
+const MAP_GLOBE_VISIBLE_ANGLE_DEGREES = 88;
 const MAP_VISIBLE_MARKER_PADDING = 96;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
 const VALID_VIEWS = new Set(["timeline", "years", "map", "table", "sources", "history"]);
@@ -69,6 +70,7 @@ const state = {
   mapClusterPopup: null,
   mapClusterHideTimer: null,
   mapOverlapUpdateFrame: null,
+  mapOverlapIdleQueued: false,
   mapHtmlMarkers: [],
   mapMarkerLocations: []
 };
@@ -3454,7 +3456,7 @@ function updateCompanyMap(locations) {
   registerMapFlagImages(locations);
   map.getSource("ai-locations").setData(buildMapLocationsGeoJson(locations));
   state.mapMarkerLocations = locations;
-  updateMapOverlapMarkers(locations);
+  scheduleMapOverlapMarkerUpdateAfterRender();
   syncMapScaleFromMap();
 
   if (!state.mapHasInitialView && locations.length) {
@@ -3471,7 +3473,7 @@ function updateMapOverlapMarkers(locations = []) {
   state.mapMarkerLocations = locations;
   hideMapClusterPopup();
 
-  const visibleLocations = locations.filter(isMapLocationVisibleForHtmlMarker);
+  const visibleLocations = visibleMapLocationsForHtmlMarkers(locations);
   if (!visibleLocations.length) {
     return;
   }
@@ -3498,12 +3500,59 @@ function scheduleMapOverlapMarkerUpdate() {
   });
 }
 
+function scheduleMapOverlapMarkerUpdateAfterRender() {
+  const map = state.companyMap;
+  scheduleMapOverlapMarkerUpdate();
+
+  if (!map || state.mapOverlapIdleQueued) return;
+  state.mapOverlapIdleQueued = true;
+  map.once("idle", () => {
+    state.mapOverlapIdleQueued = false;
+    scheduleMapOverlapMarkerUpdate();
+  });
+}
+
 function clearMapHtmlMarkers() {
   state.mapHtmlMarkers.forEach((marker) => marker.remove());
   state.mapHtmlMarkers = [];
 }
 
-function isMapLocationVisibleForHtmlMarker(location) {
+function visibleMapLocationsForHtmlMarkers(locations) {
+  const map = state.companyMap;
+  if (!map?.getLayer("ai-locations-core")) return [];
+
+  const renderedKeys = renderedMapLocationKeys();
+  if (!renderedKeys.size) return [];
+
+  return locations.filter((location) => (
+    renderedKeys.has(location.mapKey)
+    && isMapLocationInsideMarkerViewport(location)
+    && isMapLocationOnVisibleGlobeHemisphere(location)
+  ));
+}
+
+function renderedMapLocationKeys() {
+  const map = state.companyMap;
+  if (!map?.getLayer("ai-locations-core")) return new Set();
+
+  const canvas = map.getCanvas();
+  try {
+    return new Set(map
+      .queryRenderedFeatures(
+        [
+          [0, 0],
+          [canvas.clientWidth, canvas.clientHeight]
+        ],
+        { layers: ["ai-locations-core"] }
+      )
+      .map((feature) => feature.properties?.mapKey)
+      .filter(Boolean));
+  } catch {
+    return new Set();
+  }
+}
+
+function isMapLocationInsideMarkerViewport(location) {
   const map = state.companyMap;
   if (!map || !Number.isFinite(location.lat) || !Number.isFinite(location.lng)) return false;
 
@@ -3516,21 +3565,44 @@ function isMapLocationVisibleForHtmlMarker(location) {
     && point.x <= canvas.clientWidth + padding
     && point.y >= -padding
     && point.y <= canvas.clientHeight + padding;
-  if (!insideViewport) return false;
-
-  if (isMapLocationBehindGlobe(location)) return false;
-
-  return true;
+  return insideViewport;
 }
 
-function isMapLocationBehindGlobe(location) {
+function isMapLocationOnVisibleGlobeHemisphere(location) {
   const map = state.companyMap;
-  const projection = map?.getProjection?.();
-  const projectionName = projection?.name || projection?.type;
-  if (projectionName !== "globe" || map.getZoom() >= 5.6) return false;
+  if (!map || !shouldFilterGlobeBackside()) return true;
 
-  const center = map.getCenter();
-  return angularDistanceDegrees(center.lat, center.lng, location.lat, location.lng) > 90;
+  const center = visibleGlobeCenter();
+  if (!center) return true;
+
+  return angularDistanceDegrees(center.lat, center.lng, location.lat, location.lng) <= MAP_GLOBE_VISIBLE_ANGLE_DEGREES;
+}
+
+function shouldFilterGlobeBackside() {
+  const map = state.companyMap;
+  if (!map || map.getZoom() >= 5.6) return false;
+
+  const projection = map.getProjection?.();
+  const projectionName = projection?.name || projection?.type;
+  if (projectionName) return projectionName === "globe";
+
+  return !state.mapStyleFallbackActive;
+}
+
+function visibleGlobeCenter() {
+  const map = state.companyMap;
+  if (!map) return null;
+
+  const canvas = map.getCanvas();
+  try {
+    const center = map.unproject([canvas.clientWidth / 2, canvas.clientHeight / 2]);
+    if (Number.isFinite(center.lat) && Number.isFinite(center.lng)) return center;
+  } catch {
+    // Fall back to the camera center when unprojecting the screen center is unavailable.
+  }
+
+  const center = map.getCenter?.();
+  return Number.isFinite(center?.lat) && Number.isFinite(center?.lng) ? center : null;
 }
 
 function groupMapLocationsByScreenOverlap(locations) {
