@@ -3,7 +3,7 @@
     "updated_at": "2026-07-14",
     "last_correction": {
       "date": "2026-07-14",
-      "description_pt": "Revisao completa da AI Singapore: mapeada a familia SEA-LION (v1 2023, v2 2024, v3 2024, v3.5 2025, v4 2025, Qwen-SEA-LION-v4 2025, v4.5 2026) e as linhas SEA-Guard e SEA-LION Embedding, com 8 novas entradas e detalhamento do v4.5. Antes: mapeamento das familias da Ai2 e AI21 Labs com 22 novas entradas."
+      "description_pt": "Revisao completa da Apple: mapeadas as familias Ferret, MGIE, OpenELM, DCLM, Depth Pro, AIM, FastVLM e Apple Intelligence (AFM 2024, iOS 18.1, Foundation Models framework 2025, AFM 3 e Siri AI 2026), com 11 novas entradas e detalhamento do Siri AI. Antes: revisao da AI Singapore (familia SEA-LION completa, SEA-Guard e Embedding, 8 novas entradas)."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -6392,19 +6392,282 @@
       "confidence": "alta"
     },
     {
+      "id": "apple-ferret",
+      "company": "Apple",
+      "family": "Ferret",
+      "model": "Ferret (7B/13B)",
+      "release_date": "2023-10-30",
+      "release_stage": "pesquisa/open weights",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "multimodal", "grounding", "open-source"],
+      "description_pt": "Primeiro LLM multimodal aberto da Apple, criado com a Columbia University e especializado em referir e localizar regioes de imagens (grounding); codigo e o benchmark Ferret-Bench sairam em outubro de 2023 e os checkpoints 7B/13B em dezembro, sob licenca de pesquisa.",
+      "sources": [
+        {
+          "title": "apple/ml-ferret",
+          "url": "https://github.com/apple/ml-ferret",
+          "publisher": "Apple",
+          "date_basis": "Repositorio oficial registra release do codigo e do Ferret-Bench em 30 de outubro de 2023 e dos checkpoints em 14 de dezembro de 2023."
+        },
+        {
+          "title": "Apple quietly released an open source multimodal LLM in October",
+          "url": "https://venturebeat.com/ai/apple-quietly-released-an-open-source-multimodal-llm-in-october",
+          "publisher": "VentureBeat",
+          "date_basis": "Cobertura de dezembro de 2023 sobre o lancamento discreto em outubro."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "apple-mgie",
+      "company": "Apple",
+      "family": "MGIE",
+      "model": "MGIE",
+      "release_date": "2024-02-07",
+      "release_stage": "open weights/pesquisa",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "open-source"],
+      "description_pt": "Modelo aberto de edicao de imagens guiada por instrucoes em linguagem natural (MLLM-Guided Image Editing), criado com a UC Santa Barbara e apresentado no ICLR 2024, cobrindo edicao local, otimizacao global de fotos e modificacoes estilo Photoshop.",
+      "sources": [
+        {
+          "title": "apple/ml-mgie",
+          "url": "https://github.com/apple/ml-mgie",
+          "publisher": "Apple",
+          "date_basis": "Repositorio oficial com codigo, dados e modelos pre-treinados; cobertura de imprensa situa o release entre 7 e 9 de fevereiro de 2024."
+        },
+        {
+          "title": "Apple releases 'MGIE', a revolutionary AI model for instruction-based image editing",
+          "url": "https://venturebeat.com/ai/apple-releases-mgie-a-revolutionary-ai-model-for-instruction-based-image-editing",
+          "publisher": "VentureBeat",
+          "date_basis": "Artigo publicado em 7 de fevereiro de 2024."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "apple-openelm",
+      "company": "Apple",
+      "family": "OpenELM",
+      "model": "OpenELM (270M-3B)",
+      "release_date": "2024-04-24",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "on-device", "fundacao", "open-source"],
+      "description_pt": "Familia de modelos de linguagem eficientes e abertos da Apple (270M, 450M, 1.1B e 3B, em versoes base e instruct), lancada com framework completo de treino e avaliacao (CoreNet), logs e checkpoints, treinada com cerca de 1,8T tokens de datasets publicos.",
+      "sources": [
+        {
+          "title": "OpenELM: An Efficient Language Model Family with Open Training and Inference Framework",
+          "url": "https://machinelearning.apple.com/research/openelm",
+          "publisher": "Apple",
+          "date_basis": "Publicacao oficial e release no Hugging Face em 24 de abril de 2024."
+        },
+        {
+          "title": "apple/OpenELM",
+          "url": "https://huggingface.co/apple/OpenELM",
+          "publisher": "Apple",
+          "date_basis": "Colecao oficial com os oito modelos OpenELM."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "apple-intelligence-foundation-models",
+      "company": "Apple",
+      "family": "Apple Intelligence",
+      "model": "Apple Foundation Models (AFM)",
+      "release_date": "2024-06-10",
+      "release_stage": "anuncio",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "on-device", "fundacao", "privacidade"],
+      "description_pt": "Sistema de inteligencia pessoal anunciado na WWDC24, com modelo on-device de ~3B parametros otimizado para Apple silicon (quantizacao 2-bit) e modelo maior rodando em servidores proprios via Private Cloud Compute, ajustados para escrita, resumos, imagens e acoes em apps.",
+      "source": {
+        "title": "Introducing Apple's On-Device and Server Foundation Models",
+        "url": "https://machinelearning.apple.com/research/introducing-apple-foundation-models",
+        "publisher": "Apple",
+        "date_basis": "Post oficial do Apple Machine Learning Research publicado em 10 de junho de 2024, dia do anuncio na WWDC24."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "apple-dclm-7b",
+      "company": "Apple",
+      "family": "DCLM",
+      "model": "DCLM-7B",
+      "release_date": "2024-07-21",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "fundacao", "dados-abertos", "open-source"],
+      "description_pt": "Modelo de 7B do projeto DataComp-LM, treinado com ~2,5T tokens de datasets totalmente abertos para demonstrar o impacto da curadoria de dados; lancado com pesos, codigo de treino e o dataset DCLM-Baseline, superando o Mistral-7B em benchmarks.",
+      "sources": [
+        {
+          "title": "apple/DCLM-7B",
+          "url": "https://huggingface.co/apple/DCLM-7B",
+          "publisher": "Apple",
+          "date_basis": "Model card oficial no Hugging Face; a Apple nao publica dia exato do release dos pesos."
+        },
+        {
+          "title": "Apple AI Released a 7B Open-Source Language Model Trained on 2.5T Tokens on Open Datasets",
+          "url": "https://www.marktechpost.com/2024/07/21/apple-ai-released-a-7b-open-source-language-model-trained-on-2-5t-tokens-on-open-datasets/",
+          "publisher": "MarkTechPost",
+          "date_basis": "Cobertura de 21 de julho de 2024 registra o release em meados de julho."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "apple-depth-pro",
+      "company": "Apple",
+      "family": "Depth Pro",
+      "model": "Depth Pro",
+      "release_date": "2024-10-02",
+      "release_stage": "open weights/pesquisa",
+      "ai_category": "Imagem",
+      "model_type": ["visao", "profundidade", "3d", "open-source"],
+      "description_pt": "Modelo aberto de estimativa de profundidade metrica monocular, capaz de gerar mapas de profundidade nitidos e com escala real em menos de um segundo, sem exigir metadados de camera como distancia focal.",
+      "source": {
+        "title": "Depth Pro: Sharp Monocular Metric Depth in Less Than a Second",
+        "url": "https://arxiv.org/abs/2410.02073",
+        "publisher": "Apple",
+        "date_basis": "Paper publicado no arXiv em 2 de outubro de 2024, com codigo e pesos liberados no repositorio apple/ml-depth-pro."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "apple-intelligence-ga",
+      "company": "Apple",
+      "family": "Apple Intelligence",
+      "model": "Apple Intelligence (iOS 18.1)",
+      "release_date": "2024-10-28",
+      "release_stage": "produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "on-device", "assistente", "privacidade"],
+      "description_pt": "Disponibilizacao publica do Apple Intelligence com iOS 18.1, iPadOS 18.1 e macOS Sequoia 15.1, trazendo Writing Tools, resumos de notificacoes, Clean Up em fotos e Siri renovada para iPhones, iPads e Macs com Apple silicon.",
+      "source": {
+        "title": "Apple Intelligence is available today on iPhone, iPad, and Mac",
+        "url": "https://www.apple.com/newsroom/2024/10/apple-intelligence-is-available-today-on-iphone-ipad-and-mac/",
+        "publisher": "Apple",
+        "date_basis": "Post oficial do Apple Newsroom publicado em 28 de outubro de 2024."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "apple-aimv2",
+      "company": "Apple",
+      "family": "AIM",
+      "model": "AIMv2 (300M-2.7B)",
+      "release_date": "2024-11-21",
+      "release_stage": "open weights/pesquisa",
+      "ai_category": "Imagem",
+      "model_type": ["visao", "encoder", "multimodal", "open-source"],
+      "description_pt": "Familia de 19 encoders de visao abertos com pre-treinamento autorregressivo multimodal (reconstruindo patches de imagem e tokens de texto), em tamanhos de 300M a 2,7B parametros e resolucoes de 224 a 448 pixels, com pesos no Hugging Face.",
+      "sources": [
+        {
+          "title": "Multimodal Autoregressive Pre-Training of Large Vision Encoders",
+          "url": "https://machinelearning.apple.com/research/multimodal-autoregressive",
+          "publisher": "Apple",
+          "date_basis": "Paper publicado no arXiv em 21 de novembro de 2024, com pesos liberados junto."
+        },
+        {
+          "title": "Apple Releases AIMv2: A Family of State-of-the-Art Open-Set Vision Encoders",
+          "url": "https://www.marktechpost.com/2024/11/22/apple-releases-aimv2-a-family-of-state-of-the-art-open-set-vision-encoders/",
+          "publisher": "MarkTechPost",
+          "date_basis": "Cobertura de 22 de novembro de 2024."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "apple-fastvlm",
+      "company": "Apple",
+      "family": "FastVLM",
+      "model": "FastVLM (0.5B/1.5B/7B)",
+      "release_date": "2025-05-01",
+      "release_stage": "open weights/pesquisa",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "multimodal", "on-device", "open-source"],
+      "description_pt": "VLMs eficientes com o encoder hibrido FastViTHD para imagens de alta resolucao, com time-to-first-token ate 85x mais rapido que rivais do mesmo porte; apresentado no CVPR 2025, com checkpoints otimizados para Apple silicon e demo para iPhone.",
+      "sources": [
+        {
+          "title": "apple/ml-fastvlm",
+          "url": "https://github.com/apple/ml-fastvlm",
+          "publisher": "Apple",
+          "date_basis": "Codigo e checkpoints publicados em maio de 2025, sem dia especifico; a data usa o primeiro dia do mes."
+        },
+        {
+          "title": "FastVLM: Efficient Vision Encoding for Vision Language Models",
+          "url": "https://machinelearning.apple.com/research/fast-vision-language-models",
+          "publisher": "Apple",
+          "date_basis": "Publicacao oficial do paper aceito no CVPR 2025."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "apple-foundation-models-framework",
+      "company": "Apple",
+      "family": "Apple Intelligence",
+      "model": "Foundation Models framework / AFM 2025",
+      "release_date": "2025-06-09",
+      "release_stage": "API/framework",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "on-device", "tool-use", "privacidade"],
+      "description_pt": "Framework anunciado na WWDC25 que abre o modelo on-device de ~3B do Apple Intelligence para apps de terceiros, com geracao guiada, tool calling e Swift nativo, sem custo de inferencia; acompanhado da atualizacao 2025 dos foundation models on-device e de servidor.",
+      "sources": [
+        {
+          "title": "Apple Intelligence gets even more powerful with new capabilities across Apple devices",
+          "url": "https://www.apple.com/newsroom/2025/06/apple-intelligence-gets-even-more-powerful-with-new-capabilities-across-apple-devices/",
+          "publisher": "Apple",
+          "date_basis": "Post oficial do Apple Newsroom publicado em 9 de junho de 2025, dia do anuncio na WWDC25."
+        },
+        {
+          "title": "Updates to Apple's On-Device and Server Foundation Language Models",
+          "url": "https://machinelearning.apple.com/research/apple-foundation-models-2025-updates",
+          "publisher": "Apple",
+          "date_basis": "Post tecnico oficial detalhando a geracao 2025 dos foundation models."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "apple-afm-3",
+      "company": "Apple",
+      "family": "Apple Intelligence",
+      "model": "AFM 3 (Core/Core Advanced/Cloud/Cloud Pro)",
+      "release_date": "2026-06-08",
+      "release_stage": "anuncio",
+      "ai_category": ["LLMs", "Imagem"],
+      "model_type": ["texto", "visao", "multimodal", "raciocinio", "agentico", "on-device"],
+      "description_pt": "Terceira geracao dos Apple Foundation Models, anunciada na WWDC26: AFM 3 Core (3B on-device), AFM 3 Core Advanced (20B esparso com 1-4B ativos por requisicao, nativamente multimodal), AFM 3 Cloud, ADM 3 Cloud para geracao de imagens e AFM 3 Cloud Pro para raciocinio complexo e uso agentico de ferramentas, construidos em colaboracao com o Google e seus modelos Gemini.",
+      "sources": [
+        {
+          "title": "Introducing the Third Generation of Apple's Foundation Models",
+          "url": "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models",
+          "publisher": "Apple",
+          "date_basis": "Post oficial do Apple Machine Learning Research publicado em 8 de junho de 2026."
+        },
+        {
+          "title": "Apple Intelligence brings powerful AI capabilities into everyday experiences",
+          "url": "https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/",
+          "publisher": "Apple",
+          "date_basis": "Post oficial do Apple Newsroom publicado em 8 de junho de 2026."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "apple-siri-ai",
       "company": "Apple",
       "family": "Apple Intelligence",
       "model": "Siri AI",
       "release_date": "2026-06-08",
       "release_stage": "anuncio",
-      "model_type": ["texto", "agente", "on-device"],
-      "description_pt": "Evolucao majoritaria da Siri alimentada pela Apple Intelligence, com forte entendimento de contexto pessoal, acoes on-screen e foco em privacidade.",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "agente", "on-device", "assistente"],
+      "description_pt": "Evolucao majoritaria da Siri alimentada pela Apple Intelligence e por foundation models construidos em colaboracao com o Google Gemini, com app dedicado, entendimento de contexto pessoal e acoes on-screen; beta em ingles previsto para o fim de 2026 e rollout completo com iOS 27 no outono.",
       "source": {
-        "title": "Apple Introduces Siri AI",
-        "url": "https://www.apple.com/newsroom/",
+        "title": "Apple Intelligence brings powerful AI capabilities into everyday experiences",
+        "url": "https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/",
         "publisher": "Apple",
-        "date_basis": "Anunciado em 8 de junho de 2026."
+        "date_basis": "Post oficial do Apple Newsroom publicado em 8 de junho de 2026."
       },
       "confidence": "alta"
     },
