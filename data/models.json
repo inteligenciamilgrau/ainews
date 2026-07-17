@@ -3367,19 +3367,19 @@
       "release_stage": "lancamento/open weights",
       "ai_category": "LLMs",
       "model_type": ["multimodal", "visao", "audio", "video", "raciocinio", "MoE", "open-weights", "OpenSource", "Apache-2.0"],
-      "description_pt": "Primeiro modelo de amplo uso da Thinking Machines Lab, de Mira Murati, lancado sob licenca Apache 2.0 e com pesos abertos. Arquitetura mixture-of-experts com 975 bilhoes de parametros totais e cerca de 41 bilhoes ativos por tarefa, treinada em 45 trilhoes de tokens de texto, imagem, audio e video (raciocina nativamente nas quatro modalidades, mas por ora gera apenas texto). Foi projetado para dar respostas calibradas e sinalizar incerteza em vez de chutar, permite ajustar o esforco de 'pensamento' para trocar desempenho por velocidade e usa cerca de um terco dos tokens do Nemotron 3 Ultra da Nvidia para desempenho equivalente em codigo. A propria empresa destaca desempenho equilibrado e customizacao (via Tinker) em vez de forca bruta.",
+      "description_pt": "Primeiro modelo de amplo uso da Thinking Machines Lab, de Mira Murati, lancado com pesos abertos e disponibilizado no Hugging Face. Transformer mixture-of-experts com 975 bilhoes de parametros totais e cerca de 41 bilhoes ativos por tarefa, contexto de ate 1 milhao de tokens e treinado em 45 trilhoes de tokens de texto, imagem, audio e video (raciocina nativamente nas modalidades, mas por ora gera apenas texto). Apresentado como base ampla e equilibrada, com 'esforco de pensamento' eficiente e controlavel para trocar desempenho por velocidade, e customizacao via Tinker. Acompanha um preview do Inkling-Small (276B totais, 12B ativos).",
       "sources": [
+        {
+          "title": "Inkling: Our open-weights model",
+          "url": "https://thinkingmachines.ai/news/introducing-inkling/",
+          "publisher": "Thinking Machines Lab",
+          "date_basis": "Anuncio oficial do Inkling, publicado em 15 de julho de 2026, descreve a arquitetura MoE de 975B/41B, contexto de 1M tokens, pesos abertos e o preview Inkling-Small."
+        },
         {
           "title": "Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling",
           "url": "https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/",
           "publisher": "TechCrunch",
           "date_basis": "Reportagem de 15 de julho de 2026 detalha o lancamento do Inkling, arquitetura MoE de 975B/41B e treinamento em 45T tokens."
-        },
-        {
-          "title": "Murati's Thinking Machines releases first AI model for broad use",
-          "url": "https://fortune.com/2026/07/15/what-is-mira-murati-thinking-machines-first-ai-model-inkling/",
-          "publisher": "Fortune",
-          "date_basis": "Materia de 15 de julho de 2026 confirma o Inkling como primeiro modelo de amplo uso da empresa, open-weight e sob licenca Apache."
         }
       ],
       "confidence": "alta"
