@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-07-14",
+    "updated_at": "2026-07-17",
     "last_correction": {
-      "date": "2026-07-14",
-      "description_pt": "Revisao de Aleph Alpha, Amazon, Runway e Yandex: 33 registros confirmados foram acrescentados (4 Aleph Alpha, 7 Amazon, 10 Runway e 12 Yandex), com base em anuncios, repositorios, documentacao e paginas de pesquisa oficiais. O registro Luminous foi corrigido porque a fonte de 2023 apresentava Luminous-World apenas como desenvolvimento futuro. Antes: revisao de Swiss AI, TII e Tencent; revisao de NAVER, NVIDIA e Sarvam AI; e separacao entre confianca e precisao cronologica."
+      "date": "2026-07-17",
+      "description_pt": "Atualizacao da Moonshot AI com o Kimi K3 (16 de julho de 2026), maior LLM de pesos abertos da China, e estreia da Thinking Machines Lab, de Mira Murati, com tres registros: Tinker (API de fine-tuning, out/2025), os interaction models em research preview (mai/2026) e o Inkling (primeiro modelo aberto de amplo uso, Apache 2.0, 15 de julho de 2026). Antes: revisao de Aleph Alpha, Amazon, Runway e Yandex com 33 registros confirmados acrescentados."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -3276,6 +3276,110 @@
           "url": "https://www.kimi.com/help/agent/agent-swarm",
           "publisher": "Moonshot AI / Kimi",
           "date_basis": "Help Center oficial registra que, em 20 de abril de 2026, a Moonshot AI released and open-sourced Kimi K2.6."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k3",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K3",
+      "release_date": "2026-07-16",
+      "release_stage": "lancamento (pesos abertos em 2026-07-27)",
+      "ai_category": "LLMs",
+      "model_type": ["multimodal", "visao", "codigo", "agente", "raciocinio", "MoE", "longo-contexto", "1M-contexto", "open-weights", "OpenSource"],
+      "description_pt": "Maior LLM de pesos abertos da China ate hoje: arquitetura MoE com cerca de 2,8 trilhoes de parametros totais, janela de contexto de 1 milhao de tokens e entrada multimodal de texto e imagem. Segundo a Moonshot, supera todos os rivais exceto o Claude Fable 5 (Anthropic) e o GPT-5.6 Sol (OpenAI); em testes cegos da Arena, desenvolvedores preferiram o Kimi a todos os modelos lideres dos EUA para codigo front-end. Acessivel via site e API compativel com o SDK da OpenAI a partir do lancamento, com os pesos programados para 27 de julho de 2026.",
+      "sources": [
+        {
+          "title": "Chinese startup Moonshot AI unveils Kimi K3 model it says rivals OpenAI, Anthropic",
+          "url": "https://www.cnbc.com/2026/07/17/moonshot-ai-kimi-k3-model-openai-anthropic-china.html",
+          "publisher": "CNBC",
+          "date_basis": "Reportagem publicada em 17 de julho de 2026 informa que a Moonshot lancou o Kimi K3 em 16 de julho de 2026, com pesos programados para 27 de julho."
+        },
+        {
+          "title": "Moonshot's Kimi 3 is expected to close the gap with Anthropic's Opus 4.8",
+          "url": "https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/",
+          "publisher": "TechCrunch",
+          "date_basis": "Artigo de 16 de julho de 2026 descreve o Kimi K3 como o maior modelo de pesos abertos da China, com 2 a 3 trilhoes de parametros."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "thinking-machines-tinker",
+      "company": "Thinking Machines Lab",
+      "family": "Tinker",
+      "model": "Tinker",
+      "release_date": "2025-10-01",
+      "release_stage": "beta privado",
+      "ai_category": "LLMs",
+      "model_type": ["fine-tuning", "API", "LoRA", "post-training", "infraestrutura", "ferramentas"],
+      "description_pt": "Primeiro produto da Thinking Machines Lab, startup fundada por Mira Murati (ex-CTO da OpenAI). API flexivel para fine-tuning de modelos de pesos abertos com LoRA, cuidando de agendamento gerenciado, alocacao de GPUs e checkpoints; suporta desde modelos pequenos ate grandes sistemas MoE como o Qwen-235B-A22B. Lancado em beta privado com acesso por lista de espera.",
+      "sources": [
+        {
+          "title": "Announcing Tinker",
+          "url": "https://thinkingmachines.ai/news/announcing-tinker/",
+          "publisher": "Thinking Machines Lab",
+          "date_basis": "Anuncio oficial do Tinker, primeiro produto da empresa, em 1 de outubro de 2025."
+        },
+        {
+          "title": "Thinking Machines' first official product is here: meet Tinker",
+          "url": "https://venturebeat.com/ai/thinking-machines-first-official-product-is-here-meet-tinker-an-api-for",
+          "publisher": "VentureBeat",
+          "date_basis": "Reportagem confirma o lancamento do Tinker como API de fine-tuning distribuido em outubro de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "thinking-machines-interaction-models",
+      "company": "Thinking Machines Lab",
+      "family": "Interaction Models",
+      "model": "Interaction Models (preview)",
+      "release_date": "2026-05-13",
+      "release_stage": "research preview",
+      "ai_category": "LLMs",
+      "model_type": ["multimodal", "audio", "fala", "visao", "tempo-real", "agente", "ferramentas"],
+      "description_pt": "Arquitetura multimodal nativa da Thinking Machines apresentada em research preview, projetada para colaboracao humano-IA em tempo real. Substitui o laco tradicional de pergunta-resposta por micro-turnos de cerca de 200 ms, permitindo fala e visao simultaneas, proatividade e chamadas de ferramentas ao vivo (o modelo pode ouvir, falar e ate interromper).",
+      "sources": [
+        {
+          "title": "Mira Murati's Thinking Machines previews 'interaction models'",
+          "url": "https://www.semafor.com/article/05/13/2026/mira-muratis-thinking-machines-previews-interaction-models",
+          "publisher": "Semafor",
+          "date_basis": "Preview oficial dos 'interaction models' divulgado em 13 de maio de 2026."
+        },
+        {
+          "title": "Thinking Machines Lab Introduces Interaction Models",
+          "url": "https://www.marktechpost.com/2026/05/13/mira-muratis-thinking-machines-lab-introduces-interaction-models-a-native-multimodal-architecture-for-real-time-human-ai-collaboration/",
+          "publisher": "MarkTechPost",
+          "date_basis": "Cobertura de 13 de maio de 2026 detalha os micro-turnos de 200 ms e a arquitetura multimodal nativa."
+        }
+      ],
+      "confidence": "media"
+    },
+    {
+      "id": "thinking-machines-inkling",
+      "company": "Thinking Machines Lab",
+      "family": "Inkling",
+      "model": "Inkling",
+      "release_date": "2026-07-15",
+      "release_stage": "lancamento/open weights",
+      "ai_category": "LLMs",
+      "model_type": ["multimodal", "visao", "audio", "video", "raciocinio", "MoE", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Primeiro modelo de amplo uso da Thinking Machines Lab, de Mira Murati, lancado sob licenca Apache 2.0 e com pesos abertos. Arquitetura mixture-of-experts com 975 bilhoes de parametros totais e cerca de 41 bilhoes ativos por tarefa, treinada em 45 trilhoes de tokens de texto, imagem, audio e video (raciocina nativamente nas quatro modalidades, mas por ora gera apenas texto). Foi projetado para dar respostas calibradas e sinalizar incerteza em vez de chutar, permite ajustar o esforco de 'pensamento' para trocar desempenho por velocidade e usa cerca de um terco dos tokens do Nemotron 3 Ultra da Nvidia para desempenho equivalente em codigo. A propria empresa destaca desempenho equilibrado e customizacao (via Tinker) em vez de forca bruta.",
+      "sources": [
+        {
+          "title": "Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling",
+          "url": "https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/",
+          "publisher": "TechCrunch",
+          "date_basis": "Reportagem de 15 de julho de 2026 detalha o lancamento do Inkling, arquitetura MoE de 975B/41B e treinamento em 45T tokens."
+        },
+        {
+          "title": "Murati's Thinking Machines releases first AI model for broad use",
+          "url": "https://fortune.com/2026/07/15/what-is-mira-murati-thinking-machines-first-ai-model-inkling/",
+          "publisher": "Fortune",
+          "date_basis": "Materia de 15 de julho de 2026 confirma o Inkling como primeiro modelo de amplo uso da empresa, open-weight e sob licenca Apache."
         }
       ],
       "confidence": "alta"

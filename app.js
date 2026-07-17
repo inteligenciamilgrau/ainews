@@ -127,7 +127,8 @@ const companyColors = {
   "Swiss AI Initiative": "#dc2626",
   "Technology Innovation Institute": "#0f766e",
   Yandex: "#ffcc00",
-  Tencent: "#2563eb"
+  Tencent: "#2563eb",
+  "Thinking Machines Lab": "#4338ca"
 };
 
 const dataCenterStatusColors = {
@@ -1210,6 +1211,19 @@ const companyLocations = [
     lng: 116.3262,
     sourceName: "Z.ai",
     sourceUrl: "https://www.zhipuai.cn/en/contact"
+  },
+  {
+    company: "Thinking Machines Lab",
+    site: "Headquarters",
+    city: "San Francisco",
+    region: "California",
+    country: "United States",
+    address: "2300 Harrison Street, Mission District",
+    lat: 37.7597,
+    lng: -122.4128,
+    notes: "Thinking Machines Lab, fundada por Mira Murati, arrendou um edificio de escritorios de 72.500 sq ft na 2300 Harrison Street, no Mission District de San Francisco.",
+    sourceName: "Traded / Thinking Machines Lab",
+    sourceUrl: "https://traded.co/deals/california/office/lease/2300-harrison-street/"
   }
 ];
 
