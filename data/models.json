@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-07-17",
+    "updated_at": "2026-07-20",
     "last_correction": {
-      "date": "2026-07-17",
-      "description_pt": "Atualizacao da Moonshot AI com o Kimi K3 (16 de julho de 2026), maior LLM de pesos abertos da China, e estreia da Thinking Machines Lab, de Mira Murati, com tres registros: Tinker (API de fine-tuning, out/2025), os interaction models em research preview (mai/2026) e o Inkling (primeiro modelo aberto de amplo uso, Apache 2.0, 15 de julho de 2026). Antes: revisao de Aleph Alpha, Amazon, Runway e Yandex com 33 registros confirmados acrescentados."
+      "date": "2026-07-20",
+      "description_pt": "Inclusao do Qwen3.8-Max-Preview, disponibilizado em 19 de julho de 2026 no Token Plan, Qoder e QoderWork. O Qwen3.8 formal e a abertura dos pesos foram anunciados para breve, mas ainda nao constam como lancados."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -4752,6 +4752,24 @@
           "date_basis": "Model Studio lista Qwen3.7-Max com launch time em 21 de maio de 2026 e id de modelo qwen3.7-max."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-8-max-preview",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3.8-Max-Preview",
+      "release_date": "2026-07-19",
+      "release_stage": "preview / acesso hospedado",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "chat", "preview", "frontier"],
+      "description_pt": "Preview hospedado do proximo modelo de fronteira da Alibaba, com 2,4 trilhoes de parametros, disponibilizado no Token Plan, Qoder e QoderWork. O anuncio informa que o Qwen3.8 formal sera lancado e tera pesos abertos em breve; os pesos ainda nao estavam publicados nesta data.",
+      "source": {
+        "title": "Qwen3.8 is launching and going open-weight soon",
+        "url": "https://x.com/Alibaba_Qwen/status/2078759124914098291",
+        "publisher": "Qwen / Alibaba",
+        "date_basis": "Post oficial de 19 de julho de 2026 anuncia o futuro lancamento do Qwen3.8 e confirma que o Qwen3.8-Max-Preview ja estreou no Token Plan, Qoder e QoderWork."
+      },
       "confidence": "alta"
     },
     {
