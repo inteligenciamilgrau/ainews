@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-07-20",
+    "updated_at": "2026-07-23",
     "last_correction": {
-      "date": "2026-07-20",
-      "description_pt": "Inclusao do Qwen3.8-Max-Preview, disponibilizado em 19 de julho de 2026 no Token Plan, Qoder e QoderWork. O Qwen3.8 formal e a abertura dos pesos foram anunciados para breve, mas ainda nao constam como lancados."
+      "date": "2026-07-23",
+      "description_pt": "Inclusao dos Gemini 3.6 Flash e 3.5 Flash-Lite, lancados em disponibilidade geral em 21 de julho de 2026, e do Gemini 3.5 Flash Cyber, anunciado para um futuro piloto de acesso limitado."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -7786,6 +7786,84 @@
         "publisher": "Google DeepMind",
         "date_basis": "Post oficial publicado em 30 de junho de 2026 anuncia disponibilidade do Nano Banana 2 Lite no Google AI Studio, Gemini API e Gemini Enterprise."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-6-flash",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.6 Flash",
+      "release_date": "2026-07-21",
+      "release_stage": "GA",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video", "raciocinio", "multimodal", "codigo", "agente", "computador", "1M-contexto", "API"],
+      "description_pt": "Modelo Flash para codigo, trabalho de conhecimento e fluxos agenticos multimodais, com menos passos, chamadas de ferramentas e tokens de saida que o Gemini 3.5 Flash.",
+      "sources": [
+        {
+          "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 21 de julho de 2026 anuncia disponibilidade imediata do Gemini 3.6 Flash."
+        },
+        {
+          "title": "Using the latest Gemini models",
+          "url": "https://ai.google.dev/gemini-api/docs/latest-model",
+          "publisher": "Google AI for Developers",
+          "date_basis": "Documentacao oficial confirma o modelo gemini-3.6-flash em disponibilidade geral e pronto para producao."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-5-flash-lite",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.5 Flash-Lite",
+      "release_date": "2026-07-21",
+      "release_stage": "GA",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video", "raciocinio", "multimodal", "agente", "computador", "alto-volume", "baixo-custo", "1M-contexto", "API"],
+      "description_pt": "Modelo mais rapido e economico da familia Gemini 3.5, voltado a busca agentica, processamento de documentos e outras cargas de alto volume e baixa latencia.",
+      "sources": [
+        {
+          "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 21 de julho de 2026 anuncia disponibilidade imediata do Gemini 3.5 Flash-Lite."
+        },
+        {
+          "title": "Using the latest Gemini models",
+          "url": "https://ai.google.dev/gemini-api/docs/latest-model",
+          "publisher": "Google AI for Developers",
+          "date_basis": "Documentacao oficial confirma o modelo gemini-3.5-flash-lite em disponibilidade geral e pronto para producao."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-5-flash-cyber",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.5 Flash Cyber",
+      "release_date": "2026-07-21",
+      "release_stage": "anuncio/piloto futuro de acesso limitado",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "ciberseguranca", "agente", "vulnerabilidades", "acesso-limitado"],
+      "description_pt": "Variante especializada do Gemini 3.5 Flash para encontrar, validar e corrigir vulnerabilidades com agentes CodeMender; o acesso foi anunciado para breve, restrito a governos e parceiros confiaveis.",
+      "sources": [
+        {
+          "title": "Introducing Gemini 3.5 Flash Cyber",
+          "url": "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial publicado em 21 de julho de 2026 apresenta o modelo e informa que o piloto limitado sera disponibilizado em breve."
+        },
+        {
+          "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+          "publisher": "Google",
+          "date_basis": "Anuncio oficial conjunto de 21 de julho de 2026 distingue o Flash Cyber dos dois modelos disponiveis no mesmo dia."
+        }
+      ],
       "confidence": "alta"
     },
     {
