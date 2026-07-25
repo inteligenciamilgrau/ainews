@@ -15,6 +15,7 @@ const MAP_SPREAD_CIRCLE_MAX = 9;
 const MAP_SPREAD_MIN_ZOOM = 4;
 const MAP_SPREAD_MAX_OFFSET_DEG = 20;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
+const VALID_VIEWS = new Set(["timeline", "years", "table", "sources", "map", "history"]);
 const DEFAULT_MAP_CAMERA = Object.freeze({
   center: [-52.8, -14.2],
   zoom: 3.2,
@@ -3136,6 +3137,7 @@ function syncStickyOffsets() {
 function loadViewPreferences() {
   try {
     const prefs = JSON.parse(localStorage.getItem(VIEW_PREFS_KEY) || "{}");
+    if (VALID_VIEWS.has(prefs.view)) state.view = prefs.view;
     if (VALID_LANE_MODES.has(prefs.laneMode)) state.laneMode = prefs.laneMode;
     if (VALID_MAP_LAYERS.has(prefs.mapLayer)) state.mapLayer = prefs.mapLayer;
     if (VALID_MAP_BASE_MODES.has(prefs.mapBaseMode)) state.mapBaseMode = prefs.mapBaseMode;
@@ -3166,6 +3168,7 @@ function loadViewPreferences() {
 function saveViewPreferences() {
   try {
     localStorage.setItem(VIEW_PREFS_KEY, JSON.stringify({
+      view: state.view,
       laneMode: state.laneMode,
       mapLayer: state.mapLayer,
       mapBaseMode: state.mapBaseMode,
