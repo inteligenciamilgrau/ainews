@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-07-23",
+    "updated_at": "2026-07-25",
     "last_correction": {
-      "date": "2026-07-23",
-      "description_pt": "Inclusao dos Gemini 3.6 Flash e 3.5 Flash-Lite, lancados em disponibilidade geral em 21 de julho de 2026, e do Gemini 3.5 Flash Cyber, anunciado para um futuro piloto de acesso limitado."
+      "date": "2026-07-25",
+      "description_pt": "Inclusao do Claude Sonnet 5, lancado em 30 de junho de 2026, e do Claude Opus 5, lancado em 24 de julho de 2026."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -1042,6 +1042,50 @@
         "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
         "publisher": "Anthropic",
         "date_basis": "Post oficial publicado em 9 de junho de 2026 descreve Mythos 5 como modelo restrito a parceiros do Project Glasswing."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-sonnet-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Sonnet 5",
+      "release_date": "2026-06-30",
+      "release_stage": "GA/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "raciocinio", "computador", "longo-contexto", "trabalho"],
+      "description_pt": "Nova geracao Sonnet voltada a agentes, codigo, uso de ferramentas e trabalho profissional, com desempenho proximo ao Opus 4.8, contexto de 1M tokens e saida de ate 128K tokens.",
+      "sources": [
+        {
+          "title": "Introducing Claude Sonnet 5",
+          "url": "https://www.anthropic.com/news/claude-sonnet-5",
+          "publisher": "Anthropic",
+          "date_basis": "Post oficial publicado em 30 de junho de 2026 anuncia disponibilidade imediata em todos os planos, Claude Code e Claude Platform."
+        },
+        {
+          "title": "Claude Platform release notes",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "publisher": "Anthropic",
+          "date_basis": "Notas oficiais de 30 de junho de 2026 confirmam o identificador claude-sonnet-5, contexto de 1M tokens e saida maxima de 128K tokens."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-opus-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Opus 5",
+      "release_date": "2026-07-24",
+      "release_stage": "GA/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "raciocinio", "computador", "visao", "trabalho"],
+      "description_pt": "Nova geracao Opus para agentes de longa duracao, engenharia de software, uso de computador e trabalho profissional, com desempenho proximo ao Fable 5 e o mesmo preco-base do Opus 4.8.",
+      "source": {
+        "title": "Introducing Claude Opus 5",
+        "url": "https://www.anthropic.com/news/claude-opus-5",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 24 de julho de 2026 anuncia disponibilidade imediata em todas as plataformas e na API como claude-opus-5."
       },
       "confidence": "alta"
     },
