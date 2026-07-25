@@ -2919,6 +2919,8 @@ function populateFilters() {
 }
 
 function bindMultiFilter(key, element) {
+  if (!element) return;
+
   element.addEventListener("click", (event) => {
     if (!(event.target instanceof Element)) return;
     const toggle = event.target.closest("[data-multi-filter-toggle]");
@@ -2942,6 +2944,8 @@ function bindMultiFilter(key, element) {
 }
 
 function fillMultiFilter(element, key, values, allLabel) {
+  if (!element) return;
+
   const fieldLabel = element.closest(".filter-field")?.querySelector("span")?.textContent?.trim() || "Filtro";
   const menuId = `${key}MultiFilterMenu`;
   const options = values.map((value, index) => {
@@ -2978,6 +2982,8 @@ function readMultiFilterSelection(element, changedValue) {
 }
 
 function syncMultiFilter(element, key) {
+  if (!element) return;
+
   const validValues = multiFilterValues(element);
   state.filters[key] = normalizeMultiFilterValues(key, state.filters[key], validValues);
   const selected = state.filters[key];
