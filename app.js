@@ -34,12 +34,10 @@ const AI_CATEGORY_LABELS = {
   Musica: "Música",
   "Robotica/World models": "Robótica/World models"
 };
-const MULTI_FILTER_KEYS = ["aiCategory", "company", "type", "family", "year"];
+const MULTI_FILTER_KEYS = ["aiCategory", "company", "year"];
 const DEFAULT_MULTI_FILTERS = {
   aiCategory: ["LLMs"],
   company: ["all"],
-  type: ["all"],
-  family: ["all"],
   year: ["all"]
 };
 const TIMELINE_EVENT_EDGE_PX = 108;
@@ -51,8 +49,6 @@ const state = {
     query: "",
     aiCategory: [...DEFAULT_MULTI_FILTERS.aiCategory],
     company: [...DEFAULT_MULTI_FILTERS.company],
-    type: [...DEFAULT_MULTI_FILTERS.type],
-    family: [...DEFAULT_MULTI_FILTERS.family],
     year: [...DEFAULT_MULTI_FILTERS.year]
   },
   tableDateOrder: "desc",
@@ -2712,8 +2708,6 @@ function cacheElements() {
     searchInput: document.getElementById("searchInput"),
     aiCategoryFilter: document.getElementById("aiCategoryFilter"),
     companyFilter: document.getElementById("companyFilter"),
-    typeFilter: document.getElementById("typeFilter"),
-    familyFilter: document.getElementById("familyFilter"),
     yearFilter: document.getElementById("yearFilter"),
     tableDateOrder: document.getElementById("tableDateOrder"),
     metricModels: document.getElementById("metricModels"),
@@ -2755,8 +2749,6 @@ function bindEvents() {
   for (const [key, element] of [
     ["aiCategory", els.aiCategoryFilter],
     ["company", els.companyFilter],
-    ["type", els.typeFilter],
-    ["family", els.familyFilter],
     ["year", els.yearFilter]
   ]) {
     bindMultiFilter(key, element);
@@ -2917,8 +2909,6 @@ function populateFilters() {
   const models = allModels();
   fillMultiFilter(els.aiCategoryFilter, "aiCategory", ["LLMs", "all", ...AI_CATEGORIES.filter((category) => category !== "LLMs")], "Todos");
   fillMultiFilter(els.companyFilter, "company", ["all", ...unique(models.map((model) => model.company))], "Todas");
-  fillMultiFilter(els.typeFilter, "type", ["all", ...unique(models.flatMap((model) => model.model_type))], "Todos");
-  fillMultiFilter(els.familyFilter, "family", ["all", ...unique(models.map((model) => model.family))], "Todas");
 
   const years = unique(models.map((model) => model.year)).sort((a, b) => a - b);
   fillMultiFilter(els.yearFilter, "year", ["all", ...years], "Todos");
@@ -3078,8 +3068,6 @@ function syncFilterControls() {
   for (const [key, element] of [
     ["aiCategory", els.aiCategoryFilter],
     ["company", els.companyFilter],
-    ["type", els.typeFilter],
-    ["family", els.familyFilter],
     ["year", els.yearFilter]
   ]) {
     syncMultiFilter(element, key);
@@ -3242,8 +3230,6 @@ function filteredModels() {
     if (state.filters.query && !queryTarget.includes(state.filters.query)) return false;
     if (!filterHasAll("aiCategory") && !model.ai_category.some((category) => selectedFilterValues("aiCategory").includes(category))) return false;
     if (!filterHasAll("company") && !selectedFilterValues("company").includes(model.company)) return false;
-    if (!filterHasAll("type") && !model.model_type.some((type) => selectedFilterValues("type").includes(type))) return false;
-    if (!filterHasAll("family") && !selectedFilterValues("family").includes(model.family)) return false;
     if (!filterHasAll("year") && !selectedFilterValues("year").includes(String(model.year))) return false;
     return true;
   });
