@@ -53,9 +53,7 @@ const state = {
     company: [...DEFAULT_MULTI_FILTERS.company],
     type: [...DEFAULT_MULTI_FILTERS.type],
     family: [...DEFAULT_MULTI_FILTERS.family],
-    year: [...DEFAULT_MULTI_FILTERS.year],
-    yearStart: "all",
-    yearEnd: "all"
+    year: [...DEFAULT_MULTI_FILTERS.year]
   },
   tableDateOrder: "desc",
   view: "map",
@@ -2717,8 +2715,6 @@ function cacheElements() {
     typeFilter: document.getElementById("typeFilter"),
     familyFilter: document.getElementById("familyFilter"),
     yearFilter: document.getElementById("yearFilter"),
-    yearStartFilter: document.getElementById("yearStartFilter"),
-    yearEndFilter: document.getElementById("yearEndFilter"),
     tableDateOrder: document.getElementById("tableDateOrder"),
     metricModels: document.getElementById("metricModels"),
     metricCompanies: document.getElementById("metricCompanies"),
@@ -2764,17 +2760,6 @@ function bindEvents() {
     ["year", els.yearFilter]
   ]) {
     bindMultiFilter(key, element);
-  }
-
-  for (const [key, element] of [
-    ["yearStart", els.yearStartFilter],
-    ["yearEnd", els.yearEndFilter]
-  ]) {
-    element.addEventListener("change", (event) => {
-      state.filters[key] = event.target.value;
-      saveViewPreferences();
-      render();
-    });
   }
 
   document.addEventListener("click", (event) => {
@@ -2937,18 +2922,9 @@ function populateFilters() {
 
   const years = unique(models.map((model) => model.year)).sort((a, b) => a - b);
   fillMultiFilter(els.yearFilter, "year", ["all", ...years], "Todos");
-  fillSelect(els.yearStartFilter, ["all", ...years], "Início");
-  fillSelect(els.yearEndFilter, ["all", ...years], "Fim");
   syncFilterControls();
   syncStickyOffsets();
   saveViewPreferences();
-}
-
-function fillSelect(element, values, allLabel) {
-  element.innerHTML = values.map((value) => {
-    const label = value === "all" ? allLabel : AI_CATEGORY_LABELS[value] || value;
-    return `<option value="${escapeHtml(String(value))}">${escapeHtml(String(label))}</option>`;
-  }).join("");
 }
 
 function bindMultiFilter(key, element) {
@@ -3108,11 +3084,6 @@ function syncFilterControls() {
   ]) {
     syncMultiFilter(element, key);
   }
-  state.filters.yearStart = optionExists(els.yearStartFilter, state.filters.yearStart) ? state.filters.yearStart : "all";
-  state.filters.yearEnd = optionExists(els.yearEndFilter, state.filters.yearEnd) ? state.filters.yearEnd : "all";
-
-  els.yearStartFilter.value = state.filters.yearStart;
-  els.yearEndFilter.value = state.filters.yearEnd;
   els.tableDateOrder.value = VALID_TABLE_DATE_ORDERS.has(state.tableDateOrder) ? state.tableDateOrder : "desc";
 }
 
@@ -3252,10 +3223,6 @@ function rememberMapCamera() {
   saveViewPreferences();
 }
 
-function optionExists(select, value) {
-  return Array.from(select?.options || []).some((option) => option.value === String(value));
-}
-
 function unique(values) {
   return [...new Set(values.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b)));
 }
@@ -3278,8 +3245,6 @@ function filteredModels() {
     if (!filterHasAll("type") && !model.model_type.some((type) => selectedFilterValues("type").includes(type))) return false;
     if (!filterHasAll("family") && !selectedFilterValues("family").includes(model.family)) return false;
     if (!filterHasAll("year") && !selectedFilterValues("year").includes(String(model.year))) return false;
-    if (state.filters.yearStart !== "all" && model.year < Number(state.filters.yearStart)) return false;
-    if (state.filters.yearEnd !== "all" && model.year > Number(state.filters.yearEnd)) return false;
     return true;
   });
 }
