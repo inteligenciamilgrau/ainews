@@ -3399,7 +3399,7 @@ function renderYearChart(models) {
   });
 
   const maxCount = Math.max(...[...byYear.values()].map((items) => items.length));
-  els.yearChart.innerHTML = [...byYear.entries()]
+  const yearRows = [...byYear.entries()]
     .sort(([a], [b]) => a - b)
     .map(([year, yearModels]) => {
       const byCompany = unique(yearModels.map((model) => model.company)).map((company) => {
@@ -3420,6 +3420,152 @@ function renderYearChart(models) {
         </div>
       `;
     }).join("");
+
+  els.yearChart.innerHTML = `
+    ${renderCumulativeModelChart(models)}
+    <div class="year-list">
+      ${yearRows}
+    </div>
+  `;
+}
+
+function renderCumulativeModelChart(models) {
+  const releasesByDate = new Map();
+  models.forEach((model) => {
+    if (!Number.isFinite(model.timestamp)) return;
+    const current = releasesByDate.get(model.release_date) || {
+      date: model.release_date,
+      timestamp: model.timestamp,
+      count: 0
+    };
+    current.count += 1;
+    releasesByDate.set(model.release_date, current);
+  });
+
+  const releases = [...releasesByDate.values()]
+    .sort((a, b) => a.timestamp - b.timestamp);
+  if (!releases.length) return "";
+
+  let cumulative = 0;
+  releases.forEach((release) => {
+    cumulative += release.count;
+    release.cumulative = cumulative;
+  });
+
+  const width = 1040;
+  const height = 320;
+  const margin = { top: 24, right: 24, bottom: 44, left: 64 };
+  const plotWidth = width - margin.left - margin.right;
+  const plotHeight = height - margin.top - margin.bottom;
+  const plotBottom = margin.top + plotHeight;
+  const dayMs = 24 * 60 * 60 * 1000;
+  const firstRelease = releases[0];
+  const lastRelease = releases[releases.length - 1];
+  const singleDate = firstRelease.timestamp === lastRelease.timestamp;
+  const minTimestamp = singleDate ? firstRelease.timestamp - dayMs : firstRelease.timestamp;
+  const maxTimestamp = singleDate ? lastRelease.timestamp + dayMs : lastRelease.timestamp;
+  const timestampSpan = Math.max(maxTimestamp - minTimestamp, 1);
+
+  const xForTimestamp = (timestamp) => (
+    margin.left + ((timestamp - minTimestamp) / timestampSpan) * plotWidth
+  );
+  const yForTotal = (total) => (
+    plotBottom - (total / cumulative) * plotHeight
+  );
+
+  const firstX = xForTimestamp(firstRelease.timestamp);
+  const lineCommands = [
+    `M ${firstX.toFixed(2)} ${plotBottom.toFixed(2)}`,
+    `V ${yForTotal(firstRelease.cumulative).toFixed(2)}`
+  ];
+  releases.slice(1).forEach((release) => {
+    lineCommands.push(
+      `H ${xForTimestamp(release.timestamp).toFixed(2)}`,
+      `V ${yForTotal(release.cumulative).toFixed(2)}`
+    );
+  });
+  const linePath = lineCommands.join(" ");
+  const lastX = xForTimestamp(lastRelease.timestamp);
+  const areaPath = `${linePath} V ${plotBottom.toFixed(2)} H ${firstX.toFixed(2)} Z`;
+
+  const yTicks = [...new Set(
+    Array.from({ length: 5 }, (_, index) => Math.round((cumulative * index) / 4))
+  )];
+  const yGrid = yTicks.map((value) => {
+    const y = yForTotal(value);
+    return `
+      <line class="cumulative-grid-line" x1="${margin.left}" y1="${y.toFixed(2)}" x2="${width - margin.right}" y2="${y.toFixed(2)}"></line>
+      <text class="cumulative-axis-label cumulative-axis-label-y" x="${margin.left - 12}" y="${(y + 4).toFixed(2)}">${value}</text>
+    `;
+  }).join("");
+
+  const firstYear = new Date(firstRelease.timestamp).getUTCFullYear();
+  const lastYear = new Date(lastRelease.timestamp).getUTCFullYear();
+  const allYears = Array.from({ length: lastYear - firstYear + 1 }, (_, index) => firstYear + index);
+  const yearStep = Math.max(1, Math.ceil(allYears.length / 9));
+  const xTickYears = allYears.filter((_, index) => index % yearStep === 0);
+  if (!xTickYears.includes(lastYear)) xTickYears.push(lastYear);
+  const xGrid = [...new Set(xTickYears)].map((year) => {
+    const rawTimestamp = Date.UTC(year, 0, 1);
+    const timestamp = Math.min(Math.max(rawTimestamp, minTimestamp), maxTimestamp);
+    const x = xForTimestamp(timestamp);
+    return `
+      <line class="cumulative-grid-line cumulative-grid-line-x" x1="${x.toFixed(2)}" y1="${margin.top}" x2="${x.toFixed(2)}" y2="${plotBottom}"></line>
+      <text class="cumulative-axis-label cumulative-axis-label-x" x="${x.toFixed(2)}" y="${plotBottom + 28}">${year}</text>
+    `;
+  }).join("");
+
+  const pointStride = Math.max(1, Math.ceil(releases.length / 80));
+  const points = releases
+    .filter((_, index) => index % pointStride === 0 || index === releases.length - 1)
+    .map((release) => `
+      <circle
+        class="cumulative-point"
+        cx="${xForTimestamp(release.timestamp).toFixed(2)}"
+        cy="${yForTotal(release.cumulative).toFixed(2)}"
+        r="3">
+        <title>${escapeHtml(`${formatDate(release.date)}: ${release.cumulative} modelos acumulados (+${release.count} no dia)`)}</title>
+      </circle>
+    `).join("");
+
+  return `
+    <section class="cumulative-chart-card" aria-labelledby="cumulativeChartTitle">
+      <header class="cumulative-chart-header">
+        <div>
+          <p class="section-kicker">Crescimento acumulado</p>
+          <h2 id="cumulativeChartTitle">Total de modelos ao longo do tempo</h2>
+          <p>Cada degrau soma os modelos lançados naquela data. Uma subida mais rápida indica maior ritmo de lançamentos.</p>
+        </div>
+        <div class="cumulative-chart-total">
+          <strong>${cumulative}</strong>
+          <span>modelos acumulados</span>
+        </div>
+      </header>
+      <div class="cumulative-chart-scroll">
+        <svg
+          class="cumulative-chart-svg"
+          viewBox="0 0 ${width} ${height}"
+          role="img"
+          aria-label="Gráfico do total acumulado de modelos entre ${escapeAttribute(formatDate(firstRelease.date))} e ${escapeAttribute(formatDate(lastRelease.date))}">
+          <defs>
+            <linearGradient id="cumulativeAreaGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0f766e" stop-opacity="0.32"></stop>
+              <stop offset="100%" stop-color="#0f766e" stop-opacity="0.04"></stop>
+            </linearGradient>
+          </defs>
+          ${yGrid}
+          ${xGrid}
+          <path class="cumulative-area" d="${areaPath}"></path>
+          <path class="cumulative-line" d="${linePath}"></path>
+          ${points}
+        </svg>
+      </div>
+      <div class="cumulative-chart-range" aria-hidden="true">
+        <span>${formatDate(firstRelease.date)}</span>
+        <span>${formatDate(lastRelease.date)}</span>
+      </div>
+    </section>
+  `;
 }
 
 function renderCompanyMap() {

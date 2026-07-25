@@ -649,6 +649,137 @@ dd {
   padding: 16px;
 }
 
+.cumulative-chart-card {
+  margin-bottom: 20px;
+  padding: clamp(16px, 2.5vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(15, 118, 110, 0.13), transparent 34%),
+    linear-gradient(180deg, #fff, #fbfaf6);
+  overflow: hidden;
+}
+
+.cumulative-chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+
+.cumulative-chart-header h2 {
+  margin-bottom: 6px;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+}
+
+.cumulative-chart-header p:last-child {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.cumulative-chart-total {
+  display: grid;
+  flex: 0 0 auto;
+  min-width: 150px;
+  padding: 10px 13px;
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.78);
+  text-align: right;
+}
+
+.cumulative-chart-total strong {
+  color: var(--accent);
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  line-height: 1;
+}
+
+.cumulative-chart-total span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.cumulative-chart-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.cumulative-chart-svg {
+  display: block;
+  width: 100%;
+  min-width: 660px;
+  height: auto;
+}
+
+.cumulative-grid-line {
+  stroke: #d8d2c7;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.cumulative-grid-line-x {
+  stroke-dasharray: 3 7;
+  opacity: 0.55;
+}
+
+.cumulative-axis-label {
+  fill: var(--muted);
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.cumulative-axis-label-y {
+  text-anchor: end;
+}
+
+.cumulative-axis-label-x {
+  text-anchor: middle;
+}
+
+.cumulative-area {
+  fill: url("#cumulativeAreaGradient");
+}
+
+.cumulative-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.cumulative-point {
+  fill: #fff;
+  stroke: var(--accent);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.cumulative-point:hover {
+  fill: var(--accent);
+}
+
+.cumulative-chart-range {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 2px 0 52px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.year-list {
+  border-top: 1px solid var(--line);
+}
+
 .map-toolbar {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -1315,6 +1446,28 @@ td a,
 
   .timeline-event {
     width: 128px;
+  }
+
+  .year-chart {
+    padding: 10px;
+  }
+
+  .cumulative-chart-card {
+    padding: 14px 12px;
+  }
+
+  .cumulative-chart-header {
+    display: grid;
+    gap: 12px;
+  }
+
+  .cumulative-chart-total {
+    width: 100%;
+    text-align: left;
+  }
+
+  .cumulative-chart-range {
+    margin-left: 0;
   }
 
   .year-row,
