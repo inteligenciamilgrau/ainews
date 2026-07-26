@@ -3,7 +3,7 @@
     "updated_at": "2026-07-25",
     "last_correction": {
       "date": "2026-07-25",
-      "description_pt": "Inclusao do Claude Sonnet 5, lancado em 30 de junho de 2026, e do Claude Opus 5, lancado em 24 de julho de 2026."
+      "description_pt": "Inclusao do Claude Sonnet 5, lancado em 30 de junho de 2026, e do Claude Opus 5, lancado em 24 de julho de 2026. Atualizacao da linha Black Forest Labs com FLUX.2 [klein] (15 de janeiro de 2026), FLUX Outpainting (14 de maio), FLUX Erase (21 de maio), FLUX VTO (28 de maio), FLUX.2 [klein] on-device nos ASUS ProArt (4 de junho) e FLUX 3 (23 de julho de 2026). Remocao de tres entradas Moonshot duplicadas (Kimi K1.5, Kimi K2 e Kimi K2.6), mantendo as versoes com fonte oficial detalhada."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -6057,6 +6057,130 @@
       "confidence": "alta"
     },
     {
+      "id": "black-forest-labs-flux-2-klein",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX.2 [klein]",
+      "release_date": "2026-01-15",
+      "release_stage": "open weights",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "edicao", "multi-referencia", "open-weights", "OpenSource", "Apache-2.0", "quantizacao", "on-device"],
+      "description_pt": "Linha compacta da familia FLUX.2 voltada a geracao interativa: klein 9B (arquitetura de fluxo de 9B com text embedder Qwen3 de 8B, destilado para 4 passos, licenca FLUX NCL), klein 4B totalmente aberto sob Apache 2.0 (cerca de 13GB de VRAM, roda em RTX 3090/4070 ou superior) e versoes Base 9B/4B nao destiladas para fine-tuning e pesquisa. Inclui variantes FP8 e NVFP4 feitas com a NVIDIA, com inferencia abaixo de 1 segundo.",
+      "sources": [
+        {
+          "title": "FLUX.2 [klein]: Towards Interactive Visual Intelligence",
+          "url": "https://bfl.ai/blog/flux2-klein-towards-interactive-visual-intelligence",
+          "publisher": "Black Forest Labs",
+          "date_basis": "Post oficial publicado em 15 de janeiro de 2026 anuncia as variantes klein 9B, 4B, Base e as versoes quantizadas FP8/NVFP4."
+        },
+        {
+          "title": "black-forest-labs/FLUX.2-klein-4B",
+          "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+          "publisher": "Black Forest Labs",
+          "date_basis": "Model card oficial dos pesos abertos do klein 4B sob licenca Apache 2.0."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-outpainting",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX Outpainting",
+      "release_date": "2026-05-14",
+      "release_stage": "API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "outpainting", "expansao", "API", "4MP"],
+      "description_pt": "Endpoint dedicado de expansao de imagem da BFL: recebe uma imagem, o tamanho da tela alvo e as coordenadas de posicionamento, e estende a cena com continuidade de iluminacao, textura, profundidade e composicao, sem emendas visiveis, com saida ate 4MP. Disponivel pela BFL API e por demo publica em flux-tools.bfl.ai/outpainting.",
+      "source": {
+        "title": "FLUX Outpainting: Extend any image, in any direction",
+        "url": "https://bfl.ai/blog/outpainting-extend-any-image-in-any-direction",
+        "publisher": "Black Forest Labs",
+        "date_basis": "Post oficial publicado em 14 de maio de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-erase",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX Erase",
+      "release_date": "2026-05-21",
+      "release_stage": "API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "remocao-de-objetos", "inpainting", "mascara", "API"],
+      "description_pt": "Endpoint de remocao da BFL que recebe uma imagem e uma mascara binaria, apaga o que foi marcado e reconstroi o fundo com iluminacao e textura coerentes, sem precisar de prompt. Cobre objetos, pessoas e texto, com ajuste opcional de expansao de borda; em teste interno com 198 imagens, a BFL reporta vitoria sobre GPT Image-2 (68,5%) e Finegrain Eraser Standard (63,2%).",
+      "source": {
+        "title": "FLUX Erase: Remove anything, leave no trace",
+        "url": "https://bfl.ai/blog/flux-erase-remove-anything-leave-no-trace",
+        "publisher": "Black Forest Labs",
+        "date_basis": "Post oficial publicado em 21 de maio de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-vto",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX VTO",
+      "release_date": "2026-05-28",
+      "release_stage": "API",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "virtual-try-on", "e-commerce", "API", "MCP"],
+      "description_pt": "Modelo de prova virtual de roupas para catalogo em escala: aplica ate quatro pecas em um mesmo modelo, transfere looks completos ou pecas isoladas entre modelos e permite sobreposicao, preservando identidade e detalhes como logos, estampas, costuras e ferragens. Geracoes em menos de 4 segundos, com API, demo gratuita na BFL Shop e integracao via FLUX MCP.",
+      "source": {
+        "title": "FLUX VTO: Virtual Try-On at catalog scale",
+        "url": "https://bfl.ai/blog/flux-vto-virtual-try-on-at-catalog-scale",
+        "publisher": "Black Forest Labs",
+        "date_basis": "Post oficial publicado em 28 de maio de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-2-klein-on-device",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX.2 [klein] on-device (ASUS ProArt)",
+      "release_date": "2026-06-04",
+      "release_stage": "distribuicao on-device",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "on-device", "local", "offline", "RTX", "open-weights"],
+      "description_pt": "Primeira vez que um modelo FLUX sai pre-instalado em hardware de consumo: o FLUX.2 [klein] de 4B passa a acompanhar os notebooks ASUS ProArt com GPUs RTX, dentro do app MuseTree, em parceria com ASUS e NVIDIA e apresentado na Computex 2026. A meta e geracao de imagem em menos de 5 segundos em maquinas com 8GB de VRAM, sem API nem internet.",
+      "source": {
+        "title": "FLUX.2 is now on device: ASUS ProArt laptops now support Klein models",
+        "url": "https://bfl.ai/blog/flux2-klein-on-device",
+        "publisher": "Black Forest Labs",
+        "date_basis": "Post oficial publicado em 4 de junho de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-3",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX 3",
+      "release_date": "2026-07-23",
+      "release_stage": "early access",
+      "ai_category": ["Imagem", "Video", "Audio/Transcricao", "Robotica/World models"],
+      "model_type": ["imagem", "video", "audio", "multimodal", "texto-para-video", "imagem-para-video", "keyframes", "edicao", "acao", "robotica", "720p", "20s"],
+      "description_pt": "Modelo multimodal de fronteira da BFL treinado ao mesmo tempo em imagem, video, audio e predicao de acao sobre uma unica arquitetura (Self-Flow). Chega em quatro linhas: FLUX 3 Video (ate 20 segundos com audio nativo em 720p, texto-para-video, imagem-para-video, video-para-video, keyframes e dialogo multilingue), FLUX 3 Image (geracao e edicao com melhor texto e suporte multilingue), FLUX 3 Action (predicao de acao, usada com a mimic no FLUX-mimic para manipulacao dextra) e FLUX 3 Dev (backbone multimodal de pesos abertos previsto para o fim de 2026).",
+      "sources": [
+        {
+          "title": "FLUX 3 - Real World Models: Towards Multimodal Flow Models as the Backbone of Visual Intelligence",
+          "url": "https://bfl.ai/blog/flux-3",
+          "publisher": "Black Forest Labs",
+          "date_basis": "Post oficial publicado em 23 de julho de 2026 anuncia o FLUX 3 em Early Access, com FLUX 3 Image nas semanas seguintes e FLUX 3 Dev com pesos abertos ainda em 2026."
+        },
+        {
+          "title": "Black Forest Labs Unveils FLUX 3, A New Multimodal Frontier Model For Visual Intelligence",
+          "url": "https://www.globenewswire.com/news-release/2026/07/23/3332364/0/en/black-forest-labs-unveils-flux-3-a-new-multimodal-frontier-model-for-visual-intelligence.html",
+          "publisher": "Black Forest Labs / GlobeNewswire",
+          "date_basis": "Release oficial de 23 de julho de 2026 confirma as quatro variantes, o early access de Video e Action e a parceria com a mimic (FLUX-mimic) em testes com a Audi."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "bytedance-seedance-1",
       "company": "ByteDance",
       "family": "Seedance",
@@ -7168,57 +7292,6 @@
         "url": "https://www.moonshot.cn/",
         "publisher": "Moonshot AI",
         "date_basis": "Lancamento publico em 16 de novembro de 2023."
-      },
-      "confidence": "alta"
-    },
-    {
-      "id": "moonshot-kimi-k1-5",
-      "company": "Moonshot AI",
-      "family": "Kimi",
-      "model": "Kimi K1.5",
-      "release_date": "2025-01-20",
-      "release_stage": "lancamento",
-      "model_type": ["texto", "raciocinio", "multimodal"],
-      "description_pt": "Modelo de raciocinio multimodal com desempenho em matematica e codigo comparavel ao OpenAI o1.",
-      "source": {
-        "title": "Kimi K1.5 release",
-        "url": "https://www.moonshot.cn/",
-        "publisher": "Moonshot AI",
-        "date_basis": "Lancamento em 20 de janeiro de 2025."
-      },
-      "confidence": "alta"
-    },
-    {
-      "id": "moonshot-kimi-k2",
-      "company": "Moonshot AI",
-      "family": "Kimi",
-      "model": "Kimi K2",
-      "release_date": "2025-07-11",
-      "release_stage": "preview",
-      "model_type": ["texto", "chat", "longo-contexto"],
-      "description_pt": "Preview oficial da serie K2 com contexto expandido para 256K e melhorias significativas de performance.",
-      "source": {
-        "title": "Kimi K2 Preview",
-        "url": "https://www.moonshot.cn/",
-        "publisher": "Moonshot AI",
-        "date_basis": "Preview lancado em 11 de julho de 2025."
-      },
-      "confidence": "alta"
-    },
-    {
-      "id": "moonshot-kimi-k2-6",
-      "company": "Moonshot AI",
-      "family": "Kimi",
-      "model": "Kimi K2.6",
-      "release_date": "2026-04-20",
-      "release_stage": "lancamento",
-      "model_type": ["texto", "multimodal", "agente", "codigo"],
-      "description_pt": "Modelo multimodal nativo com forte capacidade em codigo e suporte para o agente de desktop autonomo Kimi Work.",
-      "source": {
-        "title": "Kimi K2.6 and Kimi Work",
-        "url": "https://www.moonshot.cn/",
-        "publisher": "Moonshot AI",
-        "date_basis": "Lancamento em 20 de abril de 2026."
       },
       "confidence": "alta"
     },
