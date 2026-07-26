@@ -35,6 +35,21 @@ const AI_CATEGORY_LABELS = {
   Musica: "Música",
   "Robotica/World models": "Robótica/World models"
 };
+const MONTH_OPTIONS = [
+  ["01", "Janeiro"],
+  ["02", "Fevereiro"],
+  ["03", "Março"],
+  ["04", "Abril"],
+  ["05", "Maio"],
+  ["06", "Junho"],
+  ["07", "Julho"],
+  ["08", "Agosto"],
+  ["09", "Setembro"],
+  ["10", "Outubro"],
+  ["11", "Novembro"],
+  ["12", "Dezembro"]
+];
+const VALID_MONTH_FILTERS = new Set(["all", ...MONTH_OPTIONS.map(([value]) => value)]);
 const MULTI_FILTER_KEYS = ["aiCategory", "company", "year"];
 const DEFAULT_MULTI_FILTERS = {
   aiCategory: ["LLMs"],
@@ -50,7 +65,8 @@ const state = {
     query: "",
     aiCategory: [...DEFAULT_MULTI_FILTERS.aiCategory],
     company: [...DEFAULT_MULTI_FILTERS.company],
-    year: [...DEFAULT_MULTI_FILTERS.year]
+    year: [...DEFAULT_MULTI_FILTERS.year],
+    month: "all"
   },
   tableDateOrder: "desc",
   view: "map",
@@ -2710,6 +2726,8 @@ function cacheElements() {
     aiCategoryFilter: document.getElementById("aiCategoryFilter"),
     companyFilter: document.getElementById("companyFilter"),
     yearFilter: document.getElementById("yearFilter"),
+    monthFilterField: document.getElementById("monthFilterField"),
+    monthFilter: document.getElementById("monthFilter"),
     tableDateOrder: document.getElementById("tableDateOrder"),
     metricModels: document.getElementById("metricModels"),
     metricCompanies: document.getElementById("metricCompanies"),
@@ -2754,6 +2772,12 @@ function bindEvents() {
   ]) {
     bindMultiFilter(key, element);
   }
+
+  els.monthFilter.addEventListener("change", (event) => {
+    state.filters.month = VALID_MONTH_FILTERS.has(event.target.value) ? event.target.value : "all";
+    saveViewPreferences();
+    render();
+  });
 
   document.addEventListener("click", (event) => {
     if (!(event.target instanceof Element) || !event.target.closest(".multi-filter")) {
@@ -2913,6 +2937,7 @@ function populateFilters() {
 
   const years = unique(models.map((model) => model.year)).sort((a, b) => a - b);
   fillMultiFilter(els.yearFilter, "year", ["all", ...years], "Todos");
+  fillMonthFilter();
   syncFilterControls();
   syncStickyOffsets();
   saveViewPreferences();
@@ -2937,10 +2962,24 @@ function bindMultiFilter(key, element) {
   element.addEventListener("change", (event) => {
     if (!(event.target instanceof HTMLInputElement) || event.target.type !== "checkbox") return;
     state.filters[key] = readMultiFilterSelection(element, event.target.value);
+    if (key === "year") state.filters.month = "all";
     syncMultiFilter(element, key);
+    syncMonthFilter();
+    syncStickyOffsets();
     saveViewPreferences();
     render();
   });
+}
+
+function fillMonthFilter() {
+  if (!els.monthFilter) return;
+
+  els.monthFilter.innerHTML = [
+    '<option value="all">Todos os meses</option>',
+    ...MONTH_OPTIONS.map(([value, label]) => (
+      `<option value="${value}">${escapeHtml(label)}</option>`
+    ))
+  ].join("");
 }
 
 function fillMultiFilter(element, key, values, allLabel) {
@@ -3055,6 +3094,25 @@ function selectedFilterValues(key) {
     : [String(state.filters[key] || "all")];
 }
 
+function hasSingleSelectedYear() {
+  const years = selectedFilterValues("year");
+  return years.length === 1 && years[0] !== "all";
+}
+
+function syncMonthFilter() {
+  if (!els.monthFilterField || !els.monthFilter) return;
+
+  const shouldShow = hasSingleSelectedYear();
+  const month = VALID_MONTH_FILTERS.has(String(state.filters.month))
+    ? String(state.filters.month)
+    : "all";
+
+  state.filters.month = shouldShow ? month : "all";
+  els.monthFilter.value = state.filters.month;
+  els.monthFilter.disabled = !shouldShow;
+  els.monthFilterField.hidden = !shouldShow;
+}
+
 function selectedCompaniesForFilter() {
   const companies = selectedFilterValues("company").filter((company) => company !== "all");
   return companies.length ? new Set(companies) : null;
@@ -3079,6 +3137,7 @@ function syncFilterControls() {
   ]) {
     syncMultiFilter(element, key);
   }
+  syncMonthFilter();
   els.tableDateOrder.value = VALID_TABLE_DATE_ORDERS.has(state.tableDateOrder) ? state.tableDateOrder : "desc";
 }
 
@@ -3240,6 +3299,7 @@ function filteredModels() {
     if (!filterHasAll("aiCategory") && !model.ai_category.some((category) => selectedFilterValues("aiCategory").includes(category))) return false;
     if (!filterHasAll("company") && !selectedFilterValues("company").includes(model.company)) return false;
     if (!filterHasAll("year") && !selectedFilterValues("year").includes(String(model.year))) return false;
+    if (hasSingleSelectedYear() && state.filters.month !== "all" && String(model.release_date || "").slice(5, 7) !== state.filters.month) return false;
     return true;
   });
 }
