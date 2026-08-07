@@ -13,7 +13,7 @@
       rel="stylesheet"
       integrity="sha256-qx5w1Z7EBGW65+cDDaLzzPKBM/1QLmK9WY7vut/XpzI="
       crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=13">
   </head>
   <body>
   <header class="topbar">
@@ -25,25 +25,6 @@
   </header>
 
     <main>
-      <section class="summary-grid" aria-label="Resumo">
-        <div class="metric">
-          <span id="metricModels">0</span>
-          <small>modelos filtrados</small>
-        </div>
-        <div class="metric">
-          <span id="metricCompanies">0</span>
-          <small>empresas</small>
-        </div>
-        <div class="metric">
-          <span id="metricYears">-</span>
-          <small>período</small>
-        </div>
-        <div class="metric">
-          <span id="metricSources">0</span>
-          <small>fontes oficiais</small>
-        </div>
-      </section>
-
       <section class="controls" aria-label="Filtros">
         <label>
           <span>Busca</span>
@@ -115,6 +96,25 @@
       </section>
 
       <section id="yearsView" class="view">
+        <div id="cumulativeChart"></div>
+        <section class="summary-grid" aria-label="Resumo">
+          <div class="metric">
+            <span id="metricModels">0</span>
+            <small>modelos filtrados</small>
+          </div>
+          <div class="metric">
+            <span id="metricCompanies">0</span>
+            <small>empresas</small>
+          </div>
+          <div class="metric">
+            <span id="metricYears">-</span>
+            <small>período</small>
+          </div>
+          <div class="metric">
+            <span id="metricSources">0</span>
+            <small>fontes oficiais</small>
+          </div>
+        </section>
         <div id="yearChart" class="year-chart"></div>
       </section>
 
@@ -208,6 +208,6 @@
       integrity="sha256-RamwepGJzlYFTGIKlHzPQeKR5YyV6bYVM7dAqqZe5cs="
       crossorigin="anonymous">
     </script>
-    <script src="app.js?v=15" defer></script>
+    <script src="app.js?v=16" defer></script>
   </body>
 </html>

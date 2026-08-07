@@ -2748,6 +2748,7 @@ function cacheElements() {
     timelineScale: document.getElementById("timelineScale"),
     modelDetails: document.getElementById("modelDetails"),
     yearChart: document.getElementById("yearChart"),
+    cumulativeChart: document.getElementById("cumulativeChart"),
     mapShell: document.getElementById("mapShell"),
     companyMap: document.getElementById("companyMap"),
     companyLocationList: document.getElementById("companyLocationList"),
@@ -3530,6 +3531,7 @@ function renderDetails(model) {
 
 function renderYearChart(models) {
   if (!models.length) {
+    els.cumulativeChart.innerHTML = "";
     els.yearChart.innerHTML = `<div class="empty-state">Nenhum modelo no filtro atual.</div>`;
     return;
   }
@@ -3563,8 +3565,9 @@ function renderYearChart(models) {
       `;
     }).join("");
 
+  // o grafico acumulado fica fora do #yearChart para o resumo caber entre os dois
+  els.cumulativeChart.innerHTML = renderCumulativeModelChart(models);
   els.yearChart.innerHTML = `
-    ${renderCumulativeModelChart(models)}
     <div class="year-list">
       ${yearRows}
     </div>

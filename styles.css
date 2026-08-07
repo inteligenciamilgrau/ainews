@@ -494,6 +494,7 @@ textarea {
 
 .release-cats {
   display: flex;
+  min-width: 0;
   gap: 4px;
   white-space: nowrap;
 }
@@ -556,11 +557,15 @@ textarea {
 
   .release-company {
     grid-column: 2 / 4;
-    order: 3;
+    order: 2;
   }
 
+  /* tipos ganham a linha inteira e quebram, senao vazam sobre a empresa */
   .release-cats {
-    order: 2;
+    grid-column: 1 / -1;
+    order: 3;
+    flex-wrap: wrap;
+    gap: 2px 4px;
   }
 }
 
@@ -1024,6 +1029,11 @@ dd {
 
 .year-list {
   border-top: 1px solid var(--line);
+}
+
+/* sem o grafico acumulado acima, a borda viraria um risco solto no topo do card */
+.year-list:first-child {
+  border-top: 0;
 }
 
 .map-toolbar {
