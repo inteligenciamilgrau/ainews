@@ -3527,8 +3527,9 @@ function renderYearChart(models) {
         const width = (count / yearModels.length) * 100;
         return `<span title="${escapeHtml(company)}: ${count}" style="width:${width}%; background:${colorFor(company)}"></span>`;
       }).join("");
+      // a lista de modelos so aparece no hover/foco da linha, via .year-models
       return `
-        <div class="year-row">
+        <div class="year-row" tabindex="0" aria-label="${escapeAttribute(`${year}: ${yearModels.length} modelos`)}">
           <div class="year-label">${year}</div>
           <div class="year-bar-wrap">
             <div class="year-bar" style="width:${Math.max((yearModels.length / maxCount) * 100, 6)}%">
@@ -3536,7 +3537,7 @@ function renderYearChart(models) {
             </div>
           </div>
           <div class="year-count">${yearModels.length}</div>
-          <div class="year-models">${yearModels.map((model) => escapeHtml(model.model)).join(", ")}</div>
+          <div class="year-models" role="tooltip">${yearModels.map((model) => escapeHtml(model.model)).join(", ")}</div>
         </div>
       `;
     }).join("");
