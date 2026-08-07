@@ -6,20 +6,20 @@
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net; script-src-elem 'self' https://cdn.jsdelivr.net; script-src-attr 'none'; style-src 'self' https://cdn.jsdelivr.net; style-src-elem 'self' https://cdn.jsdelivr.net; style-src-attr 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://demotiles.maplibre.org https://server.arcgisonline.com; connect-src 'self' https://tiles.openfreemap.org https://demotiles.maplibre.org https://server.arcgisonline.com; worker-src 'self' blob:; child-src 'self' blob:; upgrade-insecure-requests">
-    <title>Lançamento das iAs</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Lançamentos das iAs</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
     <link 
       href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css"
       rel="stylesheet"
       integrity="sha256-qx5w1Z7EBGW65+cDDaLzzPKBM/1QLmK9WY7vut/XpzI="
       crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css?v=7">
+    <link rel="stylesheet" href="styles.css?v=11">
   </head>
   <body>
   <header class="topbar">
     <div class="topbar-inner">
       <p class="eyebrow">AI release tracker</p>
-      <h1>Lançamento das <span class="title-accent">iAs</span></h1>
+      <h1>Lançamentos das <span class="title-accent">iAs</span></h1>
       <p id="lastUpdated" class="last-updated">Carregando última atualização..</p>
     </div>
   </header>
@@ -67,10 +67,15 @@
             <option value="all">Todos os meses</option>
           </select>
         </label>
+        <div class="filter-field filter-actions">
+          <span>Filtros</span>
+          <button id="clearFilters" type="button" class="clear-filters" title="Abre tudo: busca vazia e tipo de IA, empresa, ano e mês em Todos">Limpar tudo</button>
+        </div>
       </section>
 
       <section class="view-row" aria-label="Modo de visualização">
         <div class="segmented" role="tablist" aria-label="Views">
+          <button type="button" data-view="releases">Lançamentos</button>
           <button class="active" type="button" data-view="timeline">Timeline</button>
           <button type="button" data-view="years">Ano a ano</button>
           <button type="button" data-view="table">Tabela</button>
@@ -82,6 +87,25 @@
           <button class="active" type="button" data-lane-mode="company">Por empresa</button>
           <button type="button" data-lane-mode="all">Tudo junto</button>
         </div>
+      </section>
+
+      <section id="releasesView" class="view">
+        <div class="releases-toolbar">
+          <div>
+            <p class="section-kicker">Lançamentos</p>
+            <h2>Todos os modelos em ordem de data</h2>
+          </div>
+          <div class="segmented compact" role="group" aria-label="Ordem dos lançamentos">
+            <button class="active" type="button" data-releases-order="desc">Mais recentes</button>
+            <button type="button" data-releases-order="asc">Mais antigos</button>
+          </div>
+        </div>
+        <ol id="releasesList" class="releases-list"></ol>
+        <nav id="releasesPagination" class="releases-pagination" aria-label="Paginação dos lançamentos" hidden>
+          <button id="releasesPrev" type="button" data-releases-page="prev">← Anterior</button>
+          <span id="releasesPageStatus" class="releases-page-status" aria-live="polite"></span>
+          <button id="releasesNext" type="button" data-releases-page="next">Próxima →</button>
+        </nav>
       </section>
 
       <section id="timelineView" class="view active-view">
@@ -184,6 +208,6 @@
       integrity="sha256-RamwepGJzlYFTGIKlHzPQeKR5YyV6bYVM7dAqqZe5cs="
       crossorigin="anonymous">
     </script>
-    <script src="app.js?v=11" defer></script>
+    <script src="app.js?v=15" defer></script>
   </body>
 </html>

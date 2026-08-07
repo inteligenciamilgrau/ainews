@@ -15,7 +15,16 @@ const MAP_SPREAD_CIRCLE_MAX = 9;
 const MAP_SPREAD_MIN_ZOOM = 4;
 const MAP_SPREAD_MAX_OFFSET_DEG = 20;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
-const VALID_VIEWS = new Set(["timeline", "years", "table", "sources", "map", "history"]);
+const VALID_VIEWS = new Set(["releases", "timeline", "years", "table", "sources", "map", "history"]);
+const RELEASES_PAGE_SIZE = 20;
+// "Limpar tudo" abre tudo: nao volta ao padrao LLMs do carregamento inicial
+const CLEARED_FILTERS = Object.freeze({
+  query: "",
+  aiCategory: ["all"],
+  company: ["all"],
+  year: ["all"],
+  month: "all"
+});
 const DEFAULT_MAP_CAMERA = Object.freeze({
   center: [-52.8, -14.2],
   zoom: 3.2,
@@ -69,6 +78,8 @@ const state = {
     month: "all"
   },
   tableDateOrder: "desc",
+  releasesDateOrder: "desc",
+  releasesPage: 1,
   view: "map",
   laneMode: "company",
   mapLayer: "all",
@@ -2749,7 +2760,14 @@ function cacheElements() {
     mapLoading: document.getElementById("mapLoading"),
     mapError: document.getElementById("mapError"),
     modelsTable: document.getElementById("modelsTable"),
-    sourcesList: document.getElementById("sourcesList")
+    sourcesList: document.getElementById("sourcesList"),
+    clearFilters: document.getElementById("clearFilters"),
+    releasesList: document.getElementById("releasesList"),
+    releasesOrderButtons: document.querySelectorAll("[data-releases-order]"),
+    releasesPagination: document.getElementById("releasesPagination"),
+    releasesPrev: document.getElementById("releasesPrev"),
+    releasesNext: document.getElementById("releasesNext"),
+    releasesPageStatus: document.getElementById("releasesPageStatus")
   });
 }
 
@@ -2761,6 +2779,7 @@ function bindEvents() {
 
   els.searchInput.addEventListener("input", (event) => {
     state.filters.query = event.target.value.trim().toLowerCase();
+    state.releasesPage = 1;
     saveViewPreferences();
     render();
   });
@@ -2775,6 +2794,7 @@ function bindEvents() {
 
   els.monthFilter.addEventListener("change", (event) => {
     state.filters.month = VALID_MONTH_FILTERS.has(event.target.value) ? event.target.value : "all";
+    state.releasesPage = 1;
     saveViewPreferences();
     render();
   });
@@ -2857,6 +2877,56 @@ function bindEvents() {
     saveViewPreferences();
     renderTable(filteredModels());
   });
+
+  els.clearFilters?.addEventListener("click", () => {
+    clearAllFilters();
+  });
+
+  els.releasesOrderButtons?.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.releasesDateOrder = VALID_TABLE_DATE_ORDERS.has(button.dataset.releasesOrder)
+        ? button.dataset.releasesOrder
+        : "desc";
+      state.releasesPage = 1;
+      syncViewControls();
+      saveViewPreferences();
+      renderReleases(filteredModels());
+    });
+  });
+
+  els.releasesPrev?.addEventListener("click", () => goToReleasesPage(state.releasesPage - 1));
+  els.releasesNext?.addEventListener("click", () => goToReleasesPage(state.releasesPage + 1));
+}
+
+function clearAllFilters() {
+  state.filters = {
+    query: CLEARED_FILTERS.query,
+    aiCategory: [...CLEARED_FILTERS.aiCategory],
+    company: [...CLEARED_FILTERS.company],
+    year: [...CLEARED_FILTERS.year],
+    month: CLEARED_FILTERS.month
+  };
+  state.releasesPage = 1;
+  closeMultiFilterMenus();
+  syncFilterControls();
+  saveViewPreferences();
+  render();
+}
+
+function filtersAreCleared() {
+  const sameSet = (values, target) => {
+    const current = [...new Set(values.map(String))].sort();
+    const expected = [...new Set(target.map(String))].sort();
+    return current.length === expected.length && current.every((value, index) => value === expected[index]);
+  };
+  return state.filters.query === CLEARED_FILTERS.query
+    && state.filters.month === CLEARED_FILTERS.month
+    && MULTI_FILTER_KEYS.every((key) => sameSet(selectedFilterValues(key), CLEARED_FILTERS[key]));
+}
+
+function syncClearFiltersButton() {
+  if (!els.clearFilters) return;
+  els.clearFilters.disabled = filtersAreCleared();
 }
 
 function renderLastUpdated() {
@@ -2867,9 +2937,12 @@ function renderLastUpdated() {
   const date = correction?.date || state.metadata.updated_at;
   const description = correction?.description_pt;
   const formattedDate = date ? formatDate(date) : "data não informada";
-  element.textContent = description
-    ? `Última atualização: ${formattedDate} - ${description}`
-    : `Última atualização: ${formattedDate}`;
+  element.textContent = `Atualizado em ${formattedDate}`;
+  if (description) {
+    element.title = `Última atualização (${formattedDate}): ${description}`;
+  } else {
+    element.removeAttribute("title");
+  }
   syncStickyOffsets();
 }
 
@@ -2963,6 +3036,7 @@ function bindMultiFilter(key, element) {
     if (!(event.target instanceof HTMLInputElement) || event.target.type !== "checkbox") return;
     state.filters[key] = readMultiFilterSelection(element, event.target.value);
     if (key === "year") state.filters.month = "all";
+    state.releasesPage = 1;
     syncMultiFilter(element, key);
     syncMonthFilter();
     syncStickyOffsets();
@@ -3139,6 +3213,7 @@ function syncFilterControls() {
   }
   syncMonthFilter();
   els.tableDateOrder.value = VALID_TABLE_DATE_ORDERS.has(state.tableDateOrder) ? state.tableDateOrder : "desc";
+  syncClearFiltersButton();
 }
 
 function syncViewControls() {
@@ -3157,6 +3232,9 @@ function syncViewControls() {
   els.mapLabelButtons?.forEach((button) => {
     const activeValue = state.mapLabels ? "on" : "off";
     button.classList.toggle("active", button.dataset.mapLabels === activeValue);
+  });
+  els.releasesOrderButtons?.forEach((button) => {
+    button.classList.toggle("active", button.dataset.releasesOrder === state.releasesDateOrder);
   });
   els.mapScaleButtons?.forEach((button) => {
     button.classList.toggle("active", button.dataset.mapScale === state.mapScale);
@@ -3211,6 +3289,7 @@ function loadViewPreferences() {
     const restoredMapCamera = normalizeMapCamera(prefs.mapCamera);
     if (restoredMapCamera) state.mapCamera = restoredMapCamera;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.tableDateOrder)) state.tableDateOrder = prefs.tableDateOrder;
+    if (VALID_TABLE_DATE_ORDERS.has(prefs.releasesDateOrder)) state.releasesDateOrder = prefs.releasesDateOrder;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.historyEventDateOrder)) historyState.eventDateOrder = prefs.historyEventDateOrder;
     if (prefs.filters && typeof prefs.filters === "object") {
       const restoredFilters = { ...state.filters };
@@ -3241,6 +3320,7 @@ function saveViewPreferences() {
       mapScale: state.mapScale,
       mapCamera: state.mapCamera,
       tableDateOrder: state.tableDateOrder,
+      releasesDateOrder: state.releasesDateOrder,
       historyEventDateOrder: historyState.eventDateOrder,
       filters: state.filters
     }));
@@ -3315,6 +3395,8 @@ function render() {
   }
 
   renderMetrics(models);
+  syncClearFiltersButton();
+  renderReleases(models);
   renderTimeline(models);
   renderYearChart(models);
   renderCompanyMap();
@@ -4901,6 +4983,82 @@ function renderTable(models) {
       <td>${renderSourceLinks(model, "compact")}</td>
     </tr>
   `).join("");
+}
+
+function renderReleases(models) {
+  if (!els.releasesList) return;
+
+  if (!models.length) {
+    els.releasesList.innerHTML = `<li class="empty-state">Nenhum lançamento no filtro atual.</li>`;
+    state.releasesPage = 1;
+    if (els.releasesPagination) els.releasesPagination.hidden = true;
+    return;
+  }
+
+  const direction = state.releasesDateOrder === "asc" ? 1 : -1;
+  const sorted = [...models].sort((a, b) => (
+    ((a.timestamp - b.timestamp) * direction)
+    || a.company.localeCompare(b.company)
+    || a.model.localeCompare(b.model)
+  ));
+
+  // pagina em blocos de 20 para a lista nao crescer sem fim
+  const totalPages = Math.max(1, Math.ceil(sorted.length / RELEASES_PAGE_SIZE));
+  state.releasesPage = Math.min(Math.max(1, state.releasesPage), totalPages);
+  const start = (state.releasesPage - 1) * RELEASES_PAGE_SIZE;
+  const pageModels = sorted.slice(start, start + RELEASES_PAGE_SIZE);
+
+  els.releasesList.setAttribute("start", String(start + 1));
+  renderReleasesPagination(sorted.length, totalPages, start, pageModels.length);
+
+  els.releasesList.innerHTML = pageModels.map((model) => {
+    const color = model.is_negative ? "#ef4444" : colorFor(model.company);
+    const source = model.sources[0];
+    const sourceLink = source?.url
+      ? `<a class="release-source" href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer noopener">fonte</a>`
+      : `<span class="release-source is-empty">-</span>`;
+    return `
+      <li class="release-row" style="--chip-color:${color}">
+        <time class="release-date" datetime="${escapeHtml(model.release_date || "")}">${formatDate(model.release_date)}</time>
+        <span class="release-company" title="${escapeHtml(model.company)}">${escapeHtml(model.company)}</span>
+        <strong class="release-model" title="${escapeHtml(model.model)}">${escapeHtml(model.model)}</strong>
+        <span class="release-cats">${model.ai_category.map(categoryPill).join("")}</span>
+        ${sourceLink}
+      </li>
+    `;
+  }).join("");
+}
+
+function renderReleasesPagination(total, totalPages, start, pageCount) {
+  if (!els.releasesPagination) return;
+
+  els.releasesPagination.hidden = false;
+  if (els.releasesPageStatus) {
+    const range = pageCount === 1 ? `${start + 1}` : `${start + 1}-${start + pageCount}`;
+    els.releasesPageStatus.textContent = totalPages === 1
+      ? `${total} ${total === 1 ? "lançamento" : "lançamentos"}`
+      : `${range} de ${total} · página ${state.releasesPage} de ${totalPages}`;
+  }
+  if (els.releasesPrev) els.releasesPrev.disabled = state.releasesPage <= 1;
+  if (els.releasesNext) els.releasesNext.disabled = state.releasesPage >= totalPages;
+}
+
+function goToReleasesPage(page) {
+  const next = Math.max(1, page);
+  if (next === state.releasesPage) return;
+  state.releasesPage = next;
+  renderReleases(filteredModels());
+  scrollReleasesIntoView();
+}
+
+function scrollReleasesIntoView() {
+  const view = document.getElementById("releasesView");
+  if (!view) return;
+  const styles = getComputedStyle(document.documentElement);
+  const stickyTop = parseFloat(styles.getPropertyValue("--sticky-filter-top")) || 0;
+  const stickyHeight = parseFloat(styles.getPropertyValue("--sticky-filter-height")) || 0;
+  const top = view.getBoundingClientRect().top + window.scrollY - stickyTop - stickyHeight - 12;
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
 }
 
 function sortModelsForTable(models) {
