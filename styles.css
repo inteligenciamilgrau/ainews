@@ -1772,6 +1772,11 @@ td a,
     margin-left: 0;
   }
 
+  /* o SVG ja e desenhado estreito no mobile, entao cabe sem rolagem horizontal */
+  .cumulative-chart-svg {
+    min-width: 0;
+  }
+
   .year-row,
   .source-group li {
     grid-template-columns: 1fr;

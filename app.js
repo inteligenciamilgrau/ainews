@@ -2776,6 +2776,11 @@ function bindEvents() {
     state.companyMap?.resize();
   });
 
+  // o grafico acumulado usa uma geometria por breakpoint, entao precisa ser redesenhado ao cruza-lo
+  window.matchMedia("(max-width: 760px)").addEventListener("change", () => {
+    renderYearChart(filteredModels());
+  });
+
   els.searchInput.addEventListener("input", (event) => {
     state.filters.query = event.target.value.trim().toLowerCase();
     state.releasesPage = 1;
@@ -3574,9 +3579,15 @@ function renderCumulativeModelChart(models) {
     release.cumulative = cumulative;
   });
 
-  const width = 1040;
-  const height = 320;
-  const margin = { top: 24, right: 24, bottom: 44, left: 64 };
+  // no celular o SVG e desenhado mais estreito e alto: encolhido para caber na tela,
+  // a proporcao de 1040x320 viraria uma faixa achatada e ilegivel
+  const compactChart = window.matchMedia("(max-width: 760px)").matches;
+  const width = compactChart ? 460 : 1040;
+  const height = compactChart ? 340 : 320;
+  const margin = compactChart
+    ? { top: 18, right: 24, bottom: 48, left: 52 }
+    : { top: 24, right: 24, bottom: 44, left: 64 };
+  const axisFontSize = compactChart ? 17 : 12;
   const plotWidth = width - margin.left - margin.right;
   const plotHeight = height - margin.top - margin.bottom;
   const plotBottom = margin.top + plotHeight;
@@ -3610,21 +3621,25 @@ function renderCumulativeModelChart(models) {
   const lastX = xForTimestamp(lastRelease.timestamp);
   const areaPath = `${linePath} V ${plotBottom.toFixed(2)} H ${firstX.toFixed(2)} Z`;
 
+  const yTickCount = compactChart ? 4 : 5;
   const yTicks = [...new Set(
-    Array.from({ length: 5 }, (_, index) => Math.round((cumulative * index) / 4))
+    Array.from({ length: yTickCount }, (_, index) => (
+      Math.round((cumulative * index) / (yTickCount - 1))
+    ))
   )];
   const yGrid = yTicks.map((value) => {
     const y = yForTotal(value);
     return `
       <line class="cumulative-grid-line" x1="${margin.left}" y1="${y.toFixed(2)}" x2="${width - margin.right}" y2="${y.toFixed(2)}"></line>
-      <text class="cumulative-axis-label cumulative-axis-label-y" x="${margin.left - 12}" y="${(y + 4).toFixed(2)}">${value}</text>
+      <text class="cumulative-axis-label cumulative-axis-label-y" x="${margin.left - 10}" y="${(y + axisFontSize / 3).toFixed(2)}" style="font-size:${axisFontSize}px">${value}</text>
     `;
   }).join("");
 
   const firstYear = new Date(firstRelease.timestamp).getUTCFullYear();
   const lastYear = new Date(lastRelease.timestamp).getUTCFullYear();
   const allYears = Array.from({ length: lastYear - firstYear + 1 }, (_, index) => firstYear + index);
-  const yearStep = Math.max(1, Math.ceil(allYears.length / 9));
+  const maxXTicks = compactChart ? 5 : 9;
+  const yearStep = Math.max(1, Math.ceil(allYears.length / maxXTicks));
   const xTickYears = allYears.filter((_, index) => index % yearStep === 0);
   if (!xTickYears.includes(lastYear)) xTickYears.push(lastYear);
   const xGrid = [...new Set(xTickYears)].map((year) => {
@@ -3633,11 +3648,11 @@ function renderCumulativeModelChart(models) {
     const x = xForTimestamp(timestamp);
     return `
       <line class="cumulative-grid-line cumulative-grid-line-x" x1="${x.toFixed(2)}" y1="${margin.top}" x2="${x.toFixed(2)}" y2="${plotBottom}"></line>
-      <text class="cumulative-axis-label cumulative-axis-label-x" x="${x.toFixed(2)}" y="${plotBottom + 28}">${year}</text>
+      <text class="cumulative-axis-label cumulative-axis-label-x" x="${x.toFixed(2)}" y="${plotBottom + axisFontSize + 12}" style="font-size:${axisFontSize}px">${year}</text>
     `;
   }).join("");
 
-  const pointStride = Math.max(1, Math.ceil(releases.length / 80));
+  const pointStride = Math.max(1, Math.ceil(releases.length / (compactChart ? 36 : 80)));
   const points = releases
     .filter((_, index) => index % pointStride === 0 || index === releases.length - 1)
     .map((release) => `
@@ -3645,7 +3660,7 @@ function renderCumulativeModelChart(models) {
         class="cumulative-point"
         cx="${xForTimestamp(release.timestamp).toFixed(2)}"
         cy="${yForTotal(release.cumulative).toFixed(2)}"
-        r="3">
+        r="${compactChart ? 4 : 3}">
         <title>${escapeHtml(`${formatDate(release.date)}: ${release.cumulative} modelos acumulados (+${release.count} no dia)`)}</title>
       </circle>
     `).join("");
