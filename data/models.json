@@ -1,7 +1,11 @@
 {
   "metadata": {
-    "updated_at": "2026-07-25",
+    "updated_at": "2026-08-06",
     "last_correction": {
+      "date": "2026-08-06",
+      "description_pt": "Inclusao de quatro lancamentos posteriores a 24 de julho de 2026: DeepSeek-V4-Flash-0731 (31 de julho, release oficial com pesos MIT), MiniMax H3 (31 de julho na API e app Hailuo, com pesos abertos em 3 de agosto), Qwen3.8-Max (3 de agosto, MoE de 2,4T com 95B ativos e 1M de contexto, sucedendo a entrada de preview de 19 de julho) e Meta Muse Spark 1.2 com o agente de terminal Muse Code (5 de agosto)."
+    },
+    "previous_correction": {
       "date": "2026-07-25",
       "description_pt": "Inclusao do Claude Sonnet 5, lancado em 30 de junho de 2026, e do Claude Opus 5, lancado em 24 de julho de 2026. Atualizacao da linha Black Forest Labs com FLUX.2 [klein] (15 de janeiro de 2026), FLUX Outpainting (14 de maio), FLUX Erase (21 de maio), FLUX VTO (28 de maio), FLUX.2 [klein] on-device nos ASUS ProArt (4 de junho) e FLUX 3 (23 de julho de 2026). Remocao de tres entradas Moonshot duplicadas (Kimi K1.5, Kimi K2 e Kimi K2.6), mantendo as versoes com fonte oficial detalhada."
     },
@@ -3933,6 +3937,32 @@
       "confidence": "alta"
     },
     {
+      "id": "deepseek-v4-flash-0731",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V4-Flash-0731",
+      "release_date": "2026-07-31",
+      "release_stage": "lancamento oficial / open weights / API em beta publico",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "tool-use", "MoE", "304B", "open-weights", "OpenSource", "MIT", "longo-contexto", "1M"],
+      "description_pt": "Versao oficial do DeepSeek-V4-Flash, sucedendo o preview de abril. MoE de 304B parametros com contexto de 1M tokens e tres niveis de esforco de raciocinio (low, high e max). A arquitetura nao mudou: o ganho vem de um pipeline de pos-treino refeito para codigo, agentes e uso de ferramentas, elevando o Terminal-Bench 2.1 de 61,8 para 82,7. Pesos publicados no Hugging Face sob licenca MIT e API a 0,14 USD por milhao de tokens de entrada.",
+      "sources": [
+        {
+          "title": "deepseek-ai/DeepSeek-V4-Flash-0731",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+          "publisher": "DeepSeek / Hugging Face",
+          "date_basis": "Model card oficial publicado em 31 de julho de 2026 apresenta o release definitivo do V4-Flash, com pesos MIT e melhorias agenticas sobre o preview."
+        },
+        {
+          "title": "DeepSeek Upgrades DeepSeek-V4-Flash-0731 with Major Agentic and Coding Gains",
+          "url": "https://www.marktechpost.com/2026/07/31/deepseek-upgrades-deepseek-v4-flash-0731-with-major-agentic-and-coding-gains/",
+          "publisher": "MarkTechPost",
+          "date_basis": "Cobertura de 31 de julho de 2026 corrobora a data e detalha os benchmarks agenticos e o preco da API."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "openai-clip",
       "company": "OpenAI",
       "family": "CLIP",
@@ -4814,6 +4844,32 @@
         "publisher": "Qwen / Alibaba",
         "date_basis": "Post oficial de 19 de julho de 2026 anuncia o futuro lancamento do Qwen3.8 e confirma que o Qwen3.8-Max-Preview ja estreou no Token Plan, Qoder e QoderWork."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-8-max",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3.8-Max",
+      "release_date": "2026-08-03",
+      "release_stage": "lancamento oficial / API (pesos abertos anunciados)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "video-input", "multimodal", "raciocinio", "codigo", "agente", "MoE", "2.4T", "95B-ativos", "1M-contexto", "API"],
+      "description_pt": "Maior e mais capaz modelo ja lancado pela Alibaba: MoE de 2,4 trilhoes de parametros com cerca de 95B ativos por token, contexto de 1M tokens e entrada nativa de texto, imagem e video. O posicionamento e de colega de trabalho autonomo, com foco em codigo agentico e execucao de longo horizonte. Disponivel via API no Alibaba Cloud Model Studio a 2 USD/M de entrada e 6 USD/M de saida, com os pesos prometidos para a semana seguinte no Hugging Face e ModelScope, o primeiro modelo classe Max da Qwen com pesos abertos.",
+      "sources": [
+        {
+          "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+          "url": "https://qwen.ai/blog?id=qwen3.8",
+          "publisher": "Qwen / Alibaba",
+          "date_basis": "Post oficial do blog Qwen publicado em 3 de agosto de 2026 anuncia o lancamento do Qwen3.8-Max."
+        },
+        {
+          "title": "Meet Qwen3.8-Max, our most capable model to date",
+          "url": "https://x.com/Alibaba_Qwen/status/2084100707423289643",
+          "publisher": "Qwen / Alibaba",
+          "date_basis": "Anuncio oficial no X em 3 de agosto de 2026 com especificacoes, precos e plano de abertura dos pesos."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -6977,6 +7033,32 @@
       "confidence": "alta"
     },
     {
+      "id": "minimax-h3",
+      "company": "MiniMax",
+      "family": "Hailuo",
+      "model": "MiniMax H3 (Hailuo)",
+      "release_date": "2026-07-31",
+      "release_stage": "lancamento produto/API; pesos abertos em 3 de agosto de 2026",
+      "ai_category": ["Video", "Imagem", "Audio/Transcricao"],
+      "model_type": ["video", "imagem", "audio", "multimodal", "omni", "texto-para-video", "imagem-para-video", "video-para-video", "audio-nativo", "2K", "15-segundos", "33B", "open-weights"],
+      "description_pt": "Modelo omni-modal de geracao da linha Hailuo: entende texto, imagem, video e audio no mesmo contexto e devolve video de ate 15 segundos em 2K com audio estereo nativo de 32 kHz e dialogo em 11 idiomas, gerado no mesmo passo. Cobre texto-para-video, condicionamento por primeiro/ultimo frame, geracao por referencia e transferencia de movimento V2V. Lancado em 31 de julho na API, no app Hailuo AI e em parceiros; em 3 de agosto a MiniMax abriu os pesos do H3-Base (checkpoints FL2VA e Ref2VA, cerca de 33B parametros) no Hugging Face e ModelScope sob a MiniMax H3 Community License, com clausula territorial que exclui EUA, UE, Reino Unido e Coreia.",
+      "sources": [
+        {
+          "title": "MiniMax H3: An Open Model Breaking the Boundaries Between Tasks and Modalities",
+          "url": "https://www.minimax.io/blog/minimax-h3",
+          "publisher": "MiniMax",
+          "date_basis": "Post oficial de 31 de julho de 2026 apresenta o H3, suas modalidades, resolucao e disponibilidade comercial."
+        },
+        {
+          "title": "Open General Intelligence: MiniMax H3 Is Now Open Source",
+          "url": "https://www.minimax.io/news/minimax-h3-open-source",
+          "publisher": "MiniMax",
+          "date_basis": "Anuncio oficial de 3 de agosto de 2026 registra a publicacao dos pesos, os checkpoints FL2VA e Ref2VA e a licenca comunitaria."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "microsoft-mai-voice-1",
       "company": "Microsoft",
       "family": "MAI",
@@ -7831,6 +7913,32 @@
         "publisher": "Meta",
         "date_basis": "Post oficial publicado em 9 de julho de 2026 anuncia Muse Spark 1.1 no Meta AI e na Meta Model API."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-muse-spark-1-2",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Spark 1.2 / Muse Code",
+      "release_date": "2026-08-05",
+      "release_stage": "produto/API + agente de terminal em beta",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "raciocinio", "codigo", "agente", "terminal", "subagentes", "tool-use", "longo-contexto", "1M-contexto", "API"],
+      "description_pt": "Atualizacao do Muse Spark focada em codigo, lancada junto do Muse Code, primeiro agente de terminal da Meta Superintelligence Labs. Melhora geracao de codigo, depuracao complexa e entendimento de repositorios inteiros, com subagentes assincronos persistentes, event log para recuperacao e replay de execucoes e skills embutidas como /plan, /grill e /goal. Mantem contexto de 1.048.576 tokens e o preco da 1.1 (1,25 USD/M de entrada, 0,15 USD/M em cache e 4,25 USD/M de saida); Muse Code sai para macOS e Linux.",
+      "sources": [
+        {
+          "title": "Introducing Muse Code and Muse Spark 1.2",
+          "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "publisher": "Meta",
+          "date_basis": "Post oficial publicado em 5 de agosto de 2026 anuncia o Muse Code em beta e o modelo Muse Spark 1.2 que o alimenta."
+        },
+        {
+          "title": "Muse Spark 1.2",
+          "url": "https://artificialanalysis.ai/articles/muse-spark-1-2",
+          "publisher": "Artificial Analysis",
+          "date_basis": "Analise independente de 5 de agosto de 2026 confirma a data, o preco por token e a janela de contexto de 1.048.576 tokens."
+        }
+      ],
       "confidence": "alta"
     },
     {
