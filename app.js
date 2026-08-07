@@ -34,7 +34,6 @@ const DEFAULT_MAP_CAMERA = Object.freeze({
 const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
 const VALID_MAP_BASE_MODES = new Set(["map", "earth", "hybrid"]);
 const VALID_MAP_SCALES = new Set(["globe", "country", "city", "street"]);
-const VALID_LANE_MODES = new Set(["company", "all"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
 const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models"];
 const VALID_AI_CATEGORIES = new Set(AI_CATEGORIES);
@@ -81,7 +80,6 @@ const state = {
   releasesDateOrder: "desc",
   releasesPage: 1,
   view: "map",
-  laneMode: "company",
   mapLayer: "all",
   mapBaseMode: "hybrid",
   mapLabels: false,
@@ -2825,15 +2823,6 @@ function bindEvents() {
     });
   });
 
-  document.querySelectorAll("[data-lane-mode]").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.laneMode = button.dataset.laneMode;
-      syncViewControls();
-      saveViewPreferences();
-      renderTimeline(filteredModels());
-    });
-  });
-
   els.mapLayerButtons.forEach((button) => {
     button.addEventListener("click", () => {
       state.mapLayer = VALID_MAP_LAYERS.has(button.dataset.mapLayer) ? button.dataset.mapLayer : "all";
@@ -3221,9 +3210,6 @@ function syncViewControls() {
   document.querySelectorAll("[data-view]").forEach((button) => {
     button.classList.toggle("active", button.dataset.view === state.view);
   });
-  document.querySelectorAll("[data-lane-mode]").forEach((button) => {
-    button.classList.toggle("active", button.dataset.laneMode === state.laneMode);
-  });
   els.mapLayerButtons?.forEach((button) => {
     button.classList.toggle("active", button.dataset.mapLayer === state.mapLayer);
   });
@@ -3282,7 +3268,6 @@ function loadViewPreferences() {
   try {
     const prefs = JSON.parse(localStorage.getItem(VIEW_PREFS_KEY) || "{}");
     if (VALID_VIEWS.has(prefs.view)) state.view = prefs.view;
-    if (VALID_LANE_MODES.has(prefs.laneMode)) state.laneMode = prefs.laneMode;
     if (VALID_MAP_LAYERS.has(prefs.mapLayer)) state.mapLayer = prefs.mapLayer;
     if (VALID_MAP_BASE_MODES.has(prefs.mapBaseMode)) state.mapBaseMode = prefs.mapBaseMode;
     if (typeof prefs.mapLabels === "boolean") state.mapLabels = prefs.mapLabels;
@@ -3314,7 +3299,6 @@ function saveViewPreferences() {
   try {
     localStorage.setItem(VIEW_PREFS_KEY, JSON.stringify({
       view: state.view,
-      laneMode: state.laneMode,
       mapLayer: state.mapLayer,
       mapBaseMode: state.mapBaseMode,
       mapLabels: state.mapLabels,
@@ -3435,20 +3419,13 @@ function renderTimeline(models) {
   }).join("");
 
   const companies = unique(models.map((model) => model.company));
-  const laneGroups = state.laneMode === "all"
-    ? [{
-      label: "Todos",
-      laneModels: models,
-      indexLabel: companies.length,
-      meta: `${companies.length} ${companies.length === 1 ? "empresa" : "empresas"} no filtro`
-    }]
-    : companies.map((company, index) => ({
-      label: company,
-      laneModels: models.filter((model) => model.company === company),
-      indexLabel: String(index + 1).padStart(2, "0")
-    }));
+  const laneGroups = companies.map((company, index) => ({
+    label: company,
+    laneModels: models.filter((model) => model.company === company),
+    indexLabel: String(index + 1).padStart(2, "0")
+  }));
 
-  els.timeline.innerHTML = laneGroups.map(({ label, laneModels, indexLabel, meta }) => {
+  els.timeline.innerHTML = laneGroups.map(({ label, laneModels, indexLabel }) => {
     const events = laneModels.map((model, index) => {
       const left = ((model.timestamp - min) / span) * 100;
       const color = model.is_negative ? "#ef4444" : colorFor(model.company);
@@ -3470,7 +3447,6 @@ function renderTimeline(models) {
         <div class="lane-label">
           <span class="lane-index">${escapeHtml(indexLabel)}</span>
           <span class="lane-name">${escapeHtml(label)}</span>
-          ${meta ? `<span class="lane-meta">${escapeHtml(meta)}</span>` : ""}
         </div>
         <div class="lane-track">${events}</div>
       </div>

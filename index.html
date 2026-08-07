@@ -13,7 +13,7 @@
       rel="stylesheet"
       integrity="sha256-qx5w1Z7EBGW65+cDDaLzzPKBM/1QLmK9WY7vut/XpzI="
       crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css?v=13">
+    <link rel="stylesheet" href="styles.css?v=15">
   </head>
   <body>
   <header class="topbar">
@@ -64,18 +64,10 @@
           <button type="button" data-view="map">Mapa</button>
           <button type="button" data-view="history">História</button>
         </div>
-        <div class="segmented compact" role="group" aria-label="Agrupamento">
-          <button class="active" type="button" data-lane-mode="company">Por empresa</button>
-          <button type="button" data-lane-mode="all">Tudo junto</button>
-        </div>
       </section>
 
-      <section id="releasesView" class="view">
+      <section id="releasesView" class="view" aria-label="Lançamentos">
         <div class="releases-toolbar">
-          <div>
-            <p class="section-kicker">Lançamentos</p>
-            <h2>Todos os modelos em ordem de data</h2>
-          </div>
           <div class="segmented compact" role="group" aria-label="Ordem dos lançamentos">
             <button class="active" type="button" data-releases-order="desc">Mais recentes</button>
             <button type="button" data-releases-order="asc">Mais antigos</button>
@@ -208,6 +200,6 @@
       integrity="sha256-RamwepGJzlYFTGIKlHzPQeKR5YyV6bYVM7dAqqZe5cs="
       crossorigin="anonymous">
     </script>
-    <script src="app.js?v=16" defer></script>
+    <script src="app.js?v=17" defer></script>
   </body>
 </html>
