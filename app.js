@@ -3955,9 +3955,9 @@ function addMapLocationLayers() {
     filter: ["==", ["geometry-type"], "Point"],
     paint: {
       "circle-radius": 2.6,
-      "circle-color": "#f8fafc",
+      "circle-color": "#eaf3ec",
       "circle-opacity": 0.92,
-      "circle-stroke-color": "#020617",
+      "circle-stroke-color": "#0a1610",
       "circle-stroke-width": 1
     }
   });
@@ -3995,7 +3995,7 @@ function addMapLocationLayers() {
         ["case", ["==", ["get", "selected"], true], 30, 24]
       ],
       "circle-color": "rgba(255,255,255,0)",
-      "circle-stroke-color": "#f8fafc",
+      "circle-stroke-color": "#eaf3ec",
       "circle-stroke-opacity": 0.88,
       "circle-stroke-width": [
         "case",
@@ -4027,7 +4027,7 @@ function addMapLocationLayers() {
         ["case", ["==", ["get", "selected"], true], 16, 12]
       ],
       "circle-color": ["get", "color"],
-      "circle-stroke-color": "#020617",
+      "circle-stroke-color": "#0a1610",
       "circle-stroke-width": 1.8
     }
   });
@@ -4317,11 +4317,11 @@ function createMapFlagImage(location) {
   const pinY = 58;
 
   ctx.save();
-  ctx.shadowColor = "rgba(2, 6, 23, 0.42)";
+  ctx.shadowColor = "rgba(6, 16, 11, 0.42)";
   ctx.shadowBlur = 8;
   ctx.shadowOffsetY = 5;
 
-  ctx.strokeStyle = "#f8fafc";
+  ctx.strokeStyle = "#eaf3ec";
   ctx.lineWidth = 2;
   ctx.lineCap = "round";
   ctx.beginPath();
@@ -4482,11 +4482,11 @@ function applyAdminBoundaryPaint() {
   const lightMap = state.mapBaseMode === "map";
   const paintByLayer = {
     "ai-admin-boundaries-casing": {
-      "line-color": lightMap ? "rgba(255, 255, 255, 0.96)" : "rgba(2, 6, 23, 0.88)",
+      "line-color": lightMap ? "rgba(255, 255, 255, 0.96)" : "rgba(6, 16, 11, 0.88)",
       "line-opacity": lightMap ? 0.9 : 0.86
     },
     "ai-admin-boundaries": {
-      "line-color": lightMap ? "#334155" : "#fde047",
+      "line-color": lightMap ? "#33544a" : "#f5c84b",
       "line-opacity": lightMap ? 0.82 : 0.94
     }
   };
@@ -4515,8 +4515,8 @@ function applyReadableMapLabelPaint(layerId) {
   const lightMap = state.mapBaseMode === "map";
 
   const labelPaint = {
-    "text-color": lightMap ? "#111827" : "#f8fafc",
-    "text-halo-color": lightMap ? "rgba(255, 255, 255, 0.94)" : "rgba(2, 6, 23, 0.92)",
+    "text-color": lightMap ? "#0f2318" : "#eaf3ec",
+    "text-halo-color": lightMap ? "rgba(255, 255, 255, 0.94)" : "rgba(6, 16, 11, 0.92)",
     "text-halo-width": lightMap ? 2.4 : 2.2,
     "text-halo-blur": lightMap ? 0.35 : 0.45
   };
@@ -4966,7 +4966,7 @@ function renderSourceBasis(model) {
 }
 
 function colorFor(company) {
-  return companyColors[company] || "#475569";
+  return companyColors[company] || "#3f6b53";
 }
 
 function typePill(type) {

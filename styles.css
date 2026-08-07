@@ -1,15 +1,39 @@
 :root {
   color-scheme: light;
-  --bg: #f6f4ef;
-  --panel: #fffdf8;
+
+  /* base clara com leve toque de menta */
+  --bg: #f2f8f4;
+  --panel: #fbfefc;
   --panel-strong: #ffffff;
-  --ink: #171717;
-  --muted: #68635a;
-  --line: #ddd6c8;
-  --line-strong: #c8beac;
-  --accent: #0f766e;
-  --focus: #1d4ed8;
-  --shadow: 0 14px 35px rgba(34, 28, 19, 0.08);
+  --ink: #0f2318;
+  --ink-soft: #2c4536;
+  --muted: #55705f;
+  --line: #d8ebde;
+  --line-strong: #b6d9c2;
+  --surface-2: #e7f4ea;
+
+  /* verde floresta: cor estrutural */
+  --accent: #157f4a;
+  --accent-strong: #0e5c35;
+  --accent-soft: #d5f0e0;
+  --accent-ink: #0d3a24;
+
+  /* amarelo creme/mel: destaque */
+  --highlight: #f5c84b;
+  --highlight-soft: #fdf3d4;
+  --highlight-ink: #6b4e08;
+
+  /* superficies escuras (topbar e mapa) */
+  --dark: #0a1610;
+  --dark-panel: rgba(10, 22, 16, 0.9);
+  --dark-line: rgba(214, 240, 224, 0.22);
+  --dark-ink: #eaf3ec;
+  --dark-muted: #9fb3a6;
+  --mint: #3ddc84;
+  --cream: #f2e3b3;
+
+  --focus: #a87608;
+  --shadow: 0 14px 35px rgba(15, 40, 27, 0.09);
   --sticky-filter-top: 0px;
   --sticky-filter-height: 0px;
 }
@@ -40,12 +64,14 @@ a {
 
 .topbar {
   padding: 0;
-  border-bottom: 1px solid var(--line);
-  background: rgba(255, 253, 248, 0.92);
+  border-bottom: 1px solid #1e3a29;
+  background:
+    radial-gradient(120% 190% at 16% 130%, rgba(61, 220, 132, 0.16), transparent 60%),
+    var(--dark);
+  color: var(--dark-ink);
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(12px);
 }
 
 .topbar-inner {
@@ -53,8 +79,8 @@ a {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 6px 20px;
   padding: 26px clamp(14px, 3vw, 36px) 18px;
 }
 
@@ -82,11 +108,46 @@ h1 {
 .topbar h1 {
   flex: 0 0 auto;
   white-space: nowrap;
+  color: var(--dark-ink);
 }
 
-.topbar .eyebrow,
-.topbar .last-updated {
+.topbar h1 .title-accent {
+  color: var(--cream);
+}
+
+/* eyebrow como pill de contorno menta, igual ao padrao Mil Grau */
+.topbar .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: 0 0 auto;
   min-width: 0;
+  margin-bottom: 0;
+  padding: 5px 12px;
+  border: 1px solid rgba(61, 220, 132, 0.45);
+  border-radius: 999px;
+  background: rgba(61, 220, 132, 0.09);
+  color: var(--mint);
+  font-weight: 700;
+}
+
+.topbar .eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--highlight);
+}
+
+/* a data ocupa so o espaco que sobra depois do titulo e quebra sozinha */
+.topbar .last-updated {
+  flex: 1 1 240px;
+  min-width: 0;
+  margin: 0;
+  color: var(--dark-muted);
+  text-align: left;
+  text-wrap: pretty;
 }
 
 .last-updated {
@@ -175,8 +236,8 @@ button.secondary {
   z-index: 18;
   padding: 10px 0 12px;
   border-bottom: 1px solid var(--line);
-  background: rgba(246, 244, 239, 0.94);
-  box-shadow: 0 12px 24px rgba(34, 28, 19, 0.08);
+  background: rgba(242, 248, 244, 0.94);
+  box-shadow: 0 12px 24px rgba(15, 40, 27, 0.08);
   backdrop-filter: blur(10px);
 }
 
@@ -267,7 +328,7 @@ textarea {
   border: 1px solid var(--line-strong);
   border-radius: 8px;
   background: var(--panel-strong);
-  box-shadow: 0 16px 34px rgba(34, 28, 19, 0.16);
+  box-shadow: 0 16px 34px rgba(15, 40, 27, 0.16);
 }
 
 .multi-filter.open .multi-filter-menu {
@@ -293,7 +354,7 @@ textarea {
 }
 
 .multi-filter-option:hover {
-  background: #f4efe5;
+  background: var(--surface-2);
 }
 
 .multi-filter-option input {
@@ -338,7 +399,7 @@ textarea {
 }
 
 .segmented button.active {
-  background: #1f2937;
+  background: var(--accent);
   color: #fff;
 }
 
@@ -409,7 +470,7 @@ textarea {
   grid-template-columns: auto minmax(0, 1fr);
   align-content: start;
   gap: 4px 8px;
-  background: #f4efe5;
+  background: var(--surface-2);
   border-right: 1px solid var(--line);
   padding: 14px 12px;
   font-weight: 720;
@@ -449,11 +510,11 @@ textarea {
   min-height: 142px;
   overflow: visible;
   background:
-    linear-gradient(90deg, rgba(23, 23, 23, 0.06) 1px, transparent 1px) 0 0 / 10% 100%;
+    linear-gradient(90deg, rgba(15, 35, 24, 0.07) 1px, transparent 1px) 0 0 / 10% 100%;
 }
 
 .timeline-event {
-  --event-color: #475569;
+  --event-color: #3f6b53;
   --stack: 0;
   position: absolute;
   top: calc(14px + (var(--stack) * 25px));
@@ -580,8 +641,8 @@ dd {
   padding: 3px 7px;
   margin: 2px 4px 2px 0;
   border-radius: 999px;
-  background: #ece7dc;
-  color: #2d2a25;
+  background: var(--highlight-soft);
+  color: var(--ink);
   font-size: 0.76rem;
   line-height: 1.2;
 }
@@ -593,8 +654,8 @@ dd {
 }
 
 .category-pill {
-  background: #dcebe8;
-  color: #173f3a;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
 }
 
 .date-basis {
@@ -629,7 +690,7 @@ dd {
 }
 
 .source-basis-list strong {
-  color: #3f3a33;
+  color: var(--ink-soft);
 }
 
 .muted-text {
@@ -655,8 +716,8 @@ dd {
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
-    radial-gradient(circle at 88% 0%, rgba(15, 118, 110, 0.13), transparent 34%),
-    linear-gradient(180deg, #fff, #fbfaf6);
+    radial-gradient(circle at 88% 0%, rgba(21, 127, 74, 0.13), transparent 34%),
+    linear-gradient(180deg, #fff, #f6fcf8);
   overflow: hidden;
 }
 
@@ -685,7 +746,7 @@ dd {
   flex: 0 0 auto;
   min-width: 150px;
   padding: 10px 13px;
-  border: 1px solid rgba(15, 118, 110, 0.25);
+  border: 1px solid rgba(21, 127, 74, 0.25);
   border-radius: 7px;
   background: rgba(255, 255, 255, 0.78);
   text-align: right;
@@ -720,7 +781,7 @@ dd {
 }
 
 .cumulative-grid-line {
-  stroke: #d8d2c7;
+  stroke: #cfe8d8;
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
@@ -838,12 +899,12 @@ dd {
 
 .map-control-group button.active,
 .map-scale-toggle button.active {
-  background: #1f6f78;
+  background: var(--accent);
   color: #fff;
 }
 
 .map-scale-toggle button.active {
-  background: #1f2937;
+  background: var(--accent-strong);
 }
 
 .map-summary span {
@@ -872,10 +933,10 @@ dd {
   position: relative;
   overflow: hidden;
   overscroll-behavior: contain;
-  border: 1px solid #101827;
+  border: 1px solid #1e3a29;
   border-radius: 8px;
-  background: #020617;
-  box-shadow: 0 18px 42px rgba(5, 9, 20, 0.28);
+  background: var(--dark);
+  box-shadow: 0 18px 42px rgba(6, 16, 11, 0.3);
 }
 
 .company-map {
@@ -887,19 +948,19 @@ dd {
 
 .map-stage .maplibregl-ctrl-group {
   overflow: hidden;
-  border: 1px solid rgba(226, 232, 240, 0.28);
+  border: 1px solid rgba(214, 240, 224, 0.28);
   border-radius: 8px;
-  background: rgba(15, 23, 42, 0.88);
-  box-shadow: 0 12px 28px rgba(2, 6, 23, 0.28);
+  background: rgba(10, 22, 16, 0.88);
+  box-shadow: 0 12px 28px rgba(6, 16, 11, 0.28);
 }
 
 .map-stage .maplibregl-ctrl-group button {
   background-color: transparent;
-  border-color: rgba(226, 232, 240, 0.16);
+  border-color: rgba(214, 240, 224, 0.16);
 }
 
 .map-stage .maplibregl-ctrl-group button:hover {
-  background-color: rgba(226, 232, 240, 0.14);
+  background-color: rgba(214, 240, 224, 0.14);
 }
 
 .map-stage .maplibregl-ctrl button .maplibregl-ctrl-icon {
@@ -910,12 +971,12 @@ dd {
   min-width: 28px;
   min-height: 28px;
   overflow: hidden;
-  border: 1px solid rgba(226, 232, 240, 0.24);
+  border: 1px solid rgba(214, 240, 224, 0.24);
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.82);
-  color: #cbd5e1;
+  background: rgba(10, 22, 16, 0.82);
+  color: var(--dark-muted);
   font-size: 0.68rem;
-  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.28);
+  box-shadow: 0 10px 24px rgba(6, 16, 11, 0.28);
 }
 
 .map-stage .maplibregl-ctrl-attrib:not(.maplibregl-compact-show) {
@@ -943,7 +1004,7 @@ dd {
 }
 
 .map-stage .maplibregl-ctrl-attrib a {
-  color: #bae6fd;
+  color: #c9e6d5;
 }
 
 .company-location-list {
@@ -956,7 +1017,7 @@ dd {
 }
 
 .company-location-card {
-  --company-color: #475569;
+  --company-color: #3f6b53;
   border: 1px solid var(--line);
   border-left: 5px solid var(--company-color);
   border-radius: 8px;
@@ -1013,7 +1074,7 @@ dd {
 
 .company-location-card em {
   margin-top: 2px;
-  color: #3f3a33;
+  color: var(--ink-soft);
   font-size: 0.78rem;
   font-style: normal;
   line-height: 1.3;
@@ -1029,7 +1090,7 @@ dd {
 .company-location-card a {
   display: inline-flex;
   margin: 7px 0 0 40px;
-  color: #0f5f70;
+  color: var(--accent);
   font-size: 0.78rem;
   font-weight: 650;
 }
@@ -1058,7 +1119,7 @@ dd {
   width: 3px;
   height: 28px;
   border-radius: 999px;
-  background: #6b7280;
+  background: #5f7a6b;
 }
 
 .map-corner {
@@ -1067,7 +1128,7 @@ dd {
   width: 15px;
   height: 15px;
   pointer-events: none;
-  border-color: rgba(248, 250, 252, 0.46);
+  border-color: rgba(226, 250, 236, 0.5);
 }
 
 .map-corner-tl {
@@ -1106,15 +1167,15 @@ dd {
   top: 50%;
   max-width: min(360px, calc(100% - 40px));
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(226, 232, 240, 0.22);
+  border: 1px solid rgba(214, 240, 224, 0.22);
   border-radius: 8px;
-  background: rgba(15, 23, 42, 0.9);
-  color: #e0f2fe;
+  background: rgba(10, 22, 16, 0.9);
+  color: #dcefe3;
   padding: 14px 16px;
   text-align: center;
   font-size: 0.86rem;
   font-weight: 720;
-  box-shadow: 0 18px 38px rgba(2, 6, 23, 0.3);
+  box-shadow: 0 18px 38px rgba(6, 16, 11, 0.3);
 }
 
 .map-loading[hidden],
@@ -1129,21 +1190,21 @@ dd {
 
 .map-stage .maplibregl-popup-content {
   overflow: hidden;
-  border: 1px solid rgba(226, 232, 240, 0.24);
+  border: 1px solid rgba(214, 240, 224, 0.24);
   border-radius: 8px;
-  background: rgba(15, 23, 42, 0.96);
-  color: #f8fafc;
+  background: rgba(10, 22, 16, 0.96);
+  color: var(--dark-ink);
   padding: 0;
-  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.35);
+  box-shadow: 0 18px 42px rgba(6, 16, 11, 0.35);
 }
 
 .map-stage .maplibregl-popup-tip {
-  border-top-color: rgba(15, 23, 42, 0.96);
-  border-bottom-color: rgba(15, 23, 42, 0.96);
+  border-top-color: rgba(10, 22, 16, 0.96);
+  border-bottom-color: rgba(10, 22, 16, 0.96);
 }
 
 .map-stage .maplibregl-popup-close-button {
-  color: #e2e8f0;
+  color: #d6ebdd;
   font-size: 1.1rem;
 }
 
@@ -1152,8 +1213,8 @@ dd {
 }
 
 .map-stage .map-preview-popup .maplibregl-popup-content {
-  border-color: rgba(103, 232, 249, 0.34);
-  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(61, 220, 132, 0.42);
+  background: rgba(10, 22, 16, 0.9);
 }
 
 .map-popup {
@@ -1164,7 +1225,7 @@ dd {
 }
 
 .map-popup span {
-  color: #93c5fd;
+  color: var(--highlight);
   font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -1178,7 +1239,7 @@ dd {
 .map-popup p,
 .map-popup small {
   margin: 0;
-  color: #cbd5e1;
+  color: var(--dark-muted);
   font-size: 0.78rem;
   line-height: 1.35;
 }
@@ -1186,7 +1247,7 @@ dd {
 .map-popup a {
   width: fit-content;
   margin-top: 3px;
-  color: #67e8f9;
+  color: var(--cream);
   font-size: 0.78rem;
   font-weight: 750;
 }
@@ -1270,8 +1331,8 @@ th {
   position: sticky;
   top: 0;
   z-index: 3;
-  background: #f4efe5;
-  color: #3f3a33;
+  background: var(--surface-2);
+  color: var(--ink-soft);
   font-size: 0.82rem;
 }
 
@@ -1281,7 +1342,7 @@ td {
 
 td a,
 .source-group a {
-  color: #0f5f70;
+  color: var(--accent);
   text-decoration-thickness: 1px;
 }
 
@@ -1686,7 +1747,7 @@ td a,
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
-  box-shadow: 0 8px 22px rgba(34, 28, 19, 0.05);
+  box-shadow: 0 8px 22px rgba(15, 40, 27, 0.05);
   overflow: hidden;
   position: relative;
 }
@@ -2040,8 +2101,8 @@ td a,
   flex: 0 0 auto;
   min-height: 36px;
   padding: 7px 11px;
-  border-color: #1f2937;
-  background: #111827;
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
   color: #fff;
   font-size: 0.78rem;
   font-weight: 760;
@@ -2049,8 +2110,8 @@ td a,
 
 .map-fullscreen-button:hover,
 .map-fullscreen-button.active {
-  border-color: #0f766e;
-  background: #0f766e;
+  border-color: var(--accent);
+  background: var(--accent);
   color: #fff;
 }
 
@@ -2066,10 +2127,10 @@ body.map-fullscreen-open {
   flex-direction: column;
   min-height: 0;
   padding: 14px;
-  border: 1px solid rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(10, 22, 16, 0.18);
   border-radius: 8px;
   background: var(--bg);
-  box-shadow: 0 28px 80px rgba(2, 6, 23, 0.32);
+  box-shadow: 0 28px 80px rgba(6, 16, 11, 0.32);
 }
 
 .map-shell.map-fullscreen .map-toolbar {
