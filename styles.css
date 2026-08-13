@@ -1485,13 +1485,87 @@ dd {
   overflow: hidden;
 }
 
-.year-bar span {
+.year-bar-segment {
   height: 100%;
+  transition: opacity 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
+}
+
+.year-chart.has-company-highlight .year-bar-segment.is-muted {
+  opacity: 0.2;
+  filter: saturate(0.45);
+}
+
+.year-chart.has-company-highlight .year-bar-segment.is-highlighted {
+  position: relative;
+  z-index: 1;
+  filter: brightness(1.12) saturate(1.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.82);
 }
 
 .year-count {
   font-weight: 720;
   text-align: right;
+}
+
+.year-company-legend {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 10px 14px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.year-company-legend-title {
+  padding-top: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 760;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.year-company-legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.year-company-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 5px 9px;
+  border-color: var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 650;
+  transition: opacity 0.16s ease, transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.year-company-legend-item:hover,
+.year-company-legend-item:focus-visible,
+.year-company-legend-item.is-highlighted {
+  border-color: var(--ink-soft);
+  box-shadow: 0 3px 10px rgba(15, 40, 27, 0.12);
+  transform: translateY(-1px);
+}
+
+.year-company-legend-item.is-muted {
+  opacity: 0.45;
+}
+
+.year-company-legend-swatch {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  border-radius: 50%;
+  background: var(--company-color);
+  box-shadow: 0 0 0 1px rgba(15, 35, 24, 0.12);
 }
 
 /* balao com os nomes dos modelos: so aparece no hover ou foco da linha */
@@ -1786,6 +1860,15 @@ td a,
   /* empilhado no celular, o balao nao tem mais a coluna do ano para se alinhar */
   .year-models {
     left: 0;
+  }
+
+  .year-company-legend {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .year-company-legend-title {
+    padding-top: 0;
   }
 
   dl {

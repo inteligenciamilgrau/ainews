@@ -3511,6 +3511,8 @@ function renderDetails(model) {
 }
 
 function renderYearChart(models) {
+  els.yearChart.classList.remove("has-company-highlight");
+
   if (!models.length) {
     els.cumulativeChart.innerHTML = "";
     els.yearChart.innerHTML = `<div class="empty-state">Nenhum modelo no filtro atual.</div>`;
@@ -3530,7 +3532,7 @@ function renderYearChart(models) {
       const byCompany = unique(yearModels.map((model) => model.company)).map((company) => {
         const count = yearModels.filter((model) => model.company === company).length;
         const width = (count / yearModels.length) * 100;
-        return `<span title="${escapeHtml(company)}: ${count}" style="width:${width}%; background:${colorFor(company)}"></span>`;
+        return `<span class="year-bar-segment" data-company="${escapeAttribute(company)}" title="${escapeHtml(company)}: ${count}" style="width:${width}%; background:${colorFor(company)}"></span>`;
       }).join("");
       // a lista de modelos so aparece no hover/foco da linha, via .year-models
       return `
@@ -3546,6 +3548,14 @@ function renderYearChart(models) {
         </div>
       `;
     }).join("");
+  const legendItems = unique(models.map((model) => model.company))
+    .sort((a, b) => a.localeCompare(b, "pt-BR"))
+    .map((company) => `
+      <button class="year-company-legend-item" type="button" data-company="${escapeAttribute(company)}" title="Passe o mouse para destacar os modelos da empresa">
+        <span class="year-company-legend-swatch" style="--company-color:${colorFor(company)}" aria-hidden="true"></span>
+        <span>${escapeHtml(company)}</span>
+      </button>
+    `).join("");
 
   // o grafico acumulado fica fora do #yearChart para o resumo caber entre os dois
   els.cumulativeChart.innerHTML = renderCumulativeModelChart(models);
@@ -3553,7 +3563,36 @@ function renderYearChart(models) {
     <div class="year-list">
       ${yearRows}
     </div>
+    <section class="year-company-legend" aria-labelledby="yearCompanyLegendTitle">
+      <span id="yearCompanyLegendTitle" class="year-company-legend-title">Empresas</span>
+      <div class="year-company-legend-items">
+        ${legendItems}
+      </div>
+    </section>
   `;
+  bindYearChartLegend();
+}
+
+function bindYearChartLegend() {
+  els.yearChart.querySelectorAll(".year-company-legend-item").forEach((item) => {
+    const company = item.dataset.company;
+    item.addEventListener("mouseenter", () => setYearChartCompanyHighlight(company));
+    item.addEventListener("mouseleave", () => {
+      if (document.activeElement !== item) setYearChartCompanyHighlight();
+    });
+    item.addEventListener("focus", () => setYearChartCompanyHighlight(company));
+    item.addEventListener("blur", () => setYearChartCompanyHighlight());
+  });
+}
+
+function setYearChartCompanyHighlight(company = "") {
+  const hasHighlight = Boolean(company);
+  els.yearChart.classList.toggle("has-company-highlight", hasHighlight);
+  els.yearChart.querySelectorAll(".year-bar-segment, .year-company-legend-item").forEach((element) => {
+    const matchesCompany = element.dataset.company === company;
+    element.classList.toggle("is-highlighted", hasHighlight && matchesCompany);
+    element.classList.toggle("is-muted", hasHighlight && !matchesCompany);
+  });
 }
 
 function renderCumulativeModelChart(models) {
