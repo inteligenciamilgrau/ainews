@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-08-06",
+    "updated_at": "2026-08-13",
     "last_correction": {
-      "date": "2026-08-06",
-      "description_pt": "Inclusao de quatro lancamentos posteriores a 24 de julho de 2026: DeepSeek-V4-Flash-0731 (31 de julho, release oficial com pesos MIT), MiniMax H3 (31 de julho na API e app Hailuo, com pesos abertos em 3 de agosto), Qwen3.8-Max (3 de agosto, MoE de 2,4T com 95B ativos e 1M de contexto, sucedendo a entrada de preview de 19 de julho) e Meta Muse Spark 1.2 com o agente de terminal Muse Code (5 de agosto)."
+      "date": "2026-08-13",
+      "description_pt": "Confirmacao em fontes primarias de dois drops de 12 de agosto: a DeepSeek atualizou silenciosamente o alias oficial deepseek-v4-pro para DeepSeek-V4-Pro-0813, sem alterar a chamada; e a Qwen publicou os pesos post-treinados do Qwen3.8-2.4T-A95B. A nova entrada Qwen separa os pesos abertos, somente texto e Thinking obrigatorio, do Qwen3.8-Max hospedado, que acrescenta visao, modo non-thinking, contexto de 1M por padrao e ferramentas oficiais."
     },
     "previous_correction": {
-      "date": "2026-07-25",
-      "description_pt": "Inclusao do Claude Sonnet 5, lancado em 30 de junho de 2026, e do Claude Opus 5, lancado em 24 de julho de 2026. Atualizacao da linha Black Forest Labs com FLUX.2 [klein] (15 de janeiro de 2026), FLUX Outpainting (14 de maio), FLUX Erase (21 de maio), FLUX VTO (28 de maio), FLUX.2 [klein] on-device nos ASUS ProArt (4 de junho) e FLUX 3 (23 de julho de 2026). Remocao de tres entradas Moonshot duplicadas (Kimi K1.5, Kimi K2 e Kimi K2.6), mantendo as versoes com fonte oficial detalhada."
+      "date": "2026-08-12",
+      "description_pt": "Inclusao do Qwen-CUA (3 de agosto, preprint da Qwen Team sobre agente nativo de uso de computador) e do Grok 4.6 (12 de agosto, lancamento oficial na API xAI). A entrada anterior do preview DeepSeek-V4-Pro foi atualizada, sem duplicacao, para registrar a troca silenciosa do alias oficial para DeepSeek-V4-Pro-0813 em 12 de agosto. Nao houve anuncio de um novo modelo Gemini/Google posterior aos lancamentos de 21 de julho ja presentes na base."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -3920,20 +3920,35 @@
       "confidence": "alta"
     },
     {
-      "id": "deepseek-v4-preview",
+      "id": "deepseek-v4-pro-0813",
       "company": "DeepSeek",
       "family": "DeepSeek",
-      "model": "DeepSeek-V4 Preview (V4-Pro / V4-Flash)",
-      "release_date": "2026-04-24",
-      "release_stage": "preview/open weights/API",
-      "model_type": ["raciocinio", "codigo", "agente", "MoE", "open-weights", "longo-contexto"],
-      "description_pt": "Preview oficial da quarta geracao DeepSeek, com DeepSeek-V4-Pro e DeepSeek-V4-Flash. O release anuncia pesos abertos, API disponivel, contexto padrao de 1M tokens, modos Thinking/Non-Thinking e foco em raciocinio, codigo e agentes.",
-      "source": {
-        "title": "DeepSeek V4 Preview Release",
-        "url": "https://api-docs.deepseek.com/news/news260424",
-        "publisher": "DeepSeek",
-        "date_basis": "News oficial DeepSeek-V4 Preview Release 2026/04/24 registra que DeepSeek-V4 Preview esta oficialmente live e open-sourced, com DeepSeek-V4-Pro e DeepSeek-V4-Flash disponiveis na API no mesmo dia."
-      },
+      "model": "DeepSeek-V4-Pro-0813",
+      "release_date": "2026-08-12",
+      "release_stage": "atualizacao silenciosa do alias/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "tool-use", "MoE", "longo-contexto", "1M", "API"],
+      "description_pt": "Versao de producao atual do V4-Pro. Em 12 de agosto, a DeepSeek atualizou silenciosamente a documentacao: o alias publico `deepseek-v4-pro`, que ja existia desde o preview V4 de 24 de abril, passou a apontar para o snapshot DeepSeek-V4-Pro-0813. Nao houve post de lancamento ou mudanca de endpoint; basta continuar usando o mesmo nome de modelo. A documentacao oficial confirma contexto de 1M tokens, saida maxima de 384K, modos Thinking e Non-Thinking, chamadas de ferramentas, JSON Output, Responses API e compatibilidade Anthropic. O V4-Flash permanece separado como DeepSeek-V4-Flash-0731.",
+      "sources": [
+        {
+          "title": "Your First API Call",
+          "url": "https://api-docs.deepseek.com/",
+          "publisher": "DeepSeek",
+          "date_basis": "Documentacao oficial atualizada em 12 de agosto de 2026 declara que o alias deepseek-v4-pro foi atualizado para DeepSeek-V4-Pro-0813 e que o metodo de chamada permanece inalterado."
+        },
+        {
+          "title": "Models & Pricing",
+          "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "publisher": "DeepSeek",
+          "date_basis": "Tabela oficial de modelos e precos lista DeepSeek-V4-Pro-0813 como a versao do alias deepseek-v4-pro e confirma contexto, recursos e limites."
+        },
+        {
+          "title": "DeepSeek V4 Preview Release",
+          "url": "https://api-docs.deepseek.com/news/news260424",
+          "publisher": "DeepSeek",
+          "date_basis": "O anuncio oficial de 24 de abril de 2026 documenta a origem do alias na fase de preview V4; o registro atual consolida essa linhagem sem criar uma entrada duplicada."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -4852,10 +4867,10 @@
       "family": "Qwen",
       "model": "Qwen3.8-Max",
       "release_date": "2026-08-03",
-      "release_stage": "lancamento oficial / API (pesos abertos anunciados)",
+      "release_stage": "lancamento oficial / API hospedada",
       "ai_category": "LLMs",
       "model_type": ["texto", "visao", "video-input", "multimodal", "raciocinio", "codigo", "agente", "MoE", "2.4T", "95B-ativos", "1M-contexto", "API"],
-      "description_pt": "Maior e mais capaz modelo ja lancado pela Alibaba: MoE de 2,4 trilhoes de parametros com cerca de 95B ativos por token, contexto de 1M tokens e entrada nativa de texto, imagem e video. O posicionamento e de colega de trabalho autonomo, com foco em codigo agentico e execucao de longo horizonte. Disponivel via API no Alibaba Cloud Model Studio a 2 USD/M de entrada e 6 USD/M de saida, com os pesos prometidos para a semana seguinte no Hugging Face e ModelScope, o primeiro modelo classe Max da Qwen com pesos abertos.",
+      "description_pt": "Maior e mais capaz modelo hospedado da Alibaba: MoE de 2,4 trilhoes de parametros com cerca de 95B ativos por token, contexto de 1M tokens e entrada nativa de texto, imagem e video. O posicionamento e de colega de trabalho autonomo, com foco em codigo agentico e execucao de longo horizonte. Disponivel via API no Alibaba Cloud Model Studio a 2 USD/M de entrada e 6 USD/M de saida. Os pesos relacionados foram publicados depois como o checkpoint Qwen3.8-2.4T-A95B, mas o produto Qwen3.8-Max acrescenta visao, non-thinking, 1M de contexto padrao e ferramentas oficiais.",
       "sources": [
         {
           "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
@@ -4870,6 +4885,42 @@
           "date_basis": "Anuncio oficial no X em 3 de agosto de 2026 com especificacoes, precos e plano de abertura dos pesos."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-cua",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen-CUA / Qwen-CUA-Max",
+      "release_date": "2026-08-03",
+      "release_stage": "pesquisa/preprint",
+      "ai_category": "LLMs",
+      "model_type": ["agente", "computer-use", "visao", "multimodal", "MoE", "raciocinio", "longo-horizonte"],
+      "description_pt": "Agente de uso nativo de computador da Qwen Team, baseado em um backbone MoE Qwen de 397B parametros totais e 17B ativos. Opera somente por screenshots, teclado e mouse, sem DOM, metadados de acessibilidade ou APIs especificas; o preprint tambem relata uma variante Max com mais de 1T de parametros. E um resultado de pesquisa publicado no arXiv, sem anuncio de pesos ou API publica na fonte consultada.",
+      "source": {
+        "title": "Qwen-CUA: Native Computer Use for (almost) Everything",
+        "url": "https://arxiv.org/abs/2608.02352",
+        "publisher": "Qwen Team / arXiv",
+        "date_basis": "Preprint submetido em 3 de agosto de 2026; a lista de autores identifica os contribuidores principais como Qwen Team."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-8-2-4t-a95b",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3.8-2.4T-A95B",
+      "release_date": "2026-08-12",
+      "release_stage": "pesos abertos / post-treinamento",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "MoE", "2.4T", "95B-ativos", "open-weights", "thinking-obrigatorio", "262K-contexto", "1M-extensivel"],
+      "description_pt": "Checkpoint post-treinado de pesos abertos da Qwen, publicado na conta oficial no Hugging Face. Tem 2,4T de parametros totais e 95B ativados por token; suporta 262.144 tokens nativamente e pode ser estendido a cerca de 1,01M. Esta versao e somente texto e exige Thinking em toda interacao, portanto nao inclui entrada visual nem modo non-thinking. Ela e a base do produto hospedado Qwen3.8-Max, que oferece esses recursos adicionais.",
+      "source": {
+        "title": "Qwen/Qwen3.8-2.4T-A95B",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+        "publisher": "Qwen / Hugging Face",
+        "date_basis": "Repositorio publico e nao-gated da conta oficial Qwen, atualizado em 12 de agosto de 2026. O model card confirma a abertura dos pesos, 2,4T/95B, contexto e as diferencas para Qwen3.8-Max."
+      },
       "confidence": "alta"
     },
     {
@@ -7859,6 +7910,32 @@
         "publisher": "xAI",
         "date_basis": "Post oficial publicado em 8 de julho de 2026 anuncia disponibilidade imediata do Grok 4.5 no produto e na API, exceto inicialmente na Uniao Europeia."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-4-6",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok 4.6",
+      "release_date": "2026-08-12",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "codigo", "agente", "trabalho", "longo-contexto", "API", "500K-contexto"],
+      "description_pt": "Sucessor do Grok 4.5 com foco em agentes de longa duracao, trabalho interativo e tarefas visuais. Aceita texto e imagem, gera texto, oferece esforco de raciocinio configuravel e janela de contexto de 500 mil tokens; chegou a API, Grok Build e Cursor no dia do anuncio.",
+      "sources": [
+        {
+          "title": "Introducing Grok 4.6",
+          "url": "https://x.ai/news/grok-4-6",
+          "publisher": "xAI",
+          "date_basis": "Post oficial publicado em 12 de agosto de 2026 anuncia o lancamento do Grok 4.6."
+        },
+        {
+          "title": "xAI Models - Grok 4.6",
+          "url": "https://docs.x.ai/developers/models",
+          "publisher": "xAI",
+          "date_basis": "Documentacao oficial atualizada em 12 de agosto de 2026 confirma API, contexto de 500K e modalidades de entrada e saida."
+        }
+      ],
       "confidence": "alta"
     },
     {
