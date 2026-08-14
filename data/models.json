@@ -3,11 +3,11 @@
     "updated_at": "2026-08-13",
     "last_correction": {
       "date": "2026-08-13",
-      "description_pt": "Confirmacao em fontes primarias de dois drops de 12 de agosto: a DeepSeek atualizou silenciosamente o alias oficial deepseek-v4-pro para DeepSeek-V4-Pro-0813, sem alterar a chamada; e a Qwen publicou os pesos post-treinados do Qwen3.8-2.4T-A95B. A nova entrada Qwen separa os pesos abertos, somente texto e Thinking obrigatorio, do Qwen3.8-Max hospedado, que acrescenta visao, modo non-thinking, contexto de 1M por padrao e ferramentas oficiais."
+      "description_pt": "Atualizacao da linha Google, que estava parada nos lancamentos de 21 de julho. Entram seis registros confirmados em fontes primarias: Gemini 3.7 Flash (13 de agosto, GA, tres semanas apos o 3.6 Flash), SL2T (12 de agosto, traducao de lingua de sinais para texto no Gboard e Live Transcribe do Pixel 11), Gemini Robotics 2 / ER 2 / On-Device 2 (30 de julho) e a linha Lyria 3, Lyria 3 Pro e Lyria 3.5 (18 de fevereiro, 25 de marco e 29 de julho), que faltava por completo entre o Lyria 2 / RealTime e hoje. O Gemini 3.5 Pro segue sem data anunciada e por isso nao entra na base."
     },
     "previous_correction": {
-      "date": "2026-08-12",
-      "description_pt": "Inclusao do Qwen-CUA (3 de agosto, preprint da Qwen Team sobre agente nativo de uso de computador) e do Grok 4.6 (12 de agosto, lancamento oficial na API xAI). A entrada anterior do preview DeepSeek-V4-Pro foi atualizada, sem duplicacao, para registrar a troca silenciosa do alias oficial para DeepSeek-V4-Pro-0813 em 12 de agosto. Nao houve anuncio de um novo modelo Gemini/Google posterior aos lancamentos de 21 de julho ja presentes na base."
+      "date": "2026-08-13",
+      "description_pt": "Confirmacao em fontes primarias de dois drops de 12 de agosto: a DeepSeek atualizou silenciosamente o alias oficial deepseek-v4-pro para DeepSeek-V4-Pro-0813, sem alterar a chamada; e a Qwen publicou os pesos post-treinados do Qwen3.8-2.4T-A95B. A nova entrada Qwen separa os pesos abertos, somente texto e Thinking obrigatorio, do Qwen3.8-Max hospedado, que acrescenta visao, modo non-thinking, contexto de 1M por padrao e ferramentas oficiais."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -1271,6 +1271,32 @@
         "publisher": "Google DeepMind",
         "date_basis": "Post oficial publicado em 12 de marco de 2025."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-robotics-2",
+      "company": "Google",
+      "family": "Gemini Robotics",
+      "model": "Gemini Robotics 2 / ER 2 / On-Device 2",
+      "release_date": "2026-07-30",
+      "release_stage": "produto/preview privado/acesso antecipado",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "visao-linguagem-acao", "embodied-ai", "raciocinio", "corpo-inteiro", "destreza", "multi-robo", "on-device", "agente"],
+      "description_pt": "Segunda geracao da familia Gemini Robotics, com tres modelos: o VLA Gemini Robotics 2 para controle de corpo inteiro e destreza, o Gemini Robotics ER 2 para raciocinio incorporado, compreensao de video, orquestracao de tarefas e colaboracao multi-robo, e o Gemini Robotics On-Device 2 para execucao local, capaz de se adaptar a um novo corpo robotico em poucas horas e tipicamente com menos de 200 exemplos.",
+      "sources": [
+        {
+          "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+          "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial publicado em 30 de julho de 2026 anuncia os tres modelos; o ER 2 fica no Google AI Studio e em preview privado no Gemini Enterprise Agent Platform, enquanto VLA e On-Device ficam com parceiros de acesso antecipado."
+        },
+        {
+          "title": "Gemini Robotics ER 2 - Model Card",
+          "url": "https://deepmind.google/models/model-cards/gemini-robotics-er-2/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Model card oficial confirma a identificacao do Gemini Robotics ER 2 como modelo de raciocinio incorporado da segunda geracao."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -5458,6 +5484,72 @@
       "confidence": "alta"
     },
     {
+      "id": "google-lyria-3",
+      "company": "Google",
+      "family": "Lyria",
+      "model": "Lyria 3",
+      "release_date": "2026-02-18",
+      "release_stage": "beta/produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "geracao", "texto-para-musica", "imagem-para-musica", "app Gemini", "Dream Track", "SynthID"],
+      "description_pt": "Terceira geracao do modelo musical da Google, capaz de gerar faixas de cerca de 30 segundos a partir de prompts em linguagem natural com controle de genero, andamento e idioma da letra, ou a partir de uma imagem ou video enviado. Saiu em beta no app Gemini para maiores de 18 anos em oito idiomas e passou a alimentar o Dream Track do YouTube Shorts, com marca dagua SynthID nas faixas geradas.",
+      "sources": [
+        {
+          "title": "Use Lyria 3 to create music tracks in the Gemini app",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 18 de fevereiro de 2026 informa que o Lyria 3 comeca a ser liberado em beta no app Gemini no mesmo dia."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-lyria-3-pro",
+      "company": "Google",
+      "family": "Lyria",
+      "model": "Lyria 3 Pro",
+      "release_date": "2026-03-25",
+      "release_stage": "produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "geracao", "faixas-longas", "estrutura", "3-minutos"],
+      "description_pt": "Versao mais avancada da terceira geracao Lyria, com faixas de ate 3 minutos e consciencia de estrutura musical, anunciada junto com a expansao do Lyria 3 para mais produtos Google.",
+      "sources": [
+        {
+          "title": "Lyria 3 expands to more Google products, adds more features",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/lyria-3-pro/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 25 de marco de 2026 apresenta o Lyria 3 Pro e a expansao do Lyria 3, citando o lancamento do Lyria 3 no mes anterior."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-lyria-3-5",
+      "company": "Google",
+      "family": "Lyria",
+      "model": "Lyria 3.5",
+      "release_date": "2026-07-29",
+      "release_stage": "produto",
+      "ai_category": "Musica",
+      "model_type": ["musica", "audio", "geracao", "vocais", "letras", "andamento", "Flow Music"],
+      "description_pt": "Atualizacao do modelo musical da Google com avancos em musicalidade, letras, vocais e controle criativo: estruturas melodicas mais complexas e naturais, letras com melhor aderencia ao prompt e consciencia de estrutura, vocais mais expressivos e com pronuncia melhor, alem de controle direto de andamento e duracao. Liberado no Google Flow Music.",
+      "sources": [
+        {
+          "title": "We're launching Lyria 3.5 in Google Flow Music, with advances across musicality, lyrics, vocals, and creative control",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/lyria-3-5/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 29 de julho de 2026 informa o rollout no Google Flow Music no mesmo dia."
+        },
+        {
+          "title": "Lyria 3.5 - Model Card",
+          "url": "https://deepmind.google/models/model-cards/lyria-3-5/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Model card oficial confirma a identificacao do Lyria 3.5."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "suno-v3",
       "company": "Suno",
       "family": "Suno",
@@ -8164,6 +8256,52 @@
           "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
           "publisher": "Google",
           "date_basis": "Anuncio oficial conjunto de 21 de julho de 2026 distingue o Flash Cyber dos dois modelos disponiveis no mesmo dia."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-7-flash",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.7 Flash",
+      "release_date": "2026-08-13",
+      "release_stage": "GA",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video", "raciocinio", "multimodal", "codigo", "agente", "computador", "1M-contexto", "API"],
+      "description_pt": "Modelo Flash mais capaz da Google para codigo e agentes, lancado apenas tres semanas depois do Gemini 3.6 Flash. Salta de 49,0% para 65,3% no DeepSWE v1.1, de 34,4% para 43,6% no FrontierCode 1.1 Main, de 17,0% para 30,4% no AutomationBench e de 1538 para 1588 de Elo no WebDev Arena. Preco promocional de US$ 0,75 por 1M de tokens de entrada e US$ 3,75 por 1M de saida ate 31 de dezembro de 2026, subindo para US$ 1,50 e US$ 7,50 em 1 de janeiro de 2027.",
+      "sources": [
+        {
+          "title": "Gemini 3.7 Flash: our most intelligent workhorse model",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 13 de agosto de 2026 anuncia disponibilidade imediata no Google AI Studio, Android Studio, Google Antigravity, Gemini Enterprise Agent Platform, app Gemini Enterprise e Gemini Spark para assinantes Google AI Pro e Ultra."
+        },
+        {
+          "title": "Gemini 3.7 Flash launches three weeks after last model, live in Spark",
+          "url": "https://9to5google.com/2026/08/13/gemini-3-7-flash-launch/",
+          "publisher": "9to5Google",
+          "date_basis": "Cobertura de 13 de agosto de 2026 corrobora a data e registra o intervalo de tres semanas em relacao ao Gemini 3.6 Flash."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-sl2t",
+      "company": "Google",
+      "family": "SL2T",
+      "model": "SL2T (sign-language-to-text)",
+      "release_date": "2026-08-12",
+      "release_stage": "produto",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["video", "visao", "texto", "traducao", "transcricao", "lingua-de-sinais", "acessibilidade", "on-device", "Pixel"],
+      "description_pt": "Modelo da Google DeepMind que traduz lingua de sinais direto para texto, sem etapa intermediaria de gloss. Treinado com mais de 100 mil horas de dados em mais de 50 linguas de sinais, marca 70 BLEURT no FLEURS-ASL, acima de qualquer resultado publicado ate entao. Estreia com ASL para ingles no ditado por sinais do Gboard e no Live Transcribe, primeiro no Pixel 11 e sem custo adicional.",
+      "sources": [
+        {
+          "title": "Putting sign language AI into users' hands",
+          "url": "https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial publicado em 12 de agosto de 2026 apresenta o SL2T e informa a disponibilidade no Gboard e no Live Transcribe do Pixel 11."
         }
       ],
       "confidence": "alta"
