@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-08-13",
+    "updated_at": "2026-08-15",
     "last_correction": {
-      "date": "2026-08-13",
-      "description_pt": "Atualizacao da linha Google, que estava parada nos lancamentos de 21 de julho. Entram seis registros confirmados em fontes primarias: Gemini 3.7 Flash (13 de agosto, GA, tres semanas apos o 3.6 Flash), SL2T (12 de agosto, traducao de lingua de sinais para texto no Gboard e Live Transcribe do Pixel 11), Gemini Robotics 2 / ER 2 / On-Device 2 (30 de julho) e a linha Lyria 3, Lyria 3 Pro e Lyria 3.5 (18 de fevereiro, 25 de marco e 29 de julho), que faltava por completo entre o Lyria 2 / RealTime e hoje. O Gemini 3.5 Pro segue sem data anunciada e por isso nao entra na base."
+      "date": "2026-08-15",
+      "description_pt": "Revisao da linha Z.AI, que estava parada no GLM-5.2 de 16 de junho e ainda pulava todo o ciclo GLM-4.6 e GLM-4.7. Entram quatro registros: GLM-5.3 (14 de agosto), mesma base de 743B do GLM-5.2 com ganho vindo so de post-treinamento, liberado primeiro para o GLM Coding Plan, com API coming soon e pesos abertos prometidos para cerca de duas semanas depois; e os tres lancamentos que faltavam entre o GLM-4.5V e o GLM-5, todos com data nas release notes oficiais: GLM-4.6 (30 de setembro de 2025), GLM-4.6V (8 de dezembro de 2025) e GLM-4.7 (22 de dezembro de 2025). A data do GLM-5.3 fica ancorada no proprio anuncio oficial da Z.AI, publicado logo apos a liberacao do modelo e acompanhado no mesmo dia pela cobertura de imprensa, com a pagina de documentacao oficial ja no ar; o indice de release notes ainda nao ter registrado o lancamento e atraso do indice e nao reduz a confianca. As datas das sete entradas Z.AI anteriores foram reconferidas nas release notes e nenhuma precisou de correcao; so a descricao do GLM-5.2 deixou de chamar o modelo de mais recente."
     },
     "previous_correction": {
       "date": "2026-08-13",
-      "description_pt": "Confirmacao em fontes primarias de dois drops de 12 de agosto: a DeepSeek atualizou silenciosamente o alias oficial deepseek-v4-pro para DeepSeek-V4-Pro-0813, sem alterar a chamada; e a Qwen publicou os pesos post-treinados do Qwen3.8-2.4T-A95B. A nova entrada Qwen separa os pesos abertos, somente texto e Thinking obrigatorio, do Qwen3.8-Max hospedado, que acrescenta visao, modo non-thinking, contexto de 1M por padrao e ferramentas oficiais."
+      "description_pt": "Atualizacao da linha Google, que estava parada nos lancamentos de 21 de julho. Entram seis registros confirmados em fontes primarias: Gemini 3.7 Flash (13 de agosto, GA, tres semanas apos o 3.6 Flash), SL2T (12 de agosto, traducao de lingua de sinais para texto no Gboard e Live Transcribe do Pixel 11), Gemini Robotics 2 / ER 2 / On-Device 2 (30 de julho) e a linha Lyria 3, Lyria 3 Pro e Lyria 3.5 (18 de fevereiro, 25 de marco e 29 de julho), que faltava por completo entre o Lyria 2 / RealTime e hoje. O Gemini 3.5 Pro segue sem data anunciada e por isso nao entra na base."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -3545,6 +3545,57 @@
       "confidence": "alta"
     },
     {
+      "id": "zai-glm-4-6",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-4.6",
+      "release_date": "2025-09-30",
+      "release_stage": "lancamento/open weights",
+      "model_type": ["raciocinio", "codigo", "agente", "open-weights", "MoE", "longo-contexto"],
+      "description_pt": "Modelo flagship de codigo da Z.AI, com ganhos em benchmarks publicos e em tarefas reais de programacao. Arquitetura MoE de 355B parametros totais e contexto ampliado de 128K para 200K tokens, com pesos publicados sob licenca MIT no Hugging Face.",
+      "source": {
+        "title": "New Released - GLM-4.6",
+        "url": "https://docs.z.ai/release-notes/new-released",
+        "publisher": "Z.AI",
+        "date_basis": "Release notes oficiais registram GLM-4.6 em 30 de setembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "zai-glm-4-6v",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-4.6V",
+      "release_date": "2025-12-08",
+      "release_stage": "lancamento/open weights",
+      "model_type": ["multimodal", "visao", "raciocinio", "open-weights", "documentos", "ferramentas"],
+      "description_pt": "Iteracao multimodal da Z.AI com entendimento visual reforcado e desempenho state-of-the-art em tarefas de imagem e texto. A documentacao oficial descreve contexto de 128K, entrada de video, imagem, texto e arquivos, function calling multimodal nativo e as variantes Flash e FlashX; os pesos de 108B saem sob licenca MIT no Hugging Face.",
+      "source": {
+        "title": "New Released - GLM-4.6V",
+        "url": "https://docs.z.ai/release-notes/new-released",
+        "publisher": "Z.AI",
+        "date_basis": "Release notes oficiais registram GLM-4.6V em 8 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "zai-glm-4-7",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-4.7",
+      "release_date": "2025-12-22",
+      "release_stage": "lancamento/open weights",
+      "model_type": ["raciocinio", "codigo", "agente", "open-weights", "MoE", "longo-contexto"],
+      "description_pt": "Modelo fundacional da Z.AI com avancos em codigo, raciocinio e capacidades agenticas, geracao de codigo mais confiavel e melhor execucao de tarefas ponta a ponta em fluxos reais de desenvolvimento. A documentacao oficial registra contexto de 200K, saida maxima de 128K e as variantes GLM-4.7-Flash e GLM-4.7-FlashX; os pesos MoE de 355B totais e 32B ativos saem sob licenca MIT.",
+      "source": {
+        "title": "New Released - GLM-4.7",
+        "url": "https://docs.z.ai/release-notes/new-released",
+        "publisher": "Z.AI",
+        "date_basis": "Release notes oficiais registram GLM-4.7 em 22 de dezembro de 2025."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "zai-glm-5",
       "company": "Z.AI",
       "family": "GLM",
@@ -3586,13 +3637,38 @@
       "release_date": "2026-06-16",
       "release_stage": "lancamento/API",
       "model_type": ["raciocinio", "codigo", "agente", "longo-contexto", "engenharia"],
-      "description_pt": "Modelo mais recente da Z.AI com janela de contexto expandida para 1 milhão de tokens. Focado fortemente em codificação de longo horizonte, engenharia de sistemas e workflows agênticos intensivos.",
+      "description_pt": "Modelo flagship da Z.AI com janela de contexto expandida para 1 milhão de tokens. Focado fortemente em codificação de longo horizonte, engenharia de sistemas e workflows agênticos intensivos.",
       "source": {
         "title": "GLM-5.2: Built for Long-Horizon Tasks",
         "url": "https://z.ai/blog/glm-5.2",
         "publisher": "Z.AI",
         "date_basis": "Post oficial publicado em 16 de junho de 2026 anuncia o GLM-5.2."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "zai-glm-5-3",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-5.3",
+      "release_date": "2026-08-14",
+      "release_stage": "lancamento/GLM Coding Plan; API e pesos abertos anunciados",
+      "model_type": ["raciocinio", "codigo", "agente", "longo-contexto", "1M-contexto", "ciberseguranca"],
+      "description_pt": "Atualizacao do GLM-5.2 que mantem o mesmo modelo base de 743B em MoE e obtem todos os ganhos por post-treinamento ampliado. A documentacao oficial registra contexto de 1M, saida maxima de 128K, thinking mode obrigatorio com reasoning_effort low, high ou max, e destaca cerca de 50% de ganho em codigo sobre o GLM-5.2 alem de capacidade de ciberseguranca para descoberta de vulnerabilidades. Saiu primeiro para assinantes do GLM Coding Plan, com API listada como coming soon e pesos abertos prometidos para cerca de duas semanas depois, apos avaliacao de seguranca.",
+      "sources": [
+        {
+          "title": "GLM-5.3 - Z.AI Developer Documentation",
+          "url": "https://docs.z.ai/guides/llm/glm-5.3",
+          "publisher": "Z.AI",
+          "date_basis": "Pagina oficial de documentacao do GLM-5.3, que confirma o modelo e a liberacao inicial para os assinantes do GLM Coding Plan, com a API listada como coming soon. O indice oficial de release notes ainda para no GLM-5.2 de 16 de junho de 2026, o que e atraso de publicacao do indice e nao incerteza sobre a data."
+        },
+        {
+          "title": "Z.ai debuts GLM-5.3 with long-horizon coding, cybersecurity upgrades",
+          "url": "https://siliconangle.com/2026/08/14/z-ai-debuts-glm-5-3-long-horizon-coding-cybersecurity-upgrades/",
+          "publisher": "SiliconANGLE",
+          "date_basis": "Materia datada de 14 de agosto de 2026 registra que a Z.AI apresentou o GLM-5.3 naquele mesmo dia, ancorando a data no anuncio oficial publicado logo apos a liberacao do modelo."
+        }
+      ],
       "confidence": "alta"
     },
     {
