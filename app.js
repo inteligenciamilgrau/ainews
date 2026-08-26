@@ -148,7 +148,8 @@ const companyColors = {
   "Technology Innovation Institute": "#0f766e",
   Yandex: "#ffcc00",
   Tencent: "#2563eb",
-  "Thinking Machines Lab": "#4338ca"
+  "Thinking Machines Lab": "#4338ca",
+  "Ornith AI": "#fd8e5b"
 };
 
 const dataCenterStatusColors = {

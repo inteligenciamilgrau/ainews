@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-08-15",
+    "updated_at": "2026-08-26",
     "last_correction": {
-      "date": "2026-08-15",
-      "description_pt": "Revisao da linha Z.AI, que estava parada no GLM-5.2 de 16 de junho e ainda pulava todo o ciclo GLM-4.6 e GLM-4.7. Entram quatro registros: GLM-5.3 (14 de agosto), mesma base de 743B do GLM-5.2 com ganho vindo so de post-treinamento, liberado primeiro para o GLM Coding Plan, com API coming soon e pesos abertos prometidos para cerca de duas semanas depois; e os tres lancamentos que faltavam entre o GLM-4.5V e o GLM-5, todos com data nas release notes oficiais: GLM-4.6 (30 de setembro de 2025), GLM-4.6V (8 de dezembro de 2025) e GLM-4.7 (22 de dezembro de 2025). A data do GLM-5.3 fica ancorada no proprio anuncio oficial da Z.AI, publicado logo apos a liberacao do modelo e acompanhado no mesmo dia pela cobertura de imprensa, com a pagina de documentacao oficial ja no ar; o indice de release notes ainda nao ter registrado o lancamento e atraso do indice e nao reduz a confianca. As datas das sete entradas Z.AI anteriores foram reconferidas nas release notes e nenhuma precisou de correcao; so a descricao do GLM-5.2 deixou de chamar o modelo de mais recente."
+      "date": "2026-08-26",
+      "description_pt": "Revisao pedida das linhas Qwen, GLM, Grok e Wan. O buraco maior estava no Wan: a base parava no Wan2.2 de julho de 2025 e pulava toda a virada da familia para modelo fechado. Entram quatro registros de video com data em fonte primaria: Wan2.5-Preview (24 de setembro de 2025, anunciado no Apsara Conference com audio sincronizado nativo e clipe de 10 segundos), Wan2.6 (16 de dezembro de 2025, com o novo referencia-para-video R2V e 15 segundos), Wan2.7-Video (7 de abril de 2026, quatro modelos incluindo edicao de video) e Wan3.0 (6 de agosto de 2026, 30 segundos por clipe e entrada por documentos, planilhas e paginas web, com acesso ampliado em 24 de agosto). As datas do Wan2.7-Video e do Wan3.0 vem do datePublished nos metadados estruturados da sala de imprensa oficial do grupo; a do Wan2.5 vem do comunicado do Apsara e a do Wan2.6 do comunicado oficial, ancorada em republicacoes datadas e na primeira captura do Internet Archive, ja que as paginas da Alibaba Cloud sao renderizadas por script e nao trazem data no HTML. Na linha Qwen entra o Qwen3.8-Flash-Next (26 de agosto de 2026), preview experimental da arquitetura do Qwen4 com pesos abertos, 125B mais 51B de embedding de N-grama e so 6B ativos por token, com a data confirmada no historico de commits do repositorio oficial no Hugging Face. Entra tambem o Qwen3.8-27B (14 de agosto de 2026), modelo denso de 27B com encoder de visao nativo sob Apache-2.0, que por ser variante de tamanho ficaria fora da regra de so flagship mas foi incluido por decisao editorial, por ter sido a entrada da geracao que mais se espalhou entre os modelos pequenos. Na linha GLM entra o GLM-5.3-Flash (26 de agosto de 2026): o sufixo Flash engana, porque o modelo nao e uma reducao do GLM-5.3 e sim um base model novo, o primeiro nativamente multimodal da serie GLM-5, com 320B totais e 18B ativos, atencao hibrida esparsa mais linear, contexto de 1M e pesos abertos sob MIT no mesmo dia do anuncio, algo que o proprio GLM-5.3 ainda nao tinha. O GLM-5.3 de 14 de agosto segue correto, com os pesos abertos prometidos para cerca de 28 de agosto. A linha Grok foi reconferida e nao precisou de entrada nova, porque a documentacao oficial da xAI nao lista nada acima do Grok 4.6 de 12 de agosto. Entra ainda uma empresa que faltava por completo na base, a Ornith AI, laboratorio que se apresentava como DeepReinforce ate a virada de marca e que publica modelos abertos sob MIT voltados a codigo agentico, com dois registros: Ornith-1.0 (25 de junho de 2026), post-treinado sobre Gemma 4 e Qwen 3.5 em quatro tamanhos ate 397B em MoE, e Ornith-1.5 (19 de agosto de 2026), em 397B, 35B-A3B e 9B, que amplia o laco de auto-aprimoramento do scaffold e do rollout para incluir a geracao das proprias tarefas de treino e empata com o Claude Opus 4.8 no Terminal-Bench 2.1. As duas datas vem do historico de commits dos repositorios oficiais no Hugging Face. A empresa tambem foi registrada no mapa de cores do app.js; nao entrou em companyLocations porque nao ha endereco de sede confirmado em fonte oficial."
     },
     "previous_correction": {
-      "date": "2026-08-13",
-      "description_pt": "Atualizacao da linha Google, que estava parada nos lancamentos de 21 de julho. Entram seis registros confirmados em fontes primarias: Gemini 3.7 Flash (13 de agosto, GA, tres semanas apos o 3.6 Flash), SL2T (12 de agosto, traducao de lingua de sinais para texto no Gboard e Live Transcribe do Pixel 11), Gemini Robotics 2 / ER 2 / On-Device 2 (30 de julho) e a linha Lyria 3, Lyria 3 Pro e Lyria 3.5 (18 de fevereiro, 25 de marco e 29 de julho), que faltava por completo entre o Lyria 2 / RealTime e hoje. O Gemini 3.5 Pro segue sem data anunciada e por isso nao entra na base."
+      "date": "2026-08-15",
+      "description_pt": "Revisao da linha Z.AI, que estava parada no GLM-5.2 de 16 de junho e ainda pulava todo o ciclo GLM-4.6 e GLM-4.7. Entram quatro registros: GLM-5.3 (14 de agosto), mesma base de 743B do GLM-5.2 com ganho vindo so de post-treinamento, liberado primeiro para o GLM Coding Plan, com API coming soon e pesos abertos prometidos para cerca de duas semanas depois; e os tres lancamentos que faltavam entre o GLM-4.5V e o GLM-5, todos com data nas release notes oficiais: GLM-4.6 (30 de setembro de 2025), GLM-4.6V (8 de dezembro de 2025) e GLM-4.7 (22 de dezembro de 2025). A data do GLM-5.3 fica ancorada no proprio anuncio oficial da Z.AI, publicado logo apos a liberacao do modelo e acompanhado no mesmo dia pela cobertura de imprensa, com a pagina de documentacao oficial ja no ar; o indice de release notes ainda nao ter registrado o lancamento e atraso do indice e nao reduz a confianca. As datas das sete entradas Z.AI anteriores foram reconferidas nas release notes e nenhuma precisou de correcao; so a descricao do GLM-5.2 deixou de chamar o modelo de mais recente."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -3672,6 +3672,53 @@
       "confidence": "alta"
     },
     {
+      "id": "zai-glm-5-3-flash",
+      "company": "Z.AI",
+      "family": "GLM",
+      "model": "GLM-5.3-Flash",
+      "release_date": "2026-08-26",
+      "release_stage": "lancamento / pesos abertos MIT e API",
+      "ai_category": [
+        "LLMs",
+        "Imagem",
+        "Video"
+      ],
+      "model_type": [
+        "texto",
+        "visao",
+        "video-input",
+        "multimodal",
+        "MoE",
+        "320B",
+        "18B-ativos",
+        "hibrido",
+        "raciocinio",
+        "codigo",
+        "agente",
+        "1M-contexto",
+        "thinking-obrigatorio",
+        "baixo-custo",
+        "open-weights",
+        "MIT"
+      ],
+      "description_pt": "Primeiro modelo nativamente multimodal da serie GLM-5 e, apesar do sufixo Flash, nao e uma versao reduzida do GLM-5.3: parte de um modelo base treinado do zero, com arquitetura e receita de treino refeitas em torno de eficiencia. Sao 320B de parametros totais com apenas 18B ativos por token. Estreia na familia GLM a arquitetura hibrida que combina atencao esparsa com atencao linear, para cortar o custo de servir contexto longo sem perder precisao, e adota Manifold-Constrained Hyper-Connections para melhorar a eficiencia de escala, sobre um corpus de pre-treino multimodal de 30T tokens. Aceita texto, imagem, video e arquivos na entrada, tem contexto de 1M de tokens e thinking obrigatorio, que nao pode ser desligado. Supera o GLM-5.2 nos benchmarks a cerca de um decimo do preco e chega perto do Claude Opus 4.8 em codigo e tarefas agenticas. Os pesos sairam no mesmo dia sob licenca MIT, contraste com o GLM-5.3, cujos pesos seguiam retidos para avaliacao de seguranca. Antes do anuncio o modelo circulou por cerca de uma semana como o modelo anonimo Ox Alpha em plataformas de terceiros.",
+      "sources": [
+        {
+          "title": "zai-org/GLM-5.3-Flash",
+          "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+          "publisher": "Z.AI / Hugging Face",
+          "date_basis": "Repositorio oficial da Z.AI no Hugging Face, com os commits de publicacao dos pesos e do model card em 26 de agosto de 2026. O card confirma a licenca MIT, os 320B totais com 18B ativos, a condicao de primeiro modelo nativamente multimodal da serie GLM-5, o base model novo, a atencao hibrida esparsa mais linear, o mHC e o corpus de 30T tokens. O config.json traz image_token_id e video_token_id, confirmando entrada de imagem e de video."
+        },
+        {
+          "title": "GLM-5.3-Flash - Z.AI Developer Documentation",
+          "url": "https://docs.z.ai/guides/llm/glm-5.3-flash",
+          "publisher": "Z.AI",
+          "date_basis": "Pagina oficial de documentacao do modelo, que registra a janela de 1M tokens, a entrada de imagens, videos e arquivos, o thinking que so aceita enabled e a disponibilidade pela Chat Completion API sob o codigo glm-5.3-flash e no GLM Coding Plan."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "xiaomi-mimo-7b",
       "company": "Xiaomi",
       "family": "MiMo",
@@ -5023,6 +5070,80 @@
         "publisher": "Qwen / Hugging Face",
         "date_basis": "Repositorio publico e nao-gated da conta oficial Qwen, atualizado em 12 de agosto de 2026. O model card confirma a abertura dos pesos, 2,4T/95B, contexto e as diferencas para Qwen3.8-Max."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-8-27b",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3.8-27B",
+      "release_date": "2026-08-14",
+      "release_stage": "pesos abertos",
+      "ai_category": [
+        "LLMs",
+        "Imagem",
+        "Video"
+      ],
+      "model_type": [
+        "texto",
+        "visao",
+        "video",
+        "multimodal",
+        "dense",
+        "27B",
+        "raciocinio",
+        "codigo",
+        "agente",
+        "262K-contexto",
+        "1M-extensivel",
+        "open-weights",
+        "Apache-2.0"
+      ],
+      "description_pt": "Modelo denso e compacto da geracao Qwen3.8, publicado com pesos abertos sob Apache-2.0 e voltado a quem precisa rodar em uma unica GPU. Sao 27B de parametros na parte de linguagem mais um encoder de visao nativo, com entendimento de imagem e de video que vai de diagramas de STEM e documentos a videos de escala de horas. A arquitetura herda a base do Qwen3.5 e alterna, em 64 camadas, tres blocos de Gated DeltaNet, que e atencao linear, para cada bloco de Gated Attention, alem de treino com predicao de multiplos tokens. O contexto e de 262.144 tokens nativos, extensivel a cerca de 1M. O modo thinking vem ligado por padrao mas pode ser desligado por requisicao, com profundidade ajustavel por reasoning_effort e retencao do raciocinio historico via preserve_thinking. Nao e o flagship da geracao, papel que cabe ao Qwen3.8-Max e ao checkpoint aberto de 2,4T, mas foi a entrada da familia que mais se espalhou na faixa dos modelos pequenos.",
+      "sources": [
+        {
+          "title": "Qwen/Qwen3.8-27B",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+          "publisher": "Qwen / Hugging Face",
+          "date_basis": "Repositorio publico e nao-gated da conta oficial Qwen. O historico de commits mostra a publicacao do model card em 14 de agosto de 2026, data adotada como lancamento. O card confirma a licenca Apache-2.0, os 27B densos com encoder de visao, o detalhamento de camadas com Gated DeltaNet e Gated Attention, o contexto de 262.144 tokens extensivel a 1M e o controle de thinking."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen-3-8-flash-next",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3.8-Flash-Next",
+      "release_date": "2026-08-26",
+      "release_stage": "preview experimental / pesos abertos",
+      "ai_category": [
+        "LLMs",
+        "Imagem",
+        "Video"
+      ],
+      "model_type": [
+        "texto",
+        "visao",
+        "video-input",
+        "multimodal",
+        "MoE",
+        "125B",
+        "6B-ativos",
+        "262K-contexto",
+        "1M-extensivel",
+        "open-weights",
+        "preview"
+      ],
+      "description_pt": "Preview experimental da arquitetura que vai sustentar o Qwen4, publicado com pesos abertos na conta oficial no Hugging Face. Combina 125B de parametros no modelo principal, 51B em embeddings de N-grama e um modulo de 4B para predicao de multiplos tokens, somando cerca de 180B em disco, mas ativa so 6B por token. As tres apostas de arquitetura sao a atencao hibrida com Qwen Sparse Attention, os residuais com gate e o embedding de N-grama, que escala parametros sem escalar computacao. Aceita texto, imagem e video na entrada, suporta 262.144 tokens de contexto nativo e chega a cerca de 1M com extensao. Sai sob a licenca qwen-community-1.0 e nao substitui o Qwen3.8-Max, que segue como flagship hospedado da familia.",
+      "sources": [
+        {
+          "title": "Qwen/Qwen3.8-Flash-Next",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+          "publisher": "Qwen / Hugging Face",
+          "date_basis": "Repositorio publico da conta oficial Qwen. O historico de commits mostra o upload dos pesos em 26 de agosto de 2026, data que confere com a contagem regressiva que a equipe havia publicado no proprio Hugging Face. O model card confirma os 125B mais 51B mais 4B, os 6B ativos, o contexto, as modalidades de entrada, a licenca e a condicao de preview da arquitetura do Qwen4."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -6735,6 +6856,159 @@
           "url": "https://github.com/Wan-Video/Wan2.2",
           "publisher": "Alibaba Cloud / Wan",
           "date_basis": "Repositorio oficial registra release de codigo e pesos em 28 de julho de 2025."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-wan-2-5-preview",
+      "company": "Alibaba",
+      "family": "Wan",
+      "model": "Wan2.5-Preview",
+      "release_date": "2025-09-24",
+      "release_stage": "preview / API",
+      "ai_category": [
+        "Video",
+        "Imagem"
+      ],
+      "model_type": [
+        "video",
+        "texto-para-video",
+        "imagem-para-video",
+        "imagem",
+        "edicao",
+        "audio-nativo",
+        "audio-visual",
+        "1080p",
+        "multimodal",
+        "preview"
+      ],
+      "description_pt": "Serie Wan2.5-Preview apresentada no Apsara Conference 2025, com quatro modelos: texto-para-video, imagem-para-video, geracao de imagem e edicao de imagem. E a primeira geracao Wan com arquitetura multimodal nativa e sincronizacao de audio e video na mesma passada, cobrindo voz, efeitos sonoros e trilha; a duracao do clipe dobra de 5 para 10 segundos em 1080p. Diferente do Wan2.1 e do Wan2.2, esta geracao nao teve pesos abertos e ficou restrita a API do Model Studio, ao site oficial do Wan e ao app Qwen. O lancamento comercial internacional veio depois, em evento proprio de 11 de novembro de 2025, ainda com a marca Preview.",
+      "sources": [
+        {
+          "title": "Alibaba Cloud Unveils Strategic Roadmaps for the Next Generation AI Innovations",
+          "url": "https://www.alibabacloud.com/en/press-room/alibabacloudunveilsstrategicroadmaps",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Comunicado oficial do Apsara Conference 2025, em Hangzhou, que anuncia o Wan2.5-Preview junto com Qwen3-Max e as demais novidades do evento. A data de 24 de setembro de 2025 aparece no proprio comunicado e nas republicacoes datadas do mesmo release em servicos de newswire; a primeira captura do Internet Archive e de 25 de setembro de 2025."
+        },
+        {
+          "title": "Commercial Launch of Wan2.5-Preview",
+          "url": "https://www.alibabacloud.com/en/events/wan2-5-preview-launch",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Pagina oficial do evento de lancamento comercial internacional, realizado em 11 de novembro de 2025, que detalha os modelos de texto-para-video, imagem-para-video e texto-para-imagem do Wan2.5-Preview, a geracao de audio sincronizado e os 10 segundos de duracao. Serve para separar o anuncio no Apsara da disponibilidade comercial fora da China."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-wan-2-6",
+      "company": "Alibaba",
+      "family": "Wan",
+      "model": "Wan2.6",
+      "release_date": "2025-12-16",
+      "release_stage": "lancamento / Model Studio, site Wan e app Qwen",
+      "ai_category": [
+        "Video",
+        "Imagem"
+      ],
+      "model_type": [
+        "video",
+        "texto-para-video",
+        "imagem-para-video",
+        "referencia",
+        "multi-shot",
+        "audio-nativo",
+        "lip-sync",
+        "personagens",
+        "consistencia",
+        "1080p",
+        "imagem"
+      ],
+      "description_pt": "Serie Wan2.6, que acrescenta o modelo de referencia-para-video Wan2.6-R2V e atualiza os quatro modelos ja existentes: Wan2.6-T2V, Wan2.6-I2V e os dois de imagem, Wan2.6-image e Wan2.6-T2I. O R2V recebe um video de referencia com aparencia e voz de um personagem e gera cenas novas preservando o rosto e o timbre originais, inclusive com varios sujeitos ao mesmo tempo. A duracao maxima sobe para 15 segundos em 1080p, com narrativa em multiplos planos, dialogo entre varias pessoas e sincronizacao labial nativa. Distribuido pelo Model Studio, pelo site oficial do Wan e integrado ao app Qwen; segue sem pesos abertos.",
+      "sources": [
+        {
+          "title": "Alibaba Unveils Wan2.6 Series Enabling Everyone to Star in Videos",
+          "url": "https://www.alibabacloud.com/blog/alibaba-unveils-wan2-6-series-enabling-everyone-to-star-in-videos_602742",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Anuncio oficial da serie Wan2.6, que descreve o Wan2.6-R2V, os 15 segundos de duracao e a distribuicao via Model Studio e app Qwen. A pagina e renderizada por script e nao exibe a data no HTML servido, entao a data de 16 de dezembro de 2025 fica ancorada nas republicacoes datadas do mesmo comunicado por servicos de newswire e na primeira captura do Internet Archive, de 19 de dezembro de 2025."
+        },
+        {
+          "title": "Alibaba Unveils Wan2.6 Series Enabling Everyone to Star in Videos (press room)",
+          "url": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-wan2-6-series-enabling-everyone",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Versao do mesmo comunicado na sala de imprensa oficial da Alibaba Cloud, usada para confirmar o texto e a lista de modelos da serie Wan2.6."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-wan-2-7-video",
+      "company": "Alibaba",
+      "family": "Wan",
+      "model": "Wan2.7-Video",
+      "release_date": "2026-04-07",
+      "release_stage": "lancamento / Model Studio e site Wan",
+      "ai_category": "Video",
+      "model_type": [
+        "video",
+        "texto-para-video",
+        "imagem-para-video",
+        "referencia",
+        "edicao",
+        "multi-shot",
+        "audio-nativo",
+        "controle",
+        "1080p"
+      ],
+      "description_pt": "Geracao Wan2.7 de video, apresentada com o mote de levar o criador de executor a diretor, com controle sobre o fluxo inteiro de producao e pos-producao. Reune quatro modelos: texto-para-video (Wan2.7-t2v), imagem-para-video (Wan2.7-i2v), referencia-para-video (Wan2.7-r2v) e edicao de video (Wan2.7-videoedit). A duracao maxima do clipe chega a 15 segundos. Saiu uma semana depois do Wan2.7-Image, que abriu a geracao na frente de imagem; como no Wan2.5 e no Wan2.6, os pesos nao foram abertos.",
+      "sources": [
+        {
+          "title": "Alibaba Unveils Wan2.7-Video to Elevate Creators from Executors to Directors",
+          "url": "https://www.alizila.com/alibaba-unveils-wan2-7-video-to-elevate-creators-from-executors-to-directors/",
+          "publisher": "Alizila / Alibaba Group",
+          "date_basis": "Artigo da sala de imprensa oficial do grupo Alibaba com datePublished de 7 de abril de 2026 nos metadados estruturados da propria pagina, confirmando a data do lancamento e a composicao de quatro modelos da linha Wan2.7-Video."
+        },
+        {
+          "title": "Alibaba Unveils Wan2.7-Video to Elevate Creators from Executors to Directors (blog)",
+          "url": "https://www.alibabacloud.com/blog/alibaba-unveils-wan2-7-video-to-elevate-creators-from-executors-to-directors_603009",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Mesmo comunicado no blog oficial da Alibaba Cloud; a primeira captura do Internet Archive e de 7 de abril de 2026, no mesmo dia do anuncio."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-wan-3-0",
+      "company": "Alibaba",
+      "family": "Wan",
+      "model": "Wan3.0",
+      "release_date": "2026-08-06",
+      "release_stage": "beta publico / API em preview; acesso ampliado em 24 de agosto de 2026",
+      "ai_category": "Video",
+      "model_type": [
+        "video",
+        "texto-para-video",
+        "imagem-para-video",
+        "referencia",
+        "documentos",
+        "audio-nativo",
+        "30-segundos",
+        "1080p",
+        "API"
+      ],
+      "description_pt": "Wan3.0 dobra a duracao nativa do clipe para 30 segundos em uma unica passada, com audio gerado junto e tres faixas de resolucao: 480p, 720p e 1080p. A novidade central e a referencia multimodal, que aceita documentos, planilhas, apresentacoes, PDFs e paginas web como entrada e monta o video seguindo a estrutura do material de origem, alem de texto e imagem. Foi liberado em beta publico em 6 de agosto de 2026 no Model Studio e no Qwen Cloud, com acesso mediante aprovacao, e teve o acesso ampliado em 24 de agosto, um dia depois da oferta de acoes de 10,2 bilhoes de dolares em Hong Kong. O preco de API e de 0,05, 0,10 e 0,20 dolar por segundo gerado em 480p, 720p e 1080p. Continua fechado: o Wan2.2 de julho de 2025 segue como o ultimo flagship de video da Alibaba com pesos abertos.",
+      "sources": [
+        {
+          "title": "Alibaba Unveils Wan3.0 with Twice as Long Video Outputs from a Richer Variety of Inputs",
+          "url": "https://www.alizila.com/alibaba-unveils-wan3-0-with-twice-as-long-video-outputs-from-a-richer-variety-of-inputs/",
+          "publisher": "Alizila / Alibaba Group",
+          "date_basis": "Artigo da sala de imprensa oficial do grupo Alibaba com datePublished de 6 de agosto de 2026 nos metadados estruturados da pagina. O texto e a imagem de capa tratam explicitamente do lancamento da versao beta, o que fixa 6 de agosto como o anuncio oficial do Wan3.0."
+        },
+        {
+          "title": "Alibaba launches Wan3.0 video model with 30-second generation and document input",
+          "url": "https://technode.com/2026/08/24/alibaba-launches-wan3-0-video-model-with-30-second-generation-and-document-input/",
+          "publisher": "TechNode",
+          "date_basis": "Materia de 24 de agosto de 2026 sobre o comunicado da Alibaba Cloud no WeChat que ampliou o acesso ao Wan3.0 depois de cerca de tres semanas de beta. Usada para registrar a segunda etapa da liberacao, os tipos de arquivo aceitos como entrada e a tabela de precos por segundo."
         }
       ],
       "confidence": "alta"
@@ -12584,6 +12858,80 @@
         "publisher": "Yandex",
         "date_basis": "Atualizacao oficial publicada em 25 de junho de 2026."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "ornith-ornith-1-0",
+      "company": "Ornith AI",
+      "family": "Ornith",
+      "model": "Ornith-1.0",
+      "release_date": "2026-06-25",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": [
+        "texto",
+        "codigo",
+        "agente",
+        "raciocinio",
+        "MoE",
+        "dense",
+        "397B",
+        "262K-contexto",
+        "open-weights",
+        "MIT"
+      ],
+      "description_pt": "Primeira familia de modelos abertos do laboratorio, voltada a codigo agentico e lancada sob licenca MIT sem restricao regional. O model card anuncia quatro tamanhos, 9B denso, 31B denso, 35B em MoE e 397B em MoE, sendo o 397B o flagship; na conta oficial no Hugging Face estao publicados os pesos de 9B, 35B e 397B. Os modelos nao sao treinados do zero: sao post-treinados sobre o Gemma 4 e o Qwen 3.5, com pre-treino continuado e mid-training por cima. A aposta central e o framework de auto-aprimoramento, em que o aprendizado por reforco otimiza nao so os rollouts de solucao mas tambem o scaffold que os conduz, ou seja, o modelo aprende a montar a propria estrutura de ferramentas em vez de depender de uma orquestracao escrita por humanos. O contexto e de 262.144 tokens. Na epoca deste lancamento o laboratorio se apresentava como DeepReinforce e publicava sob a conta deepreinforce-ai, que depois passou a ornith-ai.",
+      "sources": [
+        {
+          "title": "ornith-ai/Ornith-1.0-397B",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.0-397B",
+          "publisher": "Ornith AI / Hugging Face",
+          "date_basis": "Repositorio oficial do flagship da familia. O historico de commits registra o commit Add Ornith-1.0-397B model weights em 25 de junho de 2026, data adotada como lancamento. O model card confirma a licenca MIT, os quatro tamanhos anunciados, o post-treino sobre Gemma 4 e Qwen 3.5 e o framework de auto-aprimoramento que otimiza scaffold e rollout em conjunto. O license_link do card ainda aponta para a conta anterior deepreinforce-ai, o que documenta a mudanca de marca."
+        },
+        {
+          "title": "Ornith-1.0 blog",
+          "url": "https://deep-reinforce.com/ornith.html",
+          "publisher": "DeepReinforce / Ornith AI",
+          "date_basis": "Blog oficial do anuncio do Ornith-1.0, linkado a partir do proprio model card no Hugging Face. Registra o laboratorio sob a marca DeepReinforce, usada ate a virada para Ornith."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "ornith-ornith-1-5",
+      "company": "Ornith AI",
+      "family": "Ornith",
+      "model": "Ornith-1.5",
+      "release_date": "2026-08-19",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": [
+        "texto",
+        "codigo",
+        "agente",
+        "raciocinio",
+        "MoE",
+        "dense",
+        "397B",
+        "262K-contexto",
+        "open-weights",
+        "MIT"
+      ],
+      "description_pt": "Segunda geracao da familia, publicada em tres tamanhos sob licenca MIT: Ornith-1.5-397B em MoE com 512 especialistas e 10 ativos por token, Ornith-1.5-35B-A3B em MoE com 256 especialistas e 8 ativos, e Ornith-1.5-9B denso, leve o bastante para rodar em celular nas versoes quantizadas. O avanco sobre o Ornith-1.0 e ampliar o laco de auto-aprimoramento: antes ele cobria o scaffold e o rollout, agora otimiza tambem a geracao das proprias tarefas de treino. Em vez de um conjunto fixo de tarefas escritas por humanos, o modelo propoe tarefas novas, constroi um scaffold para cada uma e gera as solucoes que viram o sinal de reforco. O flagship de 397B marca 86,1 no Terminal-Bench 2.1 e 56,0 no DeepSWE, empatando com o Claude Opus 4.8, que faz 85,0 e 59,0, e ficando a frente de modelos abertos de escala comparavel como GLM-5.2 e DeepSeek-V4-Flash. O contexto e de 262.144 tokens.",
+      "sources": [
+        {
+          "title": "ornith-ai/Ornith-1.5-397B",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-397B",
+          "publisher": "Ornith AI / Hugging Face",
+          "date_basis": "Repositorio oficial do flagship da geracao. O historico de commits mostra a publicacao do model card e dos graficos de avaliacao em 19 de agosto de 2026, data adotada como lancamento. O card confirma a licenca MIT, os tres tamanhos, o laco de auto-aprimoramento estendido a geracao de tarefas e os numeros de Terminal-Bench 2.1 e DeepSWE comparados ao Claude Opus 4.8. Os config.json dos tres repositorios confirmam a contagem de especialistas e o contexto de 262.144 tokens."
+        },
+        {
+          "title": "Ornith-1.5 blog",
+          "url": "https://ornith.ai/ornith_1_5.html",
+          "publisher": "Ornith AI",
+          "date_basis": "Blog oficial do anuncio, linkado a partir do model card, que detalha o ciclo de tres estagios em que o modelo propoe tarefas, gera o scaffold e produz os rollouts, com a recompensa realimentando os tres componentes."
+        }
+      ],
       "confidence": "alta"
     }
   ]
