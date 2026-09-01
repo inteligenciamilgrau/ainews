@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-08-26",
+    "updated_at": "2026-09-01",
     "last_correction": {
-      "date": "2026-08-26",
-      "description_pt": "Revisao pedida das linhas Qwen, GLM, Grok e Wan. O buraco maior estava no Wan: a base parava no Wan2.2 de julho de 2025 e pulava toda a virada da familia para modelo fechado. Entram quatro registros de video com data em fonte primaria: Wan2.5-Preview (24 de setembro de 2025, anunciado no Apsara Conference com audio sincronizado nativo e clipe de 10 segundos), Wan2.6 (16 de dezembro de 2025, com o novo referencia-para-video R2V e 15 segundos), Wan2.7-Video (7 de abril de 2026, quatro modelos incluindo edicao de video) e Wan3.0 (6 de agosto de 2026, 30 segundos por clipe e entrada por documentos, planilhas e paginas web, com acesso ampliado em 24 de agosto). As datas do Wan2.7-Video e do Wan3.0 vem do datePublished nos metadados estruturados da sala de imprensa oficial do grupo; a do Wan2.5 vem do comunicado do Apsara e a do Wan2.6 do comunicado oficial, ancorada em republicacoes datadas e na primeira captura do Internet Archive, ja que as paginas da Alibaba Cloud sao renderizadas por script e nao trazem data no HTML. Na linha Qwen entra o Qwen3.8-Flash-Next (26 de agosto de 2026), preview experimental da arquitetura do Qwen4 com pesos abertos, 125B mais 51B de embedding de N-grama e so 6B ativos por token, com a data confirmada no historico de commits do repositorio oficial no Hugging Face. Entra tambem o Qwen3.8-27B (14 de agosto de 2026), modelo denso de 27B com encoder de visao nativo sob Apache-2.0, que por ser variante de tamanho ficaria fora da regra de so flagship mas foi incluido por decisao editorial, por ter sido a entrada da geracao que mais se espalhou entre os modelos pequenos. Na linha GLM entra o GLM-5.3-Flash (26 de agosto de 2026): o sufixo Flash engana, porque o modelo nao e uma reducao do GLM-5.3 e sim um base model novo, o primeiro nativamente multimodal da serie GLM-5, com 320B totais e 18B ativos, atencao hibrida esparsa mais linear, contexto de 1M e pesos abertos sob MIT no mesmo dia do anuncio, algo que o proprio GLM-5.3 ainda nao tinha. O GLM-5.3 de 14 de agosto segue correto, com os pesos abertos prometidos para cerca de 28 de agosto. A linha Grok foi reconferida e nao precisou de entrada nova, porque a documentacao oficial da xAI nao lista nada acima do Grok 4.6 de 12 de agosto. Entra ainda uma empresa que faltava por completo na base, a Ornith AI, laboratorio que se apresentava como DeepReinforce ate a virada de marca e que publica modelos abertos sob MIT voltados a codigo agentico, com dois registros: Ornith-1.0 (25 de junho de 2026), post-treinado sobre Gemma 4 e Qwen 3.5 em quatro tamanhos ate 397B em MoE, e Ornith-1.5 (19 de agosto de 2026), em 397B, 35B-A3B e 9B, que amplia o laco de auto-aprimoramento do scaffold e do rollout para incluir a geracao das proprias tarefas de treino e empata com o Claude Opus 4.8 no Terminal-Bench 2.1. As duas datas vem do historico de commits dos repositorios oficiais no Hugging Face. A empresa tambem foi registrada no mapa de cores do app.js; nao entrou em companyLocations porque nao ha endereco de sede confirmado em fonte oficial."
+      "date": "2026-09-01",
+      "description_pt": "Entrada do lancamento do dia da Anthropic. O post oficial Introducing Claude Fable 5.1 and Claude Mythos 5.1 saiu em 1 de setembro de 2026 e cobre dois modelos, entao entram dois registros, seguindo o mesmo padrao ja usado para o par Fable 5 e Mythos 5 de junho: Claude Fable 5.1 em disponibilidade geral nas plataformas e na API como claude-fable-5-1, e Claude Mythos 5.1 restrito aos programas de acesso verificado de ciberseguranca e ciencias da vida, com a mesma base e salvaguardas diferentes. A pagina do anuncio e renderizada por script e nao traz datePublished no HTML, entao a data foi ancorada no indice oficial da newsroom, que marca o item como Sep 1, 2026, e corroborada pela tabela de modelos da documentacao, que promete aposentadoria do Fable 5.1 nao antes de 1 de setembro de 2027, um ano exato depois, mesma regra que a documentacao aplica ao Opus 5 e ao Sonnet 5. Da documentacao vem tambem as specs registradas: contexto de 1M tokens, saida maxima de 128k e preco de 10 dolares por milhao de tokens de entrada e 50 de saida, com leitura de cache 75% mais barata que no Fable 5. O Mythos 5.1 nao consta da tabela publica por nao ser de acesso aberto, entao sua descricao se apoia no post e no system card conjunto."
     },
     "previous_correction": {
-      "date": "2026-08-15",
-      "description_pt": "Revisao da linha Z.AI, que estava parada no GLM-5.2 de 16 de junho e ainda pulava todo o ciclo GLM-4.6 e GLM-4.7. Entram quatro registros: GLM-5.3 (14 de agosto), mesma base de 743B do GLM-5.2 com ganho vindo so de post-treinamento, liberado primeiro para o GLM Coding Plan, com API coming soon e pesos abertos prometidos para cerca de duas semanas depois; e os tres lancamentos que faltavam entre o GLM-4.5V e o GLM-5, todos com data nas release notes oficiais: GLM-4.6 (30 de setembro de 2025), GLM-4.6V (8 de dezembro de 2025) e GLM-4.7 (22 de dezembro de 2025). A data do GLM-5.3 fica ancorada no proprio anuncio oficial da Z.AI, publicado logo apos a liberacao do modelo e acompanhado no mesmo dia pela cobertura de imprensa, com a pagina de documentacao oficial ja no ar; o indice de release notes ainda nao ter registrado o lancamento e atraso do indice e nao reduz a confianca. As datas das sete entradas Z.AI anteriores foram reconferidas nas release notes e nenhuma precisou de correcao; so a descricao do GLM-5.2 deixou de chamar o modelo de mais recente."
+      "date": "2026-08-26",
+      "description_pt": "Revisao pedida das linhas Qwen, GLM, Grok e Wan. O buraco maior estava no Wan: a base parava no Wan2.2 de julho de 2025 e pulava toda a virada da familia para modelo fechado. Entram quatro registros de video com data em fonte primaria: Wan2.5-Preview (24 de setembro de 2025, anunciado no Apsara Conference com audio sincronizado nativo e clipe de 10 segundos), Wan2.6 (16 de dezembro de 2025, com o novo referencia-para-video R2V e 15 segundos), Wan2.7-Video (7 de abril de 2026, quatro modelos incluindo edicao de video) e Wan3.0 (6 de agosto de 2026, 30 segundos por clipe e entrada por documentos, planilhas e paginas web, com acesso ampliado em 24 de agosto). As datas do Wan2.7-Video e do Wan3.0 vem do datePublished nos metadados estruturados da sala de imprensa oficial do grupo; a do Wan2.5 vem do comunicado do Apsara e a do Wan2.6 do comunicado oficial, ancorada em republicacoes datadas e na primeira captura do Internet Archive, ja que as paginas da Alibaba Cloud sao renderizadas por script e nao trazem data no HTML. Na linha Qwen entra o Qwen3.8-Flash-Next (26 de agosto de 2026), preview experimental da arquitetura do Qwen4 com pesos abertos, 125B mais 51B de embedding de N-grama e so 6B ativos por token, com a data confirmada no historico de commits do repositorio oficial no Hugging Face. Entra tambem o Qwen3.8-27B (14 de agosto de 2026), modelo denso de 27B com encoder de visao nativo sob Apache-2.0, que por ser variante de tamanho ficaria fora da regra de so flagship mas foi incluido por decisao editorial, por ter sido a entrada da geracao que mais se espalhou entre os modelos pequenos. Na linha GLM entra o GLM-5.3-Flash (26 de agosto de 2026): o sufixo Flash engana, porque o modelo nao e uma reducao do GLM-5.3 e sim um base model novo, o primeiro nativamente multimodal da serie GLM-5, com 320B totais e 18B ativos, atencao hibrida esparsa mais linear, contexto de 1M e pesos abertos sob MIT no mesmo dia do anuncio, algo que o proprio GLM-5.3 ainda nao tinha. O GLM-5.3 de 14 de agosto segue correto, com os pesos abertos prometidos para cerca de 28 de agosto. A linha Grok foi reconferida e nao precisou de entrada nova, porque a documentacao oficial da xAI nao lista nada acima do Grok 4.6 de 12 de agosto. Entra ainda uma empresa que faltava por completo na base, a Ornith AI, laboratorio que se apresentava como DeepReinforce ate a virada de marca e que publica modelos abertos sob MIT voltados a codigo agentico, com dois registros: Ornith-1.0 (25 de junho de 2026), post-treinado sobre Gemma 4 e Qwen 3.5 em quatro tamanhos ate 397B em MoE, e Ornith-1.5 (19 de agosto de 2026), em 397B, 35B-A3B e 9B, que amplia o laco de auto-aprimoramento do scaffold e do rollout para incluir a geracao das proprias tarefas de treino e empata com o Claude Opus 4.8 no Terminal-Bench 2.1. As duas datas vem do historico de commits dos repositorios oficiais no Hugging Face. A empresa tambem foi registrada no mapa de cores do app.js; nao entrou em companyLocations porque nao ha endereco de sede confirmado em fonte oficial."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -1091,6 +1091,71 @@
         "publisher": "Anthropic",
         "date_basis": "Post oficial publicado em 24 de julho de 2026 anuncia disponibilidade imediata em todas as plataformas e na API como claude-opus-5."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-fable-5-1",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Fable 5.1",
+      "release_date": "2026-09-01",
+      "release_stage": "GA/API",
+      "ai_category": "LLMs",
+      "model_type": [
+        "texto",
+        "codigo",
+        "agente",
+        "raciocinio",
+        "trabalho",
+        "pesquisa-cientifica"
+      ],
+      "description_pt": "Atualizacao da linha Fable voltada a pesquisa cientifica agentica, codigo e trabalho de conhecimento, com contexto de 1M tokens, saida maxima de 128k e raciocinio adaptativo sempre ligado. Sobe de 24,7% para 52,6% no Terminal-Bench-Science 0.1 e marca 55,8% no Terminal-Bench 4.0 e 73,4% no CursorBench 3.2.0. Sai por cerca de 25% menos que o Fable 5 em cargas tipicas, com leitura de cache 75% mais barata.",
+      "sources": [
+        {
+          "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+          "publisher": "Anthropic",
+          "date_basis": "Post oficial de lancamento, listado como Sep 1, 2026 no indice da newsroom da Anthropic; anuncia o Fable 5.1 em disponibilidade geral nas plataformas e na API como claude-fable-5-1."
+        },
+        {
+          "title": "Models overview - Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/docs/about-claude/models/overview",
+          "publisher": "Anthropic",
+          "date_basis": "Tabela oficial de modelos corrobora a data ao comprometer aposentadoria do Fable 5.1 nao antes de 1 de setembro de 2027, um ano exato apos o lancamento, mesma regra aplicada ao Opus 5 e ao Sonnet 5; de la vem tambem contexto de 1M, saida de 128k e preco de 10 e 50 dolares por milhao de tokens."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-mythos-5-1",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Mythos 5.1",
+      "release_date": "2026-09-01",
+      "release_stage": "restrito/enterprise",
+      "ai_category": "LLMs",
+      "model_type": [
+        "codigo",
+        "agente",
+        "raciocinio",
+        "seguranca",
+        "ciberseguranca"
+      ],
+      "description_pt": "Mesmo modelo do Fable 5.1 com salvaguardas calibradas para trabalho em ciberseguranca e ciencias da vida, liberado so pelos programas de acesso verificado Cyber Verification Program e Life Sciences Verification Program. Marca 60,9% no Terminal-Bench 4.0, acima dos 55,8% do Fable 5.1. Nao aparece na tabela publica de modelos da documentacao, por nao ser de acesso aberto.",
+      "sources": [
+        {
+          "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+          "publisher": "Anthropic",
+          "date_basis": "Post oficial de lancamento, listado como Sep 1, 2026 no indice da newsroom da Anthropic; descreve o Mythos 5.1 como restrito aos programas de acesso verificado, no mesmo anuncio do Fable 5.1."
+        },
+        {
+          "title": "Claude Fable 5.1 & Claude Mythos 5.1 System Card",
+          "url": "https://www.anthropic.com/claude-fable-5-1-mythos-5-1-system-card",
+          "publisher": "Anthropic",
+          "date_basis": "System card publicado junto do anuncio cobre os dois modelos e confirma que compartilham a mesma base, separados pelo nivel de salvaguardas."
+        }
+      ],
       "confidence": "alta"
     },
     {
