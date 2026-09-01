@@ -1015,6 +1015,172 @@ dd {
   font-size: 0.78rem;
 }
 
+.weekday-chart-card {
+  margin-top: 20px;
+  padding: clamp(16px, 2.5vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(21, 127, 74, 0.13), transparent 34%),
+    linear-gradient(180deg, #fff, #f6fcf8);
+}
+
+.weekday-chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.weekday-chart-header h2 {
+  margin-bottom: 6px;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+}
+
+.weekday-chart-header p:last-child {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.weekday-chart-peak {
+  display: grid;
+  flex: 0 0 auto;
+  min-width: 150px;
+  padding: 10px 13px;
+  border: 1px solid rgba(21, 127, 74, 0.25);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.78);
+  text-align: right;
+}
+
+.weekday-chart-peak strong {
+  color: var(--accent);
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  line-height: 1;
+}
+
+.weekday-chart-peak span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.weekday-plot {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  /* espaco reservado embaixo para o balao do dia entrar sem empurrar o layout */
+  margin-bottom: 56px;
+  gap: 10px;
+  height: clamp(190px, 24vw, 250px);
+}
+
+.weekday-column {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 6px;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.weekday-column:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.weekday-value {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.weekday-bar-wrap {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+/* divisor no lugar de uma faixa de fundo: um bloco colorido atras das colunas de
+   sabado e domingo seria lido como barra, e essas sao justamente as menores */
+.weekday-column.starts-weekend .weekday-bar-wrap {
+  border-left: 1px dashed var(--line-strong);
+}
+
+
+.weekday-bar {
+  width: 100%;
+  max-width: 76px;
+  margin: 0 auto;
+  min-height: 2px;
+  border-radius: 4px 4px 0 0;
+  background: var(--accent);
+  transition: background 0.12s ease;
+}
+
+.weekday-column.is-peak .weekday-bar {
+  background: var(--accent-strong);
+}
+
+.weekday-column:hover .weekday-bar,
+.weekday-column:focus-visible .weekday-bar {
+  background: var(--accent-ink);
+}
+
+.weekday-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.weekday-label abbr {
+  text-decoration: none;
+  cursor: inherit;
+}
+
+.weekday-column.is-peak .weekday-label {
+  color: var(--accent-strong);
+}
+
+.weekday-tooltip {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+}
+
+.weekday-column:hover .weekday-tooltip,
+.weekday-column:focus-within .weekday-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.weekday-chart-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
 .year-list {
   border-top: 1px solid var(--line);
 }
@@ -1849,6 +2015,38 @@ td a,
   /* o SVG ja e desenhado estreito no mobile, entao cabe sem rolagem horizontal */
   .cumulative-chart-svg {
     min-width: 0;
+  }
+
+  .weekday-chart-card {
+    padding: 14px 12px;
+  }
+
+  .weekday-chart-header {
+    display: grid;
+    gap: 12px;
+  }
+
+  .weekday-chart-peak {
+    width: 100%;
+    text-align: left;
+  }
+
+  .weekday-plot {
+    gap: 6px;
+    height: 180px;
+    margin-bottom: 72px;
+  }
+
+  .weekday-value {
+    font-size: 0.82rem;
+  }
+
+  .weekday-label {
+    font-size: 0.78rem;
+  }
+
+  .weekday-tooltip {
+    font-size: 0.8rem;
   }
 
   .year-row,

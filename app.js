@@ -2748,6 +2748,7 @@ function cacheElements() {
     modelDetails: document.getElementById("modelDetails"),
     yearChart: document.getElementById("yearChart"),
     cumulativeChart: document.getElementById("cumulativeChart"),
+    weekdayChart: document.getElementById("weekdayChart"),
     mapShell: document.getElementById("mapShell"),
     companyMap: document.getElementById("companyMap"),
     companyLocationList: document.getElementById("companyLocationList"),
@@ -3516,6 +3517,7 @@ function renderYearChart(models) {
 
   if (!models.length) {
     els.cumulativeChart.innerHTML = "";
+    els.weekdayChart.innerHTML = "";
     els.yearChart.innerHTML = `<div class="empty-state">Nenhum modelo no filtro atual.</div>`;
     return;
   }
@@ -3560,6 +3562,7 @@ function renderYearChart(models) {
 
   // o grafico acumulado fica fora do #yearChart para o resumo caber entre os dois
   els.cumulativeChart.innerHTML = renderCumulativeModelChart(models);
+  els.weekdayChart.innerHTML = renderWeekdayChart(models);
   els.yearChart.innerHTML = `
     <div class="year-list">
       ${yearRows}
@@ -3741,6 +3744,101 @@ function renderCumulativeModelChart(models) {
         <span>${formatDate(firstRelease.date)}</span>
         <span>${formatDate(lastRelease.date)}</span>
       </div>
+    </section>
+  `;
+}
+
+// Segunda a domingo: agrupa a semana util antes do fim de semana, que e onde o
+// contraste do grafico aparece.
+const WEEKDAYS = [
+  { index: 1, short: "Seg", name: "Segunda", full: "Segunda-feira" },
+  { index: 2, short: "Ter", name: "Terça", full: "Terça-feira" },
+  { index: 3, short: "Qua", name: "Quarta", full: "Quarta-feira" },
+  { index: 4, short: "Qui", name: "Quinta", full: "Quinta-feira" },
+  { index: 5, short: "Sex", name: "Sexta", full: "Sexta-feira" },
+  { index: 6, short: "Sáb", name: "Sábado", full: "Sábado" },
+  { index: 0, short: "Dom", name: "Domingo", full: "Domingo" }
+];
+
+// dia "convencional"/"aproximado" foi arbitrado pela curadoria: nao diz nada
+// sobre o dia da semana real e so sujaria a estatistica
+function hasExactReleaseDay(model) {
+  return !/convencional|aproximad/i.test(model.date_precision || "");
+}
+
+function weekdayOf(releaseDate) {
+  const [year, month, day] = String(releaseDate || "").split("-").map(Number);
+  if (!year || !month || !day) return null;
+  return new Date(Date.UTC(year, month - 1, day)).getUTCDay();
+}
+
+function formatShare(share) {
+  return `${share.toFixed(1).replace(".", ",")}%`;
+}
+
+function plural(count, singular, pluralWord) {
+  return count === 1 ? singular : pluralWord;
+}
+
+function renderWeekdayChart(models) {
+  const counted = models.filter((model) => hasExactReleaseDay(model) && weekdayOf(model.release_date) !== null);
+  if (!counted.length) return "";
+
+  const skipped = models.length - counted.length;
+  const total = counted.length;
+  const counts = new Map(WEEKDAYS.map((day) => [day.index, 0]));
+  counted.forEach((model) => {
+    const index = weekdayOf(model.release_date);
+    counts.set(index, counts.get(index) + 1);
+  });
+
+  const maxCount = Math.max(...counts.values());
+  const peak = WEEKDAYS.reduce((best, day) => (counts.get(day.index) > counts.get(best.index) ? day : best));
+  const peakCount = counts.get(peak.index);
+  const businessCount = WEEKDAYS
+    .filter((day) => day.index >= 1 && day.index <= 5)
+    .reduce((sum, day) => sum + counts.get(day.index), 0);
+  const businessShare = (businessCount / total) * 100;
+
+  const columns = WEEKDAYS.map((day) => {
+    const count = counts.get(day.index);
+    const share = (count / total) * 100;
+    // barra minima visivel para o dia nao sumir quando o valor e pequeno mas nao zero
+    const height = count ? Math.max((count / maxCount) * 100, 1.5) : 0;
+    const classes = ["weekday-column"];
+    if (day.index === 0 || day.index === 6) classes.push("is-weekend");
+    if (day.index === 6) classes.push("starts-weekend");
+    if (count === maxCount) classes.push("is-peak");
+    const summary = `${day.full}: ${count} ${plural(count, "lançamento", "lançamentos")} (${formatShare(share)} do total)`;
+    return `
+      <div class="${classes.join(" ")}" tabindex="0" aria-label="${escapeAttribute(summary)}">
+        <div class="weekday-value">${count}</div>
+        <div class="weekday-bar-wrap">
+          ${count ? `<div class="weekday-bar" style="height:${height.toFixed(2)}%"></div>` : ""}
+        </div>
+        <div class="weekday-label"><abbr title="${escapeAttribute(day.full)}">${escapeHtml(day.short)}</abbr></div>
+        <div class="weekday-tooltip" role="tooltip">${escapeHtml(summary)}</div>
+      </div>
+    `;
+  }).join("");
+
+  return `
+    <section class="weekday-chart-card" aria-labelledby="weekdayChartTitle">
+      <header class="weekday-chart-header">
+        <div>
+          <p class="section-kicker">Dias da semana</p>
+          <h2 id="weekdayChartTitle">Em que dia da semana saem os lançamentos</h2>
+          <p>Somatório dos lançamentos do filtro atual por dia da semana, sobre ${total} ${plural(total, "registro", "registros")} com data exata. ${formatShare(businessShare)} caem entre segunda e sexta.</p>
+        </div>
+        <div class="weekday-chart-peak">
+          <strong>${escapeHtml(peak.name)}</strong>
+          <span>dia mais comum · ${peakCount} ${plural(peakCount, "lançamento", "lançamentos")}</span>
+        </div>
+      </header>
+      <div class="weekday-plot">
+        ${columns}
+      </div>
+      ${skipped ? `<p class="weekday-chart-note">${skipped} ${plural(skipped, "registro ficou de fora por ter", "registros ficaram de fora por terem")} apenas o mês confirmado, com o dia arbitrado pela curadoria.</p>` : ""}
     </section>
   `;
 }
