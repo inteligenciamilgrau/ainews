@@ -1130,6 +1130,19 @@ const companyLocations = [
     sourceUrl: "https://www.linkedin.com/news/story/openai-to-open-global-offices-6357505/"
   },
   {
+    company: "Ornith AI",
+    site: "Headquarters / Ornith",
+    city: "San Jose",
+    region: "California",
+    country: "United States",
+    address: "San Jose, CA",
+    lat: 37.3382,
+    lng: -121.8863,
+    notes: "City-level marker: the official DeepReinforce GitHub profile identifies the team as US-based, and Crunchbase lists San Jose, but Ornith AI does not publish a current street address.",
+    sourceName: "DeepReinforce GitHub / Crunchbase",
+    sourceUrl: "https://www.crunchbase.com/organization/deepreinforce-ai"
+  },
+  {
     company: "Runway",
     site: "Headquarters / Gen",
     city: "New York",
