@@ -148,6 +148,7 @@ const companyColors = {
   "Technology Innovation Institute": "#0f766e",
   Yandex: "#ffcc00",
   Tencent: "#2563eb",
+  "World Labs": "#7c3aed",
   "Thinking Machines Lab": "#4338ca",
   "Ornith AI": "#fd8e5b"
 };
@@ -1188,6 +1189,18 @@ const companyLocations = [
     lng: 113.9349,
     sourceName: "Tencent / Wikipedia",
     sourceUrl: "https://en.wikipedia.org/wiki/Tencent"
+  },
+  {
+    company: "World Labs",
+    site: "Headquarters / Marble, RTFM and Atlas",
+    city: "San Francisco",
+    region: "California",
+    country: "United States",
+    address: "640 2nd Street, Floor 3",
+    lat: 37.781,
+    lng: -122.39,
+    sourceName: "World Labs Terms of Service",
+    sourceUrl: "https://www.worldlabs.ai/terms-of-service"
   },
   {
     company: "Udio",

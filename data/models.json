@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated_at": "2026-09-01",
+    "updated_at": "2026-09-02",
     "last_correction": {
-      "date": "2026-09-01",
-      "description_pt": "Entrada do lancamento do dia da Anthropic. O post oficial Introducing Claude Fable 5.1 and Claude Mythos 5.1 saiu em 1 de setembro de 2026 e cobre dois modelos, entao entram dois registros, seguindo o mesmo padrao ja usado para o par Fable 5 e Mythos 5 de junho: Claude Fable 5.1 em disponibilidade geral nas plataformas e na API como claude-fable-5-1, e Claude Mythos 5.1 restrito aos programas de acesso verificado de ciberseguranca e ciencias da vida, com a mesma base e salvaguardas diferentes. A pagina do anuncio e renderizada por script e nao traz datePublished no HTML, entao a data foi ancorada no indice oficial da newsroom, que marca o item como Sep 1, 2026, e corroborada pela tabela de modelos da documentacao, que promete aposentadoria do Fable 5.1 nao antes de 1 de setembro de 2027, um ano exato depois, mesma regra que a documentacao aplica ao Opus 5 e ao Sonnet 5. Da documentacao vem tambem as specs registradas: contexto de 1M tokens, saida maxima de 128k e preco de 10 dolares por milhao de tokens de entrada e 50 de saida, com leitura de cache 75% mais barata que no Fable 5. O Mythos 5.1 nao consta da tabela publica por nao ser de acesso aberto, entao sua descricao se apoia no post e no system card conjunto."
+      "date": "2026-09-02",
+      "description_pt": "Inclusao da World Labs e revisao ampla da linha Tencent. Na World Labs entram seis marcos com fonte oficial: a demonstracao sem nome de mundos 3D persistentes (2 de dezembro de 2024), o beta limitado do Marble (16 de setembro de 2025), o RTFM em preview de pesquisa (16 de outubro de 2025), a disponibilidade geral do Marble (12 de novembro de 2025), a World API publica do Marble (21 de janeiro de 2026) e o Atlas (1 de setembro de 2026), anunciado em early access apenas para parceiros selecionados. Marble, RTFM e Atlas continuam proprietarios e sem pesos publicos; Marble e o unico disponivel amplamente, tanto no produto quanto pela API. A revisao da Tencent encontrou sete lancamentos que faltavam: Hy-MT2 (21 de maio), Hy-Embodied-VLM-1.0 e Hy-Embodied-RxBrain-1.0 (15 de julho), UI-Mate (16 de agosto), EVIE-Preview-4.5B (18 de agosto), WeMM-Embedding (25 de agosto) e Hy4 preview (28 de agosto). O Hy4 e o novo flagship, com 770B parametros totais, 49B ativos, contexto de 1M e pesos Instruct e FP8 abertos sob Apache 2.0; os demais cobrem traducao, robotica, computer use e embeddings multimodais. A World Labs tambem foi registrada no mapa de cores e no mapa de empresas com o endereco oficial publicado em seus termos de servico."
     },
     "previous_correction": {
       "date": "2026-08-26",
@@ -12202,6 +12202,24 @@
       "confidence": "alta"
     },
     {
+      "id": "tencent-hy-mt2",
+      "company": "Tencent",
+      "family": "Hy MT",
+      "model": "Hy-MT2 1.8B / 7B / 30B-A3B",
+      "release_date": "2026-05-21",
+      "release_stage": "codigo, pesos e treino abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "traducao", "33-idiomas", "instrucao", "dense", "MoE", "1.8B", "7B", "30B-total", "3B-ativos", "open-weights", "OpenSource"],
+      "description_pt": "Segunda geracao da familia de traducao Hy, com modelos densos de 1,8B e 7B e um MoE de 30B totais e 3B ativos. Mantem traducao entre 33 idiomas, melhora o seguimento de instrucoes para cenarios reais e inclui quantizacoes, codigo de treinamento e o benchmark IFMTBench.",
+      "source": {
+        "title": "Hy-MT2",
+        "url": "https://github.com/Tencent-Hunyuan/Hy-MT2",
+        "publisher": "Tencent Hunyuan",
+        "date_basis": "Changelog do repositorio oficial registra a abertura dos tres tamanhos e do IFMTBench em 21 de maio de 2026."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "tencent-hy3-preview",
       "company": "Tencent",
       "family": "Hy",
@@ -12261,6 +12279,154 @@
         "publisher": "Tencent Hunyuan",
         "date_basis": "Repositorio oficial registra o lancamento da versao 1.5 em 7 de julho de 2026."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy-embodied-vlm-1",
+      "company": "Tencent",
+      "family": "Hy-Embodied",
+      "model": "Hy-Embodied-VLM-1.0",
+      "release_date": "2026-07-15",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": ["Robotica/World models", "Multimodal"],
+      "model_type": ["robotica", "visao-linguagem", "embodied-ai", "raciocinio-espacial", "planejamento", "MoE", "30B-total", "3B-ativos", "32K", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "VLM fundacional eficiente para agentes no mundo fisico, construido sobre o backbone Hy3-A3B e o encoder Hy-ViT2. O MoE tem cerca de 30B parametros totais e ativa 3B por token para compreender estados, prever transicoes de acoes e fazer planejamento adaptativo de longo horizonte.",
+      "source": {
+        "title": "Hy-Embodied-VLM-1.0",
+        "url": "https://huggingface.co/tencent/Hy-Embodied-VLM-1.0",
+        "publisher": "Tencent Robotics X, Hy Vision Team e Futian Laboratory",
+        "date_basis": "Model card oficial e seu changelog registram em 15 de julho de 2026 o lancamento dos pesos e do codigo de inferencia sob Apache 2.0."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy-embodied-rxbrain-1",
+      "company": "Tencent",
+      "family": "Hy-Embodied",
+      "model": "Hy-Embodied-RxBrain-1.0",
+      "release_date": "2026-07-15",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": ["Robotica/World models", "Multimodal", "Imagem", "Video"],
+      "model_type": ["robotica", "world-model", "visao-linguagem", "compreensao", "geracao", "planejamento", "previsao-de-estado", "MoT", "6.2B", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Modelo fundacional unificado de cognicao corporificada com 6,2B parametros. Alterna linguagem e imaginacao visual para compreender imagens e video, prever os quadros produzidos por uma acao e decompor tarefas em subobjetivos acompanhados do texto da proxima acao e da imagem do estado desejado.",
+      "sources": [
+        {
+          "title": "Hy-Embodied-RxBrain-1.0",
+          "url": "https://github.com/Tencent-Hunyuan/Hy-Embodied-RxBrain-1.0",
+          "publisher": "Tencent Robotics X, Tencent Hy Team e Futian Laboratory",
+          "date_basis": "Repositorio oficial distribui relatorio, inferencia, ajuste fino e pesos sob Apache 2.0."
+        },
+        {
+          "title": "Hy-Embodied-RxBrain-1.0 release",
+          "url": "https://developer.cloud.tencent.cn/article/2710818",
+          "publisher": "Tencent Cloud",
+          "date_basis": "Artigo oficial publicado em 17 de julho informa que o modelo foi lancado e aberto em 15 de julho de 2026; o historico dos pesos no Hugging Face confirma o upload nessa data."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-ui-mate",
+      "company": "Tencent",
+      "family": "UI-Mate",
+      "model": "UI-Mate 9B / 27B / DemoCUA-27B",
+      "release_date": "2026-08-16",
+      "release_stage": "paper, codigo e pesos abertos",
+      "ai_category": ["Multimodal", "LLMs"],
+      "model_type": ["agente", "computer-use", "GUI", "visao-linguagem", "desktop", "multimodal", "demonstracao", "9B", "27B", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Familia de agentes fundacionais para operar interfaces graficas por capturas de tela, teclado e mouse em fluxos longos. Inclui modelos gerais de 9B e 27B e um checkpoint de 27B que aprende um procedimento a partir de uma demonstracao e o adapta ao estado atual da interface.",
+      "sources": [
+        {
+          "title": "UI-Mate",
+          "url": "https://github.com/Tencent/UI-Mate",
+          "publisher": "Tencent HY Frontier",
+          "date_basis": "Repositorio oficial lista os tres checkpoints, codigo do agente, aplicativo desktop e licenca Apache 2.0."
+        },
+        {
+          "title": "UI-Mate: Advancing Open-Weight Foundation GUI Agents with In-Context Demonstrations",
+          "url": "https://arxiv.org/abs/2608.15930",
+          "publisher": "Tencent HY Frontier",
+          "date_basis": "Relatorio primario submetido em 16 de agosto de 2026, data usada para o anuncio da familia."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-evie-preview-4-5b",
+      "company": "Tencent",
+      "family": "EVIE",
+      "model": "EVIE-Preview-4.5B",
+      "release_date": "2026-08-18",
+      "release_stage": "preview/pesos abertos",
+      "ai_category": ["Embeddings", "Multimodal"],
+      "model_type": ["embedding", "recuperacao", "documentos-visuais", "multilingue", "late-interaction", "ColPali", "128D", "4.5B", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Modelo multilingue de recuperacao de documentos visuais com 4,54B parametros, baseado em Qwen3.5-4B. Representa cada token visual em 128 dimensoes e usa interacao tardia para localizar paginas relevantes em graficos, tabelas, relatorios, formularios e documentos digitalizados.",
+      "sources": [
+        {
+          "title": "EVIE-Preview-4.5B",
+          "url": "https://github.com/Tencent/EVIE-Preview-4.5B",
+          "publisher": "Tencent",
+          "date_basis": "Repositorio oficial documenta arquitetura, avaliacao e uso do checkpoint."
+        },
+        {
+          "title": "EVIE-Preview-4.5B commit history",
+          "url": "https://huggingface.co/tencent/EVIE-Preview-4.5B/commits/main",
+          "publisher": "Tencent / Hugging Face",
+          "date_basis": "Historico oficial do repositorio de pesos registra o commit inicial e o primeiro upload em 18 de agosto de 2026."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-wemm-embedding",
+      "company": "Tencent",
+      "family": "WeMM-Embedding",
+      "model": "WeMM-Embedding 2B / 4B / 9B",
+      "release_date": "2026-08-25",
+      "release_stage": "paper, codigo e pesos abertos",
+      "ai_category": ["Embeddings", "Multimodal"],
+      "model_type": ["embedding", "multimodal", "texto", "imagem", "video", "documentos-visuais", "recuperacao", "Matryoshka", "2B", "4B", "9B", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Familia universal de embeddings multimodais da equipe de visao do WeChat, com variantes de 2B, 4B e 9B. Coloca texto, imagens, video, documentos visuais e entradas intercaladas no mesmo espaco de representacao e permite escolher dimensoes Matryoshka menores para equilibrar qualidade e custo.",
+      "sources": [
+        {
+          "title": "WeMM-Embedding",
+          "url": "https://github.com/Tencent/WeMM-Embedding",
+          "publisher": "Tencent WeChat Vision Team",
+          "date_basis": "Repositorio oficial distribui os tres checkpoints, codigo de inferencia e avaliacao sob Apache 2.0."
+        },
+        {
+          "title": "WeMM-Embedding: WeChat Multi-Modal Embedding Technical Report",
+          "url": "https://arxiv.org/abs/2608.24053",
+          "publisher": "Tencent WeChat Vision Team",
+          "date_basis": "Relatorio primario publicado em 25 de agosto de 2026 informa a liberacao do codigo e dos pesos."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy4-preview",
+      "company": "Tencent",
+      "family": "Hy",
+      "model": "Hy4 preview",
+      "release_date": "2026-08-28",
+      "release_stage": "preview/pesos abertos/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agentes", "codigo", "MoE", "770B-total", "49B-ativos", "1M-contexto", "open-weights", "OpenSource", "Apache-2.0", "API"],
+      "description_pt": "Preview da quarta geracao Hy e novo flagship aberto da Tencent, com 770B parametros totais, 49B ativos por token e contexto de 1M. Foi treinado para tarefas longas de produtividade em codigo, documentos, analise, jogos e pesquisa cientifica; os checkpoints Instruct e FP8 podem ser baixados e executados localmente, e o modelo tambem esta disponivel em produtos da Tencent e por API.",
+      "sources": [
+        {
+          "title": "Tencent Releases and Open-Sources Tencent Hy4 preview",
+          "url": "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/",
+          "publisher": "Tencent",
+          "date_basis": "Comunicado oficial publicado em 28 de agosto de 2026 confirma o lancamento, a abertura dos pesos e a disponibilidade por produtos e APIs."
+        },
+        {
+          "title": "Hy4 preview",
+          "url": "https://github.com/Tencent-Hunyuan/Hy4-preview",
+          "publisher": "Tencent Hunyuan",
+          "date_basis": "Repositorio oficial documenta a arquitetura, o contexto de 1M, os checkpoints Instruct e FP8 e a licenca Apache 2.0."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -12997,6 +13163,114 @@
           "date_basis": "Blog oficial do anuncio, linkado a partir do model card, que detalha o ciclo de tres estagios em que o modelo propoe tarefas, gera o scaffold e produz os rollouts, com a recompensa realimentando os tres componentes."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "world-labs-generating-worlds-system",
+      "company": "World Labs",
+      "family": "World Models",
+      "model": "Generating Worlds system (sem nome)",
+      "release_date": "2024-12-02",
+      "release_stage": "demonstracao de pesquisa",
+      "ai_category": "Robotica/World models",
+      "model_type": ["world-model", "imagem-para-mundo", "3d", "navegavel", "persistente", "demo", "proprietario"],
+      "description_pt": "Primeiro sistema de geracao de mundos mostrado publicamente pela World Labs. A partir de uma unica imagem, gerava um ambiente 3D persistente e navegavel no navegador; a empresa nao lhe atribuiu um nome, nao ofereceu API e nao publicou pesos.",
+      "source": {
+        "title": "Generating Worlds",
+        "url": "https://www.worldlabs.ai/blog/generating-worlds",
+        "publisher": "World Labs",
+        "date_basis": "Post oficial publicado em 2 de dezembro de 2024 apresenta o primeiro sistema da empresa e demonstracoes interativas no navegador."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "world-labs-marble-beta",
+      "company": "World Labs",
+      "family": "Marble",
+      "model": "Marble",
+      "release_date": "2025-09-16",
+      "release_stage": "beta limitado",
+      "ai_category": ["Robotica/World models", "Imagem"],
+      "model_type": ["world-model", "texto-para-mundo", "imagem-para-mundo", "3d", "Gaussian-splats", "navegavel", "persistente", "produto", "proprietario"],
+      "description_pt": "Primeiro modelo nomeado da World Labs, apresentado em beta de acesso limitado. Gerava ambientes 3D persistentes e navegaveis a partir de texto ou imagem e permitia exportar os resultados como Gaussian splats; os pesos permaneceram fechados.",
+      "source": {
+        "title": "Generating Bigger and Better Worlds",
+        "url": "https://www.worldlabs.ai/blog/bigger-better-worlds",
+        "publisher": "World Labs",
+        "date_basis": "Post oficial publicado em 16 de setembro de 2025 introduz o Marble como beta de acesso limitado."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "world-labs-rtfm",
+      "company": "World Labs",
+      "family": "RTFM",
+      "model": "RTFM (Real-Time Frame Model)",
+      "release_date": "2025-10-16",
+      "release_stage": "preview de pesquisa/demo",
+      "ai_category": ["Robotica/World models", "Video"],
+      "model_type": ["world-model", "imagem-para-video", "video", "tempo-real", "interativo", "3d", "persistente", "H100", "demo", "proprietario"],
+      "description_pt": "World model generativo que produz video em tempo real enquanto o usuario explora um ambiente criado a partir de uma imagem. Usa frames posicionados como memoria espacial para manter mundos persistentes e roda interativamente em uma unica H100; houve demo publica, mas nao pesos ou API.",
+      "source": {
+        "title": "RTFM: A Real-Time Frame Model",
+        "url": "https://www.worldlabs.ai/blog/rtfm",
+        "publisher": "World Labs",
+        "date_basis": "Post oficial publicado em 16 de outubro de 2025 anuncia o RTFM como preview de pesquisa e disponibiliza uma demonstracao no navegador."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "world-labs-marble-ga",
+      "company": "World Labs",
+      "family": "Marble",
+      "model": "Marble",
+      "release_date": "2025-11-12",
+      "release_stage": "disponibilidade geral/produto",
+      "ai_category": ["Robotica/World models", "Imagem", "Video"],
+      "model_type": ["world-model", "multimodal", "texto-para-mundo", "imagem-para-mundo", "video-para-mundo", "3d", "edicao", "Gaussian-splats", "mesh", "produto", "proprietario"],
+      "description_pt": "Lancamento publico do Marble para qualquer usuario. O modelo passou a criar mundos 3D a partir de texto, imagens, video ou layouts 3D grosseiros, com edicao, expansao, composicao e exportacao como Gaussian splats, malhas ou video; e um servico proprietario, sem pesos para download.",
+      "source": {
+        "title": "Marble: A Multimodal World Model",
+        "url": "https://www.worldlabs.ai/blog/marble-world-model",
+        "publisher": "World Labs",
+        "date_basis": "Post oficial publicado em 12 de novembro de 2025 torna o Marble geralmente disponivel e detalha suas novas entradas e saidas multimodais."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "world-labs-marble-world-api",
+      "company": "World Labs",
+      "family": "Marble",
+      "model": "Marble (World API)",
+      "release_date": "2026-01-21",
+      "release_stage": "API publica",
+      "ai_category": ["Robotica/World models", "Imagem", "Video"],
+      "model_type": ["world-model", "multimodal", "texto-para-mundo", "imagem-para-mundo", "video-para-mundo", "3d", "API", "produto", "proprietario"],
+      "description_pt": "Disponibilizacao programatica do Marble pela World API. A interface publica gera mundos 3D navegaveis de forma assincrona a partir de texto, uma ou varias imagens, panoramas 360 graus ou video; oferece chaves, documentacao e cobranca por creditos, mas nao acesso aos pesos.",
+      "source": {
+        "title": "Announcing the World API",
+        "url": "https://www.worldlabs.ai/blog/announcing-the-world-api",
+        "publisher": "World Labs",
+        "date_basis": "Post oficial publicado em 21 de janeiro de 2026 anuncia a API publica do Marble e sua disponibilidade imediata na World Labs Platform."
+      },
+      "confidence": "alta"
+    },
+    {
+      "id": "world-labs-atlas",
+      "company": "World Labs",
+      "family": "Atlas",
+      "model": "Atlas",
+      "release_date": "2026-09-01",
+      "release_stage": "anuncio/early access seletivo",
+      "ai_category": ["Robotica/World models", "Imagem", "Video", "Multimodal"],
+      "model_type": ["world-model", "omni", "multimodal", "autoregressivo", "diffusion-transformer", "texto", "imagem", "video", "3d", "reconstrucao", "simulacao", "camera-control", "early-access", "proprietario"],
+      "description_pt": "World model omni de nova geracao, pre-treinado do zero para operar nativamente com texto, imagens, video e 3D em uma arquitetura Transformer de difusao multimodal e autoregressiva. Gera video de ate um minuto em 1440p com controle de camera, reconstrui cenas 3D e simula espaco e tempo; esta disponivel apenas em early access para parceiros selecionados, sem pesos publicos.",
+      "source": {
+        "title": "Atlas: A World Model for Spatial Intelligence",
+        "url": "https://www.worldlabs.ai/blog/atlas",
+        "publisher": "World Labs",
+        "date_basis": "Post oficial publicado em 1 de setembro de 2026 anuncia o Atlas e informa que o acesso inicial e restrito a parceiros selecionados mediante solicitacao."
+      },
       "confidence": "alta"
     }
   ]
