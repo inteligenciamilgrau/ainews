@@ -3540,6 +3540,7 @@ function renderDetails(model) {
 
 function renderYearChart(models) {
   els.yearChart.classList.remove("has-company-highlight");
+  els.weekdayChart.classList.remove("has-company-highlight");
 
   if (!models.length) {
     els.cumulativeChart.innerHTML = "";
@@ -3618,7 +3619,8 @@ function bindYearChartLegend() {
 function setYearChartCompanyHighlight(company = "") {
   const hasHighlight = Boolean(company);
   els.yearChart.classList.toggle("has-company-highlight", hasHighlight);
-  els.yearChart.querySelectorAll(".year-bar-segment, .year-company-legend-item").forEach((element) => {
+  els.weekdayChart.classList.toggle("has-company-highlight", hasHighlight);
+  document.querySelectorAll(".year-bar-segment, .weekday-bar-segment, .year-company-legend-item").forEach((element) => {
     const matchesCompany = element.dataset.company === company;
     element.classList.toggle("is-highlighted", hasHighlight && matchesCompany);
     element.classList.toggle("is-muted", hasHighlight && !matchesCompany);
@@ -3812,11 +3814,12 @@ function renderWeekdayChart(models) {
 
   const skipped = models.length - counted.length;
   const total = counted.length;
-  const counts = new Map(WEEKDAYS.map((day) => [day.index, 0]));
+  const modelsByWeekday = new Map(WEEKDAYS.map((day) => [day.index, []]));
   counted.forEach((model) => {
     const index = weekdayOf(model.release_date);
-    counts.set(index, counts.get(index) + 1);
+    modelsByWeekday.get(index).push(model);
   });
+  const counts = new Map(WEEKDAYS.map((day) => [day.index, modelsByWeekday.get(day.index).length]));
 
   const maxCount = Math.max(...counts.values());
   const peak = WEEKDAYS.reduce((best, day) => (counts.get(day.index) > counts.get(best.index) ? day : best));
@@ -3829,6 +3832,31 @@ function renderWeekdayChart(models) {
   const columns = WEEKDAYS.map((day) => {
     const count = counts.get(day.index);
     const share = (count / total) * 100;
+    const companyCounts = new Map();
+    modelsByWeekday.get(day.index).forEach((model) => {
+      companyCounts.set(model.company, (companyCounts.get(model.company) || 0) + 1);
+    });
+    const companyBreakdown = [...companyCounts.entries()]
+      .sort(([companyA, countA], [companyB, countB]) => (
+        countB - countA || companyA.localeCompare(companyB, "pt-BR")
+      ));
+    const companySummary = companyBreakdown
+      .map(([company, companyCount]) => `${company}: ${companyCount}`)
+      .join(", ");
+    const companySegments = companyBreakdown.map(([company, companyCount]) => `
+      <span
+        class="weekday-bar-segment"
+        data-company="${escapeAttribute(company)}"
+        title="${escapeAttribute(`${company}: ${companyCount} ${plural(companyCount, "lançamento", "lançamentos")}`)}"
+        style="height:${((companyCount / count) * 100).toFixed(3)}%; background:${colorFor(company)}"></span>
+    `).join("");
+    const companyDetails = companyBreakdown.map(([company, companyCount]) => `
+      <span class="weekday-tooltip-company">
+        <span class="weekday-tooltip-swatch" style="--company-color:${colorFor(company)}" aria-hidden="true"></span>
+        <span>${escapeHtml(company)}</span>
+        <strong>${companyCount}</strong>
+      </span>
+    `).join("");
     // barra minima visivel para o dia nao sumir quando o valor e pequeno mas nao zero
     const height = count ? Math.max((count / maxCount) * 100, 1.5) : 0;
     const classes = ["weekday-column"];
@@ -3836,14 +3864,18 @@ function renderWeekdayChart(models) {
     if (day.index === 6) classes.push("starts-weekend");
     if (count === maxCount) classes.push("is-peak");
     const summary = `${day.full}: ${count} ${plural(count, "lançamento", "lançamentos")} (${formatShare(share)} do total)`;
+    const accessibleSummary = companySummary ? `${summary}. Por empresa: ${companySummary}.` : summary;
     return `
-      <div class="${classes.join(" ")}" tabindex="0" aria-label="${escapeAttribute(summary)}">
+      <div class="${classes.join(" ")}" tabindex="0" aria-label="${escapeAttribute(accessibleSummary)}">
         <div class="weekday-value">${count}</div>
         <div class="weekday-bar-wrap">
-          ${count ? `<div class="weekday-bar" style="height:${height.toFixed(2)}%"></div>` : ""}
+          ${count ? `<div class="weekday-bar" style="height:${height.toFixed(2)}%">${companySegments}</div>` : ""}
         </div>
         <div class="weekday-label"><abbr title="${escapeAttribute(day.full)}">${escapeHtml(day.short)}</abbr></div>
-        <div class="weekday-tooltip" role="tooltip">${escapeHtml(summary)}</div>
+        <div class="weekday-tooltip" role="tooltip">
+          <span class="weekday-tooltip-summary">${escapeHtml(summary)}</span>
+          ${companyDetails ? `<span class="weekday-tooltip-companies">${companyDetails}</span>` : ""}
+        </div>
       </div>
     `;
   }).join("");
@@ -3854,7 +3886,7 @@ function renderWeekdayChart(models) {
         <div>
           <p class="section-kicker">Dias da semana</p>
           <h2 id="weekdayChartTitle">Em que dia da semana saem os lançamentos</h2>
-          <p>Somatório dos lançamentos do filtro atual por dia da semana, sobre ${total} ${plural(total, "registro", "registros")} com data exata. ${formatShare(businessShare)} caem entre segunda e sexta.</p>
+          <p>Somatório dos lançamentos do filtro atual por dia da semana, sobre ${total} ${plural(total, "registro", "registros")} com data exata. Cada cor representa uma empresa. ${formatShare(businessShare)} caem entre segunda e sexta.</p>
         </div>
         <div class="weekday-chart-peak">
           <strong>${escapeHtml(peak.name)}</strong>
