@@ -3,11 +3,11 @@
     "updated_at": "2026-09-02",
     "last_correction": {
       "date": "2026-09-02",
-      "description_pt": "Inclusao da World Labs e revisao ampla da linha Tencent. Na World Labs entram seis marcos com fonte oficial: a demonstracao sem nome de mundos 3D persistentes (2 de dezembro de 2024), o beta limitado do Marble (16 de setembro de 2025), o RTFM em preview de pesquisa (16 de outubro de 2025), a disponibilidade geral do Marble (12 de novembro de 2025), a World API publica do Marble (21 de janeiro de 2026) e o Atlas (1 de setembro de 2026), anunciado em early access apenas para parceiros selecionados. Marble, RTFM e Atlas continuam proprietarios e sem pesos publicos; Marble e o unico disponivel amplamente, tanto no produto quanto pela API. A revisao da Tencent encontrou sete lancamentos que faltavam: Hy-MT2 (21 de maio), Hy-Embodied-VLM-1.0 e Hy-Embodied-RxBrain-1.0 (15 de julho), UI-Mate (16 de agosto), EVIE-Preview-4.5B (18 de agosto), WeMM-Embedding (25 de agosto) e Hy4 preview (28 de agosto). O Hy4 e o novo flagship, com 770B parametros totais, 49B ativos, contexto de 1M e pesos Instruct e FP8 abertos sob Apache 2.0; os demais cobrem traducao, robotica, computer use e embeddings multimodais. A World Labs tambem foi registrada no mapa de cores e no mapa de empresas com o endereco oficial publicado em seus termos de servico."
+      "description_pt": "Inclusao dos lancamentos de 2 de setembro de 2026 da Meta e da Google, todos confirmados em fontes primarias. A Meta lancou o Muse Spark 1.3 no Muse Code e na Meta Model API, com melhorias em codigo, fluxos agenticos longos, multitarefa e seguranca; o modo max reasoning ainda depende da conclusao de testes adicionais. A Google lancou o Gemini 3.8 Flash em disponibilidade geral, com entrada multimodal, contexto de 1.048.576 tokens e foco em engenharia de software, agentes autonomos e raciocinio multietapas. Entra separadamente o Gemini 3.8 Flash Cyber, variante de ciberseguranca baseada na mesma inteligencia, mas restrita a defensores confiaveis pelo Fairwind Program. Nenhum dos tres teve pesos abertos nesta data."
     },
     "previous_correction": {
-      "date": "2026-08-26",
-      "description_pt": "Revisao pedida das linhas Qwen, GLM, Grok e Wan. O buraco maior estava no Wan: a base parava no Wan2.2 de julho de 2025 e pulava toda a virada da familia para modelo fechado. Entram quatro registros de video com data em fonte primaria: Wan2.5-Preview (24 de setembro de 2025, anunciado no Apsara Conference com audio sincronizado nativo e clipe de 10 segundos), Wan2.6 (16 de dezembro de 2025, com o novo referencia-para-video R2V e 15 segundos), Wan2.7-Video (7 de abril de 2026, quatro modelos incluindo edicao de video) e Wan3.0 (6 de agosto de 2026, 30 segundos por clipe e entrada por documentos, planilhas e paginas web, com acesso ampliado em 24 de agosto). As datas do Wan2.7-Video e do Wan3.0 vem do datePublished nos metadados estruturados da sala de imprensa oficial do grupo; a do Wan2.5 vem do comunicado do Apsara e a do Wan2.6 do comunicado oficial, ancorada em republicacoes datadas e na primeira captura do Internet Archive, ja que as paginas da Alibaba Cloud sao renderizadas por script e nao trazem data no HTML. Na linha Qwen entra o Qwen3.8-Flash-Next (26 de agosto de 2026), preview experimental da arquitetura do Qwen4 com pesos abertos, 125B mais 51B de embedding de N-grama e so 6B ativos por token, com a data confirmada no historico de commits do repositorio oficial no Hugging Face. Entra tambem o Qwen3.8-27B (14 de agosto de 2026), modelo denso de 27B com encoder de visao nativo sob Apache-2.0, que por ser variante de tamanho ficaria fora da regra de so flagship mas foi incluido por decisao editorial, por ter sido a entrada da geracao que mais se espalhou entre os modelos pequenos. Na linha GLM entra o GLM-5.3-Flash (26 de agosto de 2026): o sufixo Flash engana, porque o modelo nao e uma reducao do GLM-5.3 e sim um base model novo, o primeiro nativamente multimodal da serie GLM-5, com 320B totais e 18B ativos, atencao hibrida esparsa mais linear, contexto de 1M e pesos abertos sob MIT no mesmo dia do anuncio, algo que o proprio GLM-5.3 ainda nao tinha. O GLM-5.3 de 14 de agosto segue correto, com os pesos abertos prometidos para cerca de 28 de agosto. A linha Grok foi reconferida e nao precisou de entrada nova, porque a documentacao oficial da xAI nao lista nada acima do Grok 4.6 de 12 de agosto. Entra ainda uma empresa que faltava por completo na base, a Ornith AI, laboratorio que se apresentava como DeepReinforce ate a virada de marca e que publica modelos abertos sob MIT voltados a codigo agentico, com dois registros: Ornith-1.0 (25 de junho de 2026), post-treinado sobre Gemma 4 e Qwen 3.5 em quatro tamanhos ate 397B em MoE, e Ornith-1.5 (19 de agosto de 2026), em 397B, 35B-A3B e 9B, que amplia o laco de auto-aprimoramento do scaffold e do rollout para incluir a geracao das proprias tarefas de treino e empata com o Claude Opus 4.8 no Terminal-Bench 2.1. As duas datas vem do historico de commits dos repositorios oficiais no Hugging Face. A empresa tambem foi registrada no mapa de cores do app.js; nao entrou em companyLocations porque nao ha endereco de sede confirmado em fonte oficial."
+      "date": "2026-09-02",
+      "description_pt": "Inclusao da World Labs e revisao ampla da linha Tencent. Na World Labs entram seis marcos com fonte oficial: a demonstracao sem nome de mundos 3D persistentes (2 de dezembro de 2024), o beta limitado do Marble (16 de setembro de 2025), o RTFM em preview de pesquisa (16 de outubro de 2025), a disponibilidade geral do Marble (12 de novembro de 2025), a World API publica do Marble (21 de janeiro de 2026) e o Atlas (1 de setembro de 2026), anunciado em early access apenas para parceiros selecionados. Marble, RTFM e Atlas continuam proprietarios e sem pesos publicos; Marble e o unico disponivel amplamente, tanto no produto quanto pela API. A revisao da Tencent encontrou sete lancamentos que faltavam: Hy-MT2 (21 de maio), Hy-Embodied-VLM-1.0 e Hy-Embodied-RxBrain-1.0 (15 de julho), UI-Mate (16 de agosto), EVIE-Preview-4.5B (18 de agosto), WeMM-Embedding (25 de agosto) e Hy4 preview (28 de agosto). O Hy4 e o novo flagship, com 770B parametros totais, 49B ativos, contexto de 1M e pesos Instruct e FP8 abertos sob Apache 2.0; os demais cobrem traducao, robotica, computer use e embeddings multimodais. A World Labs tambem foi registrada no mapa de cores e no mapa de empresas com o endereco oficial publicado em seus termos de servico."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -8526,6 +8526,24 @@
       "confidence": "alta"
     },
     {
+      "id": "meta-muse-spark-1-3",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Spark 1.3",
+      "release_date": "2026-09-02",
+      "release_stage": "produto/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "tool-use", "multitarefa", "longo-contexto", "API", "proprietario"],
+      "description_pt": "Atualizacao do Muse Spark para fluxos agenticos e de codigo de longa duracao, com melhor acompanhamento de instrucoes, multitarefa e calibracao de limites. Em avaliacoes internas contra a versao 1.2, usou cerca de 20% menos chamadas de ferramentas e 25% menos tokens. Chegou ao Muse Code e a Meta Model API no dia do anuncio; o modo max reasoning ficou prometido para depois de testes adicionais de seguranca.",
+      "source": {
+        "title": "Introducing Muse Spark 1.3",
+        "url": "https://research.meta.ai/blog/introducing-muse-spark-1-3",
+        "publisher": "Meta AI Research",
+        "date_basis": "Post oficial publicado em 2 de setembro de 2026 anuncia disponibilidade imediata no Muse Code e na Meta Model API."
+      },
+      "confidence": "alta"
+    },
+    {
       "id": "google-gemma-4-12b",
       "company": "Google",
       "family": "Gemma",
@@ -8697,6 +8715,58 @@
           "url": "https://9to5google.com/2026/08/13/gemini-3-7-flash-launch/",
           "publisher": "9to5Google",
           "date_basis": "Cobertura de 13 de agosto de 2026 corrobora a data e registra o intervalo de tres semanas em relacao ao Gemini 3.6 Flash."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-8-flash",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.8 Flash",
+      "release_date": "2026-09-02",
+      "release_stage": "GA",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video", "PDF", "multimodal", "raciocinio", "codigo", "agente", "computador", "tool-use", "1M-contexto", "API", "proprietario"],
+      "description_pt": "Novo modelo Flash mais inteligente da Google, voltado a engenharia de software de longa duracao, agentes autonomos e raciocinio complexo em varias etapas. Aceita texto, imagem, video, audio e PDF, tem contexto de 1.048.576 tokens e saida de ate 65.536 tokens. Foi lancado como modelo estavel na API e tambem no Google Antigravity, Android Studio, Gemini Enterprise, app Gemini, AI Mode da Busca e Google Sheets; computer use permanece em preview.",
+      "sources": [
+        {
+          "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 2 de setembro de 2026 anuncia o Gemini 3.8 Flash e sua disponibilidade no mesmo dia."
+        },
+        {
+          "title": "Gemini 3.8 Flash",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash",
+          "publisher": "Google AI for Developers",
+          "date_basis": "Documentacao oficial atualizada em 2 de setembro de 2026 confirma o identificador estavel, as modalidades, os limites de tokens e os recursos suportados."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-8-flash-cyber",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.8 Flash Cyber",
+      "release_date": "2026-09-02",
+      "release_stage": "acesso limitado/Fairwind Program",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "raciocinio", "agente", "ciberseguranca", "vulnerabilidades", "patching", "CodeMender", "acesso-limitado", "proprietario"],
+      "description_pt": "Variante especializada na descoberta autonoma e correcao de vulnerabilidades, baseada na mesma inteligencia do Gemini 3.8 Flash. O acesso inicial e restrito a governos, operadores de infraestrutura critica, mantenedores de software e outros defensores confiaveis pelo Fairwind Program, em conjunto com o agente CodeMender.",
+      "sources": [
+        {
+          "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 2 de setembro de 2026 apresenta o modelo e distingue seu acesso restrito do Gemini 3.8 Flash geral."
+        },
+        {
+          "title": "Proactive cyber defense for governments and enterprises",
+          "url": "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 2 de setembro de 2026 lanca o Fairwind Program e confirma o uso do Gemini 3.8 Flash Cyber com CodeMender por parceiros confiaveis."
         }
       ],
       "confidence": "alta"
