@@ -35,8 +35,13 @@ const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
 const VALID_MAP_BASE_MODES = new Set(["map", "earth", "hybrid"]);
 const VALID_MAP_SCALES = new Set(["globe", "country", "city", "street"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
-const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models", "Decisao estruturada"];
+const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models", "Multimodal", "Embeddings", "Agentes", "Decisao estruturada"];
 const VALID_AI_CATEGORIES = new Set(AI_CATEGORIES);
+// Variantes de grafia presentes em data/models.json que apontam para uma categoria existente.
+const AI_CATEGORY_ALIASES = {
+  LLM: "LLMs",
+  Audio: "Audio/Transcricao"
+};
 const AI_CATEGORY_LABELS = {
   Video: "Vídeo",
   "Audio/Transcricao": "Áudio/Transcrição",
@@ -106,6 +111,7 @@ const companyColors = {
   OpenAI: "#0f766e",
   Anthropic: "#a16207",
   Google: "#2563eb",
+  Meta: "#0668e1",
   xAI: "#111827",
   "Moonshot AI": "#7c3aed",
   "Z.AI": "#dc2626",
@@ -2831,6 +2837,7 @@ function cacheElements() {
     yearChart: document.getElementById("yearChart"),
     cumulativeChart: document.getElementById("cumulativeChart"),
     weekdayChart: document.getElementById("weekdayChart"),
+    monthChart: document.getElementById("monthChart"),
     mapShell: document.getElementById("mapShell"),
     companyMap: document.getElementById("companyMap"),
     companyLocationList: document.getElementById("companyLocationList"),
@@ -3043,9 +3050,10 @@ function normalizeAiCategories(value) {
   const rawCategories = Array.isArray(value) ? value : value ? [value] : ["LLMs"];
   const categories = rawCategories
     .map((category) => String(category).trim())
+    .map((category) => AI_CATEGORY_ALIASES[category] || category)
     .filter((category) => VALID_AI_CATEGORIES.has(category));
 
-  return categories.length ? categories : ["LLMs"];
+  return [...new Set(categories.length ? categories : ["LLMs"])];
 }
 
 function allModels() {
@@ -3597,10 +3605,12 @@ function renderDetails(model) {
 function renderYearChart(models) {
   els.yearChart.classList.remove("has-company-highlight");
   els.weekdayChart.classList.remove("has-company-highlight");
+  els.monthChart.classList.remove("has-company-highlight");
 
   if (!models.length) {
     els.cumulativeChart.innerHTML = "";
     els.weekdayChart.innerHTML = "";
+    els.monthChart.innerHTML = "";
     els.yearChart.innerHTML = `<div class="empty-state">Nenhum modelo no filtro atual.</div>`;
     return;
   }
@@ -3646,6 +3656,7 @@ function renderYearChart(models) {
   // o grafico acumulado fica fora do #yearChart para o resumo caber entre os dois
   els.cumulativeChart.innerHTML = renderCumulativeModelChart(models);
   els.weekdayChart.innerHTML = renderWeekdayChart(models);
+  els.monthChart.innerHTML = renderMonthChart(models);
   els.yearChart.innerHTML = `
     <div class="year-list">
       ${yearRows}
@@ -3676,7 +3687,8 @@ function setYearChartCompanyHighlight(company = "") {
   const hasHighlight = Boolean(company);
   els.yearChart.classList.toggle("has-company-highlight", hasHighlight);
   els.weekdayChart.classList.toggle("has-company-highlight", hasHighlight);
-  document.querySelectorAll(".year-bar-segment, .weekday-bar-segment, .year-company-legend-item").forEach((element) => {
+  els.monthChart.classList.toggle("has-company-highlight", hasHighlight);
+  document.querySelectorAll(".year-bar-segment, .weekday-bar-segment, .month-bar-segment, .year-company-legend-item").forEach((element) => {
     const matchesCompany = element.dataset.company === company;
     element.classList.toggle("is-highlighted", hasHighlight && matchesCompany);
     element.classList.toggle("is-muted", hasHighlight && !matchesCompany);
@@ -3953,6 +3965,155 @@ function renderWeekdayChart(models) {
         ${columns}
       </div>
       ${skipped ? `<p class="weekday-chart-note">${skipped} ${plural(skipped, "registro ficou de fora por ter", "registros ficaram de fora por terem")} apenas o mês confirmado, com o dia arbitrado pela curadoria.</p>` : ""}
+    </section>
+  `;
+}
+
+const MONTHS = [
+  { index: 1, short: "jan", name: "Janeiro" },
+  { index: 2, short: "fev", name: "Fevereiro" },
+  { index: 3, short: "mar", name: "Março" },
+  { index: 4, short: "abr", name: "Abril" },
+  { index: 5, short: "mai", name: "Maio" },
+  { index: 6, short: "jun", name: "Junho" },
+  { index: 7, short: "jul", name: "Julho" },
+  { index: 8, short: "ago", name: "Agosto" },
+  { index: 9, short: "set", name: "Setembro" },
+  { index: 10, short: "out", name: "Outubro" },
+  { index: 11, short: "nov", name: "Novembro" },
+  { index: 12, short: "dez", name: "Dezembro" }
+];
+
+function monthOf(releaseDate) {
+  const [year, month] = String(releaseDate || "").split("-").map(Number);
+  if (!year || !month || month < 1 || month > 12) return null;
+  return month;
+}
+
+function lastDayOf(year, month) {
+  return new Date(Date.UTC(year, month, 0)).toISOString().slice(0, 10);
+}
+
+function firstDayOf(year, month) {
+  return `${year}-${String(month).padStart(2, "0")}-01`;
+}
+
+// um mes so entra na media se tiver cabido inteiro na janela observada: o mes
+// corrente esta pela metade e os posteriores a ele ainda nem aconteceram, entao
+// contar todos como iguais castigaria os meses do fim do ano
+function monthIsComplete(releaseDate, firstDate, lastDate) {
+  const [year, month] = String(releaseDate).split("-").map(Number);
+  return firstDayOf(year, month) >= firstDate && lastDayOf(year, month) <= lastDate;
+}
+
+function renderMonthChart(models) {
+  // ao contrario do grafico de dias da semana, aqui entra todo mundo: mesmo nos
+  // registros em que a curadoria arbitrou o dia, o mes vem confirmado pela fonte
+  const counted = models.filter((model) => monthOf(model.release_date) !== null);
+  if (!counted.length) return "";
+
+  const total = counted.length;
+  const dates = counted.map((model) => model.release_date).sort();
+  const firstDate = dates[0];
+  const lastDate = dates[dates.length - 1];
+
+  const modelsByMonth = new Map(MONTHS.map((month) => [month.index, []]));
+  counted.forEach((model) => modelsByMonth.get(monthOf(model.release_date)).push(model));
+  const counts = new Map(MONTHS.map((month) => [month.index, modelsByMonth.get(month.index).length]));
+
+  // denominador da media: quantas vezes aquele mes do calendario se passou inteiro
+  const completeSpans = new Map(MONTHS.map((month) => [month.index, 0]));
+  const [startYear] = firstDate.split("-").map(Number);
+  const [endYear] = lastDate.split("-").map(Number);
+  for (let year = startYear; year <= endYear; year += 1) {
+    for (let month = 1; month <= 12; month += 1) {
+      if (firstDayOf(year, month) >= firstDate && lastDayOf(year, month) <= lastDate) {
+        completeSpans.set(month, completeSpans.get(month) + 1);
+      }
+    }
+  }
+  const completeCounts = new Map(MONTHS.map((month) => [
+    month.index,
+    modelsByMonth.get(month.index).filter((model) => monthIsComplete(model.release_date, firstDate, lastDate)).length
+  ]));
+
+  const maxCount = Math.max(...counts.values());
+  const peak = MONTHS.reduce((best, month) => (counts.get(month.index) > counts.get(best.index) ? month : best));
+  const peakCount = counts.get(peak.index);
+  const partial = total - MONTHS.reduce((sum, month) => sum + completeCounts.get(month.index), 0);
+
+  const averageOf = (monthIndex) => {
+    const spans = completeSpans.get(monthIndex);
+    return spans ? completeCounts.get(monthIndex) / spans : null;
+  };
+
+  const columns = MONTHS.map((month) => {
+    const count = counts.get(month.index);
+    const share = (count / total) * 100;
+    const average = averageOf(month.index);
+    const companyCounts = new Map();
+    modelsByMonth.get(month.index).forEach((model) => {
+      companyCounts.set(model.company, (companyCounts.get(model.company) || 0) + 1);
+    });
+    const companyBreakdown = [...companyCounts.entries()]
+      .sort(([companyA, countA], [companyB, countB]) => (
+        countB - countA || companyA.localeCompare(companyB, "pt-BR")
+      ));
+    const companySegments = companyBreakdown.map(([company, companyCount]) => `
+      <span
+        class="month-bar-segment"
+        data-company="${escapeAttribute(company)}"
+        title="${escapeAttribute(`${company}: ${companyCount} ${plural(companyCount, "lançamento", "lançamentos")}`)}"
+        style="height:${((companyCount / count) * 100).toFixed(3)}%; background:${colorFor(company)}"></span>
+    `).join("");
+    const companyDetails = companyBreakdown.map(([company, companyCount]) => `
+      <span class="month-tooltip-company">
+        <span class="month-tooltip-swatch" style="--company-color:${colorFor(company)}" aria-hidden="true"></span>
+        <span>${escapeHtml(company)}</span>
+        <strong>${companyCount}</strong>
+      </span>
+    `).join("");
+    const height = count ? Math.max((count / maxCount) * 100, 1.5) : 0;
+    const classes = ["month-column"];
+    if (count === maxCount) classes.push("is-peak");
+    const averageText = average === null
+      ? ""
+      : ` · média de ${average.toFixed(1).replace(".", ",")} por ${month.name.toLowerCase()} completo`;
+    const summary = `${month.name}: ${count} ${plural(count, "lançamento", "lançamentos")} (${formatShare(share)} do total)${averageText}`;
+    const companySummary = companyBreakdown.map(([company, companyCount]) => `${company}: ${companyCount}`).join(", ");
+    const accessibleSummary = companySummary ? `${summary}. Por empresa: ${companySummary}.` : summary;
+    return `
+      <div class="${classes.join(" ")}" tabindex="0" aria-label="${escapeAttribute(accessibleSummary)}">
+        <div class="month-value">${count}</div>
+        <div class="month-bar-wrap">
+          ${count ? `<div class="month-bar" style="height:${height.toFixed(2)}%">${companySegments}</div>` : ""}
+        </div>
+        <div class="month-label"><abbr title="${escapeAttribute(month.name)}">${escapeHtml(month.short)}</abbr></div>
+        <div class="month-tooltip" role="tooltip">
+          <span class="month-tooltip-summary">${escapeHtml(summary)}</span>
+          ${companyDetails ? `<span class="month-tooltip-companies">${companyDetails}</span>` : ""}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  return `
+    <section class="month-chart-card" aria-labelledby="monthChartTitle">
+      <header class="month-chart-header">
+        <div>
+          <p class="section-kicker">Meses do ano</p>
+          <h2 id="monthChartTitle">Em que mês do ano saem mais lançamentos</h2>
+          <p>Todos os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual somados por mês do calendário, de ${formatDate(firstDate)} a ${formatDate(lastDate)}. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. Cada cor representa uma empresa.</p>
+        </div>
+        <div class="month-chart-peak">
+          <strong>${escapeHtml(peak.name)}</strong>
+          <span>mês mais comum · ${peakCount} ${plural(peakCount, "lançamento", "lançamentos")}</span>
+        </div>
+      </header>
+      <div class="month-plot">
+        ${columns}
+      </div>
+      ${partial ? `<p class="month-chart-note">A janela observada não fecha todos os meses por igual: ${partial} ${plural(partial, "lançamento caiu", "lançamentos caíram")} em um mês que ainda não terminou dentro do período. A barra mostra o total bruto; a média por mês completo, no balão de cada coluna, é a comparação justa entre meses.</p>` : ""}
     </section>
   `;
 }

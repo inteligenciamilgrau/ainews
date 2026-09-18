@@ -1015,7 +1015,8 @@ dd {
   font-size: 0.78rem;
 }
 
-.weekday-chart-card {
+.weekday-chart-card,
+.month-chart-card {
   margin-top: 20px;
   padding: clamp(16px, 2.5vw, 24px);
   border: 1px solid var(--line);
@@ -1025,7 +1026,8 @@ dd {
     linear-gradient(180deg, #fff, #f6fcf8);
 }
 
-.weekday-chart-header {
+.weekday-chart-header,
+.month-chart-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -1033,19 +1035,22 @@ dd {
   margin-bottom: 18px;
 }
 
-.weekday-chart-header h2 {
+.weekday-chart-header h2,
+.month-chart-header h2 {
   margin-bottom: 6px;
   font-size: clamp(1.15rem, 2vw, 1.55rem);
 }
 
-.weekday-chart-header p:last-child {
+.weekday-chart-header p:last-child,
+.month-chart-header p:last-child {
   max-width: 720px;
   margin-bottom: 0;
   color: var(--muted);
   font-size: 0.92rem;
 }
 
-.weekday-chart-peak {
+.weekday-chart-peak,
+.month-chart-peak {
   display: grid;
   flex: 0 0 auto;
   min-width: 150px;
@@ -1056,13 +1061,15 @@ dd {
   text-align: right;
 }
 
-.weekday-chart-peak strong {
+.weekday-chart-peak strong,
+.month-chart-peak strong {
   color: var(--accent);
   font-size: clamp(1.5rem, 3vw, 2.15rem);
   line-height: 1;
 }
 
-.weekday-chart-peak span {
+.weekday-chart-peak span,
+.month-chart-peak span {
   margin-top: 4px;
   color: var(--muted);
   font-size: 0.76rem;
@@ -1071,7 +1078,8 @@ dd {
   text-transform: uppercase;
 }
 
-.weekday-plot {
+.weekday-plot,
+.month-plot {
   position: relative;
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
@@ -1081,7 +1089,8 @@ dd {
   height: clamp(190px, 24vw, 250px);
 }
 
-.weekday-column {
+.weekday-column,
+.month-column {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
   gap: 6px;
@@ -1089,12 +1098,14 @@ dd {
   border-radius: 8px;
 }
 
-.weekday-column:focus-visible {
+.weekday-column:focus-visible,
+.month-column:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 3px;
 }
 
-.weekday-value {
+.weekday-value,
+.month-value {
   color: var(--ink-soft);
   font-size: 0.92rem;
   font-weight: 700;
@@ -1102,7 +1113,8 @@ dd {
   font-variant-numeric: tabular-nums;
 }
 
-.weekday-bar-wrap {
+.weekday-bar-wrap,
+.month-bar-wrap {
   display: flex;
   align-items: flex-end;
   height: 100%;
@@ -1116,7 +1128,8 @@ dd {
 }
 
 
-.weekday-bar {
+.weekday-bar,
+.month-bar {
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
@@ -1129,16 +1142,20 @@ dd {
   transition: filter 0.12s ease, box-shadow 0.12s ease;
 }
 
-.weekday-column.is-peak .weekday-bar {
+.weekday-column.is-peak .weekday-bar,
+.month-column.is-peak .month-bar {
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-strong) 38%, transparent);
 }
 
 .weekday-column:hover .weekday-bar,
-.weekday-column:focus-visible .weekday-bar {
+.weekday-column:focus-visible .weekday-bar,
+.month-column:hover .month-bar,
+.month-column:focus-visible .month-bar {
   filter: brightness(1.06) saturate(1.08);
 }
 
-.weekday-bar-segment {
+.weekday-bar-segment,
+.month-bar-segment {
   display: block;
   flex: 0 0 auto;
   width: 100%;
@@ -1146,35 +1163,41 @@ dd {
   transition: opacity 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
 }
 
-#weekdayChart.has-company-highlight .weekday-bar-segment.is-muted {
+#weekdayChart.has-company-highlight .weekday-bar-segment.is-muted,
+#monthChart.has-company-highlight .month-bar-segment.is-muted {
   opacity: 0.16;
   filter: saturate(0.4);
 }
 
-#weekdayChart.has-company-highlight .weekday-bar-segment.is-highlighted {
+#weekdayChart.has-company-highlight .weekday-bar-segment.is-highlighted,
+#monthChart.has-company-highlight .month-bar-segment.is-highlighted {
   position: relative;
   z-index: 1;
   filter: brightness(1.12) saturate(1.18);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.82);
 }
 
-.weekday-label {
+.weekday-label,
+.month-label {
   color: var(--muted);
   font-size: 0.85rem;
   font-weight: 700;
   text-align: center;
 }
 
-.weekday-label abbr {
+.weekday-label abbr,
+.month-label abbr {
   text-decoration: none;
   cursor: inherit;
 }
 
-.weekday-column.is-peak .weekday-label {
+.weekday-column.is-peak .weekday-label,
+.month-column.is-peak .month-label {
   color: var(--accent-strong);
 }
 
-.weekday-tooltip {
+.weekday-tooltip,
+.month-tooltip {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
@@ -1192,12 +1215,14 @@ dd {
   transition: opacity 0.12s ease;
 }
 
-.weekday-tooltip-summary {
+.weekday-tooltip-summary,
+.month-tooltip-summary {
   display: block;
   font-weight: 700;
 }
 
-.weekday-tooltip-companies {
+.weekday-tooltip-companies,
+.month-tooltip-companies {
   display: flex;
   gap: 10px;
   margin-top: 7px;
@@ -1206,7 +1231,8 @@ dd {
   scrollbar-width: thin;
 }
 
-.weekday-tooltip-company {
+.weekday-tooltip-company,
+.month-tooltip-company {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
@@ -1214,12 +1240,14 @@ dd {
   white-space: nowrap;
 }
 
-.weekday-tooltip-company strong {
+.weekday-tooltip-company strong,
+.month-tooltip-company strong {
   color: var(--ink);
   font-variant-numeric: tabular-nums;
 }
 
-.weekday-tooltip-swatch {
+.weekday-tooltip-swatch,
+.month-tooltip-swatch {
   width: 9px;
   height: 9px;
   flex: 0 0 9px;
@@ -1229,16 +1257,35 @@ dd {
 }
 
 .weekday-column:hover .weekday-tooltip,
-.weekday-column:focus-within .weekday-tooltip {
+.weekday-column:focus-within .weekday-tooltip,
+.month-column:hover .month-tooltip,
+.month-column:focus-within .month-tooltip {
   opacity: 1;
   visibility: visible;
 }
 
-.weekday-chart-note {
+.weekday-chart-note,
+.month-chart-note {
   margin: 0;
   color: var(--muted);
   font-size: 0.8rem;
 }
+
+/* o grafico de meses reaproveita o estilo do de dias da semana; so a
+   quantidade de colunas e o rotulo mudam */
+.month-plot {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.month-bar {
+  max-width: 44px;
+}
+
+.month-label {
+  font-size: 0.74rem;
+}
+
 
 .year-list {
   border-top: 1px solid var(--line);
@@ -2076,36 +2123,56 @@ td a,
     min-width: 0;
   }
 
-  .weekday-chart-card {
+  .weekday-chart-card,
+  .month-chart-card {
     padding: 14px 12px;
   }
 
-  .weekday-chart-header {
+  .weekday-chart-header,
+  .month-chart-header {
     display: grid;
     gap: 12px;
   }
 
-  .weekday-chart-peak {
+  .weekday-chart-peak,
+  .month-chart-peak {
     width: 100%;
     text-align: left;
   }
 
-  .weekday-plot {
+  .weekday-plot,
+  .month-plot {
     gap: 6px;
     height: 180px;
     margin-bottom: 100px;
   }
 
-  .weekday-value {
+  .weekday-value,
+  .month-value {
     font-size: 0.82rem;
   }
 
-  .weekday-label {
+  .weekday-label,
+  .month-label {
     font-size: 0.78rem;
   }
 
-  .weekday-tooltip {
+  .weekday-tooltip,
+  .month-tooltip {
     font-size: 0.8rem;
+  }
+
+  /* 12 colunas em tela estreita: precisa ser mais apertado que o de dias */
+  .month-plot {
+    gap: 2px;
+  }
+
+  .month-value {
+    font-size: 0.65rem;
+  }
+
+  .month-label {
+    font-size: 0.6rem;
   }
 
   .year-row,
