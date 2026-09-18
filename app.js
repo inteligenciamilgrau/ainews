@@ -84,6 +84,7 @@ const state = {
   },
   tableDateOrder: "desc",
   releasesDateOrder: "desc",
+  monthChartSolidYears: false,
   releasesPage: 1,
   view: "map",
   mapLayer: "all",
@@ -3658,6 +3659,7 @@ function renderYearChart(models) {
   els.cumulativeChart.innerHTML = renderCumulativeModelChart(models);
   els.weekdayChart.innerHTML = renderWeekdayChart(models);
   els.monthChart.innerHTML = renderMonthChart(models);
+  bindMonthChartToggle();
   els.yearChart.innerHTML = `
     <div class="year-list">
       ${yearRows}
@@ -3670,6 +3672,17 @@ function renderYearChart(models) {
     </section>
   `;
   bindYearChartLegend();
+}
+
+// o innerHTML do grafico e reescrito a cada render, entao o listener precisa ser
+// religado junto e o estado tem que viver fora dele
+function bindMonthChartToggle() {
+  const toggle = els.monthChart.querySelector("[data-month-solid-years]");
+  if (!toggle) return;
+  toggle.addEventListener("change", (event) => {
+    state.monthChartSolidYears = event.target.checked;
+    renderYearChart(filteredModels());
+  });
 }
 
 function bindYearChartLegend() {
@@ -3970,6 +3983,26 @@ function renderWeekdayChart(models) {
   `;
 }
 
+// acima disso as barras lado a lado ficam finas demais para comparar
+const MONTH_GROUP_MAX_YEARS = 3;
+
+// Ano e ordinal: trocar a ordem mudaria o sentido. Entao a cor e uma rampa de um
+// matiz so (verde do site, 155-162 graus) com luminosidade monotona do mais
+// antigo para o mais recente, e nao matizes categoricos. A ponta clara fica em
+// 2,42:1 sobre a faixa de fundo do mes, acima do minimo de 2:1 para rampa
+// ordinal, e a identidade nunca depende so da cor: tem legenda, ordem da
+// esquerda para a direita e o numero do ano no balao.
+const MONTH_YEAR_RAMPS = {
+  1: ["#157f4a"],
+  2: ["#4fb387", "#0e5c35"],
+  3: ["#4fb387", "#157f4a", "#0d3a24"]
+};
+
+function monthYearColor(years, index) {
+  const ramp = MONTH_YEAR_RAMPS[years.length] || MONTH_YEAR_RAMPS[3];
+  return ramp[index] || ramp[ramp.length - 1];
+}
+
 const MONTHS = [
   { index: 1, short: "jan", name: "Janeiro" },
   { index: 2, short: "fev", name: "Fevereiro" },
@@ -4038,7 +4071,19 @@ function renderMonthChart(models) {
     modelsByMonth.get(month.index).filter((model) => monthIsComplete(model.release_date, firstDate, lastDate)).length
   ]));
 
-  const maxCount = Math.max(...counts.values());
+  // com poucos anos em jogo vale comparar janeiro com janeiro, e nao so o
+  // acumulado: as barras se separam por ano dentro de cada mes
+  const years = unique(counted.map((model) => model.year)).sort((a, b) => a - b);
+  const grouped = years.length >= 2 && years.length <= MONTH_GROUP_MAX_YEARS;
+  const solidYears = grouped && state.monthChartSolidYears;
+  const countFor = (monthIndex, year) => modelsByMonth.get(monthIndex)
+    .filter((model) => model.year === year).length;
+
+  // no modo agrupado a escala e a maior celula mes/ano, para as barras de anos
+  // diferentes serem comparaveis entre si
+  const maxCount = grouped
+    ? Math.max(...MONTHS.flatMap((month) => years.map((year) => countFor(month.index, year))))
+    : Math.max(...counts.values());
   const peak = MONTHS.reduce((best, month) => (counts.get(month.index) > counts.get(best.index) ? month : best));
   const peakCount = counts.get(peak.index);
   const partial = total - MONTHS.reduce((sum, month) => sum + completeCounts.get(month.index), 0);
@@ -4048,25 +4093,37 @@ function renderMonthChart(models) {
     return spans ? completeCounts.get(monthIndex) / spans : null;
   };
 
-  const columns = MONTHS.map((month) => {
-    const count = counts.get(month.index);
-    const share = (count / total) * 100;
-    const average = averageOf(month.index);
+  const barFor = (monthModels, cellCount, scaleMax, solidColor) => {
     const companyCounts = new Map();
-    modelsByMonth.get(month.index).forEach((model) => {
+    monthModels.forEach((model) => {
       companyCounts.set(model.company, (companyCounts.get(model.company) || 0) + 1);
     });
-    const companyBreakdown = [...companyCounts.entries()]
+    const breakdown = [...companyCounts.entries()]
       .sort(([companyA, countA], [companyB, countB]) => (
         countB - countA || companyA.localeCompare(companyB, "pt-BR")
       ));
-    const companySegments = companyBreakdown.map(([company, companyCount]) => `
+    // com cor solida a barra deixa de codificar empresa, entao nao ganha
+    // segmentos: o destaque por empresa da legenda tambem passa a nao valer nela
+    const segments = solidColor ? "" : breakdown.map(([company, companyCount]) => `
       <span
         class="month-bar-segment"
         data-company="${escapeAttribute(company)}"
         title="${escapeAttribute(`${company}: ${companyCount} ${plural(companyCount, "lançamento", "lançamentos")}`)}"
-        style="height:${((companyCount / count) * 100).toFixed(3)}%; background:${colorFor(company)}"></span>
+        style="height:${((companyCount / cellCount) * 100).toFixed(3)}%; background:${colorFor(company)}"></span>
     `).join("");
+    // altura minima para a barra nao sumir quando o valor e pequeno mas nao zero
+    const height = cellCount ? Math.max((cellCount / scaleMax) * 100, 1.5) : 0;
+    const style = `height:${height.toFixed(2)}%${solidColor ? `; background:${solidColor}` : ""}`;
+    const classes = solidColor ? "month-bar is-solid" : "month-bar";
+    return { breakdown, html: cellCount ? `<div class="${classes}" style="${style}">${segments}</div>` : "" };
+  };
+
+  const columns = MONTHS.map((month) => {
+    const monthModels = modelsByMonth.get(month.index);
+    const count = counts.get(month.index);
+    const share = (count / total) * 100;
+    const average = averageOf(month.index);
+    const { breakdown: companyBreakdown, html: singleBar } = barFor(monthModels, count, maxCount);
     const companyDetails = companyBreakdown.map(([company, companyCount]) => `
       <span class="month-tooltip-company">
         <span class="month-tooltip-swatch" style="--company-color:${colorFor(company)}" aria-hidden="true"></span>
@@ -4074,24 +4131,45 @@ function renderMonthChart(models) {
         <strong>${companyCount}</strong>
       </span>
     `).join("");
-    const height = count ? Math.max((count / maxCount) * 100, 1.5) : 0;
+
+    const yearSlots = grouped ? years.map((year, yearIndex) => {
+      const yearModels = monthModels.filter((model) => model.year === year);
+      const cellCount = yearModels.length;
+      const label = `${year} · ${month.name}: ${cellCount} ${plural(cellCount, "lançamento", "lançamentos")}`;
+      const solid = solidYears ? monthYearColor(years, yearIndex) : null;
+      return `
+        <div class="month-year-slot" data-year="${escapeAttribute(String(year))}" title="${escapeAttribute(label)}">
+          ${barFor(yearModels, cellCount, maxCount, solid).html}
+        </div>
+      `;
+    }).join("") : "";
+
     const classes = ["month-column"];
-    if (count === maxCount) classes.push("is-peak");
+    if (grouped) classes.push("is-grouped");
+    // no modo agrupado o pico do mes somado nao diz respeito a escala das barras
+    if (!grouped && count === maxCount) classes.push("is-peak");
     const averageText = average === null
       ? ""
       : ` · média de ${average.toFixed(1).replace(".", ",")} por ${month.name.toLowerCase()} completo`;
-    const summary = `${month.name}: ${count} ${plural(count, "lançamento", "lançamentos")} (${formatShare(share)} do total)${averageText}`;
+    const summary = grouped
+      ? `${month.name}: ${count} ${plural(count, "lançamento", "lançamentos")} somando os ${years.length} anos`
+      : `${month.name}: ${count} ${plural(count, "lançamento", "lançamentos")} (${formatShare(share)} do total)${averageText}`;
+    const yearSummary = grouped
+      ? years.map((year) => `${year}: ${countFor(month.index, year)}`).join(" · ")
+      : "";
     const companySummary = companyBreakdown.map(([company, companyCount]) => `${company}: ${companyCount}`).join(", ");
-    const accessibleSummary = companySummary ? `${summary}. Por empresa: ${companySummary}.` : summary;
+    const accessibleSummary = [summary, yearSummary && `Por ano: ${yearSummary}.`, companySummary && `Por empresa: ${companySummary}.`]
+      .filter(Boolean).join(" ");
     return `
       <div class="${classes.join(" ")}" tabindex="0" aria-label="${escapeAttribute(accessibleSummary)}">
         <div class="month-value">${count}</div>
         <div class="month-bar-wrap">
-          ${count ? `<div class="month-bar" style="height:${height.toFixed(2)}%">${companySegments}</div>` : ""}
+          ${grouped ? `<div class="month-year-group">${yearSlots}</div>` : singleBar}
         </div>
         <div class="month-label"><abbr title="${escapeAttribute(month.name)}">${escapeHtml(month.short)}</abbr></div>
         <div class="month-tooltip" role="tooltip">
           <span class="month-tooltip-summary">${escapeHtml(summary)}</span>
+          ${yearSummary ? `<span class="month-tooltip-years">${escapeHtml(yearSummary)}</span>` : ""}
           ${companyDetails ? `<span class="month-tooltip-companies">${companyDetails}</span>` : ""}
         </div>
       </div>
@@ -4103,18 +4181,36 @@ function renderMonthChart(models) {
       <header class="month-chart-header">
         <div>
           <p class="section-kicker">Meses do ano</p>
-          <h2 id="monthChartTitle">Em que mês do ano saem mais lançamentos</h2>
-          <p>Todos os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual somados por mês do calendário, de ${formatDate(firstDate)} a ${formatDate(lastDate)}. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. Cada cor representa uma empresa.</p>
+          <h2 id="monthChartTitle">${grouped ? "Como cada mês se comporta ano a ano" : "Em que mês do ano saem mais lançamentos"}</h2>
+          <p>${grouped
+            ? `Os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual, separados por mês e por ano: cada mês traz uma barra para ${years.join(", ")}, na mesma ordem da esquerda para a direita. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. ${solidYears ? "Cada barra usa uma cor por ano, do mais antigo (claro) ao mais recente (escuro)." : "Cada cor representa uma empresa."}`
+            : `Todos os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual somados por mês do calendário, de ${formatDate(firstDate)} a ${formatDate(lastDate)}. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. Cada cor representa uma empresa.`}</p>
+          ${grouped ? `
+            <div class="month-chart-controls">
+              <p class="month-chart-years">${years.map((year, index) => `
+                <span class="month-chart-year">
+                  ${solidYears
+                    ? `<span class="month-chart-year-swatch" style="--year-color:${monthYearColor(years, index)}" aria-hidden="true"></span>`
+                    : `<span class="month-chart-year-order">${index + 1}ª</span>`}
+                  ${year}
+                </span>
+              `).join("")}</p>
+              <label class="month-chart-toggle">
+                <input type="checkbox" data-month-solid-years ${solidYears ? "checked" : ""}>
+                <span>Uma cor por ano</span>
+              </label>
+            </div>
+          ` : ""}
         </div>
         <div class="month-chart-peak">
           <strong>${escapeHtml(peak.name)}</strong>
           <span>mês mais comum · ${peakCount} ${plural(peakCount, "lançamento", "lançamentos")}</span>
         </div>
       </header>
-      <div class="month-plot">
+      <div class="month-plot${grouped ? " is-grouped" : ""}">
         ${columns}
       </div>
-      ${partial ? `<p class="month-chart-note">A janela observada não fecha todos os meses por igual: ${partial} ${plural(partial, "lançamento caiu", "lançamentos caíram")} em um mês que ainda não terminou dentro do período. A barra mostra o total bruto; a média por mês completo, no balão de cada coluna, é a comparação justa entre meses.</p>` : ""}
+      ${partial ? `<p class="month-chart-note">A janela observada não fecha todos os meses por igual: ${partial} ${plural(partial, "lançamento caiu", "lançamentos caíram")} em um mês que ainda não terminou dentro do período${grouped ? ", e meses que ainda nem chegaram aparecem sem barra no ano mais recente" : ""}. ${grouped ? "O número acima de cada mês é a soma dos anos." : "A barra mostra o total bruto; a média por mês completo, no balão de cada coluna, é a comparação justa entre meses."}</p>` : ""}
     </section>
   `;
 }

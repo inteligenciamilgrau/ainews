@@ -1286,6 +1286,146 @@ dd {
   font-size: 0.74rem;
 }
 
+/* modo comparativo: uma barra por ano dentro de cada mes. Os slots existem
+   mesmo quando o ano nao teve lancamento no mes, senao as barras dos outros
+   anos se deslocariam e a leitura da esquerda para a direita se perderia */
+/* o vao entre meses precisa ser bem maior que o vao entre as barras de um mesmo
+   mes, senao as 36 barras se leem como uma fileira continua. Escala com a
+   viewport: em telas medias um vao fixo de 18px comeria a largura das barras */
+.month-plot.is-grouped {
+  gap: clamp(7px, 1.4vw, 18px);
+}
+
+.month-year-group {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+}
+
+/* faixa discreta atras das barras do mes: agrupa sem consumir largura, que e o
+   que falta quando a tela aperta */
+.month-column.is-grouped .month-bar-wrap {
+  padding: 0 5px;
+  border-radius: 7px 7px 0 0;
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.month-column.is-grouped:hover .month-bar-wrap,
+.month-column.is-grouped:focus-within .month-bar-wrap {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.month-column.is-grouped .month-label,
+.month-column.is-grouped .month-value {
+  font-weight: 700;
+}
+
+.month-year-slot {
+  display: flex;
+  flex: 1 1 0;
+  align-items: flex-end;
+  min-width: 0;
+  height: 100%;
+}
+
+.month-column.is-grouped .month-bar {
+  max-width: none;
+  margin: 0;
+}
+
+/* o respiro vem do .month-chart-controls, que envolve a legenda e a checkbox */
+.month-chart-years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.month-chart-year {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.month-chart-year-order {
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent-strong);
+  font-size: 0.72rem;
+}
+
+.month-chart-year-swatch {
+  width: 11px;
+  height: 11px;
+  flex: 0 0 11px;
+  align-self: center;
+  border-radius: 3px;
+  background: var(--year-color);
+  box-shadow: 0 0 0 1px rgba(15, 35, 24, 0.16);
+}
+
+.month-chart-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-top: 10px;
+}
+
+.month-chart-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px 5px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--panel-strong);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+
+.month-chart-toggle:hover {
+  border-color: var(--accent);
+}
+
+.month-chart-toggle:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.month-chart-toggle input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* sem segmentos por empresa a barra e um bloco unico: o arredondado do topo
+   sozinho deixaria a base quadrada demais contra a linha do eixo */
+.month-bar.is-solid {
+  border-radius: 4px 4px 0 0;
+}
+
+.month-tooltip-years {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
 
 .year-list {
   border-top: 1px solid var(--line);
@@ -2165,6 +2305,23 @@ td a,
   /* 12 colunas em tela estreita: precisa ser mais apertado que o de dias */
   .month-plot {
     gap: 2px;
+  }
+
+  /* com 3 barras por mes o respiro entre elas vira ruido nessa largura; a
+     separacao dos meses passa a vir da faixa de fundo, nao do vao */
+  .month-year-group {
+    gap: 1px;
+  }
+
+  /* o vao entre meses ja encolhe sozinho pelo clamp; aqui so o respiro interno */
+  .month-column.is-grouped .month-bar-wrap {
+    padding: 0 2px;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .month-chart-years {
+    gap: 8px;
+    font-size: 0.76rem;
   }
 
   .month-value {
