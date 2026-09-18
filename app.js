@@ -3623,7 +3623,8 @@ function renderYearChart(models) {
 
   const maxCount = Math.max(...[...byYear.values()].map((items) => items.length));
   const yearRows = [...byYear.entries()]
-    .sort(([a], [b]) => a - b)
+    // ano mais recente no topo: e o que interessa olhar primeiro
+    .sort(([a], [b]) => b - a)
     .map(([year, yearModels]) => {
       const byCompany = unique(yearModels.map((model) => model.company)).map((company) => {
         const count = yearModels.filter((model) => model.company === company).length;
