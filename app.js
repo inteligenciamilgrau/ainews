@@ -35,13 +35,14 @@ const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
 const VALID_MAP_BASE_MODES = new Set(["map", "earth", "hybrid"]);
 const VALID_MAP_SCALES = new Set(["globe", "country", "city", "street"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
-const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models"];
+const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models", "Decisao estruturada"];
 const VALID_AI_CATEGORIES = new Set(AI_CATEGORIES);
 const AI_CATEGORY_LABELS = {
   Video: "Vídeo",
   "Audio/Transcricao": "Áudio/Transcrição",
   Musica: "Música",
-  "Robotica/World models": "Robótica/World models"
+  "Robotica/World models": "Robótica/World models",
+  "Decisao estruturada": "Decisão estruturada"
 };
 const MONTH_OPTIONS = [
   ["01", "Janeiro"],
@@ -153,7 +154,8 @@ const companyColors = {
   "Ornith AI": "#fd8e5b",
   "Institute of Foundation Models": "#b45309",
   Inception: "#4f46e5",
-  "Shanghai AI Lab": "#be123c"
+  "Shanghai AI Lab": "#be123c",
+  "TypeSafe AI": "#0d9488"
 };
 
 const dataCenterStatusColors = {
@@ -1312,6 +1314,19 @@ const companyLocations = [
     notes: "Marcador em nivel de distrito: o Shanghai Artificial Intelligence Laboratory fica no distrito de Xuhui, na area do Shanghai Foundation Model Innovation Center, mas nao publica um endereco de rua oficial.",
     sourceName: "Shanghai Municipal Government",
     sourceUrl: "https://english.shanghai.gov.cn/en-Latest-WhatsNew/20250430/d641c50ef4f94163947dfbe27072c15e.html"
+  },
+  {
+    company: "TypeSafe AI",
+    site: "Headquarters / Jev",
+    city: "San Francisco",
+    region: "California",
+    country: "United States",
+    address: "San Francisco, CA",
+    lat: 37.7749,
+    lng: -122.4194,
+    notes: "Marcador em nivel de cidade: a empresa saiu do stealth em setembro de 2026 identificando-se como sediada em San Francisco, mas ainda nao publica um endereco de rua.",
+    sourceName: "SiliconANGLE / TypeSafe AI",
+    sourceUrl: "https://siliconangle.com/2026/09/16/typesafe-ai-exits-stealth-with-40m-to-build-ai-for-use-by-software/"
   }
 ];
 

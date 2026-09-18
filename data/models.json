@@ -3,7 +3,7 @@
     "updated_at": "2026-09-18",
     "last_correction": {
       "date": "2026-09-18",
-      "description_pt": "Inclusao dos lancamentos entre 3 e 18 de setembro de 2026, todos com fonte primaria. A OpenAI lancou o ChatGPT Images 2.5 em 8 de setembro, com as variantes de API Flare, rapida, e Sunburst, de edicao precisa, e levou o gpt-live-1 a disponibilidade geral na API em 10 de setembro, modelo de voz full-duplex que ja estava no ChatGPT desde 8 de julho. A DeepSeek publicou o V4.1-Flash em 10 de setembro, MoE de 552B de backbone que ativa 8B na entrada e 16B na saida, com visao nativa, contexto de 1M e pesos MIT. A Sakana AI lancou o Fugu Max e o Fugu Ultra v2.0 em 11 de setembro, orquestradores multiagente hospedados e indisponiveis na Uniao Europeia e no EEE. A Google anunciou o Gemini 3.8 Live e o 3.8 Live Extended Thinking em 15 de setembro, par de modelos de dialogo ao vivo que alterna automaticamente entre 97 idiomas. A Alibaba lancou o Qwen3.8-Omni-Flash em 18 de setembro, omnimodal nativo com contexto de 1M e corte de mais de 98% no preco da hora de entrada de audio. Entram tres organizacoes novas na base: o Institute of Foundation Models, braco da MBZUAI em Abu Dhabi, com a frota aberta K2 Horizon de 3 de setembro, que publica tambem dados de treino, codigo e checkpoints sob Apache 2.0; a Inception, com o LLM de difusao Mercury 2.5 de 8 de setembro; e o Shanghai AI Lab, com o Atria Dawn Preview, MoE de 744B sobre a fundacao GLM-5.2, unica entrada da leva com confianca media por divergencia de data entre os pesos, o paper e o comunicado. Entra tambem o Kimi K2.8 Preview da Moonshot, de 11 de setembro, modelo intermediario entre o Kimi K2.7 Code e o Kimi K3 que abre a janela de 1M do Kimi Code a todos os niveis de assinatura e mantem o identificador kimi-for-coding. Ficaram de fora, por nao serem flagships de linha principal, o SWE-2 da Cognition, os fine-tunes de dominio Ling-3.0-flash da Ant Group e o open-1b da Gensyn."
+      "description_pt": "Inclusao dos lancamentos entre 3 e 18 de setembro de 2026, todos com fonte primaria. A OpenAI lancou o ChatGPT Images 2.5 em 8 de setembro, com as variantes de API Flare, rapida, e Sunburst, de edicao precisa, e levou o gpt-live-1 a disponibilidade geral na API em 10 de setembro, modelo de voz full-duplex que ja estava no ChatGPT desde 8 de julho. A DeepSeek publicou o V4.1-Flash em 10 de setembro, MoE de 552B de backbone que ativa 8B na entrada e 16B na saida, com visao nativa, contexto de 1M e pesos MIT. A Sakana AI lancou o Fugu Max e o Fugu Ultra v2.0 em 11 de setembro, orquestradores multiagente hospedados e indisponiveis na Uniao Europeia e no EEE. A Google anunciou o Gemini 3.8 Live e o 3.8 Live Extended Thinking em 15 de setembro, par de modelos de dialogo ao vivo que alterna automaticamente entre 97 idiomas. A Alibaba lancou o Qwen3.8-Omni-Flash em 18 de setembro, omnimodal nativo com contexto de 1M e corte de mais de 98% no preco da hora de entrada de audio. Entram tres organizacoes novas na base: o Institute of Foundation Models, braco da MBZUAI em Abu Dhabi, com a frota aberta K2 Horizon de 3 de setembro, que publica tambem dados de treino, codigo e checkpoints sob Apache 2.0; a Inception, com o LLM de difusao Mercury 2.5 de 8 de setembro; e o Shanghai AI Lab, com o Atria Dawn Preview, MoE de 744B sobre a fundacao GLM-5.2, unica entrada da leva com confianca media por divergencia de data entre os pesos, o paper e o comunicado. Entra tambem o Kimi K2.8 Preview da Moonshot, de 11 de setembro, modelo intermediario entre o Kimi K2.7 Code e o Kimi K3 que abre a janela de 1M do Kimi Code a todos os niveis de assinatura e mantem o identificador kimi-for-coding. Entra ainda o Jev, da TypeSafe AI, anunciado em 15 de setembro: primeiro modelo publico de uma classe que a empresa chama de System One Model, que abre mao de gerar texto e devolve decisoes estruturadas e tipadas para o software consumir direto, treinado por Reinforcement Learning for Calibrated Decisions. Por nao ser um LLM nem se encaixar nas demais categorias, foi criada para ele a categoria Decisao estruturada. Ficaram de fora, por nao serem flagships de linha principal, o SWE-2 da Cognition, os fine-tunes de dominio Ling-3.0-flash da Ant Group e o open-1b da Gensyn."
     },
     "previous_correction": {
       "date": "2026-09-03",
@@ -13624,6 +13624,40 @@
       "date_precision": "dia aproximado",
       "date_note_pt": "O modelo e o lancamento sao oficiais, mas a data exata nao e unanime: os pesos aparecem no Hugging Face por volta de 11 de setembro de 2026, o paper no arXiv e submetido em 14 e o comunicado a imprensa sai em 15. Adotou-se 11 de setembro como primeira disponibilidade publica dos pesos.",
       "confidence": "media"
+    },
+    {
+      "id": "typesafe-jev",
+      "company": "TypeSafe AI",
+      "family": "System One",
+      "model": "Jev",
+      "release_date": "2026-09-15",
+      "release_stage": "early access / lista de espera",
+      "ai_category": "Decisao estruturada",
+      "model_type": ["decisao-estruturada", "classificacao", "function-calling", "RLCD", "calibracao", "baixa-latencia", "tempo-real", "baixo-custo", "API", "early-access", "proprietario"],
+      "description_pt": "Primeiro modelo publico da TypeSafe AI e primeiro de uma classe que a empresa chama de System One Model: em vez de gerar texto para pessoas, devolve decisoes estruturadas e tipadas que o software consome direto, sem etapa de parsing ou validacao. A TypeSafe o descreve como uma chamada de funcao com inteligencia de fronteira, estado nao estruturado na entrada e decisoes probabilisticas tipadas na saida, com primitivas de pergunta como Choice, Score e Noul que retornam categoria, ranking, nota, selecao ou probabilidade acompanhadas de uma estimativa de confianca. Por abrir mao da geracao de string, nao alucina nem produz erro de tipo. O treino usa Reinforcement Learning for Calibrated Decisions (RLCD), somado a uma arquitetura propria e a um amostrador paralelo que devolve todas as saidas de uma consulta de uma vez, em vez de prever token a token. A empresa reporta latencia de ponta a ponta de 70 a 500 ms, de 40 a 200 vezes mais rapida que LLMs de fronteira de inteligencia comparavel, e cobra 0,042 USD por milhao de tokens de entrada com saida gratuita. Foi anunciado junto com a saida do stealth e uma rodada seed de 40 milhoes de dolares liderada pela DCVC; o CEO Diogo Almeida e ex-pesquisador da OpenAI e cocriador do RLHF e do ChatGPT. O nome remete ao paradoxo de Jevons. Disponivel apenas em early access por lista de espera, sem pesos abertos e sem tamanho de modelo ou janela de contexto divulgados.",
+      "sources": [
+        {
+          "title": "Introducing System One Models & Jev",
+          "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+          "publisher": "TypeSafe AI",
+          "date_basis": "Post oficial publicado em 15 de setembro de 2026 apresenta a classe System One Model e o Jev em early access, com o metodo RLCD, a latencia de 70 a 500 ms e o preco de 0,042 USD por milhao de tokens de entrada."
+        },
+        {
+          "title": "TypeSafe AI debuts model for machines that plays Doom",
+          "url": "https://www.theregister.com/ai-and-ml/2026/09/16/typesafe-ai-debuts-model-for-machines-that-plays-doom/5296711",
+          "publisher": "The Register",
+          "date_basis": "Cobertura de 16 de setembro de 2026 detalha as primitivas Choice, Score e Noul, o amostrador paralelo e a demonstracao do modelo jogando Doom."
+        },
+        {
+          "title": "TypeSafe AI Emerges From Stealth With $40M in Funding With New Model for Composable AI",
+          "url": "https://www.businesswire.com/news/home/20260915525333/en/TypeSafe-AI-Emerges-From-Stealth-With-$40M-in-Funding-With-New-Model-for-Composable-AI",
+          "publisher": "Business Wire",
+          "date_basis": "Comunicado oficial distribuido em 15 de setembro de 2026 confirma a saida do stealth, a rodada seed de 40 milhoes liderada pela DCVC e os fundadores."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O post oficial e o comunicado de saida do stealth sao de 15 de setembro de 2026; parte da cobertura data o inicio do early access em 16 de setembro. Adotou-se a data do anuncio oficial.",
+      "confidence": "alta"
     }
   ]
 }
