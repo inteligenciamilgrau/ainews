@@ -150,7 +150,10 @@ const companyColors = {
   Tencent: "#2563eb",
   "World Labs": "#7c3aed",
   "Thinking Machines Lab": "#4338ca",
-  "Ornith AI": "#fd8e5b"
+  "Ornith AI": "#fd8e5b",
+  "Institute of Foundation Models": "#b45309",
+  Inception: "#4f46e5",
+  "Shanghai AI Lab": "#be123c"
 };
 
 const dataCenterStatusColors = {
@@ -1271,6 +1274,44 @@ const companyLocations = [
     notes: "Thinking Machines Lab, fundada por Mira Murati, arrendou um edificio de escritorios de 72.500 sq ft na 2300 Harrison Street, no Mission District de San Francisco.",
     sourceName: "Traded / Thinking Machines Lab",
     sourceUrl: "https://traded.co/deals/california/office/lease/2300-harrison-street/"
+  },
+  {
+    company: "Institute of Foundation Models",
+    site: "Headquarters / K2",
+    city: "Abu Dhabi",
+    region: "Abu Dhabi",
+    country: "United Arab Emirates",
+    address: "MBZUAI Campus, Masdar City",
+    lat: 24.4268,
+    lng: 54.6169,
+    notes: "O IFM e o instituto de modelos de fundacao da MBZUAI e fica no campus da universidade em Masdar City; mantem ainda escritorios em Sunnyvale (150 Mathilda Place) e Paris (42 Rue Notre Dame des Victoires).",
+    sourceName: "Institute of Foundation Models / MBZUAI",
+    sourceUrl: "https://ifm.mbzuai.ac.ae/about/"
+  },
+  {
+    company: "Inception",
+    site: "Headquarters / Mercury",
+    city: "Palo Alto",
+    region: "California",
+    country: "United States",
+    address: "117 University Avenue",
+    lat: 37.4443,
+    lng: -122.1615,
+    sourceName: "Inception / Crunchbase",
+    sourceUrl: "https://www.crunchbase.com/organization/inception-1dd9"
+  },
+  {
+    company: "Shanghai AI Lab",
+    site: "Headquarters / Atria e InternLM",
+    city: "Shanghai",
+    region: "Xuhui",
+    country: "China",
+    address: "Distrito de Xuhui",
+    lat: 31.183,
+    lng: 121.456,
+    notes: "Marcador em nivel de distrito: o Shanghai Artificial Intelligence Laboratory fica no distrito de Xuhui, na area do Shanghai Foundation Model Innovation Center, mas nao publica um endereco de rua oficial.",
+    sourceName: "Shanghai Municipal Government",
+    sourceUrl: "https://english.shanghai.gov.cn/en-Latest-WhatsNew/20250430/d641c50ef4f94163947dfbe27072c15e.html"
   }
 ];
 

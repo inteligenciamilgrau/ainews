@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-18",
     "last_correction": {
-      "date": "2026-09-03",
-      "description_pt": "Inclusao do GPT-6 Astra, anunciado pela OpenAI em 3 de setembro de 2026 como seu modelo mais capaz para trabalho ponta a ponta complexo. O rollout comecou para empresas no Trusted Access Program; o acesso pela API e pelos planos Plus, Pro, Business e Enterprise foi prometido para os dias seguintes. O modelo aceita texto e imagem, oferece contexto de 1.050.000 tokens, saida maxima de 128.000 tokens e recursos de raciocinio, codigo, pesquisa, uso de computador e ferramentas."
+      "date": "2026-09-18",
+      "description_pt": "Inclusao dos lancamentos entre 3 e 18 de setembro de 2026, todos com fonte primaria. A OpenAI lancou o ChatGPT Images 2.5 em 8 de setembro, com as variantes de API Flare, rapida, e Sunburst, de edicao precisa, e levou o gpt-live-1 a disponibilidade geral na API em 10 de setembro, modelo de voz full-duplex que ja estava no ChatGPT desde 8 de julho. A DeepSeek publicou o V4.1-Flash em 10 de setembro, MoE de 552B de backbone que ativa 8B na entrada e 16B na saida, com visao nativa, contexto de 1M e pesos MIT. A Sakana AI lancou o Fugu Max e o Fugu Ultra v2.0 em 11 de setembro, orquestradores multiagente hospedados e indisponiveis na Uniao Europeia e no EEE. A Google anunciou o Gemini 3.8 Live e o 3.8 Live Extended Thinking em 15 de setembro, par de modelos de dialogo ao vivo que alterna automaticamente entre 97 idiomas. A Alibaba lancou o Qwen3.8-Omni-Flash em 18 de setembro, omnimodal nativo com contexto de 1M e corte de mais de 98% no preco da hora de entrada de audio. Entram tres organizacoes novas na base: o Institute of Foundation Models, braco da MBZUAI em Abu Dhabi, com a frota aberta K2 Horizon de 3 de setembro, que publica tambem dados de treino, codigo e checkpoints sob Apache 2.0; a Inception, com o LLM de difusao Mercury 2.5 de 8 de setembro; e o Shanghai AI Lab, com o Atria Dawn Preview, MoE de 744B sobre a fundacao GLM-5.2, unica entrada da leva com confianca media por divergencia de data entre os pesos, o paper e o comunicado. Entra tambem o Kimi K2.8 Preview da Moonshot, de 11 de setembro, modelo intermediario entre o Kimi K2.7 Code e o Kimi K3 que abre a janela de 1M do Kimi Code a todos os niveis de assinatura e mantem o identificador kimi-for-coding. Ficaram de fora, por nao serem flagships de linha principal, o SWE-2 da Cognition, os fine-tunes de dominio Ling-3.0-flash da Ant Group e o open-1b da Gensyn."
     },
     "previous_correction": {
-      "date": "2026-09-02",
-      "description_pt": "Inclusao dos lancamentos de 2 de setembro de 2026 da Meta e da Google, todos confirmados em fontes primarias. A Meta lancou o Muse Spark 1.3 no Muse Code e na Meta Model API, com melhorias em codigo, fluxos agenticos longos, multitarefa e seguranca; o modo max reasoning ainda depende da conclusao de testes adicionais. A Google lancou o Gemini 3.8 Flash em disponibilidade geral, com entrada multimodal, contexto de 1.048.576 tokens e foco em engenharia de software, agentes autonomos e raciocinio multietapas. Entra separadamente o Gemini 3.8 Flash Cyber, variante de ciberseguranca baseada na mesma inteligencia, mas restrita a defensores confiaveis pelo Fairwind Program. Nenhum dos tres teve pesos abertos nesta data."
+      "date": "2026-09-03",
+      "description_pt": "Inclusao do GPT-6 Astra, anunciado pela OpenAI em 3 de setembro de 2026 como seu modelo mais capaz para trabalho ponta a ponta complexo. O rollout comecou para empresas no Trusted Access Program; o acesso pela API e pelos planos Plus, Pro, Business e Enterprise foi prometido para os dias seguintes. O modelo aceita texto e imagem, oferece contexto de 1.050.000 tokens, saida maxima de 128.000 tokens e recursos de raciocinio, codigo, pesquisa, uso de computador e ferramentas."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -4210,6 +4210,32 @@
       "confidence": "alta"
     },
     {
+      "id": "deepseek-v4-1-flash",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V4.1-Flash",
+      "release_date": "2026-09-10",
+      "release_stage": "lancamento oficial / open weights / API",
+      "ai_category": ["LLMs", "Multimodal"],
+      "model_type": ["texto", "imagem", "visao", "multimodal-nativo", "raciocinio", "codigo", "agente", "tool-use", "MoE", "open-weights", "OpenSource", "MIT", "longo-contexto", "1M-contexto", "baixo-custo", "API"],
+      "description_pt": "Sucessor do V4-Flash e, segundo a DeepSeek, o menor modelo de uma nova familia de arquitetura voltada a teto de capacidade mais alto, inferencia mais rapida e maior vazao. MoE de 552B parametros de backbone que ativa 8B na entrada e 16B na saida, com compreensao visual multimodal nativa e contexto de ate 1 milhao de tokens. Pesos publicados no Hugging Face sob licenca MIT. Na API responde pelo nome deepseek-flash, e os aliases anteriores deepseek-v4-flash e deepseek-v4-flash-vision-exp passaram a ser roteados temporariamente para ele; o DeepSeek V4 Pro seguiu atendido separadamente, com cobranca inalterada.",
+      "sources": [
+        {
+          "title": "Change Log",
+          "url": "https://api-docs.deepseek.com/updates/",
+          "publisher": "DeepSeek",
+          "date_basis": "Changelog oficial da API registra o lancamento do V4.1-Flash em 10 de setembro de 2026, o alias deepseek-flash e o roteamento temporario dos aliases antigos."
+        },
+        {
+          "title": "DeepSeek V4.1 Flash Launches with Multimodal Capabilities",
+          "url": "https://emergent.sh/news/deepseek-v4-1-flash-launches-multimodal",
+          "publisher": "Emergent",
+          "date_basis": "Cobertura de 10 de setembro de 2026 corrobora a data do anuncio, os 552B de backbone com 8B/16B ativos e a publicacao dos pesos sob MIT."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "openai-clip",
       "company": "OpenAI",
       "family": "CLIP",
@@ -5230,6 +5256,34 @@
       "confidence": "alta"
     },
     {
+      "id": "alibaba-qwen-3-8-omni-flash",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen3.8-Omni-Flash",
+      "release_date": "2026-09-18",
+      "release_stage": "lancamento/API hospedada",
+      "ai_category": ["Multimodal", "Audio/Transcricao"],
+      "model_type": ["omni", "multimodal-nativo", "texto", "imagem", "audio", "video", "audio-visual", "agente", "tool-use", "longo-contexto", "1M-contexto", "baixo-custo", "API", "chat-completions", "proprietario"],
+      "description_pt": "Modelo omnimodal nativo da linha Qwen3.8, que aceita texto, imagem, audio e video com contexto de 1 milhao de tokens. A Qwen o posiciona como um passo alem da compreensao de conteudo omnimodal, em direcao a planejar tarefas, chamar ferramentas e concluir trabalho criativo, com foco em fluxos como edicao de video, producao audiovisual, sumarizacao de audio e video e conversa em tempo real. O corte de preco e o destaque do lancamento: a hora de entrada de audio cai mais de 98% e a de entrada audiovisual mais de 93% ante o Qwen3.5-Omni-Plus. Servido por endpoint compativel com a API da OpenAI, no Qwen Chat e no app; sem pesos abertos nesta data.",
+      "sources": [
+        {
+          "title": "Qwen3.8-Omni-Flash",
+          "url": "https://qwen.ai/blog?id=qwen3.8-omni-flash",
+          "publisher": "Qwen / Alibaba",
+          "date_basis": "Post oficial de lancamento do Qwen3.8-Omni-Flash, que apresenta o modelo omnimodal nativo, o contexto de 1M tokens e os cortes de preco de audio e audiovisual."
+        },
+        {
+          "title": "Alibaba’s Qwen3.8-Omni-Flash undercuts Gemini on audio",
+          "url": "https://www.neowin.net/news/alibabas-qwen38-omni-flash-undercuts-gemini-on-audio/",
+          "publisher": "Neowin",
+          "date_basis": "Cobertura de 18 de setembro de 2026 corrobora a data de lancamento, as modalidades aceitas e o endpoint compativel com OpenAI."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "O lancamento e oficial; o dia 18 vem da cobertura contemporanea e da submissao do anuncio oficial ao Hacker News. Rastreadores de release registram a primeira aparicao em 17 de setembro de 2026, diferenca compativel com o fuso horario da China.",
+      "confidence": "alta"
+    },
+    {
       "id": "cursor-composer-1",
       "company": "Cursor",
       "family": "Composer",
@@ -5535,6 +5589,32 @@
           "url": "https://learn.microsoft.com/azure/ai-foundry/openai/whats-new?view=foundry-classic",
           "publisher": "Microsoft",
           "date_basis": "Documentacao oficial registra gpt-realtime-1.5-2026-02-23 e gpt-audio-1.5-2026-02-23 como disponiveis."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-live-1-api",
+      "company": "OpenAI",
+      "family": "GPT-Live",
+      "model": "gpt-live-1 (API)",
+      "release_date": "2026-09-10",
+      "release_stage": "GA/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "speech-to-speech", "full-duplex", "tempo-real", "realtime", "baixa-latencia", "API", "agente", "proprietario"],
+      "description_pt": "Disponibilidade geral na API do gpt-live-1, o modelo de voz full-duplex que a OpenAI havia lancado no ChatGPT em 8 de julho de 2026 prometendo a API para depois. Ouve e fala ao mesmo tempo, de modo que o interlocutor pode interromper no meio de uma frase e a resposta se adapta em vez de terminar o turno; trata interrupcao e ruido de fundo no mesmo modelo. E posicionado como camada de voz na frente de um backend de raciocinio a escolha do desenvolvedor, e nao como modelo de chat autonomo: a inteligencia e o uso de ferramentas sao cobrados a parte. A OpenAI relata ganho de 30 pontos no Full Duplex Bench sobre o GPT-Realtime-2.1 e entrega 12 vozes. Preco de 0,05 USD por minuto, faturado por segundo.",
+      "sources": [
+        {
+          "title": "Introducing GPT-Live",
+          "url": "https://openai.com/index/introducing-gpt-live/",
+          "publisher": "OpenAI",
+          "date_basis": "Post oficial do GPT-Live, atualizado com a disponibilidade geral na API em 10 de setembro de 2026; o mesmo post anunciou o lancamento no ChatGPT em 8 de julho de 2026."
+        },
+        {
+          "title": "GPT-Live-1 arrives in the API at $0.05 a minute",
+          "url": "https://datanorth.ai/news/openai-launches-gpt-live-1-in-the-api",
+          "publisher": "DataNorth",
+          "date_basis": "Cobertura de 10 de setembro de 2026 corrobora a data, o preco por minuto faturado por segundo e o ganho no Full Duplex Bench."
         }
       ],
       "confidence": "alta"
@@ -6327,6 +6407,32 @@
           "url": "https://developers.openai.com/api/docs/models/gpt-image-2",
           "publisher": "OpenAI",
           "date_basis": "Documentacao oficial lista o snapshot gpt-image-2-2026-04-21."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-image-2-5",
+      "company": "OpenAI",
+      "family": "GPT Image",
+      "model": "gpt-image-2.5-flare / gpt-image-2.5-sunburst / ChatGPT Images 2.5",
+      "release_date": "2026-09-08",
+      "release_stage": "API/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "API", "ChatGPT", "Codex", "referencia", "baixa-latencia", "multi-referencia", "proprietario"],
+      "description_pt": "Atualizacao 2.5 da linha de imagem da OpenAI, lancada no ChatGPT como ChatGPT Images 2.5 e na API em duas variantes: GPT-Image-2.5 Flare, o padrao rapido para geracao de alta qualidade, e GPT-Image-2.5 Sunburst, voltado a precisao de edicao em trabalho criativo detalhado, com geracao mais demorada. A OpenAI cita iluminacao mais natural, texturas mais ricas, melhor preservacao de sujeitos em fotos de referencia, instrucoes de edicao mais confiaveis ao longo de varios turnos e latencia ate 50% menor que a do Images 2.0. No produto entra o recurso Sketch, que permite desenhar dentro do ChatGPT como referencia. Disponivel para ChatGPT, ChatGPT Work e Codex em desktop, mobile e web; a cobranca na API e por token de imagem, e nao por imagem.",
+      "sources": [
+        {
+          "title": "Introducing ChatGPT Images 2.5",
+          "url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+          "publisher": "OpenAI",
+          "date_basis": "Post oficial publicado em 8 de setembro de 2026 anuncia o Images 2.5 no ChatGPT e os dois modelos Flare e Sunburst na API."
+        },
+        {
+          "title": "Introducing GPT Images 2.5 in the API and ChatGPT",
+          "url": "https://community.openai.com/t/introducing-chatgpt-images-2-5/1395897",
+          "publisher": "OpenAI Developer Community",
+          "date_basis": "Anuncio oficial para desenvolvedores, de 8 de setembro de 2026, registra os identificadores de API das duas variantes."
         }
       ],
       "confidence": "alta"
@@ -7971,6 +8077,32 @@
       "confidence": "alta"
     },
     {
+      "id": "moonshot-kimi-k2-8-preview",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K2.8 Preview",
+      "release_date": "2026-09-11",
+      "release_stage": "preview / Kimi Code e Kimi Work",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "raciocinio", "multimodal", "visao", "video", "tool-use", "longo-contexto", "1M-contexto", "preview", "adaptive-thinking", "proprietario"],
+      "description_pt": "Modelo intermediario da Moonshot, posicionado entre o Kimi K2.7 Code e o carro-chefe Kimi K3. O changelog oficial do Kimi Code registra o rollout completo em 11 de setembro de 2026, e relatos secundarios indicam que o mesmo modelo chegou tambem ao Kimi Work. Aceita entrada de texto, imagem e video e abre a janela de 1.048.576 tokens do Kimi Code para todos os niveis de assinatura, contra os 262.144 do K2.7 Code. Herda do K3 os tres niveis de esforco de raciocinio, low, high e max, com max como padrao, e a Moonshot descreve o desempenho geral como proximo ao do K3, com ganhos amplos em codigo e agentes e raciocinio bem mais eficiente que o do K2.7 Code. O identificador na API continua sendo kimi-for-coding, de modo que clientes e ferramentas de terceiros apontados para esse alias passaram a receber os pesos do preview sem mudanca de configuracao. Sem pesos abertos e sem tabela de precos propria nesta data.",
+      "sources": [
+        {
+          "title": "What's New | Kimi Code Docs",
+          "url": "https://www.kimi.com/code/docs/en/kimi-code/whats-new.html",
+          "publisher": "Moonshot AI",
+          "date_basis": "Changelog oficial do Kimi Code registra em 11 de setembro de 2026 o rollout completo do K2.8 Preview, o identificador kimi-for-coding inalterado, a janela de 1M para todos os niveis e os niveis de esforco low, high e max."
+        },
+        {
+          "title": "Moonshot Rolls Out Kimi K2.8 Preview Across Kimi Code and Work",
+          "url": "https://pandaily.com/moonshot-kimi-k28-preview-full-rollout-kimi-code",
+          "publisher": "Pandaily",
+          "date_basis": "Cobertura de 11 de setembro de 2026 corrobora a data, o posicionamento entre o K2.7 Code e o K3 e a chegada do modelo tambem ao Kimi Work."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "apple-ferret",
       "company": "Apple",
       "family": "Ferret",
@@ -8785,6 +8917,32 @@
           "url": "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/",
           "publisher": "Google",
           "date_basis": "Post oficial publicado em 2 de setembro de 2026 lanca o Fairwind Program e confirma o uso do Gemini 3.8 Flash Cyber com CodeMender por parceiros confiaveis."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-8-live",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 3.8 Live / Gemini 3.8 Live Extended Thinking",
+      "release_date": "2026-09-15",
+      "release_stage": "GA/API + preview privado no Gemini Enterprise",
+      "ai_category": ["Audio/Transcricao", "Multimodal"],
+      "model_type": ["audio", "voz", "speech-to-speech", "audio-nativo", "tempo-real", "dialogo", "conversacional", "multilingue", "raciocinio", "agente", "tool-use", "visao", "baixa-latencia", "API", "Gemini API", "Google AI Studio", "Gemini Live API", "Gemini Enterprise", "proprietario"],
+      "description_pt": "Par de modelos de dialogo ao vivo do Gemini 3.8, descritos pela Google como seus mais avancados para conversa natural. O Gemini 3.8 Live responde sem pausa de raciocinio e e otimizado para escala e custo; o Gemini 3.8 Live Extended Thinking raciocina e fala ao mesmo tempo, verbalizando o progresso enquanto trabalha. Ambos processam entrada visual quase em tempo real, executam chamadas de API em segundo plano sem interromper o dialogo e detectam e alternam automaticamente entre 97 idiomas no meio da conversa. O Extended Thinking lidera o Speech to Speech Quality Index da Artificial Analysis com 82,6, alem de 68,6% no tau-Voice e 97,7% no Big Bench Audio. Disponiveis na Gemini API e no Google AI Studio desde o anuncio, em preview privado no Gemini Enterprise, no Search Live, no app Gemini Live e no Workspace para assinantes Pro e Ultra.",
+      "sources": [
+        {
+          "title": "Introducing Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 15 de setembro de 2026 (atualizado em 17) anuncia os dois modelos, a disponibilidade na Gemini API e no AI Studio e os 97 idiomas."
+        },
+        {
+          "title": "Google Releases Gemini 3.8 Live and 3.8 Live Extended Thinking for Production Grade Voice Agents",
+          "url": "https://www.marktechpost.com/2026/09/15/google-releases-gemini-3-8-live-and-3-8-live-extended-thinking-for-production-grade-voice-agents/",
+          "publisher": "MarkTechPost",
+          "date_basis": "Cobertura de 15 de setembro de 2026 corrobora a data e os resultados no Speech to Speech Quality Index e no tau-Voice."
         }
       ],
       "confidence": "alta"
@@ -10135,6 +10293,32 @@
         "publisher": "Sakana AI",
         "date_basis": "Post oficial publicado em 24 de abril de 2026."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "sakana-fugu-max-ultra-v2",
+      "company": "Sakana AI",
+      "family": "Fugu",
+      "model": "Fugu Max / Fugu Ultra v2.0",
+      "release_date": "2026-09-11",
+      "release_stage": "lancamento/API",
+      "ai_category": "LLMs",
+      "model_type": ["agente", "orquestracao", "multi-agent", "API", "raciocinio", "codigo", "visao", "longo-contexto", "1M-contexto", "proprietario"],
+      "description_pt": "Segunda geracao da linha de orquestracao da Sakana AI, sucedendo o Fugu e o Fugu Ultra de abril. Nao sao modelos unicos: sao orquestradores treinados para distribuir cada tarefa entre um pool de outros modelos e costurar as respostas, de modo que o desenvolvedor envia uma requisicao a uma unica API. O Fugu Max custa 2 USD por milhao de tokens de entrada e 6 USD na saida; o Fugu Ultra v2.0 custa 5 / 30 USD, subindo para 10 / 45 USD acima de 272K tokens de contexto. A Sakana reporta 48,3 no Chartography para o Ultra v2, contra 27,3 do Opus 5 e 29,5 do Fable 5. Ambos rodam apenas como API hospedada e nao estao disponiveis na Uniao Europeia nem no EEE.",
+      "sources": [
+        {
+          "title": "Introducing Fugu Max and Fugu Ultra v2: Orchestrating the Pareto Frontier",
+          "url": "https://sakana.ai/fugu-max-release/",
+          "publisher": "Sakana AI",
+          "date_basis": "Post oficial publicado em 11 de setembro de 2026 apresenta os dois modelos, a tabela de precos e a indisponibilidade na UE e no EEE."
+        },
+        {
+          "title": "Sakana AI Launches Fugu Max and Fugu Ultra v2 for Cheaper, Stronger Multi-Agent Orchestration",
+          "url": "https://www.marktechpost.com/2026/09/10/sakana-ai-launches-fugu-max-and-fugu-ultra-v2-for-cheaper-stronger-multi-agent-orchestration/",
+          "publisher": "MarkTechPost",
+          "date_basis": "Cobertura corrobora os precos e a arquitetura de orquestracao sobre um pool de modelos."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -13360,6 +13544,86 @@
         "date_basis": "Post oficial publicado em 1 de setembro de 2026 anuncia o Atlas e informa que o acesso inicial e restrito a parceiros selecionados mediante solicitacao."
       },
       "confidence": "alta"
+    },
+    {
+      "id": "ifm-k2-horizon",
+      "company": "Institute of Foundation Models",
+      "family": "K2",
+      "model": "K2 Horizon (0.9B / 3.7B / 7B / 32B / 36B-A4B / 375B-A23B)",
+      "release_date": "2026-09-03",
+      "release_stage": "lancamento / pesos, dados e codigo abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "matematica", "agente", "open-weights", "open-data", "training-code", "Apache-2.0", "MoE", "dense", "on-device", "edge", "fundacao", "API"],
+      "description_pt": "Frota de seis modelos abertos do Institute of Foundation Models, braco de pesquisa da MBZUAI em Abu Dhabi, cobrindo de 0,9B a 375B parametros: 0.9B, 3.7B e 7B densos para dispositivos restritos, 32B denso e dois esparsos, 36B com 4B ativos e 375B com 23B ativos. O diferencial nao e o peso aberto e sim a abertura de ciclo completo: cada modelo sai com os dados de treino, a receita de mistura, o codigo, os checkpoints intermediarios, os logs e as avaliacoes, tudo sob Apache 2.0. Distribuidos via Hugging Face, vLLM e SGLang, e por parceiros de inferencia como Cerebras, AWS e Nebius.",
+      "sources": [
+        {
+          "title": "K2 Horizon Press Release",
+          "url": "https://ifm.ai/k2/press-release/",
+          "publisher": "Institute of Foundation Models",
+          "date_basis": "Comunicado oficial de 3 de setembro de 2026 apresenta a frota K2 Horizon e detalha os seis tamanhos e a licenca Apache 2.0."
+        },
+        {
+          "title": "Institute of Foundation Models Launches the Industry’s Largest Fully Open-Source Fleet of AI Models",
+          "url": "https://www.prnewswire.com/news-releases/institute-of-foundation-models-launches-the-industrys-largest-fully-open-source-fleet-of-ai-models-complete-with-weights-code-training-data-and-methodologies-302868628.html",
+          "publisher": "PR Newswire",
+          "date_basis": "Distribuicao oficial do comunicado, datada de 3 de setembro de 2026, confirma os tamanhos 0.9B, 3.7B, 7B, 32B, 36B-A4B e 375B-A23B e a publicacao dos dados de treino."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "inception-mercury-2-5",
+      "company": "Inception",
+      "family": "Mercury",
+      "model": "Mercury 2.5",
+      "release_date": "2026-09-08",
+      "release_stage": "API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "diffusion-LLM", "difusao", "API", "alta-velocidade", "baixa-latencia", "baixo-custo", "longo-contexto", "proprietario"],
+      "description_pt": "Terceira geracao do LLM de difusao da Inception, fundada por pesquisadores de Stanford, UCLA e Cornell responsaveis pelo primeiro dLLM. Em vez de gerar token a token, produz e refina varios tokens em paralelo, atingindo 1.107 tokens por segundo em GPUs padrao. A empresa reivindica 40% mais inteligencia que o Mercury 2, com custo comparavel ao de modelos de fronteira otimizados para preco. Contexto de 260.000 tokens e saida maxima de 65.536 tokens; disponivel na API propria, no OpenRouter e na Baseten. Sem pesos abertos.",
+      "sources": [
+        {
+          "title": "Introducing Mercury 2.5",
+          "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-2-5",
+          "publisher": "Inception",
+          "date_basis": "Post oficial publicado em 8 de setembro de 2026 apresenta o Mercury 2.5 e a marca de 1.107 tokens por segundo."
+        },
+        {
+          "title": "Inception Launches Mercury 2.5, the Next Tier of Intelligence for Diffusion LLMs",
+          "url": "https://www.businesswire.com/news/home/20260908593295/en/Inception-Launches-Mercury-2.5-the-Next-Tier-of-Intelligence-for-Diffusion-LLMs",
+          "publisher": "Business Wire",
+          "date_basis": "Comunicado oficial distribuido em 8 de setembro de 2026 confirma a data e a disponibilidade na API, no OpenRouter e na Baseten."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "shanghai-ai-lab-atria-dawn-preview",
+      "company": "Shanghai AI Lab",
+      "family": "Atria",
+      "model": "Atria Dawn Preview",
+      "release_date": "2026-09-11",
+      "release_stage": "preview/pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agente", "longo-horizonte", "tool-use", "codigo", "pesquisa-cientifica", "ciberseguranca", "MoE", "open-weights", "OpenSource", "MIT", "256K", "thinking"],
+      "description_pt": "Modelo agentico do Shanghai Artificial Intelligence Laboratory voltado a pesquisa cientifica e engenharia de horizonte longo, publicado sob o nome Atria. MoE de 744B parametros construido sobre a fundacao GLM-5.2, com contexto de 256K e modo de raciocinio explicito. Foi treinado por um Verifiable Experience Pipeline que liga interacoes mediadas por ferramentas a ambientes executaveis, com o objetivo de levar um metodo da literatura ate experimentos executaveis, metricas reproduziveis e um relatorio auditavel. O paper reporta desempenho competitivo em 16 benchmarks, com primeiro lugar em cinco. Pesos abertos sob licenca MIT no Hugging Face.",
+      "sources": [
+        {
+          "title": "internlm/Atria-Dawn-Preview",
+          "url": "https://huggingface.co/internlm/Atria-Dawn-Preview",
+          "publisher": "Shanghai AI Laboratory / Hugging Face",
+          "date_basis": "Model card oficial identifica o Shanghai Artificial Intelligence Laboratory como publicador e registra os 744B de MoE sobre GLM-5.2, o contexto de 256K e a licenca MIT."
+        },
+        {
+          "title": "Atria Dawn: The Dawn of Agentic Superintelligence",
+          "url": "https://arxiv.org/abs/2609.15818",
+          "publisher": "arXiv",
+          "date_basis": "Paper submetido em 14 de setembro de 2026 (v2 em 17 de setembro) descreve o Atria Dawn Preview como modelo agentico de fundacao para pesquisa cientifica e engenharia."
+        }
+      ],
+      "date_precision": "dia aproximado",
+      "date_note_pt": "O modelo e o lancamento sao oficiais, mas a data exata nao e unanime: os pesos aparecem no Hugging Face por volta de 11 de setembro de 2026, o paper no arXiv e submetido em 14 e o comunicado a imprensa sai em 15. Adotou-se 11 de setembro como primeira disponibilidade publica dos pesos.",
+      "confidence": "media"
     }
   ]
 }
