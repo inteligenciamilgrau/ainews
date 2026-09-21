@@ -3,7 +3,7 @@
     "updated_at": "2026-09-21",
     "last_correction": {
       "date": "2026-09-21",
-      "description_pt": "Inclusao do dots3-note Preview, publicado pela dots studio em 14 de agosto de 2026 com pesos abertos, entrada multimodal e contexto de 512K tokens, e do Grok 4.7, lancado pela xAI em 21 de setembro de 2026 para codigo, agentes e trabalho de conhecimento, com API e contexto de 500K tokens."
+      "description_pt": "Inclusao do dots3-note Preview, publicado pela dots studio em 14 de agosto de 2026 com pesos abertos, entrada multimodal e contexto de 512K tokens, e do Grok 4.7, lancado pela xAI em 21 de setembro de 2026 para codigo, agentes e trabalho de conhecimento, com API e contexto de 500K tokens. Inclusao da serie Xiaomi MiMo-V2.6, com data oficial de 22 de setembro no fuso da China, modelos Pro e Flash de pesos abertos e acesso pelo MiMo Studio."
     },
     "previous_correction": {
       "date": "2026-09-18",
@@ -3928,6 +3928,49 @@
           "url": "https://mimo.xiaomi.com/mimo-v2-5-pro",
           "publisher": "Xiaomi",
           "date_basis": "Pagina oficial do MiMo-V2.5-Pro publicada em 27 de abril de 2026."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "xiaomi-mimo-v2-6",
+      "company": "Xiaomi",
+      "family": "MiMo",
+      "model": "MiMo-V2.6 Pro / Flash",
+      "release_date": "2026-09-22",
+      "release_stage": "open weights/API",
+      "model_type": ["agente", "multimodal", "raciocinio", "open-weights", "longo-contexto"],
+      "description_pt": "Nova serie de modelos MiMo para raciocinio e agentes. Pro e Flash combinam texto, imagem, video e audio com contexto de ate 1M tokens; os pesos das duas variantes foram publicados sob licenca MIT. A Xiaomi tambem anunciou o Pro UltraSpeed para inferencia hospedada e publicou um modelo destilado de 9B parametros.",
+      "sources": [
+        {
+          "title": "MiMo-V2.6 Series Release",
+          "url": "https://mimo.mi.com/docs/en-US/updates/model",
+          "publisher": "Xiaomi",
+          "date_basis": "Pagina oficial de lancamentos data a serie MiMo-V2.6 em 22 de setembro de 2026 no fuso da China e lista Pro, Flash e Pro UltraSpeed."
+        },
+        {
+          "title": "XiaomiMiMo/MiMo-V2.6-Pro-RL",
+          "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+          "publisher": "XiaomiMiMo",
+          "date_basis": "Model card e arquivos oficiais do Pro confirmam os pesos sob licenca MIT, as quatro modalidades e o contexto de 1M tokens."
+        },
+        {
+          "title": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "publisher": "XiaomiMiMo",
+          "date_basis": "Model card oficial do Flash confirma os pesos sob licenca MIT, as quatro modalidades e o contexto de 1M tokens."
+        },
+        {
+          "title": "MiMo-V2.6 model collection",
+          "url": "https://huggingface.co/collections/XiaomiMiMo/mimo-v26",
+          "publisher": "XiaomiMiMo",
+          "date_basis": "Colecao oficial reune Pro-RL, Flash-RL e Distill-Qwen-9B."
+        },
+        {
+          "title": "Xiaomi MiMo Studio V3.4.0",
+          "url": "https://mimo.mi.com/docs/en-US/updates/feature/studio",
+          "publisher": "Xiaomi",
+          "date_basis": "Atualizacao do Studio, datada de 21 de setembro de 2026, confirma acesso aos modelos mimo-v2.6-pro e mimo-v2.6-flash para conversa."
         }
       ],
       "confidence": "alta"
