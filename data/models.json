@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-09-18",
+    "updated_at": "2026-09-21",
     "last_correction": {
-      "date": "2026-09-18",
-      "description_pt": "Inclusao dos lancamentos entre 3 e 18 de setembro de 2026, todos com fonte primaria. A OpenAI lancou o ChatGPT Images 2.5 em 8 de setembro, com as variantes de API Flare, rapida, e Sunburst, de edicao precisa, e levou o gpt-live-1 a disponibilidade geral na API em 10 de setembro, modelo de voz full-duplex que ja estava no ChatGPT desde 8 de julho. A DeepSeek publicou o V4.1-Flash em 10 de setembro, MoE de 552B de backbone que ativa 8B na entrada e 16B na saida, com visao nativa, contexto de 1M e pesos MIT. A Sakana AI lancou o Fugu Max e o Fugu Ultra v2.0 em 11 de setembro, orquestradores multiagente hospedados e indisponiveis na Uniao Europeia e no EEE. A Google anunciou o Gemini 3.8 Live e o 3.8 Live Extended Thinking em 15 de setembro, par de modelos de dialogo ao vivo que alterna automaticamente entre 97 idiomas. A Alibaba lancou o Qwen3.8-Omni-Flash em 18 de setembro, omnimodal nativo com contexto de 1M e corte de mais de 98% no preco da hora de entrada de audio. Entram tres organizacoes novas na base: o Institute of Foundation Models, braco da MBZUAI em Abu Dhabi, com a frota aberta K2 Horizon de 3 de setembro, que publica tambem dados de treino, codigo e checkpoints sob Apache 2.0; a Inception, com o LLM de difusao Mercury 2.5 de 8 de setembro; e o Shanghai AI Lab, com o Atria Dawn Preview, MoE de 744B sobre a fundacao GLM-5.2, unica entrada da leva com confianca media por divergencia de data entre os pesos, o paper e o comunicado. Entra tambem o Kimi K2.8 Preview da Moonshot, de 11 de setembro, modelo intermediario entre o Kimi K2.7 Code e o Kimi K3 que abre a janela de 1M do Kimi Code a todos os niveis de assinatura e mantem o identificador kimi-for-coding. Entra ainda o Jev, da TypeSafe AI, anunciado em 15 de setembro: primeiro modelo publico de uma classe que a empresa chama de System One Model, que abre mao de gerar texto e devolve decisoes estruturadas e tipadas para o software consumir direto, treinado por Reinforcement Learning for Calibrated Decisions. Por nao ser um LLM nem se encaixar nas demais categorias, foi criada para ele a categoria Decisao estruturada. Ficaram de fora, por nao serem flagships de linha principal, o SWE-2 da Cognition, os fine-tunes de dominio Ling-3.0-flash da Ant Group e o open-1b da Gensyn."
+      "date": "2026-09-21",
+      "description_pt": "Inclusao do dots3-note Preview, publicado pela dots studio em 14 de agosto de 2026 com pesos abertos, entrada multimodal e contexto de 512K tokens, e do Grok 4.7, lancado pela xAI em 21 de setembro de 2026 para codigo, agentes e trabalho de conhecimento, com API e contexto de 500K tokens."
     },
     "previous_correction": {
-      "date": "2026-09-03",
-      "description_pt": "Inclusao do GPT-6 Astra, anunciado pela OpenAI em 3 de setembro de 2026 como seu modelo mais capaz para trabalho ponta a ponta complexo. O rollout comecou para empresas no Trusted Access Program; o acesso pela API e pelos planos Plus, Pro, Business e Enterprise foi prometido para os dias seguintes. O modelo aceita texto e imagem, oferece contexto de 1.050.000 tokens, saida maxima de 128.000 tokens e recursos de raciocinio, codigo, pesquisa, uso de computador e ferramentas."
+      "date": "2026-09-18",
+      "description_pt": "Inclusao dos lancamentos entre 3 e 18 de setembro de 2026, todos com fonte primaria. A OpenAI lancou o ChatGPT Images 2.5 em 8 de setembro, com as variantes de API Flare, rapida, e Sunburst, de edicao precisa, e levou o gpt-live-1 a disponibilidade geral na API em 10 de setembro, modelo de voz full-duplex que ja estava no ChatGPT desde 8 de julho. A DeepSeek publicou o V4.1-Flash em 10 de setembro, MoE de 552B de backbone que ativa 8B na entrada e 16B na saida, com visao nativa, contexto de 1M e pesos MIT. A Sakana AI lancou o Fugu Max e o Fugu Ultra v2.0 em 11 de setembro, orquestradores multiagente hospedados e indisponiveis na Uniao Europeia e no EEE. A Google anunciou o Gemini 3.8 Live e o 3.8 Live Extended Thinking em 15 de setembro, par de modelos de dialogo ao vivo que alterna automaticamente entre 97 idiomas. A Alibaba lancou o Qwen3.8-Omni-Flash em 18 de setembro, omnimodal nativo com contexto de 1M e corte de mais de 98% no preco da hora de entrada de audio. Entram tres organizacoes novas na base: o Institute of Foundation Models, braco da MBZUAI em Abu Dhabi, com a frota aberta K2 Horizon de 3 de setembro, que publica tambem dados de treino, codigo e checkpoints sob Apache 2.0; a Inception, com o LLM de difusao Mercury 2.5 de 8 de setembro; e o Shanghai AI Lab, com o Atria Dawn Preview, MoE de 744B sobre a fundacao GLM-5.2, unica entrada da leva com confianca media por divergencia de data entre os pesos, o paper e o comunicado. Entra tambem o Kimi K2.8 Preview da Moonshot, de 11 de setembro, modelo intermediario entre o Kimi K2.7 Code e o Kimi K3 que abre a janela de 1M do Kimi Code a todos os niveis de assinatura e mantem o identificador kimi-for-coding. Entra ainda o Jev, da TypeSafe AI, anunciado em 15 de setembro: primeiro modelo publico de uma classe que a empresa chama de System One Model, que abre mao de gerar texto e devolve decisoes estruturadas e tipadas para o software consumir direto, treinado por Reinforcement Learning for Calibrated Decisions. Por nao ser um LLM nem se encaixar nas demais categorias, foi criada para ele a categoria Decisao estruturada. Ficaram de fora, por nao serem flagships de linha principal, o SWE-2 da Cognition, os fine-tunes de dominio Ling-3.0-flash da Ant Group e o open-1b da Gensyn."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -13657,6 +13657,58 @@
       ],
       "date_precision": "dia oficial",
       "date_note_pt": "O post oficial e o comunicado de saida do stealth sao de 15 de setembro de 2026; parte da cobertura data o inicio do early access em 16 de setembro. Adotou-se a data do anuncio oficial.",
+      "confidence": "alta"
+    },
+    {
+      "id": "dots-studio-dots3-note-preview",
+      "company": "dots studio (Xiaohongshu)",
+      "family": "dots3",
+      "model": "dots3-note Preview",
+      "release_date": "2026-08-14",
+      "release_stage": "preview/pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video", "multimodal", "raciocinio", "agente", "codigo", "MoE", "longo-contexto", "512K", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Primeiro modelo de pesos abertos da familia dots3, criado pela dots studio da Xiaohongshu. MoE multimodal de 280B parametros totais e 16B ativos, com contexto de ate 512K tokens. Recebe texto, imagem, video e audio, produz texto e foi projetado para raciocinio, uso de ferramentas e tarefas agenticas longas. Pesos BF16 e FP8 publicados sob Apache 2.0.",
+      "sources": [
+        {
+          "title": "dots3-note Preview - model card oficial",
+          "url": "https://huggingface.co/dots-studio/dots3-note-prev",
+          "publisher": "dots studio / Hugging Face",
+          "date_basis": "Model card oficial confirma especificacoes, modalidades, checkpoints BF16 e FP8 e licenca Apache 2.0."
+        },
+        {
+          "title": "Rednote Releases First Open-Weight Model in the dots3 Series",
+          "url": "https://www.digitaljournal.com/pr/news/access-newswire/rednote-releases-first-open-weight-model-1717379640.html",
+          "publisher": "Rednote / ACCESS Newswire",
+          "date_basis": "Comunicado da propria empresa, publicado em 16 de agosto de 2026, informa que os pesos foram lancados em 14 de agosto de 2026."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "xai-grok-4-7",
+      "company": "xAI",
+      "family": "Grok",
+      "model": "Grok 4.7",
+      "release_date": "2026-09-21",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "codigo", "agente", "trabalho", "longo-contexto", "API", "500K-contexto"],
+      "description_pt": "Sucessor do Grok 4.6 para codigo, agentes e trabalho de conhecimento, com base maior e treino de reforco mais longo. Aceita texto e imagem, gera texto e tem janela de contexto de 500 mil tokens. Disponivel na API da xAI como grok-4.7, no Cursor e no Grok Build desde o anuncio. A variante Grok 4.7 Fast, com o dobro da taxa de tokens, fica restrita ao Cursor e ao Grok Build.",
+      "sources": [
+        {
+          "title": "Introducing Grok 4.7",
+          "url": "https://x.ai/news/grok-4-7",
+          "publisher": "xAI",
+          "date_basis": "Anuncio oficial publicado em 21 de setembro de 2026 confirma o lancamento e a disponibilidade em Cursor, Grok Build e API."
+        },
+        {
+          "title": "xAI Developer Release Notes - Grok 4.7",
+          "url": "https://docs.x.ai/developers/release-notes",
+          "publisher": "xAI",
+          "date_basis": "Notas oficiais de 21 de setembro de 2026 confirmam o identificador grok-4.7, contexto de 500K, modalidades e restricao da variante Fast."
+        }
+      ],
       "confidence": "alta"
     }
   ]
