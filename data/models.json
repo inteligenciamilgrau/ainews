@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-09-21",
+    "updated_at": "2026-09-22",
     "last_correction": {
-      "date": "2026-09-21",
-      "description_pt": "Inclusao do dots3-note Preview, publicado pela dots studio em 14 de agosto de 2026 com pesos abertos, entrada multimodal e contexto de 512K tokens, e do Grok 4.7, lancado pela xAI em 21 de setembro de 2026 para codigo, agentes e trabalho de conhecimento, com API e contexto de 500K tokens. Inclusao da serie Xiaomi MiMo-V2.6, com data oficial de 22 de setembro no fuso da China, modelos Pro e Flash de pesos abertos e acesso pelo MiMo Studio."
+      "date": "2026-09-22",
+      "description_pt": "Inclusao do GPT-6 Sol e do GPT-6 Luna, publicados no catalogo oficial da OpenAI com contexto de 1,05M tokens, saida maxima de 128K e precos de US$ 2/US$ 10 e US$ 0,10/US$ 0,50 por milhao de tokens. Inclusao do Claude Opus 5.5, lancado pela Anthropic em 22 de setembro de 2026 como primeiro modelo da familia Claude 5.5, com preco de US$ 4/US$ 20 por milhao de tokens e disponibilidade em todas as plataformas."
     },
     "previous_correction": {
-      "date": "2026-09-18",
-      "description_pt": "Inclusao dos lancamentos entre 3 e 18 de setembro de 2026, todos com fonte primaria. A OpenAI lancou o ChatGPT Images 2.5 em 8 de setembro, com as variantes de API Flare, rapida, e Sunburst, de edicao precisa, e levou o gpt-live-1 a disponibilidade geral na API em 10 de setembro, modelo de voz full-duplex que ja estava no ChatGPT desde 8 de julho. A DeepSeek publicou o V4.1-Flash em 10 de setembro, MoE de 552B de backbone que ativa 8B na entrada e 16B na saida, com visao nativa, contexto de 1M e pesos MIT. A Sakana AI lancou o Fugu Max e o Fugu Ultra v2.0 em 11 de setembro, orquestradores multiagente hospedados e indisponiveis na Uniao Europeia e no EEE. A Google anunciou o Gemini 3.8 Live e o 3.8 Live Extended Thinking em 15 de setembro, par de modelos de dialogo ao vivo que alterna automaticamente entre 97 idiomas. A Alibaba lancou o Qwen3.8-Omni-Flash em 18 de setembro, omnimodal nativo com contexto de 1M e corte de mais de 98% no preco da hora de entrada de audio. Entram tres organizacoes novas na base: o Institute of Foundation Models, braco da MBZUAI em Abu Dhabi, com a frota aberta K2 Horizon de 3 de setembro, que publica tambem dados de treino, codigo e checkpoints sob Apache 2.0; a Inception, com o LLM de difusao Mercury 2.5 de 8 de setembro; e o Shanghai AI Lab, com o Atria Dawn Preview, MoE de 744B sobre a fundacao GLM-5.2, unica entrada da leva com confianca media por divergencia de data entre os pesos, o paper e o comunicado. Entra tambem o Kimi K2.8 Preview da Moonshot, de 11 de setembro, modelo intermediario entre o Kimi K2.7 Code e o Kimi K3 que abre a janela de 1M do Kimi Code a todos os niveis de assinatura e mantem o identificador kimi-for-coding. Entra ainda o Jev, da TypeSafe AI, anunciado em 15 de setembro: primeiro modelo publico de uma classe que a empresa chama de System One Model, que abre mao de gerar texto e devolve decisoes estruturadas e tipadas para o software consumir direto, treinado por Reinforcement Learning for Calibrated Decisions. Por nao ser um LLM nem se encaixar nas demais categorias, foi criada para ele a categoria Decisao estruturada. Ficaram de fora, por nao serem flagships de linha principal, o SWE-2 da Cognition, os fine-tunes de dominio Ling-3.0-flash da Ant Group e o open-1b da Gensyn."
+      "date": "2026-09-21",
+      "description_pt": "Inclusao do dots3-note Preview, publicado pela dots studio em 14 de agosto de 2026 com pesos abertos, entrada multimodal e contexto de 512K tokens, e do Grok 4.7, lancado pela xAI em 21 de setembro de 2026 para codigo, agentes e trabalho de conhecimento, com API e contexto de 500K tokens. Inclusao da serie Xiaomi MiMo-V2.6, com data oficial de 22 de setembro no fuso da China, modelos Pro e Flash de pesos abertos e acesso pelo MiMo Studio."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -695,6 +695,34 @@
       "confidence": "alta"
     },
     {
+      "id": "openai-gpt-6-sol-luna",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-6 Sol / GPT-6 Luna",
+      "release_date": "2026-09-22",
+      "release_stage": "API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "multimodal", "imagem", "raciocinio", "codigo", "agente", "computador", "longo-contexto", "API", "baixo-custo", "alto-volume"],
+      "description_pt": "Novas variantes da familia GPT-6. Sol e voltado a codigo complexo e fluxos agenticos, por US$ 2 de entrada e US$ 10 de saida por milhao de tokens; Luna prioriza eficiencia em tarefas focadas e de alto volume, por US$ 0,10 e US$ 0,50. Ambos recebem texto e imagem, oferecem contexto de 1,05M tokens, saida maxima de 128K e uso de ferramentas pela Responses API.",
+      "sources": [
+        {
+          "title": "GPT-6 Sol Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6-sol",
+          "publisher": "OpenAI",
+          "date_basis": "Pagina oficial consultada em 22 de setembro de 2026 confirma disponibilidade na API, identificador gpt-6-sol, especificacoes e preco."
+        },
+        {
+          "title": "GPT-6 Luna Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+          "publisher": "OpenAI",
+          "date_basis": "Pagina oficial consultada em 22 de setembro de 2026 confirma disponibilidade na API, identificador gpt-6-luna, especificacoes e preco."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "Os modelos e a disponibilidade na API sao oficiais; 22/09 e a primeira data em que as paginas publicas do catalogo foram verificadas, pois elas nao exibem uma data editorial de publicacao.",
+      "confidence": "alta"
+    },
+    {
       "id": "anthropic-claude",
       "company": "Anthropic",
       "family": "Claude",
@@ -1109,6 +1137,25 @@
         "publisher": "Anthropic",
         "date_basis": "Post oficial publicado em 24 de julho de 2026 anuncia disponibilidade imediata em todas as plataformas e na API como claude-opus-5."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-opus-5-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Opus 5.5",
+      "release_date": "2026-09-22",
+      "release_stage": "GA/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "raciocinio", "computador", "visao", "trabalho", "longo-contexto", "API"],
+      "description_pt": "Primeiro modelo da familia Claude 5.5 e novo lider da linha Opus para codigo agentico, uso de computador e trabalho de conhecimento. A Anthropic afirma desempenho proximo ao Fable 5.1 na maioria das tarefas, custo tipico 40% menor que o Opus 5 e geracao mais de 30% mais rapida. Custa US$ 4 por milhao de tokens de entrada e US$ 20 de saida, com leitura de cache a US$ 0,20.",
+      "source": {
+        "title": "Claude Opus 5.5",
+        "url": "https://www.anthropic.com/claude-opus-5-5",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 22 de setembro de 2026 anuncia disponibilidade imediata em todas as plataformas e na API como claude-opus-5-5."
+      },
+      "date_precision": "dia oficial",
       "confidence": "alta"
     },
     {
