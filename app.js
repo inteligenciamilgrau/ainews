@@ -86,7 +86,7 @@ const state = {
   releasesDateOrder: "desc",
   monthChartSolidYears: false,
   releasesPage: 1,
-  view: "map",
+  view: "releases",
   mapLayer: "all",
   mapBaseMode: "hybrid",
   mapLabels: false,
@@ -4093,7 +4093,7 @@ function renderMonthChart(models) {
     return spans ? completeCounts.get(monthIndex) / spans : null;
   };
 
-  const barFor = (monthModels, cellCount, scaleMax, solidColor) => {
+  const barFor = (monthModels, cellCount, scaleMax, solidColor, heightScale = 100) => {
     const companyCounts = new Map();
     monthModels.forEach((model) => {
       companyCounts.set(model.company, (companyCounts.get(model.company) || 0) + 1);
@@ -4112,10 +4112,10 @@ function renderMonthChart(models) {
         style="height:${((companyCount / cellCount) * 100).toFixed(3)}%; background:${colorFor(company)}"></span>
     `).join("");
     // altura minima para a barra nao sumir quando o valor e pequeno mas nao zero
-    const height = cellCount ? Math.max((cellCount / scaleMax) * 100, 1.5) : 0;
+    const height = cellCount ? Math.max((cellCount / scaleMax) * heightScale, 1.5) : 0;
     const style = `height:${height.toFixed(2)}%${solidColor ? `; background:${solidColor}` : ""}`;
     const classes = solidColor ? "month-bar is-solid" : "month-bar";
-    return { breakdown, html: cellCount ? `<div class="${classes}" style="${style}">${segments}</div>` : "" };
+    return { breakdown, height, html: cellCount ? `<div class="${classes}" style="${style}">${segments}</div>` : "" };
   };
 
   const columns = MONTHS.map((month) => {
@@ -4137,9 +4137,11 @@ function renderMonthChart(models) {
       const cellCount = yearModels.length;
       const label = `${year} · ${month.name}: ${cellCount} ${plural(cellCount, "lançamento", "lançamentos")}`;
       const solid = solidYears ? monthYearColor(years, yearIndex) : null;
+      const yearBar = barFor(yearModels, cellCount, maxCount, solid, 82);
       return `
-        <div class="month-year-slot" data-year="${escapeAttribute(String(year))}" title="${escapeAttribute(label)}">
-          ${barFor(yearModels, cellCount, maxCount, solid).html}
+        <div class="month-year-slot" data-year="${escapeAttribute(String(year))}" title="${escapeAttribute(label)}" style="--month-bar-height:${yearBar.height.toFixed(2)}%">
+          <span class="month-year-count" aria-hidden="true">${cellCount}</span>
+          ${yearBar.html}
         </div>
       `;
     }).join("") : "";
@@ -4183,7 +4185,7 @@ function renderMonthChart(models) {
           <p class="section-kicker">Meses do ano</p>
           <h2 id="monthChartTitle">${grouped ? "Como cada mês se comporta ano a ano" : "Em que mês do ano saem mais lançamentos"}</h2>
           <p>${grouped
-            ? `Os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual, separados por mês e por ano: cada mês traz uma barra para ${years.join(", ")}, na mesma ordem da esquerda para a direita. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. ${solidYears ? "Cada barra usa uma cor por ano, do mais antigo (claro) ao mais recente (escuro)." : "Cada cor representa uma empresa."}`
+            ? `Os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual, separados por mês e por ano: cada mês traz uma barra para ${years.join(", ")}, na mesma ordem da esquerda para a direita. O número sobre cada barra mostra a quantidade naquele ano. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. ${solidYears ? "Cada barra usa uma cor por ano, do mais antigo (claro) ao mais recente (escuro)." : "Cada cor representa uma empresa."}`
             : `Todos os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual somados por mês do calendário, de ${formatDate(firstDate)} a ${formatDate(lastDate)}. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. Cada cor representa uma empresa.`}</p>
           ${grouped ? `
             <div class="month-chart-controls">
@@ -4207,9 +4209,7 @@ function renderMonthChart(models) {
           <span>mês mais comum · ${peakCount} ${plural(peakCount, "lançamento", "lançamentos")}</span>
         </div>
       </header>
-      <div class="month-plot${grouped ? " is-grouped" : ""}">
-        ${columns}
-      </div>
+      ${grouped ? `<div class="month-plot-viewport"><div class="month-plot is-grouped">${columns}</div></div>` : `<div class="month-plot">${columns}</div>`}
       ${partial ? `<p class="month-chart-note">A janela observada não fecha todos os meses por igual: ${partial} ${plural(partial, "lançamento caiu", "lançamentos caíram")} em um mês que ainda não terminou dentro do período${grouped ? ", e meses que ainda nem chegaram aparecem sem barra no ano mais recente" : ""}. ${grouped ? "O número acima de cada mês é a soma dos anos." : "A barra mostra o total bruto; a média por mês completo, no balão de cada coluna, é a comparação justa entre meses."}</p>` : ""}
     </section>
   `;

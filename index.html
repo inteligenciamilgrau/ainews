@@ -13,7 +13,7 @@
       rel="stylesheet"
       integrity="sha256-qx5w1Z7EBGW65+cDDaLzzPKBM/1QLmK9WY7vut/XpzI="
       crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=20">
   </head>
   <body>
   <header class="topbar">
@@ -56,8 +56,8 @@
 
       <section class="view-row" aria-label="Modo de visualização">
         <div class="segmented" role="tablist" aria-label="Views">
-          <button type="button" data-view="releases">Lançamentos</button>
-          <button class="active" type="button" data-view="timeline">Timeline</button>
+          <button class="active" type="button" data-view="releases">Lançamentos</button>
+          <button type="button" data-view="timeline">Timeline</button>
           <button type="button" data-view="years">Estatísticas</button>
           <button type="button" data-view="table">Tabela</button>
           <button type="button" data-view="sources">Fontes</button>
@@ -66,7 +66,7 @@
         </div>
       </section>
 
-      <section id="releasesView" class="view" aria-label="Lançamentos">
+      <section id="releasesView" class="view active-view" aria-label="Lançamentos">
         <div class="releases-toolbar">
           <div class="segmented compact" role="group" aria-label="Ordem dos lançamentos">
             <button class="active" type="button" data-releases-order="desc">Mais recentes</button>
@@ -81,7 +81,7 @@
         </nav>
       </section>
 
-      <section id="timelineView" class="view active-view">
+      <section id="timelineView" class="view">
         <div id="timelineScale" class="timeline-scale"></div>
         <div id="timeline" class="timeline"></div>
         <aside id="modelDetails" class="details-panel" aria-live="polite"></aside>
@@ -202,6 +202,6 @@
       integrity="sha256-RamwepGJzlYFTGIKlHzPQeKR5YyV6bYVM7dAqqZe5cs="
       crossorigin="anonymous">
     </script>
-    <script src="app.js?v=20" defer></script>
+    <script src="app.js?v=22" defer></script>
   </body>
 </html>
