@@ -84,7 +84,9 @@ const state = {
   },
   tableDateOrder: "desc",
   releasesDateOrder: "desc",
-  monthChartSolidYears: false,
+  yearChartShowCompanies: false,
+  weekdayChartShowCompanies: false,
+  monthChartShowCompanies: false,
   releasesPage: 1,
   view: "releases",
   mapLayer: "all",
@@ -3374,6 +3376,9 @@ function loadViewPreferences() {
     if (restoredMapCamera) state.mapCamera = restoredMapCamera;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.tableDateOrder)) state.tableDateOrder = prefs.tableDateOrder;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.releasesDateOrder)) state.releasesDateOrder = prefs.releasesDateOrder;
+    if (typeof prefs.yearChartShowCompanies === "boolean") state.yearChartShowCompanies = prefs.yearChartShowCompanies;
+    if (typeof prefs.weekdayChartShowCompanies === "boolean") state.weekdayChartShowCompanies = prefs.weekdayChartShowCompanies;
+    if (typeof prefs.monthChartShowCompanies === "boolean") state.monthChartShowCompanies = prefs.monthChartShowCompanies;
     if (VALID_TABLE_DATE_ORDERS.has(prefs.historyEventDateOrder)) historyState.eventDateOrder = prefs.historyEventDateOrder;
     if (prefs.filters && typeof prefs.filters === "object") {
       const restoredFilters = { ...state.filters };
@@ -3404,6 +3409,9 @@ function saveViewPreferences() {
       mapCamera: state.mapCamera,
       tableDateOrder: state.tableDateOrder,
       releasesDateOrder: state.releasesDateOrder,
+      yearChartShowCompanies: state.yearChartShowCompanies,
+      weekdayChartShowCompanies: state.weekdayChartShowCompanies,
+      monthChartShowCompanies: state.monthChartShowCompanies,
       historyEventDateOrder: historyState.eventDateOrder,
       filters: state.filters
     }));
@@ -3623,21 +3631,22 @@ function renderYearChart(models) {
   });
 
   const maxCount = Math.max(...[...byYear.values()].map((items) => items.length));
+  const years = [...byYear.keys()].sort((a, b) => a - b);
   const yearRows = [...byYear.entries()]
     // ano mais recente no topo: e o que interessa olhar primeiro
     .sort(([a], [b]) => b - a)
     .map(([year, yearModels]) => {
-      const byCompany = unique(yearModels.map((model) => model.company)).map((company) => {
+      const byCompany = state.yearChartShowCompanies ? unique(yearModels.map((model) => model.company)).map((company) => {
         const count = yearModels.filter((model) => model.company === company).length;
         const width = (count / yearModels.length) * 100;
         return `<span class="year-bar-segment" data-company="${escapeAttribute(company)}" title="${escapeHtml(company)}: ${count}" style="width:${width}%; background:${colorFor(company)}"></span>`;
-      }).join("");
+      }).join("") : "";
       // a lista de modelos so aparece no hover/foco da linha, via .year-models
       return `
         <div class="year-row" tabindex="0" aria-label="${escapeAttribute(`${year}: ${yearModels.length} modelos`)}">
           <div class="year-label">${year}</div>
           <div class="year-bar-wrap">
-            <div class="year-bar" style="width:${Math.max((yearModels.length / maxCount) * 100, 6)}%">
+            <div class="year-bar" style="width:${Math.max((yearModels.length / maxCount) * 100, 6)}%;${state.yearChartShowCompanies ? "" : `background:${yearColor(years, years.indexOf(year))}`}">
               ${byCompany}
             </div>
           </div>
@@ -3659,29 +3668,53 @@ function renderYearChart(models) {
   els.cumulativeChart.innerHTML = renderCumulativeModelChart(models);
   els.weekdayChart.innerHTML = renderWeekdayChart(models);
   els.monthChart.innerHTML = renderMonthChart(models);
-  bindMonthChartToggle();
   els.yearChart.innerHTML = `
+    <header class="year-chart-header">
+      <div>
+        <p class="section-kicker">Modelos por ano</p>
+        <h2 id="yearChartTitle">Quantos modelos foram lançados em cada ano</h2>
+        <p>${state.yearChartShowCompanies ? "As cores mostram a participação de cada empresa no total do ano." : "Cada ano usa uma cor na escala do mais antigo ao mais recente."}</p>
+      </div>
+      ${statsColorToggle("year")}
+    </header>
     <div class="year-list">
       ${yearRows}
     </div>
-    <section class="year-company-legend" aria-labelledby="yearCompanyLegendTitle">
+    ${state.yearChartShowCompanies ? `<section class="year-company-legend" aria-labelledby="yearCompanyLegendTitle">
       <span id="yearCompanyLegendTitle" class="year-company-legend-title">Empresas</span>
       <div class="year-company-legend-items">
         ${legendItems}
       </div>
-    </section>
+    </section>` : ""}
   `;
+  bindStatsColorToggles();
   bindYearChartLegend();
 }
 
-// o innerHTML do grafico e reescrito a cada render, entao o listener precisa ser
-// religado junto e o estado tem que viver fora dele
-function bindMonthChartToggle() {
-  const toggle = els.monthChart.querySelector("[data-month-solid-years]");
-  if (!toggle) return;
-  toggle.addEventListener("change", (event) => {
-    state.monthChartSolidYears = event.target.checked;
-    renderYearChart(filteredModels());
+const STATS_COMPANY_PREFS = {
+  year: "yearChartShowCompanies",
+  weekday: "weekdayChartShowCompanies",
+  month: "monthChartShowCompanies"
+};
+
+function statsColorToggle(chart) {
+  return `<label class="stats-color-toggle">
+    <input type="checkbox" data-stats-show-companies="${chart}" ${state[STATS_COMPANY_PREFS[chart]] ? "checked" : ""}>
+    <span>Mostrar empresas</span>
+  </label>`;
+}
+
+// Os tres graficos sao reescritos a cada render, por isso os controles sao
+// religados juntos; cada grafico guarda a propria escolha.
+function bindStatsColorToggles() {
+  document.querySelectorAll("[data-stats-show-companies]").forEach((toggle) => {
+    toggle.addEventListener("change", (event) => {
+      const preference = STATS_COMPANY_PREFS[event.target.dataset.statsShowCompanies];
+      if (!preference) return;
+      state[preference] = event.target.checked;
+      saveViewPreferences();
+      renderYearChart(filteredModels());
+    });
   });
 }
 
@@ -3699,10 +3732,10 @@ function bindYearChartLegend() {
 
 function setYearChartCompanyHighlight(company = "") {
   const hasHighlight = Boolean(company);
-  els.yearChart.classList.toggle("has-company-highlight", hasHighlight);
-  els.weekdayChart.classList.toggle("has-company-highlight", hasHighlight);
-  els.monthChart.classList.toggle("has-company-highlight", hasHighlight);
-  document.querySelectorAll(".year-bar-segment, .weekday-bar-segment, .month-bar-segment, .year-company-legend-item").forEach((element) => {
+  els.yearChart.classList.toggle("has-company-highlight", hasHighlight && state.yearChartShowCompanies);
+  els.weekdayChart.classList.toggle("has-company-highlight", hasHighlight && state.weekdayChartShowCompanies);
+  els.monthChart.classList.toggle("has-company-highlight", hasHighlight && state.monthChartShowCompanies);
+  document.querySelectorAll(".year-bar-segment[data-company], .weekday-bar-segment[data-company], .month-bar-segment[data-company], .year-company-legend-item").forEach((element) => {
     const matchesCompany = element.dataset.company === company;
     element.classList.toggle("is-highlighted", hasHighlight && matchesCompany);
     element.classList.toggle("is-muted", hasHighlight && !matchesCompany);
@@ -3894,6 +3927,7 @@ function renderWeekdayChart(models) {
   const counted = models.filter((model) => hasExactReleaseDay(model) && weekdayOf(model.release_date) !== null);
   if (!counted.length) return "";
 
+  const years = unique(models.map((model) => model.year)).sort((a, b) => a - b);
   const skipped = models.length - counted.length;
   const total = counted.length;
   const modelsByWeekday = new Map(WEEKDAYS.map((day) => [day.index, []]));
@@ -3932,13 +3966,18 @@ function renderWeekdayChart(models) {
         title="${escapeAttribute(`${company}: ${companyCount} ${plural(companyCount, "lançamento", "lançamentos")}`)}"
         style="height:${((companyCount / count) * 100).toFixed(3)}%; background:${colorFor(company)}"></span>
     `).join("");
-    const companyDetails = companyBreakdown.map(([company, companyCount]) => `
+    const yearBreakdown = years.map((year) => [year, modelsByWeekday.get(day.index).filter((model) => model.year === year).length]);
+    const yearSegments = yearBreakdown.filter(([, yearCount]) => yearCount > 0).map(([year, yearCount]) => `
+      <span class="weekday-bar-segment" title="${year}: ${yearCount} ${plural(yearCount, "lançamento", "lançamentos")}" style="height:${((yearCount / count) * 100).toFixed(3)}%; background:${yearColor(years, years.indexOf(year))}"></span>
+    `).join("");
+    const companyDetails = state.weekdayChartShowCompanies ? companyBreakdown.map(([company, companyCount]) => `
       <span class="weekday-tooltip-company">
         <span class="weekday-tooltip-swatch" style="--company-color:${colorFor(company)}" aria-hidden="true"></span>
         <span>${escapeHtml(company)}</span>
         <strong>${companyCount}</strong>
       </span>
-    `).join("");
+    `).join("") : "";
+    const yearSummary = yearBreakdown.map(([year, yearCount]) => `${year}: ${yearCount}`).join(" · ");
     // barra minima visivel para o dia nao sumir quando o valor e pequeno mas nao zero
     const height = count ? Math.max((count / maxCount) * 100, 1.5) : 0;
     const classes = ["weekday-column"];
@@ -3946,16 +3985,17 @@ function renderWeekdayChart(models) {
     if (day.index === 6) classes.push("starts-weekend");
     if (count === maxCount) classes.push("is-peak");
     const summary = `${day.full}: ${count} ${plural(count, "lançamento", "lançamentos")} (${formatShare(share)} do total)`;
-    const accessibleSummary = companySummary ? `${summary}. Por empresa: ${companySummary}.` : summary;
+    const accessibleSummary = `${summary}. Por ano: ${yearSummary}.${state.weekdayChartShowCompanies && companySummary ? ` Por empresa: ${companySummary}.` : ""}`;
     return `
       <div class="${classes.join(" ")}" tabindex="0" aria-label="${escapeAttribute(accessibleSummary)}">
         <div class="weekday-value">${count}</div>
         <div class="weekday-bar-wrap">
-          ${count ? `<div class="weekday-bar" style="height:${height.toFixed(2)}%">${companySegments}</div>` : ""}
+          ${count ? `<div class="weekday-bar" style="height:${height.toFixed(2)}%">${state.weekdayChartShowCompanies ? companySegments : yearSegments}</div>` : ""}
         </div>
         <div class="weekday-label"><abbr title="${escapeAttribute(day.full)}">${escapeHtml(day.short)}</abbr></div>
         <div class="weekday-tooltip" role="tooltip">
           <span class="weekday-tooltip-summary">${escapeHtml(summary)}</span>
+          ${!state.weekdayChartShowCompanies ? `<span class="month-tooltip-years">${escapeHtml(yearSummary)}</span>` : ""}
           ${companyDetails ? `<span class="weekday-tooltip-companies">${companyDetails}</span>` : ""}
         </div>
       </div>
@@ -3968,11 +4008,15 @@ function renderWeekdayChart(models) {
         <div>
           <p class="section-kicker">Dias da semana</p>
           <h2 id="weekdayChartTitle">Em que dia da semana saem os lançamentos</h2>
-          <p>Somatório dos lançamentos do filtro atual por dia da semana, sobre ${total} ${plural(total, "registro", "registros")} com data exata. Cada cor representa uma empresa. ${formatShare(businessShare)} caem entre segunda e sexta.</p>
+          <p>Somatório dos lançamentos do filtro atual por dia da semana, sobre ${total} ${plural(total, "registro", "registros")} com data exata. ${state.weekdayChartShowCompanies ? "Cada cor representa uma empresa." : "Cada cor representa um ano, na mesma escala do gráfico de meses."} ${formatShare(businessShare)} caem entre segunda e sexta.</p>
+          ${!state.weekdayChartShowCompanies ? `<div class="month-chart-controls">${statsYearLegend(years)}</div>` : ""}
         </div>
-        <div class="weekday-chart-peak">
-          <strong>${escapeHtml(peak.name)}</strong>
-          <span>dia mais comum · ${peakCount} ${plural(peakCount, "lançamento", "lançamentos")}</span>
+        <div class="stats-chart-header-actions">
+          ${statsColorToggle("weekday")}
+          <div class="weekday-chart-peak">
+            <strong>${escapeHtml(peak.name)}</strong>
+            <span>dia mais comum · ${peakCount} ${plural(peakCount, "lançamento", "lançamentos")}</span>
+          </div>
         </div>
       </header>
       <div class="weekday-plot">
@@ -3986,21 +4030,26 @@ function renderWeekdayChart(models) {
 // acima disso as barras lado a lado ficam finas demais para comparar
 const MONTH_GROUP_MAX_YEARS = 3;
 
-// Ano e ordinal: trocar a ordem mudaria o sentido. Entao a cor e uma rampa de um
-// matiz so (verde do site, 155-162 graus) com luminosidade monotona do mais
-// antigo para o mais recente, e nao matizes categoricos. A ponta clara fica em
-// 2,42:1 sobre a faixa de fundo do mes, acima do minimo de 2:1 para rampa
-// ordinal, e a identidade nunca depende so da cor: tem legenda, ordem da
-// esquerda para a direita e o numero do ano no balao.
-const MONTH_YEAR_RAMPS = {
+// A mesma rampa ordinal identifica cada ano nos tres graficos de estatisticas.
+const YEAR_COLOR_RAMPS = {
   1: ["#157f4a"],
   2: ["#4fb387", "#0e5c35"],
   3: ["#4fb387", "#157f4a", "#0d3a24"]
 };
 
-function monthYearColor(years, index) {
-  const ramp = MONTH_YEAR_RAMPS[years.length] || MONTH_YEAR_RAMPS[3];
-  return ramp[index] || ramp[ramp.length - 1];
+function yearColor(years, index) {
+  const ramp = YEAR_COLOR_RAMPS[years.length];
+  if (ramp) return ramp[index];
+  return `hsl(156 48% ${Math.round(72 - (48 * index) / (years.length - 1))}%)`;
+}
+
+function statsYearLegend(years) {
+  return `<p class="month-chart-years">${years.map((year, index) => `
+    <span class="month-chart-year">
+      <span class="month-chart-year-swatch" style="--year-color:${yearColor(years, index)}" aria-hidden="true"></span>
+      ${year}
+    </span>
+  `).join("")}</p>`;
 }
 
 const MONTHS = [
@@ -4075,7 +4124,7 @@ function renderMonthChart(models) {
   // acumulado: as barras se separam por ano dentro de cada mes
   const years = unique(counted.map((model) => model.year)).sort((a, b) => a - b);
   const grouped = years.length >= 2 && years.length <= MONTH_GROUP_MAX_YEARS;
-  const solidYears = grouped && state.monthChartSolidYears;
+  const showCompanies = state.monthChartShowCompanies;
   const countFor = (monthIndex, year) => modelsByMonth.get(monthIndex)
     .filter((model) => model.year === year).length;
 
@@ -4102,15 +4151,18 @@ function renderMonthChart(models) {
       .sort(([companyA, countA], [companyB, countB]) => (
         countB - countA || companyA.localeCompare(companyB, "pt-BR")
       ));
-    // com cor solida a barra deixa de codificar empresa, entao nao ganha
-    // segmentos: o destaque por empresa da legenda tambem passa a nao valer nela
-    const segments = solidColor ? "" : breakdown.map(([company, companyCount]) => `
+    const yearBreakdown = years.map((year) => [year, monthModels.filter((model) => model.year === year).length]);
+    const companySegments = breakdown.map(([company, companyCount]) => `
       <span
         class="month-bar-segment"
         data-company="${escapeAttribute(company)}"
         title="${escapeAttribute(`${company}: ${companyCount} ${plural(companyCount, "lançamento", "lançamentos")}`)}"
         style="height:${((companyCount / cellCount) * 100).toFixed(3)}%; background:${colorFor(company)}"></span>
     `).join("");
+    const yearSegments = yearBreakdown.filter(([, yearCount]) => yearCount > 0).map(([year, yearCount]) => `
+      <span class="month-bar-segment" title="${year}: ${yearCount} ${plural(yearCount, "lançamento", "lançamentos")}" style="height:${((yearCount / cellCount) * 100).toFixed(3)}%; background:${yearColor(years, years.indexOf(year))}"></span>
+    `).join("");
+    const segments = solidColor ? "" : showCompanies ? companySegments : yearSegments;
     // altura minima para a barra nao sumir quando o valor e pequeno mas nao zero
     const height = cellCount ? Math.max((cellCount / scaleMax) * heightScale, 1.5) : 0;
     const style = `height:${height.toFixed(2)}%${solidColor ? `; background:${solidColor}` : ""}`;
@@ -4124,19 +4176,19 @@ function renderMonthChart(models) {
     const share = (count / total) * 100;
     const average = averageOf(month.index);
     const { breakdown: companyBreakdown, html: singleBar } = barFor(monthModels, count, maxCount);
-    const companyDetails = companyBreakdown.map(([company, companyCount]) => `
+    const companyDetails = showCompanies ? companyBreakdown.map(([company, companyCount]) => `
       <span class="month-tooltip-company">
         <span class="month-tooltip-swatch" style="--company-color:${colorFor(company)}" aria-hidden="true"></span>
         <span>${escapeHtml(company)}</span>
         <strong>${companyCount}</strong>
       </span>
-    `).join("");
+    `).join("") : "";
 
     const yearSlots = grouped ? years.map((year, yearIndex) => {
       const yearModels = monthModels.filter((model) => model.year === year);
       const cellCount = yearModels.length;
       const label = `${year} · ${month.name}: ${cellCount} ${plural(cellCount, "lançamento", "lançamentos")}`;
-      const solid = solidYears ? monthYearColor(years, yearIndex) : null;
+      const solid = showCompanies ? null : yearColor(years, yearIndex);
       const yearBar = barFor(yearModels, cellCount, maxCount, solid, 82);
       return `
         <div class="month-year-slot" data-year="${escapeAttribute(String(year))}" title="${escapeAttribute(label)}" style="--month-bar-height:${yearBar.height.toFixed(2)}%">
@@ -4156,9 +4208,7 @@ function renderMonthChart(models) {
     const summary = grouped
       ? `${month.name}: ${count} ${plural(count, "lançamento", "lançamentos")} somando os ${years.length} anos`
       : `${month.name}: ${count} ${plural(count, "lançamento", "lançamentos")} (${formatShare(share)} do total)${averageText}`;
-    const yearSummary = grouped
-      ? years.map((year) => `${year}: ${countFor(month.index, year)}`).join(" · ")
-      : "";
+    const yearSummary = years.map((year) => `${year}: ${countFor(month.index, year)}`).join(" · ");
     const companySummary = companyBreakdown.map(([company, companyCount]) => `${company}: ${companyCount}`).join(", ");
     const accessibleSummary = [summary, yearSummary && `Por ano: ${yearSummary}.`, companySummary && `Por empresa: ${companySummary}.`]
       .filter(Boolean).join(" ");
@@ -4185,28 +4235,16 @@ function renderMonthChart(models) {
           <p class="section-kicker">Meses do ano</p>
           <h2 id="monthChartTitle">${grouped ? "Como cada mês se comporta ano a ano" : "Em que mês do ano saem mais lançamentos"}</h2>
           <p>${grouped
-            ? `Os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual, separados por mês e por ano: cada mês traz uma barra para ${years.join(", ")}, na mesma ordem da esquerda para a direita. O número sobre cada barra mostra a quantidade naquele ano. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. ${solidYears ? "Cada barra usa uma cor por ano, do mais antigo (claro) ao mais recente (escuro)." : "Cada cor representa uma empresa."}`
-            : `Todos os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual somados por mês do calendário, de ${formatDate(firstDate)} a ${formatDate(lastDate)}. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. Cada cor representa uma empresa.`}</p>
-          ${grouped ? `
-            <div class="month-chart-controls">
-              <p class="month-chart-years">${years.map((year, index) => `
-                <span class="month-chart-year">
-                  ${solidYears
-                    ? `<span class="month-chart-year-swatch" style="--year-color:${monthYearColor(years, index)}" aria-hidden="true"></span>`
-                    : `<span class="month-chart-year-order">${index + 1}ª</span>`}
-                  ${year}
-                </span>
-              `).join("")}</p>
-              <label class="month-chart-toggle">
-                <input type="checkbox" data-month-solid-years ${solidYears ? "checked" : ""}>
-                <span>Uma cor por ano</span>
-              </label>
-            </div>
-          ` : ""}
+            ? `Os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual, separados por mês e por ano: cada mês traz uma barra para ${years.join(", ")}, na mesma ordem da esquerda para a direita. O número sobre cada barra mostra a quantidade naquele ano. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. ${showCompanies ? "As cores dentro das barras representam empresas." : "Cada barra usa a cor do ano correspondente."}`
+            : `Todos os ${total} ${plural(total, "lançamento", "lançamentos")} do filtro atual somados por mês do calendário, de ${formatDate(firstDate)} a ${formatDate(lastDate)}. Aqui entram também os registros sem dia exato, porque nesses o mês vem confirmado pela fonte. ${showCompanies ? "Cada cor representa uma empresa." : "Cada cor representa um ano."}`}</p>
+          ${!showCompanies || grouped ? `<div class="month-chart-controls">${!showCompanies ? statsYearLegend(years) : `<p class="month-chart-years">${years.map((year, index) => `<span class="month-chart-year"><span class="month-chart-year-order">${index + 1}ª</span>${year}</span>`).join("")}</p>`}</div>` : ""}
         </div>
-        <div class="month-chart-peak">
-          <strong>${escapeHtml(peak.name)}</strong>
-          <span>mês mais comum · ${peakCount} ${plural(peakCount, "lançamento", "lançamentos")}</span>
+        <div class="stats-chart-header-actions">
+          ${statsColorToggle("month")}
+          <div class="month-chart-peak">
+            <strong>${escapeHtml(peak.name)}</strong>
+            <span>mês mais comum · ${peakCount} ${plural(peakCount, "lançamento", "lançamentos")}</span>
+          </div>
         </div>
       </header>
       ${grouped ? `<div class="month-plot-viewport"><div class="month-plot is-grouped">${columns}</div></div>` : `<div class="month-plot">${columns}</div>`}

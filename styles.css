@@ -1035,14 +1035,33 @@ dd {
   margin-bottom: 18px;
 }
 
+.weekday-chart-header > div:first-child,
+.month-chart-header > div:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.stats-chart-header-actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.stats-chart-header-actions .stats-color-toggle {
+  margin-left: 0;
+}
+
 .weekday-chart-header h2,
 .month-chart-header h2 {
   margin-bottom: 6px;
   font-size: clamp(1.15rem, 2vw, 1.55rem);
 }
 
-.weekday-chart-header p:last-child,
-.month-chart-header p:last-child {
+.weekday-chart-header > div > p:nth-of-type(2),
+.month-chart-header > div > p:nth-of-type(2) {
   max-width: 720px;
   margin-bottom: 0;
   color: var(--muted);
@@ -1381,7 +1400,7 @@ dd {
   margin: 0;
 }
 
-/* o respiro vem do .month-chart-controls, que envolve a legenda e a checkbox */
+/* o respiro vem do .month-chart-controls, que envolve a legenda */
 .month-chart-years {
   display: flex;
   flex-wrap: wrap;
@@ -1426,10 +1445,11 @@ dd {
   margin-top: 10px;
 }
 
-.month-chart-toggle {
+.stats-color-toggle {
   display: inline-flex;
   align-items: center;
   gap: 7px;
+  margin-left: auto;
   padding: 5px 11px 5px 8px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
@@ -1441,16 +1461,16 @@ dd {
   user-select: none;
 }
 
-.month-chart-toggle:hover {
+.stats-color-toggle:hover {
   border-color: var(--accent);
 }
 
-.month-chart-toggle:focus-within {
+.stats-color-toggle:focus-within {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
 
-.month-chart-toggle input {
+.stats-color-toggle input {
   width: 15px;
   height: 15px;
   margin: 0;
@@ -1474,6 +1494,26 @@ dd {
 
 .year-list {
   border-top: 1px solid var(--line);
+}
+
+.year-chart-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 14px;
+}
+
+.year-chart-header h2 {
+  margin-bottom: 5px;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+}
+
+.year-chart-header p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 /* sem o grafico acumulado acima, a borda viraria um risco solto no topo do card */
@@ -2317,6 +2357,10 @@ td a,
   .month-chart-header {
     display: grid;
     gap: 12px;
+  }
+
+  .stats-chart-header-actions {
+    width: 100%;
   }
 
   .weekday-chart-peak,
