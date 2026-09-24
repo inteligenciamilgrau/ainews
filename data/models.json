@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-09-22",
+    "updated_at": "2026-09-23",
     "last_correction": {
-      "date": "2026-09-22",
-      "description_pt": "Inclusao do GPT-6 Sol e do GPT-6 Luna, publicados no catalogo oficial da OpenAI com contexto de 1,05M tokens, saida maxima de 128K e precos de US$ 2/US$ 10 e US$ 0,10/US$ 0,50 por milhao de tokens. Inclusao do Claude Opus 5.5, lancado pela Anthropic em 22 de setembro de 2026 como primeiro modelo da familia Claude 5.5, com preco de US$ 4/US$ 20 por milhao de tokens e disponibilidade em todas as plataformas."
+      "date": "2026-09-23",
+      "description_pt": "Inclusao do Gemini 3.8 Flash TTS e do Gemini 3.8 Flash-Lite TTS, lancados em disponibilidade geral pela Google em 22 de setembro de 2026; do FLUX 3 Action, com pesos publicados pela Black Forest Labs em 23 de setembro; e dos NVIDIA Nemotron 3.5 Lightning e Nemotron 3 Diarization, este ultimo lancado em 23 de setembro."
     },
     "previous_correction": {
-      "date": "2026-09-21",
-      "description_pt": "Inclusao do dots3-note Preview, publicado pela dots studio em 14 de agosto de 2026 com pesos abertos, entrada multimodal e contexto de 512K tokens, e do Grok 4.7, lancado pela xAI em 21 de setembro de 2026 para codigo, agentes e trabalho de conhecimento, com API e contexto de 500K tokens. Inclusao da serie Xiaomi MiMo-V2.6, com data oficial de 22 de setembro no fuso da China, modelos Pro e Flash de pesos abertos e acesso pelo MiMo Studio."
+      "date": "2026-09-22",
+      "description_pt": "Inclusao do GPT-6 Sol e do GPT-6 Luna, publicados no catalogo oficial da OpenAI com contexto de 1,05M tokens, saida maxima de 128K e precos de US$ 2/US$ 10 e US$ 0,10/US$ 0,50 por milhao de tokens. Inclusao do Claude Opus 5.5, lancado pela Anthropic em 22 de setembro de 2026 como primeiro modelo da familia Claude 5.5, com preco de US$ 4/US$ 20 por milhao de tokens e disponibilidade em todas as plataformas."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -2431,6 +2431,32 @@
         "publisher": "NVIDIA Developer",
         "date_basis": "Post tecnico oficial publicado em 28 de abril de 2026."
       },
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-nemotron-3-5-lightning",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron 3.5 Lightning",
+      "release_date": "2026-08-11",
+      "release_stage": "pesos abertos/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "agente", "MoE", "30B", "3B-ativos", "open-weights", "OpenSource", "OpenMDW-1.1"],
+      "description_pt": "Modelo MoE de 30B parametros totais e 3B ativos voltado a execucao rapida de tarefas em agentes de longa duracao. A NVIDIA publicou pesos BF16 e NVFP4, dados e receitas de ajuste sob OpenMDW-1.1; o modelo tambem pode ser testado pelo servico build.nvidia.com.",
+      "sources": [
+        {
+          "title": "NVIDIA Nemotron 3.5 Lightning Delivers Fast, Accurate Specialized Task Execution for Long-Running Agents",
+          "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "publisher": "NVIDIA Developer",
+          "date_basis": "Post oficial publicado em 11 de agosto de 2026 anuncia o modelo, os pesos e os recursos de ajuste."
+        },
+        {
+          "title": "NVIDIA Nemotron 3.5 Lightning 30B A3B BF16",
+          "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+          "publisher": "NVIDIA / Hugging Face",
+          "date_basis": "Pagina oficial dos pesos BF16 disponibilizados pela NVIDIA."
+        }
+      ],
       "confidence": "alta"
     },
     {
@@ -5826,6 +5852,84 @@
       "confidence": "alta"
     },
     {
+      "id": "nvidia-nemotron-3-diarization",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron 3 Diarization",
+      "release_date": "2026-09-23",
+      "release_stage": "pesos abertos",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "diarizacao", "identificacao-de-falantes", "streaming", "open-weights", "OpenSource", "100M", "OpenMDW-1.1"],
+      "description_pt": "Modelo de diarizacao de 100 milhoes de parametros que marca quando cada pessoa fala, inclusive em trechos sobrepostos, com ate oito falantes. O mesmo checkpoint funciona em audio gravado e em streaming; nao transcreve as palavras por si so. Pesos publicados sob OpenMDW-1.1, com integracao ao NVIDIA NeMo.",
+      "sources": [
+        {
+          "title": "Nemotron 3 Diarization - model card",
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization",
+          "publisher": "NVIDIA / Hugging Face",
+          "date_basis": "Model card oficial informa a data de release de 23 de setembro de 2026 e confirma recursos, pesos e licenca."
+        },
+        {
+          "title": "Know Who Spoke When: Build Real-Time, Multi-Speaker AI with NVIDIA Nemotron 3 Diarization",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-diarization",
+          "publisher": "NVIDIA / Hugging Face",
+          "date_basis": "Artigo dos autores da NVIDIA publicado em 23 de setembro de 2026 apresenta o modelo e suas avaliacoes."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-8-flash-tts",
+      "company": "Google",
+      "family": "Gemini Audio",
+      "model": "Gemini 3.8 Flash TTS",
+      "release_date": "2026-09-22",
+      "release_stage": "disponibilidade geral/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "multilingue", "API", "GA"],
+      "description_pt": "Modelo principal de conversao de texto em voz da familia Gemini 3.8, voltado a fidelidade vocal, interpretacao expressiva, sotaques regionais e narracoes longas. Disponivel na Gemini API como gemini-3.8-flash-tts, com suporte a 130 idiomas, multiplos falantes, criacao e replicacao de vozes.",
+      "sources": [
+        {
+          "title": "Gemini API release notes",
+          "url": "https://ai.google.dev/gemini-api/docs/changelog",
+          "publisher": "Google",
+          "date_basis": "Notas oficiais registram a disponibilidade geral do Gemini 3.8 Flash TTS em 22 de setembro de 2026."
+        },
+        {
+          "title": "Gemini 3.8 Flash TTS",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts",
+          "publisher": "Google",
+          "date_basis": "Pagina oficial confirma o identificador, os recursos de voz e o posicionamento do modelo."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-3-8-flash-lite-tts",
+      "company": "Google",
+      "family": "Gemini Audio",
+      "model": "Gemini 3.8 Flash-Lite TTS",
+      "release_date": "2026-09-22",
+      "release_stage": "disponibilidade geral/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "text-to-speech", "voz", "multilingue", "baixa-latencia", "API", "GA"],
+      "description_pt": "Variante rapida e economica de conversao de texto em voz da familia Gemini 3.8 para producao em escala e agentes de voz. Disponivel na Gemini API como gemini-3.8-flash-lite-tts, com suporte a 101 idiomas, multiplos falantes, criacao e replicacao de vozes; substitui o Gemini 3.1 Flash TTS Preview para essas cargas.",
+      "sources": [
+        {
+          "title": "Gemini API release notes",
+          "url": "https://ai.google.dev/gemini-api/docs/changelog",
+          "publisher": "Google",
+          "date_basis": "Notas oficiais registram a disponibilidade geral do Gemini 3.8 Flash-Lite TTS em 22 de setembro de 2026."
+        },
+        {
+          "title": "Gemini 3.8 Flash-Lite TTS",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts",
+          "publisher": "Google",
+          "date_basis": "Pagina oficial confirma o identificador, os recursos de voz e a substituicao recomendada do modelo 3.1 Flash TTS Preview."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
       "id": "openai-musenet",
       "company": "OpenAI",
       "family": "MuseNet",
@@ -6851,6 +6955,32 @@
           "url": "https://www.globenewswire.com/news-release/2026/07/23/3332364/0/en/black-forest-labs-unveils-flux-3-a-new-multimodal-frontier-model-for-visual-intelligence.html",
           "publisher": "Black Forest Labs / GlobeNewswire",
           "date_basis": "Release oficial de 23 de julho de 2026 confirma as quatro variantes, o early access de Video e Action e a parceria com a mimic (FLUX-mimic) em testes com a Audi."
+        }
+      ],
+      "confidence": "alta"
+    },
+    {
+      "id": "black-forest-labs-flux-3-action",
+      "company": "Black Forest Labs",
+      "family": "FLUX",
+      "model": "FLUX 3 Action",
+      "release_date": "2026-09-23",
+      "release_stage": "pesos publicados/pesquisa",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "world-action-model", "video", "acao", "open-weights", "OpenSource", "7B"],
+      "description_pt": "Modelo de acao de 7B parametros derivado do FLUX 3 que prediz conjuntamente quadros futuros e comandos para robos a partir de observacoes visuais, estado e instrucao em texto. A Black Forest Labs publicou pesos base e politicas ajustadas para DROID e SO-101, alem de codigo e receitas de ajuste, sob a FLUX Kommunity License v1.0. O modelo havia sido anunciado em julho, mas a publicacao dos pesos ocorreu em setembro.",
+      "sources": [
+        {
+          "title": "FLUX 3 Action: a world action model you can fine-tune",
+          "url": "https://huggingface.co/blog/black-forest-labs/flux-3-action",
+          "publisher": "Black Forest Labs / Hugging Face",
+          "date_basis": "Artigo dos autores da Black Forest Labs publicado em 23 de setembro de 2026 confirma a liberacao dos pesos, codigo e receitas de ajuste."
+        },
+        {
+          "title": "FLUX 3 Action",
+          "url": "https://bfl.ai/models/flux-3-action",
+          "publisher": "Black Forest Labs",
+          "date_basis": "Pagina oficial apresenta o modelo de 7B parametros e aponta para o download dos pesos."
         }
       ],
       "confidence": "alta"
