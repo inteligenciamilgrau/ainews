@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-09-23",
+    "updated_at": "2026-09-28",
     "last_correction": {
-      "date": "2026-09-23",
-      "description_pt": "Inclusao do Gemini 3.8 Flash TTS e do Gemini 3.8 Flash-Lite TTS, lancados em disponibilidade geral pela Google em 22 de setembro de 2026; do FLUX 3 Action, com pesos publicados pela Black Forest Labs em 23 de setembro; e dos NVIDIA Nemotron 3.5 Lightning e Nemotron 3 Diarization, este ultimo lancado em 23 de setembro."
+      "date": "2026-09-28",
+      "description_pt": "Inclusao do Claude Sonnet 5.5, lancado pela Anthropic em 28 de setembro de 2026 com disponibilidade em todas as plataformas e na API. Segundo a empresa, gera saidas mais de 30% mais rapido e custa ate 30% menos por tarefa que o Sonnet 5, mantendo o preco por token."
     },
     "previous_correction": {
-      "date": "2026-09-22",
-      "description_pt": "Inclusao do GPT-6 Sol e do GPT-6 Luna, publicados no catalogo oficial da OpenAI com contexto de 1,05M tokens, saida maxima de 128K e precos de US$ 2/US$ 10 e US$ 0,10/US$ 0,50 por milhao de tokens. Inclusao do Claude Opus 5.5, lancado pela Anthropic em 22 de setembro de 2026 como primeiro modelo da familia Claude 5.5, com preco de US$ 4/US$ 20 por milhao de tokens e disponibilidade em todas as plataformas."
+      "date": "2026-09-23",
+      "description_pt": "Inclusao do Gemini 3.8 Flash TTS e do Gemini 3.8 Flash-Lite TTS, lancados em disponibilidade geral pela Google em 22 de setembro de 2026; do FLUX 3 Action, com pesos publicados pela Black Forest Labs em 23 de setembro; e dos NVIDIA Nemotron 3.5 Lightning e Nemotron 3 Diarization, este ultimo lancado em 23 de setembro."
     },
     "title": "Timeline oficial de lancamentos de modelos de IA",
     "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
@@ -1154,6 +1154,25 @@
         "url": "https://www.anthropic.com/claude-opus-5-5",
         "publisher": "Anthropic",
         "date_basis": "Post oficial publicado em 22 de setembro de 2026 anuncia disponibilidade imediata em todas as plataformas e na API como claude-opus-5-5."
+      },
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-sonnet-5-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Sonnet 5.5",
+      "release_date": "2026-09-28",
+      "release_stage": "GA/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "raciocinio", "computador", "visao", "trabalho", "API"],
+      "description_pt": "Segundo modelo da familia Claude 5.5, voltado a codigo, tarefas profissionais e criacao de documentos. Segundo a Anthropic, gera saidas mais de 30% mais rapido e custa ate 30% menos por tarefa que o Sonnet 5, mantendo o preco da API em US$ 2 por milhao de tokens de entrada e US$ 10 de saida.",
+      "source": {
+        "title": "Claude Sonnet 5.5",
+        "url": "https://www.anthropic.com/claude-sonnet-5-5",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 28 de setembro de 2026 anuncia disponibilidade imediata em todas as plataformas e na API como claude-sonnet-5-5."
       },
       "date_precision": "dia oficial",
       "confidence": "alta"
