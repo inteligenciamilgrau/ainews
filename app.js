@@ -35,7 +35,7 @@ const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
 const VALID_MAP_BASE_MODES = new Set(["map", "earth", "hybrid"]);
 const VALID_MAP_SCALES = new Set(["globe", "country", "city", "street"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
-const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models", "Multimodal", "Embeddings", "Agentes", "Decisao estruturada"];
+const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models", "Multimodal", "Embeddings", "Agentes", "Decisao estruturada", "Ferramentas"];
 const VALID_AI_CATEGORIES = new Set(AI_CATEGORIES);
 // Variantes de grafia presentes em data/models.json que apontam para uma categoria existente.
 const AI_CATEGORY_ALIASES = {
@@ -3511,7 +3511,7 @@ function renderMetrics(models) {
 function renderTimeline(models) {
   if (!models.length) {
     els.timelineScale.innerHTML = "";
-    els.timeline.innerHTML = `<div class="empty-state">Nenhum modelo no filtro atual.</div>`;
+    els.timeline.innerHTML = `<div class="empty-state">Nenhum lançamento no filtro atual.</div>`;
     return;
   }
 
@@ -3577,7 +3577,7 @@ function buildScaleYears(models) {
 
 function renderDetails(model) {
   if (!model) {
-    els.modelDetails.innerHTML = `<div class="empty-state">Selecione um modelo.</div>`;
+    els.modelDetails.innerHTML = `<div class="empty-state">Selecione um lançamento.</div>`;
     return;
   }
 
@@ -3620,7 +3620,7 @@ function renderYearChart(models) {
     els.cumulativeChart.innerHTML = "";
     els.weekdayChart.innerHTML = "";
     els.monthChart.innerHTML = "";
-    els.yearChart.innerHTML = `<div class="empty-state">Nenhum modelo no filtro atual.</div>`;
+    els.yearChart.innerHTML = `<div class="empty-state">Nenhum lançamento no filtro atual.</div>`;
     return;
   }
 
@@ -3643,7 +3643,7 @@ function renderYearChart(models) {
       }).join("") : "";
       // a lista de modelos so aparece no hover/foco da linha, via .year-models
       return `
-        <div class="year-row" tabindex="0" aria-label="${escapeAttribute(`${year}: ${yearModels.length} modelos`)}">
+        <div class="year-row" tabindex="0" aria-label="${escapeAttribute(`${year}: ${yearModels.length} lançamentos`)}">
           <div class="year-label">${year}</div>
           <div class="year-bar-wrap">
             <div class="year-bar" style="width:${Math.max((yearModels.length / maxCount) * 100, 6)}%;${state.yearChartShowCompanies ? "" : `background:${yearColor(years, years.indexOf(year))}`}">
@@ -3658,7 +3658,7 @@ function renderYearChart(models) {
   const legendItems = unique(models.map((model) => model.company))
     .sort((a, b) => a.localeCompare(b, "pt-BR"))
     .map((company) => `
-      <button class="year-company-legend-item" type="button" data-company="${escapeAttribute(company)}" title="Passe o mouse para destacar os modelos da empresa">
+      <button class="year-company-legend-item" type="button" data-company="${escapeAttribute(company)}" title="Passe o mouse para destacar os lançamentos da empresa">
         <span class="year-company-legend-swatch" style="--company-color:${colorFor(company)}" aria-hidden="true"></span>
         <span>${escapeHtml(company)}</span>
       </button>
@@ -3671,8 +3671,8 @@ function renderYearChart(models) {
   els.yearChart.innerHTML = `
     <header class="year-chart-header">
       <div>
-        <p class="section-kicker">Modelos por ano</p>
-        <h2 id="yearChartTitle">Quantos modelos foram lançados em cada ano</h2>
+        <p class="section-kicker">Lançamentos por ano</p>
+        <h2 id="yearChartTitle">Quantos lançamentos ocorreram em cada ano</h2>
         <p>${state.yearChartShowCompanies ? "As cores mostram a participação de cada empresa no total do ano." : "Cada ano usa uma cor na escala do mais antigo ao mais recente."}</p>
       </div>
       ${statsColorToggle("year")}
@@ -3847,7 +3847,7 @@ function renderCumulativeModelChart(models) {
         cx="${xForTimestamp(release.timestamp).toFixed(2)}"
         cy="${yForTotal(release.cumulative).toFixed(2)}"
         r="${compactChart ? 4 : 3}">
-        <title>${escapeHtml(`${formatDate(release.date)}: ${release.cumulative} modelos acumulados (+${release.count} no dia)`)}</title>
+        <title>${escapeHtml(`${formatDate(release.date)}: ${release.cumulative} lançamentos acumulados (+${release.count} no dia)`)}</title>
       </circle>
     `).join("");
 
@@ -3856,12 +3856,12 @@ function renderCumulativeModelChart(models) {
       <header class="cumulative-chart-header">
         <div>
           <p class="section-kicker">Crescimento acumulado</p>
-          <h2 id="cumulativeChartTitle">Total de modelos ao longo do tempo</h2>
-          <p>Cada degrau soma os modelos lançados naquela data. Uma subida mais rápida indica maior ritmo de lançamentos.</p>
+          <h2 id="cumulativeChartTitle">Total de lançamentos ao longo do tempo</h2>
+          <p>Cada degrau soma os lançamentos registrados naquela data. Uma subida mais rápida indica maior ritmo de lançamentos.</p>
         </div>
         <div class="cumulative-chart-total">
           <strong>${cumulative}</strong>
-          <span>modelos acumulados</span>
+          <span>lançamentos acumulados</span>
         </div>
       </header>
       <div class="cumulative-chart-scroll">
@@ -3869,7 +3869,7 @@ function renderCumulativeModelChart(models) {
           class="cumulative-chart-svg"
           viewBox="0 0 ${width} ${height}"
           role="img"
-          aria-label="Gráfico do total acumulado de modelos entre ${escapeAttribute(formatDate(firstRelease.date))} e ${escapeAttribute(formatDate(lastRelease.date))}">
+          aria-label="Gráfico do total acumulado de lançamentos entre ${escapeAttribute(formatDate(firstRelease.date))} e ${escapeAttribute(formatDate(lastRelease.date))}">
           <defs>
             <linearGradient id="cumulativeAreaGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#0f766e" stop-opacity="0.32"></stop>

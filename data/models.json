@@ -1,16 +1,16 @@
 {
   "metadata": {
-    "updated_at": "2026-09-28",
+    "updated_at": "2026-09-29",
     "last_correction": {
+      "date": "2026-09-29",
+      "description_pt": "Inclusao do GPT-6.1 Sol e de um unico registro das ferramentas do OpenAI DevDay 2026, com Dots, ChatGPT Space e novidades de Work, Codex, Sites e plugins. Ferramentas ficam em categoria propria, separadas dos modelos LLMs."
+    },
+    "previous_correction": {
       "date": "2026-09-28",
       "description_pt": "Inclusao do Claude Sonnet 5.5, lancado pela Anthropic em 28 de setembro de 2026 com disponibilidade em todas as plataformas e na API. Segundo a empresa, gera saidas mais de 30% mais rapido e custa ate 30% menos por tarefa que o Sonnet 5, mantendo o preco por token."
     },
-    "previous_correction": {
-      "date": "2026-09-23",
-      "description_pt": "Inclusao do Gemini 3.8 Flash TTS e do Gemini 3.8 Flash-Lite TTS, lancados em disponibilidade geral pela Google em 22 de setembro de 2026; do FLUX 3 Action, com pesos publicados pela Black Forest Labs em 23 de setembro; e dos NVIDIA Nemotron 3.5 Lightning e Nemotron 3 Diarization, este ultimo lancado em 23 de setembro."
-    },
-    "title": "Timeline oficial de lancamentos de modelos de IA",
-    "scope": "Modelos e familias citados no pedido: LLMs, imagem, video, audio/transcricao, musica e robotica/world models. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos.",
+    "title": "Timeline de lancamentos de modelos e ferramentas de IA",
+    "scope": "Modelos de IA e ferramentas em categorias separadas. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos. Novidades de ferramentas de um mesmo evento podem ser reunidas em um unico registro, mantendo os novos modelos em entradas proprias.",
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
@@ -13922,6 +13922,66 @@
           "date_basis": "Comunicado da propria empresa, publicado em 16 de agosto de 2026, informa que os pesos foram lancados em 14 de agosto de 2026."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-6-1-sol",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-6.1 Sol",
+      "release_date": "2026-09-29",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "codigo", "agente", "computador", "longo-contexto", "API", "proprietario"],
+      "description_pt": "Atualizacao da linha Sol apresentada no DevDay 2026 para codigo complexo, uso de computador e trabalho profissional. Segundo a OpenAI, oferece desempenho proximo ao GPT-6 Astra com menor custo. Recebe texto e imagem, gera texto e tem contexto de 1.050.000 tokens e saida maxima de 128.000 tokens. Na API, usa o identificador gpt-6.1-sol e custa US$ 2 de entrada e US$ 10 de saida por milhao de tokens no processamento Standard, para prompts de ate 272K tokens de entrada. O uso de ferramentas exige a Responses API. Tambem chega ao Codex e ao ChatGPT Work, com disponibilidade conforme plano, cliente e configuracao do workspace.",
+      "sources": [
+        {
+          "title": "ChatGPT & Codex changelog - GPT-6.1 Sol",
+          "url": "https://learn.chatgpt.com/docs/changelog",
+          "publisher": "OpenAI",
+          "date_basis": "Entrada oficial de 29 de setembro de 2026 anuncia o GPT-6.1 Sol no Codex e no ChatGPT Work."
+        },
+        {
+          "title": "GPT-6.1 Sol Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+          "publisher": "OpenAI",
+          "date_basis": "Catalogo oficial consultado em 29 de setembro de 2026 confirma identificador, modalidades, contexto, saida maxima, precos e uso de ferramentas pela Responses API."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-devday-2026-ferramentas",
+      "company": "OpenAI",
+      "family": "DevDay",
+      "model": "DevDay 2026: Dots, ChatGPT Space e ferramentas",
+      "release_date": "2026-09-29",
+      "release_stage": "anuncio de ferramentas/rollout gradual",
+      "ai_category": "Ferramentas",
+      "model_type": ["ferramentas", "evento", "DevDay", "Dots", "ChatGPT Space", "Spaces", "ChatGPT Work", "Codex", "Sites", "plugins", "colaboracao", "automacao", "produto"],
+      "description_pt": "Pacote de ferramentas do OpenAI DevDay 2026 reunido em um unico registro. Dots sao agentes continuos com computador proprio na nuvem, memoria e apps conectados, capazes de acompanhar responsabilidades entre conversas. ChatGPT Space reune arquivos e Pages para criar, revisar e compartilhar trabalho com colaboradores. O evento trouxe Work sincronizado entre desktop, web e celular; ambientes reutilizaveis do Codex Cloud; Codex Security Cloud em preview; Sites com dados conectados; Sign in with ChatGPT; Plugin Extensions; MCP Events e anotacoes de sites. Para equipes, inclui ChatGPT no Slack e Teams, Team Tasks, conexoes compartilhadas e controles Agent Security. Tambem apresenta Astra Ultrafast como modo de velocidade. O acesso varia por recurso, plano e rollout; Dots tem liberacao gradual e recursos como Sign in with ChatGPT possuem acesso limitado. O novo modelo GPT-6.1 Sol tem registro separado na categoria LLMs.",
+      "sources": [
+        {
+          "title": "DevDay 2026",
+          "url": "https://learn.chatgpt.com/docs/whats-new/devday-2026",
+          "publisher": "OpenAI",
+          "date_basis": "Resumo oficial datado de 29 de setembro de 2026 reune os anuncios do evento e suas condicoes de disponibilidade."
+        },
+        {
+          "title": "Meet dots",
+          "url": "https://learn.chatgpt.com/docs/dots",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial descreve os agentes continuos, memoria, ferramentas e limites de acesso; a data do anuncio vem do resumo do DevDay."
+        },
+        {
+          "title": "ChatGPT Space",
+          "url": "https://learn.chatgpt.com/docs/space",
+          "publisher": "OpenAI",
+          "date_basis": "Documentacao oficial descreve Pages, arquivos e colaboracao; a data do anuncio vem do resumo do DevDay."
+        }
+      ],
+      "date_precision": "dia oficial",
       "confidence": "alta"
     },
     {
