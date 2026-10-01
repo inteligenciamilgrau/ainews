@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-09-29",
+    "updated_at": "2026-09-30",
     "last_correction": {
-      "date": "2026-09-29",
-      "description_pt": "Inclusao do GPT-6.1 Sol e de um unico registro das ferramentas do OpenAI DevDay 2026, com Dots, ChatGPT Space e novidades de Work, Codex, Sites e plugins. Ferramentas ficam em categoria propria, separadas dos modelos LLMs."
+      "date": "2026-09-30",
+      "description_pt": "Inclusao do Gemini 4 Argon, anunciado pela Google em 30 de setembro de 2026 com acesso inicial restrito a defensores ciberneticos confiaveis pelo Fairwind Program. A disponibilidade ampla na API e para assinantes Google AI Ultra ainda e futura."
     },
     "previous_correction": {
-      "date": "2026-09-28",
-      "description_pt": "Inclusao do Claude Sonnet 5.5, lancado pela Anthropic em 28 de setembro de 2026 com disponibilidade em todas as plataformas e na API. Segundo a empresa, gera saidas mais de 30% mais rapido e custa ate 30% menos por tarefa que o Sonnet 5, mantendo o preco por token."
+      "date": "2026-09-29",
+      "description_pt": "Inclusao do GPT-6.1 Sol e de um unico registro das ferramentas do OpenAI DevDay 2026, com Dots, ChatGPT Space e novidades de Work, Codex, Sites e plugins. Ferramentas ficam em categoria propria, separadas dos modelos LLMs."
     },
     "title": "Timeline de lancamentos de modelos e ferramentas de IA",
     "scope": "Modelos de IA e ferramentas em categorias separadas. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos. Novidades de ferramentas de um mesmo evento podem ser reunidas em um unico registro, mantendo os novos modelos em entradas proprias.",
@@ -9158,6 +9158,27 @@
           "date_basis": "Post oficial publicado em 2 de setembro de 2026 lanca o Fairwind Program e confirma o uso do Gemini 3.8 Flash Cyber com CodeMender por parceiros confiaveis."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-4-argon",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 4 Argon",
+      "release_date": "2026-09-30",
+      "release_stage": "anuncio/acesso limitado pelo Fairwind Program",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "multimodal", "visao", "raciocinio", "codigo", "agente", "ciberseguranca", "vulnerabilidades", "patching", "1M-saida", "acesso-limitado", "proprietario"],
+      "description_pt": "Novo modelo de fronteira da Google para raciocinio em tarefas longas, engenharia de software, trabalho profissional em financas e direito e defesa cibernetica. Combina compreensao multimodal com limite de ate 1 milhao de tokens de saida, segundo a empresa, e pode encontrar, validar e corrigir vulnerabilidades autonomamente. O acesso inicial e restrito a defensores ciberneticos confiaveis pelo Fairwind Program. A disponibilidade ampla ainda nao tem data anunciada e comecara por clientes pagos da API e assinantes Google AI Ultra.",
+      "sources": [
+        {
+          "title": "Gemini 4 Argon: our next era of frontier intelligence",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 30 de setembro de 2026 anuncia o Gemini 4 Argon e o acesso inicial pelo Fairwind Program, distinguindo essa etapa da disponibilidade ampla futura."
+        }
+      ],
+      "date_precision": "dia oficial",
       "confidence": "alta"
     },
     {
