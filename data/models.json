@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "updated_at": "2026-09-30",
+    "updated_at": "2026-10-07",
     "last_correction": {
-      "date": "2026-09-30",
-      "description_pt": "Inclusao do Gemini 4 Argon, anunciado pela Google em 30 de setembro de 2026 com acesso inicial restrito a defensores ciberneticos confiaveis pelo Fairwind Program. A disponibilidade ampla na API e para assinantes Google AI Ultra ainda e futura."
+      "date": "2026-10-07",
+      "description_pt": "Inclusao do Mistral Large 4, lancado pela Mistral AI em public preview na API em 6 de outubro de 2026, com pesos abertos prometidos ate o fim do mes, e do Claude Haiku 5.5, lancado pela Anthropic em 7 de outubro de 2026 em todas as plataformas e na API por US$ 0,10/US$ 0,50 por milhao de tokens. Inclusao retroativa do Mistral OCR 4.1 (16 de julho, GA em 31 de agosto) e do Shieldstral 1.0, classificador de seguranca aberto de 3B lancado em 4 de agosto de 2026."
     },
     "previous_correction": {
-      "date": "2026-09-29",
-      "description_pt": "Inclusao do GPT-6.1 Sol e de um unico registro das ferramentas do OpenAI DevDay 2026, com Dots, ChatGPT Space e novidades de Work, Codex, Sites e plugins. Ferramentas ficam em categoria propria, separadas dos modelos LLMs."
+      "date": "2026-09-30",
+      "description_pt": "Inclusao do Gemini 4 Argon, anunciado pela Google em 30 de setembro de 2026 com acesso inicial restrito a defensores ciberneticos confiaveis pelo Fairwind Program. A disponibilidade ampla na API e para assinantes Google AI Ultra ainda e futura."
     },
     "title": "Timeline de lancamentos de modelos e ferramentas de IA",
     "scope": "Modelos de IA e ferramentas em categorias separadas. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos. Novidades de ferramentas de um mesmo evento podem ser reunidas em um unico registro, mantendo os novos modelos em entradas proprias.",
@@ -1178,6 +1178,25 @@
       "confidence": "alta"
     },
     {
+      "id": "anthropic-claude-haiku-5-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Haiku 5.5",
+      "release_date": "2026-10-07",
+      "release_stage": "GA/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "raciocinio", "computador", "visao", "baixo-custo", "rapido", "API"],
+      "description_pt": "Modelo pequeno da familia Claude 5.5, voltado a tarefas de alto volume como resumos, classificacao e consultas, a subagentes do Opus 5.5 e do Sonnet 5.5 e a atendimento ao vivo e uso de navegador. E o primeiro Haiku com nivel de esforco ajustavel. Custa US$ 0,10 por milhao de tokens de entrada e US$ 0,50 de saida em prompts de ate 100 mil tokens (US$ 0,50 e US$ 2,50 acima disso), 90% menos que o Haiku 4.5.",
+      "source": {
+        "title": "Claude Haiku 5.5",
+        "url": "https://www.anthropic.com/claude-haiku-5-5",
+        "publisher": "Anthropic",
+        "date_basis": "Post oficial publicado em 7 de outubro de 2026 anuncia disponibilidade imediata em todas as plataformas e na API como claude-haiku-5-5."
+      },
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
       "id": "anthropic-claude-fable-5-1",
       "company": "Anthropic",
       "family": "Claude",
@@ -2236,6 +2255,71 @@
           "date_basis": "Model card oficial registra o release em 28 de abril de 2026."
         }
       ],
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-ocr-4-1",
+      "company": "Mistral AI",
+      "family": "Mistral OCR",
+      "model": "Mistral OCR 4.1",
+      "release_date": "2026-07-16",
+      "release_stage": "public preview/API; GA em 31 de agosto de 2026",
+      "ai_category": "LLMs",
+      "model_type": ["OCR", "documentos", "visao", "multimodal", "Document AI", "API"],
+      "description_pt": "Revisao do Mistral OCR 4 com extracao nativa de bounding boxes por paragrafo, rotulos estruturais e confianca por bloco, melhorando a localizacao de regioes em paginas densas e anotadas. Saiu em public preview em 16 de julho e chegou a disponibilidade geral em 31 de agosto de 2026. Em setembro a Mistral descontinuou o OCR 4.0 e indicou o 4.1 como substituto pelo mesmo preco.",
+      "source": {
+        "title": "Changelog",
+        "url": "https://docs.mistral.ai/resources/changelogs",
+        "publisher": "Mistral AI",
+        "date_basis": "Changelog oficial registra o lancamento do OCR 4.1 (mistral-ocr-4-1) em 16 de julho de 2026 e a disponibilidade geral em 31 de agosto de 2026."
+      },
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-shieldstral",
+      "company": "Mistral AI",
+      "family": "Shieldstral",
+      "model": "Shieldstral 1.0",
+      "release_date": "2026-08-04",
+      "release_stage": "open weights",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "seguranca", "moderacao", "classificacao", "3B", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Classificador de seguranca multimodal de 3B que avalia textos e imagens contra politicas escritas em linguagem natural como perguntas de sim ou nao, sem retreinamento. Cobre classificacao de prompts, moderacao de respostas, deteccao de recusas e toxicidade, e roda em uma unica GPU de 16GB. Segundo a Mistral, iguala ou supera modelos guard abertos ate 7 vezes maiores e estabelece novo estado da arte em moderacao multimodal.",
+      "source": {
+        "title": "Introducing Shieldstral",
+        "url": "https://mistral.ai/news/shieldstral/",
+        "publisher": "Mistral AI",
+        "date_basis": "Post oficial publicado em 4 de agosto de 2026 anuncia o Shieldstral com pesos abertos sob Apache 2.0 no Hugging Face."
+      },
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-large-4",
+      "company": "Mistral AI",
+      "family": "Mistral Large",
+      "model": "Mistral Large 4",
+      "release_date": "2026-10-06",
+      "release_stage": "public preview/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "multilingue", "MoE", "raciocinio", "codigo", "agente", "ciberseguranca", "longo-contexto", "1M-contexto", "europeu", "preview", "API"],
+      "description_pt": "Novo modelo de fronteira da Mistral, apelidado de \"le Chonk\": MoE hibrido de instrucao e raciocinio com entrada multimodal, cerca de 1 trilhao de parametros totais e 49B ativos, segundo o anuncio, e contexto de 1M tokens. Foi treinado do zero em 3.800 GPUs NVIDIA Grace Blackwell nos datacenters europeus da empresa e se destaca em ciberseguranca, com 93% no Cybench. O preview custa US$ 1,36 por milhao de tokens de entrada e US$ 4,18 de saida. A Mistral promete publicar os pesos abertos ate o fim de outubro de 2026.",
+      "sources": [
+        {
+          "title": "Introducing Mistral Large 4",
+          "url": "https://mistral.ai/news/mistral-large-4/",
+          "publisher": "Mistral AI",
+          "date_basis": "Post oficial publicado em 6 de outubro de 2026 anuncia o public preview da API no Mistral Studio e informa que os pesos serao liberados ate o fim do mes."
+        },
+        {
+          "title": "Mistral Large 4",
+          "url": "https://docs.mistral.ai/models/model-cards/mistral-large-4-0",
+          "publisher": "Mistral AI",
+          "date_basis": "Model card oficial lista o modelo em public preview em 6 de outubro de 2026, com contexto de 1M tokens e encoder de visao de 1,6B."
+        }
+      ],
+      "date_precision": "dia oficial",
       "confidence": "alta"
     },
     {
