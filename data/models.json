@@ -1,19 +1,84 @@
 {
   "metadata": {
-    "updated_at": "2026-10-07",
+    "updated_at": "2026-10-14",
     "last_correction": {
-      "date": "2026-10-07",
-      "description_pt": "Inclusao do Mistral Large 4, lancado pela Mistral AI em public preview na API em 6 de outubro de 2026, com pesos abertos prometidos ate o fim do mes, e do Claude Haiku 5.5, lancado pela Anthropic em 7 de outubro de 2026 em todas as plataformas e na API por US$ 0,10/US$ 0,50 por milhao de tokens. Inclusao retroativa do Mistral OCR 4.1 (16 de julho, GA em 31 de agosto) e do Shieldstral 1.0, classificador de seguranca aberto de 3B lancado em 4 de agosto de 2026."
+      "date": "2026-10-14",
+      "description_pt": "Inclusao do Muse Wonder e Muse Wonder Full, lancados pela Meta em 12 de outubro de 2026, e da disponibilidade ampliada do Gemini 4 Argon em 13 de outubro de 2026 na API e em produtos Google com acesso por assinatura. O anuncio inicial do Gemini em 30 de setembro permanece como marco separado."
     },
     "previous_correction": {
-      "date": "2026-09-30",
-      "description_pt": "Inclusao do Gemini 4 Argon, anunciado pela Google em 30 de setembro de 2026 com acesso inicial restrito a defensores ciberneticos confiaveis pelo Fairwind Program. A disponibilidade ampla na API e para assinantes Google AI Ultra ainda e futura."
+      "date": "2026-10-07",
+      "description_pt": "Inclusao do Mistral Large 4, lancado pela Mistral AI em public preview na API em 6 de outubro de 2026, com pesos abertos prometidos ate o fim do mes, e do Claude Haiku 5.5, lancado pela Anthropic em 7 de outubro de 2026 em todas as plataformas e na API por US$ 0,10/US$ 0,50 por milhao de tokens. Inclusao retroativa do Mistral OCR 4.1 (16 de julho, GA em 31 de agosto) e do Shieldstral 1.0, classificador de seguranca aberto de 3B lancado em 4 de agosto de 2026."
     },
     "title": "Timeline de lancamentos de modelos e ferramentas de IA",
     "scope": "Modelos de IA e ferramentas em categorias separadas. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos. Novidades de ferramentas de um mesmo evento podem ser reunidas em um unico registro, mantendo os novos modelos em entradas proprias.",
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
+    {
+      "id": "meta-muse-wonder",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Wonder",
+      "release_date": "2026-10-12",
+      "release_stage": "lancamento/API/Muse Code",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "memoria", "API", "proprietario"],
+      "description_pt": "Modelo da Meta para agentes pessoais e profissionais, com Active Memory para recuperar contexto relevante e Active Focus para sustentar tarefas longas. Disponivel desde o anuncio na Meta Model API e no Muse Code; a chegada ao app Muse foi anunciada para depois, inicialmente para assinantes.",
+      "source": {
+        "title": "Muse Wonder: A Frontier Model For Personal & Professional AI Agents",
+        "url": "https://research.meta.ai/blog/muse-wonder",
+        "publisher": "Meta",
+        "date_basis": "Post oficial publicado em 12 de outubro de 2026 confirma disponibilidade imediata na Meta Model API e no Muse Code."
+      },
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-muse-wonder-full",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Wonder Full",
+      "release_date": "2026-10-12",
+      "release_stage": "lancamento/Muse Code para assinantes",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "memoria", "proprietario"],
+      "description_pt": "Variante da serie Muse Wonder voltada a agentes, memoria e programacao em projetos longos. Lancada para assinantes do Muse Code; o anuncio nao informa disponibilidade da variante Full na Meta Model API.",
+      "source": {
+        "title": "Muse Wonder: A Frontier Model For Personal & Professional AI Agents",
+        "url": "https://research.meta.ai/blog/muse-wonder",
+        "publisher": "Meta",
+        "date_basis": "Post oficial publicado em 12 de outubro de 2026 confirma Muse Wonder Full para assinantes do Muse Code."
+      },
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-4-argon-release",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 4 Argon (API e apps)",
+      "release_date": "2026-10-13",
+      "release_stage": "disponibilidade ampliada/API/produto por assinatura",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "API", "proprietario"],
+      "description_pt": "Ampliacao do acesso ao Gemini 4 Argon apos o anuncio inicial de setembro. Disponivel globalmente pela API no AI Studio e na Gemini platform; no Google Antigravity para assinantes AI Ultra; e no app Gemini e no AI Mode da Busca para AI Pro e Ultra. Foco em tarefas complexas de codigo, trabalho profissional e ciencia.",
+      "sources": [
+        {
+          "title": "Gemini 4 Argon: Built to solve your hardest problems",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+          "publisher": "Google",
+          "date_basis": "Post oficial de 13 de outubro de 2026 anuncia disponibilidade global na API e especifica os planos de acesso por produto."
+        },
+        {
+          "title": "Gemini 4 Argon comes to the Gemini app.",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+          "publisher": "Google",
+          "date_basis": "Post oficial de 13 de outubro de 2026 confirma o acesso no app Gemini para assinantes Google AI Pro e Ultra."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
     {
       "id": "openai-gpt-1",
       "company": "OpenAI",
@@ -9253,7 +9318,7 @@
       "release_stage": "anuncio/acesso limitado pelo Fairwind Program",
       "ai_category": "LLMs",
       "model_type": ["texto", "multimodal", "visao", "raciocinio", "codigo", "agente", "ciberseguranca", "vulnerabilidades", "patching", "1M-saida", "acesso-limitado", "proprietario"],
-      "description_pt": "Novo modelo de fronteira da Google para raciocinio em tarefas longas, engenharia de software, trabalho profissional em financas e direito e defesa cibernetica. Combina compreensao multimodal com limite de ate 1 milhao de tokens de saida, segundo a empresa, e pode encontrar, validar e corrigir vulnerabilidades autonomamente. O acesso inicial e restrito a defensores ciberneticos confiaveis pelo Fairwind Program. A disponibilidade ampla ainda nao tem data anunciada e comecara por clientes pagos da API e assinantes Google AI Ultra.",
+      "description_pt": "Novo modelo de fronteira da Google para raciocinio em tarefas longas, engenharia de software, trabalho profissional em financas e direito e defesa cibernetica. Combina compreensao multimodal com limite de ate 1 milhao de tokens de saida, segundo a empresa, e pode encontrar, validar e corrigir vulnerabilidades autonomamente. Neste anuncio, o acesso inicial era restrito a defensores ciberneticos confiaveis pelo Fairwind Program, com disponibilidade ampla prevista para depois. A ampliacao de acesso de 13 de outubro de 2026 tem registro separado nesta timeline.",
       "sources": [
         {
           "title": "Gemini 4 Argon: our next era of frontier intelligence",
