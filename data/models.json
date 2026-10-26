@@ -1,19 +1,324 @@
 {
   "metadata": {
-    "updated_at": "2026-10-14",
+    "updated_at": "2026-10-26",
     "last_correction": {
-      "date": "2026-10-14",
-      "description_pt": "Inclusao do Muse Wonder e Muse Wonder Full, lancados pela Meta em 12 de outubro de 2026, e da disponibilidade ampliada do Gemini 4 Argon em 13 de outubro de 2026 na API e em produtos Google com acesso por assinatura. O anuncio inicial do Gemini em 30 de setembro permanece como marco separado."
+      "date": "2026-10-26",
+      "description_pt": "Inclusao do GPT-6.1 Terra, lancado pela OpenAI em 26 de outubro de 2026 no ChatGPT Work, no Codex e na API por US$ 1/US$ 5 por milhao de tokens, e do Kimi K3.1 Pro e K3.1 Pro Highspeed, lancados pela Moonshot AI em 23 de outubro com pesos abertos prometidos ate 4 de novembro. Inclusao tambem dos lancamentos de 15 a 23 de outubro: GPT-Live-1.1, Muse Spark Open, Nemotron 3.5 Super VL, Bolt 74B-A9B e Bolt E4B, DeepSeek-V4.1-Flash-1017, MiniMax-M3.1-Flash, Mercury 3, Voxtral 3 e o agente Claude Duet."
     },
     "previous_correction": {
-      "date": "2026-10-07",
-      "description_pt": "Inclusao do Mistral Large 4, lancado pela Mistral AI em public preview na API em 6 de outubro de 2026, com pesos abertos prometidos ate o fim do mes, e do Claude Haiku 5.5, lancado pela Anthropic em 7 de outubro de 2026 em todas as plataformas e na API por US$ 0,10/US$ 0,50 por milhao de tokens. Inclusao retroativa do Mistral OCR 4.1 (16 de julho, GA em 31 de agosto) e do Shieldstral 1.0, classificador de seguranca aberto de 3B lancado em 4 de agosto de 2026."
+      "date": "2026-10-14",
+      "description_pt": "Inclusao do Muse Wonder e Muse Wonder Full, lancados pela Meta em 12 de outubro de 2026, e da disponibilidade ampliada do Gemini 4 Argon em 13 de outubro de 2026 na API e em produtos Google com acesso por assinatura. O anuncio inicial do Gemini em 30 de setembro permanece como marco separado."
     },
     "title": "Timeline de lancamentos de modelos e ferramentas de IA",
     "scope": "Modelos de IA e ferramentas em categorias separadas. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos. Novidades de ferramentas de um mesmo evento podem ser reunidas em um unico registro, mantendo os novos modelos em entradas proprias.",
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
+    {
+      "id": "openai-gpt-live-1-1",
+      "company": "OpenAI",
+      "family": "GPT-Live",
+      "model": "GPT-Live-1.1 / GPT-Live-1.1 Quip",
+      "release_date": "2026-10-15",
+      "release_stage": "produto/ChatGPT Voice (API anunciada para depois)",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "speech-to-speech", "full-duplex", "tempo-real", "multilingue", "vozes-customizadas", "proprietario"],
+      "description_pt": "Sucessores do GPT-Live-1 e do GPT-Live-1 mini, os modelos de voz full-duplex da OpenAI. Chegaram ao ChatGPT Voice com 13 vozes novas, sotaques mais naturais, desempenho bem melhor em idiomas como frances, alemao, hindi, espanhol mexicano, coreano e japones, menos pausas de \"checking...\" durante buscas, delegacao mais natural e criacao de vozes personalizadas a partir de uma descricao em texto ou de uma gravacao aprovada. Segundo o system card, o GPT-Live-1.1 e o modelo de voz padrao para Plus e planos superiores, inclusive no Codex e no Dots, e o GPT-Live-1.1 Quip, versao menor, e o padrao para os demais usuarios. A OpenAI informou que a chegada a API viria depois. O system card tambem registra regressoes estatisticamente significativas em algumas categorias de seguranca em relacao ao GPT-Live-1, que a empresa diz que vai corrigir.",
+      "sources": [
+        {
+          "title": "GPT-Live-1.1 is rolling out with new voices and better accents",
+          "url": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
+          "publisher": "OpenAI Developer Community",
+          "date_basis": "Anuncio oficial publicado em 15 de outubro de 2026 informa o rollout para todos os usuarios no ChatGPT, no Codex e no Dots e que a API vem depois."
+        },
+        {
+          "title": "GPT-Live-1.1 system card",
+          "url": "https://deploymentsafety.openai.com/gpt-live-1-1",
+          "publisher": "OpenAI",
+          "date_basis": "System card datado de 15 de outubro de 2026 descreve o GPT-Live-1.1 e o GPT-Live-1.1 Quip como sucessores do GPT-Live-1 e do GPT-Live-1 mini e define o modelo padrao por plano."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-muse-spark-open",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Spark Open",
+      "release_date": "2026-10-15",
+      "release_stage": "open weights/APIs de parceiros",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video", "multimodal", "raciocinio", "codigo", "agente", "MoE", "816B", "42B-ativos", "longo-contexto", "1M-contexto", "open-weights", "OpenSource", "Muse-Model-License"],
+      "description_pt": "Versao de pesos abertos do Muse Spark, que a Meta chama de modelo open-weight mais capaz dos EUA ate hoje. MoE nativamente multimodal com 816B parametros totais e 42B ativos e contexto de 1M tokens; recebe texto, imagem, audio e video e gera texto. Voltado a codigo e trabalho agentico, com foco em tarefas longas e raciocinio em varias etapas. Pesos em BF16 e NVFP4 no Hugging Face, no Amazon SageMaker AI, no Google Cloud Model Garden e no Microsoft Foundry, e APIs hospedadas por Baseten, Fireworks AI, Groq, Modal, Nebius, OpenRouter e Together AI. Segundo a Meta, e o primeiro modelo da classe a rodar em desktop, usando dois Mac Studio com M5 Ultra pelo MLX. A licenca e a Muse Model License, propria e com termos comerciais limitados, e nao uma licenca permissiva como Apache 2.0 ou MIT.",
+      "sources": [
+        {
+          "title": "Introducing Muse Spark Open, The Most Capable US Open-Weight Model to Date",
+          "url": "https://research.meta.ai/blog/muse-spark-open",
+          "publisher": "Meta",
+          "date_basis": "Post oficial publicado em 15 de outubro de 2026 anuncia os pesos abertos, os 816B/42B ativos, o contexto de 1M tokens, a licenca e os canais de distribuicao."
+        },
+        {
+          "title": "meta-models/Muse-Spark-Open-816B-A42B",
+          "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
+          "publisher": "Meta / Hugging Face",
+          "date_basis": "Pagina oficial dos pesos BF16 publicados pela Meta sob a Muse Model License."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-nemotron-3-5-super-vl-bolt",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron 3.5 Super VL / Nemotron 3.5 Bolt 74B-A9B 24GB",
+      "release_date": "2026-10-15",
+      "release_stage": "pesos abertos/API",
+      "ai_category": ["LLMs", "Multimodal"],
+      "model_type": ["texto", "visao", "video", "multimodal", "raciocinio", "codigo", "agente", "tool-use", "MoE", "Mamba-Transformer", "120B", "12B-ativos", "74B", "9B-ativos", "local", "2-bit", "NVFP4", "1M-contexto", "open-weights", "OpenSource", "OpenMDW-1.1"],
+      "description_pt": "Expansao da familia Nemotron 3.5 com dois modelos abertos para agentes. O Super VL e um MoE hibrido Mamba-2/Transformer de visao e linguagem com 120B parametros totais e 12B ativos, encoder visual C-RADIO e contexto de ate 1M tokens, voltado a raciocinio, codigo, uso de ferramentas e compreensao de documentos e video. A NVIDIA diz que ele se compara ao seu maior modelo de raciocinio com cerca de um quinto dos parametros e tem ate 5 vezes mais vazao que os rivais da classe. O Bolt 74B-A9B 24GB usa quantizacao nativa de 2 bits para caber em 24GB de memoria e rodar agentes localmente, inclusive nos notebooks RTX Spark. Pesos, datasets e receitas de treino abertos sob OpenMDW-1.1; o Super VL tambem esta no OpenRouter, no ModelScope e como NVIDIA NIM. O Bolt E4B 4GB, anunciado junto, saiu em 23 de outubro e tem registro proprio.",
+      "sources": [
+        {
+          "title": "Open From Data Center to Desktop: NVIDIA Expands Nemotron Family With Highest Efficiency Super VL and Bolt Models",
+          "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+          "publisher": "NVIDIA",
+          "date_basis": "Post oficial publicado em 15 de outubro de 2026 anuncia o Super VL e o Bolt 74B-A9B 24GB disponiveis no mesmo dia e o Bolt E4B 4GB para 23 de outubro."
+        },
+        {
+          "title": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4",
+          "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4",
+          "publisher": "NVIDIA / Hugging Face",
+          "date_basis": "Model card oficial confirma 120B totais e 12B ativos, arquitetura Mamba-2/Transformer MoE, contexto de ate 1M tokens e licenca OpenMDW-1.1."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "deepseek-v4-1-flash-1017",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "model": "DeepSeek-V4.1-Flash-1017",
+      "release_date": "2026-10-17",
+      "release_stage": "atualizacao/API/web/app/open weights",
+      "ai_category": ["LLMs", "Multimodal"],
+      "model_type": ["texto", "imagem", "visao", "multimodal-nativo", "raciocinio", "codigo", "agente", "tool-use", "MoE", "open-weights", "OpenSource", "MIT", "longo-contexto", "1M-contexto", "baixo-custo", "API"],
+      "description_pt": "Atualizacao menor do DeepSeek-V4.1-Flash de setembro, com ganhos em raciocinio, codigo, tarefas agenticas e benchmarks visuais, alem de execucao mais rapida e respostas mais curtas, o que reduz o custo por tarefa. Segundo a DeepSeek, passa de 36,8 para 42,6 no HLE sem ferramentas e de 31,2 para 42,3 no Terminal-Bench 4.0. Substituiu o modelo anterior no site, no app e na API, onde continua acessivel pelo alias deepseek-flash, sem mudanca de preco nem da forma de chamada. Pesos publicados no Hugging Face sob licenca MIT, com codigo de inferencia; e uma revisao do V4.1-Flash, e nao uma nova familia de modelos.",
+      "sources": [
+        {
+          "title": "Change Log",
+          "url": "https://api-docs.deepseek.com/updates/",
+          "publisher": "DeepSeek",
+          "date_basis": "Changelog oficial da API registra em 17 de outubro de 2026 a atualizacao para o DeepSeek-V4.1-Flash-1017, o alias deepseek-flash e a manutencao dos precos."
+        },
+        {
+          "title": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "publisher": "DeepSeek / Hugging Face",
+          "date_basis": "Model card oficial descreve a atualizacao, traz a comparacao de benchmarks com o V4.1-Flash e publica os pesos sob licenca MIT."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-m3-1-flash",
+      "company": "MiniMax",
+      "family": "M",
+      "model": "MiniMax-M3.1-Flash",
+      "release_date": "2026-10-19",
+      "release_stage": "lancamento/API/MiniMax Code",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "video-input", "multimodal", "raciocinio", "codigo", "agente", "computador", "ciberseguranca", "MoE", "MSA", "1M-contexto", "baixo-custo", "API", "open-weights"],
+      "description_pt": "Modelo da MiniMax para agentes, codigo, uso de computador e ciberseguranca, sucessor em disponibilidade geral do M3.1-Flash-Preview. O modelo anonimo Space Bunny, que processou mais de 200 trilhoes de tokens, era uma versao inicial dele. Segundo a MiniMax, a inferencia online ficou quase tres vezes mais rapida que a do antecessor, com saida acima de 200 tokens por segundo, e o custo total em tarefas agenticas caiu 70%; a empresa reporta 73,7% no DeepSWE v1.1 e 61,7 no OSWorld V2. Recebe texto, imagem e video e tem contexto de ate 1M tokens; o card no Hugging Face indica cerca de 428B parametros totais e 23B ativos, com MiniMax Sparse Attention. Custa US$ 0,15 de entrada, US$ 0,60 de saida e US$ 0,015 de entrada em cache por milhao de tokens, na API, no M Plan e no MiniMax Code. Nos planos M Plan e Token Plan, pedidos aos modelos M2.5 e M2.7 passaram a ser roteados para ele. O anuncio dizia que os pesos viriam depois, e o repositorio oficial no Hugging Face os publica sob a licenca minimax-community.",
+      "sources": [
+        {
+          "title": "MiniMax M3.1 Flash: Redefining Agent Performance and Cost",
+          "url": "https://www.minimax.io/blog/minimax-m31f",
+          "publisher": "MiniMax",
+          "date_basis": "Post oficial publicado em 19 de outubro de 2026 anuncia a disponibilidade na API, no M Plan e no MiniMax Code, os precos e a publicacao posterior dos pesos."
+        },
+        {
+          "title": "MiniMaxAI/MiniMax-M3.1-Flash",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+          "publisher": "MiniMax / Hugging Face",
+          "date_basis": "Model card oficial informa cerca de 428B parametros totais e 23B ativos, contexto de ate 1M tokens, entradas de texto, imagem e video e a licenca minimax-community."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "inception-mercury-3",
+      "company": "Inception",
+      "family": "Mercury",
+      "model": "Mercury 3",
+      "release_date": "2026-10-19",
+      "release_stage": "lancamento/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "diffusion-LLM", "difusao", "API", "alta-velocidade", "baixa-latencia", "baixo-custo", "longo-contexto", "1M-contexto", "proprietario"],
+      "description_pt": "Quarta geracao do LLM de difusao da Inception e o mais capaz da empresa ate aqui, com mais de 40 vezes os parametros totais do Mercury 1, sem numero exato divulgado. Segundo a Inception, supera o GPT-6 Luna e o Claude Haiku 5.5 em varios benchmarks rodando de 4 a 8 vezes mais rapido, com 1.068 tokens por segundo medidos em GPUs NVIDIA. O contexto sobe de 260 mil para 1M tokens. O preco de tabela e de US$ 0,20 de entrada e US$ 0,70 de saida por milhao de tokens, com 50% de desconto de lancamento e entrada em cache 90% mais barata. Disponivel na API da Inception, compativel com a da OpenAI, e no OpenRouter, na Baseten e na Vercel. Sem pesos abertos; os numeros de desempenho sao da propria empresa.",
+      "sources": [
+        {
+          "title": "Diffusion at Scale: Introducing Mercury 3",
+          "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-3",
+          "publisher": "Inception",
+          "date_basis": "Post oficial publicado em 19 de outubro de 2026 anuncia o modelo, o contexto de 1M tokens, os precos e a disponibilidade na API e em parceiros."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "mistral-ai-voxtral-3",
+      "company": "Mistral AI",
+      "family": "Voxtral",
+      "model": "Voxtral 3 (Small Transcribe 3 / Mini Transcribe 3 / Mini Transcribe Realtime 3 / Mini TTS 3)",
+      "release_date": "2026-10-20",
+      "release_stage": "lancamento/API/implantacao propria",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "speech-to-text", "text-to-speech", "voz", "tempo-real", "streaming", "diarizacao", "clonagem-de-voz", "multilingue", "agente-de-voz", "SDK", "europeu", "API"],
+      "description_pt": "Nova geracao da familia de voz da Mistral, com quatro modelos e um SDK para agentes de voz. O Voxtral Small Transcribe 3 e o Mini Transcribe 3, de 4B parametros, fazem transcricao em lote em mais de 50 idiomas, com diarizacao e vies de contexto por palavras-chave, a US$ 0,0040 e US$ 0,0035 por minuto. O Mini Transcribe Realtime 3 transcreve em streaming com latencia abaixo de 500 ms em mais de 35 idiomas, por US$ 0,008 por minuto, e o Mini TTS 3 gera fala expressiva com controle de emocao, ritmo e enfase em mais de 35 idiomas e 50 dialetos, com clonagem de voz, por US$ 13 por milhao de caracteres. O SDK de agentes, baseado no LiveKit, suporta SIP e WebRTC e custa a partir de US$ 0,04 por minuto com o Mistral Small 4 no raciocinio. Disponivel na API pelos endpoints europeu, americano e global, com opcao de implantacao em infraestrutura propria; o anuncio nao informa pesos abertos nem licenca.",
+      "sources": [
+        {
+          "title": "Voxtral 3",
+          "url": "https://mistral.ai/news/voxtral-3",
+          "publisher": "Mistral AI",
+          "date_basis": "Pagina oficial do lancamento descreve os quatro modelos, os precos e a disponibilidade imediata na API; os benchmarks publicados sao datados de 20 de outubro de 2026."
+        },
+        {
+          "title": "Mistral's Voxtral 3 Transcribes Speech From $0.0035 a Minute",
+          "url": "https://fourweekmba.com/ai-mistrals-voxtral-3-transcribes-speech-from-0-0035-a-minute/",
+          "publisher": "FourWeekMBA",
+          "date_basis": "Cobertura contemporanea corrobora o lancamento em 20 de outubro de 2026 e a composicao da familia."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "O lancamento e oficial; a pagina da Mistral nao exibe data editorial, e o dia 20 vem da data dos benchmarks publicados no anuncio e da cobertura contemporanea.",
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-duet",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Duet",
+      "release_date": "2026-10-21",
+      "release_stage": "research preview/lista de espera nos EUA",
+      "ai_category": "Agentes",
+      "model_type": ["agente", "assistente", "proativo", "automacao", "browser-use", "conectores", "app", "research-preview", "produto", "proprietario"],
+      "description_pt": "App em que o Claude atua como agente proativo, uma especie de chefe de gabinete para profissionais e pequenos empresarios. Roda em uma maquina virtual na nuvem com navegador proprio, de modo que continua trabalhando com o celular ou o notebook desligados; envia um resumo matinal com o que mais importa nos apps conectados, verifica as contas periodicamente e so chama o usuario quando algo precisa de atencao. Mostra exatamente o que vai fazer e pede aprovacao antes de enviar mensagens, fazer pagamentos, assinar documentos ou apagar algo, e nao pode negociar valores mobiliarios nem transferir dinheiro entre contas. Usa os mais de 6.000 conectores e plugins do Claude Marketplace, como Gmail, Slack, QuickBooks, Stripe, HubSpot e Shopify, e herda memoria, skills e apps conectados da conta Claude. Funciona sobre o Claude Opus 5.5, sem escolha de modelo. Lancado como research preview com lista de espera para assinantes Pro e Max nos EUA, em apps proprios para iOS e Android e no claude.ai, sem preco separado e consumindo os limites de uso do plano; Team e Enterprise ainda nao tem acesso.",
+      "sources": [
+        {
+          "title": "Introducing Claude Duet",
+          "url": "https://claude.com/resources/articles/claude-duet",
+          "publisher": "Anthropic",
+          "date_basis": "Post oficial publicado em 21 de outubro de 2026 anuncia o research preview para assinantes Pro e Max nos EUA, o modelo Claude Opus 5.5 e as regras de aprovacao."
+        },
+        {
+          "title": "Get started with Claude Duet",
+          "url": "https://support.claude.com/en/articles/17631495-get-started-with-claude-duet",
+          "publisher": "Anthropic",
+          "date_basis": "Artigo oficial de suporte descreve o acesso pela lista de espera e o uso dos limites do plano."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "moonshot-kimi-k3-1-pro",
+      "company": "Moonshot AI",
+      "family": "Kimi",
+      "model": "Kimi K3.1 Pro / K3.1 Pro Highspeed",
+      "release_date": "2026-10-23",
+      "release_stage": "lancamento/API/produto (pesos abertos prometidos ate 2026-11-04)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "video", "multimodal", "raciocinio", "codigo", "agente", "tool-use", "MoE", "longo-contexto", "1M-contexto", "API"],
+      "description_pt": "Primeiro modelo da serie K3.1 e, segundo a Moonshot, o modelo de pesos abertos de classe 3T mais capaz da empresa ate hoje. E um retreinamento do Kimi K3, sem nova arquitetura: MoE com cerca de 2,8 trilhoes de parametros totais e 104B ativos, segundo a cobertura, contexto de 1M tokens e entrada de texto, imagem e video. Funciona apenas em modo de raciocinio, com esforco low, high ou max. A Moonshot reporta 65,7% no Terminal-Bench 4.0, contra 58,2% do GPT-6 Astra e 66,4% do Claude Opus 5.5, e queda da taxa de alucinacao com ferramentas de 23,4% no K3 para 8,3%. A variante Highspeed tem as mesmas capacidades e roda de 2 a 3 vezes mais rapido. Disponivel no Kimi.com, nos apps, no Kimi Work, no Kimi Code e na API como kimi-k3.1-pro e kimi-k3.1-pro-highspeed; a cobertura aponta precos de US$ 2 de entrada e US$ 10 de saida por milhao de tokens, um terco abaixo do K3, e de US$ 4/US$ 20 na Highspeed. Os pesos completos foram prometidos para ate 4 de novembro de 2026, e a Moonshot diz que a versao aberta tera os dados de ciberseguranca removidos do treino.",
+      "sources": [
+        {
+          "title": "Kimi K3.1 Pro",
+          "url": "https://www.kimi.com/blog/kimi-k3-1-pro",
+          "publisher": "Moonshot AI",
+          "date_basis": "Anuncio oficial descreve o modelo, a variante Highspeed, os benchmarks, os identificadores da API e a liberacao dos pesos ate 4 de novembro de 2026, sem exibir data de publicacao."
+        },
+        {
+          "title": "What's New | Kimi Code Docs",
+          "url": "https://www.kimi.com/code/docs/en/kimi-code/whats-new.html",
+          "publisher": "Moonshot AI",
+          "date_basis": "Changelog oficial do Kimi Code registra em 23 de outubro de 2026 o rollout completo do K3.1 Pro e do K3.1 Pro Highspeed, os niveis de esforco e os planos exigidos."
+        },
+        {
+          "title": "Chinese AI model Kimi K3.1 Pro is closing in on Anthropic's Claude Opus 5.5",
+          "url": "https://the-decoder.com/chinese-ai-model-kimi-k3-1-pro-is-closing-in-on-anthropics-claude-opus-5-5/",
+          "publisher": "The Decoder",
+          "date_basis": "Cobertura de 23 de outubro de 2026 informa os 2,8T totais e 104B ativos e os precos da API."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Parte da cobertura data o anuncio de 24 de outubro, diferenca compativel com o fuso horario da China; o changelog oficial do Kimi Code registra o rollout em 23 de outubro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-nemotron-3-5-bolt-e4b",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron 3.5 Bolt E4B 4GB",
+      "release_date": "2026-10-23",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "agente", "tool-use", "conversacional", "local", "on-device", "8B", "4B-efetivos", "4-bit", "open-weights", "OpenSource", "OpenMDW-1.1"],
+      "description_pt": "Menor modelo da familia Nemotron 3.5, otimizado para inteligencia por GB em agentes conversacionais rapidos, como assistentes de voz e de dispositivos, personagens interativos e interfaces embarcadas. Pos-treinado pela NVIDIA a partir do Gemma 4 E4B, tem 8B parametros (4B efetivos), entrada e saida de ate 64K tokens e cabe em cerca de 4GB na versao de 4 bits. A NVIDIA relata ganhos em uso de ferramentas em varios turnos, seguimento de instrucoes e ancoragem na entrada sobre o modelo base. Pesos BF16 e GGUF de 4 bits no Hugging Face sob OpenMDW-1.1, com o Gemma 4 subjacente sob Apache 2.0. Foi anunciado em 15 de outubro junto do Super VL e do Bolt 74B-A9B, com chegada marcada para 23 de outubro.",
+      "sources": [
+        {
+          "title": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+          "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+          "publisher": "NVIDIA / Hugging Face",
+          "date_basis": "Model card oficial registra o lancamento em 23 de outubro de 2026, o modelo base Gemma 4 E4B, os 8B (4B efetivos), o contexto de 64K e a licenca OpenMDW-1.1."
+        },
+        {
+          "title": "Open From Data Center to Desktop: NVIDIA Expands Nemotron Family With Highest Efficiency Super VL and Bolt Models",
+          "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+          "publisher": "NVIDIA",
+          "date_basis": "Post oficial de 15 de outubro de 2026 anuncia o Bolt E4B 4GB com chegada em 23 de outubro."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-6-1-terra",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-6.1 Terra",
+      "release_date": "2026-10-26",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "codigo", "agente", "computador", "escrita", "longo-contexto", "baixo-custo", "API", "proprietario"],
+      "description_pt": "Atualizacao da linha Terra, que equilibra capacidade e custo, com foco em uso de computador, compreensao visual e escrita natural para o trabalho profissional do dia a dia. Segundo a OpenAI, empata com o GPT-6 Astra no Agents' Last Exam, teste de uso de software no trabalho, a um decimo do preco por token, e termina tarefas em media mais de 3 vezes mais rapido que o Astra e o GPT-6.1 Sol; para pesquisa aprofundada e codigo complexo, a empresa continua indicando o Sol ou o Astra. Recebe texto e imagem, gera texto, tem contexto de 1.050.000 tokens, saida maxima de 128.000 tokens e conhecimento ate 1 de junho de 2026, com esforco de raciocinio de none a max. Na API, usa o identificador gpt-6.1-terra e custa US$ 1 de entrada, US$ 0,05 de entrada em cache e US$ 5 de saida por milhao de tokens no processamento Standard, metade do preco do GPT-5.6 Terra e do GPT-6.1 Sol; o uso de ferramentas exige a Responses API. No ChatGPT, chega ao ChatGPT Work e ao Codex nos planos Plus, Pro, Business, Enterprise e Edu, mas nao ao Chat.",
+      "sources": [
+        {
+          "title": "GPT-6.1 Terra: delivering fast and capable computer use at a lower price",
+          "url": "https://community.openai.com/t/gpt-6-1-terra-delivering-fast-and-capable-computer-use-at-a-lower-price/1409900",
+          "publisher": "OpenAI Developer Community",
+          "date_basis": "Anuncio oficial publicado em 26 de outubro de 2026 informa o rollout no ChatGPT Work e no Codex, o identificador gpt-6.1-terra na API e as comparacoes com o GPT-6 Astra e o GPT-6.1 Sol."
+        },
+        {
+          "title": "GPT-6.1 Terra Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+          "publisher": "OpenAI",
+          "date_basis": "Catalogo oficial consultado em 26 de outubro de 2026 confirma identificador, modalidades, contexto, saida maxima, data de corte, niveis de esforco, precos e uso de ferramentas pela Responses API."
+        },
+        {
+          "title": "ChatGPT & Codex changelog - GPT-6.1 Terra in Work and Codex",
+          "url": "https://learn.chatgpt.com/docs/changelog",
+          "publisher": "OpenAI",
+          "date_basis": "Entrada oficial de 26 de outubro de 2026 lista os planos com acesso no ChatGPT Work e no Codex e informa que o modelo nao esta disponivel no Chat."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
     {
       "id": "meta-muse-wonder",
       "company": "Meta",
