@@ -1,19 +1,784 @@
 {
   "metadata": {
-    "updated_at": "2026-10-26",
+    "updated_at": "2026-11-11",
     "last_correction": {
-      "date": "2026-10-26",
-      "description_pt": "Inclusao do GPT-6.1 Terra, lancado pela OpenAI em 26 de outubro de 2026 no ChatGPT Work, no Codex e na API por US$ 1/US$ 5 por milhao de tokens, e do Kimi K3.1 Pro e K3.1 Pro Highspeed, lancados pela Moonshot AI em 23 de outubro com pesos abertos prometidos ate 4 de novembro. Inclusao tambem dos lancamentos de 15 a 23 de outubro: GPT-Live-1.1, Muse Spark Open, Nemotron 3.5 Super VL, Bolt 74B-A9B e Bolt E4B, DeepSeek-V4.1-Flash-1017, MiniMax-M3.1-Flash, Mercury 3, Voxtral 3 e o agente Claude Duet."
+      "date": "2026-11-11",
+      "description_pt": "Inclusao do Claude Fable 5.2 e do Claude Mythos 5.2, lancados pela Anthropic em 9 de novembro de 2026, e do Gemini 4 Carbon, anunciado pela Google em 28 de outubro com acesso restrito e liberado em disponibilidade geral em 10 de novembro. Inclusao tambem dos lancamentos de 27 de outubro a 11 de novembro: Genie 4, Nemotron 3.5 Transcribe, Ling-3.1-flash-1019, SFX v3, GPT-6 Rosalind, GPT Image 2.6, Hy4, GPT-6 Cyber, Inkling 2 Small, ERNIE-5.5-Flash-Base, Gemini Omni 1.2 Flash, Seedream 5.5, Muse Ember, Gemini Robotics 2.5, MiniMax H3-Image, Qwen4-Max-Preview e ERNIE 5.5 Flash Preview, alem dos registros anteriores do Gemini Omni 1.1 Flash e do Ling-3.1-flash. Os registros do Kimi K3.1 Pro e do Mistral Large 4 passaram a informar a publicacao dos pesos abertos, em 4 de novembro e 29 de outubro, e o do Mistral Large 4 teve corrigidos o preco da API e o numero de parametros ativos."
     },
     "previous_correction": {
-      "date": "2026-10-14",
-      "description_pt": "Inclusao do Muse Wonder e Muse Wonder Full, lancados pela Meta em 12 de outubro de 2026, e da disponibilidade ampliada do Gemini 4 Argon em 13 de outubro de 2026 na API e em produtos Google com acesso por assinatura. O anuncio inicial do Gemini em 30 de setembro permanece como marco separado."
+      "date": "2026-10-26",
+      "description_pt": "Inclusao do GPT-6.1 Terra, lancado pela OpenAI em 26 de outubro de 2026 no ChatGPT Work, no Codex e na API por US$ 1/US$ 5 por milhao de tokens, e do Kimi K3.1 Pro e K3.1 Pro Highspeed, lancados pela Moonshot AI em 23 de outubro com pesos abertos prometidos ate 4 de novembro. Inclusao tambem dos lancamentos de 15 a 23 de outubro: GPT-Live-1.1, Muse Spark Open, Nemotron 3.5 Super VL, Bolt 74B-A9B e Bolt E4B, DeepSeek-V4.1-Flash-1017, MiniMax-M3.1-Flash, Mercury 3, Voxtral 3 e o agente Claude Duet."
     },
     "title": "Timeline de lancamentos de modelos e ferramentas de IA",
     "scope": "Modelos de IA e ferramentas em categorias separadas. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos. Novidades de ferramentas de um mesmo evento podem ser reunidas em um unico registro, mantendo os novos modelos em entradas proprias.",
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
+    {
+      "id": "google-gemini-omni-1-1-flash",
+      "company": "Google",
+      "family": "Gemini Omni",
+      "model": "Gemini Omni 1.1 Flash",
+      "release_date": "2026-08-27",
+      "release_stage": "GA/API (public preview no Google Cloud)",
+      "ai_category": "Video",
+      "model_type": ["video", "multimodal", "edicao", "audio", "imagem", "texto", "API", "Flow", "proprietario"],
+      "description_pt": "Versao de producao do modelo de geracao e edicao conversacional de video da familia Gemini Omni, sucessora do gemini-omni-flash-preview, que havia chegado a Gemini API em 30 de junho de 2026. Saiu em disponibilidade geral na Gemini API como gemini-omni-1.1-flash, com mais controle sobre a geracao, segundo a Google, e tambem no Flow e no recurso de extensao de cenas do app Gemini para assinantes AI Plus, Pro e Ultra; no Google Cloud, estreou em public preview. Gera clipes de ate 10 segundos e custava cerca de US$ 0,10 por segundo de video.",
+      "sources": [
+        {
+          "title": "Gemini Omni 1.1 Flash lets you build with more control",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 27 de agosto de 2026 apresenta o modelo como pronto para producao e lista as plataformas."
+        },
+        {
+          "title": "Gemini API changelog",
+          "url": "https://aistudio.google.com/docs/changelog",
+          "publisher": "Google",
+          "date_basis": "Entrada oficial de 27 de agosto de 2026 registra a versao GA do gemini-omni-1.1-flash; a entrada de 30 de junho registra o gemini-omni-flash-preview."
+        },
+        {
+          "title": "Gemini Enterprise Agent Platform release notes",
+          "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes",
+          "publisher": "Google Cloud",
+          "date_basis": "Notas oficiais de 27 de agosto de 2026 registram o Gemini Omni 1.1 Flash em public preview no Google Cloud."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Registro incluido em 11 de novembro de 2026 para completar a linha Gemini Omni; o modelo era GA na Gemini API e preview no Google Cloud na data de lancamento.",
+      "confidence": "alta"
+    },
+    {
+      "id": "ant-group-ling-3-1-flash",
+      "company": "Ant Group",
+      "family": "Ling",
+      "model": "Ling-3.1-flash",
+      "release_date": "2026-09-30",
+      "release_stage": "lancamento/servico hospedado (pesos abertos em 2026-10-15)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "raciocinio-hibrido", "agente", "codigo", "MoE", "atencao-linear", "longo-contexto", "1M-contexto", "open-weights", "OpenSource", "MIT"],
+      "description_pt": "Modelo de linguagem da inclusionAI, a divisao de IA do Ant Group, com raciocinio hibrido que pode ser ligado ou desligado. E um MoE de atencao hibrida linear com cerca de 560B parametros totais e 25B ativos, 512 especialistas roteados mais um compartilhado e 8 ativos por token, que intercala camadas KDA e Gated MLA na proporcao de 7 para 1; trabalha so com texto e, segundo o model card, aceita contexto de 1M tokens, embora o servico hospedado da Ant use 256K. Foi lancado com duas semanas de teste gratuito do servico hospedado, e os pesos sairam em 15 de outubro de 2026 no Hugging Face e no ModelScope sob licenca MIT, com versoes MXFP4 e FP8 que reduzem o tamanho de cerca de 534 GB para 292 GB e permitem servir o modelo em 4 GPUs Hopper. O model card reporta 88,5 no SWE-bench Multilingual e 37,44 no HLE.",
+      "sources": [
+        {
+          "title": "inclusionAI/Ling-3.1-flash",
+          "url": "https://huggingface.co/inclusionAI/Ling-3.1-flash",
+          "publisher": "inclusionAI / Hugging Face",
+          "date_basis": "Repositorio oficial, criado em 13 de outubro de 2026, informa parametros, arquitetura, contexto de 1M, licenca MIT e benchmarks."
+        },
+        {
+          "title": "Ant Group launches Ling-3.1-flash with 560 billion parameters",
+          "url": "https://technode.com/2026/09/30/ant-group-launches-ling-3-1-flash-with-560-billion-parameters/",
+          "publisher": "TechNode",
+          "date_basis": "Cobertura de 30 de setembro de 2026 registra o lancamento, o teste gratuito de duas semanas e o limite de 256K no servico hospedado."
+        },
+        {
+          "title": "Ant Group open-sources 560-billion-parameter Ling-3.1-flash AI model",
+          "url": "https://technode.com/2026/10/16/ant-group-open-sources-560-billion-parameter-ling-3-1-flash-ai-model/",
+          "publisher": "TechNode",
+          "date_basis": "Cobertura de 16 de outubro de 2026 registra a publicacao dos pesos no Hugging Face e no ModelScope, informada pela imprensa chinesa em 15 de outubro."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "Nao foi encontrado post oficial datado da Ant Group; o dia vem da cobertura contemporanea, e os pesos foram confirmados pelo repositorio oficial no Hugging Face. Registro incluido em 11 de novembro de 2026.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-genie-4",
+      "company": "Google",
+      "family": "Genie",
+      "model": "Genie 4",
+      "release_date": "2026-10-27",
+      "release_stage": "research preview/testadores confiaveis",
+      "ai_category": "Robotica/World models",
+      "model_type": ["world-model", "ambientes-interativos", "texto-para-mundo", "simulacao", "audio", "tempo-real", "agente", "research-preview"],
+      "description_pt": "Nova geracao do world model do Google DeepMind, que gera ambientes interativos e navegaveis em tempo real a partir de texto ou de uma imagem de referencia, com controle por teclado e mouse e direcionamento da cena por linguagem natural durante a simulacao. E o primeiro world model em tempo real da empresa a gerar audio nativamente, com som ambiente, musica e dialogo interativo. O Gemini Omni ancora a aparencia e o comportamento realistas das cenas, e o Gemini 3.8 Flash atua como agente que planeja os passos e verifica se cada um deu certo; num experimento de robotica, o Gemini 4 Argon planejou tarefas que o Genie 4 simulou. Suporta alguns minutos de interacao continua e, segundo a TechCrunch, mantem a cena consistente por ate dois minutos, o dobro do Genie 3. Saiu como research preview para testadores confiaveis, com chegada anunciada para assinantes Google AI Ultra no Project Genie e para parceiros de acesso antecipado da Gemini API e do AI Studio. Nao ha relatorio tecnico nem benchmarks publicados, e todo video e audio leva marca d'agua SynthID.",
+      "sources": [
+        {
+          "title": "We're announcing Genie 4, our new world model for real-time interactive simulation",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 27 de outubro de 2026 anuncia o modelo, o rollout para testadores confiaveis, o acesso futuro para AI Ultra e API e a geracao nativa de audio."
+        },
+        {
+          "title": "Genie 4: A new generation of world simulation",
+          "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial datado de 27 de outubro de 2026 descreve o research preview, o papel do Gemini 3.8 Flash como agente, o SynthID e as limitacoes."
+        },
+        {
+          "title": "Google's Genie 4 world model adds audio, more realistic worlds, and real-time steering",
+          "url": "https://techcrunch.com/?p=3182045",
+          "publisher": "TechCrunch",
+          "date_basis": "Cobertura de 27 de outubro de 2026 informa a consistencia de cena por ate dois minutos e o rollout no Project Genie nas semanas seguintes."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "ant-group-ling-3-1-flash-1019",
+      "company": "Ant Group",
+      "family": "Ling",
+      "model": "Ling-3.1-flash-1019 / Ling-3.1-flash-base",
+      "release_date": "2026-10-28",
+      "release_stage": "pesos abertos/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "raciocinio-hibrido", "agente", "MoE", "atencao-linear", "modelo-base", "longo-contexto", "1M-contexto", "open-weights", "OpenSource", "MIT"],
+      "description_pt": "Duas novas versoes abertas do Ling-3.1-flash, o MoE de cerca de 560B parametros totais e 25B ativos da inclusionAI, do Ant Group. O Ling-3.1-flash-1019 e uma revisao com pos-treino voltado a tarefas de agente pessoal; nos numeros da Ant, sobe de 41 para 44 no Artificial Analysis Intelligence Index v4.3.2, de 62% para 68% no AutomationBench-AA e de 18% para 26% no CritPt em relacao ao Ling-3.1-flash. O Ling-3.1-flash-base e o modelo pre-treinado, sem ajuste de instrucoes, em BF16; a Ant diz que ele lidera 32 de 47 benchmarks contra o DeepSeek-V4-Pro-Base e o MiMo-V2.5-Pro-Base, com 79,4 no MATH500 contra 68,2 e 57,2. Os dois sairam no Hugging Face sob licenca MIT, e listagens de terceiros mostram o 1019 a cerca de US$ 0,30 de entrada e US$ 0,90 de saida por milhao de tokens.",
+      "sources": [
+        {
+          "title": "inclusionAI/Ling-3.1-flash-1019",
+          "url": "https://huggingface.co/inclusionAI/Ling-3.1-flash-1019",
+          "publisher": "inclusionAI / Hugging Face",
+          "date_basis": "Repositorio oficial, criado em 27 de outubro de 2026, descreve a revisao 1019 e a comparacao com o Ling-3.1-flash."
+        },
+        {
+          "title": "inclusionAI/Ling-3.1-flash-base",
+          "url": "https://huggingface.co/inclusionAI/Ling-3.1-flash-base",
+          "publisher": "inclusionAI / Hugging Face",
+          "date_basis": "Repositorio oficial, criado em 25 de outubro de 2026, traz os benchmarks do modelo base contra o DeepSeek-V4-Pro-Base e o MiMo-V2.5-Pro-Base."
+        },
+        {
+          "title": "Ant open-sources Ling-3.1-flash-1019 and Ling-3.1-flash-base",
+          "url": "https://qbitai.com/2026/10/505928.html",
+          "publisher": "QbitAI",
+          "date_basis": "Cobertura de 28 de outubro de 2026, com conteudo fornecido pelo Ant Group, registra a abertura dos dois modelos."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "Nao foi encontrado post oficial datado da Ant Group; o dia vem da cobertura de 28 de outubro, com conteudo fornecido pela empresa, e das datas de criacao dos repositorios. Algumas listagens de API datam o 1019 de 22 de outubro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-4-carbon",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 4 Carbon",
+      "release_date": "2026-10-28",
+      "release_stage": "anuncio/acesso limitado pelo Fairwind Program",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "multimodal", "visao", "raciocinio", "codigo", "agente", "ciberseguranca", "vulnerabilidades", "acesso-limitado", "proprietario"],
+      "description_pt": "Novo modelo de fronteira da Google, acima do Gemini 4 Argon, voltado a problemas que testam o limite da inteligencia dos modelos, como engenharia de longo prazo e defesa cibernetica. No anuncio, o acesso comecou por um grupo de defensores ciberneticos e seria ampliado aos poucos para parceiros confiaveis do Fairwind Program, com testes de capacidade antes do lancamento junto ao governo dos EUA; desenvolvedores, empresas e consumidores receberiam acesso o quanto antes. A Google anunciou preco introdutorio igual ao do Argon, de US$ 2 de entrada e US$ 10 de saida por milhao de tokens, que depois subiria para US$ 4/US$ 20. Nos numeros da empresa, lidera o Artificial Analysis Intelligence Index v5.0 com 59 pontos e marca 54,8% no ExploitGym e 88,2% no SEC-bench Pro. A disponibilidade geral de 10 de novembro de 2026 tem registro separado nesta timeline.",
+      "sources": [
+        {
+          "title": "Gemini 4 Carbon: our next frontier model",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 28 de outubro de 2026 anuncia o modelo, o acesso inicial para defensores ciberneticos pelo Fairwind Program, os precos e os benchmarks."
+        },
+        {
+          "title": "The latest AI news we announced in October 2026",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+          "publisher": "Google",
+          "date_basis": "Resumo oficial publicado em 2 de novembro de 2026 descreve o Carbon em testes limitados antes do lancamento com o governo dos EUA e defensores confiaveis."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-nemotron-3-5-transcribe",
+      "company": "NVIDIA",
+      "family": "Nemotron",
+      "model": "Nemotron 3.5 Transcribe 30B-A4B",
+      "release_date": "2026-10-28",
+      "release_stage": "pesos abertos/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "traducao", "diarizacao", "identificacao-de-idioma", "timestamps", "multilingue", "speech-llm", "MoE", "Mamba", "open-weights", "OpenSource", "OpenMDW-1.1", "API"],
+      "description_pt": "Modelo de reconhecimento de fala da NVIDIA construido como um LLM que recebe audio. Usa como base o Nemotron 3.5 Lightning 30B-A3B, MoE hibrido Mamba-2/Transformer, mais um codificador de audio de cerca de 800M que junta um encoder de ASR e o codificador de falantes Sortformer, com uma cabeca CTC para timestamps; no total, sao cerca de 34B parametros e 4,3B ativos. Transcreve, traduz, identifica o idioma e faz transcricao atribuida a cada falante em 40 idiomas, com gravacoes de ate 1 hora e timestamps por palavra opcionais. Nos numeros da NVIDIA, tem WER medio de 4,71 no Open ASR em ingles, contra 4,94 do Qwen3-ASR-1.7B, e de 4,62 em sete idiomas, contra 6,49 do mesmo concorrente. Os pesos sairam no Hugging Face em BF16, FP8, NVFP4 e GGUF, junto com um modelo de rascunho para decodificacao especulativa, sob a licenca OpenMDW-1.1, que permite uso comercial; o modelo tambem esta no NGC e no build.nvidia.com, e o fine-tuning e feito pelo NeMo Speech.",
+      "sources": [
+        {
+          "title": "NVIDIA Nemotron 3.5 Transcribe: Intelligent Transcription with a Speech LLM",
+          "url": "https://research.nvidia.com/labs/nemotron/NVIDIA-Nemotron-3.5-Transcribe/",
+          "publisher": "NVIDIA Research",
+          "date_basis": "Pagina oficial de pesquisa datada de 28 de outubro de 2026 apresenta o modelo, a arquitetura, os 40 idiomas, os repositorios e a licenca."
+        },
+        {
+          "title": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+          "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+          "publisher": "NVIDIA / Hugging Face",
+          "date_basis": "Model card oficial lista 28 de outubro de 2026 como data de publicacao no build.nvidia.com, GitHub, Hugging Face e NGC e informa parametros, licenca OpenMDW-1.1 e a tabela de benchmarks."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Parte da cobertura data o lancamento de 29 ou 30 de outubro; a pagina de pesquisa e o model card da NVIDIA registram 28 de outubro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "elevenlabs-sfx-v3",
+      "company": "ElevenLabs",
+      "family": "Sound Effects",
+      "model": "SFX v3 (Sound Effects v3)",
+      "release_date": "2026-10-29",
+      "release_stage": "lancamento/produto/API (API para todos os workspaces em 2026-11-02)",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "efeitos-sonoros", "texto-para-audio", "API", "proprietario"],
+      "description_pt": "Terceira versao do modelo de efeitos sonoros da ElevenLabs, que gera sons a partir de descricoes em texto. Segundo a empresa, segue melhor prompts que pedem varios sons ao mesmo tempo, lida melhor com vozes e musica e corta menos sons longos como gongos, sinos e apitos; a ElevenLabs diz que o audio ficou mais limpo e natural que o do SFX v2 nos testes internos, sem divulgar numeros. Virou o modelo padrao em Sound Effects, Studio, Flows e no Music Editor do ElevenCreative e no app movel. Na API, usa o identificador eleven_text_to_sound_v3 no endpoint de geracao de sons e foi liberado para todos os workspaces em 2 de novembro; o eleven_text_to_sound_v2 foi descontinuado e sai do ar em 1 de marco de 2027. Tamanho e arquitetura nao foram divulgados.",
+      "sources": [
+        {
+          "title": "Sound Effects v3",
+          "url": "https://elevenlabs.io/blog/sound-effects-v3",
+          "publisher": "ElevenLabs",
+          "date_basis": "Post oficial publicado em 29 de outubro de 2026 e atualizado em 30 de outubro anuncia o modelo e a disponibilidade no ElevenCreative e no app."
+        },
+        {
+          "title": "SFX v3 for developers",
+          "url": "https://elevenlabs.io/blog/sfx-v3-for-developers",
+          "publisher": "ElevenLabs",
+          "date_basis": "Post oficial para desenvolvedores publicado em 2 de novembro de 2026 informa o identificador eleven_text_to_sound_v3 e o endpoint da API."
+        },
+        {
+          "title": "Changelog",
+          "url": "https://elevenlabs.io/docs/changelog",
+          "publisher": "ElevenLabs",
+          "date_basis": "Entrada oficial de 2 de novembro de 2026 registra a disponibilidade para todos os workspaces e a descontinuacao do eleven_text_to_sound_v2 em 1 de marco de 2027."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O anuncio do produto e de 29 de outubro; o post para desenvolvedores e o changelog registram a liberacao da API para todos os workspaces em 2 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-6-rosalind",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-6 Rosalind (GPT-Rosalind-6)",
+      "release_date": "2026-10-30",
+      "release_stage": "acesso restrito/API (programa Rosalind Research)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "ciencias-da-vida", "biologia", "pesquisa-cientifica", "acesso-limitado", "API", "proprietario"],
+      "description_pt": "Versao do GPT-6 Astra para pesquisa em ciencias da vida, chamada de GPT-6 Rosalind no changelog da API e de GPT-Rosalind-6 no system card. E liberada apenas para organizacoes aprovadas no programa de acesso confiavel Rosalind Research, para pesquisa interna por usuarios autorizados; cada pedido passa por revisao de caso de uso, seguranca e governanca, e ha um caminho separado para governos. Segundo o system card, usa os mesmos pesos do GPT-6 Astra, sem dados ou pos-treino adicionais, mas com uma fronteira de recusa calibrada para biologia de uso dual: recusa 9,4% dos pedidos de risco biologico, contra 29,2% do Astra de acesso geral, e mantem as salvaguardas de ciberseguranca do Astra com limites mais rigidos. Nos numeros da OpenAI, em relacao ao GPT-Rosalind-5.5, sobe de 28,9% para 49,6% no MedChemBench v7 e de 16,7% para 37,7% no GeneBench Pro v13. Na API, usa o identificador gpt-6-rosalind e custa US$ 15 de entrada, US$ 1,50 de entrada em cache e US$ 75 de saida por milhao de tokens ate 272K tokens de entrada.",
+      "sources": [
+        {
+          "title": "Changelog - OpenAI API",
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "publisher": "OpenAI",
+          "date_basis": "Entrada oficial de 30 de outubro de 2026 registra o GPT-6 Rosalind, o identificador gpt-6-rosalind e a regra de acesso pelo programa Rosalind Research."
+        },
+        {
+          "title": "GPT-Rosalind-6 System Card Addendum",
+          "url": "https://deploymentsafety.openai.com/gpt-rosalind-6",
+          "publisher": "OpenAI",
+          "date_basis": "Adendo oficial ao system card, datado de 30 de outubro de 2026, informa a relacao com os pesos do GPT-6 Astra, as classificacoes de risco, os benchmarks e os controles de acesso."
+        },
+        {
+          "title": "Pricing - OpenAI API",
+          "url": "https://developers.openai.com/api/docs/pricing",
+          "publisher": "OpenAI",
+          "date_basis": "Tabela oficial de precos lista o gpt-6-rosalind na secao de ciencias da vida."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Uma fonte secundaria cita 2 de novembro, possivelmente a chegada a produtos do ChatGPT; o changelog da API e o system card registram 30 de outubro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-image-2-6",
+      "company": "OpenAI",
+      "family": "GPT Image",
+      "model": "gpt-image-2.6-flare / gpt-image-2.6-sunburst / ChatGPT Images 2.6",
+      "release_date": "2026-11-04",
+      "release_stage": "API/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "multimodal", "gif", "svg", "animacao", "API", "ChatGPT", "Codex", "referencia", "baixa-latencia", "proprietario"],
+      "description_pt": "Atualizacao 2.6 da linha de imagem da OpenAI, lancada como ChatGPT Images 2.6 e na API em duas variantes: GPT-Image-2.6 Flare, para iteracao rapida, e GPT-Image-2.6 Sunburst, para detalhe e edicoes consistentes. Segundo a OpenAI, gera imagens 50% mais rapido, com o Flare chegando a cerca de 6 segundos. As novidades sao GIFs animados de 2 a 16 quadros, exportacao em SVG (so na API), edicao guiada por marcacoes desenhadas sobre a imagem, imagens de referencia reutilizaveis no ChatGPT, um parametro de complexidade e o nivel de qualidade max, com saida de ate cerca de 8,3 megapixels (4K), em modo experimental acima de 2560x1440. Na API, nos endpoints de geracao e edicao, os dois modelos custam US$ 5 por milhao de tokens de entrada de texto, US$ 8 de entrada de imagem e US$ 30 de saida de imagem. O system card lista disponibilidade no ChatGPT, no Codex e na API.",
+      "sources": [
+        {
+          "title": "Changelog - OpenAI API",
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "publisher": "OpenAI",
+          "date_basis": "Entrada oficial de 4 de novembro de 2026 registra o lancamento do gpt-image-2.6-flare e do gpt-image-2.6-sunburst e os recursos de GIF, SVG, complexidade e marcacao."
+        },
+        {
+          "title": "ChatGPT Images 2.6 System Card",
+          "url": "https://deploymentsafety.openai.com/chatgpt-images-2-6",
+          "publisher": "OpenAI",
+          "date_basis": "System card oficial datado de 4 de novembro de 2026 confirma a disponibilidade no ChatGPT, no Codex e na API e traz as avaliacoes de seguranca."
+        },
+        {
+          "title": "Images, upgraded - introducing ChatGPT Images 2.6",
+          "url": "https://community.openai.com/t/images-upgraded-introducing-chatgpt-images-2-6/1412901",
+          "publisher": "OpenAI Developer Community",
+          "date_basis": "Anuncio oficial publicado em 4 de novembro de 2026 informa a geracao 50% mais rapida, os cerca de 6 segundos do Flare, a edicao de GIFs e as imagens de referencia."
+        },
+        {
+          "title": "GPT-Image-2.6 Sunburst Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst",
+          "publisher": "OpenAI",
+          "date_basis": "Catalogo oficial confirma modalidades, endpoints e precos por token; a pagina do Flare traz os mesmos valores."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O post na comunidade de desenvolvedores dizia que os modelos estavam chegando a API, mas o changelog oficial registra o lancamento em 4 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy4",
+      "company": "Tencent",
+      "family": "Hy",
+      "model": "Hy4",
+      "release_date": "2026-11-04",
+      "release_stage": "lancamento/API/produto (pesos prometidos)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "agente", "codigo", "computador", "longo-contexto", "1M-contexto", "API"],
+      "description_pt": "Versao final da quarta geracao Hy, o flagship da Tencent, depois do preview aberto de agosto. E o primeiro Hy4 com compreensao visual e uso de computador, com pre e pos-treino ampliados e mais peso em seguir instrucoes e lidar com textos longos; segundo a Tencent, a taxa interna de alucinacao caiu de 12,95% no preview para 7,2%. Numa avaliacao cega com 213 profissionais de financas em 579 tarefas, a empresa reporta nota 3,04, contra 2,97 do DeepSeek-V4.1-Flash-1017 e 2,68 do Kimi K3.1 Pro e do GLM-5.3. Chegou no lancamento ao Tencent Cloud TokenHub, ao WorkBuddy, ao CodeBuddy, ao Yuanbao, ao assistente de IA do WeCom e ao ima, alem do OpenRouter, com contexto de 1M tokens e entrada de texto e imagem; custa cerca de US$ 0,90 de entrada e US$ 2,70 de saida por milhao de tokens, com 50% de desconto no TokenHub ate 31 de dezembro de 2026. A Tencent apresentou o Hy4 como modelo aberto e prometeu publicar os pesos e o system card nos dias seguintes, mas ate 11 de novembro os pesos da versao final ainda nao estavam publicos; o numero de parametros e a licenca nao foram informados.",
+      "sources": [
+        {
+          "title": "Tencent Launches Hy4, Joining the Ranks of the World's Leading Open-Source AI Models",
+          "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+          "publisher": "Tencent",
+          "date_basis": "Comunicado oficial de 4 de novembro de 2026 anuncia o lancamento, os novos recursos, os precos, os benchmarks e a publicacao dos pesos nos dias seguintes."
+        },
+        {
+          "title": "Tencent releases Hy4, a powerful frontier LLM introducing visual understanding and computer use",
+          "url": "https://www.siliconangle.com/2026/11/04/tencent-releases-hy4-powerful-frontier-llm-introducing-visual-understanding-and-computer-use/",
+          "publisher": "SiliconANGLE",
+          "date_basis": "Cobertura de 4 de novembro de 2026 confirma a data, os precos e que os pesos ainda estavam pendentes."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Alguns rastreadores registram 3 de novembro, pois a listagem no OpenRouter apareceu na noite de 3 de novembro no horario dos EUA; o comunicado da Tencent e de 4 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "baidu-ernie-5-5-flash-base",
+      "company": "Baidu",
+      "family": "ERNIE",
+      "model": "ERNIE-5.5-Flash-Base",
+      "release_date": "2026-11-05",
+      "release_stage": "pesos abertos (modelo base)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "modelo-base", "MoE", "longo-contexto", "1M-contexto", "open-weights", "OpenSource"],
+      "description_pt": "Modelo base do ERNIE 5.5 Flash, publicado pela Baidu como o checkpoint do fim do pre-treino, antes de qualquer mid-training ou pos-treino. E um MoE de 280B parametros totais e 14B ativos, com 43 camadas, 512 especialistas roteados com top-10 mais um compartilhado e atencao que combina camadas Heavily Compressed Attention e MLA-DSA; foi pre-treinado em 33,5 trilhoes de tokens com o otimizador Muon, trabalha so com texto e aceita contexto de 1M tokens em fine-tuning e inferencia. Nos numeros da Baidu, marca 78,4 no MMLU-Pro, contra 69,2 do DeepSeek-V4-Flash-Base, e 82,3 no HumanEval+, contra 78,0 do Hy3-preview-Base, mas fica atras em testes como ChineseSimpleQA e BBH. Os pesos sairam no Hugging Face e no ModelScope, em FP8 e BF16, sob a ERNIE 5.5 Flash Base Model License Agreement, que nao vale na Uniao Europeia, no Reino Unido e na Coreia do Sul, permite uso comercial gratuito ate US$ 50 milhoes de receita anual, com aviso a Baidu e atribuicao \"Powered by ERNIE\", e proibe usar as saidas para melhorar outros modelos. O modelo pos-treinado veio em 11 de novembro, como ERNIE 5.5 Flash Preview.",
+      "sources": [
+        {
+          "title": "Introducing ERNIE 5.5 Flash Base",
+          "url": "https://ernie.baidu.com/release/ernie-5-5-flash-base/",
+          "publisher": "Baidu",
+          "date_basis": "Post oficial publicado em 5 de novembro de 2026 anuncia o modelo base, a arquitetura, os benchmarks e o modelo pos-treinado que viria depois."
+        },
+        {
+          "title": "baidu/ERNIE-5.5-Flash-Base",
+          "url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base",
+          "publisher": "Baidu / Hugging Face",
+          "date_basis": "Model card oficial detalha parametros, camadas, especialistas e contexto; a licenca no repositorio registra \"Released: November 5, 2026\" e os termos de uso."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-omni-1-2-flash",
+      "company": "Google",
+      "family": "Gemini Omni",
+      "model": "Gemini Omni 1.2 Flash",
+      "release_date": "2026-11-05",
+      "release_stage": "GA/API/produto",
+      "ai_category": "Video",
+      "model_type": ["video", "multimodal", "edicao", "audio", "lip-sync", "imagem", "texto", "API", "Flow", "proprietario"],
+      "description_pt": "Nova versao do modelo de geracao e edicao de video da familia Gemini Omni, com clipes de 3 a 15 segundos, contra ate 10 segundos do Omni 1.1 Flash. Gera rascunhos em 360p ou 720p, com upscale para 1080p ou 4K, e video com audio sincronizado e lip-sync; aceita texto, imagens de referencia de personagem, produto, estilo e quadros iniciais e finais, clipes de movimento de ate 3 segundos, referencias de voz de 1 segundo e edicoes em varios turnos. Saiu em disponibilidade geral na Gemini API como gemini-omni-1.2-flash e no Google Cloud, alem do Google Vids sem custo extra, do Flow e do Google Ads; os videos de 15 segundos estao sendo liberados para assinantes AI Ultra no app Gemini. O preco caiu 30%, para cerca de US$ 0,07 por segundo em 720p, e a partir de 3 de dezembro de 2026 as chamadas ao gemini-omni-1.1-flash passam a ser roteadas para o novo modelo. Nas comparacoes da Google, feitas apenas contra o Omni 1.1, o novo modelo e preferido em 63% dos casos na geracao a partir de referencias. Os videos levam marca d'agua SynthID.",
+      "sources": [
+        {
+          "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 5 de novembro de 2026 anuncia a disponibilidade geral, os clipes de 15 segundos, o preco de US$ 0,07 por segundo em 720p e o SynthID."
+        },
+        {
+          "title": "Gemini API changelog",
+          "url": "https://aistudio.google.com/docs/changelog",
+          "publisher": "Google",
+          "date_basis": "Entrada oficial de 5 de novembro de 2026 registra o gemini-omni-1.2-flash em disponibilidade geral e o roteamento do 1.1 a partir de 3 de dezembro."
+        },
+        {
+          "title": "Gemini Omni",
+          "url": "https://deepmind.google/models/gemini-omni/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Pagina oficial do modelo traz as taxas de preferencia contra o Omni 1.1."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "openai-gpt-6-cyber",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-6 Cyber",
+      "release_date": "2026-11-05",
+      "release_stage": "acesso restrito/API/Codex (Daybreak Red)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "codigo", "agente", "ciberseguranca", "vulnerabilidades", "pentest", "longo-contexto", "1M-contexto", "acesso-limitado", "API", "proprietario"],
+      "description_pt": "Versao do GPT-6 Astra especializada em ciberseguranca, treinada para encontrar vulnerabilidades, verificar se sao exploraveis e ajudar a desenvolver correcoes, sempre dentro de um escopo autorizado definido pelos pesquisadores. O acesso exige o nivel Daybreak Red e uma aprovacao separada para o modelo, com SSO, MFA e lista de IPs permitidos; esta na API, pelas Responses e Chat Completions APIs, e no Codex. Tem contexto de 1.050.000 tokens, saida maxima de 128K e entrada de texto e imagem, e custa US$ 20 de entrada, US$ 2 de entrada em cache e US$ 100 de saida por milhao de tokens ate 272K tokens de entrada. No system card, a OpenAI classifica o modelo como Critical em ciberseguranca e reporta 48,45% no ExploitGym, contra 42,43% do GPT-6 Astra, e 92,84% no SRE-Bench, contra 87,98%; a cobertura do lancamento cita 32,1% do GPT-5.6 Cyber no ExploitGym. Quem usa o gpt-5.5-cyber-preview foi orientado a migrar, e esse modelo sai do ar em 1 de fevereiro de 2027.",
+      "sources": [
+        {
+          "title": "Changelog - OpenAI API",
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "publisher": "OpenAI",
+          "date_basis": "Entrada oficial de 5 de novembro de 2026 registra o lancamento do gpt-6-cyber."
+        },
+        {
+          "title": "GPT-6-Cyber Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6-cyber",
+          "publisher": "OpenAI",
+          "date_basis": "Catalogo oficial confirma contexto, saida maxima, modalidades, precos e endpoints."
+        },
+        {
+          "title": "GPT-6 Cyber System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-6-cyber",
+          "publisher": "OpenAI",
+          "date_basis": "System card oficial datado de 5 de novembro de 2026 informa o modelo base, a classificacao Critical em ciberseguranca e os benchmarks contra o GPT-6 Astra."
+        },
+        {
+          "title": "Use Daybreak in the Responses API",
+          "url": "https://developers.openai.com/api/docs/guides/daybreak",
+          "publisher": "OpenAI",
+          "date_basis": "Guia oficial descreve os requisitos de acesso do Daybreak Red e a migracao a partir do gpt-5.5-cyber-preview, que sai do ar em 1 de fevereiro de 2027."
+        },
+        {
+          "title": "OpenAI's GPT-6 Cyber boosts exploit success rate",
+          "url": "https://interestingengineering.com/ai-robotics/openai-gpt-6-cyber-exploit-success-rate",
+          "publisher": "Interesting Engineering",
+          "date_basis": "Cobertura de 5 de novembro de 2026 atribui ao anuncio da OpenAI a comparacao de 48,5% contra 32,1% do GPT-5.6 Cyber no ExploitGym."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "thinking-machines-inkling-2-small",
+      "company": "Thinking Machines Lab",
+      "family": "Inkling",
+      "model": "Inkling 2 Small",
+      "release_date": "2026-11-05",
+      "release_stage": "lancamento/Tinker (pesos fechados no lancamento; Apache 2.0 prometido)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "raciocinio", "codigo", "agente", "MoE", "longo-contexto", "1M-contexto", "fine-tuning", "baixo-custo", "API"],
+      "description_pt": "Segundo modelo da geracao Inkling da Thinking Machines Lab, de Mira Murati, e sucessor do Inkling-Small de julho. E um MoE com cerca de 594B parametros totais e 17B ativos, com 8 de 384 especialistas por token, atencao hibrida local e global e um codificador visual de 292M. Recebe texto e imagem, gera texto, tem esforco de raciocinio ajustavel e, segundo o model card, contexto de ate 1M tokens; ao contrario do Inkling original, nao processa audio. Chegou com pesos fechados ao Tinker, para fine-tuning e amostragem, ao Tinker Playground e a inferencia serverless em beta, por US$ 0,30 de entrada, US$ 0,03 de entrada em cache e US$ 1,00 de saida por milhao de tokens. A empresa disse que pretendia liberar os pesos completos sob Apache 2.0 na semana seguinte, depois de testes externos de seguranca; ate 11 de novembro o repositorio ainda nao estava no Hugging Face. Nos numeros da Thinking Machines, marca 30,6 no Artificial Analysis Intelligence Index v5.0, contra 36,5 do Claude Haiku 5.5 e 30,8 do Gemini 3.8 Flash, e 82,2% no SWE-Bench Verified, contra 88,9% do Haiku 5.5.",
+      "sources": [
+        {
+          "title": "Introducing Inkling 2 Small",
+          "url": "https://thinkingmachines.ai/news/inkling-2-small/",
+          "publisher": "Thinking Machines Lab",
+          "date_basis": "Post oficial publicado em 5 de novembro de 2026 anuncia o modelo, os 594B totais e 17B ativos, a disponibilidade no Tinker e o plano de liberar os pesos sob Apache 2.0."
+        },
+        {
+          "title": "Inkling 2 Small Model Card",
+          "url": "https://thinkingmachines.ai/model-card/inkling-2-small/",
+          "publisher": "Thinking Machines Lab",
+          "date_basis": "Model card oficial datado de 5 de novembro de 2026 detalha arquitetura, contexto de ate 1M tokens, licenca atual pelos termos do Tinker e a tabela de benchmarks."
+        },
+        {
+          "title": "Tinker Pricing",
+          "url": "https://thinkingmachines.ai/tinker/pricing/",
+          "publisher": "Thinking Machines Lab",
+          "date_basis": "Tabela oficial de precos lista o Inkling 2 Small como novo, com valores de prefill, cache, amostragem, treino e inferencia serverless."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-fable-5-2",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Fable 5.2",
+      "release_date": "2026-11-09",
+      "release_stage": "GA/API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "codigo", "agente", "trabalho", "pesquisa-cientifica", "longo-contexto", "1M-contexto", "API", "proprietario"],
+      "description_pt": "Atualizacao da linha Fable, o modelo de fronteira de acesso geral da Anthropic, lancada junto com o Claude Mythos 5.2. Tem contexto de 1M tokens, saida maxima de 128K, entrada de texto e imagem, conhecimento ate junho de 2026 e raciocinio adaptativo sempre ligado. Custa US$ 8 de entrada e US$ 40 de saida por milhao de tokens, 20% abaixo do Fable 5.1, e gera a saida ate 30% mais rapido que o antecessor; o modo rapido, a US$ 16/US$ 80, chega a 2,5 vezes mais velocidade. Nos numeros da Anthropic, marca 69,9% no FrontierSWE v2, contra 65,5% do GPT-6 Astra e 62,3% do Claude Opus 5.5, 49,1% no FrontierCode 2.0 e 74,2% no Humanity's Last Exam com ferramentas, mas fica atras do Gemini 4 Carbon no AutomationBench, com 51,4% contra 53,9%. Classificadores bloqueiam pedidos de alto risco em ciberseguranca e em biologia de nivel de pesquisa, com cerca de 55% menos bloqueios indevidos que no 5.1. Saiu em disponibilidade geral na API como claude-fable-5-2, no Amazon Bedrock, no Google Cloud, no Microsoft Foundry, no Claude Code e nos planos Pro, Max, Ultra, Team e Enterprise; o Fable 5.1 passou a ser listado como legado.",
+      "sources": [
+        {
+          "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+          "url": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+          "publisher": "Anthropic",
+          "date_basis": "Post oficial publicado em 9 de novembro de 2026 anuncia o lancamento, os precos, o modo rapido, os benchmarks e as salvaguardas."
+        },
+        {
+          "title": "Claude Fable 5.2 - Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview",
+          "publisher": "Anthropic",
+          "date_basis": "Pagina oficial do modelo informa \"Released November 9, 2026\", os identificadores por plataforma, contexto, saida maxima e data de corte."
+        },
+        {
+          "title": "Release notes - Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "publisher": "Anthropic",
+          "date_basis": "Entrada oficial de 9 de novembro de 2026 registra o lancamento na API."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "anthropic-claude-mythos-5-2",
+      "company": "Anthropic",
+      "family": "Claude",
+      "model": "Claude Mythos 5.2",
+      "release_date": "2026-11-09",
+      "release_stage": "restrito/programas de acesso verificado",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "codigo", "agente", "seguranca", "ciberseguranca", "ciencias-da-vida", "longo-contexto", "1M-contexto", "acesso-limitado", "API", "proprietario"],
+      "description_pt": "Mesmo modelo do Fable 5.2, mas sem as salvaguardas de ciberseguranca e biologia do Fable, liberado apenas para organizacoes aprovadas no Cyber Verification Program e no Life Sciences Verification Program. Tem os mesmos precos e limites do Fable 5.2: US$ 8 de entrada e US$ 40 de saida por milhao de tokens, contexto de 1M e saida de 128K. Nos numeros da Anthropic, marca 76,3% no CyScenarioBench, contra 61,7% do Mythos 5.1 e 61% do GPT-6 Cyber, e 89,6% no CVE Rediscovery, contra 78,3% do Mythos 5.1; a taxa de fuga de sandbox nos cenarios de teste caiu para 3,1%, contra 21% do Mythos 5.1. O Claude Security passou a usar o Mythos 5.2 e ficou disponivel para todos os clientes Enterprise, mesmo fora do programa de ciberseguranca. Na API, usa o identificador claude-mythos-5-2, tambem no Amazon Bedrock, no Google Cloud e no Microsoft Foundry.",
+      "sources": [
+        {
+          "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+          "url": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+          "publisher": "Anthropic",
+          "date_basis": "Post oficial publicado em 9 de novembro de 2026 anuncia o Mythos 5.2, os programas de acesso verificado, os benchmarks e a mudanca no Claude Security."
+        },
+        {
+          "title": "Claude Mythos 5.2 - Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/models/mythos-5-2/overview",
+          "publisher": "Anthropic",
+          "date_basis": "Pagina oficial do modelo informa \"Released November 9, 2026\", o status de acesso com verificacao, os identificadores e as plataformas."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seedream-5-5",
+      "company": "ByteDance",
+      "family": "Seedream",
+      "model": "Seedream 5.5",
+      "release_date": "2026-11-09",
+      "release_stage": "lancamento/produto (rollout gradual)",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "edicao", "edicao-multiturno", "transparencia", "texto-em-imagem", "proprietario"],
+      "description_pt": "Nova versao do modelo de imagem da equipe Seed da ByteDance, com foco em realismo e em edicoes estaveis ao longo de muitas rodadas: as regioes nao editadas permanecem identicas pixel a pixel, e a demonstracao oficial encadeia 100 edicoes. Tambem gera imagens RGBA com transparencia total ou parcial e renderiza melhor textos pequenos e densos. Nos testes da ByteDance no MagicArena, tem saldo de preferencia de 55,62% em realismo na edicao de imagens sobre o Seedream 5.0 Pro e mais que o dobro de aproveitamento em cenarios de cinema, TV e escritorio; a empresa diz que supera o GPT Image 2.5 Sunburst e o Nano Banana 2.1 em estrutura de texto e realismo, sem numeros para essas comparacoes. Esta sendo liberado aos poucos no Dreamina (Jimeng), no Doubao, no Doubao Work e no Volcano Ark, como Doubao-Seedream-5.5; a cobertura aponta cerca de 0,28 yuan por edicao quadrada em 2K. Parametros e arquitetura nao foram divulgados, e uma versao Pro da serie 5.5 foi anunciada para depois.",
+      "sources": [
+        {
+          "title": "More Realistic Images, More Stable Editing Across 100 Rounds | Introducing Seedream 5.5",
+          "url": "https://seed.bytedance.com/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+          "publisher": "ByteDance Seed",
+          "date_basis": "Post oficial publicado em 9 de novembro de 2026 apresenta os recursos, os resultados no MagicArena e a futura versao Pro."
+        },
+        {
+          "title": "Seedream 5.5",
+          "url": "https://seed.bytedance.com/en/seedream5_5",
+          "publisher": "ByteDance Seed",
+          "date_basis": "Pagina oficial do produto descreve a edicao multiturno, a saida RGBA e a renderizacao de texto; a versao em chines do blog, de 9 de novembro, lista os produtos do rollout."
+        },
+        {
+          "title": "ByteDance Seedream 5.5 launches on Volcano Ark",
+          "url": "https://www.aibase.com/news/32185",
+          "publisher": "AIBase",
+          "date_basis": "Cobertura de 9 de novembro de 2026 informa a chegada ao Volcano Ark e o preco de cerca de 0,28 yuan por edicao em 2K."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "meta-muse-ember",
+      "company": "Meta",
+      "family": "Muse",
+      "model": "Muse Ember",
+      "release_date": "2026-11-09",
+      "release_stage": "lancamento/API/Muse Code",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "audio", "video-input", "multimodal", "raciocinio", "codigo", "agente", "tool-use", "longo-contexto", "1M-contexto", "baixo-custo", "API", "proprietario"],
+      "description_pt": "Menor e mais eficiente modelo da familia Muse, feito para executar em grande volume as subtarefas de agentes, enquanto o Muse Wonder fica com o planejamento. Segundo a Meta, e o primeiro modelo treinado com a ajuda do Muse Wonder Full. Tem contexto de 1M tokens e ate 512K tokens de saida e recebe texto, imagem, audio e video; a Meta nao divulgou o numero de parametros nem publicou pesos. Chegou no dia do anuncio ao Muse Code e a Meta Model API, como muse-ember-1.0 e compativel com a Responses API, e tambem ao Google Cloud e ao Oracle Cloud. Custa US$ 0,10 de entrada, US$ 0,004 de entrada em cache e US$ 0,50 de saida por milhao de tokens em prompts de ate 200K tokens, e US$ 0,30, US$ 0,012 e US$ 1,50 acima disso. Nos numeros da Meta, com raciocinio maximo, marca 36 no Artificial Analysis Intelligence Index, empatado com o Claude Haiku 5.5 e acima dos 28 do GPT-6 Luna, e 40,9% no Terminal-Bench 4.0, contra 39,2% do Haiku 5.5, com cada modelo rodando no proprio harness.",
+      "sources": [
+        {
+          "title": "Introducing Our Smallest, Most Efficient Model: Muse Ember",
+          "url": "https://research.meta.ai/blog/muse-ember",
+          "publisher": "Meta",
+          "date_basis": "Post oficial publicado em 9 de novembro de 2026 anuncia a disponibilidade no Muse Code e na Meta Model API como muse-ember-1.0, os limites de contexto e saida, os precos e os benchmarks."
+        },
+        {
+          "title": "Muse Ember - Meta Model API",
+          "url": "https://dev.meta.ai/models/muse-ember",
+          "publisher": "Meta",
+          "date_basis": "Pagina oficial do modelo confirma o identificador, as duas faixas de preco e as modalidades de entrada."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Alguns rastreadores registram 10 de novembro; o post oficial da Meta e a Artificial Analysis datam o lancamento de 9 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-4-carbon-release",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 4 Carbon (API e apps)",
+      "release_date": "2026-11-10",
+      "release_stage": "disponibilidade geral/API/produto por assinatura",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "multimodal", "visao", "audio", "video-input", "raciocinio", "codigo", "agente", "ciberseguranca", "longo-contexto", "1M-contexto", "API", "proprietario"],
+      "description_pt": "Disponibilidade geral do Gemini 4 Carbon, duas semanas depois da liberacao restrita a defensores ciberneticos. A Google continua indicando o Argon para a maior parte do trabalho de software e conhecimento e reserva o Carbon para as tarefas mais dificeis. Chegou ao nivel pago da Gemini API no AI Studio e no Android Studio como gemini-4-carbon, ao Gemini for Business, ao Google Antigravity e ao CodeMender, e esta sendo liberado para todos os assinantes Google AI Ultra no app Gemini, no AI Mode da Busca e no Antigravity; cientistas elegiveis ganham seis meses de acesso gratis. Uma variante permissiva para ciberseguranca segue restrita ao Fairwind Program, e o GitHub Copilot recebeu o modelo no mesmo dia. Custa US$ 2 de entrada, US$ 0,10 de entrada em cache e US$ 10 de saida por milhao de tokens ate 30 de novembro, e US$ 4, US$ 0,20 e US$ 20 a partir de 1 de dezembro. Tem limite unificado de cerca de 1M tokens para entrada e saida, recebe texto, imagem, audio, video e PDF e tem conhecimento ate marco de 2026. No model card, marca 65,2% no Terminal-Bench 4.0, contra 59,6% do Claude Opus 5.5, mas fica atras do GPT-6 Astra no FrontierSWE 2, com 61,2% contra 65,5%. Pelo Frontier Safety Framework, a Google concluiu que o ganho sobre o Argon nao exigia uma nova avaliacao completa de capacidades criticas e reforcou as mitigacoes de ciberseguranca.",
+      "sources": [
+        {
+          "title": "Gemini 4 Carbon is now available",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 10 de novembro de 2026 anuncia a disponibilidade nos produtos e na API, os precos e o fim do periodo introdutorio em 30 de novembro."
+        },
+        {
+          "title": "Gemini API changelog",
+          "url": "https://aistudio.google.com/docs/changelog",
+          "publisher": "Google",
+          "date_basis": "Entrada oficial de 10 de novembro de 2026 registra o gemini-4-carbon em disponibilidade geral e o preco introdutorio ate 30 de novembro."
+        },
+        {
+          "title": "Gemini 4 Carbon - Model Card",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Model card oficial publicado em 10 de novembro de 2026 informa data de corte, modalidades e tabela de benchmarks."
+        },
+        {
+          "title": "Gemini 4 Carbon Safety & Security Report",
+          "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_carbon_safety_report.pdf",
+          "publisher": "Google DeepMind",
+          "date_basis": "Relatorio oficial de novembro de 2026 descreve a avaliacao pelo Frontier Safety Framework e o acesso da variante de ciberseguranca pelo Fairwind Program."
+        },
+        {
+          "title": "Gemini 4 Carbon in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot/",
+          "publisher": "GitHub",
+          "date_basis": "Changelog oficial de 10 de novembro de 2026 anuncia o modelo em disponibilidade geral no GitHub Copilot."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-robotics-2-5",
+      "company": "Google",
+      "family": "Gemini Robotics",
+      "model": "Gemini Robotics 2.5",
+      "release_date": "2026-11-10",
+      "release_stage": "parceiros/lista de espera para acesso antecipado",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "visao-linguagem-acao", "embodied-ai", "destreza", "humanoide", "acesso-limitado"],
+      "description_pt": "Novo modelo de visao-linguagem-acao do Google DeepMind e sucessor do Gemini Robotics 2, de julho, voltado a destreza geral no mundo real. Esta sendo liberado para parceiros de robotica como Apptronik, Mercedes-Benz e Agile, com lista de espera para acesso antecipado e sem API, preco ou janela de contexto divulgados. Foi demonstrado no humanoide Apptronik Apollo 2, com mao de 22 graus de liberdade, e no Franka Duo, e o Gemini 4 Argon serviu como motor de simulacao durante o treino. Nos numeros da DeepMind, tem taxas de sucesso de 30% a 100% maiores que as das referencias anteriores e termina tarefas de 20% a 30% mais rapido; num piloto de separacao de pecas da Mercedes-Benz, chegou a 96% de sucesso.",
+      "sources": [
+        {
+          "title": "Gemini Robotics 2.5 accelerates real-world general dexterity",
+          "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial publicado em 10 de novembro de 2026 anuncia o modelo, os parceiros, o hardware usado e os resultados."
+        },
+        {
+          "title": "Gemini Robotics VLA",
+          "url": "https://deepmind.google/models/gemini-robotics/vla/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Pagina oficial do modelo oferece lista de espera para acesso antecipado."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "minimax-h3-image",
+      "company": "MiniMax",
+      "family": "Hailuo",
+      "model": "MiniMax H3-Image / H3-Image-Highspeed",
+      "release_date": "2026-11-10",
+      "release_stage": "pesos abertos/API/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "edicao", "multi-referencia", "4K", "33B", "baixa-latencia", "open-weights", "API"],
+      "description_pt": "Modelo aberto de geracao e edicao de imagens da MiniMax, derivado do H3 sem as camadas de audio: um transformer de difusao de 33,1B parametros, com encoder de texto baseado no Qwen3-VL, destilado para 6 passos sem CFG. Gera nativamente cerca de 16 megapixels em qualquer proporcao, ou 4096x4096 em 1:1, em menos de 10 segundos, segundo a empresa, e faz geracao e edicao no mesmo checkpoint, com ate 16 imagens de referencia. A MiniMax nao publicou benchmarks numericos e diz apenas que tem o melhor seguimento de instrucoes entre os modelos abertos. Os pesos sairam no Hugging Face sob a MiniMax-H3-Image Community License, que exclui EUA, Uniao Europeia, Reino Unido e Coreia do Sul e exige autorizacao para receita acima de US$ 1 milhao por ano ou para servicos hospedados. Tambem esta na API, como MiniMax-H3-Image e na variante mais rapida MiniMax-H3-Image-Highspeed, no Hailuo AI, no MiniMax Code e no OpenRouter; uma imagem 4K custa cerca de US$ 0,069 no modo padrao, com 50% de desconto ate 17 de novembro.",
+      "sources": [
+        {
+          "title": "MiniMax H3-Image: Bringing 4K Image Generation into the 10-Second Era",
+          "url": "https://www.minimax.io/blog/minimax-h3-image",
+          "publisher": "MiniMax",
+          "date_basis": "Post oficial anuncia o modelo, os pesos abertos, a geracao 4K em menos de 10 segundos, as 16 referencias, o modo Highspeed e a promocao; a pagina exibe 11 de novembro de 2026."
+        },
+        {
+          "title": "Release Notes",
+          "url": "https://platform.minimax.io/docs/release-notes",
+          "publisher": "MiniMax",
+          "date_basis": "Notas oficiais registram o lancamento do MiniMax H3 Image em 10 de novembro de 2026."
+        },
+        {
+          "title": "MiniMaxAI/MiniMax-H3-Image",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",
+          "publisher": "MiniMax / Hugging Face",
+          "date_basis": "Model card oficial informa os 33,1B parametros, a arquitetura, os 6 passos e a licenca, cujo texto registra 10 de novembro de 2026 como data de lancamento."
+        },
+        {
+          "title": "Pricing",
+          "url": "https://platform.minimax.io/docs/guides/pricing",
+          "publisher": "MiniMax",
+          "date_basis": "Tabela oficial lista os precos por imagem dos modos padrao e Highspeed e a promocao ate 17 de novembro de 2026."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O blog da MiniMax exibe 11 de novembro, diferenca compativel com o fuso horario da China; as notas de lancamento e a licenca registram 10 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "alibaba-qwen4-max-preview",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen4-Max-Preview",
+      "release_date": "2026-11-11",
+      "release_stage": "preview / Token Plan (ate 2026-11-25)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "video-input", "multimodal", "raciocinio", "agente", "tool-use", "longo-contexto", "1M-contexto", "preview", "proprietario"],
+      "description_pt": "Preview hospedado do Qwen4-Max, primeiro modelo da quarta geracao Qwen e novo flagship da Alibaba. Fica disponivel apenas para assinantes do Token Plan, sem cobranca por token, de 11 a 25 de novembro de 2026, quando o preview sera encerrado. Tem contexto de 1M tokens e saida maxima de 393.216 tokens, contando raciocinio e resposta, e recebe texto, imagem e video; o raciocinio fica ligado por padrao, com esforco low, medium ou xhigh, e ha chamada de funcoes, busca na web e compatibilidade com as APIs da OpenAI e da Anthropic. Tambem tem acesso antecipado no QwenWork, no Qoder, no app Qwen e no QwenStudio. Durante o preview, o consumo de creditos cai para ate 20% do padrao, e os planos pessoais comecam em US$ 3 por mes para novos usuarios. A Alibaba nao divulgou parametros, arquitetura nem benchmarks e nao informou se havera pesos abertos; segundo a imprensa, versoes Flash, Plus e 27B do Qwen4 estao previstas.",
+      "sources": [
+        {
+          "title": "Qwen4-Max-Preview",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Pagina oficial atualizada em 11 de novembro de 2026 informa o identificador qwen4-max-preview, a janela do preview, as especificacoes e o acesso exclusivo pelo Token Plan."
+        },
+        {
+          "title": "Newly released models",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Lista oficial registra o Qwen4-Max-Preview em 11 de novembro de 2026."
+        },
+        {
+          "title": "Token Plan Personal overview",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/token-plan-personal-overview",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Pagina oficial atualizada em 11 de novembro de 2026 informa os descontos de creditos do preview e os precos dos planos."
+        },
+        {
+          "title": "Alibaba opens Qwen4-Max preview with a million-token context window",
+          "url": "https://technode.com/2026/11/11/alibaba-opens-qwen4-max-preview-with-a-million-token-context-window/",
+          "publisher": "TechNode",
+          "date_basis": "Cobertura de 11 de novembro de 2026 confirma os apps com acesso antecipado, o contexto de 1M e a entrada de imagem e video."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O anuncio saiu na manha de 11 de novembro no horario da China, ainda 10 de novembro no horario dos EUA.",
+      "confidence": "alta"
+    },
+    {
+      "id": "baidu-ernie-5-5-flash-preview",
+      "company": "Baidu",
+      "family": "ERNIE",
+      "model": "ERNIE 5.5 Flash Preview",
+      "release_date": "2026-11-11",
+      "release_stage": "preview/API (pesos Apache 2.0 prometidos)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "MoE", "longo-contexto", "1M-contexto", "preview", "API"],
+      "description_pt": "Primeiro modelo pos-treinado sobre o ERNIE-5.5-Flash-Base, descrito pela Baidu como um checkpoint intermediario do pos-treino. Mantem a arquitetura MoE de 280B parametros totais e 14B ativos, o contexto de 1M tokens e o foco em texto. Chegou a API pela plataforma Qianfan e ao OpenRouter, inclusive numa versao gratuita, e a Baidu diz que vai abrir os pesos em breve sob Apache 2.0, licenca mais permissiva que a do modelo base. A empresa publicou os benchmarks apenas como imagens e nao divulgou precos.",
+      "sources": [
+        {
+          "title": "ERNIE 5.5 Flash Preview",
+          "url": "https://ernie.baidu.com/release/ernie-5-5-flash-preview/",
+          "publisher": "Baidu",
+          "date_basis": "Post oficial publicado em 11 de novembro de 2026 apresenta o modelo, a disponibilidade no Qianfan e a futura abertura dos pesos sob Apache 2.0."
+        },
+        {
+          "title": "ERNIE releases",
+          "url": "https://ernie.baidu.com/release/",
+          "publisher": "Baidu",
+          "date_basis": "Indice oficial de lancamentos lista o ERNIE 5.5 Flash Preview em 11 de novembro de 2026, depois do modelo base de 5 de novembro."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O post da Baidu e de 11 de novembro; a listagem no OpenRouter apareceu na noite de 10 de novembro no horario dos EUA.",
+      "confidence": "alta"
+    },
     {
       "id": "openai-gpt-live-1-1",
       "company": "OpenAI",
@@ -231,10 +996,10 @@
       "family": "Kimi",
       "model": "Kimi K3.1 Pro / K3.1 Pro Highspeed",
       "release_date": "2026-10-23",
-      "release_stage": "lancamento/API/produto (pesos abertos prometidos ate 2026-11-04)",
+      "release_stage": "lancamento/API/produto (pesos abertos em 2026-11-04)",
       "ai_category": "LLMs",
-      "model_type": ["texto", "visao", "video", "multimodal", "raciocinio", "codigo", "agente", "tool-use", "MoE", "longo-contexto", "1M-contexto", "API"],
-      "description_pt": "Primeiro modelo da serie K3.1 e, segundo a Moonshot, o modelo de pesos abertos de classe 3T mais capaz da empresa ate hoje. E um retreinamento do Kimi K3, sem nova arquitetura: MoE com cerca de 2,8 trilhoes de parametros totais e 104B ativos, segundo a cobertura, contexto de 1M tokens e entrada de texto, imagem e video. Funciona apenas em modo de raciocinio, com esforco low, high ou max. A Moonshot reporta 65,7% no Terminal-Bench 4.0, contra 58,2% do GPT-6 Astra e 66,4% do Claude Opus 5.5, e queda da taxa de alucinacao com ferramentas de 23,4% no K3 para 8,3%. A variante Highspeed tem as mesmas capacidades e roda de 2 a 3 vezes mais rapido. Disponivel no Kimi.com, nos apps, no Kimi Work, no Kimi Code e na API como kimi-k3.1-pro e kimi-k3.1-pro-highspeed; a cobertura aponta precos de US$ 2 de entrada e US$ 10 de saida por milhao de tokens, um terco abaixo do K3, e de US$ 4/US$ 20 na Highspeed. Os pesos completos foram prometidos para ate 4 de novembro de 2026, e a Moonshot diz que a versao aberta tera os dados de ciberseguranca removidos do treino.",
+      "model_type": ["texto", "visao", "video", "multimodal", "raciocinio", "codigo", "agente", "tool-use", "MoE", "longo-contexto", "1M-contexto", "API", "open-weights", "OpenSource"],
+      "description_pt": "Primeiro modelo da serie K3.1 e, segundo a Moonshot, o modelo de pesos abertos de classe 3T mais capaz da empresa ate hoje. E um retreinamento do Kimi K3, sem nova arquitetura: MoE com cerca de 2,8 trilhoes de parametros totais e 104B ativos, segundo a cobertura, contexto de 1M tokens e entrada de texto, imagem e video. Funciona apenas em modo de raciocinio, com esforco low, high ou max. A Moonshot reporta 65,7% no Terminal-Bench 4.0, contra 58,2% do GPT-6 Astra e 66,4% do Claude Opus 5.5, e queda da taxa de alucinacao com ferramentas de 23,4% no K3 para 8,3%. A variante Highspeed tem as mesmas capacidades e roda de 2 a 3 vezes mais rapido. Disponivel no Kimi.com, nos apps, no Kimi Work, no Kimi Code e na API como kimi-k3.1-pro e kimi-k3.1-pro-highspeed; a cobertura aponta precos de US$ 2 de entrada e US$ 10 de saida por milhao de tokens, um terco abaixo do K3, e de US$ 4/US$ 20 na Highspeed. Os pesos sairam em 4 de novembro de 2026, dentro do prazo prometido, no Hugging Face como moonshotai/Kimi-K3.1-Pro, em MXFP4 com cerca de 1,56 TB, sob a Kimi K3.1-Pro License: a concessao segue o modelo MIT, mas produtos comerciais com mais de 100 milhoes de usuarios ativos mensais ou US$ 20 milhoes de receita mensal precisam exibir \"Kimi K3.1-Pro\", e provedores de modelo como servico com mais de US$ 20 milhoes de receita em 12 meses precisam de acordo separado. Segundo a Moonshot, os dados de ciberseguranca foram removidos das duas etapas de treino da versao aberta; nao ha repositorio separado para a variante Highspeed.",
       "sources": [
         {
           "title": "Kimi K3.1 Pro",
@@ -253,10 +1018,22 @@
           "url": "https://the-decoder.com/chinese-ai-model-kimi-k3-1-pro-is-closing-in-on-anthropics-claude-opus-5-5/",
           "publisher": "The Decoder",
           "date_basis": "Cobertura de 23 de outubro de 2026 informa os 2,8T totais e 104B ativos e os precos da API."
+        },
+        {
+          "title": "moonshotai/Kimi-K3.1-Pro",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+          "publisher": "Moonshot AI / Hugging Face",
+          "date_basis": "Repositorio oficial dos pesos traz a arquitetura, o formato MXFP4, a licenca Kimi K3.1-Pro License e os benchmarks; o historico de commits vai de 2 a 5 de novembro de 2026."
+        },
+        {
+          "title": "Moonshot AI releases Kimi K3.1 Pro weights",
+          "url": "https://runtimewire.com/article/moonshot-ai-kimi-k3-1-pro-weights",
+          "publisher": "RuntimeWire",
+          "date_basis": "Cobertura de 4 de novembro de 2026 reproduz o post oficial da Moonshot no X anunciando a liberacao dos pesos."
         }
       ],
       "date_precision": "dia oficial",
-      "date_note_pt": "Parte da cobertura data o anuncio de 24 de outubro, diferenca compativel com o fuso horario da China; o changelog oficial do Kimi Code registra o rollout em 23 de outubro.",
+      "date_note_pt": "Parte da cobertura data o anuncio de 24 de outubro, diferenca compativel com o fuso horario da China; o changelog oficial do Kimi Code registra o rollout em 23 de outubro. Os pesos foram anunciados em 4 de novembro; o repositorio foi criado em 2 de novembro, e alguns sites citam 5 de novembro.",
       "confidence": "alta"
     },
     {
@@ -2671,25 +3448,44 @@
       "family": "Mistral Large",
       "model": "Mistral Large 4",
       "release_date": "2026-10-06",
-      "release_stage": "public preview/API",
+      "release_stage": "public preview/API (pesos abertos em 2026-10-29)",
       "ai_category": "LLMs",
-      "model_type": ["texto", "visao", "multimodal", "multilingue", "MoE", "raciocinio", "codigo", "agente", "ciberseguranca", "longo-contexto", "1M-contexto", "europeu", "preview", "API"],
-      "description_pt": "Novo modelo de fronteira da Mistral, apelidado de \"le Chonk\": MoE hibrido de instrucao e raciocinio com entrada multimodal, cerca de 1 trilhao de parametros totais e 49B ativos, segundo o anuncio, e contexto de 1M tokens. Foi treinado do zero em 3.800 GPUs NVIDIA Grace Blackwell nos datacenters europeus da empresa e se destaca em ciberseguranca, com 93% no Cybench. O preview custa US$ 1,36 por milhao de tokens de entrada e US$ 4,18 de saida. A Mistral promete publicar os pesos abertos ate o fim de outubro de 2026.",
+      "model_type": ["texto", "visao", "multimodal", "multilingue", "MoE", "raciocinio", "codigo", "agente", "ciberseguranca", "longo-contexto", "1M-contexto", "europeu", "preview", "API", "open-weights", "OpenSource"],
+      "description_pt": "Novo modelo de fronteira da Mistral, apelidado de \"le Chonk\": MoE hibrido de instrucao e raciocinio com entrada multimodal, cerca de 1 trilhao de parametros totais e 52B ativos, segundo o anuncio, e contexto de 1M tokens; o model card no Hugging Face detalha 1,05T totais e 49B ativos por token, ou 52B contando embeddings e camadas de saida. Foi treinado do zero em 3.800 GPUs NVIDIA Grace Blackwell nos datacenters europeus da empresa e se destaca em ciberseguranca, com 93% no Cybench. Na API custa US$ 0,70 de entrada, US$ 0,07 de entrada em cache e US$ 2,10 de saida por milhao de tokens, com 50% de desconto nas duas primeiras semanas do preview. Em 29 de outubro de 2026 a Mistral publicou os pesos de uma versao melhorada, com cerca de tres semanas a mais de aprendizado por reforco em codigo, ciberseguranca e eficiencia de raciocinio, no Hugging Face como Mistral-Large-4-1T-A52B, em FP8 e NVFP4. A licenca e a Mistral Ecosystem Open-Weight License, uma MIT modificada que permite uso comercial e fine-tuning, mas exige licenca comercial separada de quem oferecer o modelo como servico. Nos numeros da Mistral, a versao aberta sobe de 28% para 41% no Terminal-Bench 4.0 e de 93,3% para 97,1% no B3 Agent Security; uma variante especializada em ciberseguranca ficou restrita a parceiros selecionados.",
       "sources": [
         {
           "title": "Introducing Mistral Large 4",
           "url": "https://mistral.ai/news/mistral-large-4/",
           "publisher": "Mistral AI",
-          "date_basis": "Post oficial publicado em 6 de outubro de 2026 anuncia o public preview da API no Mistral Studio e informa que os pesos serao liberados ate o fim do mes."
+          "date_basis": "Post oficial publicado em 6 de outubro de 2026 anuncia o public preview da API no Mistral Studio, os 52B parametros ativos, os precos e a liberacao dos pesos ate o fim do mes."
         },
         {
           "title": "Mistral Large 4",
           "url": "https://docs.mistral.ai/models/model-cards/mistral-large-4-0",
           "publisher": "Mistral AI",
-          "date_basis": "Model card oficial lista o modelo em public preview em 6 de outubro de 2026, com contexto de 1M tokens e encoder de visao de 1,6B."
+          "date_basis": "Model card oficial lista o modelo em public preview em 6 de outubro de 2026, com contexto de 1M tokens, encoder de visao de 1,6B, 1,05T totais e 52B ativos e os precos da API."
+        },
+        {
+          "title": "Changelog",
+          "url": "https://docs.mistral.ai/getting-started/changelog",
+          "publisher": "Mistral AI",
+          "date_basis": "Entrada oficial de 6 de outubro de 2026 registra o public preview com o identificador mistral-large-4 e o desconto de 50% por duas semanas."
+        },
+        {
+          "title": "Le Chonk: Built for Coders, Trusted by Defenders",
+          "url": "https://mistral.ai/news/mistral-large-4-oss/",
+          "publisher": "Mistral AI",
+          "date_basis": "Post oficial listado em 29 de outubro de 2026 no indice de noticias da Mistral anuncia os pesos da versao melhorada, a licenca, os precos e os novos benchmarks."
+        },
+        {
+          "title": "mistralai/Mistral-Large-4-1T-A52B",
+          "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+          "publisher": "Mistral AI / Hugging Face",
+          "date_basis": "Repositorio oficial dos pesos informa 49B parametros ativos por token, ou 52B contando embeddings e camadas de saida, e a licenca; o blog do Hugging Face sobre o lancamento e de 29 de outubro de 2026."
         }
       ],
       "date_precision": "dia oficial",
+      "date_note_pt": "A data exibida e a do public preview da API, em 6 de outubro; os pesos abertos da versao melhorada sairam em 29 de outubro de 2026.",
       "confidence": "alta"
     },
     {
