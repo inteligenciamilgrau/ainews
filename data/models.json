@@ -3,7 +3,7 @@
     "updated_at": "2026-11-11",
     "last_correction": {
       "date": "2026-11-11",
-      "description_pt": "Inclusao do Claude Fable 5.2 e do Claude Mythos 5.2, lancados pela Anthropic em 9 de novembro de 2026, e do Gemini 4 Carbon, anunciado pela Google em 28 de outubro com acesso restrito e liberado em disponibilidade geral em 10 de novembro. Inclusao tambem dos lancamentos de 27 de outubro a 11 de novembro: Genie 4, Nemotron 3.5 Transcribe, Ling-3.1-flash-1019, SFX v3, GPT-6 Rosalind, GPT Image 2.6, Hy4, GPT-6 Cyber, Inkling 2 Small, ERNIE-5.5-Flash-Base, Gemini Omni 1.2 Flash, Seedream 5.5, Muse Ember, Gemini Robotics 2.5, MiniMax H3-Image, Qwen4-Max-Preview e ERNIE 5.5 Flash Preview, alem dos registros anteriores do Gemini Omni 1.1 Flash e do Ling-3.1-flash. Os registros do Kimi K3.1 Pro e do Mistral Large 4 passaram a informar a publicacao dos pesos abertos, em 4 de novembro e 29 de outubro, e o do Mistral Large 4 teve corrigidos o preco da API e o numero de parametros ativos."
+      "description_pt": "Inclusao do Claude Fable 5.2 e do Claude Mythos 5.2, lancados pela Anthropic em 9 de novembro de 2026, e do Gemini 4 Carbon, anunciado pela Google em 28 de outubro com acesso restrito e liberado em disponibilidade geral em 10 de novembro. Inclusao tambem dos lancamentos de 27 de outubro a 11 de novembro: Genie 4, LFM3, MAI-Image-2.7 Preview, Nemotron 3.5 Transcribe, Ling-3.1-flash-1019, SFX v3, Pika H3 Flex, GPT-6 Rosalind, LongCat-2.5, GPT Image 2.6, Hy4, Ripple-65B Preview, SWE-2 Flash, GPT-6 Cyber, Inkling 2 Small, ERNIE-5.5-Flash-Base, Gemini Omni 1.2 Flash, Ling-3.2-flash, Seedream 5.5, Muse Ember, GR00T 2, K-EXAONE 2.5, Gemini Robotics 2.5, MiniMax H3-Image, Qwen4-Max-Preview e ERNIE 5.5 Flash Preview, alem dos registros anteriores do K-EXAONE 2.0, do MAI-Image-2.6, do Gemini Omni 1.1 Flash, do SWE-2 e do Ling-3.1-flash. Os registros do Kimi K3.1 Pro e do Mistral Large 4 passaram a informar a publicacao dos pesos abertos, em 4 de novembro e 29 de outubro, e o do Mistral Large 4 teve corrigidos o preco da API e o numero de parametros ativos."
     },
     "previous_correction": {
       "date": "2026-10-26",
@@ -14,6 +14,410 @@
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
+    {
+      "id": "lg-k-exaone-2-0",
+      "company": "LG AI Research",
+      "family": "EXAONE",
+      "model": "K-EXAONE 2.0 (750B-A37B)",
+      "release_date": "2026-07-31",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "multilingue", "coreano", "MoE", "longo-contexto", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Segunda geracao do K-EXAONE, o modelo de fronteira coreano da LG AI Research: um MoE de 750B parametros totais e 37B ativos, com 256 especialistas, 8 ativos mais um compartilhado, 78 camadas e uma camada de predicao de varios tokens. Trabalha com texto em 10 idiomas e tem contexto de 262.144 tokens. Segundo a LG, faz media de 70,1 em 24 benchmarks, contra 63,3 do K-EXAONE anterior, de 236B. Os pesos sairam no Hugging Face sob Apache 2.0, com variantes FP8 e NVFP4, e o relatorio tecnico foi publicado em 5 de agosto.",
+      "sources": [
+        {
+          "title": "LG AI Research News - K-EXAONE 2.0",
+          "url": "https://www.lgresearch.ai/news/view?seq=678",
+          "publisher": "LG AI Research",
+          "date_basis": "Noticia oficial de 31 de julho de 2026 anuncia o lancamento do K-EXAONE 2.0 no Hugging Face."
+        },
+        {
+          "title": "LGAI-EXAONE/K-EXAONE-2.0-750B-A37B",
+          "url": "https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B",
+          "publisher": "LG AI Research / Hugging Face",
+          "date_basis": "Model card oficial informa arquitetura, contexto, idiomas, licenca Apache 2.0 e benchmarks."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Registro incluido em 11 de novembro de 2026 para completar a linha K-EXAONE; o comunicado do K-EXAONE 2.5 se refere a ele como o modelo de agosto, mes do relatorio tecnico.",
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-image-2-6",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Image-2.6 / MAI-Image-2.6-Flash",
+      "release_date": "2026-08-10",
+      "release_stage": "lancamento/Arena (Foundry e Playground em 2026-09-04)",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "edicao", "image-to-image", "multi-referencia", "texto-em-imagem", "Arena", "preview", "proprietario"],
+      "description_pt": "Sucessor do MAI-Image-2.5 na linha de imagem da Microsoft AI. Estreou em 10 de agosto de 2026 em 2o lugar no ranking de texto-para-imagem da Arena, 79 pontos acima do 2.5 e 91 acima em renderizacao de texto. Em 4 de setembro, a Microsoft lancou tambem o MAI-Image-2.6-Flash, cerca de 2,8 vezes mais rapido que o GPT-Image-2 Medium segundo a empresa, e colocou os dois em public preview no Microsoft Foundry e no MAI Playground, com resolucao de ate 1,5K, edicao com varias referencias, busca na web para fundamentar as imagens e proporcoes dinamicas. Nessa data, a Microsoft reportava 2o lugar em geracao e edicao na Arena e 1o em edicao na Artificial Analysis.",
+      "sources": [
+        {
+          "title": "MAI-Image-2.6 launches at No. 2 on Arena ahead of Google, Meta and xAI",
+          "url": "https://microsoft.ai/news/mai-image-2-6-launches-at-no-2-on-arena-ahead-of-google-meta-and-xai",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 10 de agosto de 2026 anuncia a estreia em 2o lugar na Arena e os ganhos sobre o 2.5."
+        },
+        {
+          "title": "Pushing the quality-cost frontier with MAI-Image-2.6",
+          "url": "https://microsoft.ai/news/pushing-the-quality-cost-frontier-with-mai-image-2-6",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 4 de setembro de 2026 apresenta o MAI-Image-2.6-Flash e o public preview no Foundry e no MAI Playground."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "A data exibida e a da estreia na Arena; a variante Flash e o public preview no Foundry e no MAI Playground vieram em 4 de setembro de 2026. Registro incluido em 11 de novembro de 2026 para completar a linha MAI-Image.",
+      "confidence": "alta"
+    },
+    {
+      "id": "cognition-swe-2",
+      "company": "Cognition",
+      "family": "SWE",
+      "model": "SWE-2",
+      "release_date": "2026-09-10",
+      "release_stage": "lancamento/produto (Devin Desktop e CLI)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "MoE", "proprietario"],
+      "description_pt": "Modelo de codigo da Cognition, criadora do Devin, pos-treinado a partir do Kimi K3, MoE de cerca de 2,8 trilhoes de parametros. Chegou no lancamento ao Devin Desktop e ao CLI, com a chegada a versao web e ao Fusion em andamento. Nos numeros da Cognition, marca 92,8 no Terminal-Bench 2.1, 50,0 no FrontierCode 1.1 Main e 73,0 no DeepSWE 1.1. Sucede o SWE-1.7, de julho de 2026.",
+      "sources": [
+        {
+          "title": "Introducing SWE-2: Pushing the Pareto Frontier",
+          "url": "https://cognition.com/blog/swe-2",
+          "publisher": "Cognition",
+          "date_basis": "Post oficial datado de 10 de setembro de 2026 anuncia o modelo, a base Kimi K3, a disponibilidade e os benchmarks."
+        },
+        {
+          "title": "Blog",
+          "url": "https://cognition.com/blog",
+          "publisher": "Cognition",
+          "date_basis": "Indice oficial do blog lista o SWE-2 em 10 de setembro de 2026 e o SWE-1.7 em 8 de julho de 2026."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Registro incluido em 11 de novembro de 2026 para completar a linha SWE da Cognition.",
+      "confidence": "alta"
+    },
+    {
+      "id": "liquid-ai-lfm3",
+      "company": "Liquid AI",
+      "family": "LFM",
+      "model": "LFM3 (1.7B / VL-2B / Audio-2B / Omni-2B / d1-2B / d1-Omni-2B)",
+      "release_date": "2026-10-27",
+      "release_stage": "pesos abertos/API",
+      "ai_category": ["LLMs", "Multimodal", "Audio/Transcricao"],
+      "model_type": ["texto", "visao", "video-input", "audio", "voz", "multimodal", "omni", "on-device", "modelo-pequeno", "multilingue", "tool-use", "longo-contexto", "open-weights", "OpenSource", "API"],
+      "description_pt": "Terceira geracao dos modelos pequenos da Liquid AI, com seis modelos de cerca de 2B parametros derivados de um mesmo backbone, o LFM3-1.7B-Base, que tambem foi publicado. A arquitetura e uma hibrida tripla de 24 camadas, com convolucoes curtas com porta, atencao por janela deslizante e atencao global, treinada em 22 trilhoes de tokens. A familia traz o LFM3-1.7B, de texto, com contexto de 256K e 16 idiomas; o LFM3-VL-2B, que recebe texto, imagem e video; o LFM3-Audio-2B, que entende e gera fala; o LFM3-Omni-2B, que recebe texto, imagem, video e audio e responde em texto e fala; e os modelos de decisao d1-2B e d1-Omni-2B, que nao sao modelos de chat. Nos numeros da Liquid, o LFM3-1.7B supera o Qwen3.5-9B na media dos testes, com 49,37 contra 47,24, e no BFCL V4, com 71,39 contra 62,83, mas fica atras no SWE-bench Verified. Os pesos sairam no Hugging Face sob a LFM Open License v1.0, gratuita inclusive para uso comercial em empresas com menos de US$ 10 milhoes de receita anual; na API da Liquid, o modelo de texto custa US$ 0,08 de entrada e US$ 0,20 de saida por milhao de tokens.",
+      "sources": [
+        {
+          "title": "LFM3",
+          "url": "https://www.liquid.ai/blog/lfm3",
+          "publisher": "Liquid AI",
+          "date_basis": "Post oficial datado de 27 de outubro de 2026 apresenta a familia de seis modelos, a arquitetura, o contexto e a disponibilidade no Hugging Face, na API e no Playground."
+        },
+        {
+          "title": "LiquidAI/LFM3-1.7B",
+          "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+          "publisher": "Liquid AI / Hugging Face",
+          "date_basis": "Model card oficial, com commits a partir de 27 de outubro de 2026, informa a licenca LFM Open License v1.0, os 1,73B parametros, o contexto de 256K e os benchmarks; a colecao LiquidAI/lfm3 reune os demais repositorios."
+        },
+        {
+          "title": "Pricing",
+          "url": "https://www.liquid.ai/pricing?view=api",
+          "publisher": "Liquid AI",
+          "date_basis": "Tabela oficial lista os precos da API e o limite de receita da licenca aberta."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-image-2-7-preview",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI-Image-2.7 Preview",
+      "release_date": "2026-10-27",
+      "release_stage": "preview/Playground e arenas (so edicao)",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "image-to-image", "texto-em-imagem", "restauracao", "Arena", "preview", "proprietario"],
+      "description_pt": "Preview do sucessor do MAI-Image-2.6, por enquanto apenas para edicao de imagens; a geracao a partir de texto foi anunciada para depois, sem data. A Microsoft AI o posiciona para edicoes dificeis, como mudar o estilo e a iluminacao de uma cena inteira, editar textos e simbolos e restaurar ou melhorar imagens. Na estreia, ficou em 2o lugar no ranking de edicao de imagens da Artificial Analysis, com 1193 de Elo, atras do GPT Image 2.5 Sunburst e a frente do GPT Image 2.5 Flare, 42 pontos acima do MAI-Image-2.6, e em 3o no Image Edit da Arena, a frente do GPT-Image-2; dias depois, com a chegada do GPT Image 2.6, caiu para 4o nos dois rankings. So pode ser testado no MAI Playground, na Arena e na Artificial Analysis, sem API, preco ou pesos anunciados, e a Microsoft nao divulgou tamanho nem arquitetura.",
+      "sources": [
+        {
+          "title": "Microsoft AI on X - MAI Image 2.7 Preview",
+          "url": "https://x.com/MicrosoftAI/status/2115102961957499069",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 27 de outubro de 2026 anuncia o MAI Image 2.7 Preview em 3o lugar na Arena, 45 pontos acima do 2.6."
+        },
+        {
+          "title": "Artificial Analysis on X - MAI Image 2.7",
+          "url": "https://x.com/ArtificialAnlys/status/2115097540320506069",
+          "publisher": "Artificial Analysis",
+          "date_basis": "Post de 27 de outubro de 2026 informa o 2o lugar no ranking de edicao, a sucessao do 2.6, o acesso pelo Playground e a geracao por texto prevista para depois."
+        },
+        {
+          "title": "Microsoft's image editor nears OpenAI in preference tests",
+          "url": "https://winbuzzer.com/2026/10/28/microsofts-image-editor-nears-openai-in-preference-tests-xcxwbn/",
+          "publisher": "WinBuzzer",
+          "date_basis": "Cobertura de 28 de outubro de 2026 traz a tabela de Elo do lancamento e confirma a ausencia de API, preco e data para texto-para-imagem."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O post de lancamento no site da Microsoft AI nao estava acessivel em 11 de novembro de 2026; a data vem do anuncio oficial no X e dos rankings.",
+      "confidence": "alta"
+    },
+    {
+      "id": "pika-h3-flex",
+      "company": "Pika",
+      "family": "Pika",
+      "model": "Pika H3 Flex",
+      "release_date": "2026-10-29",
+      "release_stage": "pesos abertos (adapters)/API",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "texto-para-video", "imagem-para-video", "referencia", "audio-nativo", "LoRA", "destilacao", "open-weights", "API"],
+      "description_pt": "Versao do modelo de video MiniMax H3 pos-treinada pela Pika, que gera video com audio estereo de 32 kHz a partir de texto, de quadros iniciais e finais ou de ate 12 referencias, com ate 9 imagens, 3 videos e 3 audios. Os clipes tem de 5 a 15 segundos, a 24 quadros por segundo, em 480p ou 768p nativos e 11 proporcoes; na API, um upsampler da Pika leva a 1080p, 2K ou 4K, e o audio pode sair separado em cinco faixas, de dialogo, trilha, efeitos, foley e ambiente. A Pika destilou o modelo de 50 para 6 passos de amostragem e diz que ele e cerca de 1,8 vez mais rapido que o H3 Max da fal; no DesignArena de texto-para-video, ficou em 1o entre os modelos abertos e em 7o no geral na data do anuncio. Os adapters LoRA e os componentes do H3 sairam no Hugging Face sob a MiniMax H3 Community License e rodam numa unica H100 de 80 GB; as faixas de audio separadas e o upsampler ficam so na API, que custa a partir de US$ 0,01 por segundo de video.",
+      "sources": [
+        {
+          "title": "Introducing Pika H3 Flex",
+          "url": "https://pika.art/blog/pika-h3-flex",
+          "publisher": "Pika",
+          "date_basis": "Post oficial datado de 29 de outubro de 2026 anuncia o modelo, as referencias, as faixas de audio pela API, os repositorios e o ranking no DesignArena."
+        },
+        {
+          "title": "Pika H3 Flex Technical Deep Dive",
+          "url": "https://pika.art/blog/pika-h3-flex-research",
+          "publisher": "Pika",
+          "date_basis": "Post tecnico oficial de 29 de outubro de 2026 detalha a destilacao de 50 para 6 passos, os ganhos de velocidade e as metricas."
+        },
+        {
+          "title": "Pika-Labs/Pika-H3-Flex",
+          "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
+          "publisher": "Pika / Hugging Face",
+          "date_basis": "Repositorio oficial confirma a licenca MiniMax H3 Community License, os componentes, as tarefas, os limites de duracao e o audio de 32 kHz."
+        },
+        {
+          "title": "Pika H3 Flex - Pika API",
+          "url": "https://dev.pika.art/models/pika/pika-h3-flex",
+          "publisher": "Pika",
+          "date_basis": "Pagina oficial da API lista os precos por segundo de cada modo."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "meituan-longcat-2-5",
+      "company": "Meituan",
+      "family": "LongCat",
+      "model": "LongCat-2.5",
+      "release_date": "2026-11-02",
+      "release_stage": "lancamento/API/chat (pesos abertos em 2026-11-09)",
+      "ai_category": ["LLMs", "Multimodal"],
+      "model_type": ["texto", "visao", "multimodal-nativo", "raciocinio", "raciocinio-hibrido", "codigo", "agente", "3D", "MoE", "longo-contexto", "1M-contexto", "baixo-custo", "API", "open-weights", "OpenSource", "MIT"],
+      "description_pt": "Modelo de fronteira da Meituan e sucessor do LongCat-2.5-Preview, de 25 de setembro: um MoE nativamente multimodal com cerca de 1,6 trilhao de parametros totais e 48B ativos, com modos com e sem raciocinio, voltado a codigo visual, design, 3D e tarefas longas de agentes. Recebe imagem e texto, tem contexto de 1M tokens e saida maxima de 256K. Nos numeros da Meituan, marca 88,4 no Terminal-Bench 2.1, contra 89,1 do Claude Opus 5 e 70,8 do LongCat-2.0, e 91,9 no BrowseComp, contra 90,8 do Opus 5, este medido no harness da propria empresa. Chegou ao chat do LongCat e a API como LongCat-2.5, por US$ 0,30 de entrada, US$ 0,006 de entrada em cache e US$ 1,20 de saida por milhao de tokens em preco promocional. Em 9 de novembro de 2026, a Meituan publicou os pesos no Hugging Face sob licenca MIT, inclusive numa versao W4A4; os metadados do repositorio somam cerca de 1,78T parametros, acima do numero anunciado.",
+      "sources": [
+        {
+          "title": "LongCat-2.5",
+          "url": "https://longcat.ai/blog/longcat-2.5/",
+          "publisher": "Meituan",
+          "date_basis": "Post oficial datado de 1 de novembro de 2026 apresenta o modelo, a arquitetura e a tabela de benchmarks."
+        },
+        {
+          "title": "Change Log - LongCat API Platform",
+          "url": "https://longcat.chat/platform/docs/change-log",
+          "publisher": "Meituan",
+          "date_basis": "Entrada oficial de 2 de novembro de 2026 registra \"LongCat-2.5 Now Available\"; a de 25 de setembro registra o Preview."
+        },
+        {
+          "title": "LongCat-2.5 Pricing",
+          "url": "https://longcat.chat/platform/docs/pricing/longcat-2.5",
+          "publisher": "Meituan",
+          "date_basis": "Tabela oficial lista os precos promocionais por milhao de tokens."
+        },
+        {
+          "title": "meituan-longcat/LongCat-2.5",
+          "url": "https://huggingface.co/meituan-longcat/LongCat-2.5",
+          "publisher": "Meituan / Hugging Face",
+          "date_basis": "Model card oficial, atualizado em 9 de novembro de 2026, confirma a licenca MIT, os 1,6T totais e 48B ativos e os benchmarks."
+        },
+        {
+          "title": "Meituan releases the open weights of its LongCat-2.5 LLM with vision under a permissive MIT license",
+          "url": "https://venturebeat.com/technology/meituan-releases-the-open-weights-of-its-longcat-2-5-llm-with-vision-under-a-permissive-mit-license",
+          "publisher": "VentureBeat",
+          "date_basis": "Cobertura de 9 de novembro de 2026 registra a publicacao dos pesos e a diferenca na contagem de parametros."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O post do blog e de 1 de novembro, mas o changelog da API e o anuncio oficial no X registram a disponibilidade em 2 de novembro; os pesos abertos sairam em 9 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "cognition-swe-2-flash",
+      "company": "Cognition",
+      "family": "SWE",
+      "model": "SWE-2 Flash",
+      "release_date": "2026-11-04",
+      "release_stage": "lancamento/produto (Devin Desktop e CLI)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "MoE", "baixo-custo", "baixa-latencia", "proprietario"],
+      "description_pt": "Versao rapida e barata do SWE-2, o modelo de codigo da Cognition, criadora do Devin. Foi pos-treinado a partir do Inkling-Small, da Thinking Machines Lab, MoE de 276B parametros totais e 12B ativos, com uma etapa de mid-training antes do aprendizado por reforco. Segundo a Cognition, custa um quinto e roda 3 vezes mais rapido que o SWE-2. Nos numeros da empresa, marca 89,2 no Terminal-Bench 2.1, contra 92,8 do SWE-2, e 24,0 no FrontierCode 2.0, ligeiramente acima dos 23,8 do SWE-2, mas fica atras no DeepSWE 1.1, com 60,1 contra 73,0. Chegou apenas ao Devin Desktop e ao CLI, gratis ate 30 de novembro, sem API; a Cognition diz que ainda nao vai publicar os pesos por risco de uso indevido em ciberataques e que prepara um programa para compartilha-los com parceiros e laboratorios confiaveis.",
+      "sources": [
+        {
+          "title": "Introducing SWE-2 Flash",
+          "url": "https://cognition.com/blog/swe-2-flash",
+          "publisher": "Cognition",
+          "date_basis": "Post oficial datado de 4 de novembro de 2026 anuncia o modelo, a base Inkling-Small, a disponibilidade no Devin Desktop e no CLI, a promocao ate 30 de novembro e os benchmarks."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "ricursive-ripple-65b-preview",
+      "company": "Ricursive Intelligence",
+      "family": "Ripple",
+      "model": "Ripple-65B Preview",
+      "release_date": "2026-11-04",
+      "release_stage": "preview/pesos abertos/API",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "denso", "longo-contexto", "1M-contexto", "baixo-custo", "open-weights", "OpenSource", "Apache-2.0", "API"],
+      "description_pt": "Primeiro modelo aberto da Ricursive Intelligence, laboratorio que se descreve como focado em sistemas que se aprimoram sozinhos, a comecar pelo projeto de chips. E um transformer denso de 65B parametros, e nao um MoE, com 80 camadas, atencao por janela deslizante e global e atencao com porta, pre-treinado do zero em 12 trilhoes de tokens com enfase em codigo; trabalha so com texto e aceita contexto de ate 1M tokens. A empresa diz que todo o desenvolvimento custou cerca de US$ 32 milhoes. Nos numeros da Ricursive, marca 80,52 no Terminal-Bench 2.1, contra 76,4 do Muse Spark Open, e 76,5 no SWE-bench Verified; segundo a The Decoder, fica atras do Inkling 2 Small no SWE-Bench Pro v2.0 Hard. Os pesos sairam no Hugging Face sob Apache 2.0, em BF16 e NVFP4, junto com o modelo base, e o modelo tambem esta no OpenRouter, na Together AI, na Fireworks e na GMI Cloud, a partir de US$ 0,10 de entrada e US$ 0,30 de saida por milhao de tokens.",
+      "sources": [
+        {
+          "title": "Introducing Ripple-65B Preview",
+          "url": "https://ricursive.com/ripple",
+          "publisher": "Ricursive Intelligence",
+          "date_basis": "Pagina oficial descreve a arquitetura, os 12 trilhoes de tokens, o contexto de 1M, as plataformas, os benchmarks e o custo de desenvolvimento; o carimbo de 11 de novembro na pagina parece ser a data de geracao do site."
+        },
+        {
+          "title": "ricursiveAI/Ripple-65B-Preview",
+          "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
+          "publisher": "Ricursive Intelligence / Hugging Face",
+          "date_basis": "Repositorio oficial, com commit inicial, README e licenca de 4 de novembro de 2026, informa a licenca Apache 2.0, o contexto e a tabela de benchmarks."
+        },
+        {
+          "title": "Ripple-65B Preview delivers strong agentic coding results as a fully Apache 2.0 open US model",
+          "url": "https://the-decoder.com/ripple-65b-preview-delivers-strong-agentic-coding-results-as-a-fully-apache-2-0-open-us-model/",
+          "publisher": "The Decoder",
+          "date_basis": "Cobertura de 6 de novembro de 2026 registra o lancamento em 4 de novembro, a licenca e a comparacao com o Inkling 2 Small."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "A pagina oficial nao exibe data editorial; o dia vem do historico do repositorio no Hugging Face e da cobertura contemporanea.",
+      "confidence": "alta"
+    },
+    {
+      "id": "ant-group-ling-3-2-flash",
+      "company": "Ant Group",
+      "family": "Ling",
+      "model": "Ling-3.2-flash",
+      "release_date": "2026-11-05",
+      "release_stage": "lancamento/API/chat",
+      "ai_category": ["LLMs", "Multimodal"],
+      "model_type": ["texto", "visao", "video-input", "multimodal-nativo", "raciocinio", "agente", "3D", "saude", "MoE", "longo-contexto", "1M-contexto", "API"],
+      "description_pt": "Nova versao do Ling-flash da inclusionAI, do Ant Group, agora nativamente multimodal: recebe imagem, texto e video sem um modulo de visao externo. Mantem o tamanho do Ling-3.1-flash, um MoE de 560B parametros totais e 25B ativos, com contexto de 1M tokens, e mira compreensao visual complexa, tarefas longas de agentes multimodais, compreensao e interacao em 3D e uso medico. Segundo a Ant, supera o Claude Opus 5 em modo maximo nas avaliacoes de lancamento; pelos numeros divulgados na cobertura, marca 92,21 no OmniDocBench 1.5, contra 90,56 do Opus 5, e 85,86 no Vision2Web, contra 80,20. Chegou ao chat Ling Studio e a API como Ling-3.2-flash, compativel com os formatos da OpenAI e da Anthropic, de graca nas duas primeiras semanas; as paginas oficiais nao mencionam pesos abertos nem licenca.",
+      "sources": [
+        {
+          "title": "Changelog - Ant Ling Developer",
+          "url": "https://developer.ant-ling.com/en/docs/getting-started/changelog",
+          "publisher": "Ant Group",
+          "date_basis": "Entrada oficial de 5 de novembro de 2026 (v2.0.6) registra o lancamento, as especificacoes, o acesso por chat e API e as duas semanas gratuitas."
+        },
+        {
+          "title": "Ling models",
+          "url": "https://developer.ant-ling.com/en/docs/models/ling/",
+          "publisher": "Ant Group",
+          "date_basis": "Pagina oficial do modelo informa 560B totais e 25B ativos, contexto de 1M e entrada de imagem, texto e video."
+        },
+        {
+          "title": "Ling-3.2-flash: Native Multimodal Text Model Now Live",
+          "url": "https://www.ant-ling.com/en/",
+          "publisher": "Ant Group",
+          "date_basis": "Lista oficial de noticias do site da Ant Ling data o lancamento de 5 de novembro de 2026."
+        },
+        {
+          "title": "Ant Group launches Ling-3.2-flash",
+          "url": "https://www.aibase.com/news/32130",
+          "publisher": "AIBase",
+          "date_basis": "Cobertura de 6 de novembro de 2026, no horario da China, traz os numeros de benchmark contra o Claude Opus 5."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Parte da cobertura data o lancamento de 6 de novembro, pois o anuncio saiu na madrugada no horario da China; o changelog oficial registra 5 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "lg-k-exaone-2-5",
+      "company": "LG AI Research",
+      "family": "EXAONE",
+      "model": "K-EXAONE 2.5",
+      "release_date": "2026-11-09",
+      "release_stage": "API gratuita",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "raciocinio", "codigo", "agente", "multilingue", "coreano", "MoE", "longo-contexto", "API"],
+      "description_pt": "Versao do K-EXAONE 2.0 com treino adicional, que a LG AI Research chama de modelo de validacao tecnica, apresentada no NVIDIA AI Day Seoul 2026. E um MoE de 750B parametros totais; a documentacao informa 31B ativos, enquanto o K-EXAONE 2.0 tem 37B. Trabalha com texto em coreano e ingles, tem contexto de 512K tokens compartilhado com a saida, conhecimento ate janeiro de 2026 e raciocinio sempre ligado, com esforco low, high ou max. Segundo a LG, melhorou mais de 70% na soma de 24 metricas em relacao ao modelo de oito semanas antes; nos testes da empresa, marca 74,6 no AutomationBench, contra 74,9 do DeepSeek V4.1 Flash, e 59,2 no SWE-Bench Pro, contra 58,4 do DeepSeek e 64,0 do GLM-5.3. Esta disponivel de graca, sem prazo definido, pela API da EXAONE como k-exaone_v2.5, para servicos e pesquisa; nao ha mencao a pesos abertos.",
+      "sources": [
+        {
+          "title": "LG AI Research K-EXAONE 2.5 press release",
+          "url": "https://lg.co.kr/media/release/30760",
+          "publisher": "LG",
+          "date_basis": "Comunicado oficial de 9 de novembro de 2026 anuncia a API gratuita, os benchmarks contra concorrentes e o ganho de mais de 70%."
+        },
+        {
+          "title": "LG AI Research News - K-EXAONE 2.5",
+          "url": "https://www.lgresearch.ai/news/view?seq=755",
+          "publisher": "LG AI Research",
+          "date_basis": "Noticia oficial em ingles de 9 de novembro de 2026 confirma a API gratuita e os quatro benchmarks."
+        },
+        {
+          "title": "Models - EXAONE Docs",
+          "url": "https://docs.exaone.ai/en/docs/models",
+          "publisher": "LG AI Research",
+          "date_basis": "Pagina oficial lista 750B totais e 31B ativos, contexto de 512K, modalidade de texto e data de corte."
+        },
+        {
+          "title": "Changelog - EXAONE Docs",
+          "url": "https://docs.exaone.ai/ko/docs/changelog",
+          "publisher": "LG AI Research",
+          "date_basis": "Entrada oficial de 9 de novembro de 2026 registra o K-EXAONE 2.5 (750B) com uso gratuito por ora."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "A data e de 9 de novembro no horario da Coreia, ainda 8 de novembro nos fusos dos EUA.",
+      "confidence": "alta"
+    },
+    {
+      "id": "nvidia-gr00t-2",
+      "company": "NVIDIA",
+      "family": "GR00T",
+      "model": "GR00T 2 / GR00T 2 Turbo",
+      "release_date": "2026-11-09",
+      "release_stage": "anuncio/pesquisa (codigo previsto para dezembro)",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "world-action-model", "world-model", "humanoide", "destreza", "cross-embodiment", "video", "Cosmos", "pesquisa"],
+      "description_pt": "Nova geracao do modelo de fundacao para robos da NVIDIA, agora um world-action model: um unico transformer de difusao preve ao mesmo tempo o video futuro e o bloco de acoes, com pequenas cabecas de acao para cada robo, e, segundo o blog da NVIDIA, e construido sobre o Cosmos. Foi pre-treinado com cerca de 403 mil horas de video egocentrico de pessoas, 10 mil horas de demonstracoes com garras UMI e 23,5 mil horas de teleoperacao de robos, o que permite transferir habilidades entre corpos roboticos e aprender com video humano. A variante Turbo usa um transformer menor, de 2B parametros, e roda embarcada num Unitree G1 com 124 ms por predicao no Jetson Thor. Nos numeros da NVIDIA, em 50 tarefas ineditas num robo bimanual, chega a 40% de sucesso sem demonstracoes, 71% com uma e 95% com cinco, apos 30 minutos de fine-tuning numa unica RTX 5090. Foi anunciado na conferencia CoRL; a pagina de pesquisa promete o codigo para dezembro, e por ora foi aberto o conjunto de dados PhysicalAI-Human-1M-100K, com 100 mil horas de video sob CC BY 4.0.",
+      "sources": [
+        {
+          "title": "GR00T 2",
+          "url": "https://research.nvidia.com/labs/gear/gr00t-2",
+          "publisher": "NVIDIA GEAR",
+          "date_basis": "Pagina oficial de pesquisa de novembro de 2026 descreve a arquitetura, o tamanho do Turbo, os dados de treino, os resultados e o codigo previsto para dezembro."
+        },
+        {
+          "title": "Practice Makes Precise: At CoRL, NVIDIA and Partners Reveal How Robots Rehearse Delicate Work in Simulation",
+          "url": "https://blogs.nvidia.com/?p=99751",
+          "publisher": "NVIDIA",
+          "date_basis": "Post oficial publicado em 9 de novembro de 2026 apresenta o GR00T 2 como world-action model aberto construido sobre o Cosmos, os resultados e os parceiros."
+        },
+        {
+          "title": "nvidia/PhysicalAI-Human-1M-100K",
+          "url": "https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K",
+          "publisher": "NVIDIA / Hugging Face",
+          "date_basis": "Repositorio oficial do conjunto de dados confirma a publicacao sob CC BY 4.0 e o tamanho de 100 mil horas."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
     {
       "id": "google-gemini-omni-1-1-flash",
       "company": "Google",
@@ -76,10 +480,16 @@
           "url": "https://technode.com/2026/10/16/ant-group-open-sources-560-billion-parameter-ling-3-1-flash-ai-model/",
           "publisher": "TechNode",
           "date_basis": "Cobertura de 16 de outubro de 2026 registra a publicacao dos pesos no Hugging Face e no ModelScope, informada pela imprensa chinesa em 15 de outubro."
+        },
+        {
+          "title": "Ant Ling - News",
+          "url": "https://www.ant-ling.com/en/",
+          "publisher": "Ant Group",
+          "date_basis": "Lista oficial de noticias do site da Ant Ling data o Ling-3.1-flash de 30 de setembro de 2026."
         }
       ],
-      "date_precision": "dia corroborado",
-      "date_note_pt": "Nao foi encontrado post oficial datado da Ant Group; o dia vem da cobertura contemporanea, e os pesos foram confirmados pelo repositorio oficial no Hugging Face. Registro incluido em 11 de novembro de 2026.",
+      "date_precision": "dia oficial",
+      "date_note_pt": "A data do lancamento vem da lista oficial de noticias da Ant Ling; o dia da publicacao dos pesos, 15 de outubro, vem da cobertura contemporanea e foi confirmado pelo repositorio oficial no Hugging Face. Registro incluido em 11 de novembro de 2026.",
       "confidence": "alta"
     },
     {
