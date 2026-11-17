@@ -3,7 +3,7 @@
     "updated_at": "2026-11-17",
     "last_correction": {
       "date": "2026-11-17",
-      "description_pt": "Inclusao do Gemini 4 Hydrogen, lancado pela Google em 12 de novembro de 2026, e da versao final do Qwen4-Max, lancada pela Alibaba em 16 de novembro, no mesmo dia do Hy4 flash, da Tencent. Inclusao tambem dos lancamentos de 9 a 16 de novembro: ZONOS3-Mini, Scribe v3, Gemini Decision 1, SubQ Snap 1.2, Praxis-1 com pesos abertos, HeyGen Image 1, Seedance 2.5 Flash, Decider v1.3, SOV-Transcribe-1, Hy Realtime, HeyGen Decision 1 e os modelos de decisao d1.2 e d1.2-ultra, da Liquid AI, alem dos registros anteriores do Seedance 2.5 e dos modelos HeyGen Video 1, HeyGen Voice e HeyGen Voice Turbo. O registro do Inkling 2 Small passou a informar a publicacao dos pesos abertos em 12 de novembro, e o da familia LFM3 passou a constar tambem na categoria de decisao estruturada."
+      "description_pt": "Criacao da categoria Ciencia, com 40 registros de modelos cientificos do Google, da Google DeepMind e da Isomorphic Labs, da primeira versao do AlphaFold, em 2018, ao AlphaGenome 2, lancado em 11 de novembro de 2026, cobrindo estrutura e design de proteinas, DNA e genomica, celulas, farmacos, materiais, clima e matematica. Inclusao tambem do Gemini 4 Hydrogen, lancado pela Google em 12 de novembro de 2026, e da versao final do Qwen4-Max, lancada pela Alibaba em 16 de novembro, no mesmo dia do Hy4 flash, da Tencent. Inclusao tambem dos lancamentos de 9 a 16 de novembro: ZONOS3-Mini, Scribe v3, Gemini Decision 1, SubQ Snap 1.2, Praxis-1 com pesos abertos, HeyGen Image 1, Seedance 2.5 Flash, Decider v1.3, SOV-Transcribe-1, Hy Realtime, HeyGen Decision 1 e os modelos de decisao d1.2 e d1.2-ultra, da Liquid AI, alem dos registros anteriores do Seedance 2.5 e dos modelos HeyGen Video 1, HeyGen Voice e HeyGen Voice Turbo. O registro do Inkling 2 Small passou a informar a publicacao dos pesos abertos em 12 de novembro, e o da familia LFM3 passou a constar tambem na categoria de decisao estruturada."
     },
     "previous_correction": {
       "date": "2026-11-11",
@@ -14,6 +14,1064 @@
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
+    {
+      "id": "google-alphafold",
+      "company": "Google",
+      "family": "AlphaFold",
+      "model": "AlphaFold (CASP13)",
+      "release_date": "2018-12-02",
+      "release_stage": "competicao/pesquisa",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "proteinas", "estrutura-de-proteinas", "rede-neural", "pesquisa"],
+      "description_pt": "Primeira versao do AlphaFold, da DeepMind, que preve a estrutura 3D de uma proteina apenas a partir da sequencia de aminoacidos: redes neurais estimam as distancias entre pares de residuos e os angulos das ligacoes, e a estrutura e montada por otimizacao, sem usar moldes de proteinas conhecidas. Ficou em 1o lugar no CASP13, a principal competicao de predicao de estruturas, inscrito sob o nome A7D. No artigo da Nature de janeiro de 2020, acertou estruturas com alta precisao em 24 de 43 dominios de modelagem livre, contra 14 do segundo melhor metodo. No anuncio nao havia acesso publico; o codigo da versao do CASP13 saiu depois, junto com o artigo.",
+      "sources": [
+        {
+          "title": "AlphaFold",
+          "url": "https://deepmind.google/science/alphafold/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Linha do tempo oficial registra \"2 Dec 2018 - AlphaFold places first at CASP13\"."
+        },
+        {
+          "title": "Improved protein structure prediction using potentials from deep learning",
+          "url": "https://www.nature.com/articles/s41586-019-1923-7",
+          "publisher": "Nature",
+          "date_basis": "Artigo publicado em 15 de janeiro de 2020 com os resultados do CASP13."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "A pagina atual do post original no site da DeepMind exibe datas de 2020 e 2022, de republicacoes; a linha do tempo oficial do AlphaFold registra 2 de dezembro de 2018.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-ferminet",
+      "company": "Google",
+      "family": "FermiNet",
+      "model": "FermiNet",
+      "release_date": "2020-10-19",
+      "release_stage": "pesquisa/codigo aberto",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "quimica-quantica", "fisica", "funcao-de-onda", "rede-neural", "codigo-aberto"],
+      "description_pt": "Rede neural da DeepMind que representa a funcao de onda de muitos eletrons e resolve a equacao de Schrodinger a partir de primeiros principios, usando apenas as posicoes dos nucleos atomicos. Segundo a DeepMind, captura 99,8% da energia de correlacao em moleculas pequenas e pelo menos 97% no biciclobutano. Em 2024, um artigo na Science estendeu o metodo a estados excitados, com erro medio de 4 meV no dimero de carbono, contra 20 meV dos metodos de referencia anteriores. O codigo e aberto.",
+      "sources": [
+        {
+          "title": "FermiNet: Quantum physics and chemistry from first principles",
+          "url": "https://deepmind.google/blog/ferminet-quantum-physics-and-chemistry-from-first-principles/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 19 de outubro de 2020, atualizado em 22 de agosto de 2024 com o trabalho sobre estados excitados."
+        },
+        {
+          "title": "google-deepmind/ferminet",
+          "url": "https://github.com/google-deepmind/ferminet",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial com o codigo aberto."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphafold-2",
+      "company": "Google",
+      "family": "AlphaFold",
+      "model": "AlphaFold 2 (CASP14)",
+      "release_date": "2020-11-30",
+      "release_stage": "anuncio/resultado em competicao",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "proteinas", "estrutura-de-proteinas", "rede-neural", "pesquisa"],
+      "description_pt": "Nova versao do AlphaFold, redesenhada pela DeepMind, que preve a estrutura de proteinas a partir da sequencia com precisao proxima a de metodos experimentais, um problema aberto da biologia havia 50 anos. No CASP14, teve mediana de 92,4 GDT em todos os alvos, o equivalente a um erro de cerca de 1,6 angstrom, e de 87,0 GDT nos alvos mais dificeis, de modelagem livre. No anuncio nao havia codigo nem acesso publico; o artigo estava em preparacao. A abertura do codigo e o banco de estruturas, em julho de 2021, tem registros separados nesta timeline. O trabalho rendeu a Demis Hassabis e John Jumper metade do Nobel de Quimica de 2024.",
+      "sources": [
+        {
+          "title": "AlphaFold: a solution to a 50-year-old grand challenge in biology",
+          "url": "https://deepmind.google/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 30 de novembro de 2020 anuncia o resultado no CASP14."
+        },
+        {
+          "title": "AlphaFold",
+          "url": "https://deepmind.google/science/alphafold/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Linha do tempo oficial registra o resultado no CASP14 em 30 de novembro de 2020."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphafold-2-open-source",
+      "company": "Google",
+      "family": "AlphaFold",
+      "model": "AlphaFold 2 (codigo e pesos abertos)",
+      "release_date": "2021-07-15",
+      "release_stage": "codigo e pesos abertos",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "proteinas", "estrutura-de-proteinas", "codigo-aberto", "open-weights", "OpenSource"],
+      "description_pt": "Publicacao do artigo do AlphaFold 2 na Nature junto com o codigo aberto, os pesos treinados e um notebook no Colab, permitindo que qualquer pesquisador rodasse o modelo. O codigo saiu sob Apache 2.0 e os pesos inicialmente sob licenca nao comercial, trocada por CC BY 4.0 em janeiro de 2022. Em novembro de 2021, a versao 2.1.0 adicionou o AlphaFold-Multimer, que preve estruturas de complexos de varias proteinas, nos mesmos termos.",
+      "sources": [
+        {
+          "title": "AlphaFold",
+          "url": "https://deepmind.google/science/alphafold/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Linha do tempo oficial registra \"15 Jul 2021 - DeepMind open sources the code\"."
+        },
+        {
+          "title": "google-deepmind/alphafold",
+          "url": "https://github.com/google-deepmind/alphafold",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial, com commit inicial em 15 de julho de 2021, informa o codigo sob Apache 2.0 e os pesos sob CC BY 4.0; as notas de versao registram o AlphaFold-Multimer em 2 de novembro de 2021."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphafold-db",
+      "company": "Google",
+      "family": "AlphaFold",
+      "model": "AlphaFold Protein Structure Database",
+      "release_date": "2021-07-22",
+      "release_stage": "banco de dados aberto",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "proteinas", "estrutura-de-proteinas", "banco-de-dados", "dados-abertos"],
+      "description_pt": "Banco de dados gratuito de estruturas de proteinas previstas pelo AlphaFold 2, criado pela DeepMind com o EMBL-EBI, com uma medida de confianca para cada predicao. Estreou com cerca de 350 mil estruturas, cobrindo o proteoma humano, com cerca de 20 mil proteinas, e 20 organismos-modelo, o que, segundo a DeepMind, mais que dobrou o conhecimento acumulado de estruturas humanas de alta precisao. Os dados sao abertos sob CC BY 4.0. A expansao para mais de 200 milhoes de estruturas, em julho de 2022, tem registro separado nesta timeline.",
+      "sources": [
+        {
+          "title": "DeepMind and EMBL release the most complete database of predicted 3D structures of human proteins",
+          "url": "https://www.embl.org/news/science/alphafold-database-launch/",
+          "publisher": "EMBL",
+          "date_basis": "Comunicado oficial de 22 de julho de 2021 anuncia o banco de dados e os artigos na Nature."
+        },
+        {
+          "title": "Putting the power of AlphaFold into the world's hands",
+          "url": "https://deepmind.google/blog/putting-the-power-of-alphafold-into-the-worlds-hands/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de lancamento do banco de dados; a pagina atual exibe 2022 por erro de republicacao."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-dm21",
+      "company": "Google",
+      "family": "DM21",
+      "model": "DM21",
+      "release_date": "2021-12-09",
+      "release_stage": "pesquisa/codigo aberto",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "quimica-quantica", "DFT", "materiais", "rede-neural", "codigo-aberto"],
+      "description_pt": "Funcional de densidade neural da DeepMind para a teoria do funcional da densidade (DFT), o metodo mais usado para simular moleculas e materiais em escala quantica. Foi treinado para corrigir erros classicos dos funcionais tradicionais, como a deslocalizacao de carga e a quebra de simetria de spin, e foi publicado junto com um artigo na Science. O codigo esta aberto no repositorio de pesquisa da DeepMind; o post de lancamento nao traz resultados numericos.",
+      "sources": [
+        {
+          "title": "Simulating matter on the quantum scale with AI",
+          "url": "https://deepmind.google/blog/simulating-matter-on-the-quantum-scale-with-ai/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 9 de dezembro de 2021 apresenta o DM21 e o artigo na Science."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-tokamak-plasma-control",
+      "company": "Google",
+      "family": "Fusao",
+      "model": "Controle de plasma do tokamak TCV",
+      "release_date": "2022-02-16",
+      "release_stage": "pesquisa",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "fisica", "fusao-nuclear", "aprendizado-por-reforco", "controle", "pesquisa"],
+      "description_pt": "Controlador de aprendizado por reforco da DeepMind e do Swiss Plasma Center, da EPFL, que comanda sozinho as 19 bobinas magneticas do tokamak TCV, um reator experimental de fusao, depois de treinado em simulacao. Manteve formatos de plasma ineditos, inclusive duas gotas de plasma ao mesmo tempo no reator, algo que o TCV nunca tinha feito. Foi um trabalho de pesquisa, publicado na Nature; em 2024 a DeepMind abriu o simulador TORAX, e em outubro de 2025 anunciou parceria com a Commonwealth Fusion Systems para o reator SPARC.",
+      "sources": [
+        {
+          "title": "Accelerating fusion science through learned plasma control",
+          "url": "https://deepmind.google/blog/accelerating-fusion-science-through-learned-plasma-control/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 16 de fevereiro de 2022, mesmo dia da publicacao na Nature, apresenta o controlador e os resultados."
+        },
+        {
+          "title": "Bringing AI to the next generation of fusion energy",
+          "url": "https://deepmind.google/blog/bringing-ai-to-the-next-generation-of-fusion-energy/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 16 de outubro de 2025 anuncia a parceria com a Commonwealth Fusion Systems usando o TORAX."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphafold-db-200m",
+      "company": "Google",
+      "family": "AlphaFold",
+      "model": "AlphaFold DB com mais de 200 milhoes de estruturas",
+      "release_date": "2022-07-28",
+      "release_stage": "banco de dados aberto",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "proteinas", "estrutura-de-proteinas", "banco-de-dados", "dados-abertos"],
+      "description_pt": "Expansao do AlphaFold Protein Structure Database de cerca de 1 milhao para mais de 200 milhoes de estruturas, cobrindo quase todas as proteinas catalogadas no UniProt, o chamado universo das proteinas conhecidas. As estruturas podem ser baixadas em massa pelos conjuntos de dados publicos do Google Cloud. Segundo a DeepMind, mais de 500 mil pesquisadores em 190 paises ja tinham usado o banco. Em marco de 2026, o banco passou a incluir tambem complexos de proteinas, com 1,7 milhao de homodimeros de alta confianca, num trabalho conjunto com EMBL-EBI, NVIDIA e a Universidade Nacional de Seul.",
+      "sources": [
+        {
+          "title": "AlphaFold reveals the structure of the protein universe",
+          "url": "https://deepmind.google/blog/alphafold-reveals-the-structure-of-the-protein-universe/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 28 de julho de 2022 anuncia a expansao para mais de 200 milhoes de estruturas."
+        },
+        {
+          "title": "First complexes added to the AlphaFold Database",
+          "url": "https://www.embl.org/news/science-technology/first-complexes-alphafold-database/",
+          "publisher": "EMBL",
+          "date_basis": "Comunicado oficial de 16 de marco de 2026 anuncia a inclusao de complexos de proteinas."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphatensor",
+      "company": "Google",
+      "family": "AlphaTensor",
+      "model": "AlphaTensor",
+      "release_date": "2022-10-05",
+      "release_stage": "pesquisa/codigo aberto",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "matematica", "algoritmos", "aprendizado-por-reforco", "AlphaZero", "codigo-aberto"],
+      "description_pt": "Sistema de aprendizado por reforco da DeepMind, derivado do AlphaZero, que descobre algoritmos de multiplicacao de matrizes comprovadamente corretos. Segundo o artigo na Nature, multiplica uma matriz 4x5 por uma 5x5 com 76 multiplicacoes, em vez de 80, e superou pela primeira vez desde 1969 o algoritmo de Strassen em dois niveis num corpo finito; os algoritmos encontrados tambem rodaram de 10% a 20% mais rapido em GPUs V100 e TPUs v2. O codigo e os algoritmos foram publicados sob Apache 2.0.",
+      "sources": [
+        {
+          "title": "Discovering novel algorithms with AlphaTensor",
+          "url": "https://deepmind.google/blog/discovering-novel-algorithms-with-alphatensor/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 5 de outubro de 2022, mesmo dia da publicacao na Nature, apresenta o sistema e os resultados."
+        },
+        {
+          "title": "google-deepmind/alphatensor",
+          "url": "https://github.com/google-deepmind/alphatensor",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial com o codigo sob Apache 2.0."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphadev",
+      "company": "Google",
+      "family": "AlphaDev",
+      "model": "AlphaDev",
+      "release_date": "2023-06-07",
+      "release_stage": "pesquisa/codigo aberto",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "algoritmos", "ciencia-da-computacao", "aprendizado-por-reforco", "assembly", "codigo-aberto"],
+      "description_pt": "Sistema de aprendizado por reforco da DeepMind que escreve codigo em assembly para encontrar rotinas mais rapidas de ordenacao e de hashing. Segundo o artigo na Nature, os algoritmos de ordenacao encontrados ficaram ate 70% mais rapidos em sequencias curtas e cerca de 1,7% mais rapidos acima de 250 mil elementos, e o hashing ficou 30% mais rapido para entradas de 9 a 16 bytes. As rotinas foram incorporadas a biblioteca padrao libc++ do LLVM e ao Abseil, usados em bilhoes de execucoes por dia.",
+      "sources": [
+        {
+          "title": "AlphaDev discovers faster sorting algorithms",
+          "url": "https://deepmind.google/blog/alphadev-discovers-faster-sorting-algorithms/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 7 de junho de 2023, mesmo dia da publicacao na Nature, apresenta o sistema, os resultados e a incorporacao ao LLVM e ao Abseil."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphamissense",
+      "company": "Google",
+      "family": "AlphaMissense",
+      "model": "AlphaMissense",
+      "release_date": "2023-09-19",
+      "release_stage": "catalogo de predicoes aberto/pesquisa",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "genetica", "variantes", "proteinas", "doencas", "dados-abertos"],
+      "description_pt": "Modelo da Google DeepMind derivado do AlphaFold que avalia mutacoes missense, aquelas que trocam um unico aminoacido numa proteina, e da a cada uma uma nota de 0 a 1 de probabilidade de causar doenca. Foi publicado na Science junto com um catalogo de predicoes para todas as 71 milhoes de mutacoes missense possiveis no genoma humano, das quais classificou 89%: 57% como provavelmente benignas e 32% como provavelmente patogenicas. Segundo a DeepMind, superou outros metodos no ClinVar. O catalogo saiu sob licenca nao comercial, trocada por CC BY 4.0 em marco de 2024, e foi integrado ao Ensembl, ao UniProt e ao AlphaFold DB; o codigo e aberto, mas os pesos do modelo nao foram publicados.",
+      "sources": [
+        {
+          "title": "A catalogue of genetic mutations to help pinpoint the cause of diseases",
+          "url": "https://deepmind.google/blog/a-catalogue-of-genetic-mutations-to-help-pinpoint-the-cause-of-diseases/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 19 de setembro de 2023, mesmo dia do artigo na Science, apresenta o modelo e o catalogo, com nota sobre a mudanca de licenca em marco de 2024."
+        },
+        {
+          "title": "google-deepmind/alphamissense",
+          "url": "https://github.com/google-deepmind/alphamissense",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial com o codigo sob Apache 2.0 e a informacao de que os pesos treinados nao sao fornecidos."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-graphcast",
+      "company": "Google",
+      "family": "WeatherNext",
+      "model": "GraphCast (WeatherNext 1 Graph)",
+      "release_date": "2023-11-14",
+      "release_stage": "pesquisa/codigo e pesos abertos",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "clima", "previsao-do-tempo", "rede-de-grafos", "codigo-aberto", "open-weights"],
+      "description_pt": "Modelo de previsao do tempo global da DeepMind baseado em redes neurais de grafos, com resolucao de 0,25 grau e previsoes de ate 10 dias em passos de 6 horas, treinado com 40 anos de reanalise ERA5. Segundo o artigo na Science, superou o HRES, o sistema deterministico do ECMWF, em mais de 90% de 1.380 alvos, e gera uma previsao de 10 dias em menos de um minuto numa TPU v4. O codigo saiu sob Apache 2.0 e os pesos sob licenca nao comercial, trocada por CC BY 4.0, que permite uso comercial, em 6 de agosto de 2026. Depois foi rebatizado de WeatherNext 1 Graph.",
+      "sources": [
+        {
+          "title": "GraphCast: AI model for faster and more accurate global weather forecasting",
+          "url": "https://deepmind.google/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 14 de novembro de 2023 apresenta o modelo, os resultados e o artigo na Science."
+        },
+        {
+          "title": "WeatherNext models",
+          "url": "https://developers.google.com/weathernext/guides/models",
+          "publisher": "Google",
+          "date_basis": "Guia oficial lista o WeatherNext 1 Graph como o modelo de novembro de 2023."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gnome",
+      "company": "Google",
+      "family": "GNoME",
+      "model": "GNoME (Graph Networks for Materials Exploration)",
+      "release_date": "2023-11-29",
+      "release_stage": "pesquisa/dados abertos",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "materiais", "cristais", "rede-de-grafos", "aprendizado-ativo", "dados-abertos"],
+      "description_pt": "Rede neural de grafos da DeepMind que preve se novos cristais inorganicos sao estaveis, treinada com dados do Materials Project, aprendizado ativo e verificacao por DFT. Segundo a DeepMind, encontrou 2,2 milhoes de novos cristais, dos quais cerca de 380 mil estaveis, e 736 deles ja haviam sido produzidos de forma independente em laboratorios; num artigo paralelo na Nature, o laboratorio autonomo A-Lab, do Berkeley Lab, sintetizou 41 dos novos materiais. O banco de estruturas foi aberto sob CC BY-NC 4.0 e o codigo sob Apache 2.0, mas os pesos treinados nao foram publicados.",
+      "sources": [
+        {
+          "title": "Millions of new materials discovered with deep learning",
+          "url": "https://deepmind.google/blog/millions-of-new-materials-discovered-with-deep-learning/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 29 de novembro de 2023, mesmo dia da publicacao online na Nature, apresenta o modelo e os numeros de descobertas."
+        },
+        {
+          "title": "google-deepmind/materials_discovery",
+          "url": "https://github.com/google-deepmind/materials_discovery",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial confirma as licencas do banco de dados e do codigo e a ausencia dos pesos treinados."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-funsearch",
+      "company": "Google",
+      "family": "FunSearch",
+      "model": "FunSearch",
+      "release_date": "2023-12-14",
+      "release_stage": "pesquisa/codigo aberto",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "matematica", "algoritmos", "busca-evolutiva", "LLM", "codigo-aberto"],
+      "description_pt": "Metodo da DeepMind que combina um modelo de linguagem, o PaLM 2, com um avaliador automatico num ciclo evolutivo que busca programas de computador capazes de resolver problemas matematicos. Foi o primeiro caso, segundo a DeepMind, em que um LLM levou a uma descoberta nova num problema aberto da matematica: encontrou os maiores cap sets conhecidos em algumas dimensoes, o maior avanco no problema em 20 anos, e heuristicas de bin packing melhores que as estabelecidas. Foi publicado na Nature, com codigo e programas encontrados abertos sob Apache 2.0, e serviu de base para o AlphaEvolve.",
+      "sources": [
+        {
+          "title": "FunSearch: Making new discoveries in mathematical sciences using Large Language Models",
+          "url": "https://deepmind.google/blog/funsearch-making-new-discoveries-in-mathematical-sciences-using-large-language-models/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 14 de dezembro de 2023, mesmo dia da publicacao online na Nature, apresenta o metodo e os resultados."
+        },
+        {
+          "title": "google-deepmind/funsearch",
+          "url": "https://github.com/google-deepmind/funsearch",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial com o codigo e os programas encontrados sob Apache 2.0."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphageometry",
+      "company": "Google",
+      "family": "AlphaGeometry",
+      "model": "AlphaGeometry",
+      "release_date": "2024-01-17",
+      "release_stage": "pesquisa/codigo e pesos abertos",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "matematica", "geometria", "neuro-simbolico", "dados-sinteticos", "codigo-aberto", "open-weights"],
+      "description_pt": "Sistema neuro-simbolico da DeepMind e da NYU para geometria de olimpiada, que junta um modelo de linguagem a um motor de deducao simbolica e foi treinado com 100 milhoes de exemplos sinteticos, sem demonstracoes humanas. Segundo o artigo na Nature, resolveu 25 de 30 problemas de geometria de olimpiadas internacionais, perto da media de 25,9 de um medalhista de ouro e muito acima dos 10 do melhor metodo anterior. O codigo saiu sob Apache 2.0 e os checkpoints sob CC BY 4.0.",
+      "sources": [
+        {
+          "title": "AlphaGeometry: An Olympiad-level AI system for geometry",
+          "url": "https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 17 de janeiro de 2024, mesmo dia da publicacao na Nature, apresenta o sistema e os resultados."
+        },
+        {
+          "title": "google-deepmind/alphageometry",
+          "url": "https://github.com/google-deepmind/alphageometry",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial com o codigo sob Apache 2.0 e os checkpoints sob CC BY 4.0."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphafold-3",
+      "company": "Google",
+      "family": "AlphaFold",
+      "model": "AlphaFold 3 / AlphaFold Server",
+      "release_date": "2024-05-08",
+      "release_stage": "servidor gratuito para pesquisa nao comercial",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "proteinas", "DNA", "RNA", "ligantes", "estrutura-molecular", "difusao", "descoberta-de-farmacos"],
+      "description_pt": "Terceira geracao do AlphaFold, desenvolvida pela Google DeepMind com a Isomorphic Labs, que deixa de prever apenas proteinas e passa a prever a estrutura conjunta de complexos formados por proteinas, DNA, RNA, ligantes, ions e modificacoes quimicas, usando um Evoformer aprimorado e um modulo de difusao. Segundo o artigo na Nature, melhora em pelo menos 50% a predicao de interacoes de proteinas com outros tipos de molecula, dobrando a precisao em algumas categorias, e e 50% mais preciso que os melhores metodos tradicionais no benchmark PoseBusters. No lancamento, ficou disponivel apenas pelo AlphaFold Server, gratuito para pesquisa nao comercial e com um conjunto limitado de ligantes, enquanto a Isomorphic o usava comercialmente; o codigo e os pesos para uso academico, em novembro de 2024, e o uso comercial no Google Cloud, em agosto de 2026, tem registros separados.",
+      "sources": [
+        {
+          "title": "AlphaFold 3 predicts the structure and interactions of all of life's molecules",
+          "url": "https://blog.google/technology/ai/google-deepmind-isomorphic-alphafold-3-ai-model",
+          "publisher": "Google",
+          "date_basis": "Post oficial de 8 de maio de 2024, mesmo dia do artigo na Nature, anuncia o modelo e o AlphaFold Server."
+        },
+        {
+          "title": "AlphaFold",
+          "url": "https://deepmind.google/science/alphafold/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Linha do tempo oficial registra o AlphaFold 3 em 8 de maio de 2024."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-neuralgcm",
+      "company": "Google",
+      "family": "NeuralGCM",
+      "model": "NeuralGCM",
+      "release_date": "2024-07-22",
+      "release_stage": "pesquisa/codigo e pesos abertos",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "clima", "previsao-do-tempo", "modelo-hibrido", "codigo-aberto", "open-weights"],
+      "description_pt": "Modelo atmosferico hibrido da Google Research com o ECMWF, que junta um nucleo dinamico de fisica diferenciavel a fisica de pequena escala aprendida por rede neural, em resolucoes de 0,7 a 2,8 graus, servindo tanto para previsao do tempo quanto para simulacoes climaticas de decadas. Segundo o artigo na Nature, o conjunto de 1,4 grau supera o ECMWF-ENS em 95% dos casos em previsoes de 2 a 15 dias, roda mais de 3.500 vezes mais rapido que o X-SHiELD e erra a temperatura climatica em 0,25 grau C, contra 0,75 grau C de modelos AMIP. Codigo e pesos sao abertos. Em 12 de janeiro de 2026, saiu uma versao de precipitacao treinada diretamente com dados de satelite da NASA.",
+      "sources": [
+        {
+          "title": "Fast, accurate climate modeling with NeuralGCM",
+          "url": "https://research.google/blog/fast-accurate-climate-modeling-with-neuralgcm/",
+          "publisher": "Google Research",
+          "date_basis": "Post oficial de 22 de julho de 2024, mesmo dia da publicacao na Nature, apresenta o modelo e os resultados."
+        },
+        {
+          "title": "NeuralGCM harnesses AI to better simulate long-range global precipitation",
+          "url": "https://research.google/blog/neuralgcm-harnesses-ai-to-better-simulate-long-range-global-precipitation/",
+          "publisher": "Google Research",
+          "date_basis": "Post oficial de 12 de janeiro de 2026 anuncia a versao de precipitacao aberta."
+        },
+        {
+          "title": "neuralgcm/neuralgcm",
+          "url": "https://github.com/neuralgcm/neuralgcm",
+          "publisher": "Google Research / GitHub",
+          "date_basis": "Repositorio oficial com o codigo sob Apache 2.0 e os pesos sob CC BY-SA 4.0."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphaproof-alphageometry-2",
+      "company": "Google",
+      "family": "AlphaProof",
+      "model": "AlphaProof / AlphaGeometry 2",
+      "release_date": "2024-07-25",
+      "release_stage": "pesquisa",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "matematica", "provas-formais", "Lean", "aprendizado-por-reforco", "Gemini", "pesquisa"],
+      "description_pt": "Dois sistemas da DeepMind que, juntos, chegaram ao nivel de medalha de prata na Olimpiada Internacional de Matematica de 2024: resolveram 4 dos 6 problemas e somaram 28 de 42 pontos, um ponto abaixo do ouro. O AlphaProof e um provador por aprendizado por reforco no estilo do AlphaZero que trabalha na linguagem formal Lean; o AlphaGeometry 2 e uma versao do AlphaGeometry baseada no Gemini, que resolve 83% dos problemas de geometria das ultimas 25 olimpiadas, contra 53% do antecessor. Os sistemas ficaram restritos a pesquisa; apenas o motor simbolico do AlphaGeometry 2 foi aberto, e o artigo do AlphaProof saiu na Nature em novembro de 2025.",
+      "sources": [
+        {
+          "title": "AI achieves silver-medal standard solving International Mathematical Olympiad problems",
+          "url": "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 25 de julho de 2024 apresenta o AlphaProof, o AlphaGeometry 2 e o resultado na IMO."
+        },
+        {
+          "title": "AlphaProof Nature paper",
+          "url": "https://www.nature.com/articles/s41586-025-09833-y",
+          "publisher": "Nature",
+          "date_basis": "Artigo do AlphaProof publicado online em 12 de novembro de 2025."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphaproteo",
+      "company": "Google",
+      "family": "AlphaProteo",
+      "model": "AlphaProteo",
+      "release_date": "2024-09-05",
+      "release_stage": "pesquisa",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "proteinas", "design-de-proteinas", "geracao-de-proteinas", "descoberta-de-farmacos", "pesquisa"],
+      "description_pt": "Primeiro modelo da Google DeepMind para projetar proteinas novas: recebe a estrutura de uma proteina-alvo e os pontos de ligacao preferidos e gera proteinas que se ligam a ela, os chamados binders, uteis para pesquisa de farmacos, diagnosticos e biossensores. Foi treinado com dados do Protein Data Bank e mais de 100 milhoes de estruturas previstas pelo AlphaFold. Segundo a DeepMind, gerou binders que funcionaram em laboratorio para 7 de 8 alvos testados, com afinidade de 3 a 300 vezes maior que a de metodos anteriores, chegou a 88% de sucesso contra a proteina viral BHRF1 e criou o primeiro binder projetado por IA para o VEGF-A, ligado ao cancer. Ficou restrito a pesquisa, com um whitepaper publico e sem modelo ou API abertos; o uso em farmacos passa pela Isomorphic Labs.",
+      "sources": [
+        {
+          "title": "AlphaProteo generates novel proteins for biology and health research",
+          "url": "https://deepmind.google/blog/alphaproteo-generates-novel-proteins-for-biology-and-health-research/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 5 de setembro de 2024 apresenta o modelo, os resultados em laboratorio e a abordagem gradual de compartilhamento."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphafold-3-weights",
+      "company": "Google",
+      "family": "AlphaFold",
+      "model": "AlphaFold 3 (codigo e pesos para uso academico)",
+      "release_date": "2024-11-11",
+      "release_stage": "codigo aberto/pesos sob pedido para uso academico",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "proteinas", "DNA", "RNA", "ligantes", "estrutura-molecular", "codigo-aberto", "nao-comercial"],
+      "description_pt": "Seis meses depois do lancamento pelo AlphaFold Server, a Google DeepMind publicou o codigo do AlphaFold 3 e liberou os pesos para uso academico, permitindo rodar o modelo localmente com todos os tipos de ligante. O codigo saiu sob CC BY-NC-SA 4.0 e os pesos eram concedidos por formulario, a criterio da DeepMind, apenas a organizacoes nao comerciais e sem uso comercial dos resultados. Em junho de 2026, o codigo passou para Apache 2.0, e em julho de 2026 os pesos viraram download direto, ainda com os mesmos termos de uso.",
+      "sources": [
+        {
+          "title": "AlphaFold 3 predicts the structure and interactions of all of life's molecules",
+          "url": "https://blog.google/technology/ai/google-deepmind-isomorphic-alphafold-3-ai-model",
+          "publisher": "Google",
+          "date_basis": "Nota do editor no post de lancamento informa que, em novembro de 2024, o codigo e os pesos foram liberados para uso academico."
+        },
+        {
+          "title": "google-deepmind/alphafold3",
+          "url": "https://github.com/google-deepmind/alphafold3",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial, com commit inicial e versao 3.0.0 em 11 de novembro de 2024, traz as licencas e os termos dos pesos."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphaqubit",
+      "company": "Google",
+      "family": "AlphaQubit",
+      "model": "AlphaQubit",
+      "release_date": "2024-11-20",
+      "release_stage": "pesquisa",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "fisica", "computacao-quantica", "correcao-de-erros", "transformer", "pesquisa"],
+      "description_pt": "Decodificador baseado em transformer da Google DeepMind e da Google Quantum AI para a correcao de erros quanticos com surface codes, ajustado com dados do processador Sycamore. Segundo o artigo na Nature, comete 6% menos erros que decodificadores por redes de tensores e 30% menos que o metodo de correlated matching, e foi treinado em simulacao com ate 241 qubits. Ainda era lento demais para decodificar em tempo real e ficou restrito a pesquisa; um AlphaQubit 2, que decodifica em menos de 1 microssegundo por ciclo, apareceu apenas como preprint em dezembro de 2025.",
+      "sources": [
+        {
+          "title": "AlphaQubit tackles one of quantum computing's biggest challenges",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphaqubit-quantum-error-correction/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 20 de novembro de 2024, mesmo dia da publicacao na Nature, apresenta o decodificador e os resultados."
+        },
+        {
+          "title": "Learning high-accuracy error decoding for quantum processors",
+          "url": "https://www.nature.com/articles/s41586-024-08148-8",
+          "publisher": "Nature",
+          "date_basis": "Artigo publicado em 20 de novembro de 2024."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gencast",
+      "company": "Google",
+      "family": "WeatherNext",
+      "model": "GenCast (WeatherNext 1 Gen)",
+      "release_date": "2024-12-04",
+      "release_stage": "pesquisa/codigo e pesos abertos",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "clima", "previsao-do-tempo", "difusao", "previsao-por-conjunto", "codigo-aberto", "open-weights"],
+      "description_pt": "Modelo de previsao do tempo por conjunto da DeepMind, baseado em difusao, que gera 50 ou mais cenarios de 15 dias com resolucao de 0,25 grau em passos de 12 horas, estimando tambem o risco de eventos extremos. Segundo o artigo na Nature, superou o ENS, sistema de conjunto do ECMWF, em 97,2% de 1.320 alvos, e em 99,8% acima de 36 horas de antecedencia, e gera uma previsao de 15 dias em 8 minutos numa TPU v5. Codigo e pesos sao abertos; os pesos passaram de licenca nao comercial para CC BY 4.0 em 6 de agosto de 2026. Depois foi rebatizado de WeatherNext 1 Gen.",
+      "sources": [
+        {
+          "title": "GenCast predicts weather and the risks of extreme conditions with state-of-the-art accuracy",
+          "url": "https://deepmind.google/blog/gencast-predicts-weather-and-the-risks-of-extreme-conditions-with-sota-accuracy/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 4 de dezembro de 2024, mesmo dia da publicacao online na Nature, apresenta o modelo e os resultados."
+        },
+        {
+          "title": "Probabilistic weather forecasting with machine learning",
+          "url": "https://www.nature.com/articles/s41586-024-08252-9",
+          "publisher": "Nature",
+          "date_basis": "Artigo publicado online em 4 de dezembro de 2024."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-ai-co-scientist",
+      "company": "Google",
+      "family": "Co-Scientist",
+      "model": "AI co-scientist",
+      "release_date": "2025-02-19",
+      "release_stage": "programa de testadores confiaveis",
+      "ai_category": ["Ciencia", "Agentes"],
+      "model_type": ["ciencia", "biomedicina", "agente", "multiagente", "geracao-de-hipoteses", "Gemini", "acesso-limitado"],
+      "description_pt": "Sistema multiagente da Google Research, construido sobre o Gemini 2.0, que gera e refina hipoteses cientificas: seis agentes de geracao, reflexao, ranqueamento, evolucao, proximidade e meta-revisao disputam um torneio de ideias a partir do objetivo de pesquisa. Nos testes da Google, todos biomedicos, propos candidatos de reposicionamento de farmacos para leucemia mieloide aguda e alvos para fibrose hepatica e redescobriu de forma independente um mecanismo de transferencia genetica em bacterias ainda nao publicado. Foi liberado para organizacoes de pesquisa por um programa de testadores confiaveis; em maio de 2026, virou a ferramenta Hypothesis Generation do Gemini for Science, junto com o artigo na Nature.",
+      "sources": [
+        {
+          "title": "Accelerating scientific breakthroughs with an AI co-scientist",
+          "url": "https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/",
+          "publisher": "Google Research",
+          "date_basis": "Post oficial de 19 de fevereiro de 2025 apresenta o sistema, os resultados e o programa de testadores confiaveis."
+        },
+        {
+          "title": "Co-Scientist: a multi-agent AI partner to accelerate research",
+          "url": "https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 19 de maio de 2026 anuncia o artigo na Nature e a chegada ao Gemini for Science."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-txgemma",
+      "company": "Google",
+      "family": "Gemma",
+      "model": "TxGemma (2B / 9B / 27B)",
+      "release_date": "2025-03-25",
+      "release_stage": "pesos abertos (termos HAI-DEF)",
+      "ai_category": ["Ciencia", "LLMs"],
+      "model_type": ["ciencia", "biologia", "descoberta-de-farmacos", "quimica", "texto", "Gemma", "open-weights"],
+      "description_pt": "Modelos abertos do Google para desenvolvimento de terapias, criados a partir do Gemma 2 e ajustados com 7 milhoes de exemplos do Therapeutics Data Commons. Os prompts podem conter moleculas em SMILES, sequencias de aminoacidos ou de nucleotideos e texto, e os modelos preveem propriedades como toxicidade, passagem pela barreira hematoencefalica e afinidade de ligacao. Ha versoes Predict de 2B, 9B e 27B e versoes Chat de 9B e 27B, alem do Agentic-Tx, um agente sobre o Gemini 2.0 Pro com 18 ferramentas. Segundo o Google, o modelo de 27B iguala ou supera o Tx-LLM anterior em 64 de 66 tarefas e modelos especialistas em 50. Os pesos sairam no Hugging Face e no Vertex AI Model Garden, com acesso controlado pelos termos do Health AI Developer Foundations.",
+      "sources": [
+        {
+          "title": "Introducing TxGemma: Open models to improve therapeutics development",
+          "url": "https://developers.googleblog.com/en/introducing-txgemma-open-models-improving-therapeutics-development/",
+          "publisher": "Google",
+          "date_basis": "Post oficial de 25 de marco de 2025 apresenta os modelos, os tamanhos, o Agentic-Tx e os resultados."
+        },
+        {
+          "title": "google/txgemma-27b-predict",
+          "url": "https://huggingface.co/google/txgemma-27b-predict",
+          "publisher": "Google / Hugging Face",
+          "date_basis": "Model card oficial confirma os termos de uso do Health AI Developer Foundations."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O plano foi noticiado em 18 de marco de 2025, data de criacao do repositorio no Hugging Face; o post de lancamento e de 25 de marco.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-c2s-scale",
+      "company": "Google",
+      "family": "C2S-Scale",
+      "model": "C2S-Scale (Cell2Sentence-Scale)",
+      "release_date": "2025-04-17",
+      "release_stage": "pesquisa/modelos abertos",
+      "ai_category": ["Ciencia", "LLMs"],
+      "model_type": ["ciencia", "biologia", "celulas", "single-cell", "expressao-genica", "Gemma", "open-weights"],
+      "description_pt": "Familia de modelos de linguagem da Google Research e da Universidade Yale para analise de celulas individuais: cada celula vira uma frase, com os nomes dos genes ordenados pela expressao, e modelos baseados no Gemma, de 410M a 27B parametros, aprendem a ler e escrever essas frases. Treinados com mais de 1 bilhao de tokens, fazem anotacao de tipos celulares, geracao de celulas, perguntas e respostas e previsao de resposta a perturbacoes, e mostram leis de escala claras, com qualidade crescendo com o tamanho. Modelos e recursos foram publicados no Hugging Face e no GitHub, junto com um preprint. O modelo de 27B e a descoberta de uma possivel via terapeutica contra o cancer, em outubro de 2025, tem registro separado.",
+      "sources": [
+        {
+          "title": "Teaching machines the language of biology: Scaling large language models for next-generation single-cell analysis",
+          "url": "https://research.google/blog/teaching-machines-the-language-of-biology-scaling-large-language-models-for-next-generation-single-cell-analysis/",
+          "publisher": "Google Research",
+          "date_basis": "Post oficial de 17 de abril de 2025 apresenta a familia C2S-Scale e a publicacao dos modelos."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphaevolve",
+      "company": "Google",
+      "family": "AlphaEvolve",
+      "model": "AlphaEvolve",
+      "release_date": "2025-05-14",
+      "release_stage": "anuncio/acesso antecipado para academicos",
+      "ai_category": ["Ciencia", "Agentes"],
+      "model_type": ["ciencia", "matematica", "algoritmos", "agente", "codigo", "busca-evolutiva", "Gemini", "acesso-limitado"],
+      "description_pt": "Agente de programacao evolutiva da Google DeepMind e sucessor do FunSearch: modelos Gemini Flash e Pro propoem programas, avaliadores automaticos os pontuam e os melhores sao mantidos e evoluidos. Segundo a DeepMind, ja recuperava 0,7% da capacidade computacional global do Google, acelerou em 23% um kernel do treino do Gemini e em ate 32,5% o FlashAttention, e multiplicou matrizes complexas 4x4 com 48 multiplicacoes; em mais de 50 problemas matematicos abertos, igualou o estado da arte em cerca de 75% e o superou em cerca de 20%. No anuncio, ficou disponivel apenas em acesso antecipado para academicos; a disponibilidade geral no Google Cloud, em julho de 2026, tem registro separado nesta timeline.",
+      "sources": [
+        {
+          "title": "AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms",
+          "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 14 de maio de 2025 apresenta o agente, os resultados e o programa de acesso antecipado."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-weather-lab-cyclones",
+      "company": "Google",
+      "family": "WeatherNext",
+      "model": "Weather Lab / modelo de ciclones tropicais (WeatherNext Cyclones)",
+      "release_date": "2025-06-12",
+      "release_stage": "site de pesquisa (pesos abertos em 2026-08-06)",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "clima", "previsao-do-tempo", "ciclones", "previsao-por-conjunto", "open-weights"],
+      "description_pt": "Modelo experimental da Google DeepMind e da Google Research que preve a formacao, a trajetoria, a intensidade, o tamanho e a forma de ciclones tropicais, com 50 cenarios de ate 15 dias, lancado no site publico Weather Lab em parceria com o Centro Nacional de Furacoes dos EUA, como ferramenta de pesquisa e nao de alerta oficial. Segundo a DeepMind, a trajetoria de 5 dias ficou em media 140 km mais proxima do real que a do ENS do ECMWF, um ganho de cerca de 1,5 dia de antecedencia, e o erro de intensidade ficou abaixo do HAFS, da NOAA. Rebatizado de WeatherNext Cyclones, teve codigo e pesos abertos em 6 de agosto de 2026, sob Apache 2.0 e CC BY 4.0, junto com um artigo na Nature.",
+      "sources": [
+        {
+          "title": "How we're supporting better tropical cyclone prediction with AI",
+          "url": "https://deepmind.google/blog/how-were-supporting-better-tropical-cyclone-prediction-with-ai/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 12 de junho de 2025 apresenta o Weather Lab, o modelo de ciclones e a parceria com o Centro Nacional de Furacoes."
+        },
+        {
+          "title": "WeatherNext AI model achieves breakthrough in forecasting cyclones",
+          "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 6 de agosto de 2026 anuncia a abertura do codigo e dos pesos do WeatherNext Cyclones e o artigo na Nature."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "A data exibida e a do lancamento do Weather Lab; os pesos abertos sairam em 6 de agosto de 2026.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphagenome",
+      "company": "Google",
+      "family": "AlphaGenome",
+      "model": "AlphaGenome",
+      "release_date": "2025-06-25",
+      "release_stage": "API preview para pesquisa (pesos abertos em 2026-01-28; Google Cloud comercial em 2026-07-06)",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "DNA", "genomica", "regulacao-genica", "variantes", "API", "open-weights", "nao-comercial"],
+      "description_pt": "Modelo da Google DeepMind que le ate 1 milhao de letras de DNA e preve milhares de sinais moleculares em resolucao de base, por tipo de celula e tecido: onde os genes comecam e terminam, splicing, nivel de RNA, acessibilidade da cromatina, contatos entre trechos de DNA e ligacao de proteinas. Para avaliar uma mutacao, compara as predicoes da sequencia original e da alterada, o que ajuda a entender variantes em regioes nao codificantes, cerca de 98% do genoma. Segundo a DeepMind, superou os melhores modelos externos em 22 de 24 avaliacoes de sinais e igualou ou superou em 24 de 26 avaliacoes de efeito de variantes. Estreou como API preview gratuita para pesquisa nao comercial; em 28 de janeiro de 2026, com o artigo na Nature, o codigo saiu sob Apache 2.0 e os pesos no Hugging Face e no Kaggle sob termos nao comerciais, e em 6 de julho de 2026 o modelo chegou ao Google Cloud para uso comercial. O AlphaGenome Atlas e o AlphaGenome 2 tem registros separados.",
+      "sources": [
+        {
+          "title": "AlphaGenome: AI for better understanding the genome",
+          "url": "https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 25 de junho de 2025 apresenta o modelo, os resultados e a API preview."
+        },
+        {
+          "title": "AlphaGenome: Nature publication and weights for academic use",
+          "url": "https://www.alphagenomecommunity.com/t/alphagenome-nature-publication-weights-for-academic-use/752",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial da equipe de 28 de janeiro de 2026 anuncia o artigo na Nature e a liberacao dos pesos para uso academico."
+        },
+        {
+          "title": "google-deepmind/alphagenome_research",
+          "url": "https://github.com/google-deepmind/alphagenome_research",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial com o codigo sob Apache 2.0."
+        },
+        {
+          "title": "Gemini Enterprise Agent Platform release notes",
+          "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes",
+          "publisher": "Google Cloud",
+          "date_basis": "Nota oficial de 6 de julho de 2026 registra o AlphaGenome disponivel para implantacao e uso comercial."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "A data exibida e a da API preview; os pesos abertos sairam em 28 de janeiro de 2026 e o uso comercial no Google Cloud em 6 de julho de 2026.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphaearth-foundations",
+      "company": "Google",
+      "family": "AlphaEarth",
+      "model": "AlphaEarth Foundations",
+      "release_date": "2025-07-30",
+      "release_stage": "dados no Earth Engine/pesquisa",
+      "ai_category": ["Ciencia", "Embeddings"],
+      "model_type": ["ciencia", "observacao-da-terra", "satelite", "embeddings", "mapeamento", "dados-abertos"],
+      "description_pt": "Modelo da Google DeepMind que funciona como um satelite virtual: junta imagens oticas, radar, LiDAR, dados climaticos e outras fontes de observacao da Terra num embedding compacto para cada quadrado de 10 por 10 metros do planeta. Segundo a DeepMind, tem erro cerca de 24% menor que os outros modelos testados e ocupa 16 vezes menos espaco de armazenamento. Os embeddings anuais foram publicados como o conjunto Satellite Embedding no Google Earth Engine, para mapear uso do solo, florestas, agricultura e mudancas ambientais.",
+      "sources": [
+        {
+          "title": "AlphaEarth Foundations helps map our planet in unprecedented detail",
+          "url": "https://deepmind.google/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 30 de julho de 2025 apresenta o modelo, os resultados e o conjunto de dados no Earth Engine."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-c2s-scale-27b",
+      "company": "Google",
+      "family": "C2S-Scale",
+      "model": "C2S-Scale 27B",
+      "release_date": "2025-10-15",
+      "release_stage": "pesos abertos",
+      "ai_category": ["Ciencia", "LLMs"],
+      "model_type": ["ciencia", "biologia", "celulas", "single-cell", "cancer", "descoberta-de-farmacos", "Gemma", "open-weights", "OpenSource"],
+      "description_pt": "Modelo de 27B parametros da familia C2S-Scale, da Google DeepMind, da Google Research e de Yale, baseado no Gemma 2 27B e treinado com mais de 57 milhoes de celulas humanas e de camundongo de mais de 800 conjuntos de dados de sequenciamento de RNA de celula unica. Numa triagem virtual de mais de 4 mil farmacos, apontou o silmitasertib como um amplificador que so age na presenca de interferon, e o efeito foi confirmado em laboratorio: combinado a uma dose baixa de interferon, aumentou em cerca de 50% a apresentacao de antigenos, o que pode tornar tumores mais visiveis ao sistema imune. Os pesos sairam no Hugging Face sob CC BY 4.0, com codigo sob Apache 2.0.",
+      "sources": [
+        {
+          "title": "How a Gemma model helped discover a new potential cancer therapy pathway",
+          "url": "https://blog.google/technology/ai/google-gemma-ai-cancer-therapy-discovery/",
+          "publisher": "Google",
+          "date_basis": "Post oficial de 15 de outubro de 2025 apresenta o modelo, a triagem virtual e a validacao em laboratorio."
+        },
+        {
+          "title": "vandijklab/C2S-Scale-Gemma-2-27B",
+          "url": "https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-27B",
+          "publisher": "Yale / Hugging Face",
+          "date_basis": "Repositorio oficial dos pesos sob CC BY 4.0."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-weathernext-2",
+      "company": "Google",
+      "family": "WeatherNext",
+      "model": "WeatherNext 2",
+      "release_date": "2025-11-17",
+      "release_stage": "produto/dados (pesos abertos em 2026-08-06)",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "clima", "previsao-do-tempo", "previsao-por-conjunto", "open-weights"],
+      "description_pt": "Modelo de previsao do tempo da Google DeepMind e da Google Research baseado numa Functional Generative Network, que injeta ruido no proprio modelo para gerar centenas de cenarios em menos de um minuto numa TPU, com resolucao de 0,25 grau e saidas de ate uma hora. Segundo o Google, supera o WeatherNext Gen (GenCast) em 99,9% das variaveis e prazos de 0 a 15 dias e roda 8 vezes mais rapido. Passou a alimentar a Busca, o Gemini, o Pixel Weather e a Weather API da Google Maps Platform, com dados no Earth Engine e no BigQuery e acesso antecipado no Vertex AI. Em 6 de agosto de 2026, o Google abriu o codigo e os pesos do WeatherNext 2 e de uma versao mini que roda no Colab gratuito, sob Apache 2.0 e CC BY 4.0.",
+      "sources": [
+        {
+          "title": "WeatherNext 2",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-2/",
+          "publisher": "Google",
+          "date_basis": "Post oficial de 17 de novembro de 2025 apresenta o modelo, os resultados e os produtos."
+        },
+        {
+          "title": "WeatherNext AI model achieves breakthrough in forecasting cyclones",
+          "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 6 de agosto de 2026 anuncia a abertura do codigo e dos pesos do WeatherNext 2 e do WeatherNext 2-mini."
+        },
+        {
+          "title": "google-deepmind/weathernext",
+          "url": "https://github.com/google-deepmind/weathernext",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial com o codigo sob Apache 2.0 e os pesos sob CC BY 4.0."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O guia de desenvolvedores do WeatherNext lista o modelo como de junho de 2025, quando a tecnica estreou no Weather Lab; o anuncio oficial do WeatherNext 2 e de 17 de novembro de 2025.",
+      "confidence": "alta"
+    },
+    {
+      "id": "isomorphic-labs-isodde",
+      "company": "Isomorphic Labs",
+      "family": "IsoDDE",
+      "model": "IsoDDE (Isomorphic Labs Drug Design Engine)",
+      "release_date": "2026-02-10",
+      "release_stage": "uso interno e em parcerias/relatorio tecnico",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "descoberta-de-farmacos", "proteinas", "ligantes", "anticorpos", "estrutura-molecular", "proprietario"],
+      "description_pt": "Sistema de desenho de farmacos da Isomorphic Labs, empresa da Alphabet criada a partir da DeepMind, que a imprensa chegou a chamar de AlphaFold 4. Une predicao e geracao: preve a estrutura de complexos proteina-ligante e anticorpo-antigeno, estima a afinidade de ligacao e encontra bolsoes de ligacao apenas a partir da sequencia, sem um ligante conhecido. Nos numeros da Isomorphic, tem mais que o dobro da precisao do AlphaFold 3 nos casos mais dificeis do benchmark Runs N' Poses, acerta interfaces anticorpo-antigeno de alta qualidade 2,3 vezes mais que o AlphaFold 3 e 19,8 vezes mais que o Boltz-2, e encontra bolsoes 1,4 vez melhor que o P2Rank. E proprietario e usado em programas internos e com parceiros; so o relatorio tecnico foi publicado.",
+      "sources": [
+        {
+          "title": "The Isomorphic Labs Drug Design Engine unlocks a new frontier beyond AlphaFold",
+          "url": "https://isomorphiclabs.com/articles/the-isomorphic-labs-drug-design-engine-unlocks-a-new-frontier",
+          "publisher": "Isomorphic Labs",
+          "date_basis": "Post oficial de 10 de fevereiro de 2026 apresenta o sistema e os resultados."
+        },
+        {
+          "title": "IsoDDE technical report",
+          "url": "https://zenodo.org/records/18606681",
+          "publisher": "Isomorphic Labs / Zenodo",
+          "date_basis": "Relatorio tecnico publico, sob CC BY 4.0."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-aletheia",
+      "company": "Google",
+      "family": "Gemini Deep Think",
+      "model": "Aletheia",
+      "release_date": "2026-02-11",
+      "release_stage": "pesquisa",
+      "ai_category": ["Ciencia", "Agentes"],
+      "model_type": ["ciencia", "matematica", "agente", "raciocinio", "Gemini", "pesquisa"],
+      "description_pt": "Agente de pesquisa matematica da Google DeepMind construido sobre o Gemini Deep Think, que gera solucoes, as verifica, as revisa e pode admitir quando nao consegue resolver um problema. Segundo a DeepMind, resolveu sozinho 4 problemas de Erdos que estavam em aberto, entre cerca de 700 avaliados, e a versao de janeiro de 2026 do Deep Think chega a 90% no IMO-ProofBench Advanced. Ficou restrito a pesquisa, com prompts e saidas publicados no GitHub; no dia seguinte, o Google lancou uma versao do Gemini Deep Think voltada a ciencia para assinantes AI Ultra e em acesso antecipado na Gemini API.",
+      "sources": [
+        {
+          "title": "Accelerating mathematical and scientific discovery with Gemini Deep Think",
+          "url": "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 11 de fevereiro de 2026 apresenta o Aletheia e os problemas de Erdos resolvidos."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-for-science",
+      "company": "Google",
+      "family": "Gemini for Science",
+      "model": "Gemini for Science (Google I/O 2026)",
+      "release_date": "2026-05-19",
+      "release_stage": "prototipos no Google Labs/rollout gradual",
+      "ai_category": ["Ciencia", "Ferramentas"],
+      "model_type": ["ciencia", "agente", "geracao-de-hipoteses", "descoberta-computacional", "revisao-de-literatura", "Gemini", "codigo-aberto"],
+      "description_pt": "Conjunto de ferramentas cientificas do Google apresentado no I/O 2026, reunindo pesquisas da Google DeepMind e da Google Research em tres prototipos do Google Labs: Hypothesis Generation, baseado no AI co-scientist; Computational Discovery, baseado no AlphaEvolve e no ERA, um sistema que escreve e otimiza codigo cientifico; e Literature Insights, baseado no NotebookLM. Veio acompanhado das Science Skills, habilidades de agente abertas no GitHub, e de artigos na Nature sobre o co-scientist e o ERA publicados no mesmo dia. O acesso e gradual pelo labs.google/science, e o Computational Discovery passou a se conectar por MCP ao Google Antigravity e ao Claude Code.",
+      "sources": [
+        {
+          "title": "Gemini for Science at I/O 2026",
+          "url": "https://blog.google/innovation-and-ai/technology/research/gemini-for-science-io-2026/",
+          "publisher": "Google",
+          "date_basis": "Post oficial apresenta as tres ferramentas e as Science Skills e cita os artigos da Nature publicados no mesmo dia, 19 de maio de 2026."
+        },
+        {
+          "title": "google-deepmind/science-skills",
+          "url": "https://github.com/google-deepmind/science-skills",
+          "publisher": "Google DeepMind / GitHub",
+          "date_basis": "Repositorio oficial das Science Skills, criado em 13 de maio de 2026."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "O post nao exibe data; o dia vem dos artigos da Nature sobre o co-scientist e o ERA, que o texto diz terem saido no mesmo dia, durante o Google I/O 2026.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphaevolve-release",
+      "company": "Google",
+      "family": "AlphaEvolve",
+      "model": "AlphaEvolve (Google Cloud)",
+      "release_date": "2026-07-09",
+      "release_stage": "disponibilidade geral/Google Cloud",
+      "ai_category": ["Ciencia", "Agentes"],
+      "model_type": ["ciencia", "matematica", "algoritmos", "agente", "codigo", "busca-evolutiva", "Gemini", "produto"],
+      "description_pt": "Disponibilidade geral do AlphaEvolve no Google Cloud, depois do acesso antecipado para academicos de maio de 2025 e do preview privado no Google Cloud de dezembro de 2025. Junto veio uma AlphaEvolve Skill para usar o agente a partir do Google Antigravity e do Claude Code. No relatorio de um ano, de maio de 2026, a DeepMind citava circuitos quanticos com erro 10 vezes menor para o chip Willow e 20% menos amplificacao de escrita no Spanner; em agosto de 2026, o AlphaEvolve encontrou um novo limite para o expoente da multiplicacao de matrizes, abaixo de 2,371177. Em novembro de 2026, uma implementacao minima aberta apareceu no GitHub da DeepMind, sem anuncio oficial.",
+      "sources": [
+        {
+          "title": "AlphaEvolve is available for everyone",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/alphaevolve-is-available-for-everyone",
+          "publisher": "Google Cloud",
+          "date_basis": "Post oficial de 9 de julho de 2026 anuncia a disponibilidade geral no Google Cloud e a AlphaEvolve Skill."
+        },
+        {
+          "title": "AlphaEvolve on Google Cloud",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/alphaevolve-on-google-cloud",
+          "publisher": "Google Cloud",
+          "date_basis": "Post oficial de 9 de dezembro de 2025 anuncia o preview privado no Google Cloud."
+        },
+        {
+          "title": "AlphaEvolve impact",
+          "url": "https://deepmind.google/blog/alphaevolve-impact/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 7 de maio de 2026 resume os resultados do primeiro ano."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Uma fonte secundaria cita 10 de julho; o post oficial do Google Cloud e de 9 de julho de 2026.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphafold-3-cloud",
+      "company": "Google",
+      "family": "AlphaFold",
+      "model": "AlphaFold 3 (Google Cloud, uso comercial)",
+      "release_date": "2026-08-15",
+      "release_stage": "disponibilidade geral/Google Cloud com lista de acesso",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "proteinas", "DNA", "RNA", "ligantes", "estrutura-molecular", "descoberta-de-farmacos", "produto"],
+      "description_pt": "Disponibilidade geral do AlphaFold 3 no Google Cloud para pesquisa comercial, a primeira vez que empresas puderam usar o modelo fora das parcerias da Isomorphic Labs. O acesso e pela Gemini Enterprise Agent Platform, para usuarios aprovados por formulario e com assinatura comercial. Ate entao, o AlphaFold 3 estava restrito ao AlphaFold Server, gratuito para pesquisa nao comercial, e aos pesos para uso academico.",
+      "sources": [
+        {
+          "title": "Gemini Enterprise Agent Platform release notes",
+          "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes",
+          "publisher": "Google Cloud",
+          "date_basis": "Nota oficial de 15 de agosto de 2026 registra o AlphaFold 3 em disponibilidade geral para usuarios aprovados em pesquisa comercial."
+        },
+        {
+          "title": "AlphaFold 3 - Gemini Enterprise Agent Platform",
+          "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphafold-3",
+          "publisher": "Google Cloud",
+          "date_basis": "Pagina oficial do modelo descreve o acesso por lista de aprovacao e assinatura comercial."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-weathernext-3",
+      "company": "Google",
+      "family": "WeatherNext",
+      "model": "WeatherNext 3",
+      "release_date": "2026-09-03",
+      "release_stage": "produto/dados",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "clima", "previsao-do-tempo", "satelite", "transformer", "previsao-por-conjunto"],
+      "description_pt": "Terceira geracao dos modelos de previsao do tempo do Google: um unico transformer que recebe mosaicos de satelites geoestacionarios atualizados a cada hora e observacoes de estacoes meteorologicas e produz campos em grade, trajetorias de ciclones e previsoes por estacao, com uma nova rodada a cada hora. A resolucao chega a 5 km para temperatura e umidade e 10 km para outras variaveis de superficie, cerca de 5 vezes mais fina que a do WeatherNext 2. Segundo o Google, a precipitacao fica ate 50% mais precisa em prazos de um dia ou mais. Chegou a Busca, ao app Gemini, ao Maps e a Weather API da Google Maps Platform, com dados no BigQuery, no Earth Engine e no Cloud Storage para usuarios autorizados; nao tem pesos abertos. Em 13 de novembro de 2026, o Google abriu os conjuntos de dados SatWeave e PARDIG, usados no treino.",
+      "sources": [
+        {
+          "title": "Introducing WeatherNext 3",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/",
+          "publisher": "Google",
+          "date_basis": "Post oficial de 3 de setembro de 2026 apresenta o modelo, a resolucao, os resultados e os produtos."
+        },
+        {
+          "title": "Opening the datasets behind our AI weather models",
+          "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 13 de novembro de 2026 anuncia a abertura dos conjuntos de dados SatWeave e PARDIG."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O guia de desenvolvedores do WeatherNext lista o modelo como de agosto de 2026; o anuncio oficial e de 3 de setembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphagenome-atlas",
+      "company": "Google",
+      "family": "AlphaGenome",
+      "model": "AlphaGenome Atlas / AlphaGenome Variant Impact (AVI)",
+      "release_date": "2026-09-08",
+      "release_stage": "portal gratuito para pesquisa/API",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "DNA", "genomica", "variantes", "doencas", "banco-de-dados"],
+      "description_pt": "Mapa de predicoes do AlphaGenome para todas as cerca de 9 bilhoes de trocas possiveis de uma unica letra no genoma humano, com cerca de 1 petabyte de dados, mais de 30 vezes o tamanho do AlphaFold DB. Vem com o AVI, uma nota unica de impacto por variante que combina o AlphaGenome e o AlphaMissense. Segundo a DeepMind, o atlas encontrou 22% mais associacoes em regioes nao codificantes em 54 mil participantes do UK Biobank, ajudou a identificar uma variante de splicing no gene DNM1 com o consorcio GREGoR e apontou 19 regioes associadas ao indice de massa corporal. E gratuito para uso nao comercial num portal web, pela API e por uma skill do Google Antigravity; o acesso comercial pelo Google Cloud foi prometido para breve.",
+      "sources": [
+        {
+          "title": "AlphaGenome Atlas: a predictive map of every possible DNA letter change in the human genome",
+          "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 8 de setembro de 2026 apresenta o atlas, a nota AVI, os resultados e o acesso."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-synthid-bio",
+      "company": "Google",
+      "family": "SynthID",
+      "model": "SynthID Bio",
+      "release_date": "2026-09-30",
+      "release_stage": "pesquisa (codigo e pesos a serem liberados)",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "biosseguranca", "marca-dagua", "proteinas", "DNA", "pesquisa"],
+      "description_pt": "Tecnica da Google DeepMind para marcar com marca d'agua invisivel moleculas biologicas projetadas por IA, como ja faz o SynthID com textos, imagens e videos, para rastrear a origem de designs e reforcar a biosseguranca. Foi demonstrada em sequencias de proteinas, com uma versao do ProteinMPNN aplicada a binders do AlphaProteo, em estruturas do AlphaFold 3, por meio de um modulo de difusao ajustado, e em genomas de bacteriofagos gerados pelo Evo 2, em parceria com o laboratorio de Brian Hie, de Stanford e do Arc Institute. Saiu com um artigo de metodos na Nature; o codigo, os dados e os pesos foram anunciados para depois.",
+      "sources": [
+        {
+          "title": "Introducing SynthID Bio",
+          "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 30 de setembro de 2026 apresenta a tecnica, as demonstracoes e o artigo na Nature."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-alphagenome-2",
+      "company": "Google",
+      "family": "AlphaGenome",
+      "model": "AlphaGenome 2",
+      "release_date": "2026-11-11",
+      "release_stage": "API para pesquisa/preview privado no Google Cloud",
+      "ai_category": "Ciencia",
+      "model_type": ["ciencia", "biologia", "DNA", "genomica", "single-cell", "epigenetica", "variantes", "doencas", "API"],
+      "description_pt": "Segunda geracao do AlphaGenome, agora condicional: alem de ate 1 milhao de letras de DNA, recebe a condicao biologica desejada, um tecido, tipo ou estado celular escolhido num catalogo ou extraido dos dados de celula unica do proprio pesquisador, e preve como aquela celula le o DNA. Preve expressao genica, marcas de histonas, acessibilidade da cromatina e, como novidade, metilacao do DNA, e consegue estimar uma medida a partir de outra. Foi treinado com mais de 107 milhoes de perfis de celulas humanas e de camundongo e funciona a partir de poucas dezenas de celulas. Segundo a DeepMind, no conjunto TenK10K, com 28 tipos de celulas imunes, encontrou a variante causal em 30% dos casos, contra 16% do AlphaGenome original, e acertou a direcao do efeito sobre o gene em 43%, contra 23%. Esta disponivel pela API do AlphaGenome para pesquisa nao comercial e em preview privado no Google Cloud para uso comercial; a pagina nao menciona pesos abertos.",
+      "sources": [
+        {
+          "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+          "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Post oficial de 11 de novembro de 2026 apresenta o modelo, os dados de treino, os resultados no TenK10K e o acesso."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
     {
       "id": "zyphra-zonos3-mini",
       "company": "Zyphra",

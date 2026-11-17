@@ -35,7 +35,7 @@ const VALID_MAP_LAYERS = new Set(["companies", "labs", "datacenters", "all"]);
 const VALID_MAP_BASE_MODES = new Set(["map", "earth", "hybrid"]);
 const VALID_MAP_SCALES = new Set(["globe", "country", "city", "street"]);
 const VALID_TABLE_DATE_ORDERS = new Set(["desc", "asc"]);
-const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models", "Multimodal", "Embeddings", "Agentes", "Decisao estruturada", "Ferramentas"];
+const AI_CATEGORIES = ["LLMs", "Imagem", "Video", "Audio/Transcricao", "Musica", "Robotica/World models", "Multimodal", "Embeddings", "Agentes", "Decisao estruturada", "Ciencia", "Ferramentas"];
 const VALID_AI_CATEGORIES = new Set(AI_CATEGORIES);
 // Variantes de grafia presentes em data/models.json que apontam para uma categoria existente.
 const AI_CATEGORY_ALIASES = {
@@ -47,7 +47,8 @@ const AI_CATEGORY_LABELS = {
   "Audio/Transcricao": "Áudio/Transcrição",
   Musica: "Música",
   "Robotica/World models": "Robótica/World models",
-  "Decisao estruturada": "Decisão estruturada"
+  "Decisao estruturada": "Decisão estruturada",
+  Ciencia: "Ciência"
 };
 const MONTH_OPTIONS = [
   ["01", "Janeiro"],
