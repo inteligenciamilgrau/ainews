@@ -3,7 +3,7 @@
     "updated_at": "2026-11-17",
     "last_correction": {
       "date": "2026-11-17",
-      "description_pt": "Inclusao do Gemini 4 Hydrogen, lancado pela Google em 12 de novembro de 2026, e da versao final do Qwen4-Max, lancada pela Alibaba em 16 de novembro, no mesmo dia do Hy4 flash, da Tencent. Inclusao tambem dos lancamentos de 11 a 16 de novembro: Gemini Decision 1, Praxis-1 com pesos abertos, HeyGen Image 1, Seedance 2.5 Flash, Hy Realtime, HeyGen Decision 1 e os modelos de decisao d1.2 e d1.2-ultra, da Liquid AI, alem dos registros anteriores do Seedance 2.5 e dos modelos HeyGen Video 1, HeyGen Voice e HeyGen Voice Turbo. O registro do Inkling 2 Small passou a informar a publicacao dos pesos abertos em 12 de novembro, e o da familia LFM3 passou a constar tambem na categoria de decisao estruturada."
+      "description_pt": "Inclusao do Gemini 4 Hydrogen, lancado pela Google em 12 de novembro de 2026, e da versao final do Qwen4-Max, lancada pela Alibaba em 16 de novembro, no mesmo dia do Hy4 flash, da Tencent. Inclusao tambem dos lancamentos de 9 a 16 de novembro: ZONOS3-Mini, Scribe v3, Gemini Decision 1, SubQ Snap 1.2, Praxis-1 com pesos abertos, HeyGen Image 1, Seedance 2.5 Flash, Decider v1.3, SOV-Transcribe-1, Hy Realtime, HeyGen Decision 1 e os modelos de decisao d1.2 e d1.2-ultra, da Liquid AI, alem dos registros anteriores do Seedance 2.5 e dos modelos HeyGen Video 1, HeyGen Voice e HeyGen Voice Turbo. O registro do Inkling 2 Small passou a informar a publicacao dos pesos abertos em 12 de novembro, e o da familia LFM3 passou a constar tambem na categoria de decisao estruturada."
     },
     "previous_correction": {
       "date": "2026-11-11",
@@ -14,6 +14,161 @@
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
+    {
+      "id": "zyphra-zonos3-mini",
+      "company": "Zyphra",
+      "family": "Zonos",
+      "model": "ZONOS3-Mini",
+      "release_date": "2026-11-09",
+      "release_stage": "pesos abertos/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "text-to-speech", "clonagem-de-voz", "multilingue", "MoE", "on-device", "baixa-latencia", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Modelo aberto de texto para fala da Zyphra, com clonagem de voz sem treino a partir de um trecho de ate 60 segundos ou de um embedding de falante. E um MoE esparso de 800M parametros totais e cerca de 100M ativos, com 11 camadas que alternam Gated DeltaNet e atencao global e 64 especialistas, mais um novo codec de audio, o ZAC-1, de 15 Hz e 44,1 kHz; gera ate 10 minutos de fala por vez em 43 idiomas. A Zyphra reporta primeiro audio em menos de 150 ms num MacBook Air M3 e em menos de 570 ms no navegador de um Pixel 9, e diz que o modelo lidera entre os abertos no seu indice de capacidade de TTS, a frente do Fish S2 Pro e do MOSS TTS v1.5, sem divulgar as notas. Os pesos sairam no Hugging Face sob Apache 2.0, com codigo MIT no GitHub, e o modelo tambem esta na Zyphra Cloud.",
+      "sources": [
+        {
+          "title": "ZONOS3-Mini",
+          "url": "https://www.zyphra.com/our-work/zonos3-mini",
+          "publisher": "Zyphra",
+          "date_basis": "Post oficial datado de 9 de novembro de 2026 apresenta o modelo, os parametros, a licenca e as medidas de latencia."
+        },
+        {
+          "title": "Zyphra/ZONOS3-Mini",
+          "url": "https://huggingface.co/Zyphra/ZONOS3-Mini",
+          "publisher": "Zyphra / Hugging Face",
+          "date_basis": "Model card oficial lista os 43 idiomas e detalha a arquitetura."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Algumas fontes citam 12 de novembro; o post da Zyphra e de 9 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "elevenlabs-scribe-v3",
+      "company": "ElevenLabs",
+      "family": "Scribe",
+      "model": "Scribe v3 / Scribe v3 Live",
+      "release_date": "2026-11-10",
+      "release_stage": "GA/API/produto",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "tempo-real", "diarizacao", "multilingue", "API", "proprietario"],
+      "description_pt": "Terceira geracao dos modelos de transcricao da ElevenLabs: o Scribe v3, para audio gravado, e o Scribe v3 Live, em tempo real por WebSocket. Segundo a empresa, o v3 comete 27% menos erros de palavras que o Scribe v2 em 102 idiomas e 17% menos erros de diarizacao em gravacoes com tres ou mais falantes, e o v3 Live tem WER semantico 43% menor que o v2 Realtime, com 3,1% de erro de diarizacao em ingles, contra 5,9% a 7,3% de outros modelos em tempo real nao nomeados. Ficou disponivel em disponibilidade geral na API, como scribe_v3 e scribe_v3_live, e no app da ElevenLabs, onde virou o padrao; o v3 Live tambem chegou ao ElevenAgents. Custa US$ 0,20 por hora de audio no v3 e US$ 0,22 no v3 Live, e os modelos v2 continuam disponiveis.",
+      "sources": [
+        {
+          "title": "Scribe v3",
+          "url": "https://elevenlabs.io/blog/scribe-v3",
+          "publisher": "ElevenLabs",
+          "date_basis": "Post oficial publicado em 10 de novembro de 2026 e atualizado em 14 de novembro anuncia os modelos e os ganhos sobre o Scribe v2."
+        },
+        {
+          "title": "Changelog",
+          "url": "https://elevenlabs.io/docs/changelog",
+          "publisher": "ElevenLabs",
+          "date_basis": "Entrada semanal de 9 de novembro de 2026 registra os identificadores scribe_v3 e scribe_v3_live e os idiomas testados."
+        },
+        {
+          "title": "API pricing",
+          "url": "https://elevenlabs.io/pricing/api",
+          "publisher": "ElevenLabs",
+          "date_basis": "Tabela oficial lista os precos por hora do Scribe v3 e do Scribe v3 Live."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O changelog da ElevenLabs agrupa as novidades por semana e lista o Scribe v3 em 9 de novembro; o post de lancamento e de 10 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "subquadratic-subq-snap-1-2",
+      "company": "Subquadratic",
+      "family": "SubQ",
+      "model": "SubQ Snap 1.2",
+      "release_date": "2026-11-11",
+      "release_stage": "GA/API",
+      "ai_category": "Decisao estruturada",
+      "model_type": ["decisao-estruturada", "classificacao", "atencao-linear", "visao", "longo-contexto", "baixo-custo", "API", "proprietario"],
+      "description_pt": "Nova versao do modelo de decisao da Subquadratic, empresa de pesquisa que constroi modelos sobre sua propria atencao esparsa de custo linear, a Subquadratic Sparse Attention. Recebe texto e imagens, tem contexto de 384K tokens e virou o modelo padrao da API, substituindo o Snap 1.1, de 22 de outubro, cujos usuarios foram migrados automaticamente; o primeiro Snap saiu em 12 de outubro. A principal melhoria e a consistencia: a resposta principal nao muda quando as opcoes sao reordenadas, contra 16% de trocas no Snap 1.1, 11,7% no Jev 1.14 e 21,2% no d1-ultra. Nos numeros da empresa, marca 73 no Artificial Analysis Decision Index v2.1, empatado em 1o lugar com outros dois modelos na data, contra 68 do Snap 1.1 e 66 do Jev 1.14. Custa US$ 0,04 por milhao de tokens de entrada, com saida gratuita, e nao tem pesos abertos.",
+      "sources": [
+        {
+          "title": "SubQ Snap 1.2",
+          "url": "https://subq.ai/subq-snap-1-2",
+          "publisher": "Subquadratic",
+          "date_basis": "Post oficial de 11 de novembro de 2026 apresenta o modelo, a consistencia na ordem das opcoes, os benchmarks e o preco."
+        },
+        {
+          "title": "Models - SubQ Docs",
+          "url": "https://docs.subq.ai/using-the-api/models/",
+          "publisher": "Subquadratic",
+          "date_basis": "Documentacao oficial informa o identificador subq-snap-1.2 e a desativacao do Snap 1.1 em 11 de novembro."
+        },
+        {
+          "title": "Pricing",
+          "url": "https://subq.ai/pricing",
+          "publisher": "Subquadratic",
+          "date_basis": "Pagina oficial lista o contexto de 384K e o preco por milhao de tokens de entrada."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "perplexity-decider-v1-3",
+      "company": "Perplexity",
+      "family": "Decider",
+      "model": "Decider v1.3 / Decider Flash v1.3",
+      "release_date": "2026-11-12",
+      "release_stage": "pesos abertos/API",
+      "ai_category": "Decisao estruturada",
+      "model_type": ["decisao-estruturada", "classificacao", "reranking", "extracao", "visao", "multilingue", "longo-contexto", "baixo-custo", "open-weights", "OpenSource", "Apache-2.0", "API"],
+      "description_pt": "Nova versao dos modelos de decisao abertos da Perplexity, que devolvem probabilidades e classificacoes em vez de texto gerado. O Decider v1.3 e construido sobre o Qwen3.8-27B, com atencao bidirecional, e o Decider Flash v1.3 e destilado dele para o Qwen3.5-4B; ambos recebem texto e imagens e tem contexto de 256K tokens na API. A novidade e o Locate, que devolve trechos exatos do texto com posicao e nota, para extrair entidades, dados pessoais e respostas. Nos numeros da Perplexity, o v1.3 marca 83,99 de nDCG@10 em recuperacao e reranking, 2,24 pontos acima do Jev 1.14, e media de 69,0 em extracao de entidades e respostas, contra 43,3 do Liquid d1, e troca de rotulo em so 0,27% dos casos, contra 2,69% a 4,84% do Jev 1.14. Os pesos sairam no Hugging Face sob Apache 2.0, e os modelos estao tambem no OpenRouter e na Decisions API da Perplexity, por US$ 0,02 (v1.3) e US$ 0,01 (Flash) por milhao de tokens de entrada, com saida gratuita. Sucede as versoes v1, v1.1 e v1.2, todas de outubro de 2026.",
+      "sources": [
+        {
+          "title": "Perplexity Decider",
+          "url": "https://www.perplexity.ai/hub/blog/perplexity-decider",
+          "publisher": "Perplexity",
+          "date_basis": "Post oficial de 12 de novembro de 2026 apresenta o v1.3 e o Flash v1.3, os modelos base, o Locate, a licenca Apache 2.0 e os benchmarks."
+        },
+        {
+          "title": "Decisions quickstart",
+          "url": "https://docs.perplexity.ai/docs/decisions/quickstart",
+          "publisher": "Perplexity",
+          "date_basis": "Documentacao oficial informa os identificadores, os tamanhos, os precos, o contexto de 256K e os limites do Locate."
+        },
+        {
+          "title": "perplexity-ai/pplx-decider-v1.3",
+          "url": "https://huggingface.co/perplexity-ai/pplx-decider-v1.3",
+          "publisher": "Perplexity / Hugging Face",
+          "date_basis": "Repositorio oficial dos pesos confirma a licenca Apache 2.0 e o tamanho de cerca de 26B parametros."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "salesforce-sov-transcribe-1",
+      "company": "Salesforce",
+      "family": "SOV",
+      "model": "SOV-Transcribe-1",
+      "release_date": "2026-11-12",
+      "release_stage": "pesos abertos",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "speech-llm", "multilingue", "MoE", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Primeiro modelo aberto de reconhecimento de fala da Salesforce, para audio gravado, sem streaming. Junta o encoder de audio do Whisper large-v3, um projetor e o decodificador MoE do Gemma 4 26B-A4B, ajustado a partir da versao instruct, num total de cerca de 26,6B parametros e 4,6B ativos. Transcreve sete idiomas, ingles, frances, alemao, espanhol, italiano, portugues e holandes, aceita instrucoes ou contexto em texto e foi testado com audios de ate 30 minutos. Nos numeros da Salesforce, marca 2,28% no AA-WER da Artificial Analysis, contra 2,81% do Nemotron 3.5 Transcribe e 2,77% do Voxtral Small 24B, o melhor entre os modelos abertos sem streaming e o 7o no geral em 12 de novembro. Os pesos sairam no Hugging Face sob Apache 2.0, junto com um modelo de rascunho para decodificacao especulativa; o relatorio tecnico ainda nao foi publicado.",
+      "sources": [
+        {
+          "title": "SOV-Transcribe-1",
+          "url": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1",
+          "publisher": "Salesforce / Hugging Face",
+          "date_basis": "Post oficial publicado em 12 de novembro de 2026 apresenta o modelo, a arquitetura, a licenca e os benchmarks."
+        },
+        {
+          "title": "salesforce-sovereign-intelligence/SOV-Transcribe-1",
+          "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1",
+          "publisher": "Salesforce / Hugging Face",
+          "date_basis": "Model card oficial detalha a arquitetura, os sete idiomas, o limite de 30 minutos testado e os parametros."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
     {
       "id": "bytedance-seedance-2-5",
       "company": "ByteDance",
