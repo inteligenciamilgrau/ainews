@@ -1,19 +1,468 @@
 {
   "metadata": {
-    "updated_at": "2026-11-11",
+    "updated_at": "2026-11-17",
     "last_correction": {
-      "date": "2026-11-11",
-      "description_pt": "Inclusao do Claude Fable 5.2 e do Claude Mythos 5.2, lancados pela Anthropic em 9 de novembro de 2026, e do Gemini 4 Carbon, anunciado pela Google em 28 de outubro com acesso restrito e liberado em disponibilidade geral em 10 de novembro. Inclusao tambem dos lancamentos de 27 de outubro a 11 de novembro: Genie 4, LFM3, MAI-Image-2.7 Preview, Nemotron 3.5 Transcribe, Ling-3.1-flash-1019, SFX v3, Pika H3 Flex, GPT-6 Rosalind, LongCat-2.5, GPT Image 2.6, Hy4, Ripple-65B Preview, SWE-2 Flash, GPT-6 Cyber, Inkling 2 Small, ERNIE-5.5-Flash-Base, Gemini Omni 1.2 Flash, Ling-3.2-flash, Seedream 5.5, Muse Ember, GR00T 2, K-EXAONE 2.5, Gemini Robotics 2.5, MiniMax H3-Image, Qwen4-Max-Preview e ERNIE 5.5 Flash Preview, alem dos registros anteriores do K-EXAONE 2.0, do MAI-Image-2.6, do Gemini Omni 1.1 Flash, do SWE-2 e do Ling-3.1-flash. Os registros do Kimi K3.1 Pro e do Mistral Large 4 passaram a informar a publicacao dos pesos abertos, em 4 de novembro e 29 de outubro, e o do Mistral Large 4 teve corrigidos o preco da API e o numero de parametros ativos."
+      "date": "2026-11-17",
+      "description_pt": "Inclusao do Gemini 4 Hydrogen, lancado pela Google em 12 de novembro de 2026, e da versao final do Qwen4-Max, lancada pela Alibaba em 16 de novembro, no mesmo dia do Hy4 flash, da Tencent. Inclusao tambem dos lancamentos de 11 a 16 de novembro: Gemini Decision 1, Praxis-1 com pesos abertos, HeyGen Image 1, Seedance 2.5 Flash, Hy Realtime, HeyGen Decision 1 e os modelos de decisao d1.2 e d1.2-ultra, da Liquid AI, alem dos registros anteriores do Seedance 2.5 e dos modelos HeyGen Video 1, HeyGen Voice e HeyGen Voice Turbo. O registro do Inkling 2 Small passou a informar a publicacao dos pesos abertos em 12 de novembro, e o da familia LFM3 passou a constar tambem na categoria de decisao estruturada."
     },
     "previous_correction": {
-      "date": "2026-10-26",
-      "description_pt": "Inclusao do GPT-6.1 Terra, lancado pela OpenAI em 26 de outubro de 2026 no ChatGPT Work, no Codex e na API por US$ 1/US$ 5 por milhao de tokens, e do Kimi K3.1 Pro e K3.1 Pro Highspeed, lancados pela Moonshot AI em 23 de outubro com pesos abertos prometidos ate 4 de novembro. Inclusao tambem dos lancamentos de 15 a 23 de outubro: GPT-Live-1.1, Muse Spark Open, Nemotron 3.5 Super VL, Bolt 74B-A9B e Bolt E4B, DeepSeek-V4.1-Flash-1017, MiniMax-M3.1-Flash, Mercury 3, Voxtral 3 e o agente Claude Duet."
+      "date": "2026-11-11",
+      "description_pt": "Inclusao do Claude Fable 5.2 e do Claude Mythos 5.2, lancados pela Anthropic em 9 de novembro de 2026, e do Gemini 4 Carbon, anunciado pela Google em 28 de outubro com acesso restrito e liberado em disponibilidade geral em 10 de novembro. Inclusao tambem dos lancamentos de 27 de outubro a 11 de novembro: Genie 4, LFM3, MAI-Image-2.7 Preview, Nemotron 3.5 Transcribe, Ling-3.1-flash-1019, SFX v3, Pika H3 Flex, GPT-6 Rosalind, LongCat-2.5, GPT Image 2.6, Hy4, Ripple-65B Preview, SWE-2 Flash, GPT-6 Cyber, Inkling 2 Small, ERNIE-5.5-Flash-Base, Gemini Omni 1.2 Flash, Ling-3.2-flash, Seedream 5.5, Muse Ember, GR00T 2, K-EXAONE 2.5, Gemini Robotics 2.5, MiniMax H3-Image, Qwen4-Max-Preview e ERNIE 5.5 Flash Preview, alem dos registros anteriores do K-EXAONE 2.0, do MAI-Image-2.6, do Gemini Omni 1.1 Flash, do SWE-2 e do Ling-3.1-flash. Os registros do Kimi K3.1 Pro e do Mistral Large 4 passaram a informar a publicacao dos pesos abertos, em 4 de novembro e 29 de outubro, e o do Mistral Large 4 teve corrigidos o preco da API e o numero de parametros ativos."
     },
     "title": "Timeline de lancamentos de modelos e ferramentas de IA",
     "scope": "Modelos de IA e ferramentas em categorias separadas. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos. Novidades de ferramentas de um mesmo evento podem ser reunidas em um unico registro, mantendo os novos modelos em entradas proprias.",
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
+    {
+      "id": "bytedance-seedance-2-5",
+      "company": "ByteDance",
+      "family": "Seedance",
+      "model": "Seedance 2.5",
+      "release_date": "2026-07-31",
+      "release_stage": "produto (API prometida no BytePlus ModelArk)",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "audio-visual", "texto-para-video", "imagem-para-video", "referencia", "edicao", "30-segundos", "proprietario"],
+      "description_pt": "Nova versao do modelo de video da ByteDance Seed, que gera ate 30 segundos de video com audio sincronizado numa unica passada, o dobro dos 15 segundos do Seedance 2.0, e permite estender as sequencias em varios turnos, com mais recursos de referencia e edicao. Foi lancado no Jimeng (Dreamina) e no Doubao, com acesso por API prometido pelo BytePlus ModelArk. As fontes divergem sobre a resolucao maxima e o numero de referencias aceitas, e a ByteDance nao publicou avaliacoes independentes.",
+      "sources": [
+        {
+          "title": "ByteDance launches Seedance 2.5 video generation model",
+          "url": "https://technode.com/2026/07/31/bytedance-launches-seedance-2-5-video-generation-model/",
+          "publisher": "TechNode",
+          "date_basis": "Cobertura de 31 de julho de 2026 registra o lancamento, os clipes de 30 segundos numa passada e a extensao em varios turnos."
+        },
+        {
+          "title": "ByteDance unveils Seedance 2.5, a 30-second native 4K AI video model that accepts 50 reference inputs",
+          "url": "https://thenextweb.com/news/bytedance-seedance-2-5-ai-video-4k-30-seconds",
+          "publisher": "The Next Web",
+          "date_basis": "Cobertura do anuncio em Pequim descreve os clipes de 30 segundos e as entradas de referencia."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "A pagina da equipe Seed data o post de lancamento de 31 de julho de 2026, mas o texto nao pode ser lido diretamente; os detalhes vem da cobertura. Registro incluido em 17 de novembro de 2026 para completar a linha Seedance.",
+      "confidence": "alta"
+    },
+    {
+      "id": "heygen-video-1",
+      "company": "HeyGen",
+      "family": "HeyGen",
+      "model": "HeyGen Video 1",
+      "release_date": "2026-09-30",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "texto-para-video", "imagem-para-video", "referencia", "2K", "API", "proprietario"],
+      "description_pt": "Primeiro modelo proprio de geracao de video da HeyGen, empresa conhecida pelos avatares de IA. Gera video com audio a partir de texto, imagem ou referencias, em clipes de 5 a 30 segundos, com os de 30 segundos liberados em 23 de outubro, e resolucao de 480p a 2K, com o 2K na API desde 6 de outubro. Custa US$ 0,02 por segundo na API, com 50% de desconto de lancamento ate 30 de novembro, e esta no Creative Studio, via MCP, no OpenRouter, parceiro principal de lancamento, no Runware e no ComfyUI. A HeyGen diz que o modelo ficou em 1o lugar no ranking de video da Artificial Analysis, num filtro sem audio, e que superou Seedance 2.5, Seedance 2.0, H3 Max e Kling 3.0 em qualidade em 4.800 votos cegos.",
+      "sources": [
+        {
+          "title": "What's new at HeyGen: October 2026",
+          "url": "https://www.heygen.com/blog/heygen-october-2026-release",
+          "publisher": "HeyGen",
+          "date_basis": "Post oficial registra que o HeyGen Video foi lancado em 30 de setembro de 2026 e lista as atualizacoes de outubro."
+        },
+        {
+          "title": "HeyGen Video 1",
+          "url": "https://www.heygen.com/models/heygen-video-1",
+          "publisher": "HeyGen",
+          "date_basis": "Pagina oficial do modelo informa o preco por segundo e a posicao no ranking da Artificial Analysis."
+        },
+        {
+          "title": "Introducing HeyGen Video: generate cinematic clips from a prompt",
+          "url": "https://help.heygen.com/en/articles/17272995-introducing-heygen-video-generate-cinematic-clips-from-a-prompt",
+          "publisher": "HeyGen",
+          "date_basis": "Artigo oficial de ajuda traz a comparacao com outros modelos e a promocao de lancamento."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Registro incluido em 17 de novembro de 2026 para cobrir os modelos proprios da HeyGen.",
+      "confidence": "alta"
+    },
+    {
+      "id": "heygen-voice-1",
+      "company": "HeyGen",
+      "family": "HeyGen",
+      "model": "HeyGen Voice (Voice 1)",
+      "release_date": "2026-10-09",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "text-to-speech", "clonagem-de-voz", "speech-to-speech", "streaming", "API", "proprietario"],
+      "description_pt": "Modelo proprio de voz da HeyGen, usado para texto para fala, clonagem de voz e fala para fala no app e na API, inclusive por streaming, com o identificador heygen-voice-1. A HeyGen diz que estreou em 1o lugar no ranking de clonagem de voz Controlled Voice da Artificial Analysis e que, em testes cegos proprios, foi preferido em 62,2% das comparacoes com o ElevenLabs v4 e em 54,1% com o Cartesia Sonic 3.6. O preco aparece como US$ 30 por milhao de caracteres na pagina do modelo e como US$ 15 numa tabela posterior da empresa; fala para fala custa US$ 0,12 por minuto gerado.",
+      "sources": [
+        {
+          "title": "What's new at HeyGen: October 2026",
+          "url": "https://www.heygen.com/blog/heygen-october-2026-release",
+          "publisher": "HeyGen",
+          "date_basis": "Post oficial registra: \"On October 9, we launched HeyGen Voice\"."
+        },
+        {
+          "title": "HeyGen Voice",
+          "url": "https://www.heygen.com/models/heygen-voice",
+          "publisher": "HeyGen",
+          "date_basis": "Pagina oficial do modelo informa precos e os resultados dos testes cegos."
+        },
+        {
+          "title": "HeyGen Launches HeyGen Voice, Debuting at #1 on Artificial Analysis' Leaderboard",
+          "url": "https://www.prnewswire.com/news-releases/heygen-launches-heygen-voice-debuting-at-1-on-artificial-analysis-leaderboard-302903718.html",
+          "publisher": "HeyGen / PR Newswire",
+          "date_basis": "Comunicado oficial anuncia o lancamento e a estreia em 1o lugar no ranking da Artificial Analysis."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O blog da HeyGen registra o lancamento em 9 de outubro; o post de anuncio no canal de novidades da empresa traz 14 de outubro. Registro incluido em 17 de novembro de 2026.",
+      "confidence": "alta"
+    },
+    {
+      "id": "heygen-voice-1-turbo",
+      "company": "HeyGen",
+      "family": "HeyGen",
+      "model": "HeyGen Voice Turbo",
+      "release_date": "2026-10-21",
+      "release_stage": "lancamento/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "text-to-speech", "baixa-latencia", "baixo-custo", "API", "proprietario"],
+      "description_pt": "Versao mais rapida e barata do HeyGen Voice, disponivel so pela API, como heygen-voice-1-turbo, e apenas com vozes instantaneas; ha uma camada gratuita de melhor esforco ate 30 de novembro de 2026. Segundo a HeyGen, ficou em 1o lugar no ranking Controlled Voice da Artificial Analysis, com o HeyGen Voice em 2o, a frente do Qwen-Audio-3.1, do Eleven v4 Turbo e do Eleven v4, e foi preferido em 64% dos testes cegos contra o ElevenLabs feitos com usuarios da HeyGen. O preco aparece como US$ 4 por milhao de caracteres no post de lancamento e como US$ 15 na pagina do modelo.",
+      "sources": [
+        {
+          "title": "HeyGen Voice Turbo Is Free for Developers",
+          "url": "https://www.heygen.com/blog/heygen-voice-turbo",
+          "publisher": "HeyGen",
+          "date_basis": "Post oficial de lancamento informa o preco, a gratuidade ate 30 de novembro e a posicao no ranking da Artificial Analysis."
+        },
+        {
+          "title": "What's new at HeyGen: October 2026",
+          "url": "https://www.heygen.com/blog/heygen-october-2026-release",
+          "publisher": "HeyGen",
+          "date_basis": "Post oficial registra o anuncio do Voice Turbo em 21 de outubro de 2026."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O blog da HeyGen registra o anuncio em 21 de outubro; uma listagem do OpenRouter cita 13 de outubro. Registro incluido em 17 de novembro de 2026.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-decision-1",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini Decision 1 (Decisions API)",
+      "release_date": "2026-11-11",
+      "release_stage": "lancamento/API",
+      "ai_category": "Decisao estruturada",
+      "model_type": ["decisao-estruturada", "classificacao", "pontuacao", "calibracao", "multimodal", "baixa-latencia", "baixo-custo", "API", "proprietario"],
+      "description_pt": "Primeiro modelo de decisao da Google, lancado junto com a Gemini Decisions API. Em vez de gerar texto, responde a ate 1.000 perguntas fechadas por chamada, nos formatos sim ou nao (noul), escolha entre opcoes (choice) e nota por rubrica (score), cada resposta acompanhada de um valor de confianca; sao os mesmos nomes de primitivas usados pelo Jev, da TypeSafe AI. Recebe texto, imagem, audio, video e PDF, tem contexto de 262.144 tokens e, segundo a Google, latencia de 150 a 250 ms. Custa US$ 0,10 por milhao de tokens de entrada, sem cobranca de saida, e tem nivel gratuito; a Google diz que sai quase 5 vezes mais barato que o Gemini 3.5 Flash-Lite nesse tipo de tarefa. Esta disponivel na Gemini API como gemini-decision-1, sem Batch API nem cache, e a empresa nao publicou comparacoes nominais com outros modelos.",
+      "sources": [
+        {
+          "title": "Gemini Decisions API",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 11 de novembro de 2026 apresenta o Gemini Decision 1, os tipos de pergunta, a latencia e a comparacao de custo."
+        },
+        {
+          "title": "Gemini API changelog",
+          "url": "https://aistudio.google.com/docs/changelog",
+          "publisher": "Google",
+          "date_basis": "Entrada oficial de 11 de novembro de 2026 registra o lancamento do gemini-decision-1 e do endpoint de decisoes."
+        },
+        {
+          "title": "Gemini API pricing",
+          "url": "https://aistudio.google.com/docs/pricing",
+          "publisher": "Google",
+          "date_basis": "Tabela oficial lista o preco de entrada, a saida gratuita e o nivel gratuito do Gemini Decision 1."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "heygen-image-1",
+      "company": "HeyGen",
+      "family": "HeyGen",
+      "model": "HeyGen Image 1",
+      "release_date": "2026-11-11",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "edicao", "identidade", "referencia", "4K", "API", "proprietario"],
+      "description_pt": "Modelo de imagem da HeyGen para remixar identidades: recebe de 1 a 5 fotos de uma pessoa e uma imagem de referencia e devolve de 1 a 5 imagens PNG de ate 3840x2160 com aquela pessoa no estilo da referencia. Esta na API, como heygen-image-1, no Creative Studio na web, via MCP e CLI e no app para iOS. A HeyGen nao divulgou preco nem resultados.",
+      "sources": [
+        {
+          "title": "November 2026 Enterprise API Releases",
+          "url": "https://heygen.noticeable.news/publications/november-2026-enterprise-api-releases",
+          "publisher": "HeyGen",
+          "date_basis": "Post oficial de novidades de novembro de 2026 apresenta o HeyGen Image 1 e as novas versoes do Video 1 e do Voice 1."
+        }
+      ],
+      "date_precision": "dia aproximado",
+      "date_note_pt": "A pagina oficial nao exibe data legivel; o dia vem do carimbo de publicacao do post.",
+      "confidence": "media"
+    },
+    {
+      "id": "runway-praxis-1",
+      "company": "Runway",
+      "family": "Praxis",
+      "model": "Praxis-1",
+      "release_date": "2026-11-11",
+      "release_stage": "pesos abertos/API (anunciado em setembro de 2026 para parceiros)",
+      "ai_category": "Robotica/World models",
+      "model_type": ["robotica", "world-action-model", "video", "acao", "MoE", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "World action model da Runway para robos, pre-treinado em video: um transformer de difusao de video MoE com 27,2B parametros, cerca de 2,8B ativos por token no backbone, que preve video e acoes ao mesmo tempo, com um especialista de acao de cerca de 314M, o VAE do Wan2.2 e o encoder de texto Qwen3.5-2B congelados, controle a 15 Hz e blocos de 24 acoes. Foi apresentado em setembro de 2026 apenas para parceiros como Noble Machines, Standard Bots e Ultra, e em 11 de novembro a Runway publicou os pesos sob Apache 2.0, com uso comercial, no Hugging Face e no GitHub: o modelo base e versoes ajustadas para braco unico (DROID) e bimanual (YAM), depois acompanhadas de variantes NVFP4 e para o SO-101. Em bf16 ocupa 54,4 GB e roda numa GPU de 80 GB; em NVFP4, 17,5 GB. Tambem esta no Runway Dev, no LeRobot e no NeMo Automodel. Nos numeros da Runway, marca 46,2% no RoboLab-120 da NVIDIA, contra 42,9% do FLUX 3 Action e 36,8% do Cosmos 3 Nano, o melhor resultado entre world action models, embora abaixo de modelos de outros tipos no ranking geral, e acerta 88 de 100 tentativas num Franka real, contra 80 do FLUX 3 Action.",
+      "sources": [
+        {
+          "title": "Praxis-1 is now available",
+          "url": "https://runway.com/news/praxis-1-is-now-available",
+          "publisher": "Runway",
+          "date_basis": "Post oficial datado de 11 de novembro de 2026 anuncia os pesos abertos sob Apache 2.0 e os resultados."
+        },
+        {
+          "title": "Praxis-1: From Video Pretraining to Robot Control",
+          "url": "https://runway.com/research/praxis-1-video-pretraining-to-robot-control",
+          "publisher": "Runway",
+          "date_basis": "Relatorio tecnico oficial de 11 de novembro de 2026 detalha a arquitetura, os tres checkpoints de lancamento e os resultados completos."
+        },
+        {
+          "title": "Introducing Praxis-1",
+          "url": "https://runway.com/research/introducing-praxis-1",
+          "publisher": "Runway",
+          "date_basis": "Pagina oficial do anuncio, marcada como setembro de 2026, apresenta o modelo e os parceiros iniciais."
+        },
+        {
+          "title": "runwayml/praxis-1-oss",
+          "url": "https://github.com/runwayml/praxis-1-oss",
+          "publisher": "Runway / GitHub",
+          "date_basis": "Repositorio oficial lista os checkpoints, os requisitos de hardware e a licenca."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "A data exibida e a da publicacao dos pesos; a Runway diz ter apresentado o Praxis-1 em setembro de 2026, enquanto a cobertura da epoca data o anuncio de 1 e 2 de outubro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "bytedance-seedance-2-5-flash",
+      "company": "ByteDance",
+      "family": "Seedance",
+      "model": "Seedance 2.5 Flash",
+      "release_date": "2026-11-12",
+      "release_stage": "lancamento/produto (API no Volcano Ark a partir de 2026-11-15)",
+      "ai_category": "Video",
+      "model_type": ["video", "audio", "texto-para-video", "imagem-para-video", "referencia", "edicao", "baixa-latencia", "baixo-custo", "API", "proprietario"],
+      "description_pt": "Versao mais rapida e barata do Seedance 2.5, o modelo de video da ByteDance Seed. Gera clipes de 4 a 30 segundos em 480p ou 720p, a 24 quadros por segundo, a partir de texto, do primeiro quadro ou do primeiro e do ultimo quadros, aceita imagens, videos e audios como referencia, edita e estende videos e gera audio; nao tem modo rascunho nem 1080p. Segundo a ByteDance, gera cerca de duas vezes mais rapido que o Seedance 2.5, com qualidade superior a do Seedance 2.0 e proxima a do 2.5, e custa cerca de 0,99 yuan por segundo em 720p, cerca de 34% menos que o 2.5. Chegou no lancamento ao Jimeng (Dreamina) e a parceiros como LibTV, e a API no Volcano Ark, como doubao-seedance-2-5-flash-261115, foi anunciada para 15 de novembro. Nao tem pesos abertos.",
+      "sources": [
+        {
+          "title": "ByteDance Volcano Engine launches Seedance 2.5 flash (IT Home via ifeng)",
+          "url": "https://tech.ifeng.com/c/8xzc8FAi9Ng",
+          "publisher": "IT Home / Phoenix Tech",
+          "date_basis": "Reportagem de 12 de novembro de 2026 registra o lancamento oficial no mesmo dia pelo Volcano Engine, o preco, as especificacoes e a API a partir de 15 de novembro."
+        },
+        {
+          "title": "Video generation tutorial - Volcano Ark",
+          "url": "https://docs.volcengine.com/docs/ark/video-generation-tutorial?lang=zh",
+          "publisher": "Volcano Engine",
+          "date_basis": "Documentacao oficial informa o identificador doubao-seedance-2-5-flash-261115 e a tabela de recursos do modelo."
+        },
+        {
+          "title": "Dreamina Seedance 2.5 Flash",
+          "url": "https://dreamina.capcut.com/seedance/seedance-2-5-flash",
+          "publisher": "ByteDance / CapCut",
+          "date_basis": "Pagina oficial do produto apresenta o modelo no Dreamina."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "A equipe Seed nao publicou post proprio; a data vem do anuncio do Volcano Engine relatado pela imprensa chinesa, e a documentacao oficial do Volcano Ark confirma o modelo.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-4-hydrogen",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 4 Hydrogen",
+      "release_date": "2026-11-12",
+      "release_stage": "GA/API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "multimodal", "visao", "audio", "video-input", "raciocinio", "codigo", "agente", "longo-contexto", "1M-contexto", "baixo-custo", "API", "proprietario"],
+      "description_pt": "Modelo rapido da familia Gemini 4, ao lado do Argon e do Carbon, voltado a codigo e trabalho agentico do dia a dia e sucessor do Gemini 3.8 Flash; segundo o model card, foi adaptado do Gemini 4 Carbon. Saiu em disponibilidade geral na Gemini API e no AI Studio como gemini-4-hydrogen, nos niveis gratuito e pago, e no Google Cloud. Chegou tambem ao AI Mode da Busca para todos os usuarios, ao app Gemini, onde usuarios gratuitos o recebem pela selecao automatica de modelo, ao Android Studio, ao Gemini for Business, ao Gemini no Sheets e ao Google Antigravity para assinantes AI Pro e Ultra, onde vira o agente padrao e ganha um modo Orchestrator que alterna entre Carbon e Hydrogen; o GitHub Copilot o recebeu em 13 de novembro. Custa US$ 1,50 de entrada e US$ 7,50 de saida por milhao de tokens, com raciocinio incluido e sem faixa mais cara para contexto longo, e US$ 0,075 em cache. Tem janela de cerca de 1M tokens compartilhada entre entrada, raciocinio e saida, ate 65.536 tokens de saida por chamada sincrona, entrada de texto, imagem, audio, video e PDF, conhecimento ate marco de 2026 e um novo nivel de raciocinio xhigh. Nos numeros da Google, marca 51 no Artificial Analysis Intelligence Index em modo high e 54 em xhigh, contra 50 do Gemini 4 Argon, e 57% no Terminal-Bench 4.1, contra 18,2% do Gemini 3.8 Flash, mas fica atras do Claude Sonnet 5.5 nesse teste, que marca 63,9%, e no OSWorld-2.1. Pelo Frontier Safety Framework, nao atinge os niveis criticos de capacidade em biologia e ciberseguranca, mas atinge os limites de alerta de ambos.",
+      "sources": [
+        {
+          "title": "Introducing Gemini 4 Hydrogen",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 12 de novembro de 2026 anuncia o modelo, os produtos, o preco, os niveis de raciocinio e os resultados no Artificial Analysis e no Terminal-Bench."
+        },
+        {
+          "title": "Gemini 4 Hydrogen - Model Card",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Model card oficial publicado em 12 de novembro de 2026 informa a data de corte, a tabela de benchmarks contra Claude Sonnet 5.5 e GPT-6.1 Terra e a avaliacao pelo Frontier Safety Framework."
+        },
+        {
+          "title": "Gemini API changelog",
+          "url": "https://aistudio.google.com/docs/changelog",
+          "publisher": "Google",
+          "date_basis": "Entrada oficial de 12 de novembro de 2026 registra o gemini-4-hydrogen em disponibilidade geral."
+        },
+        {
+          "title": "Gemini API pricing",
+          "url": "https://aistudio.google.com/docs/pricing",
+          "publisher": "Google",
+          "date_basis": "Tabela oficial lista os precos padrao, em cache, Batch, Flex e Priority do Gemini 4 Hydrogen."
+        },
+        {
+          "title": "Gemini 4 Hydrogen in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
+          "publisher": "GitHub",
+          "date_basis": "Changelog oficial de 13 de novembro de 2026 anuncia o modelo no GitHub Copilot."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Alguns rastreadores registram 13 de novembro, data da chegada ao GitHub Copilot; o post da Google, o changelog da API e o model card sao de 12 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "heygen-decision-1",
+      "company": "HeyGen",
+      "family": "HeyGen",
+      "model": "HeyGen Decision 1 / Decision 1 Turbo",
+      "release_date": "2026-11-13",
+      "release_stage": "API (Turbo em preview)",
+      "ai_category": "Decisao estruturada",
+      "model_type": ["decisao-estruturada", "classificacao", "pontuacao", "multimodal", "visao", "video-input", "API", "proprietario"],
+      "description_pt": "Modelo de decisao da HeyGen, na mesma linha do Jev, do Gemini Decision 1 e do Liquid d1.2: responde a perguntas fechadas nos formatos noul, choice e score, de 1 a 400 por pedido, recebendo texto ou JSON e ate 4 imagens e 1 video, com contexto de 131.072 tokens. Uma variante Decision 1 Turbo, em preview, aceita ate 100 imagens e 10 videos e contexto de 262.144 tokens. A HeyGen nao publicou anuncio, preco nem resultados; no Vercel AI Gateway, o Decision 1 custa US$ 0,14 por milhao de tokens de entrada, com saida gratuita.",
+      "sources": [
+        {
+          "title": "HeyGen Decision - HeyGen Docs",
+          "url": "https://developers.heygen.com/docs/models/heygen-decision",
+          "publisher": "HeyGen",
+          "date_basis": "Documentacao oficial, sem data, descreve os identificadores, o endpoint, os tipos de pergunta, os limites e o preview do Turbo."
+        },
+        {
+          "title": "HeyGen Decision 1 - Vercel AI Gateway",
+          "url": "https://vercel.com/ai-gateway/models/heygen-decision-1",
+          "publisher": "Vercel",
+          "date_basis": "Listagem informa o preco por milhao de tokens de entrada e o contexto de 131.072 tokens."
+        }
+      ],
+      "date_precision": "dia aproximado",
+      "date_note_pt": "A HeyGen nao publicou anuncio datado; 13 de novembro e a data registrada pelo OpenRouter e por rastreadores, e um deles cita 12 de novembro.",
+      "confidence": "media"
+    },
+    {
+      "id": "tencent-hy-realtime",
+      "company": "Tencent",
+      "family": "Hy",
+      "model": "Hy Realtime",
+      "release_date": "2026-11-13",
+      "release_stage": "produto (Yuanbao e atendimento da Tencent; API anunciada)",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "speech-to-speech", "tempo-real", "tool-use", "busca", "canto", "proprietario"],
+      "description_pt": "Modelo de voz em tempo real da Tencent, ja em uso nas chamadas de voz do app Yuanbao, com a voz Chuyu, e no atendimento ao cliente da Tencent. Segundo a cobertura, entende pelo contexto falas truncadas, interrompidas ou autocorrigidas, segue instrucoes ao longo de varios turnos, decide sozinho quando buscar na web e executa a chamada de ferramenta antes de responder, e tem voz, prosodia e emocao melhores que a geracao anterior. Tambem canta e atende pedidos de musica, com ajuda da equipe TME Lingyin, da Tencent Music, e gera texto e fala ao mesmo tempo para reduzir a latencia da primeira resposta. Uma API no Tencent Cloud foi anunciada para breve, sem data nem preco. A Tencent nao divulgou tamanho, arquitetura nem pesos.",
+      "sources": [
+        {
+          "title": "Tencent Hunyuan releases Hy Realtime voice model (IT Home via ifeng)",
+          "url": "https://tech.ifeng.com/c/8y1QBPLjByO",
+          "publisher": "IT Home / Phoenix Tech",
+          "date_basis": "Reportagem de 13 de novembro de 2026 informa o lancamento no mesmo dia, os recursos e a disponibilidade no Yuanbao e no atendimento da Tencent."
+        }
+      ],
+      "date_precision": "dia corroborado",
+      "date_note_pt": "Nao foi encontrado anuncio em pagina oficial da Tencent; a data e os detalhes vem da cobertura da imprensa chinesa, e o modelo ja esta disponivel nas chamadas de voz do Yuanbao.",
+      "confidence": "media"
+    },
+    {
+      "id": "alibaba-qwen4-max",
+      "company": "Alibaba",
+      "family": "Qwen",
+      "model": "Qwen4-Max",
+      "release_date": "2026-11-16",
+      "release_stage": "lancamento oficial / API hospedada",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "video-input", "multimodal-nativo", "raciocinio", "codigo", "agente", "tool-use", "MoE", "longo-contexto", "1M-contexto", "API", "proprietario"],
+      "description_pt": "Versao final do Qwen4-Max, primeiro modelo da quarta geracao Qwen e flagship da Alibaba, cinco dias depois do preview restrito ao Token Plan. Segundo a Alibaba, tem 2,4 trilhoes de parametros no backbone, 71B ativos por token e mais 328B de parametros de N-gram Embedding, num MoE com camadas GDN e QSA, e visao nativa: recebe texto, imagem e video e gera texto. Tem contexto de 1M tokens e saida de ate 262.144 tokens com raciocinio, que fica ligado por padrao, com esforco low, high ou xhigh. Chegou a API com cobranca por uso como qwen4-max, ao Model Studio em seis regioes, ao QwenCloud, ao QwenStudio, ao QwenWork e ao Qoder, por US$ 1,50 de entrada e US$ 4,50 de saida por milhao de tokens na regiao internacional, sem faixa mais cara para contexto longo, e US$ 0,075 em cache. Nos numeros da Alibaba, marca 75,7 no DeepSWE v1.1, a frente do Claude Opus 5.5 (74,2) e do Kimi K3.1 (75,5), mas fica atras no Terminal-Bench 4.0, com 48,5 contra 59,6 do Opus 5.5 e 67,2 do Kimi, e no HLE, com 51,7 contra 59,8 do Opus 5.5. Nao ha pesos abertos; a Alibaba diz apenas que modelos menores da familia virao como open source.",
+      "sources": [
+        {
+          "title": "Qwen4-Max: Your New Teammate Has Arrived",
+          "url": "https://qwen.ai/blog?id=qwen4-max",
+          "publisher": "Qwen / Alibaba",
+          "date_basis": "Post oficial do lancamento informa parametros, arquitetura, disponibilidade e o grafico de benchmarks."
+        },
+        {
+          "title": "Qwen4-Max: New AI Teammate for Work, Creativity and Discovery",
+          "url": "https://www.alibabacloud.com/blog/qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Post oficial datado de 16 de novembro de 2026 confirma os 2,4T parametros, os 71B ativos e o preco em cache."
+        },
+        {
+          "title": "Qwen4-Max",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Pagina oficial do modelo informa precos por regiao, limites de contexto e saida e APIs compativeis."
+        },
+        {
+          "title": "Newly released models",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+          "publisher": "Alibaba Cloud",
+          "date_basis": "Lista oficial registra o qwen4-max em 16 de novembro de 2026 em todas as regioes."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O anuncio saiu na manha de 16 de novembro no horario da China, ainda 15 de novembro no horario dos EUA. O preview de 11 de novembro tem registro separado nesta timeline.",
+      "confidence": "alta"
+    },
+    {
+      "id": "liquid-ai-d1-2",
+      "company": "Liquid AI",
+      "family": "d1",
+      "model": "d1.2 / d1.2-ultra",
+      "release_date": "2026-11-16",
+      "release_stage": "lancamento/API",
+      "ai_category": "Decisao estruturada",
+      "model_type": ["decisao-estruturada", "classificacao", "extracao", "localizacao-de-objetos", "calibracao", "multimodal", "audio", "visao", "baixo-custo", "API", "proprietario"],
+      "description_pt": "Nova versao dos modelos de decisao da Liquid AI, que em vez de gerar texto devolvem respostas tipadas acompanhadas de probabilidades; o d1.2 e o modelo hospedado padrao e o d1.2-ultra, o mais capaz. Passam a aceitar audio, alem de texto e ate 8 imagens por pedido, e somam aos formatos Noul, Choice e Score cinco novas tarefas: ler um valor como texto, numero ou data, encontrar trechos, localizar objetos com caixas, estimar numeros com intervalo e escolher varias opcoes. Cada chamada aceita ate 128 perguntas, com ate 65.536 tokens por pergunta. A Liquid nao informou o tamanho nem se os modelos derivam da familia LFM3; a documentacao marca como descontinuados os modelos d1, d1-ultra e d1.1. Nos numeros da empresa, o d1.2-ultra marca 75 no Artificial Analysis Decision Index v2.1, o maior do indice, e tem erro de calibracao de 0,8 em 13 benchmarks, contra 2,7 do Jev 1.14 e 3,7 do Perplexity Decider v1.3. Custa US$ 0,02 (d1.2) e US$ 0,042 (d1.2-ultra) por milhao de tokens de entrada, com saida gratuita, por enquanto apenas na API da Liquid; OpenRouter e Vercel foram anunciados para breve.",
+      "sources": [
+        {
+          "title": "d1.2: State-of-the-Art Omnimodal Decision Models",
+          "url": "https://www.liquid.ai/blog/d1-2",
+          "publisher": "Liquid AI",
+          "date_basis": "Post oficial publicado em 16 de novembro de 2026 apresenta os modelos, as novas tarefas, os precos e os resultados de calibracao e no Decision Index."
+        },
+        {
+          "title": "d1 - Liquid AI Docs",
+          "url": "https://docs.liquid.ai/lfm/models/d1.md",
+          "publisher": "Liquid AI",
+          "date_basis": "Documentacao oficial informa os identificadores, os limites por pergunta, as modalidades e os modelos descontinuados."
+        },
+        {
+          "title": "Pricing",
+          "url": "https://www.liquid.ai/pricing",
+          "publisher": "Liquid AI",
+          "date_basis": "Tabela oficial lista os precos por milhao de tokens de entrada e a saida gratuita."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "tencent-hy4-flash",
+      "company": "Tencent",
+      "family": "Hy",
+      "model": "Hy4 flash",
+      "release_date": "2026-11-16",
+      "release_stage": "lancamento/API/produto (pesos prometidos)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "agente", "MoE", "longo-contexto", "1M-contexto", "baixo-custo", "baixa-latencia", "API"],
+      "description_pt": "Versao rapida e barata da quarta geracao Hy, da Tencent, voltada a tarefas de produtividade do dia a dia. Tem 224B parametros totais, dos quais 64B sao parametros Engram, e 12B ativos, com atencao hibrida, LatentMoE e Engram; segundo a Tencent, o cache KV ocupa 1/24 do usado pelo Hy3 e 1/6 do usado pelo Hy4, e a decodificacao passa de 150 tokens por segundo. Recebe texto e imagem e tem contexto de ate 1M tokens. Custa US$ 0,07 de entrada, US$ 0,003 de entrada em cache e US$ 0,281 de saida por milhao de tokens, menos de um decimo do Hy4, com uso gratuito no WorkBuddy e 50% de desconto no TokenHub ate 30 de novembro. Num teste cego com 85 usuarios do WorkBuddy em 259 tarefas, a Tencent reporta satisfacao de 2,79 numa escala de 4 pontos, proxima dos 2,81 do Claude Haiku 5.5 e abaixo dos 3,09 do DeepSeek-V4.1-Flash-1017, com custo por tarefa cerca de 18 vezes menor que o do Haiku. Chegou ao Tencent Cloud TokenHub como hy4-flash, ao WorkBuddy, ao Yuanbao, ao WeCom, ao QQ, ao ima, ao Marvis e ao OpenRouter; a Tencent diz que pretende abrir o modelo, mas os pesos ainda nao foram publicados, assim como os do Hy4.",
+      "sources": [
+        {
+          "title": "Tencent Launches Hy4 flash to Power High-Speed, Cost-Efficient AI Deployment for Everyday Workflows",
+          "url": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
+          "publisher": "Tencent",
+          "date_basis": "Comunicado oficial de 16 de novembro de 2026 anuncia o modelo, a arquitetura, os precos, a disponibilidade, a promocao e o plano de abrir os pesos."
+        },
+        {
+          "title": "TokenHub API - Hy4 flash",
+          "url": "https://www.tencentcloud.com/document/product/1300/78941",
+          "publisher": "Tencent Cloud",
+          "date_basis": "Documentacao oficial atualizada em 16 de novembro de 2026 confirma o identificador hy4-flash."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
     {
       "id": "lg-k-exaone-2-0",
       "company": "LG AI Research",
@@ -105,8 +554,8 @@
       "model": "LFM3 (1.7B / VL-2B / Audio-2B / Omni-2B / d1-2B / d1-Omni-2B)",
       "release_date": "2026-10-27",
       "release_stage": "pesos abertos/API",
-      "ai_category": ["LLMs", "Multimodal", "Audio/Transcricao"],
-      "model_type": ["texto", "visao", "video-input", "audio", "voz", "multimodal", "omni", "on-device", "modelo-pequeno", "multilingue", "tool-use", "longo-contexto", "open-weights", "OpenSource", "API"],
+      "ai_category": ["LLMs", "Multimodal", "Audio/Transcricao", "Decisao estruturada"],
+      "model_type": ["texto", "visao", "video-input", "audio", "voz", "multimodal", "omni", "on-device", "modelo-pequeno", "multilingue", "tool-use", "longo-contexto", "decisao-estruturada", "open-weights", "OpenSource", "API"],
       "description_pt": "Terceira geracao dos modelos pequenos da Liquid AI, com seis modelos de cerca de 2B parametros derivados de um mesmo backbone, o LFM3-1.7B-Base, que tambem foi publicado. A arquitetura e uma hibrida tripla de 24 camadas, com convolucoes curtas com porta, atencao por janela deslizante e atencao global, treinada em 22 trilhoes de tokens. A familia traz o LFM3-1.7B, de texto, com contexto de 256K e 16 idiomas; o LFM3-VL-2B, que recebe texto, imagem e video; o LFM3-Audio-2B, que entende e gera fala; o LFM3-Omni-2B, que recebe texto, imagem, video e audio e responde em texto e fala; e os modelos de decisao d1-2B e d1-Omni-2B, que nao sao modelos de chat. Nos numeros da Liquid, o LFM3-1.7B supera o Qwen3.5-9B na media dos testes, com 49,37 contra 47,24, e no BFCL V4, com 71,39 contra 62,83, mas fica atras no SWE-bench Verified. Os pesos sairam no Hugging Face sob a LFM Open License v1.0, gratuita inclusive para uso comercial em empresas com menos de US$ 10 milhoes de receita anual; na API da Liquid, o modelo de texto custa US$ 0,08 de entrada e US$ 0,20 de saida por milhao de tokens.",
       "sources": [
         {
@@ -861,10 +1310,10 @@
       "family": "Inkling",
       "model": "Inkling 2 Small",
       "release_date": "2026-11-05",
-      "release_stage": "lancamento/Tinker (pesos fechados no lancamento; Apache 2.0 prometido)",
+      "release_stage": "lancamento/Tinker (pesos abertos em 2026-11-12)",
       "ai_category": "LLMs",
-      "model_type": ["texto", "visao", "multimodal", "raciocinio", "codigo", "agente", "MoE", "longo-contexto", "1M-contexto", "fine-tuning", "baixo-custo", "API"],
-      "description_pt": "Segundo modelo da geracao Inkling da Thinking Machines Lab, de Mira Murati, e sucessor do Inkling-Small de julho. E um MoE com cerca de 594B parametros totais e 17B ativos, com 8 de 384 especialistas por token, atencao hibrida local e global e um codificador visual de 292M. Recebe texto e imagem, gera texto, tem esforco de raciocinio ajustavel e, segundo o model card, contexto de ate 1M tokens; ao contrario do Inkling original, nao processa audio. Chegou com pesos fechados ao Tinker, para fine-tuning e amostragem, ao Tinker Playground e a inferencia serverless em beta, por US$ 0,30 de entrada, US$ 0,03 de entrada em cache e US$ 1,00 de saida por milhao de tokens. A empresa disse que pretendia liberar os pesos completos sob Apache 2.0 na semana seguinte, depois de testes externos de seguranca; ate 11 de novembro o repositorio ainda nao estava no Hugging Face. Nos numeros da Thinking Machines, marca 30,6 no Artificial Analysis Intelligence Index v5.0, contra 36,5 do Claude Haiku 5.5 e 30,8 do Gemini 3.8 Flash, e 82,2% no SWE-Bench Verified, contra 88,9% do Haiku 5.5.",
+      "model_type": ["texto", "visao", "multimodal", "raciocinio", "codigo", "agente", "MoE", "longo-contexto", "1M-contexto", "fine-tuning", "baixo-custo", "API", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Segundo modelo da geracao Inkling da Thinking Machines Lab, de Mira Murati, e sucessor do Inkling-Small de julho. E um MoE com cerca de 594B parametros totais e 17B ativos, com 8 de 384 especialistas por token, atencao hibrida local e global e um codificador visual de 292M. Recebe texto e imagem, gera texto, tem esforco de raciocinio ajustavel e, segundo o model card, contexto de ate 1M tokens; ao contrario do Inkling original, nao processa audio. Chegou com pesos fechados ao Tinker, para fine-tuning e amostragem, ao Tinker Playground e a inferencia serverless em beta, por US$ 0,30 de entrada, US$ 0,03 de entrada em cache e US$ 1,00 de saida por milhao de tokens. A empresa prometeu liberar os pesos completos sob Apache 2.0 na semana seguinte, depois de testes externos de seguranca, e cumpriu em 12 de novembro, com repositorios no Hugging Face em NVFP4 e MXFP8. Nos numeros da Thinking Machines, marca 30,6 no Artificial Analysis Intelligence Index v5.0, contra 36,5 do Claude Haiku 5.5 e 30,8 do Gemini 3.8 Flash, e 82,2% no SWE-Bench Verified, contra 88,9% do Haiku 5.5.",
       "sources": [
         {
           "title": "Introducing Inkling 2 Small",
@@ -883,9 +1332,16 @@
           "url": "https://thinkingmachines.ai/tinker/pricing/",
           "publisher": "Thinking Machines Lab",
           "date_basis": "Tabela oficial de precos lista o Inkling 2 Small como novo, com valores de prefill, cache, amostragem, treino e inferencia serverless."
+        },
+        {
+          "title": "thinkingmachines/Inkling-2-Small",
+          "url": "https://huggingface.co/thinkingmachines/Inkling-2-Small",
+          "publisher": "Thinking Machines Lab / Hugging Face",
+          "date_basis": "Repositorio oficial dos pesos, sob Apache 2.0; a nota de atualizacao de 12 de novembro de 2026 no post de lancamento anuncia a disponibilidade no Hugging Face."
         }
       ],
       "date_precision": "dia oficial",
+      "date_note_pt": "A data exibida e a do lancamento no Tinker; os pesos abertos sairam em 12 de novembro de 2026.",
       "confidence": "alta"
     },
     {
