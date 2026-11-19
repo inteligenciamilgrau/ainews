@@ -26,8 +26,19 @@ Este projeto e um site estatico. Para publicar, envie estes arquivos mantendo a 
 - `app.js`
 - `styles.css`
 - `data/models.json`
+- `radar/` (`radar.css`, `radar.js` e `dados/*.js`)
 
 O arquivo `data/models.json` precisa continuar disponivel no caminho relativo `data/models.json`, porque a aplicacao carrega a base a partir dele.
+
+O deploy no GitHub Pages (`.github/workflows/static.yml`) publica uma copia minificada: `.github/scripts/minify_static.py` monta a pasta `dist` e minifica CSS e HTML, e o `esbuild` minifica o JavaScript removendo apenas espacos e comentarios.
+
+A `Content-Security-Policy` do `index.html` libera somente os dois arquivos do MapLibre no `cdn.jsdelivr.net`. Ao trocar a versao do MapLibre, atualize o endereco na politica junto com as tags e o `integrity`.
+
+## Aba Radar
+
+A aba `Radar` compara modelos nos benchmarks do Artificial Analysis Intelligence Index e deixa o visitante mudar o peso de cada benchmark. Ela nao usa `data/models.json`: os modelos, os benchmarks e os perfis de pesos ficam em `radar/dados/`, e a lista de modelos e mantida a mao, separada da base de lancamentos. Para adicionar um modelo, edite `radar/dados/modelos.js` seguindo `radar/LEIA-ME.md` e aumente o `?v=` do arquivo no `index.html`.
+
+Os filtros do topo (busca, tipo de IA, empresa e ano) nao afetam o Radar. Links com `?pesos=...` abrem o site direto nessa aba.
 
 ## Atualizar a base
 

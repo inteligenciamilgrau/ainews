@@ -15,7 +15,7 @@ const MAP_SPREAD_CIRCLE_MAX = 9;
 const MAP_SPREAD_MIN_ZOOM = 4;
 const MAP_SPREAD_MAX_OFFSET_DEG = 20;
 const VIEW_PREFS_KEY = "llmTimelineViewPreferences";
-const VALID_VIEWS = new Set(["releases", "timeline", "years", "table", "sources", "map", "history"]);
+const VALID_VIEWS = new Set(["releases", "timeline", "years", "table", "sources", "map", "history", "radar"]);
 const RELEASES_PAGE_SIZE = 20;
 // "Limpar tudo" abre tudo: nao volta ao padrao LLMs do carregamento inicial
 const CLEARED_FILTERS = Object.freeze({
@@ -2796,6 +2796,8 @@ async function init() {
   cacheElements();
   syncStickyOffsets();
   loadViewPreferences();
+  // links gerados em "Copiar link com pesos" (?pesos=...) abrem direto na aba Radar
+  if (new URLSearchParams(window.location.search).has("pesos")) state.view = "radar";
   syncViewControls();
   bindEvents();
 
@@ -3499,6 +3501,8 @@ function render() {
     const c = document.getElementById("historyView");
     if (c) c.innerHTML = `<p style="padding:24px;color:var(--muted)">Erro ao carregar história.</p>`;
   }
+  // o Radar (radar/radar.js) se desenha sozinho; aqui so avisa que a aba ficou visivel
+  if (state.view === "radar") window.RADAR?.aoMostrar?.();
 }
 
 function renderMetrics(models) {
@@ -5679,10 +5683,13 @@ function categoryPill(category) {
   return `<span class="type-pill category-pill">${escapeHtml(AI_CATEGORY_LABELS[category] || category)}</span>`;
 }
 
+// O resultado entra direto no HTML em varios pontos, entao so monta a data
+// quando o valor e AAAA-MM-DD; qualquer outra coisa sai com escape.
 function formatDate(value) {
   if (!value) return "-";
-  const [year, month, day] = value.split("-");
-  return `${day}/${month}/${year}`;
+  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return escapeHtml(value);
+  return `${match[3]}/${match[2]}/${match[1]}`;
 }
 
 function clamp(value, min, max) {

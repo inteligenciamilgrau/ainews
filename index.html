@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net; script-src-elem 'self' https://cdn.jsdelivr.net; script-src-attr 'none'; style-src 'self' https://cdn.jsdelivr.net; style-src-elem 'self' https://cdn.jsdelivr.net; style-src-attr 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://demotiles.maplibre.org https://server.arcgisonline.com; connect-src 'self' https://tiles.openfreemap.org https://demotiles.maplibre.org https://server.arcgisonline.com; worker-src 'self' blob:; child-src 'self' blob:; upgrade-insecure-requests">
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js; script-src-elem 'self' https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js; script-src-attr 'none'; style-src 'self' https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css; style-src-elem 'self' https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css; style-src-attr 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://demotiles.maplibre.org https://server.arcgisonline.com; connect-src 'self' https://tiles.openfreemap.org https://demotiles.maplibre.org https://server.arcgisonline.com; worker-src 'self' blob:; child-src 'self' blob:; upgrade-insecure-requests">
     <title>Lançamentos das iAs</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
-    <link 
+    <!-- A Content-Security-Policy acima libera so estes dois arquivos do MapLibre (CSS e JS).
+         Ao trocar a versao, atualize o endereco tambem na politica, junto com o integrity. -->
+    <link
       href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css"
       rel="stylesheet"
       integrity="sha256-qx5w1Z7EBGW65+cDDaLzzPKBM/1QLmK9WY7vut/XpzI="
       crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css?v=22">
+    <link rel="stylesheet" href="radar/radar.css?v=1">
   </head>
   <body>
   <header class="topbar">
@@ -63,6 +66,7 @@
           <button type="button" data-view="sources">Fontes</button>
           <button type="button" data-view="map">Mapa</button>
           <button type="button" data-view="history">História</button>
+          <button type="button" data-view="radar">Radar</button>
         </div>
       </section>
 
@@ -194,6 +198,76 @@
       </section>
 
       <section id="historyView" class="view"></section>
+
+      <!-- Radar: benchmarks do Artificial Analysis Intelligence Index. Dados em radar/dados (veja radar/LEIA-ME.md) -->
+      <section id="radarView" class="view" aria-label="Radar de benchmarks">
+        <div id="radarAvisos" class="radar-data-warn" role="alert" hidden></div>
+        <div class="radar-header">
+          <div>
+            <p class="section-kicker">Radar · laboratório de benchmarks (experimental)</p>
+            <h2>Inteligência não é uma nota só.</h2>
+            <p class="radar-subtitle" id="radarSubtitulo"></p>
+          </div>
+          <span class="radar-pill">Dados de benchmarks · 2026</span>
+        </div>
+        <div class="radar-grid">
+          <section class="radar-card radar-panel" aria-label="Radar interativo">
+            <div class="radar-chart-top">
+              <div>
+                <h3>Radar comparativo</h3>
+                <small>Maior peso em cima · menor peso embaixo <span class="radar-mobile-hint">· no celular, deslize o gráfico ↔</span></small>
+              </div>
+              <div class="radar-chart-actions">
+                <span class="radar-status" id="radarPesosStatus">Pesos oficiais do AA</span>
+                <button type="button" class="radar-menu-toggle" id="radarMenuToggle" aria-expanded="false" aria-controls="radarMenu">⚙️ Ajustar pesos <span class="radar-chev" aria-hidden="true">▾</span></button>
+              </div>
+            </div>
+            <div class="radar-body">
+              <div class="radar-model-col">
+                <div class="radar-model-head"><strong>Modelos · nota no seu perfil</strong><span>Clique para mostrar ou ocultar · passe o mouse para destacar</span></div>
+                <div id="radarModelos" class="radar-model-switch" role="group" aria-label="Modelos no radar, da maior para a menor nota no perfil atual"></div>
+              </div>
+              <div class="radar-chart-wrap">
+                <svg id="radarSvg" viewBox="0 0 960 810" role="img" aria-label="Radar comparativo de competências entre modelos de IA. Alterar os sliders muda os pesos e reposiciona os eixos." xmlns="http://www.w3.org/2000/svg"></svg>
+              </div>
+            </div>
+            <div class="radar-legend-area">
+              <div class="radar-legend"><span id="radarLegendaModelos">Linhas: resultados dos modelos · 0–100</span></div>
+              <div class="radar-legend"><span class="radar-gradient"></span><span>Bolinha: mais polêmico → menos polêmico</span></div>
+            </div>
+            <p class="radar-explain"><strong>Como ler:</strong> cada cor representa um modelo. Os cards dos modelos mostram a <strong>nota de cada um no seu perfil</strong>, da maior para a menor: clique para mostrar ou ocultar a linha e passe o mouse para destacá-la. Os números junto aos vértices são do <strong>modelo destacado</strong>. Em <strong>⚙️ Ajustar pesos</strong> você muda a importância de cada critério; os resultados originais não mudam, só a posição dos eixos e o ranking. Passe o mouse ou toque em um rótulo, vértice ou bolinha para ver os resultados de todos os modelos e a crítica do teste.</p>
+          </section>
+          <aside class="radar-card radar-side" id="radarMenu" aria-label="Ajustar pesos" hidden>
+            <div class="radar-side-head">
+              <div>
+                <h3>O que é importante pra você?</h3>
+                <p>Escolha um ponto de partida ou monte seu próprio perfil.</p>
+              </div>
+              <div class="radar-side-actions">
+                <button type="button" class="radar-mini-btn" id="radarReset" aria-label="Restaurar pesos oficiais">Restaurar AA</button>
+                <button type="button" class="radar-mini-btn" id="radarMenuFechar" aria-label="Recolher o menu de pesos">Recolher ▴</button>
+              </div>
+            </div>
+            <div class="radar-preset-grid" id="radarPerfis"></div>
+            <div class="radar-preset-note" id="radarPerfilNota" aria-live="polite"></div>
+            <div class="radar-section-h"><h4>Importância de cada capacidade</h4><span class="radar-small" id="radarSomaPesos">Total: 100</span></div>
+            <div class="radar-sliders" id="radarSliders"></div>
+            <div class="radar-controversy"><span class="radar-gradient-big"></span><span>Vermelho = mais limitações metodológicas em nossa leitura. <b>Não é nota oficial.</b></span></div>
+            <div class="radar-insight">
+              <h4>O que muda com seu perfil?</h4>
+              <p id="radarInsight"></p>
+              <div class="radar-btnrow">
+                <button type="button" class="radar-mini-btn" id="radarCopiarConfig">Copiar configuração</button>
+                <button type="button" class="radar-mini-btn" id="radarCopiarLink">Copiar link com pesos</button>
+              </div>
+            </div>
+            <div class="radar-warn"><b>Direito e medicina:</b> dar mais peso à confiabilidade é sensato, mas este índice <b>não mede diretamente</b> segurança clínica ou jurídica. Para uso real, avalie também testes especializados, revisão humana e dados do seu domínio.</div>
+          </aside>
+        </div>
+        <p class="radar-footer">Fontes: <a id="radarLinkMetodologia" href="https://artificialanalysis.ai/methodology/intelligence-benchmarking" target="_blank" rel="noopener noreferrer">metodologia oficial do AA Index</a>; resultados por modelo em <span id="radarFontes"></span>, reproduzindo resultados atribuídos à Artificial Analysis. Retrato atualizado em <span id="radarDataAtualizacao"></span>; os resultados podem mudar. <span id="radarObservacoes"></span> A nota personalizada é reconstruída com os valores públicos arredondados e pode diferir ligeiramente do ranking oficial (Opus 5.5: cerca de 0,2 ponto). AA-Briefcase é normalizado pela fórmula clamp((Elo − 500) / 2000); AA-Omniscience divide acurácia e taxa de não-alucinação em componentes separados. A cor das bolinhas é nossa interpretação editorial das limitações dos testes, não uma classificação oficial de polêmica. Não temos afiliação com a Artificial Analysis.</p>
+        <div class="radar-tooltip" id="radarTooltip" role="tooltip"></div>
+        <div class="radar-toast" id="radarToast" role="status"></div>
+      </section>
     </main>
 
     <script
@@ -202,6 +276,11 @@
       integrity="sha256-RamwepGJzlYFTGIKlHzPQeKR5YyV6bYVM7dAqqZe5cs="
       crossorigin="anonymous">
     </script>
-    <script src="app.js?v=27" defer></script>
+    <!-- Radar: dados (edite estes arquivos para adicionar modelos, benchmarks ou perfis) e logica -->
+    <script src="radar/dados/benchmarks.js?v=1" defer></script>
+    <script src="radar/dados/perfis.js?v=1" defer></script>
+    <script src="radar/dados/modelos.js?v=1" defer></script>
+    <script src="radar/radar.js?v=1" defer></script>
+    <script src="app.js?v=28" defer></script>
   </body>
 </html>
