@@ -1,19 +1,116 @@
 {
   "metadata": {
-    "updated_at": "2026-11-17",
+    "updated_at": "2026-11-19",
     "last_correction": {
-      "date": "2026-11-17",
-      "description_pt": "Criacao da categoria Ciencia, com 40 registros de modelos cientificos do Google, da Google DeepMind e da Isomorphic Labs, da primeira versao do AlphaFold, em 2018, ao AlphaGenome 2, lancado em 11 de novembro de 2026, cobrindo estrutura e design de proteinas, DNA e genomica, celulas, farmacos, materiais, clima e matematica. Inclusao tambem do Gemini 4 Hydrogen, lancado pela Google em 12 de novembro de 2026, e da versao final do Qwen4-Max, lancada pela Alibaba em 16 de novembro, no mesmo dia do Hy4 flash, da Tencent. Inclusao tambem dos lancamentos de 9 a 16 de novembro: ZONOS3-Mini, Scribe v3, Gemini Decision 1, SubQ Snap 1.2, Praxis-1 com pesos abertos, HeyGen Image 1, Seedance 2.5 Flash, Decider v1.3, SOV-Transcribe-1, Hy Realtime, HeyGen Decision 1 e os modelos de decisao d1.2 e d1.2-ultra, da Liquid AI, alem dos registros anteriores do Seedance 2.5 e dos modelos HeyGen Video 1, HeyGen Voice e HeyGen Voice Turbo. O registro do Inkling 2 Small passou a informar a publicacao dos pesos abertos em 12 de novembro, e o da familia LFM3 passou a constar tambem na categoria de decisao estruturada."
+      "date": "2026-11-19",
+      "description_pt": "Inclusao do Gemini 4 Neon, lancado pela Google em 18 de novembro de 2026 como o quarto modelo da familia Gemini 4, e do GPT-6.2 Astra e do GPT-6.2 Sol, lancados pela OpenAI em 17 de novembro. O registro do GPT-6 Rosalind passou a constar tambem na categoria Ciencia."
     },
     "previous_correction": {
-      "date": "2026-11-11",
-      "description_pt": "Inclusao do Claude Fable 5.2 e do Claude Mythos 5.2, lancados pela Anthropic em 9 de novembro de 2026, e do Gemini 4 Carbon, anunciado pela Google em 28 de outubro com acesso restrito e liberado em disponibilidade geral em 10 de novembro. Inclusao tambem dos lancamentos de 27 de outubro a 11 de novembro: Genie 4, LFM3, MAI-Image-2.7 Preview, Nemotron 3.5 Transcribe, Ling-3.1-flash-1019, SFX v3, Pika H3 Flex, GPT-6 Rosalind, LongCat-2.5, GPT Image 2.6, Hy4, Ripple-65B Preview, SWE-2 Flash, GPT-6 Cyber, Inkling 2 Small, ERNIE-5.5-Flash-Base, Gemini Omni 1.2 Flash, Ling-3.2-flash, Seedream 5.5, Muse Ember, GR00T 2, K-EXAONE 2.5, Gemini Robotics 2.5, MiniMax H3-Image, Qwen4-Max-Preview e ERNIE 5.5 Flash Preview, alem dos registros anteriores do K-EXAONE 2.0, do MAI-Image-2.6, do Gemini Omni 1.1 Flash, do SWE-2 e do Ling-3.1-flash. Os registros do Kimi K3.1 Pro e do Mistral Large 4 passaram a informar a publicacao dos pesos abertos, em 4 de novembro e 29 de outubro, e o do Mistral Large 4 teve corrigidos o preco da API e o numero de parametros ativos."
+      "date": "2026-11-17",
+      "description_pt": "Criacao da categoria Ciencia, com 40 registros de modelos cientificos do Google, da Google DeepMind e da Isomorphic Labs, da primeira versao do AlphaFold, em 2018, ao AlphaGenome 2, lancado em 11 de novembro de 2026, cobrindo estrutura e design de proteinas, DNA e genomica, celulas, farmacos, materiais, clima e matematica. Inclusao tambem do Gemini 4 Hydrogen, lancado pela Google em 12 de novembro de 2026, e da versao final do Qwen4-Max, lancada pela Alibaba em 16 de novembro, no mesmo dia do Hy4 flash, da Tencent. Inclusao tambem dos lancamentos de 9 a 16 de novembro: ZONOS3-Mini, Scribe v3, Gemini Decision 1, SubQ Snap 1.2, Praxis-1 com pesos abertos, HeyGen Image 1, Seedance 2.5 Flash, Decider v1.3, SOV-Transcribe-1, Hy Realtime, HeyGen Decision 1 e os modelos de decisao d1.2 e d1.2-ultra, da Liquid AI, alem dos registros anteriores do Seedance 2.5 e dos modelos HeyGen Video 1, HeyGen Voice e HeyGen Voice Turbo. O registro do Inkling 2 Small passou a informar a publicacao dos pesos abertos em 12 de novembro, e o da familia LFM3 passou a constar tambem na categoria de decisao estruturada."
     },
     "title": "Timeline de lancamentos de modelos e ferramentas de IA",
     "scope": "Modelos de IA e ferramentas em categorias separadas. A lista prioriza lancamentos publicos, previews oficiais, APIs e releases de pesos abertos. Novidades de ferramentas de um mesmo evento podem ser reunidas em um unico registro, mantendo os novos modelos em entradas proprias.",
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
+    {
+      "id": "openai-gpt-6-2-astra-sol",
+      "company": "OpenAI",
+      "family": "GPT",
+      "model": "GPT-6.2 Astra / GPT-6.2 Sol",
+      "release_date": "2026-11-17",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "raciocinio", "codigo", "agente", "pesquisa-cientifica", "longo-contexto", "1M-contexto", "API", "proprietario"],
+      "description_pt": "Nova versao das linhas Astra e Sol da OpenAI: o GPT-6.2 Astra, o modelo mais capaz da empresa para projetos dificeis de ponta a ponta, e o GPT-6.2 Sol, o modelo do dia a dia para codigo e agentes em escala. Ambos tem contexto de 1.050.000 tokens, saida maxima de 128.000 tokens e entrada de texto e imagem, com conhecimento ate maio de 2026 no Astra e junho de 2026 no Sol. Chegaram ao ChatGPT Work e ao Codex nos planos Plus, Pro, Enterprise e Edu, mas nao ao Chat comum, a API como gpt-6.2-astra e gpt-6.2-sol e ao GitHub Copilot. O Astra custa US$ 8 de entrada e US$ 40 de saida por milhao de tokens, 20% menos que o GPT-6 Astra, e o Sol mantem US$ 2/US$ 10; acima de 272K tokens de entrada, os precos sobem para US$ 16/US$ 60 e US$ 4/US$ 15. Nos graficos de lancamento da OpenAI, o Astra sobe de 68,1% para 77,1% no Terminal-Bench-Science e de 73,1% para 77,6% no Agents' Last Exam em relacao ao GPT-6 Astra, e o Sol vai de 57,0% para 68,0% no Terminal-Bench-Science em relacao ao GPT-6.1 Sol. No system card, os dois ficam no nivel Critical em ciberseguranca e High em biologia e quimica, e o Astra e o primeiro modelo lancado pela OpenAI no nivel High em autoaprimoramento de IA; por isso, a ajuda em ciberseguranca de maior risco ficou mais restrita.",
+      "sources": [
+        {
+          "title": "GPT-6.2 Astra and Sol are now available",
+          "url": "https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531",
+          "publisher": "OpenAI Developer Community",
+          "date_basis": "Anuncio oficial publicado em 17 de novembro de 2026 informa os planos, a ausencia no Chat comum, o Ultrafast e os precos."
+        },
+        {
+          "title": "Changelog - OpenAI API",
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "publisher": "OpenAI",
+          "date_basis": "Entrada oficial de 17 de novembro de 2026 registra os identificadores gpt-6.2-astra e gpt-6.2-sol e os endpoints."
+        },
+        {
+          "title": "GPT-6.2 Astra Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.2-astra",
+          "publisher": "OpenAI",
+          "date_basis": "Catalogo oficial confirma contexto, saida maxima, data de corte e precos; a pagina do gpt-6.2-sol traz os dados do Sol."
+        },
+        {
+          "title": "GPT-6.2 System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+          "publisher": "OpenAI",
+          "date_basis": "System card oficial de 17 de novembro de 2026 traz as classificacoes do Preparedness Framework e os benchmarks de seguranca."
+        },
+        {
+          "title": "OpenAI Launches GPT-6.2 Astra and Sol With Better Performance, Lower Costs",
+          "url": "https://www.iclarified.com/103626/openai-launches-gpt62-astra-and-sol-with-better-performance-lower-costs-video",
+          "publisher": "iClarified",
+          "date_basis": "Cobertura de 18 de novembro de 2026 reproduz os graficos de benchmark do lancamento da OpenAI."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "A Wikipedia e parte da cobertura registram 18 de novembro; o changelog da API, o system card e o anuncio oficial sao de 17 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-gemini-4-neon",
+      "company": "Google",
+      "family": "Gemini",
+      "model": "Gemini 4 Neon",
+      "release_date": "2026-11-18",
+      "release_stage": "GA/API/produto por assinatura",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "multimodal", "visao", "audio", "video-input", "raciocinio", "codigo", "agente", "computador", "longo-contexto", "1M-contexto", "API", "proprietario"],
+      "description_pt": "Quarto modelo da familia Gemini 4, adaptado do Gemini 4 Carbon e posicionado entre o Hydrogen, para tarefas rapidas do dia a dia, e o Carbon, para os projetos mais longos e dificeis: e voltado a codigo complexo, raciocinio analitico e fluxos de trabalho corporativos. Segundo o Google, custa 32% menos por tarefa que o Carbon em modo high, com qualidade proxima. Saiu em disponibilidade geral no nivel pago da Gemini API como gemini-4-neon, no app Gemini e no Google Antigravity para assinantes AI Pro e Ultra, no Gemini for Business, no Android Studio e no GitHub Copilot; uma variante para ciberseguranca vai para defensores confiaveis pelo Fairwind Program. Custa US$ 3 de entrada e US$ 15 de saida por milhao de tokens, com raciocinio incluido e sem faixa mais cara para contexto longo, e US$ 0,15 em cache. Tem janela de cerca de 1M tokens compartilhada entre entrada, raciocinio e saida, entrada de texto, imagem, audio, video e PDF, conhecimento ate marco de 2026 e niveis de raciocinio de low a xhigh. Nos numeros do model card, marca 61 no Artificial Analysis Intelligence Index, contra 59 do Claude Opus 5.5 e 57 do GPT-6.2 Sol, e 75,8% no Agents' Last Exam, mas fica ligeiramente atras do Opus 5.5 no Terminal-Bench 4.1, com 65,2% contra 65,8%, e no FrontierCode 2.0. Pelo Frontier Safety Framework, o ganho sobre o Argon ficou abaixo do limite que exigiria uma nova avaliacao completa. Segundo a cobertura, substitui o Argon e o Gemini 3.1 Pro no seletor do app Gemini.",
+      "sources": [
+        {
+          "title": "Introducing Gemini 4 Neon",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "publisher": "Google",
+          "date_basis": "Post oficial publicado em 18 de novembro de 2026 anuncia o modelo, o posicionamento, os planos, o preco em cache e as comparacoes com o Carbon."
+        },
+        {
+          "title": "Gemini 4 Neon - Model Card",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+          "publisher": "Google DeepMind",
+          "date_basis": "Model card oficial publicado em 18 de novembro de 2026 informa a origem no Carbon, a data de corte, os limites, a tabela de benchmarks e a avaliacao pelo Frontier Safety Framework."
+        },
+        {
+          "title": "Gemini API changelog",
+          "url": "https://aistudio.google.com/docs/changelog",
+          "publisher": "Google",
+          "date_basis": "Entrada oficial de 18 de novembro de 2026 registra o gemini-4-neon em disponibilidade geral."
+        },
+        {
+          "title": "Gemini API pricing",
+          "url": "https://aistudio.google.com/docs/pricing",
+          "publisher": "Google",
+          "date_basis": "Tabela oficial lista os precos padrao, em cache, Batch, Flex e Priority do Gemini 4 Neon."
+        },
+        {
+          "title": "Gemini 4 Neon in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot",
+          "publisher": "GitHub",
+          "date_basis": "Changelog oficial de 18 de novembro de 2026 anuncia o modelo no GitHub Copilot."
+        },
+        {
+          "title": "Google launches Gemini 4 Neon with Carbon quality at Flash speeds, live for AI Pro",
+          "url": "https://9to5google.com/2026/11/18/gemini-4-neon-announcement/",
+          "publisher": "9to5Google",
+          "date_basis": "Cobertura de 18 de novembro de 2026 informa a saida do Gemini 3.1 Pro e do Argon do seletor do app Gemini."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
     {
       "id": "google-alphafold",
       "company": "Google",
@@ -2317,7 +2414,7 @@
       "model": "GPT-6 Rosalind (GPT-Rosalind-6)",
       "release_date": "2026-10-30",
       "release_stage": "acesso restrito/API (programa Rosalind Research)",
-      "ai_category": "LLMs",
+      "ai_category": ["LLMs", "Ciencia"],
       "model_type": ["texto", "raciocinio", "ciencias-da-vida", "biologia", "pesquisa-cientifica", "acesso-limitado", "API", "proprietario"],
       "description_pt": "Versao do GPT-6 Astra para pesquisa em ciencias da vida, chamada de GPT-6 Rosalind no changelog da API e de GPT-Rosalind-6 no system card. E liberada apenas para organizacoes aprovadas no programa de acesso confiavel Rosalind Research, para pesquisa interna por usuarios autorizados; cada pedido passa por revisao de caso de uso, seguranca e governanca, e ha um caminho separado para governos. Segundo o system card, usa os mesmos pesos do GPT-6 Astra, sem dados ou pos-treino adicionais, mas com uma fronteira de recusa calibrada para biologia de uso dual: recusa 9,4% dos pedidos de risco biologico, contra 29,2% do Astra de acesso geral, e mantem as salvaguardas de ciberseguranca do Astra com limites mais rigidos. Nos numeros da OpenAI, em relacao ao GPT-Rosalind-5.5, sobe de 28,9% para 49,6% no MedChemBench v7 e de 16,7% para 37,7% no GeneBench Pro v13. Na API, usa o identificador gpt-6-rosalind e custa US$ 15 de entrada, US$ 1,50 de entrada em cache e US$ 75 de saida por milhao de tokens ate 272K tokens de entrada.",
       "sources": [
