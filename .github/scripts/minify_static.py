@@ -6,9 +6,11 @@ from pathlib import Path
 
 import rcssmin
 import htmlmin
-import rjsmin
 
 
+# Este script monta a pasta dist e minifica CSS e HTML. O JavaScript e minificado
+# depois, no workflow, pelo esbuild: o rjsmin usado antes nao entendia template
+# literal aninhado e removia espacos do texto de dentro ("12 eventos" -> "12eventos").
 ROOT = Path.cwd().resolve()
 DIST = ROOT / "dist"
 
@@ -83,7 +85,7 @@ def minify_static_files(root: Path) -> None:
             continue
 
         suffix = path.suffix.lower()
-        if suffix not in {".css", ".html", ".js"}:
+        if suffix not in {".css", ".html"}:
             continue
 
         original = path.read_text(encoding="utf-8")
@@ -96,9 +98,6 @@ def minify_static_files(root: Path) -> None:
 
 
 def minify_text(text: str, suffix: str) -> str:
-    if suffix == ".js":
-        return rjsmin.jsmin(text)
-
     if suffix == ".css":
         return rcssmin.cssmin(text)
 

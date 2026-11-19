@@ -29,11 +29,24 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Instalar minificadores
-        run: python -m pip install rjsmin==1.2.5 rcssmin==1.1.2 htmlmin==0.1.12
+      - name: Configurar ambiente Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
 
-      - name: Preparar e minificar arquivos
+      - name: Instalar minificadores de CSS e HTML
+        run: python -m pip install rcssmin==1.1.2 htmlmin==0.1.12
+
+      - name: Preparar dist e minificar CSS e HTML
         run: python .github/scripts/minify_static.py
+
+      # O esbuild le a sintaxe de verdade. So remove espacos e comentarios do codigo:
+      # nao renomeia nada e nao mexe no texto dentro de strings e templates.
+      - name: Minificar JavaScript
+        run: |
+          find dist -name '*.js' -print0 | xargs -0 npx --yes esbuild@0.28.2 \
+            --minify-whitespace --charset=utf8 --log-level=warning \
+            --outdir=dist --outbase=dist --allow-overwrite
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
