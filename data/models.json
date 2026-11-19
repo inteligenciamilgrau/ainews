@@ -3,7 +3,7 @@
     "updated_at": "2026-11-19",
     "last_correction": {
       "date": "2026-11-19",
-      "description_pt": "Inclusao do Gemini 4 Neon, lancado pela Google em 18 de novembro de 2026 como o quarto modelo da familia Gemini 4, e do GPT-6.2 Astra e do GPT-6.2 Sol, lancados pela OpenAI em 17 de novembro. O registro do GPT-6 Rosalind passou a constar tambem na categoria Ciencia."
+      "description_pt": "Inclusao do Gemini 4 Neon, lancado pela Google em 18 de novembro de 2026 como o quarto modelo da familia Gemini 4, e do GPT-6.2 Astra e do GPT-6.2 Sol, lancados pela OpenAI em 17 de novembro. Inclusao tambem dos modelos apresentados pela Microsoft no Ignite em 17 de novembro, MAI Code 2, MAI Cyber 2 Flash, MAI Realtime 1, a versao completa do MAI Image 2.7 com o 2.7 Flash e o Microsoft-Decision-1.1, e dos lancamentos de 17 e 18 de novembro: SenseNova-Loop-9B, HeyGen Avatar 6, Marin Mochi 535B-A23B, AssemblyAI-STT-3.7 e a chegada do Genie 4 ao Project Genie. O registro do Hy4 flash passou a informar a publicacao dos pesos abertos em 18 de novembro, e o do GPT-6 Rosalind passou a constar tambem na categoria Ciencia."
     },
     "previous_correction": {
       "date": "2026-11-17",
@@ -14,6 +14,266 @@
     "date_policy": "A confianca avalia a veracidade e a identificacao do registro, nao a granularidade da data. date_precision e date_note_pt registram separadamente quando o dia e oficial, corroborado, aproximado ou apenas um marcador de mes. Quando a fonte informa somente o mes, release_date usa o primeiro dia exclusivamente para ordenacao. Quando o fornecedor separa anuncio, preview, API e disponibilidade geral, release_stage explicita a diferenca."
   },
   "models": [
+    {
+      "id": "heygen-avatar-6",
+      "company": "HeyGen",
+      "family": "HeyGen",
+      "model": "Avatar 6 / Avatar 6 Turbo",
+      "release_date": "2026-11-17",
+      "release_stage": "lancamento/API/produto",
+      "ai_category": "Video",
+      "model_type": ["video", "avatar", "audio-para-video", "gestos", "2K", "API", "proprietario"],
+      "description_pt": "Nova geracao do modelo de avatares da HeyGen, guiado pelo audio: gera gestos de acordo com o contexto do roteiro, como apontar ou contar nos dedos, aceita instrucoes de emocao e movimento e aumenta a janela de contexto de cerca de 3 para 30 segundos, o que, segundo a empresa, reduz movimentos repetitivos ou artificiais. Gera nativamente em 2K, permite videos de mais de 25 minutos numa geracao continua e cria avatares a partir de poucos segundos de gravacao, com versoes Quality e Turbo. Nos testes da HeyGen, 84,4% dos avaliadores o consideraram tao realista quanto um video real, contra 44,4% do Avatar V, e ele venceu o Kling 4.0 em 73,5% e o Seedance 2.5 em 59,6% das comparacoes a partir de uma foto. Chegou a plataforma e a API da HeyGen, como heygen-avatar-6 e heygen-avatar-6-turbo, e a plataformas parceiras, onde avatares realistas de pessoas reais continuam exclusivos da HeyGen, com verificacao de identidade e consentimento.",
+      "sources": [
+        {
+          "title": "HeyGen Introduces Avatar 6, an Audio-Driven, Context-Aware AI Model",
+          "url": "https://www.prnewswire.com/news-releases/heygen-introduces-avatar-6-an-audio-driven-context-aware-ai-model-that-alleviates-repetitive-or-unnatural-motion-in-ai-generated-video-302942527.html",
+          "publisher": "HeyGen / PR Newswire",
+          "date_basis": "Comunicado oficial de 17 de novembro de 2026 anuncia o modelo, a saida em 2K, a janela de 30 segundos e a disponibilidade."
+        },
+        {
+          "title": "Avatar 6 technical report",
+          "url": "https://www.heygen.com/research/avatar-6-model",
+          "publisher": "HeyGen",
+          "date_basis": "Relatorio tecnico oficial de 17 de novembro de 2026 traz os benchmarks e a versao Turbo."
+        },
+        {
+          "title": "Avatar 6 - HeyGen Docs",
+          "url": "https://developers.heygen.com/docs/models/avatar-6",
+          "publisher": "HeyGen",
+          "date_basis": "Documentacao oficial lista os identificadores e as resolucoes."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-decision-1-1",
+      "company": "Microsoft",
+      "family": "Microsoft Decision",
+      "model": "Microsoft-Decision-1.1",
+      "release_date": "2026-11-17",
+      "release_stage": "GA/API",
+      "ai_category": "Decisao estruturada",
+      "model_type": ["decisao-estruturada", "classificacao", "visao", "MoE", "baixa-latencia", "baixo-custo", "API", "proprietario"],
+      "description_pt": "Versao em disponibilidade geral do modelo de decisao da Microsoft, que devolve respostas tipadas com probabilidades em vez de texto e sucede o Microsoft-Decision-1, lancado em preview em 9 de outubro de 2026 sobre o Qwen3.5-9B. A versao 1.1 passa a usar como base o Gemma 4 26B-A4B, um MoE, aceita imagens como fotos e capturas de tela e roda mais de duas vezes mais rapido pelo mesmo preco, de US$ 0,042 por milhao de tokens de entrada no Decision-1, com saida gratuita. Nos numeros da Microsoft, marca 68 no Artificial Analysis Decision Index v2.1, 6 pontos acima do Decision-1 e a frente do Jev 1.14 e do Gemini Decision 1, e no roteamento do Copilot e 2,2 vezes mais rapido e 4,4 vezes mais barato que um LLM; a empresa diz que o modelo ja tinha mais de 4 mil clientes. Esta no Microsoft Foundry, onde tambem serve de juiz nas avaliacoes, no OpenRouter e no Vercel.",
+      "sources": [
+        {
+          "title": "Microsoft Decision model is now generally available",
+          "url": "https://commandline.microsoft.com/microsoft-decision-model-ga",
+          "publisher": "Microsoft",
+          "date_basis": "Post oficial de 17 de novembro de 2026 anuncia a disponibilidade geral, o novo modelo base, a entrada de imagens e os resultados."
+        },
+        {
+          "title": "Microsoft Decision-1 model in Foundry",
+          "url": "https://commandline.microsoft.com/microsoft-decision-1-model-foundry/",
+          "publisher": "Microsoft",
+          "date_basis": "Post oficial de 9 de outubro de 2026 apresenta o Decision-1 em preview, o modelo base e o preco."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-code-2",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI Code 2 / MAI Code 2 Flash",
+      "release_date": "2026-11-17",
+      "release_stage": "lancamento/GitHub Copilot (Flash em preview no Foundry)",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "codigo", "agente", "baixo-custo", "proprietario"],
+      "description_pt": "Segunda geracao dos modelos de codigo da Microsoft AI, apresentada no Ignite 2026, voltada ao trabalho de programacao do dia a dia em empresas: o MAI Code 2 e a versao principal e o MAI Code 2 Flash, mais leve, e para grandes volumes de edicoes pequenas. Segundo a Microsoft, num indice que combina DeepSWE 1.1, Terminal-Bench 2.1, SWE-Atlas e FrontierCode, o Code 2 chega a 98% do desempenho do GPT-6.1 Sol a 40% do custo e a 96% do Claude Opus 5.5 a 5% do custo, e o Flash fica comparavel ao GPT-6 Luna e ao Claude Haiku 5.5; a empresa nao publicou notas absolutas, tamanho nem janela de contexto. Os dois chegaram ao GitHub Copilot, com o Flash tambem nos planos Free e Student, e o Flash esta em preview de acesso limitado no Microsoft Foundry; OpenRouter, Vercel e outras plataformas foram anunciadas para breve. Uma variante, o MAI Work Flash, passou a ser usada no Microsoft 365.",
+      "sources": [
+        {
+          "title": "MAI Code 2 and Code 2 Flash: Everyday coding at scalable prices",
+          "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 17 de novembro de 2026 anuncia os modelos, a comparacao de custo e desempenho e a disponibilidade."
+        },
+        {
+          "title": "MAI Code 2 and MAI Code 2 Flash in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-17-mai-code-2-and-mai-code-2-flash-in-github-copilot",
+          "publisher": "GitHub",
+          "date_basis": "Changelog oficial de 17 de novembro de 2026 lista os planos, as interfaces e a cobranca por uso no Copilot."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-cyber-2-flash",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI Cyber 2 Flash",
+      "release_date": "2026-11-17",
+      "release_stage": "acesso restrito/produtos de seguranca da Microsoft",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "ciberseguranca", "vulnerabilidades", "agente", "longo-contexto", "1M-contexto", "baixo-custo", "acesso-limitado", "proprietario"],
+      "description_pt": "Modelo de ciberseguranca da Microsoft AI e sucessor do MAI Cyber 1.1 Flash, com contexto de 1M tokens, quatro vezes maior que o do antecessor. Fica disponivel apenas dentro dos produtos de seguranca da Microsoft, para defensores verificados, e substitui automaticamente o modelo atual do perfil MAI no MDASH para clientes elegiveis a partir de meados de dezembro; nao ha API avulsa. Custa US$ 0,10 de entrada, US$ 0,01 em cache e US$ 0,50 de saida por milhao de tokens. Nos numeros da Microsoft, marca 92,3% no CyberGym-E2E, contra 91,5% do GPT-6 Astra, com metade do orcamento de raciocinio e menos de 2% do custo por tarefa, e 40,4% no WebExploitBench, contra 38,4% do GPT-5.6 Cyber.",
+      "sources": [
+        {
+          "title": "MAI Cyber 2 Flash: Leading security. Lower cost",
+          "url": "https://microsoft.ai/news/introducing-mai-cyber-2-flash/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 17 de novembro de 2026 anuncia o modelo, o acesso, os precos e os benchmarks."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-image-2-7",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI Image 2.7 / MAI Image 2.7 Flash",
+      "release_date": "2026-11-17",
+      "release_stage": "public preview/Foundry e parceiros",
+      "ai_category": "Imagem",
+      "model_type": ["imagem", "texto-para-imagem", "edicao", "image-to-image", "multi-referencia", "transparencia", "Arena", "proprietario"],
+      "description_pt": "Versao completa do MAI Image 2.7, que no preview de outubro so editava imagens e agora tambem gera a partir de texto, junto com uma variante mais barata, o MAI Image 2.7 Flash. Os dois aceitam ate 5 imagens de referencia e geram fundos transparentes. Segundo a Microsoft, em 16 de novembro o 2.7 liderava o ranking de edicao de imagens da Artificial Analysis, com 1.215 de Elo, 4 pontos a frente do GPT Image 2.6 Sunburst, a um quinto do custo. Custam cerca de US$ 35 (2.7) e US$ 10 (Flash) por mil imagens e estao em public preview no Microsoft Foundry e no MAI Labs, onde o Flash alimenta o novo espaco Canvas, alem de fal, Genspark, OpenRouter e Vercel; a familia MAI Image tambem virou o padrao do Bing Image Creator. O preview de 27 de outubro tem registro separado nesta timeline.",
+      "sources": [
+        {
+          "title": "MAI Image 2.7: Frontier quality at a fraction of the cost",
+          "url": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 17 de novembro de 2026 anuncia os dois modelos, os precos, a disponibilidade e a posicao nos rankings."
+        },
+        {
+          "title": "MAI Image 2.7 Flash - Vercel AI Gateway",
+          "url": "https://vercel.com/ai-gateway/models/mai-image-2.7-flash",
+          "publisher": "Vercel",
+          "date_basis": "Listagem confirma o identificador do Flash e a resolucao maxima de 2048x2048."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "microsoft-mai-realtime-1",
+      "company": "Microsoft",
+      "family": "MAI",
+      "model": "MAI Realtime 1",
+      "release_date": "2026-11-17",
+      "release_stage": "preview de acesso limitado no Foundry/MAI Labs",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "voz", "speech-to-speech", "tempo-real", "tool-use", "baixo-custo", "proprietario"],
+      "description_pt": "Primeiro modelo de fala para fala da Microsoft AI, para agentes de voz em tempo real: lida com interrupcoes e interjeicoes do usuario, funciona em ambientes ruidosos, usa ferramentas e pode repassar a pergunta a um modelo de raciocinio mais forte. E compativel com a Realtime API da OpenAI e custa a partir de US$ 0,01 por minuto de audio, com o raciocinio cobrado a parte, a US$ 1 de entrada e US$ 5 de saida por milhao de tokens. Segundo a Microsoft, supera o GPT Realtime 2.1 em qualidade, velocidade e preco, sem publicar numeros. Pode ser testado em sessoes de dois minutos no MAI Labs e esta em preview de acesso limitado no Microsoft Foundry, com chegada prevista ao Dynamics 365 Contact Center e ao Dragon Copilot. Idiomas, vozes e latencia nao foram divulgados.",
+      "sources": [
+        {
+          "title": "Introducing MAI Realtime 1",
+          "url": "https://microsoft.ai/news/introducing-mai-realtime-1/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Post oficial de 17 de novembro de 2026 anuncia o modelo, o preco, a compatibilidade e a disponibilidade."
+        },
+        {
+          "title": "MAI Realtime 1",
+          "url": "https://microsoft.ai/models/mai-realtime-1/",
+          "publisher": "Microsoft AI",
+          "date_basis": "Pagina oficial do modelo descreve os limites das sessoes de teste no MAI Labs."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "open-athena-marin-mochi",
+      "company": "Open Athena",
+      "family": "Marin",
+      "model": "Marin Mochi 535B-A23B (checkpoints de pre-treino)",
+      "release_date": "2026-11-17",
+      "release_stage": "pesos abertos/modelo base de pesquisa",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "modelo-base", "MoE", "totalmente-aberto", "longo-contexto", "pesquisa", "open-weights", "OpenSource", "OpenMDW-1.1"],
+      "description_pt": "Modelo base totalmente aberto do projeto Marin, da Open Athena, organizacao sem fins lucrativos que leva capacidades de fronteira a academia, em parceria com Stanford. E um MoE de cerca de 535B parametros totais e 23B ativos por token, pre-treinado com mais de 18 trilhoes de tokens, com o contexto ampliado em etapas de 4K ate 262K tokens. Foram publicados 57 checkpoints ao longo do treino, em BF16, dez deles da fase de contexto longo, sob a licenca OpenMDW 1.1. E apenas o modelo pre-treinado, sem ajuste de instrucoes nem de seguranca, tratado como artefato de pesquisa; o pos-treino ainda esta em andamento, e a equipe nao publicou benchmarks porque encontrou vazamento de dados de teste que a descontaminacao nao tinha pegado.",
+      "sources": [
+        {
+          "title": "Marin Mochi pretraining checkpoints",
+          "url": "https://openathena.ai/blog/marin-mochi-pretraining-checkpoints/",
+          "publisher": "Open Athena",
+          "date_basis": "Post oficial de 17 de novembro de 2026 anuncia os checkpoints, o volume de treino e a ausencia de benchmarks."
+        },
+        {
+          "title": "open-athena/Marin-Mochi-535B-A23B",
+          "url": "https://huggingface.co/open-athena/Marin-Mochi-535B-A23B",
+          "publisher": "Open Athena / Hugging Face",
+          "date_basis": "Repositorio oficial informa a licenca OpenMDW 1.1, a contagem de parametros e os checkpoints."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "sensetime-sensenova-loop-9b",
+      "company": "SenseTime",
+      "family": "SenseNova",
+      "model": "SenseNova-Loop-9B",
+      "release_date": "2026-11-17",
+      "release_stage": "pesos abertos",
+      "ai_category": "LLMs",
+      "model_type": ["texto", "visao", "multimodal", "agente", "codigo", "modelo-pequeno", "camadas-em-loop", "longo-contexto", "open-weights", "OpenSource", "Apache-2.0"],
+      "description_pt": "Modelo aberto da SenseTime com cerca de 9B parametros que passa duas vezes por boa parte das suas camadas: das 32 camadas fisicas, as de 4 a 27 rodam em loop, somando 56 execucoes por passagem e um custo de inferencia equivalente a cerca de 14,6B parametros. Usa atencao hibrida, com tres camadas lineares para cada camada completa, recebe texto e imagem, tem contexto de 512K tokens e trabalha em ingles e chines; a versao AWQ de 4 bits ocupa cerca de 4,9 GB e roda com menos de 10 GB de memoria de video. E a versao final depois de um preview de 31 de outubro: segundo a SenseTime, sobe de 40,45 para 59,55 no Terminal-Bench 2.1 e de 37,86 para 69,90 no GAIA, e empata com o Qwen3.8-27B no AutomationBench. Os pesos sairam no Hugging Face, no GitHub e no ModelScope sob Apache 2.0, com versoes AWQ e GGUF.",
+      "sources": [
+        {
+          "title": "SenseNova-Loop-9B release",
+          "url": "https://www.sensetime.com/en/news/sensenova-loop-9b-release-20261118-1435",
+          "publisher": "SenseTime",
+          "date_basis": "Pagina oficial datada de 17 de novembro de 2026 apresenta o modelo, a arquitetura e os benchmarks."
+        },
+        {
+          "title": "sensenova/SenseNova-Loop-9B",
+          "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+          "publisher": "SenseTime / Hugging Face",
+          "date_basis": "Repositorio oficial, criado em 17 de novembro de 2026, informa a licenca Apache 2.0, a linha do tempo e a tabela de benchmarks."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "confidence": "alta"
+    },
+    {
+      "id": "assemblyai-stt-3-7",
+      "company": "AssemblyAI",
+      "family": "AssemblyAI STT",
+      "model": "AssemblyAI-STT-3.7 / STT-3.7-Realtime / STT-3.7-Realtime-Agent",
+      "release_date": "2026-11-18",
+      "release_stage": "lancamento/API",
+      "ai_category": "Audio/Transcricao",
+      "model_type": ["audio", "transcricao", "tempo-real", "agentes-de-voz", "multilingue", "API", "proprietario"],
+      "description_pt": "Nova familia de modelos de transcricao da AssemblyAI: o STT-3.7, para audio gravado, a US$ 0,21 por hora; o STT-3.7-Realtime, em tempo real, a US$ 0,30; e o STT-3.7-Realtime-Agent, para agentes de voz, a US$ 0,45, com cerca de 86 ms ate a transcricao final. Reconhecem 32 idiomas com deteccao automatica, contra 18 da geracao anterior no audio gravado, e substituem os modelos Universal-3.5 Pro e Universal-Streaming; o Universal-3.5 Pro Realtime sai do ar em 1 de fevereiro de 2027. Nos testes da AssemblyAI, com os concorrentes nas configuracoes padrao, o modelo para agentes tem WER de 4,53%, contra 6,02% do Soniox v6 e 7,38% do ElevenLabs Scribe v3 Live, e o modelo para audio gravado erra 6,2% em falas que alternam idiomas, contra 6,8% do Scribe v3.",
+      "sources": [
+        {
+          "title": "Introducing AssemblyAI-STT-3.7",
+          "url": "https://www.assemblyai.com/blog/introducing-assemblyai-stt-3-7",
+          "publisher": "AssemblyAI",
+          "date_basis": "Post oficial de 18 de novembro de 2026 anuncia os tres modelos, os precos, os idiomas, as substituicoes e os benchmarks."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "Alguns rastreadores registram 17 de novembro; o post e o changelog da AssemblyAI sao de 18 de novembro.",
+      "confidence": "alta"
+    },
+    {
+      "id": "google-genie-4-release",
+      "company": "Google",
+      "family": "Genie",
+      "model": "Genie 4 (Project Genie)",
+      "release_date": "2026-11-18",
+      "release_stage": "produto por assinatura (Google AI Ultra)",
+      "ai_category": "Robotica/World models",
+      "model_type": ["world-model", "ambientes-interativos", "texto-para-mundo", "simulacao", "audio", "tempo-real", "produto"],
+      "description_pt": "Chegada do Genie 4 ao Project Genie, o app do Google Labs para criar e explorar mundos interativos, tres semanas depois do research preview para testadores confiaveis. Esta sendo liberado para assinantes elegiveis do Google AI Ultra, com lista de espera para o AI Pro, e permite mudar o mundo durante a sessao por comandos de texto, como clima, personagens e acoes, com audio nativo gerado em tempo real e adaptado a cena. Junto vieram melhorias no Genie 3, que continua disponivel, com sessoes de ate 3 minutos, mundos encadeados e eventos acionados por comando, um agente que constroi mundos por conversa e uma galeria da comunidade para publicar e remixar mundos, todos marcados com SynthID. Nao ha API, e o Google nao divulgou duracao de sessao, resolucao nem taxa de quadros do Genie 4.",
+      "sources": [
+        {
+          "title": "Genie 4 is now available in Project Genie",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+          "publisher": "Google",
+          "date_basis": "Post oficial de 18 de novembro de 2026 anuncia o Genie 4 no Project Genie para assinantes AI Ultra, a lista de espera do AI Pro e as novidades do Genie 3."
+        }
+      ],
+      "date_precision": "dia oficial",
+      "date_note_pt": "O research preview de 27 de outubro de 2026 tem registro separado nesta timeline.",
+      "confidence": "alta"
+    },
     {
       "id": "openai-gpt-6-2-astra-sol",
       "company": "OpenAI",
@@ -1752,10 +2012,10 @@
       "family": "Hy",
       "model": "Hy4 flash",
       "release_date": "2026-11-16",
-      "release_stage": "lancamento/API/produto (pesos prometidos)",
+      "release_stage": "lancamento/API/produto (pesos abertos em 2026-11-18)",
       "ai_category": "LLMs",
-      "model_type": ["texto", "visao", "raciocinio", "agente", "MoE", "longo-contexto", "1M-contexto", "baixo-custo", "baixa-latencia", "API"],
-      "description_pt": "Versao rapida e barata da quarta geracao Hy, da Tencent, voltada a tarefas de produtividade do dia a dia. Tem 224B parametros totais, dos quais 64B sao parametros Engram, e 12B ativos, com atencao hibrida, LatentMoE e Engram; segundo a Tencent, o cache KV ocupa 1/24 do usado pelo Hy3 e 1/6 do usado pelo Hy4, e a decodificacao passa de 150 tokens por segundo. Recebe texto e imagem e tem contexto de ate 1M tokens. Custa US$ 0,07 de entrada, US$ 0,003 de entrada em cache e US$ 0,281 de saida por milhao de tokens, menos de um decimo do Hy4, com uso gratuito no WorkBuddy e 50% de desconto no TokenHub ate 30 de novembro. Num teste cego com 85 usuarios do WorkBuddy em 259 tarefas, a Tencent reporta satisfacao de 2,79 numa escala de 4 pontos, proxima dos 2,81 do Claude Haiku 5.5 e abaixo dos 3,09 do DeepSeek-V4.1-Flash-1017, com custo por tarefa cerca de 18 vezes menor que o do Haiku. Chegou ao Tencent Cloud TokenHub como hy4-flash, ao WorkBuddy, ao Yuanbao, ao WeCom, ao QQ, ao ima, ao Marvis e ao OpenRouter; a Tencent diz que pretende abrir o modelo, mas os pesos ainda nao foram publicados, assim como os do Hy4.",
+      "model_type": ["texto", "visao", "raciocinio", "agente", "MoE", "longo-contexto", "1M-contexto", "baixo-custo", "baixa-latencia", "API", "open-weights", "OpenSource"],
+      "description_pt": "Versao rapida e barata da quarta geracao Hy, da Tencent, voltada a tarefas de produtividade do dia a dia. Tem cerca de 220B parametros totais segundo o model card, ou 224B segundo o comunicado, dos quais cerca de 64B sao parametros Engram, e 12B ativos, com atencao hibrida, LatentMoE e Engram; segundo a Tencent, o cache KV ocupa 1/24 do usado pelo Hy3 e 1/6 do usado pelo Hy4, e a decodificacao passa de 150 tokens por segundo. Recebe texto e imagem e tem contexto de ate 1M tokens. Custa US$ 0,07 de entrada, US$ 0,003 de entrada em cache e US$ 0,281 de saida por milhao de tokens, menos de um decimo do Hy4, com uso gratuito no WorkBuddy e 50% de desconto no TokenHub ate 30 de novembro. Num teste cego com 85 usuarios do WorkBuddy em 259 tarefas, a Tencent reporta satisfacao de 2,79 numa escala de 4 pontos, proxima dos 2,81 do Claude Haiku 5.5 e abaixo dos 3,09 do DeepSeek-V4.1-Flash-1017, com custo por tarefa cerca de 18 vezes menor que o do Haiku. Chegou ao Tencent Cloud TokenHub como hy4-flash, ao WorkBuddy, ao Yuanbao, ao WeCom, ao QQ, ao ima, ao Marvis e ao OpenRouter. Em 18 de novembro, a Tencent publicou os pesos do Hy4 flash, de uma versao FP8 e do modelo base no Hugging Face, no ModelScope e no GitHub, sob a Tencent Hy License 1.0, derivada da Apache 2.0, que permite uso comercial no mundo todo e so exige licenca separada de quem oferecer o modelo como servico com mais de US$ 50 milhoes de receita anual ou 100 milhoes de usuarios mensais; os pesos do Hy4 completo continuam pendentes.",
       "sources": [
         {
           "title": "Tencent Launches Hy4 flash to Power High-Speed, Cost-Efficient AI Deployment for Everyday Workflows",
@@ -1768,9 +2028,16 @@
           "url": "https://www.tencentcloud.com/document/product/1300/78941",
           "publisher": "Tencent Cloud",
           "date_basis": "Documentacao oficial atualizada em 16 de novembro de 2026 confirma o identificador hy4-flash."
+        },
+        {
+          "title": "tencent/Hy4-flash",
+          "url": "https://huggingface.co/tencent/Hy4-flash",
+          "publisher": "Tencent / Hugging Face",
+          "date_basis": "Repositorio oficial dos pesos, criado em 17 de novembro de 2026 e publicado em 18 de novembro, com a licenca Tencent Hy License 1.0 e as especificacoes."
         }
       ],
       "date_precision": "dia oficial",
+      "date_note_pt": "A data exibida e a do lancamento da API; os pesos abertos foram anunciados em 18 de novembro de 2026, e os repositorios foram criados no dia anterior.",
       "confidence": "alta"
     },
     {
